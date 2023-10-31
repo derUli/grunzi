@@ -3,10 +3,10 @@ import os
 
 class Menu:
 
-    def __init__(self, root_dir):
+    def __init__(self, resource_dir):
         self.skybox_positions = []
         self.skybox_image = pygame.image.load(
-            os.path.join(root_dir, 'sky.jpg')).convert()
+            os.path.join(resource_dir, 'images', 'menu', 'sky.jpg')).convert()
         self.skybox_positions = [
             (0.0, 0.0),
             (float(self.skybox_image.get_width()), 0.0),

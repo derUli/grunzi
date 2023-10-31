@@ -8,6 +8,7 @@ import os
 import pygame
 import constants.game
 from pygame.locals import QUIT
+import time
 from utils.fps_counter import FPSCounter
 import components.menu
 
@@ -19,20 +20,21 @@ class Game:
         self.fps_counter = FPSCounter()
         self.running = True
         self.clock = pygame.time.Clock()
-        self.root_dir = os.path.dirname(__file__)
+        self.resource_dir = os.path.join(os.path.dirname(__file__), 'resources')
         self.current_component = None
         self.fullscreen = constants.game.FULLSCREEN
 
         self.monotype_font = pygame.font.Font(
             os.path.join(
-                self.root_dir,
+                self.resource_dir,
+                'fonts',
                 constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
       
     def start(self):
         self.init_screen()
 
-        self.current_component = components.menu.Menu(self.root_dir)
+        self.current_component = components.menu.Menu(self.resource_dir)
 
         self.main_loop()
 
@@ -71,11 +73,28 @@ class Game:
                 self.running = False
                 continue
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_F12:
+                    self.screenshot()
                 if event.mod & pygame.KMOD_ALT and event.key in [pygame.K_RETURN, pygame.K_KP_ENTER]:
                     self.toggle_fullscreen()
                 
         if self.current_component:
             self.current_component.handle_events()
+
+    def screenshot(self):
+        # TODO store in home dir
+
+        screenshot_dir = os.path.join(self.resource_dir, 'screenshots')
+
+        if not os.path.exists(screenshot_dir):
+            os.makedirs(screenshot_dir)
+
+        screenshot_file = os.path.join(
+            screenshot_dir,
+            time.strftime("%Y%m%d-%H%M%S") + '.jpg'
+            )
+
+        pygame.image.save(self.screen, screenshot_file)
 
     def update_screen(self):
         # Filling the window with black color
