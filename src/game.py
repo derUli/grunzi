@@ -14,6 +14,7 @@ import time
 import utils.audio
 from utils.fps_counter import FPSCounter
 import components.menu
+import signal
 
 class Game:
 
@@ -31,6 +32,8 @@ class Game:
     def start(self):
         self.init_screen()
         self.change_component(components.menu.Menu)
+        
+        signal.signal(signal.SIGINT, quit)
         self.main_loop()
 
     def init_screen(self):
