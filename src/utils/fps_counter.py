@@ -44,7 +44,6 @@ class FPSCounter:
             self.last_fps_shown = int(time.time())
             self.fps = fps
             self.fps_avg.append(fps)
-            print(len(self.fps_avg))
 
         return fps
 

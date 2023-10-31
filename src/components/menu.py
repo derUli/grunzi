@@ -9,8 +9,8 @@ from components.component import Component
 class Menu(Component):
 
     def __init__(self, data_dir, handle_change_component):
+        super().__init__(data_dir, handle_change_component)
 
-        self.screen = None
         self.handle_change_component = handle_change_component
         self.menu = None
 
@@ -23,7 +23,6 @@ class Menu(Component):
         ]
 
     def update_screen(self, screen):
-        self.screen = screen
         self.draw_menu(self.screen)
 
     def start_the_game(self):

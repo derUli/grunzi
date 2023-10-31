@@ -7,6 +7,7 @@
 import os
 import pygame
 import constants.game
+import constants.headup
 from pygame.locals import QUIT
 import time
 import utils.audio
@@ -17,7 +18,7 @@ class Game:
 
     def __init__(self):
         pygame.init()
-        pygame.mixer.init()
+
         self.screen = None
         self.fps_counter = FPSCounter()
         self.running = True
@@ -25,14 +26,6 @@ class Game:
         self.data_dir = os.path.join(os.path.dirname(__file__), 'data')
         self.current_component = None
         self.fullscreen = constants.game.FULLSCREEN
-
-        self.monotype_font = pygame.font.Font(
-            os.path.join(
-                self.data_dir,
-                'fonts',
-                constants.game.MONOTYPE_FONT),
-            constants.game.DEBUG_OUTPUT_FONT_SIZE
-            )
       
     def start(self):
         self.init_screen()
@@ -71,7 +64,7 @@ class Game:
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == QUIT:
-                self.running = False
+                self.quit()
                 continue
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F12:
@@ -79,8 +72,10 @@ class Game:
                 if event.mod & pygame.KMOD_ALT and event.key in [pygame.K_RETURN, pygame.K_KP_ENTER]:
                     self.toggle_fullscreen()
                 
-            if self.current_component:
-                self.current_component.handle_event(event)
+            self.current_component.handle_event(event)
+
+    def quit(self):
+        self.running = False
 
     def screenshot(self):
         # TODO store in home dir
@@ -105,8 +100,7 @@ class Game:
 
         self.clock.tick(constants.game.FPS_LIMIT)
 
-        if self.current_component:
-            self.current_component.update_screen(self.screen)
+        self.current_component.update_screen(self.screen)
 
         if constants.game.SHOW_FPS:
             self.show_fps()
@@ -116,21 +110,16 @@ class Game:
         pygame.display.flip()
 
 
-    # Create Text
-    def render_text(self, what, color, where):
-        text = self.monotype_font.render(what, 1, pygame.Color(color))
-        self.screen.blit(text, where)
 
     def show_fps(self):
         self.fps_counter.get_fps(self.clock)
-        self.render_text(self.fps_counter.get_fps_text(),
-                         (255, 255, 255), (10, 10))
+        self.current_component.render_text(self.fps_counter.get_fps_text(),
+                         (255, 255, 255), constants.headup.FPS_TEXT_POSITION)
 
 
     def change_component(self, component):
         self.current_component = component(self.data_dir, self.change_component)
-
-        print(self.current_component)
+        self.current_component.set_screen(self.screen)
 
 game = Game()
 game.start()
