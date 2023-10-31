@@ -22,7 +22,7 @@ class Game:
         self.fps_counter = FPSCounter()
         self.running = True
         self.clock = pygame.time.Clock()
-        self.resource_dir = os.path.join(os.path.dirname(__file__), 'resources')
+        self.resource_dir = os.path.join(os.path.dirname(__file__), 'data')
         self.current_component = None
         self.fullscreen = constants.game.FULLSCREEN
 
