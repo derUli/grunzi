@@ -9,6 +9,7 @@ import pygame
 import constants.game
 from pygame.locals import QUIT
 import time
+import utils.audio
 from utils.fps_counter import FPSCounter
 import components.menu
 
@@ -16,6 +17,7 @@ class Game:
 
     def __init__(self):
         pygame.init()
+        pygame.mixer.init()
         self.screen = None
         self.fps_counter = FPSCounter()
         self.running = True
@@ -95,6 +97,8 @@ class Game:
             )
 
         pygame.image.save(self.screen, screenshot_file)
+        camera_sound = os.path.join(self.resource_dir, 'sounds', 'screenshot.ogg')
+        utils.audio.play_sound(camera_sound)
 
     def update_screen(self):
         # Filling the window with black color
