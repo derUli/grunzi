@@ -13,14 +13,20 @@ class Menu(Component):
 
         self.handle_change_component = handle_change_component
         self.menu = None
+        self.data_dir = data_dir
 
         self.skybox_image = pygame.image.load(
             os.path.join(data_dir, 'images', 'menu', 'sky.jpg')).convert()
+
 
         self.skybox_positions = [
             (0.0, 0.0),
             (float(self.skybox_image.get_width()), 0.0),
         ]
+
+    def mount(self):
+        self.play_music('menu.ogg')
+
 
     def update_screen(self, screen):
         self.draw_menu(self.screen)
@@ -68,3 +74,4 @@ class Menu(Component):
 
         self.menu = menu
         menu.mainloop(screen, self.update_skybox)
+        

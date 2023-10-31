@@ -8,6 +8,7 @@ import os
 import pygame
 import constants.game
 import constants.headup
+import constants.sound
 from pygame.locals import QUIT
 import time
 import utils.audio
@@ -50,6 +51,9 @@ class Game:
             )
 
         pygame.display.set_caption(constants.game.WINDOW_CAPTION)
+
+        if self.current_component:
+            self.current_component.set_screen(self.screen)
 
     def toggle_fullscreen(self):
         self.fullscreen = not self.fullscreen
@@ -110,16 +114,23 @@ class Game:
         pygame.display.flip()
 
 
-
     def show_fps(self):
         self.fps_counter.get_fps(self.clock)
         self.current_component.render_text(self.fps_counter.get_fps_text(),
                          (255, 255, 255), constants.headup.FPS_TEXT_POSITION)
 
 
-    def change_component(self, component):
+    def change_component(self, component):        
+        if self.current_component:
+            self.current_component.unmount()
+
+
         self.current_component = component(self.data_dir, self.change_component)
-        self.current_component.set_screen(self.screen)
+
+        if self.current_component:
+            self.current_component.set_screen(self.screen)
+            
+        self.current_component.mount()
 
 game = Game()
 game.start()

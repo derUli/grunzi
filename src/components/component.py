@@ -2,6 +2,7 @@ import pygame
 import os
 import constants.game
 import constants.headup
+import utils.audio
 
 class Component(object):
     def __init__(self, data_dir, handle_change_component):
@@ -26,3 +27,15 @@ class Component(object):
 
     def set_screen(self, screen):
         self.screen = screen
+
+    def mount(self):
+        return
+
+    def play_music(self, file):
+        file = os.path.join(self.data_dir, 'music', file)
+        utils.audio.play_music(file)
+
+
+    def unmount(self):
+         utils.audio.fadeout_music()
+         
