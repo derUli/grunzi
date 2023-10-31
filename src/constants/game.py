@@ -9,3 +9,4 @@ MONOTYPE_FONT = 'monotype.ttf'
 DEBUG_OUTPUT_FONT_SIZE = 12
 VSYNC = False
 FULLSCREEN = True
+SHOW_FPS = True

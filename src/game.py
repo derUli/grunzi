@@ -6,13 +6,12 @@
 """
 import os
 import pygame
-import time
-from utils.FPSCounter import FPSCounter
 import constants.game
 from pygame.locals import QUIT
+from utils.fps_counter import FPSCounter
+import components.menu
 
-
-class game:
+class Game:
 
     def __init__(self):
         pygame.init()
@@ -20,36 +19,46 @@ class game:
         self.fps_counter = FPSCounter()
         self.running = True
         self.clock = pygame.time.Clock()
-
         self.root_dir = os.path.dirname(__file__)
+        self.current_component = None
+        self.fullscreen = constants.game.FULLSCREEN
+
         self.monotype_font = pygame.font.Font(
             os.path.join(
                 self.root_dir,
                 constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
-        self.skybox_image = None
-        self.skybox_positions = []
-
+      
     def start(self):
+        self.init_screen()
+
+        self.current_component = components.menu.Menu(self.root_dir)
+
+        self.main_loop()
+
+    def init_screen(self):
+        flags = pygame.SCALED
+
+        if self.fullscreen:
+            flags = flags | pygame.FULLSCREEN
+
         self.screen = pygame.display.set_mode(
             [
                 constants.game.SCREEN_WIDTH,
                 constants.game.SCREEN_HEIGHT
             ],
-            pygame.FULLSCREEN,
+            flags,
             vsync=int(
-                constants.game.VSYNC))
+                constants.game.VSYNC
+                )
+            )
 
         pygame.display.set_caption(constants.game.WINDOW_CAPTION)
-        self.skybox_image = pygame.image.load(
-            os.path.join(self.root_dir, 'sky.jpg')).convert()
 
-        self.skybox_positions = [
-            (0.0, 0.0),
-            (float(self.skybox_image.get_width()), 0.0),
-        ]
+    def toggle_fullscreen(self):
+        self.fullscreen = not self.fullscreen
 
-        self.main_loop()
+        self.init_screen()
 
     def main_loop(self):
         while self.running:
@@ -60,34 +69,30 @@ class game:
         for event in pygame.event.get():
             if event.type == QUIT:
                 self.running = False
+                continue
+            if event.type == pygame.KEYDOWN:
+                if event.mod & pygame.KMOD_ALT and event.key in [pygame.K_RETURN, pygame.K_KP_ENTER]:
+                    self.toggle_fullscreen()
+                
+        if self.current_component:
+            self.current_component.handle_events()
 
     def update_screen(self):
         # Filling the window with black color
         self.screen.fill((0, 0, 0))
-        self.update_skybox()
 
         self.clock.tick(constants.game.FPS_LIMIT)
-        self.show_fps()
+
+        if self.current_component:
+            self.current_component.update_screen(self.screen)
+
+        if constants.game.SHOW_FPS:
+            self.show_fps()
+
         # Updating the display surface
-        pygame.display.update()
+        # pygame.display.update()
         pygame.display.flip()
 
-    def update_skybox(self):
-        i = 0
-
-        for skybox in self.skybox_positions:
-            self.screen.blit(self.skybox_image, skybox)
-
-            x, y = skybox
-
-            if x < self.skybox_image.get_width() * -1.0:
-                x = float(self.skybox_image.get_width())
-
-            x -= 0.1
-
-            self.skybox_positions[i] = (x, y)
-
-            i += 1
 
     # Create Text
     def render_text(self, what, color, where):
