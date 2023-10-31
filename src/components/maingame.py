@@ -7,7 +7,9 @@ import constants.game
 import components.state.state
 import components.sprites.backdrop
 import components.sprites.character
+import components.menu
 import components.sprites.raccoon
+import pygame_menu
 import utils.audio
 from utils.fps_counter import FPSCounter
 from components.component import Component
@@ -20,6 +22,7 @@ class MainGame(Component):
         self.state = components.state.state.State(self.data_dir)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
         self.layers = []
+        self.menu = None
 
     def fill_layers(self):
         # Three layers
@@ -100,8 +103,7 @@ class MainGame(Component):
         if event.key == pygame.K_F3:
             self.state.player_state.hurt(10)
         elif event.key == pygame.K_ESCAPE:
-            # Todo Pause menu instead of straight going to main menu
-            self.handle_change_component(components.menu.Menu)
+            self.pause_menu()
 
         elif event.key == pygame.K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
@@ -164,4 +166,27 @@ class MainGame(Component):
     
     def draw_headup(self, screen):
         self.state.player_state.draw_health(screen)
+    
 
+    def continue_game(self):
+        self.menu.disable()
+
+    def back_to_main_menu(self):
+        self.continue_game()
+        self.handle_change_component(components.menu.Menu)
+
+    # Todo refactor to own class
+    def pause_menu(self):
+        menu = pygame_menu.Menu(
+            height=300,
+            theme=pygame_menu.themes.THEME_BLUE,
+            title='Pause menu',
+            width=400
+        )
+
+        menu.add.button('Continue', self.continue_game) # Continue game
+        menu.add.button('Back To Main Menu', self.back_to_main_menu) # Return to main menu
+
+        self.menu = menu
+        menu.mainloop(self.screen)
+        
