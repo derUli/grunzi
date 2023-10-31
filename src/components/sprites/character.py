@@ -6,7 +6,7 @@ import pygame
 class Character(components.sprites.sprite.Sprite):
     def __init__(self, sprite_dir, sprite = None):
         super().__init__(sprite_dir, 'pig.png')
-        self.walkable = False
+        self.walkable = True
         self.direction = DIRECTION_RIGHT
         self.image_direction = self.direction
 

@@ -58,11 +58,12 @@ class PlayerState():
     def draw_health(self, screen):
         text = str(self.health).ljust(3, ' ')
         pig_width = self.cropped_pig.get_width()
-        pig_height = self.cropped_pig.get_height()
-        positions = constants.headup.HEALTH_PIG_POSITION
-
-        positions[0] = screen.get_width() - pig_width
-
-        screen.blit(self.cropped_pig, positions)
+        
+        pos = [
+            screen.get_width() - pig_width - constants.headup.HEALTH_PIG_POSITION[0],
+            constants.headup.HEALTH_PIG_POSITION[1],
+        ]
+        
+        screen.blit(self.cropped_pig, pos)
 
     

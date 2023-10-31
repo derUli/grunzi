@@ -6,7 +6,6 @@ import constants.graphics
 import constants.game
 import components.state.state
 import components.sprites.backdrop
-import components.sprites.sprite
 import components.sprites.character
 import utils.audio
 from utils.fps_counter import FPSCounter
@@ -24,51 +23,44 @@ class MainGame(Component):
     def fill_layers(self):
         # Three layers
         self.layers = [
-            self.fill_fallback(components.sprites.backdrop.Backdrop(self.sprites_dir)),
-            self.fill_fallback(components.sprites.sprite.Sprite(self.sprites_dir)),
-            self.fill_fallback(components.sprites.sprite.Sprite(self.sprites_dir))
+            self.fill_fallback(components.sprites.backdrop.Backdrop),
+            self.fill_fallback(None),
+            self.fill_fallback(None),
         ]
 
-        main_character =  components.sprites.character.Character(self.sprites_dir)
+        main_character = components.sprites.character.Character(self.sprites_dir)
         main_character.id = constants.game.MAIN_CHARACTER_ID
 
-        self.layers[2][9][7] = main_character
+        self.layers[2][6][4] = main_character
 
     def search_character(self, id):
-        z = 0
-    
-        for layer in self.layers:
-            x = 0
-            y = 0
-            for row in layer:
-
-                for col in row:
-                    print(col.id, id)
-                    if(col.id == id):
+        for z in range(0, len(self.layers)):
+            for y in range(0, len(self.layers[z])):
+                for x in range(0, len(self.layers[z][y])):
+                    element = self.layers[z][y][x]
+                    if element and element.id == id:
                         return (z, y, x)
-                    x += 1
-                x = 0
-                y += 1
-            
-            z+= 1
 
         return None
 
-    def fill_fallback(self, sprite):
+    def fill_fallback(self, callable):
          max_x = 20
          max_y = 15
          
-         layer = []
+         rows = []
 
          for i in range(0, max_y):
-            row = []
+            cols = []
 
             for n in range(0, max_x):
-                row.append(sprite)
+                s = None
+                if callable:
+                   s = callable(self.sprites_dir)
+                cols.append(s)
             
-            layer.append(row)
+            rows.append(cols)
         
-         return layer
+         return rows
 
     def mount(self):
         atmo = 'level' + str(self.state.level) + '.ogg'
@@ -82,7 +74,8 @@ class MainGame(Component):
             x = 0
             for row in layer:
                 for col in row:
-                    col.draw(screen, x, y)
+                    if col:
+                       col.draw(screen, x, y)
                     x += 1
 
                 y+= 1
@@ -107,7 +100,6 @@ class MainGame(Component):
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == pygame.K_RIGHT:
             self.move_main_character(DIRECTION_RIGHT)
-            
         elif event.key == pygame.K_UP:
             self.move_main_character(DIRECTION_UP)
         elif event.key == pygame.K_DOWN:
@@ -115,10 +107,50 @@ class MainGame(Component):
 
     def move_main_character(self, direction):
         z, y, x = self.search_character(constants.game.MAIN_CHARACTER_ID)
-        
-        self.layers[z][y][x].change_direction(direction)
-        
 
+        character = self.layers[z][y][x]
+        
+        self.layers[z][y][z] = None
+        character.change_direction(direction)
+
+        next_x = x
+        next_y = y
+
+
+        if direction == DIRECTION_UP:
+            next_y -= 1
+        elif direction == DIRECTION_LEFT:
+            next_x -= 1
+        elif direction == DIRECTION_RIGHT:
+            next_x += 1
+        elif direction == DIRECTION_DOWN:
+            next_y += 1
+
+        if(next_y < 0):
+            return
+
+        if(next_x < 0):
+            return
+
+        if(next_y > len(self.layers[z])):
+            return
+
+        if(next_x > len(self.layers[z][y])):
+            return
+
+        # print(z, y, x, z, next_y, next_x)
+
+        walkable = True
+        layer_count = len(self.layers)
+
+        for layer in range(0, layer_count):
+            element = self.layers[layer][next_y][next_x]
+            if element and not element.walkable:
+                walkable = False
+    
+        if walkable:
+            self.layers[z] = self.fill_fallback(None)
+            self.layers[z][next_y][next_x] = character
     
     def draw_headup(self, screen):
         self.state.player_state.draw_health(screen)
