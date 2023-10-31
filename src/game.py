@@ -22,22 +22,21 @@ class Game:
         self.fps_counter = FPSCounter()
         self.running = True
         self.clock = pygame.time.Clock()
-        self.resource_dir = os.path.join(os.path.dirname(__file__), 'data')
+        self.data_dir = os.path.join(os.path.dirname(__file__), 'data')
         self.current_component = None
         self.fullscreen = constants.game.FULLSCREEN
 
         self.monotype_font = pygame.font.Font(
             os.path.join(
-                self.resource_dir,
+                self.data_dir,
                 'fonts',
                 constants.game.MONOTYPE_FONT),
-            constants.game.DEBUG_OUTPUT_FONT_SIZE)
+            constants.game.DEBUG_OUTPUT_FONT_SIZE
+            )
       
     def start(self):
         self.init_screen()
-
-        self.current_component = components.menu.Menu(self.resource_dir)
-
+        self.change_component(components.menu.Menu)
         self.main_loop()
 
     def init_screen(self):
@@ -80,13 +79,13 @@ class Game:
                 if event.mod & pygame.KMOD_ALT and event.key in [pygame.K_RETURN, pygame.K_KP_ENTER]:
                     self.toggle_fullscreen()
                 
-        if self.current_component:
-            self.current_component.handle_events()
+            if self.current_component:
+                self.current_component.handle_event(event)
 
     def screenshot(self):
         # TODO store in home dir
 
-        screenshot_dir = os.path.join(self.resource_dir, 'screenshots')
+        screenshot_dir = os.path.join(self.data_dir, 'screenshots')
 
         if not os.path.exists(screenshot_dir):
             os.makedirs(screenshot_dir)
@@ -97,7 +96,7 @@ class Game:
             )
 
         pygame.image.save(self.screen, screenshot_file)
-        camera_sound = os.path.join(self.resource_dir, 'sounds', 'screenshot.ogg')
+        camera_sound = os.path.join(self.data_dir, 'sounds', 'screenshot.ogg')
         utils.audio.play_sound(camera_sound)
 
     def update_screen(self):
@@ -127,6 +126,11 @@ class Game:
         self.render_text(self.fps_counter.get_fps_text(),
                          (255, 255, 255), (10, 10))
 
+
+    def change_component(self, component):
+        self.current_component = component(self.data_dir, self.change_component)
+
+        print(self.current_component)
 
 game = Game()
 game.start()
