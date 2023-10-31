@@ -1,6 +1,9 @@
+"""
+    General game constants
+"""
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
-FPS_LIMIT = 0 # 0 means Unlimited
+FPS_LIMIT = 0  # 0 means Unlimited
 WINDOW_CAPTION = 'My Game'
 MONOTYPE_FONT = 'monotype.ttf'
 DEBUG_OUTPUT_FONT_SIZE = 12
