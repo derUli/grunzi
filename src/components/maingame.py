@@ -3,11 +3,15 @@ import os
 import pygame_menu
 import constants.headup
 import constants.graphics
+import constants.game
 import components.state.state
-import components.sprites.gras
+import components.sprites.backdrop
+import components.sprites.sprite
+import components.sprites.character
 import utils.audio
 from utils.fps_counter import FPSCounter
 from components.component import Component
+from constants.direction import *
 
 class MainGame(Component):
     def __init__(self, data_dir, handle_change_component):
@@ -20,20 +24,41 @@ class MainGame(Component):
     def fill_layers(self):
         # Three layers
         self.layers = [
-            [],
-            [],
-            []
+            self.fill_fallback(components.sprites.backdrop.Backdrop(self.sprites_dir)),
+            self.fill_fallback(components.sprites.sprite.Sprite(self.sprites_dir)),
+            self.fill_fallback(components.sprites.sprite.Sprite(self.sprites_dir))
         ]
 
+        main_character =  components.sprites.character.Character(self.sprites_dir)
+        main_character.id = constants.game.MAIN_CHARACTER_ID
 
-        self.fill_gras_fallback()
+        self.layers[2][9][7] = main_character
 
+    def search_character(self, id):
+        z = 0
+    
+        for layer in self.layers:
+            x = 0
+            y = 0
+            for row in layer:
 
-    def fill_gras_fallback(self):
+                for col in row:
+                    print(col.id, id)
+                    if(col.id == id):
+                        return (z, y, x)
+                    x += 1
+                x = 0
+                y += 1
+            
+            z+= 1
+
+        return None
+
+    def fill_fallback(self, sprite):
          max_x = 20
          max_y = 15
          
-         sprite = components.sprites.gras.Gras(self.sprites_dir)
+         layer = []
 
          for i in range(0, max_y):
             row = []
@@ -41,7 +66,9 @@ class MainGame(Component):
             for n in range(0, max_x):
                 row.append(sprite)
             
-            self.layers[0].append(row)
+            layer.append(row)
+        
+         return layer
 
     def mount(self):
         atmo = 'level' + str(self.state.level) + '.ogg'
@@ -60,7 +87,6 @@ class MainGame(Component):
 
                 y+= 1
                 x = 0
-                
 
         self.draw_headup(screen)
 
@@ -76,6 +102,23 @@ class MainGame(Component):
         elif event.key == pygame.K_ESCAPE:
             # Todo Pause menu instead of straight going to main menu
             self.handle_change_component(components.menu.Menu)
+
+        elif event.key == pygame.K_LEFT:
+            self.move_main_character(DIRECTION_LEFT)
+        elif event.key == pygame.K_RIGHT:
+            self.move_main_character(DIRECTION_RIGHT)
+            
+        elif event.key == pygame.K_UP:
+            self.move_main_character(DIRECTION_UP)
+        elif event.key == pygame.K_DOWN:
+            self.move_main_character(DIRECTION_DOWN)
+
+    def move_main_character(self, direction):
+        z, y, x = self.search_character(constants.game.MAIN_CHARACTER_ID)
+        
+        self.layers[z][y][x].change_direction(direction)
+        
+
     
     def draw_headup(self, screen):
         self.state.player_state.draw_health(screen)
