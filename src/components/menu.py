@@ -11,13 +11,10 @@ class Menu(Component):
     def __init__(self, data_dir, handle_change_component):
         super().__init__(data_dir, handle_change_component)
 
-        self.handle_change_component = handle_change_component
         self.menu = None
-        self.data_dir = data_dir
 
         self.skybox_image = pygame.image.load(
             os.path.join(data_dir, 'images', 'menu', 'sky.jpg')).convert()
-
 
         self.skybox_positions = [
             (0.0, 0.0),
@@ -26,7 +23,6 @@ class Menu(Component):
 
     def mount(self):
         self.play_music('menu.ogg')
-
 
     def update_screen(self, screen):
         self.draw_menu(self.screen)

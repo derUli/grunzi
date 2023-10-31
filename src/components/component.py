@@ -3,9 +3,14 @@ import os
 import constants.game
 import constants.headup
 import utils.audio
+import components.menu
+
 
 class Component(object):
     def __init__(self, data_dir, handle_change_component):
+        self.data_dir = data_dir
+        self.handle_change_component = handle_change_component
+
         self.monotype_font = pygame.font.Font(
             os.path.join(
                 data_dir,
