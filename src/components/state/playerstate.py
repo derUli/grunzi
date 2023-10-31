@@ -52,7 +52,7 @@ class PlayerState():
         one_percent = height / 100
         new_height = one_percent * self.health
 
-        self.cropped_pig = pygame.Surface((width, new_height))
+        self.cropped_pig = pygame.Surface((width, new_height), pygame.SRCALPHA)
         self.cropped_pig.blit(self.health_pig, (0,0))
 
     def draw_health(self, screen):
