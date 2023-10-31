@@ -33,7 +33,8 @@ class Game:
         self.init_screen()
         self.change_component(components.menu.Menu)
         
-        signal.signal(signal.SIGINT, quit)
+        signal.signal(signal.SIGINT, self.quit)
+        signal.signal(signal.SIGTERM, self.quit)
         self.main_loop()
 
     def init_screen(self):
@@ -81,7 +82,7 @@ class Game:
                 
             self.current_component.handle_event(event)
 
-    def quit(self):
+    def quit(self, sig = None, frame = None):
         self.running = False
 
     def screenshot(self):

@@ -44,8 +44,8 @@ class MainGame(Component):
         return None
 
     def fill_fallback(self, callable):
-         max_x = 20
-         max_y = 15
+         max_x = 10
+         max_y = 8
          
          rows = []
 
@@ -132,10 +132,10 @@ class MainGame(Component):
         if(next_x < 0):
             return
 
-        if(next_y > len(self.layers[z])):
+        if(next_y > len(self.layers[z]) - 1):
             return
 
-        if(next_x > len(self.layers[z][y])):
+        if(next_x > len(self.layers[z][y]) - 1):
             return
 
         # print(z, y, x, z, next_y, next_x)
