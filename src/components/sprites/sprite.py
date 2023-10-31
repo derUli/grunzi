@@ -6,6 +6,7 @@ class Sprite(object):
     def __init__(self, sprite_dir, sprite = None):
         self.sprite = None
         self.walkable = True
+        self.sprite_dir = sprite_dir
         self.id = None
 
         if not sprite:
@@ -26,3 +27,7 @@ class Sprite(object):
         pos = (width * x, height * y)
 
         screen.blit(self.sprite, pos)
+
+
+    def handle_interact(self, object):
+        return

@@ -60,7 +60,7 @@ class Menu(Component):
         menu = pygame_menu.Menu(
             height=300,
             theme=pygame_menu.themes.THEME_BLUE,
-            title='Welcome',
+            title=constants.game.WINDOW_CAPTION,
             width=400
         )
 

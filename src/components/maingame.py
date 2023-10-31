@@ -7,6 +7,7 @@ import constants.game
 import components.state.state
 import components.sprites.backdrop
 import components.sprites.character
+import components.sprites.raccoon
 import utils.audio
 from utils.fps_counter import FPSCounter
 from components.component import Component
@@ -23,15 +24,21 @@ class MainGame(Component):
     def fill_layers(self):
         # Three layers
         self.layers = [
-            self.fill_fallback(components.sprites.backdrop.Backdrop),
-            self.fill_fallback(None),
-            self.fill_fallback(None),
+            self.fill_fallback(components.sprites.backdrop.Backdrop), # Backdrop layer
+            self.fill_fallback(None), # Static objects
+            self.fill_fallback(None), # Player character
         ]
 
         main_character = components.sprites.character.Character(self.sprites_dir)
         main_character.id = constants.game.MAIN_CHARACTER_ID
-
+        
         self.layers[2][6][4] = main_character
+
+        raccoon = components.sprites.raccoon.Raccoon(self.sprites_dir)
+
+        
+        self.layers[1][7][8] = raccoon
+
 
     def search_character(self, id):
         for z in range(0, len(self.layers)):
@@ -145,8 +152,11 @@ class MainGame(Component):
 
         for layer in range(0, layer_count):
             element = self.layers[layer][next_y][next_x]
-            if element and not element.walkable:
-                walkable = False
+            if element:
+                element.handle_interact(character)
+
+                if not element.walkable:
+                    walkable = False
     
         if walkable:
             self.layers[z] = self.fill_fallback(None)
