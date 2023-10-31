@@ -1,42 +1,40 @@
+#!/usr/bin/env python
+
 import os
 import pygame
 import time
-from pygame.locals import *
+from utils.FPSCounter import FPSCounter
+import constants.game
+from pygame.locals import QUIT
 
-class Test:
+"""
+    Game main class
+    Initialized the base of the game
+"""
+class Game:
 
     def __init__(self):
         pygame.init()
-        self.screen_width = 1280
-        self.screen_height = 720
         self.screen = None
-        self.fps_limit = 0
-        self.fps = None
-        self.max_fps = None
-        self.min_fps = None
-        self.fps_avg = []
-        self.caption = 'My Game'
+        self.fps_counter = FPSCounter()
         self.running = True
         self.clock = pygame.time.Clock()
-        
+
         self.root_dir = os.path.dirname(__file__)
-        self.monotype_font = pygame.font.Font(os.path.join(self.root_dir, 'monotype.ttf'), 12)
+        self.monotype_font = pygame.font.Font(os.path.join(self.root_dir, constants.game.MONOTYPE_FONT), constants.game.DEBUG_OUTPUT_FONT_SIZE)
         self.skybox_image = None
         self.skybox_positions = []
 
-        self.last_fps_shown = int(time.time())
-
         
     def start(self):
-        self.screen = pygame.display.set_mode([self.screen_width, self.screen_height], pygame.FULLSCREEN, vsync=1)
+        self.screen = pygame.display.set_mode([constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT], pygame.FULLSCREEN, vsync=int(constants.game.VSYNC))
         
-        pygame.display.set_caption(self.caption)
+        pygame.display.set_caption(constants.game.WINDOW_CAPTION)
         self.skybox_image = pygame.image.load(os.path.join(self.root_dir, 'sky.jpg')).convert()
 
         self.skybox_positions = [
             (0.0, 0.0),
             (float(self.skybox_image.get_width()), 0.0),
-        
         ]
 
         self.main_loop()
@@ -58,10 +56,11 @@ class Test:
         self.screen.fill((0, 0, 0))
         self.update_skybox()
         
-        self.clock.tick(self.fps_limit)
+        self.clock.tick(constants.game.FPS_LIMIT)
         self.show_fps()
         # Updating the display surface
         pygame.display.update()
+        pygame.display.flip()
 
 
     def update_skybox(self):
@@ -81,50 +80,15 @@ class Test:
 
             i+=1
 
-    #Create Text
+    # Create Text
     def render_text(self, what, color, where):
         text = self.monotype_font.render(what, 1, pygame.Color(color))
         self.screen.blit(text, where)
 
-    def avg_fps(self):
-        return int(sum(self.fps_avg) / len(self.fps_avg))
-
-
     def show_fps(self):
-        fps = self.get_fps()
+        self.fps_counter.get_fps(self.clock)
+        self.render_text(self.fps_counter.get_fps_text(), (255,255,255), (10, 10))
 
 
-        text = str(self.fps) + ' (AVG: ' + str(self.avg_fps()) + ', MIN: ' + str(self.min_fps) + ', MAX: ' + str(self.max_fps) + ')'
-        self.render_text(text, (255,255,255), (10, 10))
-
-    def get_fps(self):
-        fps = int(self.clock.get_fps())
-
-        
-        if not self.fps:
-            self.fps = fps
-            self.fps_avg.append(self.fps)
-        
-        if not self.max_fps:
-            self.max_fps = fps
-
-        if not self.min_fps and fps > 0:
-            self.min_fps = fps
-        
-        if fps > self.max_fps:
-            self.max_fps = fps
-
-        if self.min_fps != None and fps < self.min_fps:
-            self.min_fps = fps
-            
-
-        if int(time.time()) > self.last_fps_shown:
-            self.last_fps_shown = int(time.time())
-            self.fps = fps
-            self.fps_avg.append(fps)
-
-        return fps
-
-
-game = Test()
+game = Game()
 game.start()
