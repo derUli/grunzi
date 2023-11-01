@@ -1,0 +1,11 @@
+{
+
+    "layers": [
+        [
+            [{
+
+               "className": "components.sprite.raccoon.Raccoon"
+            }]
+        ]
+    ]
+}

@@ -31,3 +31,6 @@ class Sprite(object):
 
     def handle_interact(self, object):
         return
+
+    def change_direction(self, direction):
+        return 

@@ -44,6 +44,7 @@ class MainGame(Component):
 
 
     def search_character(self, id):
+        
         for z in range(0, len(self.layers)):
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
@@ -51,11 +52,11 @@ class MainGame(Component):
                     if element and element.id == id:
                         return (z, y, x)
 
-        return None
+        return (0,0,0)
 
     def fill_fallback(self, callable):
          max_x = 10
-         max_y = 8
+         max_y = 10
          
          rows = []
 
@@ -118,13 +119,9 @@ class MainGame(Component):
         z, y, x = self.search_character(constants.game.MAIN_CHARACTER_ID)
 
         character = self.layers[z][y][x]
-        
-        self.layers[z][y][z] = None
-        character.change_direction(direction)
 
         next_x = x
         next_y = y
-
 
         if direction == DIRECTION_UP:
             next_y -= 1
@@ -134,6 +131,8 @@ class MainGame(Component):
             next_x += 1
         elif direction == DIRECTION_DOWN:
             next_y += 1
+            
+        character.change_direction(direction)
 
         if(next_y < 0):
             return
@@ -146,8 +145,6 @@ class MainGame(Component):
 
         if(next_x > len(self.layers[z][y]) - 1):
             return
-
-        # print(z, y, x, z, next_y, next_x)
 
         walkable = True
         layer_count = len(self.layers)
