@@ -26,7 +26,6 @@ class Menu(Component):
 
     def continue_game(self):
         component = self.handle_change_component(components.maingame.MainGame)
-        pygame.mixer.music.stop()
         component.load_savegame()
         if self.menu:
             self.menu.disable()

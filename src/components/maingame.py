@@ -57,9 +57,9 @@ class MainGame(PausableComponent, Component):
             self.sprites_dir, self.image_cache)
         main_character.id = constants.game.MAIN_CHARACTER_ID
 
-        self.layers[2][7][9] = main_character
+        self.layers[2][4][3] = main_character
 
-        self.camera_offset = (6, 4)
+        self.camera_offset = (4, 3)
         self.update_camera()
 
         raccoon = sprites.raccoon.Raccoon(self.sprites_dir,
