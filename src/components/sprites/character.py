@@ -24,10 +24,7 @@ class Character(components.sprites.sprite.Sprite):
 
         sprite = pygame.transform.flip(sprite, flip_x, flip_y)
 
-        width = sprite.get_width()
-        height = sprite.get_height()
-
-        pos = (width * x, height * y)
+        pos = self.calculate_pos(x, y)
 
         screen.blit(sprite, pos)
 

@@ -13,14 +13,6 @@ class Menu(Component):
 
         self.menu = None
 
-        self.skybox_image = pygame.image.load(
-            os.path.join(data_dir, 'images', 'menu', 'sky.jpg')).convert()
-
-        self.skybox_positions = [
-            (0.0, 0.0),
-            (float(self.skybox_image.get_width()), 0.0),
-        ]
-
     def mount(self):
         self.play_music('menu.ogg')
 
@@ -36,25 +28,6 @@ class Menu(Component):
         self.start_the_game()
 
         # TODO load savegame
-
-    def handle_event(self, event):
-        return 
-
-    def update_skybox(self):
-        i = 0
-
-        for skybox in self.skybox_positions:
-            self.screen.blit(self.skybox_image, skybox)
-
-            x, y = skybox
-
-            if x < self.skybox_image.get_width() * -1.0:
-                x = float(self.skybox_image.get_width())
-
-            x -= 0.9
-
-            self.skybox_positions[i] = (x, y)
-            i += 1
 
     def draw_menu(self, screen):
         menu = pygame_menu.Menu(

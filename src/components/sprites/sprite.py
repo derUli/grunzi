@@ -24,14 +24,20 @@ class Sprite(object):
         if not self.sprite:
             return
 
-        width = self.sprite.get_width()
-        height = self.sprite.get_height()
-        pos = (width * x, height * y)
+        pos = self.calculate_pos(x, y)
 
         screen.blit(self.sprite, pos)
 
         return pos
 
+
+    def calculate_pos(self, x, y):
+        if not self.sprite:
+            return
+
+        width = self.sprite.get_width()
+        height = self.sprite.get_height()
+        return (width * x, height * y)
 
     def handle_interact(self, object):
         return

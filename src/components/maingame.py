@@ -99,7 +99,6 @@ class MainGame(Component):
         
 
     def update_screen(self, screen):
-
         level_size_fields_width, level_size_fields_height = constants.game.LEVEL_1_SIZE
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
@@ -111,16 +110,16 @@ class MainGame(Component):
             for row in layer:
                 for col in row:
                     if col:
-                       px_x, px_y = col.draw(virtual_screen, x, y)
+                        col.draw(virtual_screen, x, y)
                           
                     x += 1
 
                 y+= 1
                 x = 0
 
+        self.update_skybox()
         self.screen.blit(virtual_screen, self.camera_offset)
-
-        self.draw_headup(virtual_screen)
+        self.draw_headup(self.screen)
 
     def update_camera(self, direction):
 
