@@ -38,7 +38,6 @@ class Fire(sprites.character.Character):
 
    
     def draw(self, screen, x, y):
-        print(self.current_frame)
         current_frame = self.frames[self.current_frame]
         pos = self.calculate_pos(x, y)
         

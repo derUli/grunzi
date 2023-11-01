@@ -15,6 +15,7 @@ from components.gameover import GameOver
 from constants.direction import *
 import utils.savegame
 import random
+import math
 
 class MainGame(PausableComponent, Component):
 
@@ -46,6 +47,8 @@ class MainGame(PausableComponent, Component):
         main_character.id = constants.game.MAIN_CHARACTER_ID
 
         self.layers[2][6][4] = main_character
+
+        self.camera_offset = (6, 4)
 
         raccoon = sprites.raccoon.Raccoon(self.sprites_dir,
                                           self.image_cache)
@@ -140,11 +143,34 @@ class MainGame(PausableComponent, Component):
         level_size_fields_width, level_size_fields_height = constants.game.LEVEL_1_SIZE
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
-        virtual_screen = pygame.surface.Surface(
-            (sprite_width * level_size_fields_width,
-                sprite_height * level_size_fields_height))
+        virtual_screen = pygame.surface.Surface(screen.get_size())
 
-        for layer in self.layers:
+        tolerance_x = math.floor(self.screen.get_width() / sprite_width)
+        tolerance_y = math.floor(self.screen.get_height() / sprite_height)
+
+        filtered_layers = list(self.layers)
+
+        for z in range(0, len(filtered_layers)):
+            from_y = self.camera_offset[1] - math.ceil(tolerance_y / 2)
+            to_y = self.camera_offset[1] + tolerance_y
+
+            from_x = self.camera_offset[0] - math.ceil(tolerance_x / 2)
+            to_x = self.camera_offset[0] + tolerance_x
+
+            if from_y < 0:
+                from_y = 0
+
+            if from_x < 0:
+                from_x = 0
+
+            filtered_layers[z] = filtered_layers[z][from_y:to_y]
+
+            for y in range(0, len(filtered_layers[z])):
+                filtered_layers[z][y] = filtered_layers[z][y][from_x:to_x]
+            
+            print('y from, y to', from_y, from_y)
+
+        for layer in filtered_layers:
             y = 0
             x = 0
             for row in layer:
@@ -159,7 +185,7 @@ class MainGame(PausableComponent, Component):
 
         self.update_skybox()
 
-        self.screen.blit(virtual_screen, self.camera_offset)
+        self.screen.blit(virtual_screen, (0,0))
 
         self.draw_headup(self.screen)
 
@@ -168,15 +194,16 @@ class MainGame(PausableComponent, Component):
             component.state = self.state
 
     def update_camera(self, direction):
-        sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
-        if direction == DIRECTION_UP:
-            self.camera_offset[1] += sprite_height
-        elif direction == DIRECTION_LEFT:
-            self.camera_offset[0] += sprite_width
-        elif direction == DIRECTION_RIGHT:
-            self.camera_offset[0] -= sprite_width
-        elif direction == DIRECTION_DOWN:
-            self.camera_offset[1] -= sprite_height
+        z, y, x = self.search_character(constants.game.MAIN_CHARACTER_ID)
+
+        if x < 0:
+            x = 0
+            
+        if y < 0:
+            y = 0
+
+        self.camera_offset = [x, y]
+        
 
     def handle_event(self, event):
         super().handle_event(event)
