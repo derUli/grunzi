@@ -55,8 +55,8 @@ class MainGame(PausableComponent, Component):
         self.layers[1][0][5] = sprites.wall.Wall(
             self.sprites_dir, self.image_cache, 'dont_waste_water.png')
 
-        self.layers[1][2][3] = sprites.wall.Wall(
-            self.sprites_dir, self.image_cache, 'bubblegum.png')
+        self.layers[1][8][0] = sprites.wall.Wall(
+            self.sprites_dir, self.image_cache, 'sunset.png')
 
         main_character = sprites.character.Character(
             self.sprites_dir, self.image_cache)
@@ -147,7 +147,7 @@ class MainGame(PausableComponent, Component):
                     if self.layers[z][y][x]:
                         if not self.layers[z][y][x].walkable:
                             walkable = False
-                place_flower = random.randint(1, 6) == 2
+                place_flower = random.randint(1, 10) == 2
 
                 if walkable and place_flower:
                     layer[y][x] = sprites.backdrop.Backdrop(
