@@ -133,6 +133,9 @@ class Game:
         if self.current_component:
             self.current_component.unmount()
 
+        if not component:
+            component = components.menu.Menu
+
         self.current_component = component(self.data_dir,
                                            self.change_component)
 

@@ -1,5 +1,6 @@
 import pygame
 import os
+import json
 import constants.headup
 import constants.graphics
 import constants.game
@@ -10,7 +11,7 @@ import sprites.wall
 import sprites.raccoon
 from components.pausable_component import PausableComponent
 from constants.direction import *
-
+import utils.savegame
 
 class MainGame(PausableComponent):
 
@@ -155,6 +156,10 @@ class MainGame(PausableComponent):
     def handle_keyboard_event(self, event):
         if event.key == pygame.K_F3:
             self.state.player_state.hurt(10)
+        elif event.key == pygame.K_F5:
+            utils.savegame.save_game(self.data_dir, utils.savegame.QUICKSAVE, self.state)
+        elif event.key == pygame.K_F9:
+            utils.savegame.load_game(self.data_dir, utils.savegame.QUICKSAVE, self.state)
         elif event.key == pygame.K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == pygame.K_RIGHT:

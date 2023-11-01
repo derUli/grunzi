@@ -1,0 +1,41 @@
+import pygame
+from components.component import Component
+
+import pygame_menu
+
+class PausableComponent(Component):
+
+    def __init__(self, data_dir, handle_change_component):
+        """ Constructor """
+        super().__init__(data_dir, handle_change_component)
+        self.menu = None
+
+    # Todo refactor to own class
+    def pause_menu(self):
+
+        menu = pygame_menu.Menu(height=300,
+                                theme=pygame_menu.themes.THEME_BLUE,
+                                title='Pause menu',
+                                width=400)
+
+        menu.add.button('Continue', self.continue_game)  # Continue game
+        menu.add.button('Back To Main Menu',
+                        self.back_to_main_menu)  # Return to main menu
+
+        self.menu = menu
+        menu.mainloop(self.screen)
+
+    def continue_game(self):
+        self.menu.disable()
+
+    def back_to_main_menu(self):
+        self.continue_game()
+        self.handle_change_component(None)
+
+    def handle_event(self, event):
+
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            self.pause_menu()
+            return
+
+        super().handle_event(event)
