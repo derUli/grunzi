@@ -135,7 +135,6 @@ class MainGame(PausableComponent, Component):
     def mount(self):
         atmo = 'level' + str(self.state.level) + '.ogg'
         self.play_music(atmo)
-
         self.fill_layers()
 
     def update_screen(self, screen):

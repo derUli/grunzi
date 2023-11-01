@@ -6,7 +6,7 @@ import constants.direction
 import sprites.character
 import utils.audio
 import pygame
-
+import time
 class Fire(sprites.character.Character):
     """ Fire character class """
 
@@ -21,6 +21,10 @@ class Fire(sprites.character.Character):
         self.cache = cache
         self.frames = []
 
+        self.refresh_interval = 0.1
+
+        self.last_refresh = time.time()
+
         files = os.listdir(sprite_dir)
         files.sort()
         
@@ -34,10 +38,9 @@ class Fire(sprites.character.Character):
 
         self.current_frame = 0
 
-
-
    
     def draw(self, screen, x, y):
+        
         current_frame = self.frames[self.current_frame]
         pos = self.calculate_pos(x, y)
         
@@ -46,9 +49,13 @@ class Fire(sprites.character.Character):
 
     
     def next_frame(self):
+        if time.time() - self.last_refresh < self.refresh_interval:
+            return
         next_frame = self.current_frame + 1
 
         if next_frame >= len(self.frames):
             next_frame = 0
+
+        self.last_refresh = time.time()
 
         self.current_frame = next_frame

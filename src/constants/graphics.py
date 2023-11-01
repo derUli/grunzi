@@ -1,2 +1,2 @@
 """ Graphics Constants """
-SPRITE_SIZE = (64, 64)
+SPRITE_SIZE = (96, 96)

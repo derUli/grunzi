@@ -18,8 +18,9 @@ class Component(object):
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
 
         self.skybox_image = pygame.image.load(
-            os.path.join(data_dir, 'images', 'menu', 'sky.jpg')).convert()
+            os.path.join(data_dir, 'images', 'menu', 'sky.jpg')).convert_alpha()
 
+        self.skybox_image = pygame.transform.scale(self.skybox_image, (constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT))
         self.skybox_positions = [
             (0.0, 0.0),
             (float(self.skybox_image.get_width()), 0.0),
@@ -47,7 +48,7 @@ class Component(object):
         utils.audio.play_music(file)
 
     def unmount(self):
-        utils.audio.stop_music()
+        return
 
     def update_skybox(self):
         i = 0
