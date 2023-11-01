@@ -1,8 +1,7 @@
 """ Wall sprite """
-import sprites.sprite
+from sprites.sprite import Sprite
 
-
-class Wall(sprites.sprite.Sprite):
+class Wall(Sprite):
     """ Wall sprite class """
 
     def __init__(self, sprite_dir, cache, sprite=None):

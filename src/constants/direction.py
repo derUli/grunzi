@@ -1,3 +1,5 @@
+""" Direction constants """
+
 DIRECTION_LEFT = 1
 DIRECTION_RIGHT = 2
 DIRECTION_UP = 3

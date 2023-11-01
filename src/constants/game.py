@@ -1,6 +1,4 @@
-"""
-    General game constants
-"""
+""" General game constants """
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 FPS_LIMIT = 0  # 0 means Unlimited

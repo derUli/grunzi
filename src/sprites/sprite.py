@@ -1,7 +1,7 @@
 """ Generic sprite """
 import os
 import pygame
-import constants.graphics
+from constants.graphics import SPRITE_SIZE
 
 
 class Sprite():
@@ -23,7 +23,8 @@ class Sprite():
         image = cache.load_image(file)
 
         self.sprite = pygame.transform.scale(image,
-                                             constants.graphics.SPRITE_SIZE)
+                                             SPRITE_SIZE
+                                             )
 
     def draw(self, screen, x, y):
         """ draw sprite """

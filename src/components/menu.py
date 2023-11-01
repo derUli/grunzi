@@ -7,6 +7,7 @@ from components.component import Component
 class Menu(Component):
 
     def __init__(self, data_dir, handle_change_component):
+        """ Constructor """
         super().__init__(data_dir, handle_change_component)
 
         self.menu = None

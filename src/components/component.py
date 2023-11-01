@@ -9,6 +9,7 @@ import utils.image
 class Component(object):
 
     def __init__(self, data_dir, handle_change_component):
+        """ Constructor """
         self.data_dir = data_dir
         self.handle_change_component = handle_change_component
         self.image_cache = utils.image.ImageCache()

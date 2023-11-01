@@ -4,21 +4,23 @@
     Initialized the base of the game
 """
 import os
+import time
+import signal
 import pygame
+from pygame.locals import QUIT
 import constants.game
 import constants.headup
 import constants.sound
-from pygame.locals import QUIT
-import time
 import utils.audio
 from utils.fps_counter import FPSCounter
 import components.menu
-import signal
 
 
 class Game:
+    """ Main game class """
 
     def __init__(self):
+        """ Constructor """
         pygame.init()
 
         self.screen = None
@@ -30,6 +32,7 @@ class Game:
         self.fullscreen = constants.game.FULLSCREEN
 
     def start(self):
+        """ Start game """
         self.init_screen()
         self.change_component(components.menu.Menu)
 
@@ -38,6 +41,7 @@ class Game:
         self.main_loop()
 
     def init_screen(self):
+        """ Init the screen """
         flags = pygame.SCALED
 
         if self.fullscreen:
@@ -54,16 +58,19 @@ class Game:
             self.current_component.set_screen(self.screen)
 
     def toggle_fullscreen(self):
+        """ Toggle fullscreen mode """
         self.fullscreen = not self.fullscreen
 
         self.init_screen()
 
     def main_loop(self):
+        """ Pygame MainLoop """
         while self.running:
             self.handle_events()
             self.update_screen()
 
     def handle_events(self):
+        """ Handle events """
         for event in pygame.event.get():
             if event.type == QUIT:
                 self.quit()
@@ -79,9 +86,11 @@ class Game:
             self.current_component.handle_event(event)
 
     def quit(self, sig=None, frame=None):
+        """ Quit game """
         self.running = False
 
     def screenshot(self):
+        """ Save a screenshot  """
         # TODO store in home dir
 
         screenshot_dir = os.path.join(self.data_dir, 'screenshots')
@@ -97,6 +106,7 @@ class Game:
         utils.audio.play_sound(camera_sound)
 
     def update_screen(self):
+        """ Update the screen  """
         # Filling the window with black color
         self.screen.fill((0, 0, 0))
 
@@ -108,16 +118,18 @@ class Game:
             self.show_fps()
 
         # Updating the display surface
-        # pygame.display.update()
-        pygame.display.flip()
+        pygame.display.update()
+        # pygame.display.flip()
 
     def show_fps(self):
+        """ Show fps """
         self.fps_counter.get_fps(self.clock)
         self.current_component.render_text(self.fps_counter.get_fps_text(),
                                            (0, 247, 0),
                                            constants.headup.FPS_TEXT_POSITION)
 
     def change_component(self, component):
+        """ Change component """
         if self.current_component:
             self.current_component.unmount()
 
