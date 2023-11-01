@@ -1,14 +1,8 @@
 import pygame
-from components.component import Component
 import pygame_menu
 import utils.savegame
 
-class PausableComponent(Component):
-
-    def __init__(self, data_dir, handle_change_component):
-        """ Constructor """
-        super().__init__(data_dir, handle_change_component)
-        self.menu = None
+class PausableComponent():
 
     # Todo refactor to own class
     def pause_menu(self):
@@ -30,7 +24,7 @@ class PausableComponent(Component):
         self.menu.disable()
 
     def save_game(self):
-        utils.savegame.save_game(self.data_dir, utils.savegame.DEFAULT_SAVE, self.state)
+        utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state)
         self.continue_game()
 
     def back_to_main_menu(self):

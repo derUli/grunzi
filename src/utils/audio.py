@@ -13,3 +13,6 @@ def play_music(file):
 
 def fadeout_music():
     pygame.mixer.music.fadeout(constants.sound.MUSIC_FADEOUT_TIME)
+
+def stop_music():
+    pygame.mixer.music.stop()

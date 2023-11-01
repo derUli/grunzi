@@ -14,6 +14,7 @@ import constants.sound
 import utils.audio
 from utils.fps_counter import FPSCounter
 import components.menu
+from utils.path import get_userdata_path
 
 
 class Game:
@@ -93,7 +94,7 @@ class Game:
         """ Save a screenshot  """
         # TODO store in home dir
 
-        screenshot_dir = os.path.join(self.data_dir, 'screenshots')
+        screenshot_dir = os.path.join(get_userdata_path(), 'screenshots')
 
         if not os.path.exists(screenshot_dir):
             os.makedirs(screenshot_dir)

@@ -38,6 +38,9 @@ class PlayerState():
 
         utils.audio.play_sound(sound)
 
+    def dead(self):
+        return self.health <= 0
+
     def update_health(self):
         if self.health < 1:
             self.health = 0
@@ -45,7 +48,6 @@ class PlayerState():
         if self.health > 99:
             self.health = 100
 
-        print(self.health)
 
         self.crop_pig()
 

@@ -1,7 +1,9 @@
+import pygame
 import pygame_menu
 import constants.game
 import components.maingame
 from components.component import Component
+import utils.savegame
 
 
 class Menu(Component):
@@ -24,9 +26,10 @@ class Menu(Component):
 
     def continue_game(self):
         component = self.handle_change_component(components.maingame.MainGame)
+        pygame.mixer.music.stop()
         component.load_savegame()
-        self.menu.disable()
-
+        if self.menu:
+            self.menu.disable()
 
     def draw_menu(self, screen):
         menu = pygame_menu.Menu(height=300,
@@ -35,7 +38,9 @@ class Menu(Component):
                                 width=400)
 
         menu.add.button('Play', self.start_the_game)
-        menu.add.button('Continue', self.continue_game)
+        if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
+            menu.add.button('Continue', self.continue_game)  # Continue game
+
         menu.add.button('Quit', pygame_menu.events.EXIT)
 
         self.menu = menu

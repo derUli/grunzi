@@ -5,7 +5,6 @@ import constants.headup
 import utils.audio
 import utils.image
 
-
 class Component(object):
 
     def __init__(self, data_dir, handle_change_component):
@@ -48,7 +47,7 @@ class Component(object):
         utils.audio.play_music(file)
 
     def unmount(self):
-        utils.audio.fadeout_music()
+        utils.audio.stop_music()
 
     def update_skybox(self):
         i = 0

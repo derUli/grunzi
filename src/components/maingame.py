@@ -1,19 +1,22 @@
 import pygame
 import os
-import json
 import constants.headup
 import constants.graphics
 import constants.game
 import state.state
 import sprites.backdrop
 import sprites.character
+import sprites.fire
 import sprites.wall
 import sprites.raccoon
 from components.pausable_component import PausableComponent
+from components.component import Component
+from components.gameover import GameOver
 from constants.direction import *
 import utils.savegame
+import random
 
-class MainGame(PausableComponent):
+class MainGame(PausableComponent, Component):
 
     def __init__(self, data_dir, handle_change_component):
 
@@ -23,10 +26,9 @@ class MainGame(PausableComponent):
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
         self.layers = []
         self.camera_offset = [0, 0]
-        self.virtual_screen = None
 
     def load_savegame(self):
-        utils.savegame.load_game(self.data_dir, utils.savegame.DEFAULT_SAVE, self.state)
+        utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
 
     def fill_layers(self):
         # Three layers
@@ -49,6 +51,18 @@ class MainGame(PausableComponent):
                                           self.image_cache)
 
         self.layers[1][7][8] = raccoon
+
+        
+        fire = sprites.fire.Fire(
+            self.sprites_dir,
+            self.image_cache
+           )
+
+        self.layers[1][11][25] = fire
+
+
+        self.layers[1] = self.decorate_flowers(self.layers[1])
+
 
     def search_character(self, id):
         for z in range(0, len(self.layers)):
@@ -94,6 +108,27 @@ class MainGame(PausableComponent):
 
         return layer
 
+
+    def decorate_flowers(self, layer):
+        for y in range(0, len(layer)):
+            for x in range(0, len(layer[y])):
+                
+                layers_count = len(self.layers)
+
+                walkable = True
+                for z in range(0, layers_count):
+                    if self.layers[z][y][x]:
+                        if not self.layers[z][y][x].walkable:
+                            walkable = False
+                place_flower = random.randint(0, 20) == 7
+
+                if walkable and place_flower:
+                    layer[y][x] = sprites.backdrop.Backdrop(
+                        self.sprites_dir, self.image_cache, 'flower1.png'
+                    )
+
+        return layer
+
     def mount(self):
         atmo = 'level' + str(self.state.level) + '.ogg'
         self.play_music(atmo)
@@ -105,16 +140,11 @@ class MainGame(PausableComponent):
         level_size_fields_width, level_size_fields_height = constants.game.LEVEL_1_SIZE
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
-        if self.virtual_screen:
-            virtual_screen = self.virtual_screen
-        else:
-            virtual_screen = pygame.surface.Surface(
-                (sprite_width * level_size_fields_width,
-                 sprite_height * level_size_fields_height))
+        virtual_screen = pygame.surface.Surface(
+            (sprite_width * level_size_fields_width,
+                sprite_height * level_size_fields_height))
 
         for layer in self.layers:
-            if self.virtual_screen:
-                continue
             y = 0
             x = 0
             for row in layer:
@@ -128,11 +158,14 @@ class MainGame(PausableComponent):
                 x = 0
 
         self.update_skybox()
-        self.virtual_screen = virtual_screen
 
         self.screen.blit(virtual_screen, self.camera_offset)
 
         self.draw_headup(self.screen)
+
+        if self.state.player_state.dead():
+            component = self.handle_change_component(GameOver)
+            component.state = self.state
 
     def update_camera(self, direction):
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
@@ -145,11 +178,6 @@ class MainGame(PausableComponent):
         elif direction == DIRECTION_DOWN:
             self.camera_offset[1] -= sprite_height
 
-        self.refresh()
-
-    def refresh(self):
-        self.virtual_screen = None
-
     def handle_event(self, event):
         super().handle_event(event)
 
@@ -160,9 +188,9 @@ class MainGame(PausableComponent):
         if event.key == pygame.K_F3:
             self.state.player_state.hurt(10)
         elif event.key == pygame.K_F5:
-            utils.savegame.save_game(self.data_dir, utils.savegame.QUICKSAVE, self.state)
+            utils.savegame.save_game(utils.savegame.QUICKSAVE, self.state)
         elif event.key == pygame.K_F9:
-            utils.savegame.load_game(self.data_dir, utils.savegame.QUICKSAVE, self.state)
+            utils.savegame.load_game(utils.savegame.QUICKSAVE, self.state)
         elif event.key == pygame.K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == pygame.K_RIGHT:
@@ -219,8 +247,6 @@ class MainGame(PausableComponent):
             self.layers[z][next_y][next_x] = character
 
             self.update_camera(direction)
-
-        self.refresh()
 
     def draw_headup(self, screen):
         self.state.player_state.draw_health(screen)
