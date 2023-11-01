@@ -5,7 +5,6 @@ import pygame_menu
 import utils.savegame
 import utils.image
 
-
 class GameOver(Component):
 
     def __init__(self, data_dir, handle_change_component):
@@ -16,6 +15,10 @@ class GameOver(Component):
         file = os.path.join(data_dir, 'images', 'menu', 'gameover.jpg')
 
         self.backdrop = self.image_cache.load_image(file)
+
+    def mount(self):
+        # CREDITS: https://audionautix.com/creative-commons-music
+        self.play_music('gameover.ogg', 0)
 
     def draw_background(self):
         self.screen.blit(self.backdrop, (0, 0))

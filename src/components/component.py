@@ -45,9 +45,9 @@ class Component(object):
     def mount(self):
         return
 
-    def play_music(self, file):
+    def play_music(self, file, repeat = -1):
         file = os.path.join(self.data_dir, 'music', file)
-        utils.audio.play_music(file)
+        utils.audio.play_music(file, repeat)
 
     def unmount(self):
         return

@@ -27,7 +27,7 @@ class Raccoon(sprites.character.Character):
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'raccoon')
         )
 
-        # SOURCE: https://soundbible.com/1853-Raccoon.html
+        # CREDITS: https://soundbible.com/1853-Raccoon.html
         files = ['raccoon1.ogg', 'raccoon2.ogg', 'raccoon3.ogg']
         file = os.path.join(sound_dir, random.choice(files))
 
