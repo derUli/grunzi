@@ -4,7 +4,6 @@ import constants.game
 import constants.headup
 import utils.audio
 import utils.image
-import components.menu
 
 
 class Component(object):

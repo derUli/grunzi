@@ -1,12 +1,15 @@
-import constants.graphics
-from constants.direction import *
-import components.sprites.sprite
+""" Main character sprite """
+
 import pygame
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
+import sprites.sprite
 
 
-class Character(components.sprites.sprite.Sprite):
+class Character(sprites.sprite.Sprite):
+    """ Main character sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='pig.png'):
+        """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
         self.walkable = False
         self.direction = DIRECTION_RIGHT
@@ -14,15 +17,14 @@ class Character(components.sprites.sprite.Sprite):
         self.center_camera = True
 
     def draw(self, screen, x, y):
-
+        """ Draw sprite """
         sprite = self.sprite.copy()
 
         flip_x = False
         flip_y = False
 
-        if (self.image_direction == DIRECTION_LEFT):
+        if self.image_direction == DIRECTION_LEFT:
             flip_x = True
-
         sprite = pygame.transform.flip(sprite, flip_x, flip_y)
 
         pos = self.calculate_pos(x, y)
@@ -32,6 +34,7 @@ class Character(components.sprites.sprite.Sprite):
         return pos
 
     def change_direction(self, direction):
+        """ Change sprite direction """
         self.direction = direction
         if direction in [DIRECTION_LEFT, DIRECTION_RIGHT]:
             self.image_direction = direction

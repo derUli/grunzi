@@ -5,14 +5,12 @@ import constants.headup
 import constants.graphics
 import constants.game
 import state.state
-import components.sprites.backdrop
-import components.sprites.character
-import components.sprites.wall
+import sprites.backdrop
+import sprites.character
+import sprites.wall
 import components.menu
-import components.sprites.raccoon
+import sprites.raccoon
 import pygame_menu
-import utils.audio
-from utils.fps_counter import FPSCounter
 from components.component import Component
 from constants.direction import *
 
@@ -33,21 +31,21 @@ class MainGame(Component):
         # Three layers
         self.layers = [
             self.fill_fallback(
-                components.sprites.backdrop.Backdrop),  # Backdrop layer
+                sprites.backdrop.Backdrop),  # Backdrop layer
             self.fill_fallback(None),  # Static objects
             self.fill_fallback(None),  # Player character
         ]
 
         self.layers[1] = self.build_wall(self.layers[1])
 
-        main_character = components.sprites.character.Character(
+        main_character = sprites.character.Character(
             self.sprites_dir, self.image_cache)
         main_character.id = constants.game.MAIN_CHARACTER_ID
 
         self.layers[2][6][4] = main_character
 
-        raccoon = components.sprites.raccoon.Raccoon(self.sprites_dir,
-                                                     self.image_cache)
+        raccoon = sprites.raccoon.Raccoon(self.sprites_dir,
+                                          self.image_cache)
 
         self.layers[1][7][8] = raccoon
 
@@ -90,7 +88,7 @@ class MainGame(Component):
                     is_wall = True
 
                 if is_wall:
-                    layer[y][x] = components.sprites.wall.Wall(
+                    layer[y][x] = sprites.wall.Wall(
                         self.sprites_dir, self.image_cache)
 
         return layer

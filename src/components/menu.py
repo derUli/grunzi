@@ -1,9 +1,6 @@
-import pygame
-import os
 import pygame_menu
 import constants.game
 import components.maingame
-from utils.fps_counter import FPSCounter
 from components.component import Component
 
 

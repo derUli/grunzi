@@ -1,11 +1,14 @@
-import constants.graphics
+""" Generic sprite """
 import os
 import pygame
+import constants.graphics
 
 
-class Sprite(object):
+class Sprite():
+    """ Generic sprite class """
 
     def __init__(self, sprite_dir, cache, sprite=None):
+        """ Constructor """
         self.sprite = None
         self.walkable = True
         self.sprite_dir = sprite_dir
@@ -23,8 +26,9 @@ class Sprite(object):
                                              constants.graphics.SPRITE_SIZE)
 
     def draw(self, screen, x, y):
+        """ draw sprite """
         if not self.sprite:
-            return
+            return None
 
         pos = self.calculate_pos(x, y)
 
@@ -33,15 +37,21 @@ class Sprite(object):
         return pos
 
     def calculate_pos(self, x, y):
+        """
+           x and y are tile positions
+           Convert to real pixel coordinates
+        """
         if not self.sprite:
-            return
+            return None
 
         width = self.sprite.get_width()
         height = self.sprite.get_height()
         return (width * x, height * y)
 
-    def handle_interact(self, object):
+    def handle_interact(self, element):
+        """ Handle interact"""
         return
 
     def change_direction(self, direction):
+        """ Change sprite direction """
         return

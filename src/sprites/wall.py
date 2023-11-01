@@ -1,11 +1,11 @@
-import constants.graphics
-import os
-import pygame
-import components.sprites.sprite
+""" Wall sprite """
+import sprites.sprite
 
 
-class Wall(components.sprites.sprite.Sprite):
+class Wall(sprites.sprite.Sprite):
+    """ Wall sprite class """
 
     def __init__(self, sprite_dir, cache, sprite=None):
+        """ Constructor """
         super().__init__(sprite_dir, cache, 'wall.jpg')
         self.walkable = False

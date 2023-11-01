@@ -1,22 +1,25 @@
-import constants.graphics
-import constants.direction
-from constants.direction import *
-import components.sprites.character
-import pygame
-import utils.audio
+""" Racoon character """
 import os
 
+import constants.graphics
+import constants.direction
+import sprites.character
+import utils.audio
 
-class Raccoon(components.sprites.character.Character):
+
+class Raccoon(sprites.character.Character):
+    """ Raccon character class """
 
     def __init__(self, sprite_dir, cache, sprite=None):
+        """ Constructor """
         super().__init__(sprite_dir, cache, 'raccoon.png')
         self.center_camera = False
 
-    def handle_interact(self, object):
-        if object.direction == constants.direction.DIRECTION_LEFT:
+    def handle_interact(self, element):
+        """ Play sound on interaction """
+        if element.direction == constants.direction.DIRECTION_LEFT:
             self.change_direction(constants.direction.DIRECTION_RIGHT)
-        elif object.direction == constants.direction.DIRECTION_RIGHT:
+        elif element.direction == constants.direction.DIRECTION_RIGHT:
             self.change_direction(constants.direction.DIRECTION_LEFT)
 
         sound_dir = os.path.abspath(
