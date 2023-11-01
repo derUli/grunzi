@@ -55,7 +55,7 @@ class MainGame(PausableComponent, Component):
         self.layers[1][0][5] = sprites.wall.Wall(
             self.sprites_dir, self.image_cache, 'dont_waste_water.png')
 
-        self.layers[1][7][18] = sprites.wall.Wall(
+        self.layers[1][2][3] = sprites.wall.Wall(
             self.sprites_dir, self.image_cache, 'bubblegum.png')
 
         main_character = sprites.character.Character(
@@ -63,9 +63,9 @@ class MainGame(PausableComponent, Component):
         main_character.id = constants.game.MAIN_CHARACTER_ID
         main_character.state = self.state.player_state
 
-        self.layers[2][4][3] = main_character
+        self.layers[2][5][3] = main_character
 
-        self.camera_offset = (4, 3)
+        self.camera_offset = (5, 3)
         self.update_camera()
 
         raccoon = sprites.raccoon.Raccoon(self.sprites_dir,
@@ -131,6 +131,12 @@ class MainGame(PausableComponent, Component):
         return layer
 
     def decorate_flowers(self, layer):
+        flowers = [
+            'flower1.png',
+            'flower2.png',
+            'flower3.png',
+            'flower4.png'
+        ]
         for y in range(0, len(layer)):
             for x in range(0, len(layer[y])):
 
@@ -141,11 +147,12 @@ class MainGame(PausableComponent, Component):
                     if self.layers[z][y][x]:
                         if not self.layers[z][y][x].walkable:
                             walkable = False
-                place_flower = random.randint(0, 20) == 7
+                place_flower = random.randint(1, 6) == 2
 
                 if walkable and place_flower:
                     layer[y][x] = sprites.backdrop.Backdrop(
-                        self.sprites_dir, self.image_cache, 'flower1.png'
+                        self.sprites_dir, self.image_cache, random.choice(
+                            flowers)
                     )
 
         return layer

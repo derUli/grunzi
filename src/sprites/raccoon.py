@@ -7,6 +7,7 @@ import sprites.character
 import utils.audio
 import random
 
+
 class Raccoon(sprites.character.Character):
     """ Raccon character class """
 

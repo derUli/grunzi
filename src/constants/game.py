@@ -1,6 +1,6 @@
 """ General game constants """
-SCREEN_WIDTH = 1920
-SCREEN_HEIGHT = 1080
+SCREEN_WIDTH = 1600
+SCREEN_HEIGHT = 900
 FPS_LIMIT = 0  # 0 means Unlimited
 WINDOW_CAPTION = 'My Game'
 GAMEDIR_NAME = 'my_game'
