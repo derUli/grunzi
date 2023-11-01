@@ -164,6 +164,7 @@ class MainGame(Component):
         if(next_x > len(self.layers[z][y]) - 1):
             return
 
+        walkable = True
         layer_count = len(self.layers)
 
         for layer in range(0, layer_count):
@@ -171,19 +172,12 @@ class MainGame(Component):
             if element:
                 element.handle_interact(character)
 
+                if not element.walkable:
+                    walkable = False
     
-        if self.is_walkable(y, x):
+        if walkable:
             self.layers[z] = self.fill_fallback(None)
             self.layers[z][next_y][next_x] = character
-
-    def is_walkable(self, y, x):
-    
-        walkable = True
-        for layer in range(0, layer_count):
-            element = self.layers[layer][next_y][next_x]
-            if not element.walkable:
-                    walkable = False
-        return walkable
     
     def draw_headup(self, screen):
         self.state.player_state.draw_health(screen)
