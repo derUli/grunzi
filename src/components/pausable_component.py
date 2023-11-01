@@ -1,7 +1,7 @@
 import pygame
 from components.component import Component
-
 import pygame_menu
+import utils.savegame
 
 class PausableComponent(Component):
 
@@ -19,6 +19,7 @@ class PausableComponent(Component):
                                 width=400)
 
         menu.add.button('Continue', self.continue_game)  # Continue game
+        menu.add.button('Save Game', self.save_game)  # Continue game
         menu.add.button('Back To Main Menu',
                         self.back_to_main_menu)  # Return to main menu
 
@@ -27,6 +28,10 @@ class PausableComponent(Component):
 
     def continue_game(self):
         self.menu.disable()
+
+    def save_game(self):
+        utils.savegame.save_game(self.data_dir, utils.savegame.DEFAULT_SAVE, self.state)
+        self.continue_game()
 
     def back_to_main_menu(self):
         self.continue_game()

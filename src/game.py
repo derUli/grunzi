@@ -129,12 +129,13 @@ class Game:
                                            constants.headup.FPS_TEXT_POSITION)
 
     def change_component(self, component):
-        """ Change component """
-        if self.current_component:
-            self.current_component.unmount()
 
         if not component:
             component = components.menu.Menu
+
+        """ Change component """
+        if self.current_component:
+            self.current_component.unmount()
 
         self.current_component = component(self.data_dir,
                                            self.change_component)
@@ -143,6 +144,8 @@ class Game:
             self.current_component.set_screen(self.screen)
 
         self.current_component.mount()
+
+        return self.current_component
 
 
 game = Game()

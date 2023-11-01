@@ -20,13 +20,13 @@ class Menu(Component):
 
     def start_the_game(self):
         self.handle_change_component(components.maingame.MainGame)
-
         self.menu.disable()
 
     def continue_game(self):
-        self.start_the_game()
+        component = self.handle_change_component(components.maingame.MainGame)
+        component.load_savegame()
+        self.menu.disable()
 
-        # TODO load savegame
 
     def draw_menu(self, screen):
         menu = pygame_menu.Menu(height=300,
@@ -35,7 +35,7 @@ class Menu(Component):
                                 width=400)
 
         menu.add.button('Play', self.start_the_game)
-        menu.add.button('Continue', self.start_the_game)
+        menu.add.button('Continue', self.continue_game)
         menu.add.button('Quit', pygame_menu.events.EXIT)
 
         self.menu = menu

@@ -25,6 +25,9 @@ class MainGame(PausableComponent):
         self.camera_offset = [0, 0]
         self.virtual_screen = None
 
+    def load_savegame(self):
+        utils.savegame.load_game(self.data_dir, utils.savegame.DEFAULT_SAVE, self.state)
+
     def fill_layers(self):
         # Three layers
         self.layers = [
