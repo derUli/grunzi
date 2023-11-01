@@ -23,6 +23,7 @@ class PausableComponent():
 
     def continue_game(self):
         self.menu.disable()
+        pygame.mouse.set_visible(0)
 
     def save_game(self):
         utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state)
@@ -30,6 +31,7 @@ class PausableComponent():
 
     def back_to_main_menu(self):
         self.continue_game()
+        pygame.mouse.set_visible(1)
         self.handle_change_component(None)
 
     def handle_event(self, event):

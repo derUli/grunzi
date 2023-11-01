@@ -47,13 +47,17 @@ class MainGame(PausableComponent, Component):
             self.fill_fallback(None),  # Player character
         ]
 
-        self.layers[1] = self.build_wall(self.layers[1])
+        self.layers[0] = self.build_wall(self.layers[0])
+
+        self.layers[1][0][5] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'dont_waste_water.png')
+        
+        self.layers[1][7][18] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'bubblegum.png')
 
         main_character = sprites.character.Character(
             self.sprites_dir, self.image_cache)
         main_character.id = constants.game.MAIN_CHARACTER_ID
 
-        self.layers[2][6][4] = main_character
+        self.layers[2][7][9] = main_character
 
         self.camera_offset = (6, 4)
         self.update_camera()
@@ -101,6 +105,7 @@ class MainGame(PausableComponent, Component):
         return rows
 
     def build_wall(self, layer):
+        
         for y in range(0, len(layer)):
             for x in range(0, len(layer[y])):
                 is_wall = False
@@ -137,9 +142,14 @@ class MainGame(PausableComponent, Component):
         return layer
 
     def mount(self):
+        pygame.mouse.set_visible(0)
+
         atmo = 'level' + str(self.state.level) + '.ogg'
         self.play_music(atmo)
         self.fill_layers()
+
+    def unmount(self):
+        pygame.mouse.set_visible(1)
 
     def update_screen(self, screen):
 
@@ -150,8 +160,8 @@ class MainGame(PausableComponent, Component):
 
         virtual_screen.blit(self.backdrop, (0, 0))
 
-        tolerance_x = math.floor(self.screen.get_width() / sprite_width) 
-        tolerance_y = math.floor(self.screen.get_height() / sprite_height)
+        tolerance_x = math.ceil(self.screen.get_width() / sprite_width)
+        tolerance_y = math.ceil(self.screen.get_height() / sprite_height)
 
         filtered_layers = list(self.layers)
 
@@ -169,8 +179,6 @@ class MainGame(PausableComponent, Component):
                 from_x = 0
 
             filtered_layers[z] = filtered_layers[z][from_y:to_y]
-
-            print(len(filtered_layers[z]))
 
 
             for y in range(0, len(filtered_layers[z])):

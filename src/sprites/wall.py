@@ -7,5 +7,5 @@ class Wall(Sprite):
 
     def __init__(self, sprite_dir, cache, sprite='wall.jpg'):
         """ Constructor """
-        super().__init__(sprite_dir, cache, 'wall.jpg')
+        super().__init__(sprite_dir, cache, sprite)
         self.walkable = False

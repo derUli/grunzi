@@ -44,7 +44,7 @@ class Game:
 
     def init_screen(self):
         """ Init the screen """
-        flags = pygame.SCALED
+        flags = 0
 
         if self.fullscreen:
             flags = flags | pygame.FULLSCREEN | pygame.SCALED
@@ -61,9 +61,7 @@ class Game:
 
     def toggle_fullscreen(self):
         """ Toggle fullscreen mode """
-        self.fullscreen = not self.fullscreen
-
-        self.init_screen()
+        pygame.display.toggle_fullscreen()
 
     def main_loop(self):
         """ Pygame MainLoop """
@@ -94,7 +92,6 @@ class Game:
     def screenshot(self):
         """ Save a screenshot  """
         make_screenshot(self.screen)
-        pygame.image.save(screen, screenshot_file)
         camera_sound = os.path.join(self.data_dir, 'sounds', 'screenshot.ogg')
         utils.audio.play_sound(camera_sound)
 

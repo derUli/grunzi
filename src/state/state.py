@@ -21,5 +21,4 @@ class State:
 
     def from_json(self, data):
         savegame = json.loads(data)
-        print(savegame)
         self.from_dict(savegame)
