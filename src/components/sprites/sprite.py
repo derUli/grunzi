@@ -3,7 +3,7 @@ import os
 import pygame
 
 class Sprite(object):
-    def __init__(self, sprite_dir, sprite = None):
+    def __init__(self, sprite_dir, cache, sprite = None):
         self.sprite = None
         self.walkable = True
         self.sprite_dir = sprite_dir
@@ -15,7 +15,7 @@ class Sprite(object):
             return
 
         file = os.path.join(sprite_dir, sprite)
-        image = pygame.image.load(file).convert_alpha()
+        image = cache.load_image(file)
     
         
         self.sprite = pygame.transform.scale(image, constants.graphics.SPRITE_SIZE)

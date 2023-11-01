@@ -37,12 +37,12 @@ class MainGame(Component):
 
         self.layers[1] = self.build_wall(self.layers[1])
 
-        main_character = components.sprites.character.Character(self.sprites_dir)
+        main_character = components.sprites.character.Character(self.sprites_dir, self.image_cache)
         main_character.id = constants.game.MAIN_CHARACTER_ID
         
         self.layers[2][6][4] = main_character
 
-        raccoon = components.sprites.raccoon.Raccoon(self.sprites_dir)
+        raccoon = components.sprites.raccoon.Raccoon(self.sprites_dir, self.image_cache)
 
         self.layers[1][7][8] = raccoon
 
@@ -68,7 +68,7 @@ class MainGame(Component):
             for n in range(0, max_x):
                 s = None
                 if callable:
-                   s = callable(self.sprites_dir)
+                   s = callable(self.sprites_dir, self.image_cache)
                 cols.append(s)
             
             rows.append(cols)
@@ -87,7 +87,7 @@ class MainGame(Component):
                 is_wall = True
                 
               if is_wall:
-                layer[y][x] = components.sprites.wall.Wall(self.sprites_dir)
+                layer[y][x] = components.sprites.wall.Wall(self.sprites_dir, self.image_cache)
 
         return layer
               

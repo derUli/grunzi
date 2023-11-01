@@ -4,12 +4,13 @@ import components.sprites.sprite
 import pygame
 
 class Character(components.sprites.sprite.Sprite):
-    def __init__(self, sprite_dir, sprite = 'pig.png'):
-        super().__init__(sprite_dir, sprite)
+    def __init__(self, sprite_dir, cache, sprite = 'pig.png'):
+        super().__init__(sprite_dir, cache, sprite)
         self.walkable = False
         self.direction = DIRECTION_RIGHT
         self.image_direction = self.direction
         self.center_camera = True
+
 
 
     def draw(self, screen, x, y):

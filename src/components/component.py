@@ -3,6 +3,7 @@ import os
 import constants.game
 import constants.headup
 import utils.audio
+import utils.image
 import components.menu
 
 
@@ -10,6 +11,7 @@ class Component(object):
     def __init__(self, data_dir, handle_change_component):
         self.data_dir = data_dir
         self.handle_change_component = handle_change_component
+        self.image_cache = utils.image.ImageCache()
 
         self.monotype_font = pygame.font.Font(
             os.path.join(
@@ -21,6 +23,7 @@ class Component(object):
 
         self.skybox_image = pygame.image.load(
            os.path.join(data_dir, 'images', 'menu', 'sky.jpg')).convert()
+
 
         self.skybox_positions = [
             (0.0, 0.0),
