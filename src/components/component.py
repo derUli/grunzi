@@ -40,7 +40,6 @@ class Component(object):
         file = os.path.join(self.data_dir, 'music', file)
         utils.audio.play_music(file)
 
-
     def unmount(self):
          utils.audio.fadeout_music()
          

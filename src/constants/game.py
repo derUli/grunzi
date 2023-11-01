@@ -11,3 +11,5 @@ VSYNC = False
 FULLSCREEN = True
 SHOW_FPS = True
 MAIN_CHARACTER_ID = 'grunzi'
+
+LEVEL_1_SIZE = (11, 11)

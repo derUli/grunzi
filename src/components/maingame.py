@@ -7,6 +7,7 @@ import constants.game
 import components.state.state
 import components.sprites.backdrop
 import components.sprites.character
+import components.sprites.wall
 import components.menu
 import components.sprites.raccoon
 import pygame_menu
@@ -32,6 +33,8 @@ class MainGame(Component):
             self.fill_fallback(None), # Player character
         ]
 
+        self.layers[1] = self.build_wall(self.layers[1])
+
         main_character = components.sprites.character.Character(self.sprites_dir)
         main_character.id = constants.game.MAIN_CHARACTER_ID
         
@@ -44,7 +47,6 @@ class MainGame(Component):
 
 
     def search_character(self, id):
-        
         for z in range(0, len(self.layers)):
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
@@ -55,8 +57,7 @@ class MainGame(Component):
         return (0,0,0)
 
     def fill_fallback(self, callable):
-         max_x = 10
-         max_y = 10
+         max_x, max_y = constants.game.LEVEL_1_SIZE
          
          rows = []
 
@@ -72,6 +73,23 @@ class MainGame(Component):
             rows.append(cols)
         
          return rows
+
+
+    def build_wall(self, layer):
+        for y in range(0, len(layer)):
+           for x in range(0, len(layer[y])):
+              is_wall = False
+              if y == 0 or y == len(layer) - 1:
+                is_wall = True
+
+              if x == 0 or x == len(layer[y]) - 1: 
+                is_wall = True
+                
+              if is_wall:
+                layer[y][x] = components.sprites.wall.Wall(self.sprites_dir)
+
+        return layer
+              
 
     def mount(self):
         atmo = 'level' + str(self.state.level) + '.ogg'

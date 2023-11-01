@@ -121,7 +121,7 @@ class Game:
     def show_fps(self):
         self.fps_counter.get_fps(self.clock)
         self.current_component.render_text(self.fps_counter.get_fps_text(),
-                         (255, 255, 255), constants.headup.FPS_TEXT_POSITION)
+                         (0, 247, 0), constants.headup.FPS_TEXT_POSITION)
 
 
     def change_component(self, component):        
