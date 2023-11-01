@@ -106,7 +106,7 @@ class Game:
 
         if constants.game.SHOW_FPS:
             self.show_fps()
-            
+
         pygame.display.flip()
 
     def show_fps(self):

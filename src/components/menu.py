@@ -1,4 +1,3 @@
-import pygame
 import pygame_menu
 import constants.game
 import components.maingame

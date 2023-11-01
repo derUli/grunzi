@@ -16,6 +16,11 @@ class Character(sprites.sprite.Sprite):
         self.image_direction = self.direction
         self.center_camera = True
 
+        # One tile by second
+        self.walk_speed = 0.3
+        self.sprint_speed = self.walk_speed * 0.2
+        self.last_movement = 0
+
     def draw(self, screen, x, y):
         """ Draw sprite """
         sprite = self.sprite.copy()

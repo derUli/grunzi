@@ -1,5 +1,6 @@
 import pygame
 import os
+import time
 import constants.headup
 import constants.graphics
 import constants.game
@@ -28,6 +29,8 @@ class MainGame(PausableComponent, Component):
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
         self.layers = []
         self.camera_offset = [0, 0]
+        self.moving = None
+        self.running = False
 
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg')
@@ -49,9 +52,11 @@ class MainGame(PausableComponent, Component):
 
         self.layers[0] = self.build_wall(self.layers[0])
 
-        self.layers[1][0][5] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'dont_waste_water.png')
-        
-        self.layers[1][7][18] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'bubblegum.png')
+        self.layers[1][0][5] = sprites.wall.Wall(
+            self.sprites_dir, self.image_cache, 'dont_waste_water.png')
+
+        self.layers[1][7][18] = sprites.wall.Wall(
+            self.sprites_dir, self.image_cache, 'bubblegum.png')
 
         main_character = sprites.character.Character(
             self.sprites_dir, self.image_cache)
@@ -67,12 +72,15 @@ class MainGame(PausableComponent, Component):
 
         self.layers[1][7][8] = raccoon
 
-        fire = sprites.fire.Fire(
+        self.layers[1][0][10] = sprites.fire.Fire(
             self.sprites_dir,
             self.image_cache
         )
 
-        self.layers[1][11][25] = fire
+        self.layers[1][0][11] = sprites.fire.Fire(
+            self.sprites_dir,
+            self.image_cache
+        )
 
         self.layers[1] = self.decorate_flowers(self.layers[1])
 
@@ -105,7 +113,7 @@ class MainGame(PausableComponent, Component):
         return rows
 
     def build_wall(self, layer):
-        
+
         for y in range(0, len(layer)):
             for x in range(0, len(layer[y])):
                 is_wall = False
@@ -153,6 +161,9 @@ class MainGame(PausableComponent, Component):
 
     def update_screen(self, screen):
 
+        if self.moving:
+            self.move_main_character(self.moving)
+
         level_size_fields_width, level_size_fields_height = constants.game.LEVEL_1_SIZE
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
@@ -179,7 +190,6 @@ class MainGame(PausableComponent, Component):
                 from_x = 0
 
             filtered_layers[z] = filtered_layers[z][from_y:to_y]
-
 
             for y in range(0, len(filtered_layers[z])):
                 filtered_layers[z][y] = filtered_layers[z][y][from_x:to_x]
@@ -219,8 +229,18 @@ class MainGame(PausableComponent, Component):
     def handle_event(self, event):
         super().handle_event(event)
 
+        movement_keys = [
+            pygame.K_LEFT,
+            pygame.K_RIGHT,
+            pygame.K_UP,
+            pygame.K_DOWN]
+
         if event.type == pygame.KEYDOWN:
             self.handle_keyboard_event(event)
+        elif event.type == pygame.KEYUP and event.type == pygame.KEYUP and event.key in movement_keys:
+            self.moving = None
+        elif event.type == pygame.KEYUP and event.key == pygame.K_LSHIFT:
+            self.running = False
 
     def handle_keyboard_event(self, event):
         if event.key == pygame.K_F3:
@@ -237,11 +257,27 @@ class MainGame(PausableComponent, Component):
             self.move_main_character(DIRECTION_UP)
         elif event.key == pygame.K_DOWN:
             self.move_main_character(DIRECTION_DOWN)
+        elif event.key == pygame.K_LSHIFT:
+            self.running = True
 
     def move_main_character(self, direction):
         z, y, x = self.search_character(constants.game.MAIN_CHARACTER_ID)
-
         character = self.layers[z][y][x]
+
+        if not self.moving:
+            self.moving = direction
+            character.last_move = 0
+            return
+
+        walk_speed = character.walk_speed
+
+        if self.running:
+            walk_speed = character.sprint_speed
+
+        if time.time() - character.last_move < walk_speed:
+            return
+
+        character.last_move = time.time()
 
         next_x = x
         next_y = y
