@@ -23,6 +23,7 @@ class MainGame(Component):
         self.state = components.state.state.State(self.data_dir)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
         self.layers = []
+        self.camera_offset = [0, 0]
         self.menu = None
 
     def fill_layers(self):
@@ -42,7 +43,6 @@ class MainGame(Component):
 
         raccoon = components.sprites.raccoon.Raccoon(self.sprites_dir)
 
-        
         self.layers[1][7][8] = raccoon
 
 
@@ -96,21 +96,46 @@ class MainGame(Component):
         self.play_music(atmo)
 
         self.fill_layers()
+        
 
     def update_screen(self, screen):
+
+        level_size_fields_width, level_size_fields_height = constants.game.LEVEL_1_SIZE
+        sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
+
+        virtual_screen = pygame.surface.Surface((sprite_width * level_size_fields_width, sprite_height * level_size_fields_height))
+
         for layer in self.layers:
             y = 0
             x = 0
             for row in layer:
                 for col in row:
                     if col:
-                       col.draw(screen, x, y)
+                       px_x, px_y = col.draw(virtual_screen, x, y)
+                          
                     x += 1
 
                 y+= 1
                 x = 0
 
-        self.draw_headup(screen)
+        self.screen.blit(virtual_screen, self.camera_offset)
+
+        self.draw_headup(virtual_screen)
+
+    def update_camera(self, direction):
+
+        sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
+        if direction == DIRECTION_UP:
+            self.camera_offset[1] += sprite_height
+        elif direction == DIRECTION_LEFT:
+            self.camera_offset[0] += sprite_width
+        elif direction == DIRECTION_RIGHT:
+            self.camera_offset[0] -= sprite_width
+        elif direction == DIRECTION_DOWN:
+            self.camera_offset[1] -= sprite_height
+
+        print(direction, self.camera_offset)
+
 
     def handle_event(self, event):
         super().handle_event(event)
@@ -178,6 +203,8 @@ class MainGame(Component):
         if walkable:
             self.layers[z] = self.fill_fallback(None)
             self.layers[z][next_y][next_x] = character
+
+            self.update_camera(direction)
     
     def draw_headup(self, screen):
         self.state.player_state.draw_health(screen)

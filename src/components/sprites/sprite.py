@@ -9,6 +9,8 @@ class Sprite(object):
         self.sprite_dir = sprite_dir
         self.id = None
 
+        self.center_camera = False
+
         if not sprite:
             return
 
@@ -27,6 +29,8 @@ class Sprite(object):
         pos = (width * x, height * y)
 
         screen.blit(self.sprite, pos)
+
+        return pos
 
 
     def handle_interact(self, object):

@@ -9,6 +9,7 @@ class Character(components.sprites.sprite.Sprite):
         self.walkable = False
         self.direction = DIRECTION_RIGHT
         self.image_direction = self.direction
+        self.center_camera = True
 
 
     def draw(self, screen, x, y):
@@ -29,6 +30,8 @@ class Character(components.sprites.sprite.Sprite):
         pos = (width * x, height * y)
 
         screen.blit(sprite, pos)
+
+        return pos
 
     
     def change_direction(self, direction):

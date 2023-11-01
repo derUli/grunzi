@@ -9,6 +9,7 @@ import os
 class Raccoon(components.sprites.character.Character):
     def __init__(self, sprite_dir, sprite = None):
         super().__init__(sprite_dir, 'raccoon.png')
+        self.center_camera = False
 
     def handle_interact(self, object):
         if object.direction == constants.direction.DIRECTION_LEFT:
