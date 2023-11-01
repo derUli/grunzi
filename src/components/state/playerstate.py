@@ -4,19 +4,23 @@ import os
 import utils.audio
 import random
 
+
 class PlayerState():
 
     def __init__(self, data_dir):
         self.health = 100
-        self.health_pig = pygame.image.load(os.path.join(data_dir, 'images', 'ui', 'health.png')).convert_alpha()
+        self.health_pig = pygame.image.load(
+            os.path.join(data_dir, 'images', 'ui',
+                         'health.png')).convert_alpha()
         self.cropped_pig = None
 
         pig_sounds_dir = os.path.join(data_dir, 'sounds', 'pig')
         self.hurt_sounds = []
 
         for i in range(1, 5):
-            self.hurt_sounds.append(os.path.join(pig_sounds_dir, 'pain' + str(i) + '.ogg'))
-            
+            self.hurt_sounds.append(
+                os.path.join(pig_sounds_dir, 'pain' + str(i) + '.ogg'))
+
         self.update_health()
 
     def heal(self):
@@ -26,7 +30,6 @@ class PlayerState():
     def partial_heal(self, health):
         self.health += health
         self.update_health()
-
 
     def hurt(self, health):
         self.health -= health
@@ -53,17 +56,16 @@ class PlayerState():
         new_height = one_percent * self.health
 
         self.cropped_pig = pygame.Surface((width, new_height), pygame.SRCALPHA)
-        self.cropped_pig.blit(self.health_pig, (0,0))
+        self.cropped_pig.blit(self.health_pig, (0, 0))
 
     def draw_health(self, screen):
         text = str(self.health).ljust(3, ' ')
         pig_width = self.cropped_pig.get_width()
-        
+
         pos = [
-            screen.get_width() - pig_width - constants.headup.HEALTH_PIG_POSITION[0],
+            screen.get_width() - pig_width -
+            constants.headup.HEALTH_PIG_POSITION[0],
             constants.headup.HEALTH_PIG_POSITION[1],
         ]
-        
-        screen.blit(self.cropped_pig, pos)
 
-    
+        screen.blit(self.cropped_pig, pos)

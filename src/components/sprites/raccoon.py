@@ -6,8 +6,10 @@ import pygame
 import utils.audio
 import os
 
+
 class Raccoon(components.sprites.character.Character):
-    def __init__(self, sprite_dir, cache, sprite = None):
+
+    def __init__(self, sprite_dir, cache, sprite=None):
         super().__init__(sprite_dir, cache, 'raccoon.png')
         self.center_camera = False
 
@@ -17,5 +19,6 @@ class Raccoon(components.sprites.character.Character):
         elif object.direction == constants.direction.DIRECTION_RIGHT:
             self.change_direction(constants.direction.DIRECTION_LEFT)
 
-        sound_dir = os.path.abspath(os.path.join(self.sprite_dir, '..', '..', 'sounds', 'kiss.ogg'))
+        sound_dir = os.path.abspath(
+            os.path.join(self.sprite_dir, '..', '..', 'sounds', 'kiss.ogg'))
         utils.audio.play_sound(sound_dir)

@@ -2,6 +2,7 @@
 
 import time
 
+
 class FPSCounter:
     """ Stores the FPS values to diplay the current framerate """
 

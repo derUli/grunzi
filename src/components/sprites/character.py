@@ -3,15 +3,15 @@ from constants.direction import *
 import components.sprites.sprite
 import pygame
 
+
 class Character(components.sprites.sprite.Sprite):
-    def __init__(self, sprite_dir, cache, sprite = 'pig.png'):
+
+    def __init__(self, sprite_dir, cache, sprite='pig.png'):
         super().__init__(sprite_dir, cache, sprite)
         self.walkable = False
         self.direction = DIRECTION_RIGHT
         self.image_direction = self.direction
         self.center_camera = True
-
-
 
     def draw(self, screen, x, y):
 
@@ -20,7 +20,7 @@ class Character(components.sprites.sprite.Sprite):
         flip_x = False
         flip_y = False
 
-        if(self.image_direction == DIRECTION_LEFT):
+        if (self.image_direction == DIRECTION_LEFT):
             flip_x = True
 
         sprite = pygame.transform.flip(sprite, flip_x, flip_y)
@@ -31,7 +31,6 @@ class Character(components.sprites.sprite.Sprite):
 
         return pos
 
-    
     def change_direction(self, direction):
         self.direction = direction
         if direction in [DIRECTION_LEFT, DIRECTION_RIGHT]:
