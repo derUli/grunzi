@@ -5,6 +5,7 @@ import pygame_menu
 import utils.savegame
 import utils.image
 
+
 class GameOver(Component):
 
     def __init__(self, data_dir, handle_change_component):
@@ -13,15 +14,16 @@ class GameOver(Component):
         self.menu = None
 
         file = os.path.join(data_dir, 'images', 'menu', 'gameover.jpg')
-        
+
         self.backdrop = self.image_cache.load_image(file)
 
     def draw_background(self):
-        self.screen.blit(self.backdrop, (0,0))
+        self.screen.blit(self.backdrop, (0, 0))
 
     # Todo refactor to own class
     def update_screen(self, screen):
-        self.backdrop = pygame.transform.scale(self.backdrop, screen.get_size())
+        self.backdrop = pygame.transform.scale(
+            self.backdrop, screen.get_size())
         menu = pygame_menu.Menu(height=300,
                                 theme=pygame_menu.themes.THEME_BLUE,
                                 title='Game Over',

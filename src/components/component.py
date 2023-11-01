@@ -5,6 +5,7 @@ import constants.headup
 import utils.audio
 import utils.image
 
+
 class Component(object):
 
     def __init__(self, data_dir, handle_change_component):
@@ -20,7 +21,8 @@ class Component(object):
         self.skybox_image = pygame.image.load(
             os.path.join(data_dir, 'images', 'menu', 'sky.jpg')).convert_alpha()
 
-        self.skybox_image = pygame.transform.scale(self.skybox_image, (constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT))
+        self.skybox_image = pygame.transform.scale(
+            self.skybox_image, (constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT))
         self.skybox_positions = [
             (0.0, 0.0),
             (float(self.skybox_image.get_width()), 0.0),

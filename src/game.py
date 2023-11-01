@@ -4,7 +4,6 @@
     Initialized the base of the game
 """
 import os
-import time
 import signal
 import pygame
 from pygame.locals import QUIT
@@ -14,7 +13,7 @@ import constants.sound
 import utils.audio
 from utils.fps_counter import FPSCounter
 import components.menu
-from utils.path import get_userdata_path
+from utils.screenshot import make_screenshot
 
 
 class Game:
@@ -22,6 +21,8 @@ class Game:
 
     def __init__(self):
         """ Constructor """
+        pygame.mixer.pre_init(44100, 16, 2, 4096)
+
         pygame.init()
 
         self.screen = None
@@ -46,7 +47,7 @@ class Game:
         flags = pygame.SCALED
 
         if self.fullscreen:
-            flags = flags | pygame.FULLSCREEN
+            flags = flags | pygame.FULLSCREEN | pygame.SCALED
 
         self.screen = pygame.display.set_mode(
             [constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT],
@@ -92,17 +93,8 @@ class Game:
 
     def screenshot(self):
         """ Save a screenshot  """
-        # TODO store in home dir
-
-        screenshot_dir = os.path.join(get_userdata_path(), 'screenshots')
-
-        if not os.path.exists(screenshot_dir):
-            os.makedirs(screenshot_dir)
-
-        screenshot_file = os.path.join(screenshot_dir,
-                                       time.strftime("%Y%m%d-%H%M%S") + '.jpg')
-
-        pygame.image.save(self.screen, screenshot_file)
+        make_screenshot(self.screen)
+        pygame.image.save(screen, screenshot_file)
         camera_sound = os.path.join(self.data_dir, 'sounds', 'screenshot.ogg')
         utils.audio.play_sound(camera_sound)
 
@@ -117,10 +109,8 @@ class Game:
 
         if constants.game.SHOW_FPS:
             self.show_fps()
-
-        # Updating the display surface
-        pygame.display.update()
-        # pygame.display.flip()
+            
+        pygame.display.flip()
 
     def show_fps(self):
         """ Show fps """

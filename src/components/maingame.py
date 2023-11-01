@@ -17,6 +17,7 @@ import utils.savegame
 import random
 import math
 
+
 class MainGame(PausableComponent, Component):
 
     def __init__(self, data_dir, handle_change_component):
@@ -27,6 +28,12 @@ class MainGame(PausableComponent, Component):
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
         self.layers = []
         self.camera_offset = [0, 0]
+
+        background_file = os.path.join(
+            self.sprites_dir, 'backdrops', 'landscape.jpg')
+        self.backdrop = pygame.image.load(background_file).convert_alpha()
+        self.backdrop = pygame.transform.scale(
+            self.backdrop, (constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT))
 
     def load_savegame(self):
         utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
@@ -49,23 +56,21 @@ class MainGame(PausableComponent, Component):
         self.layers[2][6][4] = main_character
 
         self.camera_offset = (6, 4)
+        self.update_camera()
 
         raccoon = sprites.raccoon.Raccoon(self.sprites_dir,
                                           self.image_cache)
 
         self.layers[1][7][8] = raccoon
 
-        
         fire = sprites.fire.Fire(
             self.sprites_dir,
             self.image_cache
-           )
+        )
 
         self.layers[1][11][25] = fire
 
-
         self.layers[1] = self.decorate_flowers(self.layers[1])
-
 
     def search_character(self, id):
         for z in range(0, len(self.layers)):
@@ -111,11 +116,10 @@ class MainGame(PausableComponent, Component):
 
         return layer
 
-
     def decorate_flowers(self, layer):
         for y in range(0, len(layer)):
             for x in range(0, len(layer[y])):
-                
+
                 layers_count = len(self.layers)
 
                 walkable = True
@@ -144,7 +148,9 @@ class MainGame(PausableComponent, Component):
 
         virtual_screen = pygame.surface.Surface(screen.get_size())
 
-        tolerance_x = math.floor(self.screen.get_width() / sprite_width)
+        virtual_screen.blit(self.backdrop, (0, 0))
+
+        tolerance_x = math.floor(self.screen.get_width() / sprite_width) 
         tolerance_y = math.floor(self.screen.get_height() / sprite_height)
 
         filtered_layers = list(self.layers)
@@ -164,10 +170,11 @@ class MainGame(PausableComponent, Component):
 
             filtered_layers[z] = filtered_layers[z][from_y:to_y]
 
+            print(len(filtered_layers[z]))
+
+
             for y in range(0, len(filtered_layers[z])):
                 filtered_layers[z][y] = filtered_layers[z][y][from_x:to_x]
-            
-            print('y from, y to', from_y, from_y)
 
         for layer in filtered_layers:
             y = 0
@@ -182,9 +189,7 @@ class MainGame(PausableComponent, Component):
                 y += 1
                 x = 0
 
-        self.update_skybox()
-
-        self.screen.blit(virtual_screen, (0,0))
+        self.screen.blit(virtual_screen, (0, 0))
 
         self.draw_headup(self.screen)
 
@@ -192,17 +197,16 @@ class MainGame(PausableComponent, Component):
             component = self.handle_change_component(GameOver)
             component.state = self.state
 
-    def update_camera(self, direction):
+    def update_camera(self):
         z, y, x = self.search_character(constants.game.MAIN_CHARACTER_ID)
 
         if x < 0:
             x = 0
-            
+
         if y < 0:
             y = 0
 
         self.camera_offset = [x, y]
-        
 
     def handle_event(self, event):
         super().handle_event(event)
@@ -272,7 +276,7 @@ class MainGame(PausableComponent, Component):
             self.layers[z] = self.fill_fallback(None)
             self.layers[z][next_y][next_x] = character
 
-            self.update_camera(direction)
+            self.update_camera()
 
     def draw_headup(self, screen):
         self.state.player_state.draw_health(screen)

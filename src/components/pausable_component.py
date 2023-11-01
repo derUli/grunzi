@@ -2,6 +2,7 @@ import pygame
 import pygame_menu
 import utils.savegame
 
+
 class PausableComponent():
 
     # Todo refactor to own class

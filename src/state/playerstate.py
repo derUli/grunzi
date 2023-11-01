@@ -48,7 +48,6 @@ class PlayerState():
         if self.health > 99:
             self.health = 100
 
-
         self.crop_pig()
 
     def crop_pig(self):
