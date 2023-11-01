@@ -1,4 +1,4 @@
-from components.state.playerstate import PlayerState
+from state.playerstate import PlayerState
 
 
 class State:

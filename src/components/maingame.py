@@ -4,7 +4,7 @@ import pygame_menu
 import constants.headup
 import constants.graphics
 import constants.game
-import components.state.state
+import state.state
 import components.sprites.backdrop
 import components.sprites.character
 import components.sprites.wall
@@ -22,7 +22,7 @@ class MainGame(Component):
     def __init__(self, data_dir, handle_change_component):
         super().__init__(data_dir, handle_change_component)
 
-        self.state = components.state.state.State(self.data_dir)
+        self.state = state.state.State(self.data_dir)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
         self.layers = []
         self.camera_offset = [0, 0]
