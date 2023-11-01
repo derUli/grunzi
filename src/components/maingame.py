@@ -25,6 +25,7 @@ class MainGame(Component):
         self.layers = []
         self.camera_offset = [0, 0]
         self.menu = None
+        self.virtual_screen = None
 
     def fill_layers(self):
         # Three layers
@@ -99,12 +100,19 @@ class MainGame(Component):
         
 
     def update_screen(self, screen):
+
         level_size_fields_width, level_size_fields_height = constants.game.LEVEL_1_SIZE
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
-        virtual_screen = pygame.surface.Surface((sprite_width * level_size_fields_width, sprite_height * level_size_fields_height))
+        if self.virtual_screen:
+           virtual_screen = self.virtual_screen            
+        else:
+           virtual_screen = pygame.surface.Surface((sprite_width * level_size_fields_width, sprite_height * level_size_fields_height))
+
 
         for layer in self.layers:
+            if self.virtual_screen:
+                continue
             y = 0
             x = 0
             for row in layer:
@@ -118,7 +126,10 @@ class MainGame(Component):
                 x = 0
 
         self.update_skybox()
+        self.virtual_screen = virtual_screen
+
         self.screen.blit(virtual_screen, self.camera_offset)
+        
         self.draw_headup(self.screen)
 
     def update_camera(self, direction):
@@ -133,7 +144,10 @@ class MainGame(Component):
         elif direction == DIRECTION_DOWN:
             self.camera_offset[1] -= sprite_height
 
-        print(direction, self.camera_offset)
+        self.refresh()
+
+    def refresh(self):
+        self.virtual_screen = None
 
 
     def handle_event(self, event):
@@ -204,11 +218,12 @@ class MainGame(Component):
             self.layers[z][next_y][next_x] = character
 
             self.update_camera(direction)
+
+        self.refresh()
     
     def draw_headup(self, screen):
         self.state.player_state.draw_health(screen)
     
-
     def continue_game(self):
         self.menu.disable()
 
