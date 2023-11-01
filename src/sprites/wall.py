@@ -1,6 +1,7 @@
 """ Wall sprite """
 from sprites.sprite import Sprite
 
+
 class Wall(Sprite):
     """ Wall sprite class """
 
