@@ -149,7 +149,6 @@ class MainGame(Component):
     def refresh(self):
         self.virtual_screen = None
 
-
     def handle_event(self, event):
         super().handle_event(event)
 
