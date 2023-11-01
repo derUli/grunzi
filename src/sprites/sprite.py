@@ -13,6 +13,7 @@ class Sprite():
         self.walkable = True
         self.sprite_dir = sprite_dir
         self.id = None
+        self.state = None
 
         self.center_camera = False
 

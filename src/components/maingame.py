@@ -61,6 +61,7 @@ class MainGame(PausableComponent, Component):
         main_character = sprites.character.Character(
             self.sprites_dir, self.image_cache)
         main_character.id = constants.game.MAIN_CHARACTER_ID
+        main_character.state = self.state.player_state
 
         self.layers[2][4][3] = main_character
 

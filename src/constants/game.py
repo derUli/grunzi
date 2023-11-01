@@ -1,6 +1,6 @@
 """ General game constants """
-SCREEN_WIDTH = 1280
-SCREEN_HEIGHT = 720
+SCREEN_WIDTH = 1920
+SCREEN_HEIGHT = 1080
 FPS_LIMIT = 0  # 0 means Unlimited
 WINDOW_CAPTION = 'My Game'
 GAMEDIR_NAME = 'my_game'
@@ -11,4 +11,4 @@ FULLSCREEN = True
 SHOW_FPS = True
 MAIN_CHARACTER_ID = 'grunzi'
 
-LEVEL_1_SIZE = (100, 100)
+LEVEL_1_SIZE = (150, 150)

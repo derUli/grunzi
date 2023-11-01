@@ -40,7 +40,6 @@ class Fire(sprites.character.Character):
         self.current_frame = 0
 
     def draw(self, screen, x, y):
-
         current_frame = self.frames[self.current_frame]
         pos = self.calculate_pos(x, y)
 
@@ -58,3 +57,7 @@ class Fire(sprites.character.Character):
         self.last_refresh = time.time()
 
         self.current_frame = next_frame
+
+    def handle_interact(self, element):
+        if element and element.state:
+            element.state.hurt(15)
