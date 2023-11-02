@@ -25,9 +25,10 @@ class Game:
 
     def __init__(self):
         """ Constructor """
-        pygame.mixer.pre_init(44100, 16, 2, 4096)
-
+        pygame.mixer.pre_init(
+            44100, 16, 2, 4096)  # For better and faster audio
         pygame.init()
+        pygame.display.set_allow_screensaver(False)  # Disable screensavers
 
         self.screen = None
         self.fps_counter = FPSCounter()
