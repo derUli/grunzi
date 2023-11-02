@@ -5,8 +5,9 @@ import os
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = False
-SETTINGS_DEFAULT_VOLUME = 1.0
-SETTINGS_SHOW_FPS_DEFAULT = True
+SETTINGS_DEFAULT_VOLUME = 0.8
+SETTINGS_SHOW_FPS_DEFAULT = False
+
 
 class SettingsState:
     def __init__(self, handle_settings_change):
@@ -27,7 +28,7 @@ class SettingsState:
         if self.fullscreen != self.old_fullscreen:
             pygame.display.toggle_fullscreen()
             self.old_fullscreen = self.fullscreen
-        
+
         # Music volume
         pygame.mixer.music.set_volume(self.music_volume)
 
@@ -38,10 +39,24 @@ class SettingsState:
     def get_settings_path(self):
         return os.path.join(get_userdata_path(), 'settings.json')
 
+    def from_json(self, jsons):
+        return json.loads(jsons)
+
+    def load(self):
+        if not os.path.exists(self.get_settings_path()):
+            return False
+
+        with open(self.get_settings_path(), 'r') as f:
+            jsons = f.read()
+            jsond = self.from_json(jsons)
+            self.from_dict(jsond)
+
+        return True
+
     def save(self):
         if not os.path.exists(get_userdata_path()):
             os.makedirs(get_userdata_path())
-        
+
         with open(self.get_settings_path(), 'w') as f:
             f.write(self.to_json())
 
@@ -57,11 +72,11 @@ class SettingsState:
 
     def from_dict(self, settings):
         if 'fullscreen' in settings:
-            self.fullscreen = settings.fullscreen
-            self.old_fullscreen = settings.fullscreen
+            self.fullscreen = settings['fullscreen']
+            self.old_fullscreen = settings['fullscreen']
 
         if 'show_fps' in settings:
-            self.show_fps = settings.show_fps
-        
+            self.show_fps = settings['show_fps']
+
         if 'music_volume' in settings:
-            self.music_volume = settings.volume
+            self.music_volume = settings['music_volume']

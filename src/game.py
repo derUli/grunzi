@@ -40,6 +40,11 @@ class Game:
 
     def start(self):
         """ Start game """
+
+        # Load settings from file
+        # IF no settings file exists create it
+        if not self.settings_state.load():
+            self.settings_state.save()
         self.settings_state.apply()
         self.init_screen()
         self.change_component(components.menu.Menu)

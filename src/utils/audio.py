@@ -1,5 +1,4 @@
 import pygame
-import constants.sound
 
 
 def play_sound(file):
