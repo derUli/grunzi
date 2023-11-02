@@ -9,4 +9,9 @@ class SettingsState:
 
     def reset_defaults(self):
         self.fullscreen = False
-        self.show_fps = False
+        self.show_fps = True
+
+    def apply(self):
+        if self.fullscreen != self.old_fullscreen:
+            pygame.display.toggle_fullscreen()
+            self.old_fullscreen = self.fullscreen

@@ -256,12 +256,14 @@ class MainGame(PausableComponent, Component):
     def handle_event(self, event):
         super().handle_event(event)
 
-        if event.type == pygame.KEYDOWN:
-            self.handle_keyboard_event(event)
-        elif event.type == pygame.KEYUP and event.type == pygame.KEYUP and event.key in MOVEMENT_KEYS:
+        
+        if event.type == pygame.KEYUP and event.type == pygame.KEYUP and event.key in MOVEMENT_KEYS:
             self.moving = None
         elif event.type == pygame.KEYUP and event.key == pygame.K_LSHIFT:
             self.running = False
+
+        if event.type == pygame.KEYDOWN:
+            self.handle_keyboard_event(event)
 
     def handle_keyboard_event(self, event):
         if event.key == pygame.K_F5:
