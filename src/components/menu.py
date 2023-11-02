@@ -6,6 +6,7 @@ from components.component import Component
 import utils.savegame
 import gettext
 from utils.animation import Animation
+from utils.menu import make_menu
 import os
 import pygame
 
@@ -59,11 +60,7 @@ class Menu(Component):
         self.screen.blit(self.video.get_frame(), (0, 0))
 
     def draw_menu(self, screen):
-        menu = pygame_menu.Menu(height=300,
-                                theme=pygame_menu.themes.THEME_BLUE,
-                                title=constants.game.WINDOW_CAPTION,
-                                width=screen.get_width() / 3)
-
+        menu = make_menu(_('Grunzi'), screen)
         menu.add.button(_('New Game'), self.handle_new_game)
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
             menu.add.button(

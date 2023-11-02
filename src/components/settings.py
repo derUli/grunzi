@@ -5,9 +5,9 @@ import gettext
 from utils.animation import Animation
 import os
 import pygame
+from utils.menu import make_menu
 
 _ = gettext.gettext
-
 
 class Settings(Component):
 
@@ -46,10 +46,7 @@ class Settings(Component):
         pygame.display.toggle_fullscreen()
 
     def draw_menu(self, screen):
-        menu = pygame_menu.Menu(height=300,
-                                theme=pygame_menu.themes.THEME_BLUE,
-                                title=constants.game.WINDOW_CAPTION,
-                                width=screen.get_width() / 3)
+        menu = make_menu(_('Settings'), screen)
 
         menu.add.button(_('Toggle Fullscreen'), self.handle_toggle_fullscreen)
         menu.add.button(_('Back To Main Menu'), self.handle_back)

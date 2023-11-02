@@ -4,8 +4,10 @@ from components.component import Component
 import pygame_menu
 import utils.savegame
 import utils.image
+import gettext
+from utils.menu import make_menu
 
-
+_ = gettext.gettext
 class GameOver(Component):
 
     def __init__(self, data_dir, handle_change_component):
@@ -32,10 +34,8 @@ class GameOver(Component):
     def update_screen(self, screen):
         self.backdrop = pygame.transform.smoothscale(
             self.backdrop, screen.get_size())
-        menu = pygame_menu.Menu(height=300,
-                                theme=pygame_menu.themes.THEME_BLUE,
-                                title='Game Over',
-                                width=400)
+        
+        menu = make_menu(_('Game Over'), screen)
 
         if utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state):
             menu.add.button('Load Game', self.load_game)  # Load save game

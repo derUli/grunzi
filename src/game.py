@@ -6,6 +6,7 @@
 import os
 import signal
 import pygame
+import gettext
 from pygame.locals import QUIT
 import constants.game
 import constants.headup
@@ -15,8 +16,7 @@ from utils.fps_counter import FPSCounter
 import components.menu
 from utils.screenshot import make_screenshot
 
-os.environ["windib"] = "directx"
-
+_ = gettext.gettext
 
 class Game:
     """ Main game class """
@@ -56,7 +56,7 @@ class Game:
             flags,
             vsync=int(constants.game.VSYNC))
 
-        pygame.display.set_caption(constants.game.WINDOW_CAPTION)
+        pygame.display.set_caption(_('Grunzi'))
 
         if self.current_component:
             self.current_component.set_screen(self.screen)

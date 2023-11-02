@@ -2,6 +2,7 @@ import pygame
 import pygame_menu
 import utils.savegame
 import gettext
+from utils.menu import make_menu
 
 _ = gettext.gettext
 
@@ -14,10 +15,7 @@ class PausableComponent():
         self.last_screen = self.screen.copy().convert_alpha()
         self.last_screen.set_alpha(100)
 
-        menu = pygame_menu.Menu(height=300,
-                                theme=pygame_menu.themes.THEME_BLUE,
-                                title='Pause menu',
-                                width=self.screen.get_width() / 3)
+        menu = make_menu(_('Pause'), self.screen)
 
         menu.add.button(
             _('Continue'),
