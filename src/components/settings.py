@@ -1,13 +1,12 @@
-import pygame_menu
 import constants.game
 from components.component import Component
 import gettext
 from utils.animation import Animation
 import os
-import pygame
 from utils.menu import make_menu
 
 _ = gettext.gettext
+
 
 class Settings(Component):
 

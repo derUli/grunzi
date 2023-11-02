@@ -1,4 +1,4 @@
-from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT
+from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 import pygame
 import os
 import utils.audio
@@ -15,12 +15,12 @@ class PlayerState():
         self.health_pig = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
                          'health.png')
-            ).convert_alpha()
-            
+        ).convert_alpha()
+
         self.inventory_image = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
                          'inventory.png')
-            ).convert_alpha()
+        ).convert_alpha()
 
         self.cropped_pig = None
 
@@ -66,7 +66,8 @@ class PlayerState():
         one_percent = height / 100
         new_height = one_percent * self.health
 
-        self.cropped_pig = pygame.surface.Surface((width, new_height), pygame.SRCALPHA)
+        self.cropped_pig = pygame.surface.Surface(
+            (width, new_height), pygame.SRCALPHA)
         self.cropped_pig.blit(self.health_pig, (0, 0))
 
     def draw(self, screen):
@@ -75,24 +76,23 @@ class PlayerState():
         self.draw_inventory(screen)
 
     def draw_health(self, screen):
-        surface = self.cropped_pig
+        surface = self.health_pig
 
         x, y = screen.get_size()
-
         x = x - surface.get_width() - UI_MARGIN
         y = y - surface.get_height() - UI_MARGIN
 
-        screen.blit(surface, (x, y))
+        screen.blit(self.cropped_pig, (x, y))
 
-    def draw_background(self,screen):
+    def draw_background(self, screen):
         w = screen.get_width()
         h = BOTTOM_UI_HEIGHT
 
         x = 0
-        y -= screen.get_size() - h
+        y = screen.get_height() - h
         surface = pygame.surface.Surface((w, h))
 
-        surface.fill((255,0,0))
+        surface.fill(BOTTOM_UI_BACKGROUND)
 
         screen.blit(surface, (x, y))
 
@@ -101,9 +101,9 @@ class PlayerState():
 
         surface = pygame.surface.Surface(size)
 
-        #surface.set_alpha(0)
+        # surface.set_alpha(0)
 
-        surface.blit(self.inventory_image, (0,0))
+        surface.blit(self.inventory_image, (0, 0))
 
         x, y = screen.get_size()
 
@@ -111,4 +111,3 @@ class PlayerState():
         y = y - surface.get_height() - UI_MARGIN
 
         screen.blit(surface, (x, y))
-        

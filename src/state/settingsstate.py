@@ -1,5 +1,6 @@
 import pygame
 
+
 class SettingsState:
     def __init__(self, handle_settings_change):
         self.show_fps = True

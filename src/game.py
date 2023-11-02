@@ -19,6 +19,7 @@ from utils.screenshot import make_screenshot
 
 _ = gettext.gettext
 
+
 class Game:
     """ Main game class """
 
@@ -45,7 +46,6 @@ class Game:
         signal.signal(signal.SIGTERM, self.quit)
         self.main_loop()
 
-
     def handle_settings_change(self):
         self.settings_state.apply()
 
@@ -60,18 +60,16 @@ class Game:
 
         if not self.screen:
             self.screen = pygame.display.set_mode(
-               constants.game.SCREEN_SIZE,
-               flags,
-               vsync=int(constants.game.VSYNC))
+                constants.game.SCREEN_SIZE,
+                flags,
+                vsync=int(constants.game.VSYNC))
 
             pygame.display.set_caption(_('Grunzi'))
-
 
     def toggle_fullscreen(self):
         """ Toggle fullscreen mode """
         self.settings_state.fullscreen = not self.settings_state.fullscreen
         pygame.display.toggle_fullscreen()
-
 
     def main_loop(self):
         """ Pygame MainLoop """

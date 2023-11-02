@@ -2,7 +2,8 @@
 from sprites.sprite import Sprite
 import pygame
 import os
-import constants.game
+from constants.game import SCREEN_SIZE
+from constants.headup import BOTTOM_UI_HEIGHT
 
 
 class Detailed(Sprite):
@@ -17,5 +18,9 @@ class Detailed(Sprite):
     def handle_interact(self, element):
         element.state.show_detailed = pygame.image.load(
             self.detailed).convert_alpha()
+
+        x, y = SCREEN_SIZE
+        y -= BOTTOM_UI_HEIGHT
         element.state.show_detailed = pygame.transform.smoothscale(
-            element.state.show_detailed, (constants.game.SCREEN_SIZE))
+            element.state.show_detailed, (x, y)
+        )

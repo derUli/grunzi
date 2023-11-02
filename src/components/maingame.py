@@ -259,7 +259,6 @@ class MainGame(PausableComponent, Component):
     def handle_event(self, event):
         super().handle_event(event)
 
-        
         if event.type == pygame.KEYUP and event.type == pygame.KEYUP and event.key in MOVEMENT_KEYS:
             self.moving = None
         elif event.type == pygame.KEYUP and event.key == pygame.K_LSHIFT:

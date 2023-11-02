@@ -1,5 +1,4 @@
 import pygame
-import pygame_menu
 import utils.savegame
 import gettext
 from utils.menu import make_menu
