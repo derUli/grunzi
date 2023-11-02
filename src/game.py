@@ -64,6 +64,7 @@ class Game:
     def toggle_fullscreen(self):
         """ Toggle fullscreen mode """
         pygame.display.toggle_fullscreen()
+        self.fullscreen = not self.fullscreen
 
     def main_loop(self):
         """ Pygame MainLoop """
