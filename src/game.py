@@ -114,7 +114,7 @@ class Game:
 
         self.current_component.update_screen(self.screen)
 
-        if constants.game.SHOW_FPS:
+        if self.settings_state.show_fps:
             self.show_fps()
 
         pygame.display.flip()

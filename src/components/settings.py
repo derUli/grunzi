@@ -43,9 +43,17 @@ class Settings(Component):
     def draw_background(self):
         self.screen.blit(self.video.get_frame(), (0, 0))
 
+    def handle_show_fps(self):
+        self.settings_state.show_fps = not self.settings_state.show_fps
+        self.settings_state.apply()
+        self.refresh_menu()
+
     def handle_toggle_fullscreen(self):
         self.settings_state.fullscreen = not self.settings_state.fullscreen
         self.settings_state.apply()
+        self.refresh_menu()
+
+    def refresh_menu(self):
         self.menu.disable()
         self.draw_menu(self.screen)
 
@@ -60,6 +68,16 @@ class Settings(Component):
             fullscreen_text += _('Window')
 
         menu.add.button(fullscreen_text, self.handle_toggle_fullscreen)
+
+        show_fps_text = _('Show FPS: ')
+
+        if self.settings_state.show_fps:
+            show_fps_text += _('On')
+        else:
+            show_fps_text += _('Off')
+
+        menu.add.button(show_fps_text, self.handle_show_fps)
+
         menu.add.button(_('Back To Main Menu'), self.handle_back)
 
         self.menu = menu

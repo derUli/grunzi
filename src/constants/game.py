@@ -7,7 +7,6 @@ GAMEDIR_NAME = 'my_game'
 MONOTYPE_FONT = 'monotype.ttf'
 DEBUG_OUTPUT_FONT_SIZE = 12
 VSYNC = False
-SHOW_FPS = True
 MAIN_CHARACTER_ID = 'grunzi'
 
 LEVEL_1_SIZE = (150, 150)
