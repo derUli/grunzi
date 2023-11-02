@@ -1,6 +1,7 @@
 """ General game constants """
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
+SCREEN_SIZE = (SCREEN_WIDTH, SCREEN_HEIGHT)
 FPS_LIMIT = 0  # 0 means Unlimited
 WINDOW_CAPTION = 'My Game'
 GAMEDIR_NAME = 'my_game'

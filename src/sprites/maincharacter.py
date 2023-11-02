@@ -18,3 +18,9 @@ class MainCharacter(Character):
         self.sprint_speed = self.walk_speed * 0.2
         self.last_movement = 0
         self.id = constants.game.MAIN_CHARACTER_ID
+
+    def draw(self, screen, x, y):
+        super().draw(screen, x, y)
+
+        if self.state.show_detailed:
+            screen.blit(self.state.show_detailed, (0, 0))

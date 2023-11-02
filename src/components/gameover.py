@@ -21,6 +21,10 @@ class GameOver(Component):
         # CREDITS: https://audionautix.com/creative-commons-music
         self.play_music('gameover.ogg', 0)
 
+    def unmount(self):
+        pygame.mouse.set_visible(1)
+        pygame.mixer.music.stop()
+
     def draw_background(self):
         self.screen.blit(self.backdrop, (0, 0))
 

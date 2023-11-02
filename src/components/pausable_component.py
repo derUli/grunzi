@@ -49,6 +49,6 @@ class PausableComponent():
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             self.pause_menu()
-            return
+            return True
 
-        super().handle_event(event)
+        return super().handle_event(event)

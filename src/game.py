@@ -52,7 +52,7 @@ class Game:
             flags = flags | pygame.FULLSCREEN | pygame.SCALED
 
         self.screen = pygame.display.set_mode(
-            [constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT],
+            constants.game.SCREEN_SIZE,
             flags,
             vsync=int(constants.game.VSYNC))
 

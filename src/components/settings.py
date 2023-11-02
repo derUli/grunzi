@@ -1,7 +1,6 @@
 import pygame_menu
 import constants.game
 from components.component import Component
-import utils.savegame
 import gettext
 from utils.animation import Animation
 import os
@@ -27,7 +26,7 @@ class Settings(Component):
         self.video = Animation(
             video_path,
             refresh_interval=1 / 25,
-            size=(constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT),
+            size=constants.game.SCREEN_SIZE,
             async_load=True
         )
         self.menu = None
@@ -53,11 +52,7 @@ class Settings(Component):
                                 width=screen.get_width() / 3)
 
         menu.add.button(_('Toggle Fullscreen'), self.handle_toggle_fullscreen)
-
-
         menu.add.button(_('Back To Main Menu'), self.handle_back)
-
-        menu.add.button(_('Quit'), pygame_menu.events.EXIT)
 
         self.menu = menu
         menu.mainloop(screen, self.draw_background)

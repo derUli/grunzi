@@ -17,7 +17,6 @@ class Menu(Component):
     def __init__(self, data_dir, handle_change_component):
         """ Constructor """
         super().__init__(data_dir, handle_change_component)
-        
 
         video_path = os.path.join(
             data_dir,
@@ -29,7 +28,7 @@ class Menu(Component):
         self.video = Animation(
             video_path,
             refresh_interval=1 / 25,
-            size=(constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT),
+            size=constants.game.SCREEN_SIZE,
             async_load=True
         )
         self.menu = None
@@ -37,7 +36,6 @@ class Menu(Component):
     def mount(self):
         if not pygame.mixer.music.get_busy():
             self.play_music('menu.ogg')
-
 
     def update_screen(self, screen):
         self.draw_menu(self.screen)
@@ -72,7 +70,6 @@ class Menu(Component):
                 _('Continue'),
                 self.handle_continue_game)  # Continue game
 
-                
         menu.add.button(_('Settings'), self.handle_settings)
 
         menu.add.button(_('Quit'), pygame_menu.events.EXIT)

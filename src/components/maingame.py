@@ -10,6 +10,7 @@ import sprites.maincharacter
 import sprites.fire
 import sprites.wall
 import sprites.raccoon
+import sprites.detailed
 from components.pausable_component import PausableComponent
 from components.component import Component
 from components.gameover import GameOver
@@ -17,6 +18,20 @@ from constants.direction import *
 import utils.savegame
 import random
 import math
+
+MOVEMENT_KEYS = [
+    pygame.K_LEFT,
+    pygame.K_RIGHT,
+    pygame.K_UP,
+    pygame.K_DOWN
+]
+
+CONFIRM_KEYS = [
+    pygame.K_SPACE,
+    pygame.K_RETURN,
+]
+
+DISCARD_KEYS = MOVEMENT_KEYS + CONFIRM_KEYS
 
 
 class MainGame(PausableComponent, Component):
@@ -36,7 +51,7 @@ class MainGame(PausableComponent, Component):
             self.sprites_dir, 'backdrops', 'landscape.jpg')
         self.backdrop = pygame.image.load(background_file).convert_alpha()
         self.backdrop = pygame.transform.smoothscale(
-            self.backdrop, (constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT))
+            self.backdrop, constants.game.SCREEN_SIZE)
 
     def load_savegame(self):
         utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
@@ -52,18 +67,21 @@ class MainGame(PausableComponent, Component):
 
         self.layers[0] = self.build_wall(self.layers[0])
 
-        self.layers[1][0][5] = sprites.wall.Wall(
+        self.layers[1][0][5] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'dont_waste_water.png')
 
-        self.layers[1][8][0] = sprites.wall.Wall(
+        self.layers[1][8][0] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'sunset.png')
 
-        main_character = sprites.maincharacter.Character(
+        self.layers[1][3][4] = sprites.detailed.Detailed(
+            self.sprites_dir, self.image_cache, 'bubblegum.png')
+
+        main_character = sprites.maincharacter.MainCharacter(
             self.sprites_dir, self.image_cache)
         main_character.id = constants.game.MAIN_CHARACTER_ID
         main_character.state = self.state.player_state
 
-        self.layers[2][30][3] = main_character
+        self.layers[2][5][3] = main_character
 
         self.camera_offset = (5, 3)
         self.update_camera()
@@ -166,6 +184,7 @@ class MainGame(PausableComponent, Component):
 
     def unmount(self):
         pygame.mouse.set_visible(1)
+        pygame.mixer.music.stop()
 
     def update_screen(self, screen):
 
@@ -237,15 +256,9 @@ class MainGame(PausableComponent, Component):
     def handle_event(self, event):
         super().handle_event(event)
 
-        movement_keys = [
-            pygame.K_LEFT,
-            pygame.K_RIGHT,
-            pygame.K_UP,
-            pygame.K_DOWN]
-
         if event.type == pygame.KEYDOWN:
             self.handle_keyboard_event(event)
-        elif event.type == pygame.KEYUP and event.type == pygame.KEYUP and event.key in movement_keys:
+        elif event.type == pygame.KEYUP and event.type == pygame.KEYUP and event.key in MOVEMENT_KEYS:
             self.moving = None
         elif event.type == pygame.KEYUP and event.key == pygame.K_LSHIFT:
             self.running = False
@@ -255,6 +268,8 @@ class MainGame(PausableComponent, Component):
             utils.savegame.save_game(utils.savegame.QUICKSAVE, self.state)
         elif event.key == pygame.K_F9:
             utils.savegame.load_game(utils.savegame.QUICKSAVE, self.state)
+        elif event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
+            self.state.player_state.show_detailed = None
         elif event.key == pygame.K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == pygame.K_RIGHT:

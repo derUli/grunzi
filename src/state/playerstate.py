@@ -9,6 +9,7 @@ class PlayerState():
 
     def __init__(self, data_dir):
         self.health = 100
+        self.show_detailed = None
         self.health_pig = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
                          'health.png')).convert_alpha()
