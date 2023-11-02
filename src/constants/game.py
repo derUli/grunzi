@@ -7,7 +7,6 @@ FPS_LIMIT = 0  # 0 means Unlimited
 GAMEDIR_NAME = 'grunzi'
 MONOTYPE_FONT = 'monotype.ttf'
 DEBUG_OUTPUT_FONT_SIZE = 12
-VSYNC = False
 MAIN_CHARACTER_ID = 'grunzi'
 
 LEVEL_1_SIZE = (150, 150)

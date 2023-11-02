@@ -69,7 +69,7 @@ class Game:
             self.screen = pygame.display.set_mode(
                 constants.game.SCREEN_SIZE,
                 flags,
-                vsync=int(constants.game.VSYNC))
+                vsync=int(self.settings_state.vsync))
 
             pygame.display.set_caption(_('Grunzi'))
 

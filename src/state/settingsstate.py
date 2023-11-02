@@ -6,21 +6,26 @@ from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = False
 SETTINGS_DEFAULT_VOLUME = 0.8
-SETTINGS_SHOW_FPS_DEFAULT = False
-
+SETTINGS_DEFAULT_SHOW_FPS = False
+SETTINGS_DEFAULT_VSYNC = True
 
 class SettingsState:
     def __init__(self, handle_settings_change):
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
-        self.show_fps = SETTINGS_SHOW_FPS_DEFAULT
+        self.vsync = SETTINGS_DEFAULT_VSYNC
+        self.show_fps = SETTINGS_DEFAULT_SHOW_FPS
+
         self.music_volume = SETTINGS_DEFAULT_VOLUME
 
         self.handle_settings_change = handle_settings_change
 
     def reset_defaults(self):
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
-        self.show_fps = SETTINGS_SHOW_FPS_DEFAULT
+        self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
+        self.vsync = SETTINGS_DEFAULT_VSYNC
+        self.show_fps = SETTINGS_DEFAULT_SHOW_FPS
+        
         self.music_volume = SETTINGS_DEFAULT_VOLUME
 
     def apply(self):
@@ -64,7 +69,8 @@ class SettingsState:
         return {
             'fullscreen': self.fullscreen,
             'show_fps': self.show_fps,
-            'music_volume': self.music_volume
+            'music_volume': self.music_volume,
+            'vsync': self.vsync
         }
 
     def to_json(self):
@@ -80,3 +86,6 @@ class SettingsState:
 
         if 'music_volume' in settings:
             self.music_volume = settings['music_volume']
+
+        if 'vsync' in settings:
+            self.vsync = settings['vsync']
