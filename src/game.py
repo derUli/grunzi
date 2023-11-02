@@ -51,12 +51,12 @@ class Game:
 
     def init_screen(self):
         """ Init the screen """
-        flags = 0
+        flags = pygame.SCALED
 
         self.screen = None
 
         if self.settings_state.fullscreen:
-            flags = flags | pygame.FULLSCREEN | pygame.SCALED
+            flags = flags | pygame.FULLSCREEN
 
         if not self.screen:
             self.screen = pygame.display.set_mode(
