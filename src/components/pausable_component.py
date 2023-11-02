@@ -14,26 +14,26 @@ class PausableComponent():
         menu = pygame_menu.Menu(height=300,
                                 theme=pygame_menu.themes.THEME_BLUE,
                                 title='Pause menu',
-                                width=400)
+                                width=self.screen.get_width() / 3)
 
-        menu.add.button(_('Continue'), self.continue_game)  # Continue game
-        menu.add.button(_('Save Game'), self.save_game)  # Continue game
+        menu.add.button(_('Continue'), self.handle_continue_game)  # Continue game
+        menu.add.button(_('Save Game'), self.handle_save_game)  # Continue game
         menu.add.button(_('Back To Main Menu'),
                         self.back_to_main_menu)  # Return to main menu
 
         self.menu = menu
         menu.mainloop(self.screen)
 
-    def continue_game(self):
+    def handle_continue_game(self):
         self.menu.disable()
         pygame.mouse.set_visible(0)
 
-    def save_game(self):
+    def handle_save_game(self):
         utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state)
-        self.continue_game()
+        self.handle_continue_game()
 
     def back_to_main_menu(self):
-        self.continue_game()
+        self.handle_continue_game()
         pygame.mouse.set_visible(1)
         self.handle_change_component(None)
 

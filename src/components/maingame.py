@@ -6,7 +6,7 @@ import constants.graphics
 import constants.game
 import state.state
 import sprites.backdrop
-import sprites.character
+import sprites.maincharacter
 import sprites.fire
 import sprites.wall
 import sprites.raccoon
@@ -58,12 +58,12 @@ class MainGame(PausableComponent, Component):
         self.layers[1][8][0] = sprites.wall.Wall(
             self.sprites_dir, self.image_cache, 'sunset.png')
 
-        main_character = sprites.character.Character(
+        main_character = sprites.maincharacter.Character(
             self.sprites_dir, self.image_cache)
         main_character.id = constants.game.MAIN_CHARACTER_ID
         main_character.state = self.state.player_state
 
-        self.layers[2][5][3] = main_character
+        self.layers[2][30][3] = main_character
 
         self.camera_offset = (5, 3)
         self.update_camera()

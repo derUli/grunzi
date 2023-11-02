@@ -44,7 +44,7 @@ class GameOver(Component):
     def load_game(self):
         self.menu.disable()
         component = self.handle_change_component(None)
-        component.continue_game()
+        component.handle_continue_game()
 
     def back_to_main_menu(self):
         self.menu.disable()

@@ -28,18 +28,31 @@ class Fire(sprites.character.Character):
 
         files = sorted(os.listdir(sprite_dir))
 
+        self.files = []
+
         for file in files:
             if file.endswith('.gif'):
                 fullpath = os.path.join(sprite_dir, file)
-                image = self.cache.load_image(fullpath)
-                image.set_colorkey((11, 0, 0, 1))
-                image = pygame.transform.scale(
-                    image, constants.graphics.SPRITE_SIZE)
-                self.frames.append(image)
+               
+                self.files.append(fullpath)
 
         self.current_frame = 0
 
+    def load(self):
+        for file in self.files:
+            frame = self.cache.load_image(file)
+            frame = pygame.transform.scale (
+                frame, constants.graphics.SPRITE_SIZE
+            )
+
+            self.frames.append(frame)
+        
+
     def draw(self, screen, x, y):
+
+        if len(self.frames) < len(self.files):
+            self.load()
+
         current_frame = self.frames[self.current_frame]
         pos = self.calculate_pos(x, y)
 
