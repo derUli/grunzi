@@ -346,4 +346,4 @@ class MainGame(PausableComponent, Component):
             self.update_camera()
 
     def draw_headup(self, screen):
-        self.state.player_state.draw_health(screen)
+        self.state.player_state.draw_ui(screen)

@@ -1,4 +1,4 @@
-import constants.headup
+from constants.headup import UI_MARGIN
 import pygame
 import os
 import utils.audio
@@ -10,9 +10,18 @@ class PlayerState():
     def __init__(self, data_dir):
         self.health = 100
         self.show_detailed = None
+        self.inventory = None
+
         self.health_pig = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
-                         'health.png')).convert_alpha()
+                         'health.png')
+            ).convert_alpha()
+            
+        self.inventory_image = pygame.image.load(
+            os.path.join(data_dir, 'images', 'ui',
+                         'inventory.png')
+            ).convert_alpha()
+
         self.cropped_pig = None
 
         pig_sounds_dir = os.path.join(data_dir, 'sounds', 'pig')
@@ -60,14 +69,35 @@ class PlayerState():
         self.cropped_pig = pygame.Surface((width, new_height), pygame.SRCALPHA)
         self.cropped_pig.blit(self.health_pig, (0, 0))
 
+    def draw_ui(self, screen):
+        self.draw_health(screen)
+        self.draw_inventory(screen)
+
     def draw_health(self, screen):
         str(self.health).ljust(3, ' ')
         pig_width = self.cropped_pig.get_width()
 
-        pos = [
+        pos = (
             screen.get_width() - pig_width -
-            constants.headup.HEALTH_PIG_POSITION[0],
-            constants.headup.HEALTH_PIG_POSITION[1],
-        ]
+            UI_MARGIN,
+            UI_MARGIN,
+        )
 
         screen.blit(self.cropped_pig, pos)
+
+    def draw_inventory(self, screen):
+        size = self.inventory_image.get_size()
+
+        surface = pygame.surface.Surface(size)
+
+        surface.set_alpha(0)
+
+        surface.blit(self.inventory_image, (0,0))
+
+        x, y = screen.get_size()
+
+        x = x - surface.get_width() - UI_MARGIN
+        y = y - surface.get_height() - UI_MARGIN
+
+        screen.blit(surface, (x, y))
+        
