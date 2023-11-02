@@ -76,7 +76,7 @@ class Settings(Component):
         else:
             show_fps_text += _('Off')
 
-        menu.add.button(show_fps_text, self.handle_show_fps)
+        # menu.add.button(show_fps_text, self.handle_show_fps)
 
         menu.add.button(_('Back To Main Menu'), self.handle_back)
 
