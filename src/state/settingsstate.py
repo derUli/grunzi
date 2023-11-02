@@ -8,6 +8,7 @@ SETTINGS_DEFAULT_FULLSCREEN = False
 SETTINGS_DEFAULT_VOLUME = 0.8
 SETTINGS_DEFAULT_SHOW_FPS = False
 SETTINGS_DEFAULT_VSYNC = True
+SETTINGS_DEFAULT_LIMIT_FPS = 0 # Default is unlimited
 
 class SettingsState:
     def __init__(self, handle_settings_change):
@@ -15,6 +16,7 @@ class SettingsState:
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.vsync = SETTINGS_DEFAULT_VSYNC
         self.show_fps = SETTINGS_DEFAULT_SHOW_FPS
+        self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
 
         self.music_volume = SETTINGS_DEFAULT_VOLUME
 
@@ -25,6 +27,7 @@ class SettingsState:
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.vsync = SETTINGS_DEFAULT_VSYNC
         self.show_fps = SETTINGS_DEFAULT_SHOW_FPS
+        self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
         
         self.music_volume = SETTINGS_DEFAULT_VOLUME
 
@@ -70,7 +73,8 @@ class SettingsState:
             'fullscreen': self.fullscreen,
             'show_fps': self.show_fps,
             'music_volume': self.music_volume,
-            'vsync': self.vsync
+            'vsync': self.vsync,
+            'limit_fps': self.limit_fps
         }
 
     def to_json(self):
@@ -89,3 +93,7 @@ class SettingsState:
 
         if 'vsync' in settings:
             self.vsync = settings['vsync']
+
+        if 'limit_fps' in settings:
+            self.limit_fps = settings['limit_fps']
+

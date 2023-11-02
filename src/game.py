@@ -115,7 +115,7 @@ class Game:
         # Filling the window with black color
         self.screen.fill((0, 0, 0))
 
-        self.clock.tick(constants.game.FPS_LIMIT)
+        self.clock.tick(self.settings_state.limit_fps)
 
         self.current_component.update_screen(self.screen)
 
