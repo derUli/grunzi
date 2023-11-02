@@ -4,13 +4,20 @@ import os
 import utils.audio
 import random
 
+import time
+
+FULL_HEALTH = 100
 
 class PlayerState():
 
     def __init__(self, data_dir):
-        self.health = 100
+        self.health = FULL_HEALTH
         self.show_detailed = None
         self.inventory = None
+
+        self.flashing = None
+        self.flash_start = 0
+        self.flash_duration = 0.05
 
         self.health_pig = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
@@ -34,12 +41,16 @@ class PlayerState():
         self.update_health()
 
     def heal(self):
-        self.health = 100
+        self.health = FULL_HEALTH
         self.update_health()
 
     def partial_heal(self, health):
         self.health += health
         self.update_health()
+
+    def flash(self, color = (255, 0, 0, )):
+        self.flashing = color
+        self.flash_start = time.time()
 
     def hurt(self, health):
         self.health -= health
@@ -47,6 +58,8 @@ class PlayerState():
         sound = random.choice(self.hurt_sounds)
 
         utils.audio.play_sound(sound)
+
+        self.flash()
 
     def dead(self):
         return self.health <= 0
@@ -71,9 +84,19 @@ class PlayerState():
         self.cropped_pig.blit(self.health_pig, (0, 0))
 
     def draw(self, screen):
+        self.draw_flash(screen)
         self.draw_background(screen)
         self.draw_health(screen)
         self.draw_inventory(screen)
+
+    def draw_flash(self, screen):
+        w, h = screen.get_size()
+
+        if self.flashing:
+            screen.fill(self.flashing)
+
+        if time.time() - self.flash_start > self.flash_duration:
+            self.flashing = None
 
     def draw_health(self, screen):
         surface = self.health_pig
