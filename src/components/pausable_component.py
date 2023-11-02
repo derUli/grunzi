@@ -1,6 +1,9 @@
 import pygame
 import pygame_menu
 import utils.savegame
+import gettext
+
+_ = gettext.gettext
 
 
 class PausableComponent():
@@ -13,9 +16,9 @@ class PausableComponent():
                                 title='Pause menu',
                                 width=400)
 
-        menu.add.button('Continue', self.continue_game)  # Continue game
-        menu.add.button('Save Game', self.save_game)  # Continue game
-        menu.add.button('Back To Main Menu',
+        menu.add.button(_('Continue'), self.continue_game)  # Continue game
+        menu.add.button(_('Save Game'), self.save_game)  # Continue game
+        menu.add.button(_('Back To Main Menu'),
                         self.back_to_main_menu)  # Return to main menu
 
         self.menu = menu

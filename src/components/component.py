@@ -45,7 +45,7 @@ class Component(object):
     def mount(self):
         return
 
-    def play_music(self, file, repeat = -1):
+    def play_music(self, file, repeat=-1):
         file = os.path.join(self.data_dir, 'music', file)
         utils.audio.play_music(file, repeat)
 
@@ -63,7 +63,7 @@ class Component(object):
             if x < self.skybox_image.get_width() * -1.0:
                 x = float(self.skybox_image.get_width())
 
-            x -= 0.05
+            x -= 0.5
 
             self.skybox_positions[i] = (x, y)
             i += 1

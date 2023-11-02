@@ -3,6 +3,9 @@ import constants.game
 import components.maingame
 from components.component import Component
 import utils.savegame
+import gettext
+
+_ = gettext.gettext
 
 
 class Menu(Component):
@@ -19,11 +22,11 @@ class Menu(Component):
     def update_screen(self, screen):
         self.draw_menu(self.screen)
 
-    def start_the_game(self):
+    def handle_new_game(self):
         self.handle_change_component(components.maingame.MainGame)
         self.menu.disable()
 
-    def continue_game(self):
+    def handle_continue_game(self):
         component = self.handle_change_component(components.maingame.MainGame)
         component.load_savegame()
         if self.menu:
@@ -35,11 +38,13 @@ class Menu(Component):
                                 title=constants.game.WINDOW_CAPTION,
                                 width=400)
 
-        menu.add.button('Play', self.start_the_game)
+        menu.add.button(_('New Game'), self.handle_new_game)
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
-            menu.add.button('Continue', self.continue_game)  # Continue game
+            menu.add.button(
+                _('Continue'),
+                self.handle_continue_game)  # Continue game
 
-        menu.add.button('Quit', pygame_menu.events.EXIT)
+        menu.add.button(_('Quit'), pygame_menu.events.EXIT)
 
         self.menu = menu
         menu.mainloop(screen, self.update_skybox)

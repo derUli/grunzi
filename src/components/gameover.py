@@ -5,6 +5,7 @@ import pygame_menu
 import utils.savegame
 import utils.image
 
+
 class GameOver(Component):
 
     def __init__(self, data_dir, handle_change_component):
