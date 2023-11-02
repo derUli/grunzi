@@ -1,7 +1,7 @@
 import pygame
 import os
 import time
-import constants.headup
+from constants.headup import BOTTOM_UI_HEIGHT
 import constants.graphics
 import constants.game
 import state.state
@@ -194,12 +194,15 @@ class MainGame(PausableComponent, Component):
         level_size_fields_width, level_size_fields_height = constants.game.LEVEL_1_SIZE
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
-        virtual_screen = pygame.surface.Surface(screen.get_size())
+        w, h = screen.get_size()
+
+        h -= BOTTOM_UI_HEIGHT
+        virtual_screen = pygame.surface.Surface((w, h))
 
         virtual_screen.blit(self.backdrop, (0, 0))
 
-        tolerance_x = math.ceil(self.screen.get_width() / sprite_width)
-        tolerance_y = math.ceil(self.screen.get_height() / sprite_height)
+        tolerance_x = math.ceil(w / sprite_width)
+        tolerance_y = math.ceil(h / sprite_height)
 
         filtered_layers = list(self.layers)
 
@@ -346,4 +349,4 @@ class MainGame(PausableComponent, Component):
             self.update_camera()
 
     def draw_headup(self, screen):
-        self.state.player_state.draw_ui(screen)
+        self.state.player_state.draw(screen)

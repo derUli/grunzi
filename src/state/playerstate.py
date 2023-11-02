@@ -1,4 +1,4 @@
-from constants.headup import UI_MARGIN
+from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT
 import pygame
 import os
 import utils.audio
@@ -66,37 +66,48 @@ class PlayerState():
         one_percent = height / 100
         new_height = one_percent * self.health
 
-        self.cropped_pig = pygame.Surface((width, new_height), pygame.SRCALPHA)
+        self.cropped_pig = pygame.surface.Surface((width, new_height), pygame.SRCALPHA)
         self.cropped_pig.blit(self.health_pig, (0, 0))
 
-    def draw_ui(self, screen):
+    def draw(self, screen):
+        self.draw_background(screen)
         self.draw_health(screen)
         self.draw_inventory(screen)
 
     def draw_health(self, screen):
-        str(self.health).ljust(3, ' ')
-        pig_width = self.cropped_pig.get_width()
+        surface = self.cropped_pig
 
-        pos = (
-            screen.get_width() - pig_width -
-            UI_MARGIN,
-            UI_MARGIN,
-        )
+        x, y = screen.get_size()
 
-        screen.blit(self.cropped_pig, pos)
+        x = x - surface.get_width() - UI_MARGIN
+        y = y - surface.get_height() - UI_MARGIN
+
+        screen.blit(surface, (x, y))
+
+    def draw_background(self,screen):
+        w = screen.get_width()
+        h = BOTTOM_UI_HEIGHT
+
+        x = 0
+        y -= screen.get_size() - h
+        surface = pygame.surface.Surface((w, h))
+
+        surface.fill((255,0,0))
+
+        screen.blit(surface, (x, y))
 
     def draw_inventory(self, screen):
         size = self.inventory_image.get_size()
 
         surface = pygame.surface.Surface(size)
 
-        surface.set_alpha(0)
+        #surface.set_alpha(0)
 
         surface.blit(self.inventory_image, (0,0))
 
         x, y = screen.get_size()
 
-        x = x - surface.get_width() - UI_MARGIN
+        x = UI_MARGIN
         y = y - surface.get_height() - UI_MARGIN
 
         screen.blit(surface, (x, y))
