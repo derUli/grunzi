@@ -3,7 +3,7 @@
 import sprites.sprite
 import random
 
-GRAS_SPRITES = ['gras1.jpg', 'gras2.jpg', 'gras3.jpg', 'gras4.jpg', 'gras5.jpg', 'gras6.jpg']
+GRAS_SPRITES = ['gras1.jpg', 'gras2.jpg', 'gras3.jpg']
 
 class Backdrop(sprites.sprite.Sprite):
 
