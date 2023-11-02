@@ -40,6 +40,7 @@ class Game:
 
     def start(self):
         """ Start game """
+        self.settings_state.apply()
         self.init_screen()
         self.change_component(components.menu.Menu)
 

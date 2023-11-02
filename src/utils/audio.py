@@ -11,9 +11,5 @@ def play_music(file, repeat=-1):
     pygame.mixer.music.play(repeat)
 
 
-def fadeout_music():
-    pygame.mixer.music.fadeout(constants.sound.MUSIC_FADEOUT_TIME)
-
-
 def stop_music():
     pygame.mixer.music.stop()
