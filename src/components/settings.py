@@ -11,9 +11,9 @@ _ = gettext.gettext
 
 class Settings(Component):
 
-    def __init__(self, data_dir, handle_change_component):
+    def __init__(self, data_dir, handle_change_component, settings_state):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component)
+        super().__init__(data_dir, handle_change_component, settings_state)
 
         video_path = os.path.join(
             data_dir,
@@ -29,6 +29,7 @@ class Settings(Component):
             size=constants.game.SCREEN_SIZE,
             async_load=True
         )
+
         self.menu = None
 
     def update_screen(self, screen):
@@ -43,12 +44,22 @@ class Settings(Component):
         self.screen.blit(self.video.get_frame(), (0, 0))
 
     def handle_toggle_fullscreen(self):
-        pygame.display.toggle_fullscreen()
+        self.settings_state.fullscreen = not self.settings_state.fullscreen
+        self.settings_state.apply()
+        self.menu.disable()
+        self.draw_menu(self.screen)
 
     def draw_menu(self, screen):
         menu = make_menu(_('Settings'), screen)
 
-        menu.add.button(_('Toggle Fullscreen'), self.handle_toggle_fullscreen)
+        fullscreen_text = _('Display Mode: ')
+
+        if self.settings_state.fullscreen:
+            fullscreen_text += _('Fullscreen')
+        else:
+            fullscreen_text += _('Window')
+
+        menu.add.button(fullscreen_text, self.handle_toggle_fullscreen)
         menu.add.button(_('Back To Main Menu'), self.handle_back)
 
         self.menu = menu

@@ -13,6 +13,7 @@ import constants.headup
 import constants.sound
 import utils.audio
 from utils.fps_counter import FPSCounter
+from state.settingsstate import SettingsState
 import components.menu
 from utils.screenshot import make_screenshot
 
@@ -33,7 +34,7 @@ class Game:
         self.clock = pygame.time.Clock()
         self.data_dir = os.path.join(os.path.dirname(__file__), 'data')
         self.current_component = None
-        self.fullscreen = constants.game.FULLSCREEN
+        self.settings_state = SettingsState(self.handle_settings_change)
 
     def start(self):
         """ Start game """
@@ -44,27 +45,33 @@ class Game:
         signal.signal(signal.SIGTERM, self.quit)
         self.main_loop()
 
+
+    def handle_settings_change(self):
+        self.settings_state.apply()
+
     def init_screen(self):
         """ Init the screen """
         flags = 0
 
-        if self.fullscreen:
+        self.screen = None
+
+        if self.settings_state.fullscreen:
             flags = flags | pygame.FULLSCREEN | pygame.SCALED
 
-        self.screen = pygame.display.set_mode(
-            constants.game.SCREEN_SIZE,
-            flags,
-            vsync=int(constants.game.VSYNC))
+        if not self.screen:
+            self.screen = pygame.display.set_mode(
+               constants.game.SCREEN_SIZE,
+               flags,
+               vsync=int(constants.game.VSYNC))
 
-        pygame.display.set_caption(_('Grunzi'))
+            pygame.display.set_caption(_('Grunzi'))
 
-        if self.current_component:
-            self.current_component.set_screen(self.screen)
 
     def toggle_fullscreen(self):
         """ Toggle fullscreen mode """
+        self.settings_state.fullscreen = not self.settings_state.fullscreen
         pygame.display.toggle_fullscreen()
-        self.fullscreen = not self.fullscreen
+
 
     def main_loop(self):
         """ Pygame MainLoop """
@@ -129,7 +136,8 @@ class Game:
             self.current_component.unmount()
 
         self.current_component = component(self.data_dir,
-                                           self.change_component)
+                                           self.change_component,
+                                           self.settings_state)
 
         if self.current_component:
             self.current_component.set_screen(self.screen)

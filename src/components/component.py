@@ -8,11 +8,12 @@ import utils.image
 
 class Component(object):
 
-    def __init__(self, data_dir, handle_change_component):
+    def __init__(self, data_dir, handle_change_component, settings_state):
         """ Constructor """
         self.data_dir = data_dir
         self.handle_change_component = handle_change_component
         self.image_cache = utils.image.ImageCache()
+        self.settings_state = settings_state
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),

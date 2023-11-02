@@ -36,9 +36,9 @@ DISCARD_KEYS = MOVEMENT_KEYS + CONFIRM_KEYS
 
 class MainGame(PausableComponent, Component):
 
-    def __init__(self, data_dir, handle_change_component):
+    def __init__(self, data_dir, handle_change_component, settings_state):
 
-        super().__init__(data_dir, handle_change_component)
+        super().__init__(data_dir, handle_change_component, settings_state)
 
         self.state = state.state.State(self.data_dir)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')

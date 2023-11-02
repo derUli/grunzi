@@ -10,9 +10,9 @@ from utils.menu import make_menu
 _ = gettext.gettext
 class GameOver(Component):
 
-    def __init__(self, data_dir, handle_change_component):
+    def __init__(self, data_dir, handle_change_component, settings_state):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component)
+        super().__init__(data_dir, handle_change_component, settings_state)
         self.menu = None
 
         file = os.path.join(data_dir, 'images', 'menu', 'gameover.jpg')

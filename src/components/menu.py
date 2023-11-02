@@ -15,9 +15,9 @@ _ = gettext.gettext
 
 class Menu(Component):
 
-    def __init__(self, data_dir, handle_change_component):
+    def __init__(self, data_dir, handle_change_component, settings_state):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component)
+        super().__init__(data_dir, handle_change_component, settings_state)
 
         video_path = os.path.join(
             data_dir,
