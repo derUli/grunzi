@@ -1,5 +1,8 @@
 import pygame
 import json
+import os
+
+from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = False
 SETTINGS_DEFAULT_VOLUME = 1.0
@@ -28,6 +31,19 @@ class SettingsState:
         # Music volume
         pygame.mixer.music.set_volume(self.music_volume)
 
+    def apply_and_save(self):
+        self.apply()
+        self.save()
+
+    def get_settings_path(self):
+        return os.path.join(get_userdata_path(), 'settings.json')
+
+    def save(self):
+        if not os.path.exists(get_userdata_path()):
+            os.makedirs(get_userdata_path())
+        
+        with open(self.get_settings_path(), 'w') as f:
+            f.write(self.to_json())
 
     def to_dict(self):
         return {

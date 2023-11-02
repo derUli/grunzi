@@ -44,12 +44,12 @@ class Settings(Component):
 
     def handle_show_fps(self):
         self.settings_state.show_fps = not self.settings_state.show_fps
-        self.settings_state.apply()
+        self.settings_state.apply_and_save()
         self.refresh_menu()
 
     def handle_toggle_fullscreen(self):
         self.settings_state.fullscreen = not self.settings_state.fullscreen
-        self.settings_state.apply()
+        self.settings_state.apply_and_save()
         self.refresh_menu()
 
     def refresh_menu(self):
