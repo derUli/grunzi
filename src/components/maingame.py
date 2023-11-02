@@ -35,7 +35,7 @@ class MainGame(PausableComponent, Component):
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg')
         self.backdrop = pygame.image.load(background_file).convert_alpha()
-        self.backdrop = pygame.transform.scale(
+        self.backdrop = pygame.transform.smoothscale(
             self.backdrop, (constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT))
 
     def load_savegame(self):
@@ -251,9 +251,7 @@ class MainGame(PausableComponent, Component):
             self.running = False
 
     def handle_keyboard_event(self, event):
-        if event.key == pygame.K_F3:
-            self.state.player_state.hurt(10)
-        elif event.key == pygame.K_F5:
+        if event.key == pygame.K_F5:
             utils.savegame.save_game(utils.savegame.QUICKSAVE, self.state)
         elif event.key == pygame.K_F9:
             utils.savegame.load_game(utils.savegame.QUICKSAVE, self.state)

@@ -4,8 +4,11 @@ import components.maingame
 from components.component import Component
 import utils.savegame
 import gettext
+from utils.animation import Animation
+import os
 
 _ = gettext.gettext
+
 
 class Menu(Component):
 
@@ -13,6 +16,19 @@ class Menu(Component):
         """ Constructor """
         super().__init__(data_dir, handle_change_component)
 
+        video_path = os.path.join(
+            data_dir,
+            'images',
+            'sprites',
+            'animations',
+            'dancing_pig')
+        # 25 Frames by second
+        self.video = Animation(
+            video_path,
+            refresh_interval=1 / 25,
+            size=(constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT),
+            async_load=True
+        )
         self.menu = None
 
     def mount(self):
@@ -31,6 +47,9 @@ class Menu(Component):
         if self.menu:
             self.menu.disable()
 
+    def draw_background(self):
+        self.screen.blit(self.video.get_frame(), (0, 0))
+
     def draw_menu(self, screen):
         menu = pygame_menu.Menu(height=300,
                                 theme=pygame_menu.themes.THEME_BLUE,
@@ -39,9 +58,11 @@ class Menu(Component):
 
         menu.add.button(_('New Game'), self.handle_new_game)
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
-            menu.add.button(_('Continue'), self.handle_continue_game)  # Continue game
+            menu.add.button(
+                _('Continue'),
+                self.handle_continue_game)  # Continue game
 
         menu.add.button(_('Quit'), pygame_menu.events.EXIT)
 
         self.menu = menu
-        menu.mainloop(screen, self.update_skybox)
+        menu.mainloop(screen, self.draw_background)

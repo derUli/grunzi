@@ -23,9 +23,9 @@ class Sprite():
         file = os.path.join(sprite_dir, sprite)
         image = cache.load_image(file)
 
-        self.sprite = pygame.transform.scale(image,
-                                             SPRITE_SIZE
-                                             )
+        self.sprite = pygame.transform.smoothscale(image,
+                                                   SPRITE_SIZE
+                                                   )
 
     def draw(self, screen, x, y):
         """ draw sprite """

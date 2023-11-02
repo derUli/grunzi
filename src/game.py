@@ -17,6 +17,7 @@ from utils.screenshot import make_screenshot
 
 os.environ["windib"] = "directx"
 
+
 class Game:
     """ Main game class """
 

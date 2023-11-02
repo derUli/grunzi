@@ -18,16 +18,6 @@ class Component(object):
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
 
-        self.skybox_image = pygame.image.load(
-            os.path.join(data_dir, 'images', 'menu', 'sky.jpg')).convert_alpha()
-
-        self.skybox_image = pygame.transform.scale(
-            self.skybox_image, (constants.game.SCREEN_WIDTH, constants.game.SCREEN_HEIGHT))
-        self.skybox_positions = [
-            (0.0, 0.0),
-            (float(self.skybox_image.get_width()), 0.0),
-        ]
-
     # Create Text
     def render_text(self, what, color, where):
         text = self.monotype_font.render(what, 1, pygame.Color(color))
@@ -51,19 +41,3 @@ class Component(object):
 
     def unmount(self):
         return
-
-    def update_skybox(self):
-        i = 0
-
-        for skybox in self.skybox_positions:
-            self.screen.blit(self.skybox_image, skybox)
-
-            x, y = skybox
-
-            if x < self.skybox_image.get_width() * -1.0:
-                x = float(self.skybox_image.get_width())
-
-            x -= 0.5
-
-            self.skybox_positions[i] = (x, y)
-            i += 1

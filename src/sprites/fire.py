@@ -3,12 +3,11 @@ import os
 
 import constants.graphics
 import constants.direction
-import sprites.character
-import pygame
-import time
+import sprites.sprite
+from utils.animation import Animation
 
 
-class Fire(sprites.character.Character):
+class Fire(sprites.sprite.Sprite):
     """ Fire character class """
 
     def __init__(self, sprite_dir, cache, sprite=None):
@@ -17,59 +16,16 @@ class Fire(sprites.character.Character):
         super().__init__(sprite_dir, cache, 'raccoon.png')
         sprite_dir = os.path.join(sprite_dir, 'animations', 'fire')
 
+        self.animation = Animation(
+            sprite_dir,
+            refresh_interval=0.1,
+            size=constants.graphics.SPRITE_SIZE)
         self.walkable = False
 
-        self.cache = cache
-        self.frames = []
-
-        self.refresh_interval = 0.1
-
-        self.last_refresh = time.time()
-
-        files = sorted(os.listdir(sprite_dir))
-
-        self.files = []
-
-        for file in files:
-            if file.endswith('.gif'):
-                fullpath = os.path.join(sprite_dir, file)
-               
-                self.files.append(fullpath)
-
-        self.current_frame = 0
-
-    def load(self):
-        for file in self.files:
-            frame = self.cache.load_image(file)
-            frame = pygame.transform.scale (
-                frame, constants.graphics.SPRITE_SIZE
-            )
-
-            self.frames.append(frame)
-        
-
     def draw(self, screen, x, y):
-
-        if len(self.frames) < len(self.files):
-            self.load()
-
-        current_frame = self.frames[self.current_frame]
+        frame = self.animation.get_frame()
         pos = self.calculate_pos(x, y)
-
-        screen.blit(current_frame, pos)
-        self.next_frame()
-
-    def next_frame(self):
-        if time.time() - self.last_refresh < self.refresh_interval:
-            return
-        next_frame = self.current_frame + 1
-
-        if next_frame >= len(self.frames):
-            next_frame = 0
-
-        self.last_refresh = time.time()
-
-        self.current_frame = next_frame
+        screen.blit(frame, pos)
 
     def handle_interact(self, element):
         if element and element.state:

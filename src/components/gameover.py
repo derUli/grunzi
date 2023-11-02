@@ -26,7 +26,7 @@ class GameOver(Component):
 
     # Todo refactor to own class
     def update_screen(self, screen):
-        self.backdrop = pygame.transform.scale(
+        self.backdrop = pygame.transform.smoothscale(
             self.backdrop, screen.get_size())
         menu = pygame_menu.Menu(height=300,
                                 theme=pygame_menu.themes.THEME_BLUE,
