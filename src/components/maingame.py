@@ -46,7 +46,8 @@ class MainGame(PausableComponent, Component):
         self.running = False
 
         background_file = os.path.join(
-            self.sprites_dir, 'backdrops', 'landscape.jpg')
+            self.sprites_dir, 'backdrops', 'landscape.jpg'
+        )
         self.backdrop = pygame.image.load(background_file).convert_alpha()
         self.backdrop = pygame.transform.smoothscale(
             self.backdrop, constants.game.SCREEN_SIZE)
