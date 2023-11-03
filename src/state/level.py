@@ -14,7 +14,6 @@ LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
 LAYER_MAINCHAR = 2
 
-
 class Level:
     def __init__(self, sprites_dir, image_cache):
         self.layers = []
@@ -29,9 +28,8 @@ class Level:
             self.fill_fallback(None),  # Player character
         ]
 
-        self.layers[LAYER_GROUND] = self.build_wall(self.layers[LAYER_GROUND])
-
         self.layers[LAYER_STATIC_OBJECTS] = self.decorate_flowers(self.layers[LAYER_STATIC_OBJECTS])
+        self.layers[LAYER_GROUND] = self.build_wall(self.layers[LAYER_GROUND])
 
         x_from = 5
         y_from = 10
@@ -46,13 +44,23 @@ class Level:
         for y in range(y_from, y_to):
             self.layers[LAYER_GROUND][y][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
             self.layers[LAYER_GROUND][y][x_to] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
+            self.layers[LAYER_STATIC_OBJECTS][y][x_from] = None
+            self.layers[LAYER_STATIC_OBJECTS][y][x_to] = None
 
         for x in range(x_from, x_to + 1):
             self.layers[LAYER_GROUND][y_from][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
             self.layers[LAYER_GROUND][y_to][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
+            self.layers[LAYER_STATIC_OBJECTS][y_from][x] = None
+            self.layers[LAYER_STATIC_OBJECTS][y_to][x] = None
 
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from + 3] = Door(self.sprites_dir, self.image_cache)
         self.layers[LAYER_GROUND][y_to][x_from + 3].walkable = True
+
+        self.layers[LAYER_STATIC_OBJECTS][y_to][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'postbox.png')
+
+        for x in range(x_to - 1, x_to + 1):
+            self.layers[LAYER_STATIC_OBJECTS][y_to + 1][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache,
+                                                                                  'garbagecan.png')
 
         self.layers[LAYER_STATIC_OBJECTS][y_from + 3][x_from + 3] = Key(
             self.sprites_dir,

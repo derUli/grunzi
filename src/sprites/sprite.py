@@ -1,22 +1,21 @@
 """ Generic sprite """
 import os
-
 import pygame
 
 from constants.graphics import SPRITE_SIZE
+from utils.reflections import fullname
 
 
-class Sprite():
+class Sprite:
     """ Generic sprite class """
 
-    def __init__(self, sprite_dir, cache, sprite=None, handle_remove=None):
+    def __init__(self, sprite_dir, cache, sprite=None):
         """ Constructor """
         self.sprite = None
         self.walkable = True
         self.sprite_dir = sprite_dir
         self.id = None
         self.state = None
-        self.handle_remove = handle_remove
         self.center_camera = False
         self.purge = False
 
@@ -31,6 +30,7 @@ class Sprite():
                                                    )
 
     def draw(self, screen, x, y):
+        print(fullname(self))
         """ draw sprite """
         if not self.sprite:
             return None

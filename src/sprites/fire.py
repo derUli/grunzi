@@ -13,7 +13,7 @@ class Fire(sprites.sprite.Sprite):
     def __init__(self, sprite_dir, cache, sprite=None):
         """ Constructor """
 
-        super().__init__(sprite_dir, cache, 'raccoon.png')
+        super().__init__(sprite_dir, cache, 'gras1.jpg')
         sprite_dir = os.path.join(sprite_dir, 'animations', 'fire')
 
         self.animation = Animation(
@@ -23,6 +23,7 @@ class Fire(sprites.sprite.Sprite):
         self.walkable = False
 
     def draw(self, screen, x, y):
+        """ Draw current frame of fire animation """
         frame = self.animation.get_frame()
         pos = self.calculate_pos(x, y)
         screen.blit(frame, pos)

@@ -18,6 +18,7 @@ class Detailed(Sprite):
         self.detailed = os.path.join(sprite_dir, 'detailed', sprite)
 
     def handle_interact(self, element):
+        """ Show details view """
         element.state.show_detailed = pygame.image.load(
             self.detailed).convert_alpha()
 
