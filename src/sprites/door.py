@@ -1,5 +1,7 @@
 """ Wall sprite """
 from sprites.wall import Wall
+from utils.audio import play_sound
+import os
 
 
 class Door(Wall):
@@ -11,3 +13,32 @@ class Door(Wall):
 
         # For unlocking just set this on true
         self.walkable = False
+
+        self.door_open_sound = os.path.abspath(
+            os.path.join(sprite_dir, '..', '..', 'sounds', 'door_open.ogg')
+        )
+
+        self.door_closed_sound = os.path.abspath(
+            os.path.join(sprite_dir, '..', '..', 'sounds', 'door_closed.ogg')
+        )
+
+    def handle_interact(self, element):
+        """ Set walkable on interact """
+
+
+        if not element:
+            return
+
+        # Todo: Check for Key
+        # Play sound on unlock
+        if not element.state.inventory:
+            play_sound(self.door_closed_sound)
+            return
+
+        self.open_door(element)
+
+    def open_door(self, element=None):
+
+        play_sound(self.door_open_sound)
+        if element:
+            element.state.inventory = None

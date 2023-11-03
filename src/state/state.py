@@ -2,7 +2,6 @@ import json
 
 from state.playerstate import PlayerState
 
-
 class State:
     def __init__(self, data_dir=None):
         """ Constructor """

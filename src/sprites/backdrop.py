@@ -1,4 +1,4 @@
-"""Backdrop sprite"""
+""" Backdrop sprite """
 
 import random
 

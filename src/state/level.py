@@ -6,6 +6,7 @@ import sprites.fire
 import sprites.raccoon
 import sprites.wall
 from sprites.door import Door
+from sprites.takeable import Takeable
 from constants.game import LEVEL_1_SIZE
 
 LAYER_GROUND = 0
@@ -42,6 +43,8 @@ class Level:
             self.layers[LAYER_GROUND][y_to][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
 
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from + 3] = Door(self.sprites_dir, self.image_cache)
+        self.layers[LAYER_GROUND][y_to][x_from + 3].walkable = True
+
 
         self.layers[LAYER_STATIC_OBJECTS][0][5] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'dont_waste_water.png')
@@ -51,6 +54,11 @@ class Level:
 
         self.layers[LAYER_STATIC_OBJECTS][3][4] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'bubblegum.png')
+
+
+        self.layers[LAYER_STATIC_OBJECTS][5][5] = Takeable(
+            self.sprites_dir, self.image_cache
+        )
 
         self.camera_offset = (5, 3)
 

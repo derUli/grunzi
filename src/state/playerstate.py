@@ -8,7 +8,7 @@ import utils.audio
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 
 FULL_HEALTH = 100
-
+INVENTORY_PADDING = 10
 
 class PlayerState():
 
@@ -16,7 +16,6 @@ class PlayerState():
         self.health = FULL_HEALTH
         self.show_detailed = None
         self.inventory = None
-
         self.flashing = None
         self.flash_start = 0
         self.flash_duration = 0.05
@@ -29,6 +28,7 @@ class PlayerState():
         self.inventory_image = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
                          'inventory.png')
+
         ).convert_alpha()
 
         self.cropped_pig = None
@@ -134,5 +134,20 @@ class PlayerState():
 
         x = UI_MARGIN
         y = y - surface.get_height() - UI_MARGIN
+
+        if self.inventory and self.inventory.sprite:
+            w, h = self.inventory.sprite.get_size()
+
+            target_w = w - (INVENTORY_PADDING * 2)
+            target_h = h - (INVENTORY_PADDING * 2)
+
+            while target_w > surface.get_width() or target_h > surface.get_height():
+                w -= 1
+                h -= 1
+
+            scaled_item_sprite = pygame.transform.smoothscale(self.inventory.sprite, (target_w, target_h))
+
+
+            surface.blit(scaled_item_sprite, (INVENTORY_PADDING, INVENTORY_PADDING))
 
         screen.blit(surface, (x, y))
