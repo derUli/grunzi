@@ -1,7 +1,8 @@
 """ Wall sprite """
+import os
+
 from sprites.wall import Wall
 from utils.audio import play_sound
-import os
 
 
 class Door(Wall):
@@ -38,6 +39,6 @@ class Door(Wall):
 
     def open_door(self, element=None):
         play_sound(self.door_open_sound)
-        if element:
-            self.walkable = True
-            element.state.inventory = None
+
+        self.walkable = True
+        element.state.inventory = None

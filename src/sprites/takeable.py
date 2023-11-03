@@ -1,7 +1,5 @@
 """ Wall sprite """
 from sprites.sprite import Sprite
-from utils.audio import play_sound
-import os
 
 
 class Takeable(Sprite):
@@ -20,6 +18,6 @@ class Takeable(Sprite):
     def handle_interact(self, element):
         """ Set walkable on interact """
 
-        element.state.inventory = self
+        element.state.take_item(self)
 
         self.purge = True

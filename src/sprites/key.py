@@ -1,6 +1,7 @@
 """ Wall sprite """
 from sprites.takeable import Takeable
 
+
 class Key(Takeable):
     """ Wall sprite class """
 

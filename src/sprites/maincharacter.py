@@ -3,6 +3,7 @@
 import constants.game
 from sprites.character import Character
 
+
 class MainCharacter(Character):
     """ Main character sprite class """
 

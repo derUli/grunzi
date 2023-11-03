@@ -5,10 +5,10 @@ import sprites.detailed
 import sprites.fire
 import sprites.raccoon
 import sprites.wall
+from constants.game import LEVEL_1_SIZE
+from sprites.apple import Apple
 from sprites.door import Door
 from sprites.key import Key
-from sprites.apple import Apple
-from constants.game import LEVEL_1_SIZE
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
@@ -51,9 +51,7 @@ class Level:
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from + 3] = Door(self.sprites_dir, self.image_cache)
         self.layers[LAYER_GROUND][y_to][x_from + 3].walkable = True
 
-
-
-        self.layers[LAYER_STATIC_OBJECTS][y_from + 3 ][x_from + 3] = Key(
+        self.layers[LAYER_STATIC_OBJECTS][y_from + 3][x_from + 3] = Key(
             self.sprites_dir,
             self.image_cache
         )
@@ -81,8 +79,6 @@ class Level:
             self.sprites_dir,
             self.image_cache
         )
-
-
 
         self.camera_offset = (5, 3)
 

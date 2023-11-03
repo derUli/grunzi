@@ -1,6 +1,7 @@
 """ Apple sprite class """
 import sprites.sprite
 
+
 class Apple(sprites.sprite.Sprite):
     """ Apple sprite class """
 

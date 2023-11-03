@@ -20,7 +20,6 @@ from utils.screenshot import make_screenshot
 
 _ = gettext.gettext
 
-
 class Game:
     """ Main game class """
 
@@ -30,7 +29,6 @@ class Game:
             44100, 16, 2, 4096)  # For better and faster audio
 
         pygame.init()
-        pygame.display.set_allow_screensaver(False)  # Disable screensavers
 
         self.screen = None
         self.fps_counter = FPSCounter()

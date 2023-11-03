@@ -9,7 +9,7 @@ from constants.graphics import SPRITE_SIZE
 class Sprite():
     """ Generic sprite class """
 
-    def __init__(self, sprite_dir, cache, sprite=None, handle_remove = None):
+    def __init__(self, sprite_dir, cache, sprite=None, handle_remove=None):
         """ Constructor """
         self.sprite = None
         self.walkable = True

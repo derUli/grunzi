@@ -12,8 +12,8 @@ INVENTORY_PADDING = 10
 FLASH_COLOR_HURT = (255, 0, 0,)
 FLASH_COLOR_HEAL = (255, 255, 255)
 
-class PlayerState():
 
+class PlayerState():
     def __init__(self, data_dir):
         self.health = FULL_HEALTH
         self.show_detailed = None
@@ -104,6 +104,14 @@ class PlayerState():
         if time.time() - self.flash_start > self.flash_duration:
             self.flashing = None
 
+    def take_item(self, item):
+        if self.inventory:
+            return False
+
+        self.inventory = item
+
+        return True
+
     def draw_health(self, screen):
         surface = self.health_pig
 
@@ -150,7 +158,6 @@ class PlayerState():
                 h -= 1
 
             scaled_item_sprite = pygame.transform.smoothscale(self.inventory.sprite, (target_w, target_h))
-
 
             surface.blit(scaled_item_sprite, (INVENTORY_PADDING, INVENTORY_PADDING))
 
