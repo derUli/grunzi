@@ -1,6 +1,7 @@
 """ Apple sprite class """
 import sprites.sprite
-
+import os
+from utils.audio import play_sound
 
 class Apple(sprites.sprite.Sprite):
     """ Apple sprite class """
@@ -10,7 +11,14 @@ class Apple(sprites.sprite.Sprite):
         super().__init__(sprite_dir, cache, 'apple.png')
 
     def handle_interact(self, element):
+        """ Apple increases health """
         if element and element.state and element.state.health < 100:
             element.state.partial_heal(30)
             self.purge = True
             self.walkable = True
+
+            sound = os.path.abspath(
+                os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pig_smacks.ogg')
+            )
+
+            play_sound(sound)

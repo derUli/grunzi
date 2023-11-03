@@ -17,7 +17,9 @@ class MainCharacter(Character):
         self.id = constants.game.MAIN_CHARACTER_ID
 
     def draw(self, screen, x, y):
+        """ Draw main character """
         super().draw(screen, x, y)
 
+        # Detailed object view
         if self.state.show_detailed:
             screen.blit(self.state.show_detailed, (0, 0))

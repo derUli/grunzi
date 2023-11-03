@@ -1,6 +1,7 @@
 """ Wall sprite """
 from sprites.sprite import Sprite
-
+import os
+from utils.audio import play_sound
 
 class Takeable(Sprite):
     """ Takeable sprite class """
@@ -19,5 +20,10 @@ class Takeable(Sprite):
         """ Set walkable on interact """
 
         element.state.take_item(self)
-
         self.purge = True
+
+        sound = os.path.abspath(
+            os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pickup.ogg')
+        )
+
+        play_sound(sound)

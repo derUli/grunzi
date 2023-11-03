@@ -19,7 +19,7 @@ class Character(sprites.sprite.Sprite):
         self.center_camera = False
 
         # One tile by second
-        self.walk_speed = 0.2
+        self.walk_speed = 0.18
         self.sprint_speed = self.walk_speed * 0.2
         self.last_movement = 0
 

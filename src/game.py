@@ -20,6 +20,7 @@ from utils.screenshot import make_screenshot
 
 _ = gettext.gettext
 
+
 class Game:
     """ Main game class """
 

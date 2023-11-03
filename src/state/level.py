@@ -31,6 +31,8 @@ class Level:
 
         self.layers[LAYER_GROUND] = self.build_wall(self.layers[LAYER_GROUND])
 
+        self.layers[LAYER_STATIC_OBJECTS] = self.decorate_flowers(self.layers[LAYER_STATIC_OBJECTS])
+
         x_from = 5
         y_from = 10
 
@@ -40,6 +42,7 @@ class Level:
         x_to = x_from + x_size
         y_to = y_from + y_size
 
+        # Build wall
         for y in range(y_from, y_to):
             self.layers[LAYER_GROUND][y][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
             self.layers[LAYER_GROUND][y][x_to] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
@@ -65,6 +68,20 @@ class Level:
             self.sprites_dir,
             self.image_cache
         )
+
+        x_from = 6
+        y_from = 11
+
+        x_size = 5
+        y_size = 4
+
+        x_to = x_from + x_size
+        y_to = y_from + y_size
+
+        # Build wall
+        for y in range(y_from, y_to):
+            for x in range(x_from, x_to):
+                self.layers[LAYER_GROUND][y][x] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'pebble.jpg')
 
         self.layers[LAYER_STATIC_OBJECTS][0][5] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'dont_waste_water.png')
@@ -92,8 +109,6 @@ class Level:
                 self.sprites_dir,
                 self.image_cache
             )
-
-        self.layers[LAYER_STATIC_OBJECTS] = self.decorate_flowers(self.layers[LAYER_STATIC_OBJECTS])
 
     def purge_sprites(self):
         """ Search character by id """
