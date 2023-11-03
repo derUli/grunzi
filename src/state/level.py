@@ -7,6 +7,7 @@ import sprites.raccoon
 import sprites.wall
 from sprites.door import Door
 from sprites.key import Key
+from sprites.apple import Apple
 from constants.game import LEVEL_1_SIZE
 
 LAYER_GROUND = 0
@@ -51,6 +52,22 @@ class Level:
         self.layers[LAYER_GROUND][y_to][x_from + 3].walkable = True
 
 
+
+        self.layers[LAYER_STATIC_OBJECTS][y_from + 3 ][x_from + 3] = Key(
+            self.sprites_dir,
+            self.image_cache
+        )
+
+        self.layers[LAYER_STATIC_OBJECTS][y_from + 3][x_from + 5] = Apple(
+            self.sprites_dir,
+            self.image_cache
+        )
+
+        self.layers[LAYER_STATIC_OBJECTS][y_from + 4][x_from + 5] = Apple(
+            self.sprites_dir,
+            self.image_cache
+        )
+
         self.layers[LAYER_STATIC_OBJECTS][0][5] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'dont_waste_water.png')
 
@@ -60,10 +77,12 @@ class Level:
         self.layers[LAYER_STATIC_OBJECTS][3][4] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'bubblegum.png')
 
-        self.layers[LAYER_STATIC_OBJECTS][10][15] = Key(
+        self.layers[LAYER_STATIC_OBJECTS][10][20] = Key(
             self.sprites_dir,
             self.image_cache
         )
+
+
 
         self.camera_offset = (5, 3)
 

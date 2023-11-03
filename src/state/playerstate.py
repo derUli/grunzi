@@ -9,6 +9,8 @@ from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10
+FLASH_COLOR_HURT = (255, 0, 0,)
+FLASH_COLOR_HEAL = (255, 255, 255)
 
 class PlayerState():
 
@@ -45,10 +47,12 @@ class PlayerState():
     def heal(self):
         self.health = FULL_HEALTH
         self.update_health()
+        self.flash(FLASH_COLOR_HEAL)
 
     def partial_heal(self, health):
         self.health += health
         self.update_health()
+        self.flash(FLASH_COLOR_HEAL)
 
     def flash(self, color=(255, 0, 0,)):
         self.flashing = color
@@ -61,7 +65,7 @@ class PlayerState():
 
         utils.audio.play_sound(sound)
 
-        self.flash()
+        self.flash(FLASH_COLOR_HURT)
 
     def dead(self):
         return self.health <= 0
