@@ -12,6 +12,7 @@ SETTINGS_DEFAULT_LIMIT_FPS = 0 # Default is unlimited
 
 class SettingsState:
     def __init__(self, handle_settings_change):
+        """ Constructor """
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.vsync = SETTINGS_DEFAULT_VSYNC
@@ -22,16 +23,21 @@ class SettingsState:
 
         self.handle_settings_change = handle_settings_change
 
-    def reset_defaults(self):
-        self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
-        self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
-        self.vsync = SETTINGS_DEFAULT_VSYNC
-        self.show_fps = SETTINGS_DEFAULT_SHOW_FPS
-        self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
-        
-        self.music_volume = SETTINGS_DEFAULT_VOLUME
+    def apply_and_save(self):
+        """ Apply and save """
+        self.apply()
+        self.save()
+
+    def save(self):
+        """ Save settings """
+        if not os.path.exists(get_userdata_path()):
+            os.makedirs(get_userdata_path())
+
+        with open(self.get_settings_path(), 'w') as f:
+            f.write(self.to_json())
 
     def apply(self):
+        """ Apply changes """
         # Fullscreen mode
         if self.fullscreen != self.old_fullscreen:
             pygame.display.toggle_fullscreen()
@@ -40,17 +46,17 @@ class SettingsState:
         # Music volume
         pygame.mixer.music.set_volume(self.music_volume)
 
-    def apply_and_save(self):
-        self.apply()
-        self.save()
 
     def get_settings_path(self):
+        """ Get settings file path """
         return os.path.join(get_userdata_path(), 'settings.json')
 
     def from_json(self, jsons):
+        """ Load from json """
         return json.loads(jsons)
 
     def load(self):
+        """ Load from file """
         if not os.path.exists(self.get_settings_path()):
             return False
 
@@ -61,14 +67,9 @@ class SettingsState:
 
         return True
 
-    def save(self):
-        if not os.path.exists(get_userdata_path()):
-            os.makedirs(get_userdata_path())
-
-        with open(self.get_settings_path(), 'w') as f:
-            f.write(self.to_json())
 
     def to_dict(self):
+        """ To dict """
         return {
             'fullscreen': self.fullscreen,
             'show_fps': self.show_fps,
@@ -78,9 +79,11 @@ class SettingsState:
         }
 
     def to_json(self):
+        """ To JSON """
         return json.dumps(self.to_dict())
 
     def from_dict(self, settings):
+        """ From dictionary """
         if 'fullscreen' in settings:
             self.fullscreen = settings['fullscreen']
             self.old_fullscreen = settings['fullscreen']
