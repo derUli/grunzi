@@ -47,6 +47,10 @@ class Settings(Component):
         self.settings_state.apply_and_save()
         self.refresh_menu()
 
+    def handle_change_music_volume(self, range_value):
+        self.settings_state.music_volume = range_value / 100
+        self.settings_state.apply_and_save()
+
     def handle_toggle_fullscreen(self):
         self.settings_state.fullscreen = not self.settings_state.fullscreen
         self.settings_state.apply_and_save()
@@ -76,6 +80,15 @@ class Settings(Component):
             show_fps_text += _('Off')
 
         # menu.add.button(show_fps_text, self.handle_show_fps)
+
+        menu.add.range_slider(
+            title =_('Music Volume'), 
+            default = int(self.settings_state.music_volume * 100),
+            range_values = (0, 100),
+            increment=10,
+            value_format=lambda x: str(int(x)) + "%",
+            onchange = self.handle_change_music_volume
+            )
 
         menu.add.button(_('Back To Main Menu'), self.handle_back)
 

@@ -153,7 +153,8 @@ class MainGame(PausableComponent, Component):
             'flower1.png',
             'flower2.png',
             'flower3.png',
-            'flower4.png'
+            'flower4.png',
+            'flower5.png'
         ]
         for y in range(0, len(layer)):
             for x in range(0, len(layer[y])):
