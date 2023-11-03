@@ -1,14 +1,17 @@
-import sprites.backdrop
-import sprites.fire
-import sprites.wall
-import sprites.raccoon
-import sprites.detailed
 import random
+
+import sprites.backdrop
+import sprites.detailed
+import sprites.fire
+import sprites.raccoon
+import sprites.wall
+from sprites.door import Door
 from constants.game import LEVEL_1_SIZE
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
 LAYER_MAINCHAR = 2
+
 
 class Level:
     def __init__(self, sprites_dir, image_cache):
@@ -25,6 +28,20 @@ class Level:
         ]
 
         self.layers[LAYER_GROUND] = self.build_wall(self.layers[LAYER_GROUND])
+        x_from = 5
+        x_to = 11
+        y_from = 20
+        y_to = 25
+
+        for y in range(y_from, y_to):
+            self.layers[LAYER_GROUND][y][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
+            self.layers[LAYER_GROUND][y][x_to] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
+
+        for x in range(x_from, x_to + 1):
+            self.layers[LAYER_GROUND][y_from][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
+            self.layers[LAYER_GROUND][y_to][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
+
+        self.layers[LAYER_STATIC_OBJECTS][y_to][x_from + 3] = Door(self.sprites_dir, self.image_cache)
 
         self.layers[LAYER_STATIC_OBJECTS][0][5] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'dont_waste_water.png')
@@ -42,15 +59,11 @@ class Level:
 
         self.layers[LAYER_STATIC_OBJECTS][7][8] = raccoon
 
-        self.layers[LAYER_STATIC_OBJECTS][0][10] = sprites.fire.Fire(
-            self.sprites_dir,
-            self.image_cache
-        )
-
-        self.layers[LAYER_STATIC_OBJECTS][0][11] = sprites.fire.Fire(
-            self.sprites_dir,
-            self.image_cache
-        )
+        for x in [10, 11, 50, 51, 52]:
+            self.layers[LAYER_STATIC_OBJECTS][0][x] = sprites.fire.Fire(
+                self.sprites_dir,
+                self.image_cache
+            )
 
         self.layers[LAYER_STATIC_OBJECTS] = self.decorate_flowers(self.layers[LAYER_STATIC_OBJECTS])
 

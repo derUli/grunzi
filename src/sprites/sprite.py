@@ -1,6 +1,8 @@
 """ Generic sprite """
 import os
+
 import pygame
+
 from constants.graphics import SPRITE_SIZE
 
 

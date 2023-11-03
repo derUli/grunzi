@@ -1,6 +1,7 @@
-import pygame
 import json
 import os
+
+import pygame
 
 from utils.path import get_userdata_path
 
@@ -8,7 +9,8 @@ SETTINGS_DEFAULT_FULLSCREEN = False
 SETTINGS_DEFAULT_VOLUME = 0.8
 SETTINGS_DEFAULT_SHOW_FPS = False
 SETTINGS_DEFAULT_VSYNC = True
-SETTINGS_DEFAULT_LIMIT_FPS = 0 # Default is unlimited
+SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
+
 
 class SettingsState:
     def __init__(self, handle_settings_change):
@@ -46,7 +48,6 @@ class SettingsState:
         # Music volume
         pygame.mixer.music.set_volume(self.music_volume)
 
-
     def get_settings_path(self):
         """ Get settings file path """
         return os.path.join(get_userdata_path(), 'settings.json')
@@ -66,7 +67,6 @@ class SettingsState:
             self.from_dict(jsond)
 
         return True
-
 
     def to_dict(self):
         """ To dict """
@@ -99,4 +99,3 @@ class SettingsState:
 
         if 'limit_fps' in settings:
             self.limit_fps = settings['limit_fps']
-

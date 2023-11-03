@@ -1,8 +1,9 @@
 """ Main character sprite """
 
 import pygame
-from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
+
 import sprites.sprite
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
 
 
 class Character(sprites.sprite.Sprite):

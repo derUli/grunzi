@@ -1,6 +1,8 @@
-import pygame
-import utils.savegame
 import gettext
+
+import pygame
+
+import utils.savegame
 from utils.menu import make_menu
 
 _ = gettext.gettext
@@ -10,7 +12,6 @@ class PausableComponent():
 
     # Todo refactor to own class
     def pause_menu(self):
-
         self.last_screen = self.screen.copy().convert_alpha()
         self.last_screen.set_alpha(100)
 
@@ -43,7 +44,6 @@ class PausableComponent():
         self.handle_change_component(None)
 
     def handle_event(self, event):
-
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             self.pause_menu()
             return True

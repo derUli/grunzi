@@ -1,5 +1,6 @@
-from state.playerstate import PlayerState
 import json
+
+from state.playerstate import PlayerState
 
 
 class State:

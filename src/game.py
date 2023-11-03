@@ -3,18 +3,19 @@
     Game main class
     Initialized the base of the game
 """
+import gettext
 import os
 import signal
+
 import pygame
-import gettext
 from pygame.locals import QUIT
+
+import components.menu
 import constants.game
 import constants.headup
-import constants.sound
 import utils.audio
-from utils.fps_counter import FPSCounter
 from state.settingsstate import SettingsState
-import components.menu
+from utils.fps_counter import FPSCounter
 from utils.screenshot import make_screenshot
 
 _ = gettext.gettext
@@ -27,6 +28,7 @@ class Game:
         """ Constructor """
         pygame.mixer.pre_init(
             44100, 16, 2, 4096)  # For better and faster audio
+
         pygame.init()
         pygame.display.set_allow_screensaver(False)  # Disable screensavers
 
@@ -46,6 +48,7 @@ class Game:
         if not self.settings_state.load():
             self.settings_state.save()
         self.settings_state.apply()
+
         self.init_screen()
         self.change_component(components.menu.Menu)
 
@@ -61,6 +64,8 @@ class Game:
         flags = pygame.SCALED
 
         self.screen = None
+        self.set_icon()
+        pygame.display.set_caption(_('Grunzi'))
 
         if self.settings_state.fullscreen:
             flags = flags | pygame.FULLSCREEN
@@ -71,7 +76,11 @@ class Game:
                 flags,
                 vsync=int(self.settings_state.vsync))
 
-            pygame.display.set_caption(_('Grunzi'))
+    def set_icon(self):
+        """ Set window icon """
+        icon_path = os.path.join(self.data_dir, 'images', 'ui', 'icon.png')
+        icon = pygame.image.load(icon_path)
+        pygame.display.set_icon(icon)
 
     def toggle_fullscreen(self):
         """ Toggle fullscreen mode """
@@ -94,7 +103,7 @@ class Game:
                 if event.key == pygame.K_F12:
                     self.screenshot()
                 if event.mod & pygame.KMOD_ALT and event.key in [
-                        pygame.K_RETURN, pygame.K_KP_ENTER
+                    pygame.K_RETURN, pygame.K_KP_ENTER
                 ]:
                     self.toggle_fullscreen()
 
@@ -132,11 +141,10 @@ class Game:
                                            constants.headup.FPS_TEXT_POSITION)
 
     def change_component(self, component):
-
+        """ Change component """
         if not component:
             component = components.menu.Menu
 
-        """ Change component """
         if self.current_component:
             self.current_component.unmount()
 

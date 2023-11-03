@@ -1,20 +1,22 @@
-import pygame
+import math
 import os
+import random
 import time
-from constants.headup import BOTTOM_UI_HEIGHT
-import constants.graphics
+
+import pygame
+
 import constants.game
+import constants.graphics
 import state.state
-from components.pausable_component import PausableComponent
+import utils.savegame
 from components.component import Component
 from components.gameover import GameOver
+from components.pausable_component import PausableComponent
 from constants.direction import *
-from state.level import Level, LAYER_MAINCHAR
-import utils.savegame
-import random
-import math
-from sprites.maincharacter import MainCharacter
 from constants.game import MAIN_CHARACTER_ID
+from constants.headup import BOTTOM_UI_HEIGHT
+from sprites.maincharacter import MainCharacter
+from state.level import Level, LAYER_MAINCHAR
 
 MOVEMENT_KEYS = [
     pygame.K_LEFT,

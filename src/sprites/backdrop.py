@@ -1,7 +1,8 @@
 """Backdrop sprite"""
 
-import sprites.sprite
 import random
+
+import sprites.sprite
 
 GRAS_SPRITES = ['gras1.jpg', 'gras2.jpg', 'gras3.jpg']
 

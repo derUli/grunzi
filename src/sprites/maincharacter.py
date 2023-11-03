@@ -1,7 +1,7 @@
 """ Main character sprite """
 
-from sprites.character import Character
 import constants.game
+from sprites.character import Character
 
 
 class MainCharacter(Character):

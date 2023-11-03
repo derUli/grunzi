@@ -1,14 +1,16 @@
-import pygame_menu
-import constants.game
-import components.maingame
-from components.settings import Settings
-from components.component import Component
-import utils.savegame
 import gettext
+import os
+
+import pygame
+import pygame_menu
+
+import components.maingame
+import constants.game
+import utils.savegame
+from components.component import Component
+from components.settings import Settings
 from utils.animation import Animation
 from utils.menu import make_menu
-import os
-import pygame
 
 _ = gettext.gettext
 

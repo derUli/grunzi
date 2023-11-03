@@ -1,9 +1,11 @@
 """ Wall sprite """
-from sprites.sprite import Sprite
-import pygame
 import os
+
+import pygame
+
 from constants.game import SCREEN_SIZE
 from constants.headup import BOTTOM_UI_HEIGHT
+from sprites.sprite import Sprite
 
 
 class Detailed(Sprite):

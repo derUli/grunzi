@@ -1,4 +1,5 @@
 import os
+
 from utils.path import get_userdata_path
 
 DEFAULT_SAVE = 'default'

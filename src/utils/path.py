@@ -1,4 +1,5 @@
 import os
+
 from constants.game import GAMEDIR_NAME
 
 

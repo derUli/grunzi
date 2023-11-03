@@ -1,12 +1,14 @@
-from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
-import pygame
 import os
-import utils.audio
 import random
-
 import time
 
+import pygame
+
+import utils.audio
+from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
+
 FULL_HEALTH = 100
+
 
 class PlayerState():
 
@@ -48,7 +50,7 @@ class PlayerState():
         self.health += health
         self.update_health()
 
-    def flash(self, color = (255, 0, 0, )):
+    def flash(self, color=(255, 0, 0,)):
         self.flashing = color
         self.flash_start = time.time()
 

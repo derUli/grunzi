@@ -1,8 +1,8 @@
 """ Racoon character """
 import os
 
-import constants.graphics
 import constants.direction
+import constants.graphics
 import sprites.sprite
 from utils.animation import Animation
 

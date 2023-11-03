@@ -1,8 +1,9 @@
+import gettext
+import os
+
 import constants.game
 from components.component import Component
-import gettext
 from utils.animation import Animation
-import os
 from utils.menu import make_menu
 
 _ = gettext.gettext
@@ -41,7 +42,7 @@ class Settings(Component):
 
     def draw_background(self):
         self.screen.blit(self.video.get_frame(), (0, 0))
-        
+
     def handle_change_limit_fps(self, selection, selected_index):
         selected_item, index = selection
         text, value = selected_item
@@ -81,14 +82,13 @@ class Settings(Component):
             if value == selected:
                 break
 
-            i+= 1
+            i += 1
 
         return i
 
     def refresh_menu(self):
         self.menu.disable()
         self.draw_menu(self.screen)
-        
 
     def draw_menu(self, screen):
         menu = make_menu(_('Settings'), screen)
@@ -103,12 +103,12 @@ class Settings(Component):
         menu.add.button(fullscreen_text, self.handle_toggle_fullscreen)
 
         menu.add.dropselect(
-            title =_('FPS Limit'), 
-            default = self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
-            items = self.get_fps_limit_items(),
-            onchange = self.handle_change_limit_fps,
-            placeholder_add_to_selection_box = False
-            )
+            title=_('FPS Limit'),
+            default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
+            items=self.get_fps_limit_items(),
+            onchange=self.handle_change_limit_fps,
+            placeholder_add_to_selection_box=False
+        )
 
         show_fps_text = _('Show FPS: ')
 
@@ -120,17 +120,15 @@ class Settings(Component):
         # menu.add.button(show_fps_text, self.handle_show_fps)
 
         menu.add.range_slider(
-            title =_('Music Volume'), 
-            default = int(self.settings_state.music_volume * 100),
-            range_values = (0, 100),
+            title=_('Music Volume'),
+            default=int(self.settings_state.music_volume * 100),
+            range_values=(0, 100),
             increment=10,
             value_format=lambda x: str(int(x)) + "%",
-            onchange = self.handle_change_music_volume
-            )
+            onchange=self.handle_change_music_volume
+        )
 
         menu.add.button(_('Back To Main Menu'), self.handle_back)
 
         self.menu = menu
         menu.mainloop(screen, self.draw_background)
-
-

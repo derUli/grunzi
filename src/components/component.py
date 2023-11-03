@@ -1,5 +1,7 @@
-import pygame
 import os
+
+import pygame
+
 import constants.game
 import constants.headup
 import utils.audio

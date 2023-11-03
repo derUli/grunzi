@@ -1,4 +1,5 @@
 import pygame_menu
+
 from constants.headup import BOTTOM_UI_BACKGROUND, PIGGY_PINK
 
 THEME_PIG = pygame_menu.Theme(
@@ -15,10 +16,11 @@ THEME_PIG = pygame_menu.Theme(
     widget_font_color=BOTTOM_UI_BACKGROUND
 )
 
+
 def make_menu(title, screen):
     return pygame_menu.Menu(
         height=337,
         theme=THEME_PIG,
         title=title,
         width=600
-        )
+    )

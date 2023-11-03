@@ -1,13 +1,16 @@
 """ Gamve Over Screen """
-import os
 import gettext
+import os
+
 import pygame
-from utils.menu import make_menu
-from components.component import Component
-import utils.savegame
+
 import utils.image
+import utils.savegame
+from components.component import Component
+from utils.menu import make_menu
 
 _ = gettext.gettext
+
 
 class GameOver(Component):
     """ Gamve Over Screen """
