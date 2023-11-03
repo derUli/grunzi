@@ -41,6 +41,13 @@ class Settings(Component):
 
     def draw_background(self):
         self.screen.blit(self.video.get_frame(), (0, 0))
+        
+    def handle_change_limit_fps(self, selection, selected_index):
+        selected_item, index = selection
+        text, value = selected_item
+        print(value)
+        self.settings_state.limit_fps = value
+        self.settings_state.apply_and_save()
 
     def handle_show_fps(self):
         self.settings_state.show_fps = not self.settings_state.show_fps
@@ -56,9 +63,32 @@ class Settings(Component):
         self.settings_state.apply_and_save()
         self.refresh_menu()
 
+    def get_fps_limit_items(self):
+        return [
+            (_('Unlimited'), 0),
+            ('30', 30),
+            ('60', 60),
+            ('120', 120),
+            ('144', 144),
+            ('240', 240),
+        ]
+
+    def get_selected_index(self, items, selected):
+        i = 0
+        for item in items:
+            text, value = item
+
+            if value == selected:
+                break
+
+            i+= 1
+
+        return i
+
     def refresh_menu(self):
         self.menu.disable()
         self.draw_menu(self.screen)
+        
 
     def draw_menu(self, screen):
         menu = make_menu(_('Settings'), screen)
@@ -71,6 +101,14 @@ class Settings(Component):
             fullscreen_text += _('Window')
 
         menu.add.button(fullscreen_text, self.handle_toggle_fullscreen)
+
+        menu.add.dropselect(
+            title =_('FPS Limit'), 
+            default = self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
+            items = self.get_fps_limit_items(),
+            onchange = self.handle_change_limit_fps,
+            placeholder_add_to_selection_box = False
+            )
 
         show_fps_text = _('Show FPS: ')
 
@@ -94,3 +132,5 @@ class Settings(Component):
 
         self.menu = menu
         menu.mainloop(screen, self.draw_background)
+
+
