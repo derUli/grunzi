@@ -1,5 +1,6 @@
 import random
-
+import json
+from utils.reflections import get_class
 import sprites.backdrop
 import sprites.detailed
 import sprites.fire
@@ -15,12 +16,43 @@ LAYER_STATIC_OBJECTS = 1
 LAYER_MAINCHAR = 2
 
 class Level:
-    def __init__(self, sprites_dir, image_cache):
+    def __init__(self, sprites_dir, image_cache, level_file=None):
         self.layers = []
         self.sprites_dir = sprites_dir
         self.image_cache = image_cache
 
-    def fill_layers(self):
+        self.level_file = level_file
+
+    def load(self):
+        layers = []
+
+        with open(self.level_file, 'r') as f:
+            leveldata = json.loads(f.read())
+
+        for z in leveldata:
+            layer = []
+
+            for y in z:
+                row = []
+
+                for x in y:
+                    if x:
+                        sprite_file = None
+                        if 'sprite_file' in x:
+                            sprite_file = x['sprite_file']
+                        klass = get_class(x['sprite_class'])
+                        sprite = klass(self.sprites_dir, self.image_cache, sprite_file)
+                        row.append(sprite)
+                    else:
+                        row.append(None)
+                layer.append(row)
+            layers.append(layer)
+
+        self.layers = layers
+
+
+        self.layers[LAYER_GROUND][15][8] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'wall.jpg')
+    def randomize(self):
         # Three layers
         self.layers = [
             self.fill_fallback(sprites.backdrop.Backdrop),  # Backdrop layer
@@ -50,6 +82,8 @@ class Level:
 
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from + 3] = Door(self.sprites_dir, self.image_cache)
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'postbox.png')
+
+        self.layers[LAYER_GROUND][y_to][x_from + 3] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'wall.jpg')
 
         for x in range(x_to - 1, x_to + 1):
             self.layers[LAYER_STATIC_OBJECTS][y_to + 1][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache,

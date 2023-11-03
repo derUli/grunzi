@@ -12,6 +12,7 @@ class Sprite:
     def __init__(self, sprite_dir, cache, sprite=None):
         """ Constructor """
         self.sprite = None
+        self.sprite_file = sprite
         self.walkable = True
         self.sprite_dir = sprite_dir
         self.id = None
@@ -62,5 +63,6 @@ class Sprite:
 
     def to_dict(self):
         return {
-            'spriteClass': fullname(self)
+            'sprite_class': fullname(self),
+            'sprite_file': self.sprite_file
         }

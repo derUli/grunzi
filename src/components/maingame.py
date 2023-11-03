@@ -60,13 +60,14 @@ class MainGame(PausableComponent, Component):
 
         atmo = 'level' + str(self.state.level) + '.ogg'
         self.play_music(atmo)
-        self.level.fill_layers()
 
-        main_character = MainCharacter(self.sprites_dir, self.image_cache)
-        main_character.id = MAIN_CHARACTER_ID
-        main_character.state = self.state.player_state
+        level_file = os.path.join(self.data_dir, 'levels', 'level1.json')
+        self.level = Level(self.sprites_dir, self.image_cache, level_file)
+        self.level.load()
 
-        self.level.layers[LAYER_MAINCHAR][5][3] = main_character
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+
+        self.level.layers[z][y][x].state = self.state.player_state
 
         self.update_camera()
 

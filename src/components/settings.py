@@ -46,7 +46,6 @@ class Settings(Component):
     def handle_change_limit_fps(self, selection, selected_index):
         selected_item, index = selection
         text, value = selected_item
-        print(value)
         self.settings_state.limit_fps = value
         self.settings_state.apply_and_save()
 

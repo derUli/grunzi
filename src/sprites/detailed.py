@@ -13,9 +13,9 @@ class Detailed(Sprite):
 
     def __init__(self, sprite_dir, cache, sprite=None):
         """ Constructor """
+        self.detailed = os.path.join(sprite_dir, 'detailed', sprite)
         super().__init__(sprite_dir, cache, sprite)
         self.walkable = False
-        self.detailed = os.path.join(sprite_dir, 'detailed', sprite)
 
     def handle_interact(self, element):
         """ Show details view """
