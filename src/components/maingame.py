@@ -37,7 +37,7 @@ DISCARD_KEYS = MOVEMENT_KEYS + CONFIRM_KEYS
 class MainGame(PausableComponent, Component):
 
     def __init__(self, data_dir, handle_change_component, settings_state):
-
+        """ Constructor """
         super().__init__(data_dir, handle_change_component, settings_state)
 
         self.state = state.state.State(self.data_dir)
@@ -54,13 +54,13 @@ class MainGame(PausableComponent, Component):
             self.backdrop, constants.game.SCREEN_SIZE)
 
     def load_savegame(self):
+        """ Load savegame """
         utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
 
     def fill_layers(self):
         # Three layers
         self.layers = [
-            self.fill_fallback(
-                sprites.backdrop.Backdrop),  # Backdrop layer
+            self.fill_fallback(sprites.backdrop.Backdrop),  # Backdrop layer
             self.fill_fallback(None),  # Static objects
             self.fill_fallback(None),  # Player character
         ]
@@ -104,6 +104,7 @@ class MainGame(PausableComponent, Component):
         self.layers[1] = self.decorate_flowers(self.layers[1])
 
     def search_character(self, id):
+        """ Search character by id """
         for z in range(0, len(self.layers)):
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
@@ -258,17 +259,16 @@ class MainGame(PausableComponent, Component):
         self.camera_offset = [x, y]
 
     def handle_event(self, event):
+        """ Handle events """
         super().handle_event(event)
 
-        if event.type == pygame.KEYUP and event.type == pygame.KEYUP and event.key in MOVEMENT_KEYS:
-            self.moving = None
-        elif event.type == pygame.KEYUP and event.key == pygame.K_LSHIFT:
-            self.running = False
+        if event.type == pygame.KEYUP:
+            self.handle_keyup_event(event)
+        elif event.type == pygame.KEYDOWN:
+            self.handle_keydown_event(event)
 
-        if event.type == pygame.KEYDOWN:
-            self.handle_keyboard_event(event)
-
-    def handle_keyboard_event(self, event):
+    def handle_keydown_event(self, event):
+        """" Handle keydown events """
         if event.key == pygame.K_F5:
             utils.savegame.save_game(utils.savegame.QUICKSAVE, self.state)
         elif event.key == pygame.K_F9:
@@ -285,6 +285,13 @@ class MainGame(PausableComponent, Component):
             self.move_main_character(DIRECTION_DOWN)
         elif event.key == pygame.K_LSHIFT:
             self.running = True
+
+    def handle_keyup_event(self, event):
+        """" Handle keyup events """
+        if event.key in MOVEMENT_KEYS:
+            self.moving = None
+        elif event.key == pygame.K_LSHIFT:
+            self.running = False
 
     def move_main_character(self, direction):
         z, y, x = self.search_character(constants.game.MAIN_CHARACTER_ID)
@@ -349,4 +356,5 @@ class MainGame(PausableComponent, Component):
             self.update_camera()
 
     def draw_headup(self, screen):
+        """ Draw head up display """
         self.state.player_state.draw(screen)
