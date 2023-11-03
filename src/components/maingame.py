@@ -12,10 +12,8 @@ from components.component import Component
 from components.gameover import GameOver
 from components.pausable_component import PausableComponent
 from constants.direction import *
-from constants.game import MAIN_CHARACTER_ID
 from constants.headup import BOTTOM_UI_HEIGHT
-from sprites.maincharacter import MainCharacter
-from state.level import Level, LAYER_MAINCHAR
+from state.level import Level
 
 MOVEMENT_KEYS = [
     pygame.K_LEFT,
@@ -55,7 +53,17 @@ class MainGame(PausableComponent, Component):
 
     def load_savegame(self):
         """ Load savegame """
-        utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
+        level_file = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
+        self.load_level(level_file)
+
+    def load_level(self, level_file):
+        self.level.level_file = level_file
+        self.level.load()
+
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        self.level.layers[z][y][x].state = self.state.player_state
+
+        self.update_camera()
 
     def mount(self):
         pygame.mouse.set_visible(0)
@@ -64,14 +72,7 @@ class MainGame(PausableComponent, Component):
         self.play_music(atmo)
 
         level_file = os.path.join(self.data_dir, 'levels', 'level1.json')
-        self.level = Level(self.sprites_dir, self.image_cache, level_file)
-        self.level.load()
-
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
-
-        self.level.layers[z][y][x].state = self.state.player_state
-
-        self.update_camera()
+        self.load_level(level_file)
 
     def unmount(self):
         pygame.mouse.set_visible(1)
@@ -157,11 +158,7 @@ class MainGame(PausableComponent, Component):
 
     def handle_keydown_event(self, event):
         """" Handle keydown events """
-        if event.key == pygame.K_F5:
-            utils.savegame.save_game(utils.savegame.QUICKSAVE, self.state, self.level)
-        elif event.key == pygame.K_F9:
-            utils.savegame.load_game(utils.savegame.QUICKSAVE, self.state)
-        elif event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
+        if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
         elif event.key == pygame.K_LEFT:
             self.move_main_character(DIRECTION_LEFT)

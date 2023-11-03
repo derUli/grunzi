@@ -64,5 +64,6 @@ class Sprite:
     def to_dict(self):
         return {
             'sprite_class': fullname(self),
-            'sprite_file': self.sprite_file
+            'sprite_file': self.sprite_file,
+            'walkable' : self.walkable
         }

@@ -40,8 +40,13 @@ class Level:
                         sprite_file = None
                         if 'sprite_file' in x:
                             sprite_file = x['sprite_file']
+
                         klass = get_class(x['sprite_class'])
                         sprite = klass(self.sprites_dir, self.image_cache, sprite_file)
+
+                        if 'walkable' in x:
+                            sprite.walkable = x['walkable']
+                            
                         row.append(sprite)
                     else:
                         row.append(None)
@@ -50,8 +55,6 @@ class Level:
 
         self.layers = layers
 
-
-        self.layers[LAYER_GROUND][15][8] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'wall.jpg')
     def randomize(self):
         # Three layers
         self.layers = [

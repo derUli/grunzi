@@ -1,11 +1,8 @@
 import os
 import json
 from utils.path import get_userdata_path
-from state.level import Level
 
 DEFAULT_SAVE = 'default'
-QUICKSAVE = 'quicksave'
-
 
 def load_game(name, state):
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
@@ -17,17 +14,12 @@ def load_game(name, state):
     with open(state_file, 'r') as f:
         state.from_json(f.read())
 
-
     level_file = os.path.join(save_dir, 'level.json')
 
     if not os.path.exists(level_file):
         return None
 
-    return level_from_save(level_file)
-
-
-def level_from_save(file):
-    return []
+    return level_file
 
 
 def has_savegame(name):
