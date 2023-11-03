@@ -28,6 +28,23 @@ CONFIRM_KEYS = [
     pygame.K_RETURN,
 ]
 
+NUMERIC_KEYS = [
+    pygame.K_1,
+    pygame.K_2,
+    pygame.K_3,
+    pygame.K_4,
+    pygame.K_5,
+    pygame.K_6,
+    pygame.K_7,
+    pygame.K_8,
+    pygame.K_0
+]
+
+EDIT_KEYS = [
+    pygame.K_SPACE,
+    pygame.K_RETURN
+]
+
 DISCARD_KEYS = MOVEMENT_KEYS + CONFIRM_KEYS
 
 
@@ -43,6 +60,8 @@ class MainGame(PausableComponent, Component):
         self.camera_offset = [0, 0]
         self.moving = None
         self.running = False
+        self.edit_layer = 0
+        self.edit_mode = False
 
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg'
@@ -162,7 +181,14 @@ class MainGame(PausableComponent, Component):
         if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
         elif event.key == pygame.K_F1:
-            self.make_placeholder()
+            self.edit_mode = True
+        elif event.key == pygame.K_F2:
+            self.edit_mode = False
+        elif self.edit_mode and event.key in NUMERIC_KEYS:
+            index = NUMERIC_KEYS.index(event.key)
+            self.edit_layer = self.make_placeholder(index)
+        elif self.edit_mode and event.key in EDIT_KEYS:
+            self.make_placeholder(self.edit_layer)
         elif event.key == pygame.K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == pygame.K_RIGHT:
@@ -181,17 +207,20 @@ class MainGame(PausableComponent, Component):
         elif event.key == pygame.K_LSHIFT:
             self.running = False
 
-    def make_placeholder(self):
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+    def make_placeholder(self, z):
+        _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
-        for z in range(0, len(self.level.layers)):
-            if z == LAYER_MAINCHAR:
-                continue
-            self.level.layers[z][y][x] = Backdrop(
-                self.sprites_dir,
-                self.image_cache,
-                'placeholder.jpg'
-            )
+        if z > len(self.level.layers):
+            return
+
+        if z == LAYER_MAINCHAR:
+            return
+
+        self.level.layers[z][y][x] = Backdrop(
+            self.sprites_dir,
+            self.image_cache,
+            'placeholder.jpg'
+        )
 
     def move_main_character(self, direction):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
