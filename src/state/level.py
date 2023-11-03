@@ -27,9 +27,8 @@ class Level:
             self.fill_fallback(None),  # Static objects
             self.fill_fallback(None),  # Player character
         ]
-
-        self.layers[LAYER_STATIC_OBJECTS] = self.decorate_flowers(self.layers[LAYER_STATIC_OBJECTS])
         self.layers[LAYER_GROUND] = self.build_wall(self.layers[LAYER_GROUND])
+        self.layers[LAYER_STATIC_OBJECTS] = self.decorate_flowers(self.layers[LAYER_STATIC_OBJECTS])
 
         x_from = 5
         y_from = 10
@@ -44,18 +43,16 @@ class Level:
         for y in range(y_from, y_to):
             self.layers[LAYER_GROUND][y][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
             self.layers[LAYER_GROUND][y][x_to] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
-            self.layers[LAYER_STATIC_OBJECTS][y][x_from] = None
-            self.layers[LAYER_STATIC_OBJECTS][y][x_to] = None
+            self.layers[LAYER_STATIC_OBJECTS][y][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
+            self.layers[LAYER_STATIC_OBJECTS][y][x_to] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
 
         for x in range(x_from, x_to + 1):
             self.layers[LAYER_GROUND][y_from][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
             self.layers[LAYER_GROUND][y_to][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
-            self.layers[LAYER_STATIC_OBJECTS][y_from][x] = None
-            self.layers[LAYER_STATIC_OBJECTS][y_to][x] = None
+            self.layers[LAYER_STATIC_OBJECTS][y_from][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
+            self.layers[LAYER_STATIC_OBJECTS][y_to][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
 
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from + 3] = Door(self.sprites_dir, self.image_cache)
-        self.layers[LAYER_GROUND][y_to][x_from + 3].walkable = True
-
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'postbox.png')
 
         for x in range(x_to - 1, x_to + 1):
@@ -89,6 +86,7 @@ class Level:
         # Build wall
         for y in range(y_from, y_to):
             for x in range(x_from, x_to):
+                self.layers[LAYER_GROUND][y][x] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'pebble.jpg')
                 self.layers[LAYER_GROUND][y][x] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'pebble.jpg')
 
         self.layers[LAYER_STATIC_OBJECTS][0][5] = sprites.detailed.Detailed(
