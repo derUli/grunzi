@@ -201,3 +201,25 @@ class Level:
                     )
 
         return layer
+
+    def to_saveable_list(self):
+        layers = []
+
+        for z in self.layers:
+            layer = []
+
+            for y in z:
+                row = []
+
+                for x in y:
+                    if x:
+                        row.append(x.to_dict())
+                    else:
+                        row.append(None)
+
+                layer.append(row)
+            layers.append(layer)
+
+        return layers
+
+

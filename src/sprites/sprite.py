@@ -30,7 +30,6 @@ class Sprite:
                                                    )
 
     def draw(self, screen, x, y):
-        print(fullname(self))
         """ draw sprite """
         if not self.sprite:
             return None
@@ -60,3 +59,8 @@ class Sprite:
     def change_direction(self, direction):
         """ Change sprite direction """
         return
+
+    def to_dict(self):
+        return {
+            'spriteClass': fullname(self)
+        }

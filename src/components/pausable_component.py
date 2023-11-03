@@ -35,7 +35,7 @@ class PausableComponent():
         self.screen.blit(self.last_screen, (0, 0))
 
     def handle_save_game(self):
-        utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state)
+        utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state, self.level)
         self.handle_continue_game()
 
     def back_to_main_menu(self):

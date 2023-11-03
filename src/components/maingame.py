@@ -155,7 +155,7 @@ class MainGame(PausableComponent, Component):
     def handle_keydown_event(self, event):
         """" Handle keydown events """
         if event.key == pygame.K_F5:
-            utils.savegame.save_game(utils.savegame.QUICKSAVE, self.state)
+            utils.savegame.save_game(utils.savegame.QUICKSAVE, self.state, self.level)
         elif event.key == pygame.K_F9:
             utils.savegame.load_game(utils.savegame.QUICKSAVE, self.state)
         elif event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
