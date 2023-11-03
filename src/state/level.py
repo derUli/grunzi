@@ -43,14 +43,10 @@ class Level:
         for y in range(y_from, y_to):
             self.layers[LAYER_GROUND][y][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
             self.layers[LAYER_GROUND][y][x_to] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
-            self.layers[LAYER_STATIC_OBJECTS][y][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
-            self.layers[LAYER_STATIC_OBJECTS][y][x_to] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
 
         for x in range(x_from, x_to + 1):
             self.layers[LAYER_GROUND][y_from][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
             self.layers[LAYER_GROUND][y_to][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
-            self.layers[LAYER_STATIC_OBJECTS][y_from][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
-            self.layers[LAYER_STATIC_OBJECTS][y_to][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
 
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from + 3] = Door(self.sprites_dir, self.image_cache)
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'postbox.png')
@@ -68,7 +64,6 @@ class Level:
             self.sprites_dir,
             self.image_cache
         )
-
         self.layers[LAYER_STATIC_OBJECTS][y_from + 4][x_from + 5] = Apple(
             self.sprites_dir,
             self.image_cache
@@ -86,7 +81,6 @@ class Level:
         # Build wall
         for y in range(y_from, y_to):
             for x in range(x_from, x_to):
-                self.layers[LAYER_GROUND][y][x] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'pebble.jpg')
                 self.layers[LAYER_GROUND][y][x] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'pebble.jpg')
 
         self.layers[LAYER_STATIC_OBJECTS][0][5] = sprites.detailed.Detailed(
