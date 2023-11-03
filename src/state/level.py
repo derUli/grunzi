@@ -1,6 +1,6 @@
-import random
 import json
-from utils.reflections import get_class
+import random
+
 import sprites.backdrop
 import sprites.detailed
 import sprites.fire
@@ -10,10 +10,12 @@ from constants.game import LEVEL_1_SIZE
 from sprites.apple import Apple
 from sprites.door import Door
 from sprites.key import Key
+from utils.reflections import get_class
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
 LAYER_MAINCHAR = 2
+
 
 class Level:
     def __init__(self, sprites_dir, image_cache, level_file=None):
@@ -46,7 +48,7 @@ class Level:
 
                         if 'walkable' in x:
                             sprite.walkable = x['walkable']
-                            
+
                         row.append(sprite)
                     else:
                         row.append(None)
@@ -84,13 +86,15 @@ class Level:
             self.layers[LAYER_GROUND][y_to][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
 
         self.layers[LAYER_STATIC_OBJECTS][y_to][x_from + 3] = Door(self.sprites_dir, self.image_cache)
-        self.layers[LAYER_STATIC_OBJECTS][y_to][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache, 'postbox.png')
+        self.layers[LAYER_STATIC_OBJECTS][y_to][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache,
+                                                                            'postbox.png')
 
-        self.layers[LAYER_GROUND][y_to][x_from + 3] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'wall.jpg')
+        self.layers[LAYER_GROUND][y_to][x_from + 3] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache,
+                                                                                'wall.jpg')
 
         for x in range(x_to - 1, x_to + 1):
             self.layers[LAYER_STATIC_OBJECTS][y_to + 1][x] = sprites.wall.Wall(self.sprites_dir, self.image_cache,
-                                                                                  'garbagecan.png')
+                                                                               'garbagecan.png')
 
         self.layers[LAYER_STATIC_OBJECTS][y_from + 3][x_from + 3] = Key(
             self.sprites_dir,
@@ -118,7 +122,8 @@ class Level:
         # Build wall
         for y in range(y_from, y_to):
             for x in range(x_from, x_to):
-                self.layers[LAYER_GROUND][y][x] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache, 'pebble.jpg')
+                self.layers[LAYER_GROUND][y][x] = sprites.backdrop.Backdrop(self.sprites_dir, self.image_cache,
+                                                                            'pebble.jpg')
 
         self.layers[LAYER_STATIC_OBJECTS][0][5] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'dont_waste_water.png')
@@ -250,5 +255,3 @@ class Level:
             layers.append(layer)
 
         return layers
-
-

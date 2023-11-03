@@ -13,7 +13,8 @@ from components.gameover import GameOver
 from components.pausable_component import PausableComponent
 from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
-from state.level import Level
+from sprites.backdrop import Backdrop
+from state.level import Level, LAYER_MAINCHAR
 
 MOVEMENT_KEYS = [
     pygame.K_LEFT,
@@ -160,6 +161,8 @@ class MainGame(PausableComponent, Component):
         """" Handle keydown events """
         if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
+        elif event.key == pygame.K_F1:
+            self.make_placeholder()
         elif event.key == pygame.K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == pygame.K_RIGHT:
@@ -177,6 +180,18 @@ class MainGame(PausableComponent, Component):
             self.moving = None
         elif event.key == pygame.K_LSHIFT:
             self.running = False
+
+    def make_placeholder(self):
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+
+        for z in range(0, len(self.level.layers)):
+            if z == LAYER_MAINCHAR:
+                continue
+            self.level.layers[z][y][x] = Backdrop(
+                self.sprites_dir,
+                self.image_cache,
+                'placeholder.jpg'
+            )
 
     def move_main_character(self, direction):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)

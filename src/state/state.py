@@ -5,6 +5,7 @@ from state.playerstate import PlayerState
 from utils.image import ImageCache
 from utils.reflections import get_class
 
+
 class State:
     def __init__(self, data_dir=None):
         self.cache = ImageCache()

@@ -1,10 +1,11 @@
 import os
 import random
 import time
+
 import pygame
 
-from utils.audio import play_sound
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
+from utils.audio import play_sound
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10

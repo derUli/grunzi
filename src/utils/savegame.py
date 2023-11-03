@@ -1,8 +1,10 @@
-import os
 import json
+import os
+
 from utils.path import get_userdata_path
 
 DEFAULT_SAVE = 'default'
+
 
 def load_game(name, state):
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)

@@ -1,7 +1,9 @@
 """ Wall sprite """
-from sprites.sprite import Sprite
 import os
+
+from sprites.sprite import Sprite
 from utils.audio import play_sound
+
 
 class Takeable(Sprite):
     """ Takeable sprite class """

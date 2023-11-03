@@ -11,6 +11,7 @@ SETTINGS_DEFAULT_SHOW_FPS = False
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 
+
 class SettingsState:
     def __init__(self, handle_settings_change):
         """ Constructor """

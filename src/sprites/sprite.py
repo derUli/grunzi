@@ -1,5 +1,6 @@
 """ Generic sprite """
 import os
+
 import pygame
 
 from constants.graphics import SPRITE_SIZE
@@ -65,5 +66,5 @@ class Sprite:
         return {
             'sprite_class': fullname(self),
             'sprite_file': self.sprite_file,
-            'walkable' : self.walkable
+            'walkable': self.walkable
         }

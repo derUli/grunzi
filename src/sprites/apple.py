@@ -1,7 +1,9 @@
 """ Apple sprite class """
-import sprites.sprite
 import os
+
+import sprites.sprite
 from utils.audio import play_sound
+
 
 class Apple(sprites.sprite.Sprite):
     """ Apple sprite class """
