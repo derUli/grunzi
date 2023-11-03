@@ -36,7 +36,7 @@ class Game:
         self.clock = pygame.time.Clock()
         self.data_dir = os.path.join(os.path.dirname(__file__), 'data')
         self.current_component = None
-        self.settings_state = SettingsState(self.handle_settings_change, )
+        self.settings_state = SettingsState(self.handle_settings_change)
 
     def start(self):
         """ Start game """
