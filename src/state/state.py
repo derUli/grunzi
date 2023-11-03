@@ -22,7 +22,7 @@ class State:
 
         return {
             'health': self.player_state.health,
-            'inventory': self.player_state.inventory
+            'inventory': inventory
         }
 
     def to_json(self):
@@ -33,15 +33,14 @@ class State:
         """ From dictionary """
         self.player_state.health = savegame['health']
         self.player_state.update_health()
+        self.player_state.inventory = None
 
-        if 'inventory' in savegame:
+        if 'inventory' in savegame and savegame['inventory']:
             inventory = savegame['inventory']
 
-            sprite_file = None
             if 'sprite_file' in inventory:
                 sprite_file = inventory['sprite_file']
             klass = get_class(inventory['sprite_class'])
-            
             self.player_state.inventory = klass(self.sprites_dir, self.cache, sprite_file)
 
     def from_json(self, data):

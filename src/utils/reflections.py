@@ -10,7 +10,7 @@ def fullname(o):
     return module + '.' + klass.__qualname__
 
 
-def get_class(class_str):
+def get_class(class_str: object) -> object:
     try:
         module_path, class_name = class_str.rsplit('.', 1)
         module = import_module(module_path)
