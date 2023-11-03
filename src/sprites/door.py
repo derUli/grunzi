@@ -25,20 +25,19 @@ class Door(Wall):
     def handle_interact(self, element):
         """ Set walkable on interact """
 
-
         if not element:
             return
 
         # Todo: Check for Key
         # Play sound on unlock
-        if not element.state.inventory:
+        if not self.walkable and not element.state.inventory:
             play_sound(self.door_closed_sound)
             return
 
         self.open_door(element)
 
     def open_door(self, element=None):
-
         play_sound(self.door_open_sound)
         if element:
+            self.walkable = True
             element.state.inventory = None

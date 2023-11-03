@@ -80,7 +80,7 @@ class MainGame(PausableComponent, Component):
         if self.moving:
             self.move_main_character(self.moving)
 
-        level_size_fields_width, level_size_fields_height = constants.game.LEVEL_1_SIZE
+        self.level.purge_sprites()
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
         w, h = screen.get_size()
@@ -120,7 +120,6 @@ class MainGame(PausableComponent, Component):
                 for col in row:
                     if col:
                         col.draw(virtual_screen, x, y)
-
                     x += 1
 
                 y += 1

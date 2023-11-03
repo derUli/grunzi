@@ -6,7 +6,7 @@ import sprites.fire
 import sprites.raccoon
 import sprites.wall
 from sprites.door import Door
-from sprites.takeable import Takeable
+from sprites.key import Key
 from constants.game import LEVEL_1_SIZE
 
 LAYER_GROUND = 0
@@ -29,10 +29,15 @@ class Level:
         ]
 
         self.layers[LAYER_GROUND] = self.build_wall(self.layers[LAYER_GROUND])
+
         x_from = 5
-        x_to = 11
-        y_from = 20
-        y_to = 25
+        y_from = 10
+
+        x_size = 6
+        y_size = 5
+
+        x_to = x_from + x_size
+        y_to = y_from + y_size
 
         for y in range(y_from, y_to):
             self.layers[LAYER_GROUND][y][x_from] = sprites.wall.Wall(self.sprites_dir, self.image_cache)
@@ -55,9 +60,9 @@ class Level:
         self.layers[LAYER_STATIC_OBJECTS][3][4] = sprites.detailed.Detailed(
             self.sprites_dir, self.image_cache, 'bubblegum.png')
 
-
-        self.layers[LAYER_STATIC_OBJECTS][5][5] = Takeable(
-            self.sprites_dir, self.image_cache
+        self.layers[LAYER_STATIC_OBJECTS][10][15] = Key(
+            self.sprites_dir,
+            self.image_cache
         )
 
         self.camera_offset = (5, 3)
@@ -74,6 +79,16 @@ class Level:
             )
 
         self.layers[LAYER_STATIC_OBJECTS] = self.decorate_flowers(self.layers[LAYER_STATIC_OBJECTS])
+
+    def purge_sprites(self):
+        """ Search character by id """
+        for z in range(0, len(self.layers)):
+            for y in range(0, len(self.layers[z])):
+                for x in range(0, len(self.layers[z][y])):
+                    element = self.layers[z][y][x]
+                    if element and element.purge:
+                        self.layers[z][y][x] = None
+        return
 
     def search_character(self, id):
         """ Search character by id """

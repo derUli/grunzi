@@ -9,15 +9,16 @@ from constants.graphics import SPRITE_SIZE
 class Sprite():
     """ Generic sprite class """
 
-    def __init__(self, sprite_dir, cache, sprite=None):
+    def __init__(self, sprite_dir, cache, sprite=None, handle_remove = None):
         """ Constructor """
         self.sprite = None
         self.walkable = True
         self.sprite_dir = sprite_dir
         self.id = None
         self.state = None
-
+        self.handle_remove = handle_remove
         self.center_camera = False
+        self.purge = False
 
         if not sprite:
             return
