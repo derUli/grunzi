@@ -27,7 +27,7 @@ def load_game(name, state):
 
 
 def level_from_save(file):
-    level = Level()
+    return []
 
 
 def has_savegame(name):

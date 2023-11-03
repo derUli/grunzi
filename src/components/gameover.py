@@ -45,7 +45,7 @@ class GameOver(Component):
 
         menu = make_menu(_('Game Over'), screen)
 
-        if utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.settings_state):
+        if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
             menu.add.button(_('Load Game'), self.handle_load_game)  # Load save game
         menu.add.button(_('Back To Main Menu'),
                         self.handle_back_to_main_menu)  # Return to main menu
