@@ -51,7 +51,12 @@ class Level:
                             klass = get_class(x['sprite_class'])
                             sprite = klass(self.sprites_dir, self.image_cache, sprite_file)
                             if 'walkable' in x:
-                                sprite.walkable = x['walkable']
+                                sprite.walkable = bool(x['walkable'])
+                            else:
+                                sprite.walkable = False
+
+                            if 'id' in x:
+                                sprite.id = x['id']
 
                         except ImportError:
                             sprite = None

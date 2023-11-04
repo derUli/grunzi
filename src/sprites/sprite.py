@@ -70,8 +70,15 @@ class Sprite:
 
     def to_dict(self):
         """ To dictionary """
-        return {
+        data = {
             'sprite_class': fullname(self),
-            'sprite_file': self.sprite_file,
-            'walkable': int(self.walkable)
+            'sprite_file': self.sprite_file
         }
+
+        if self.walkable:
+            data['walkable'] = int(self.walkable)
+
+        if self.id:
+            data['id'] = self.id
+
+        return data
