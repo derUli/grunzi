@@ -57,6 +57,10 @@ class Level:
 
         self.layers = layers
 
+    def save(self):
+        with open(self.level_file, 'w') as f:
+            f.write(json.dumps(self.to_saveable_list()))
+
     def randomize(self):
         # Three layers
         self.layers = [

@@ -40,11 +40,6 @@ NUMERIC_KEYS = [
     pygame.K_0
 ]
 
-EDIT_KEYS = [
-    pygame.K_SPACE,
-    pygame.K_RETURN
-]
-
 DISCARD_KEYS = MOVEMENT_KEYS + CONFIRM_KEYS
 
 
@@ -60,8 +55,6 @@ class MainGame(PausableComponent, Component):
         self.camera_offset = [0, 0]
         self.moving = None
         self.running = False
-        self.edit_layer = 0
-        self.edit_mode = False
 
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg'
@@ -177,18 +170,20 @@ class MainGame(PausableComponent, Component):
             self.handle_keydown_event(event)
 
     def handle_keydown_event(self, event):
+        print(pygame.key)
+        print(pygame.K_F5)
         """" Handle keydown events """
         if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
         elif event.key == pygame.K_F1:
-            self.edit_mode = True
+            self.state.edit_mode = True
         elif event.key == pygame.K_F2:
-            self.edit_mode = False
-        elif self.edit_mode and event.key in NUMERIC_KEYS:
+            self.state.edit_mode = False
+        elif self.state.edit_mode and event.key == pygame.K_F5:
+            self.level.save()
+        elif self.state.edit_mode and event.key in NUMERIC_KEYS:
             index = NUMERIC_KEYS.index(event.key)
-            self.edit_layer = self.make_placeholder(index)
-        elif self.edit_mode and event.key in EDIT_KEYS:
-            self.make_placeholder(self.edit_layer)
+            self.make_placeholder(index)
         elif event.key == pygame.K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == pygame.K_RIGHT:
@@ -210,7 +205,7 @@ class MainGame(PausableComponent, Component):
     def make_placeholder(self, z):
         _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
-        if z > len(self.level.layers):
+        if z >= len(self.level.layers):
             return
 
         if z == LAYER_MAINCHAR:
