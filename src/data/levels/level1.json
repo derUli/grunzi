@@ -114333,11 +114333,6 @@
       null,
       null,
       null,
-      {
-        "sprite_class": "sprites.key.Key",
-        "sprite_file": "key1.png",
-        "walkable": true
-      },
       null,
       null,
       null,
@@ -114900,7 +114895,11 @@
       null,
       null,
       null,
-      null,
+      {
+        "sprite_class": "sprites.key.Key",
+        "sprite_file": "key1.png",
+        "walkable": true
+      },
       null,
       null,
       null,
@@ -115106,16 +115105,8 @@
       },
       null,
       null,
-      {
-        "sprite_class": "sprites.backdrop.Backdrop",
-        "sprite_file": "flower1.png",
-        "walkable": true
-      },
-      {
-        "sprite_class": "sprites.backdrop.Backdrop",
-        "sprite_file": "flower3.png",
-        "walkable": true
-      },
+      null,
+      null,
       null,
       null,
       null,
@@ -115339,7 +115330,7 @@
       null,
       {
         "sprite_class": "sprites.backdrop.Backdrop",
-        "sprite_file": "flower4.png",
+        "sprite_file": "placeholder.jpg",
         "walkable": true
       },
       null,
@@ -115556,7 +115547,7 @@
       null,
       {
         "sprite_class": "sprites.backdrop.Backdrop",
-        "sprite_file": "flower4.png",
+        "sprite_file": "placeholder.jpg",
         "walkable": true
       },
       null,
@@ -115754,7 +115745,7 @@
       null,
       {
         "sprite_class": "sprites.backdrop.Backdrop",
-        "sprite_file": "flower2.png",
+        "sprite_file": "placeholder.jpg",
         "walkable": true
       },
       {
@@ -115974,7 +115965,7 @@
       {
         "sprite_class": "sprites.door.Door",
         "sprite_file": "door.png",
-        "walkable": false
+        "walkable": true
       },
       null,
       null,
@@ -145187,13 +145178,13 @@
     [
       null,
       null,
-      null,
-      null,
       {
         "sprite_class": "sprites.maincharacter.MainCharacter",
         "sprite_file": "pig.png",
         "walkable": false
       },
+      null,
+      null,
       null,
       null,
       null,
