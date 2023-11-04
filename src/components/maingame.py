@@ -289,8 +289,9 @@ class MainGame(PausableComponent, Component):
             walkable = True
 
         if walkable:
-            self.level.layers[z] = self.level.fill_fallback(None)
+            # self.level.layers[z] = self.level.fill_fallback(None)
             self.level.layers[z][next_y][next_x] = character
+            self.level.layers[z][y][x] = None
 
             self.update_camera()
 

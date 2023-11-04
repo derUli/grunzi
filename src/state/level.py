@@ -179,7 +179,6 @@ class Level:
 
 
     def is_walkable(self, x, y):
-
         """ Check if a sprite  is walkable"""
         for z in self.layers:
             if not z[y][x]:
