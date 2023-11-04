@@ -73,5 +73,5 @@ class Sprite:
         return {
             'sprite_class': fullname(self),
             'sprite_file': self.sprite_file,
-            'walkable': self.walkable
+            'walkable': int(self.walkable)
         }

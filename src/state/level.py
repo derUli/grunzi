@@ -67,7 +67,7 @@ class Level:
 
     def save(self):
         with open(self.level_file, 'w') as f:
-            f.write(json.dumps(self.to_saveable_list(), indent=4))
+            f.write(json.dumps(self.to_saveable_list(), indent=0))
 
     def randomize(self):
         # Three layers
@@ -259,7 +259,7 @@ class Level:
                     if x:
                         row.append(x.to_dict())
                     else:
-                        row.append(None)
+                        row.append(0)
 
                 layer.append(row)
             layers.append(layer)
