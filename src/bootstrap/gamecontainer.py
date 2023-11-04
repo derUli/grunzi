@@ -17,10 +17,11 @@ import utils.audio
 from state.settingsstate import SettingsState
 from utils.fps_counter import FPSCounter
 from utils.screenshot import make_screenshot
+import platform
+import logging
 
 _ = gettext.gettext
 
-import logging
 
 
 class GameContainer:
@@ -41,6 +42,11 @@ class GameContainer:
 
     def start(self):
         """ Start game """
+        logging.info('')
+        logging.info('OS: ' + platform.platform())
+        logging.info('CPU: ' + platform.processor())
+        logging.info('Python version: ' + platform.python_version())
+        logging.info('Pygame version: ' + pygame.version.ver)
 
         pygame.mixer.pre_init(
             44100, 16, 2, 4096)  # For better and faster audio
@@ -78,7 +84,7 @@ class GameContainer:
             logging.info('OpenGL: ' + str(self.opengl))
 
             if self.opengl:
-                flags = flags | pygame.OPENGL
+                flags = flags | pygame.OPENGL | pygame.DOUBLEBUF
 
         if not self.screen:
             self.screen = pygame.display.set_mode(
