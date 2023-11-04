@@ -1,4 +1,6 @@
 from sprites.backdrop import Backdrop
+from sprites.wall import Wall
+
 def get_editor_blocks(sprites_dir, image_cache):
     return [
         Backdrop(
@@ -30,5 +32,35 @@ def get_editor_blocks(sprites_dir, image_cache):
             sprites_dir,
             image_cache,
             'sand.jpg'
+        ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'flower1.png'
+        ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'flower2.png'
+        ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'flower3.png'
+        ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'flower4.png'
+        ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'flower5.png'
+        ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'wall.jpg'
         )
     ]
