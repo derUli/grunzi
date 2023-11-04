@@ -1,4 +1,5 @@
 import json.decoder
+import logging
 import math
 import os
 import time
@@ -76,7 +77,8 @@ class MainGame(PausableComponent, Component):
         try:
             self.level.load()
         except json.decoder.JSONDecodeError:
-            print('Invalid level JSON')
+            logging.error('Invalid level JSON')
+            return
 
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state

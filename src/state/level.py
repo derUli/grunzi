@@ -1,6 +1,7 @@
 import json
-import random
 import os
+import random
+
 import sprites.backdrop
 import sprites.detailed
 import sprites.fire
@@ -262,15 +263,12 @@ class Level:
 
         return layers
 
-
     def check_for_changes(self):
         changed = False
         if not self.level_file:
             return changed
-            
-        if os.path.getmtime(self.level_file) != self.level_file_last_changed:
-            print(os.path.getmtime(self.level_file))
-            changed = True
 
+        if os.path.getmtime(self.level_file) != self.level_file_last_changed:
+            changed = True
 
         return changed

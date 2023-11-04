@@ -16,9 +16,12 @@ import constants.headup
 import utils.audio
 from state.settingsstate import SettingsState
 from utils.fps_counter import FPSCounter
+from utils.path import get_userdata_path
 from utils.screenshot import make_screenshot
 
 _ = gettext.gettext
+
+import logging
 
 
 class Game:
@@ -26,11 +29,6 @@ class Game:
 
     def __init__(self):
         """ Constructor """
-        pygame.mixer.pre_init(
-            44100, 16, 2, 4096)  # For better and faster audio
-
-        pygame.init()
-
         self.screen = None
         self.fps_counter = FPSCounter()
         self.running = True
@@ -40,7 +38,22 @@ class Game:
         self.settings_state = SettingsState(self.handle_settings_change)
 
     def start(self):
+        log_file = os.path.join(get_userdata_path(), 'debug.log')
+
         """ Start game """
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s [%(levelname)s] %(message)s",
+            handlers=[
+                logging.FileHandler(log_file),
+                logging.StreamHandler()
+            ]
+        )
+
+        pygame.mixer.pre_init(
+            44100, 16, 2, 4096)  # For better and faster audio
+
+        pygame.init()
 
         # Load settings from file
         # IF no settings file exists create it
