@@ -180,8 +180,6 @@ class MainGame(PausableComponent, Component):
         """ Handle events """
         super().handle_event(event)
 
-        logging.debug(event)
-
         if event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:
@@ -255,12 +253,12 @@ class MainGame(PausableComponent, Component):
 
     def handle_joyaxismotion(self, event):
         """ Handle controller Joyhat """
-        value = event.value
+        value = round(event.value, 2)
         axis = event.axis
 
-        if value == 0.0:
+        if value == 0.0 or value > 3 or value < -3:
             self.moving = None
-            return
+
         if axis == 0 and value > 0:
             self.move_main_character(DIRECTION_RIGHT)
         if axis == 0 and value < 0:
