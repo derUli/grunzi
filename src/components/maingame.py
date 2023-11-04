@@ -3,7 +3,7 @@ import logging
 import math
 import os
 import time
-
+from utils.level_editor import  get_editor_blocks
 import constants.game
 import constants.graphics
 import state.state
@@ -31,7 +31,8 @@ class MainGame(PausableComponent, Component):
         self.camera = Camera()
         self.moving = None
         self.running = False
-
+        self.editor_blocks_length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
+        self.editor_block_index = 0
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg'
         )
@@ -184,6 +185,16 @@ class MainGame(PausableComponent, Component):
         """" Handle keydown events """
         if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
+        elif event.key == K_CHANGE_BLOCK_DOWN:
+            self.editor_block_index += 1
+            length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
+            if self.editor_block_index >= length:
+                self.editor_block_index = 0
+        elif event.key == K_CHANGE_BLOCK_UP:
+            self.editor_block_index -= 1
+            length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
+            if self.editor_block_index < 0:
+                self.editor_block_index = length - 1
         elif event.key == K_TOGGLE_EDIT_MODE:
             self.state.edit_mode = not self.state.edit_mode
         elif self.state.edit_mode and event.key == K_SAVE_LEVEL:
@@ -192,7 +203,7 @@ class MainGame(PausableComponent, Component):
             index = NUMERIC_KEYS.index(event.key)
             # Shift is the key for running
             # Shift + Number sets null
-            self.make_placeholder(index, self.running)
+            self.make_field(index, self.running)
         elif event.key == K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == K_RIGHT:
@@ -213,7 +224,7 @@ class MainGame(PausableComponent, Component):
         elif event.key == K_RUN:
             self.running = False
 
-    def make_placeholder(self, z, clear=False):
+    def make_field(self, z, clear=False):
         _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         if z >= len(self.level.layers):
@@ -226,11 +237,11 @@ class MainGame(PausableComponent, Component):
             self.level.layers[z][y][x] = None
             return
 
-        self.level.layers[z][y][x] = Backdrop(
-            self.sprites_dir,
-            self.image_cache,
-            'placeholder.jpg'
-        )
+
+        editor_blocks = get_editor_blocks(self.sprites_dir, self.image_cache)
+        editor_block = editor_blocks[self.editor_block_index]
+
+        self.level.layers[z][y][x] = editor_block
 
     def move_main_character(self, direction):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
