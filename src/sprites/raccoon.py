@@ -31,7 +31,11 @@ class Raccoon(sprites.character.Character):
         logging.debug('Henlo Fren!')
 
         # CREDITS: https://soundbible.com/1853-Raccoon.html
-        files = ['raccoon1.ogg', 'raccoon2.ogg', 'raccoon3.ogg']
+        files = [
+            'raccoon1.ogg',
+            'raccoon2.ogg',
+            'raccoon3.ogg'
+        ]
         file = os.path.join(sound_dir, random.choice(files))
 
         utils.audio.play_sound(file)

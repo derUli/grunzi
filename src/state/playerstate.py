@@ -58,7 +58,7 @@ class PlayerState:
         self.update_health()
         self.flash(FLASH_COLOR_HEAL)
 
-    def flash(self, color=(255, 0, 0,)):
+    def flash(self, color=FLASH_COLOR_HURT):
         """ Flashing effect in color """
         self.flashing = color
         self.flash_start = time.time()

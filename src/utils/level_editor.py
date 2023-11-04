@@ -1,6 +1,10 @@
 from sprites.backdrop import Backdrop
 from sprites.wall import Wall
-from sprites.takeable import Takeable
+from sprites.chainsaw import Chainsaw
+from sprites.apple import Apple
+from sprites.coin import Coin
+from sprites.fence import Fence
+
 def get_editor_blocks(sprites_dir, image_cache):
     return [
         Backdrop(
@@ -27,6 +31,11 @@ def get_editor_blocks(sprites_dir, image_cache):
             sprites_dir,
             image_cache,
             'pebble.jpg'
+        ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'rock.jpg'
         ),
         Backdrop(
             sprites_dir,
@@ -60,22 +69,29 @@ def get_editor_blocks(sprites_dir, image_cache):
         ),
         Wall(
             sprites_dir,
-            image_cache,
-            'wall.jpg'
+            image_cache
         ),
-        Wall(
+        Fence(
             sprites_dir,
             image_cache,
             'wood_fence_horizontal.png'
         ),
-        Wall(
+        Fence(
             sprites_dir,
             image_cache,
             'wood_fence_vertical.png'
         ),
-        Takeable(
+        Chainsaw(
             sprites_dir,
             image_cache,
             'chainsaw.png'
+        ),
+        Coin(
+            sprites_dir,
+            image_cache
+        ),
+        Apple(
+            sprites_dir,
+            image_cache
         )
     ]
