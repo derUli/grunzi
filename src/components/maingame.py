@@ -170,8 +170,6 @@ class MainGame(PausableComponent, Component):
             self.handle_keydown_event(event)
 
     def handle_keydown_event(self, event):
-        print(pygame.key)
-        print(pygame.K_F5)
         """" Handle keydown events """
         if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
