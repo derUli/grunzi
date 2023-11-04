@@ -1,4 +1,5 @@
 """ Generic sprite """
+
 import logging
 import os
 
@@ -68,6 +69,7 @@ class Sprite:
         return
 
     def to_dict(self):
+        """ To dictionary """
         return {
             'sprite_class': fullname(self),
             'sprite_file': self.sprite_file,

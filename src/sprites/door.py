@@ -41,4 +41,3 @@ class Door(Wall):
         play_sound(self.door_open_sound)
 
         self.walkable = True
-        element.state.inventory = None

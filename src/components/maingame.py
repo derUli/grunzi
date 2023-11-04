@@ -4,8 +4,6 @@ import math
 import os
 import time
 
-import pygame
-
 import constants.game
 import constants.graphics
 import state.state
@@ -15,35 +13,10 @@ from components.gameover import GameOver
 from components.pausable_component import PausableComponent
 from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
+from constants.keyboard import *
 from sprites.backdrop import Backdrop
-from state.level import Level, LAYER_MAINCHAR
+from state.level import Level, LAYER_MAINCHAR, LAYER_STATIC_OBJECTS
 from utils.camera import Camera
-
-MOVEMENT_KEYS = [
-    pygame.K_LEFT,
-    pygame.K_RIGHT,
-    pygame.K_UP,
-    pygame.K_DOWN
-]
-
-CONFIRM_KEYS = [
-    pygame.K_SPACE,
-    pygame.K_RETURN,
-]
-
-NUMERIC_KEYS = [
-    pygame.K_1,
-    pygame.K_2,
-    pygame.K_3,
-    pygame.K_4,
-    pygame.K_5,
-    pygame.K_6,
-    pygame.K_7,
-    pygame.K_8,
-    pygame.K_0
-]
-
-DISCARD_KEYS = MOVEMENT_KEYS + CONFIRM_KEYS
 
 
 class MainGame(PausableComponent, Component):
@@ -163,9 +136,25 @@ class MainGame(PausableComponent, Component):
             component.state = self.state
 
         # Check for changes
-        if self.level.check_for_changes():
+        if self.state.edit_mode and self.level.check_for_changes():
             # If the level file was changes do a reload
             self.load_level(self.level.level_file)
+
+    def drop_item(self):
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+
+        if not self.state.player_state.inventory:
+            logging.debug("Drop item failed. No item in inventory.")
+            return
+
+        if self.level.layers[LAYER_STATIC_OBJECTS][y][x]:
+            logging.debug("Drop item failed. Static objects layer not empty")
+            return
+
+        self.state.player_state.inventory.purge = False
+        self.level.layers[LAYER_STATIC_OBJECTS][y][x] = self.state.player_state.inventory
+
+        self.state.player_state.inventory = None
 
     def update_camera(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
@@ -192,40 +181,46 @@ class MainGame(PausableComponent, Component):
         """" Handle keydown events """
         if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
-        elif event.key == pygame.K_F1:
-            self.state.edit_mode = True
-        elif event.key == pygame.K_F2:
-            self.state.edit_mode = False
-        elif self.state.edit_mode and event.key == pygame.K_F5:
+        elif event.key == K_TOGGLE_EDIT_MODE:
+            self.state.edit_mode = not self.state.edit_mode
+        elif self.state.edit_mode and event.key == K_SAVE_LEVEL:
             self.level.save()
         elif self.state.edit_mode and event.key in NUMERIC_KEYS:
             index = NUMERIC_KEYS.index(event.key)
-            self.make_placeholder(index)
-        elif event.key == pygame.K_LEFT:
+            # Shift is the key for running
+            # Shift + Number sets null
+            self.make_placeholder(index, self.running)
+        elif event.key == K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
-        elif event.key == pygame.K_RIGHT:
+        elif event.key == K_RIGHT:
             self.move_main_character(DIRECTION_RIGHT)
-        elif event.key == pygame.K_UP:
+        elif event.key == K_UP:
             self.move_main_character(DIRECTION_UP)
-        elif event.key == pygame.K_DOWN:
+        elif event.key == K_DOWN:
             self.move_main_character(DIRECTION_DOWN)
-        elif event.key == pygame.K_LSHIFT:
+        elif event.key == K_DROP_ITEM:
+            self.drop_item()
+        elif event.key == K_RUN:
             self.running = True
 
     def handle_keyup_event(self, event):
         """" Handle keyup events """
         if event.key in MOVEMENT_KEYS:
             self.moving = None
-        elif event.key == pygame.K_LSHIFT:
+        elif event.key == K_RUN:
             self.running = False
 
-    def make_placeholder(self, z):
+    def make_placeholder(self, z, clear=False):
         _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         if z >= len(self.level.layers):
             return
 
         if z == LAYER_MAINCHAR:
+            return
+
+        if clear:
+            self.level.layers[z][y][x] = None
             return
 
         self.level.layers[z][y][x] = Backdrop(
