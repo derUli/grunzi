@@ -39,4 +39,4 @@ Die anderen Einstellungen werden sofort, ohne Neustart des Spiels, übernommen.
 
 Ich selbst verwende bei der Entwicklung mit 720P und 1080P.
 Das Spiel ist so programmiert, dass es sich dynamisch an die Größe des Bildschirms anpasst, aber ich kann nicht ausschließen, dass
-es bei ungewöhnlichen Auflösungen zu Darstellungsfehlern kommen könnte.
+es bei ungewöhnlichen Bildschirmauflösungen eventuell zu Darstellungsfehlern kommen könnte.
