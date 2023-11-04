@@ -33,9 +33,7 @@ class Sprite:
             logging.error('File ' + file + ' not found')
             return
 
-        self.sprite = pygame.transform.smoothscale(image,
-                                                   SPRITE_SIZE
-                                                   )
+        self.sprite = pygame.transform.smoothscale(image, SPRITE_SIZE)
 
     def draw(self, screen, x, y):
         """ draw sprite """

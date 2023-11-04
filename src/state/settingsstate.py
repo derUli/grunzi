@@ -4,6 +4,7 @@ import os
 
 import pygame
 
+from constants.quality import QUALITY_MEDIUM
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = False
@@ -11,7 +12,6 @@ SETTINGS_DEFAULT_VOLUME = 0.8
 SETTINGS_DEFAULT_SHOW_FPS = False
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
-
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = [1280, 720]
 
 
@@ -24,9 +24,8 @@ class SettingsState:
         self.show_fps = SETTINGS_DEFAULT_SHOW_FPS
         self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
         self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
-
         self.music_volume = SETTINGS_DEFAULT_VOLUME
-
+        self.quality = QUALITY_MEDIUM
         self.handle_settings_change = handle_settings_change
 
     def apply_and_save(self):
@@ -87,7 +86,8 @@ class SettingsState:
             'music_volume': self.music_volume,
             'vsync': self.vsync,
             'limit_fps': self.limit_fps,
-            'screen_resolution': self.screen_resolution
+            'screen_resolution': self.screen_resolution,
+            'quality': self.quality
         }
 
     def to_json(self):
@@ -114,3 +114,6 @@ class SettingsState:
 
         if 'screen_resolution' in settings:
             self.screen_resolution = tuple(settings['screen_resolution'])
+
+        if 'quality' in settings:
+            self.quality = settings['quality']

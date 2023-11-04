@@ -1,11 +1,15 @@
 import gettext
 import os
+
 import pygame
+
 from components.component import Component
+from constants.quality import QUALITY_MEDIUM
 from utils.animation import Animation
 from utils.menu import make_menu
 
 _ = gettext.gettext
+
 
 class Settings(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False):
@@ -19,6 +23,7 @@ class Settings(Component):
             'animations',
             'dancing_pig'
         )
+
         # 25 Frames by second
         self.video = Animation(
             video_path,
@@ -51,6 +56,7 @@ class Settings(Component):
         text, value = selected_item
         self.settings_state.screen_resolution = value
         self.settings_state.apply_and_save()
+
     def handle_show_fps(self):
         self.settings_state.show_fps = not self.settings_state.show_fps
         self.settings_state.apply_and_save()
@@ -65,6 +71,12 @@ class Settings(Component):
         self.settings_state.apply_and_save()
         self.refresh_menu()
 
+    def handle_change_quality(self, selection, selected_index):
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.quality = value
+        self.settings_state.apply_and_save()
+
     def get_fps_limit_items(self):
         return [
             (_('Unlimited'), 0),
@@ -73,6 +85,15 @@ class Settings(Component):
             ('120', 120),
             ('144', 144),
             ('240', 240),
+        ]
+
+    def get_quality_items(self):
+        """ Get items for quality dropdown """
+        return [
+            # (_('Low'), QUALITY_LOW),
+            # Currently no selection because it isn't implemented yet
+            (_('Medium'), QUALITY_MEDIUM),
+            # (_('High'), QUALITY_HIGH)
         ]
 
     def get_screen_resolution_items(self):
@@ -95,7 +116,6 @@ class Settings(Component):
 
         return i
 
-
     def get_selected_index(self, items, selected):
         i = 0
         for item in items:
@@ -113,7 +133,7 @@ class Settings(Component):
         self.draw_menu(self.screen)
 
     def draw_menu(self, screen):
-        menu = make_menu(_('Settings'), screen)
+        menu = make_menu(_('Settings'))
 
         fullscreen_text = _('Display Mode: ')
 
@@ -129,6 +149,14 @@ class Settings(Component):
             default=self.get_selected_index(self.get_screen_resolution_items(), self.settings_state.screen_resolution),
             items=self.get_screen_resolution_items(),
             onchange=self.handle_screen_resolution,
+            placeholder_add_to_selection_box=False
+        )
+
+        menu.add.dropselect(
+            title=_('Quality'),
+            default=self.get_selected_index(self.get_quality_items(), self.settings_state.quality),
+            items=self.get_quality_items(),
+            onchange=self.handle_change_quality,
             placeholder_add_to_selection_box=False
         )
 

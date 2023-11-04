@@ -17,10 +17,10 @@ THEME_PIG = pygame_menu.Theme(
 )
 
 
-def make_menu(title, screen):
+def make_menu(title):
     return pygame_menu.Menu(
-        height=337,
+        height=480,
         theme=THEME_PIG,
         title=title,
-        width=600
+        width=640
     )

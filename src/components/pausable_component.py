@@ -15,7 +15,7 @@ class PausableComponent:
         self.last_screen = self.screen.copy().convert_alpha()
         self.last_screen.set_alpha(100)
 
-        menu = make_menu(_('Pause'), self.screen)
+        menu = make_menu(_('Pause'))
 
         menu.add.button(
             _('Continue'),

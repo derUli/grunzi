@@ -63,7 +63,7 @@ class Menu(Component):
         self.screen.blit(self.video.get_frame(), (0, 0))
 
     def draw_menu(self, screen):
-        menu = make_menu(_('Grunzi'), screen)
+        menu = make_menu(_('Grunzi'))
         menu.add.button(_('New Game'), self.handle_new_game)
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
             menu.add.button(

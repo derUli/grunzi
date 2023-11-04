@@ -43,7 +43,7 @@ class GameOver(Component):
         self.backdrop = pygame.transform.smoothscale(
             self.backdrop, screen.get_size())
 
-        menu = make_menu(_('Game Over'), screen)
+        menu = make_menu(_('Game Over'))
 
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
             menu.add.button(_('Load Game'), self.handle_load_game)  # Load save game

@@ -13,7 +13,7 @@ root_dir = os.path.join(os.path.dirname(__file__))
 
 parser = argparse.ArgumentParser(
     prog=_('Grunzi'),
-    description=_('Piggy puzzle game')
+    description=_('Piggy adventure game')
 )
 
 parser.add_argument('-e', '--edit', action='store_true')  # option that takes a value
