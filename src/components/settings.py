@@ -1,15 +1,13 @@
 import gettext
 import os
-
+import pygame
 from components.component import Component
 from utils.animation import Animation
 from utils.menu import make_menu
 
 _ = gettext.gettext
 
-
 class Settings(Component):
-
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False):
         """ Constructor """
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode)
@@ -25,7 +23,7 @@ class Settings(Component):
         self.video = Animation(
             video_path,
             refresh_interval=1 / 25,
-            size=self.settings_state.SCREEN_RESOLUTION,
+            size=self.settings_state.screen_resolution,
             async_load=True
         )
 
@@ -48,6 +46,11 @@ class Settings(Component):
         self.settings_state.limit_fps = value
         self.settings_state.apply_and_save()
 
+    def handle_screen_resolution(self, selection, selected_index):
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.screen_resolution = value
+        self.settings_state.apply_and_save()
     def handle_show_fps(self):
         self.settings_state.show_fps = not self.settings_state.show_fps
         self.settings_state.apply_and_save()
@@ -71,6 +74,27 @@ class Settings(Component):
             ('144', 144),
             ('240', 240),
         ]
+
+    def get_screen_resolution_items(self):
+        modes = sorted(pygame.display.list_modes())
+        items = []
+        for x, y in modes:
+            label = (str(x) + 'x' + str(y))
+            value = (x, y)
+            items.append((label, value))
+
+        return items
+
+    def get_selected_resolution_index(self):
+        i = 0
+        for label, value in self.get_screen_resolution_items():
+            if value == self.settings_state.screen_resolution:
+                continue
+
+            i += 1
+
+        return i
+
 
     def get_selected_index(self, items, selected):
         i = 0
@@ -99,6 +123,14 @@ class Settings(Component):
             fullscreen_text += _('Window')
 
         menu.add.button(fullscreen_text, self.handle_toggle_fullscreen)
+
+        menu.add.dropselect(
+            title=_('Screen Resolution'),
+            default=self.get_selected_index(self.get_screen_resolution_items(), self.settings_state.screen_resolution),
+            items=self.get_screen_resolution_items(),
+            onchange=self.handle_screen_resolution,
+            placeholder_add_to_selection_box=False
+        )
 
         menu.add.dropselect(
             title=_('FPS Limit'),
