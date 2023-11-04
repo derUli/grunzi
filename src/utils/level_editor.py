@@ -62,5 +62,15 @@ def get_editor_blocks(sprites_dir, image_cache):
             sprites_dir,
             image_cache,
             'wall.jpg'
+        ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'wood_fence_horizontal.png'
+        ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'wood_fence_vertical.png'
         )
     ]
