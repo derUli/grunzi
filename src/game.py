@@ -42,7 +42,7 @@ class Game:
 
         """ Start game """
         logging.basicConfig(
-            level=logging.INFO,
+            level=logging.DEBUG,
             format="%(asctime)s [%(levelname)s] %(message)s",
             handlers=[
                 logging.FileHandler(log_file),
@@ -76,6 +76,9 @@ class Game:
         flags = pygame.SCALED
 
         self.screen = None
+        screen_resolution = constants.game.SCREEN_SIZE
+        logging.debug('Init screen')
+        logging.info('Screen resolution: ' + str(screen_resolution))
         self.set_icon()
         pygame.display.set_caption(_('Grunzi'))
 
@@ -84,7 +87,7 @@ class Game:
 
         if not self.screen:
             self.screen = pygame.display.set_mode(
-                constants.game.SCREEN_SIZE,
+                screen_resolution,
                 flags,
                 vsync=int(self.settings_state.vsync))
 

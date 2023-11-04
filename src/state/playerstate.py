@@ -6,6 +6,7 @@ import pygame
 
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from utils.audio import play_sound
+import logging
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10
@@ -84,6 +85,7 @@ class PlayerState:
         if self.health > 99:
             self.health = 100
 
+        logging.debug('Current health: ' + str(self.health))
         self.crop_pig()
 
     def crop_pig(self):

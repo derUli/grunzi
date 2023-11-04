@@ -115328,11 +115328,7 @@
       null,
       null,
       null,
-      {
-        "sprite_class": "sprites.backdrop.Backdrop",
-        "sprite_file": "placeholder.jpg",
-        "walkable": true
-      },
+      null,
       null,
       null,
       null,
@@ -115545,11 +115541,7 @@
       null,
       null,
       null,
-      {
-        "sprite_class": "sprites.backdrop.Backdrop",
-        "sprite_file": "placeholder.jpg",
-        "walkable": true
-      },
+      null,
       null,
       null,
       {
@@ -115743,11 +115735,7 @@
       null,
       null,
       null,
-      {
-        "sprite_class": "sprites.backdrop.Backdrop",
-        "sprite_file": "placeholder.jpg",
-        "walkable": true
-      },
+      null,
       {
         "sprite_class": "sprites.apple.Apple",
         "sprite_file": "apple.png",

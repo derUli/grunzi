@@ -1,6 +1,6 @@
 import json
 import os
-
+import logging
 import pygame
 
 from utils.path import get_userdata_path
@@ -32,6 +32,8 @@ class SettingsState:
 
     def save(self):
         """ Save settings """
+
+        logging.info('Save settings')
         if not os.path.exists(get_userdata_path()):
             os.makedirs(get_userdata_path())
 
@@ -39,9 +41,14 @@ class SettingsState:
             f.write(self.to_json())
 
     def apply(self):
+        """ Apply settings """
+        logging.info('Apply settings')
+        logging.debug(self.to_json())
+
         """ Apply changes """
         # Fullscreen mode
         if self.fullscreen != self.old_fullscreen:
+            logging.debug('Display mode changed ' + str(self.fullscreen))
             pygame.display.toggle_fullscreen()
             self.old_fullscreen = self.fullscreen
 

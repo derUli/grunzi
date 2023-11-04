@@ -6,7 +6,7 @@ import constants.direction
 import constants.graphics
 import sprites.character
 import utils.audio
-
+import logging
 
 class Raccoon(sprites.character.Character):
     """ Raccon character class """
@@ -26,6 +26,8 @@ class Raccoon(sprites.character.Character):
         sound_dir = os.path.abspath(
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'raccoon')
         )
+
+        logging.debug('Henlo Fren!')
 
         # CREDITS: https://soundbible.com/1853-Raccoon.html
         files = ['raccoon1.ogg', 'raccoon2.ogg', 'raccoon3.ogg']
