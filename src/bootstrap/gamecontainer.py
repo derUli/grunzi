@@ -27,7 +27,7 @@ import logging
 class GameContainer:
     """ Main game class """
 
-    def __init__(self, root_dir):
+    def __init__(self, root_dir, enable_edit_mode=False):
         """ Constructor """
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
@@ -37,19 +37,10 @@ class GameContainer:
         self.clock = pygame.time.Clock()
         self.current_component = None
         self.settings_state = SettingsState(self.handle_settings_change)
+        self.enable_edit_mode = enable_edit_mode
 
     def start(self):
         """ Start game """
-        log_file = os.path.join(get_userdata_path(), 'debug.log')
-
-        logging.basicConfig(
-            level=logging.DEBUG,
-            format="%(asctime)s [%(levelname)s] %(message)s",
-            handlers=[
-                logging.FileHandler(log_file),
-                logging.StreamHandler()
-            ]
-        )
 
         pygame.mixer.pre_init(
             44100, 16, 2, 4096)  # For better and faster audio
@@ -164,9 +155,11 @@ class GameContainer:
         if self.current_component:
             self.current_component.unmount()
 
-        self.current_component = component(self.data_dir,
+        self.current_component = component(
+            self.data_dir,
                                            self.change_component,
-                                           self.settings_state)
+                                           self.settings_state, enable_edit_mode = self.enable_edit_mode
+        )
 
         if self.current_component:
             self.current_component.set_screen(self.screen)

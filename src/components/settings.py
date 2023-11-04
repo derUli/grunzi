@@ -11,9 +11,9 @@ _ = gettext.gettext
 
 class Settings(Component):
 
-    def __init__(self, data_dir, handle_change_component, settings_state):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode = False):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state)
+        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode)
 
         video_path = os.path.join(
             data_dir,

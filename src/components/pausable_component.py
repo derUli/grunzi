@@ -8,7 +8,7 @@ from utils.menu import make_menu
 _ = gettext.gettext
 
 
-class PausableComponent():
+class PausableComponent:
 
     # Todo refactor to own class
     def pause_menu(self):

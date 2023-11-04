@@ -10,12 +10,13 @@ import utils.image
 
 class Component(object):
 
-    def __init__(self, data_dir, handle_change_component, settings_state):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode = False):
         """ Constructor """
         self.data_dir = data_dir
         self.handle_change_component = handle_change_component
         self.image_cache = utils.image.ImageCache()
         self.settings_state = settings_state
+        self.enable_edit_mode = enable_edit_mode
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),

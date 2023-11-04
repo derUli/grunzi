@@ -15,9 +15,9 @@ _ = gettext.gettext
 class GameOver(Component):
     """ Gamve Over Screen """
 
-    def __init__(self, data_dir, handle_change_component, settings_state):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode = False):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state)
+        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode)
         self.menu = None
 
         file = os.path.join(data_dir, 'images', 'menu', 'gameover.jpg')

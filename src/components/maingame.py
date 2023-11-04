@@ -21,9 +21,9 @@ from utils.audio import play_sound
 
 class MainGame(PausableComponent, Component):
 
-    def __init__(self, data_dir, handle_change_component, settings_state):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode = False):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state)
+        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode)
 
         self.state = state.state.State(self.data_dir)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
@@ -195,7 +195,7 @@ class MainGame(PausableComponent, Component):
             length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
             if self.editor_block_index < 0:
                 self.editor_block_index = length - 1
-        elif event.key == K_TOGGLE_EDIT_MODE:
+        elif event.key == K_TOGGLE_EDIT_MODE and self.enable_edit_mode:
             self.state.edit_mode = not self.state.edit_mode
         elif self.state.edit_mode and event.key == K_SAVE_LEVEL:
             self.level.save()
