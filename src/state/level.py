@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import random
 
@@ -269,6 +270,7 @@ class Level:
             return changed
 
         if os.path.getmtime(self.level_file) != self.level_file_last_changed:
+            logging.debug('Map file changed ' + self.level_file)
             changed = True
 
         return changed

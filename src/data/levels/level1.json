@@ -145166,12 +145166,12 @@
     [
       null,
       null,
+      null,
       {
         "sprite_class": "sprites.maincharacter.MainCharacter",
         "sprite_file": "pig.png",
         "walkable": false
       },
-      null,
       null,
       null,
       null,
