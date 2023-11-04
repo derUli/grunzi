@@ -288,13 +288,14 @@ class MainGame(PausableComponent, Component):
         if (next_x > len(self.level.layers[z][y]) - 1):
             return
 
-        walkable = self.level.is_walkable(next_x, next_y)
         layer_count = len(self.level.layers)
 
         for layer in range(0, layer_count):
             element = self.level.layers[layer][next_y][next_x]
             if element:
                 element.handle_interact(character)
+
+        walkable = self.level.is_walkable(next_x, next_y)
 
         if self.state.edit_mode:
             walkable = True

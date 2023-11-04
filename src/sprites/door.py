@@ -29,8 +29,8 @@ class Door(Wall):
         if not element:
             return
 
-        if isinstance(element.state.inventory, Key) or self.walkable:
-            self.open_door(element)
+        if isinstance(element.state.inventory, Key) and not self.walkable:
+            self.open_door()
             return
 
         # Todo: Check for Key
@@ -40,7 +40,7 @@ class Door(Wall):
             return
 
 
-    def open_door(self, element=None):
+    def open_door(self):
         play_sound(self.door_open_sound)
 
         self.walkable = True
