@@ -36,3 +36,7 @@ Das Spiel startet beim ersten Start in der Auflösung 1280x720 (720P).
 Eine höhere Einstellung kann in den Grafikoptionen ausgewählt werden.
 In dieser Version muss das Spiel noch neugestartet werden, um eine Änderung der Auflösung zu übernehmen.
 Die anderen Einstellungen werden sofort, ohne Neustart des Spiels, übernommen.
+
+Ich selbst verwende bei der Entwicklung mit 720P und 1080P.
+Das Spiel ist so programmiert, dass es sich dynamisch an die Größe des Bildschirms anpasst, aber ich kann nicht ausschließen, dass
+es bei ungewöhnlichen Auflösungen zu Darstellungsfehlern kommen könnte.
