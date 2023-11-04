@@ -1,4 +1,5 @@
 """ Racoon character """
+import logging
 import os
 import random
 
@@ -6,7 +7,7 @@ import constants.direction
 import constants.graphics
 import sprites.character
 import utils.audio
-import logging
+
 
 class Raccoon(sprites.character.Character):
     """ Raccon character class """

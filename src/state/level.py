@@ -47,11 +47,15 @@ class Level:
                         if 'sprite_file' in x:
                             sprite_file = x['sprite_file']
 
-                        klass = get_class(x['sprite_class'])
-                        sprite = klass(self.sprites_dir, self.image_cache, sprite_file)
+                        try:
+                            klass = get_class(x['sprite_class'])
+                            sprite = klass(self.sprites_dir, self.image_cache, sprite_file)
+                            if 'walkable' in x:
+                                sprite.walkable = x['walkable']
 
-                        if 'walkable' in x:
-                            sprite.walkable = x['walkable']
+                        except ImportError:
+                            sprite = None
+                            logging.error('Import ' + x['sprite_class'] + ' failed')
 
                         row.append(sprite)
                     else:
@@ -63,7 +67,7 @@ class Level:
 
     def save(self):
         with open(self.level_file, 'w') as f:
-            f.write(json.dumps(self.to_saveable_list(), indent=2))
+            f.write(json.dumps(self.to_saveable_list(), indent=4))
 
     def randomize(self):
         # Three layers
@@ -146,8 +150,6 @@ class Level:
             self.sprites_dir,
             self.image_cache
         )
-
-        self.camera_offset = (5, 3)
 
         raccoon = sprites.raccoon.Raccoon(self.sprites_dir,
                                           self.image_cache)

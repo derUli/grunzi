@@ -1,6 +1,7 @@
 import json
-import os
 import logging
+import os
+
 import pygame
 
 from utils.path import get_userdata_path

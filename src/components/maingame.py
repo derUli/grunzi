@@ -3,7 +3,6 @@ import logging
 import math
 import os
 import time
-
 import pygame
 
 import constants.game
@@ -17,6 +16,7 @@ from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from sprites.backdrop import Backdrop
 from state.level import Level, LAYER_MAINCHAR
+from utils.camera import  Camera
 
 MOVEMENT_KEYS = [
     pygame.K_LEFT,
@@ -54,7 +54,7 @@ class MainGame(PausableComponent, Component):
         self.state = state.state.State(self.data_dir)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
         self.level = Level(self.sprites_dir, self.image_cache)
-        self.camera_offset = [0, 0]
+        self.camera = Camera()
         self.moving = None
         self.running = False
 
@@ -72,20 +72,24 @@ class MainGame(PausableComponent, Component):
         self.load_level(level_file)
 
     def load_level(self, level_file):
+        """ Load level from JSON file """
         self.level.level_file = level_file
 
         try:
             self.level.load()
         except json.decoder.JSONDecodeError:
             logging.error('Invalid level JSON')
-            return
+            return False
 
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state
 
         self.update_camera()
 
+        return True
+
     def mount(self):
+        """ On mount hide mouse pointer and start music """
         pygame.mouse.set_visible(0)
 
         atmo = 'level' + str(self.state.level) + '.ogg'
@@ -95,10 +99,12 @@ class MainGame(PausableComponent, Component):
         self.load_level(level_file)
 
     def unmount(self):
+        """ On unmount show mouse cursor and stop music """
         pygame.mouse.set_visible(1)
         pygame.mixer.music.stop()
 
     def update_screen(self, screen):
+        """ Draw screen """
         if self.moving:
             self.move_main_character(self.moving)
 
@@ -118,11 +124,11 @@ class MainGame(PausableComponent, Component):
         filtered_layers = list(self.level.layers)
 
         for z in range(0, len(filtered_layers)):
-            from_y = self.camera_offset[1] - math.ceil(tolerance_y / 2)
-            to_y = self.camera_offset[1] + tolerance_y
+            from_y = self.camera.y - math.ceil(tolerance_y / 2)
+            to_y = self.camera.y + tolerance_y
 
-            from_x = self.camera_offset[0] - math.ceil(tolerance_x / 2)
-            to_x = self.camera_offset[0] + tolerance_x
+            from_x = self.camera.x - math.ceil(tolerance_x / 2)
+            to_x = self.camera.x + tolerance_x
 
             if from_y < 0:
                 from_y = 0
@@ -169,7 +175,8 @@ class MainGame(PausableComponent, Component):
         if y < 0:
             y = 0
 
-        self.camera_offset = [x, y]
+        self.camera.x = x
+        self.camera.y = y
 
     def handle_event(self, event):
         """ Handle events """
@@ -279,7 +286,7 @@ class MainGame(PausableComponent, Component):
             if element:
                 element.handle_interact(character)
 
-                if not element.walkable:
+                if not element.walkable and not self.state.edit_mode:
                     walkable = False
 
         if walkable:
