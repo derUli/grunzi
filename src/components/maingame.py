@@ -155,8 +155,9 @@ class MainGame(PausableComponent, Component):
             component = self.handle_change_component(GameOver)
             component.state = self.state
 
-        # Check for changes and do autoreload
+        # Check for changes
         if self.level.check_for_changes():
+            # If the level file was changes do a reload
             self.load_level(self.level.level_file)
 
     def update_camera(self):

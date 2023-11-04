@@ -265,6 +265,7 @@ class Level:
         return layers
 
     def check_for_changes(self):
+        """ Check for changes """
         changed = False
         if not self.level_file:
             return changed
