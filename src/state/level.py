@@ -177,6 +177,21 @@ class Level:
                         self.layers[z][y][x] = None
         return
 
+
+    def is_walkable(self, x, y):
+
+        """ Check if a sprite  is walkable"""
+        for z in self.layers:
+            if not z[y][x]:
+                continue
+
+            if not z[y][x].walkable:
+                return False
+
+        return True
+
+
+
     def search_character(self, id):
         """ Search character by id """
         for z in range(0, len(self.layers)):
