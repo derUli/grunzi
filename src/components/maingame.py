@@ -180,7 +180,9 @@ class MainGame(PausableComponent, Component):
         """ Handle events """
         super().handle_event(event)
 
-        if event.type == pygame.KEYUP:
+        if event.type == pygame.JOYHATMOTION:
+            self.handle_joyhatmotion(event)
+        elif event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:
             self.handle_keydown_event(event)
@@ -227,6 +229,21 @@ class MainGame(PausableComponent, Component):
             self.moving = None
         elif event.key == K_RUN:
             self.running = False
+
+    def handle_joyhatmotion(self, event):
+        x, y = event.value
+
+        if x == 1:
+            self.move_main_character(DIRECTION_RIGHT)
+        elif x == -1:
+            self.move_main_character(DIRECTION_LEFT)
+        elif y == 1:
+            self.move_main_character(DIRECTION_UP)
+        elif y == -1:
+            self.move_main_character(DIRECTION_DOWN)
+        elif x == 0 and y == 0:
+            self.moving = None
+
 
     def make_field(self, z, clear=False):
         _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)

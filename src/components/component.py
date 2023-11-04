@@ -1,12 +1,13 @@
 import os
 
 import pygame
+import logging
 
 import constants.game
 import constants.headup
 import utils.audio
 import utils.image
-
+import utils.xbox_360_controller as xbox360_controller
 
 class Component(object):
 
@@ -17,10 +18,17 @@ class Component(object):
         self.image_cache = utils.image.ImageCache()
         self.settings_state = settings_state
         self.enable_edit_mode = enable_edit_mode
+        self.controller = None
+
+        try:
+            self.controller = xbox360_controller.Controller()
+        except pygame.error:
+            logging.debug('No controller found')
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
+
 
     # Create Text
     def render_text(self, what, color, where):

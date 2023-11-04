@@ -19,7 +19,6 @@ from utils.fps_counter import FPSCounter
 from utils.screenshot import make_screenshot
 import platform
 import logging
-
 _ = gettext.gettext
 
 
@@ -110,6 +109,7 @@ class GameContainer:
             self.update_screen()
 
     def handle_events(self):
+
         """ Handle events """
         for event in pygame.event.get():
             if event.type == QUIT:
