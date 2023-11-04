@@ -3,7 +3,7 @@ import logging
 import math
 import os
 import time
-from utils.level_editor import  get_editor_blocks
+
 import constants.game
 import constants.graphics
 import state.state
@@ -14,14 +14,15 @@ from components.pausable_component import PausableComponent
 from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from constants.keyboard import *
-from sprites.backdrop import Backdrop
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
-from utils.camera import Camera
 from utils.audio import play_sound
+from utils.camera import Camera
+from utils.level_editor import get_editor_blocks
+
 
 class MainGame(PausableComponent, Component):
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode = False):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False):
         """ Constructor """
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode)
 
@@ -67,6 +68,8 @@ class MainGame(PausableComponent, Component):
         """ On mount hide mouse pointer and start music """
         pygame.mouse.set_visible(0)
 
+
+        # CREDITS: https://audionautix.com/creative-commons-music
         atmo = 'level' + str(self.state.level) + '.ogg'
         self.play_music(atmo)
 
@@ -236,7 +239,6 @@ class MainGame(PausableComponent, Component):
         if clear:
             self.level.layers[z][y][x] = None
             return
-
 
         editor_blocks = get_editor_blocks(self.sprites_dir, self.image_cache)
         editor_block = editor_blocks[self.editor_block_index]

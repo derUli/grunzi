@@ -16,7 +16,6 @@ import constants.headup
 import utils.audio
 from state.settingsstate import SettingsState
 from utils.fps_counter import FPSCounter
-from utils.path import get_userdata_path
 from utils.screenshot import make_screenshot
 
 _ = gettext.gettext
@@ -157,8 +156,8 @@ class GameContainer:
 
         self.current_component = component(
             self.data_dir,
-                                           self.change_component,
-                                           self.settings_state, enable_edit_mode = self.enable_edit_mode
+            self.change_component,
+            self.settings_state, enable_edit_mode=self.enable_edit_mode
         )
 
         if self.current_component:

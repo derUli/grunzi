@@ -10,7 +10,7 @@ import utils.image
 
 class Component(object):
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode = False):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False):
         """ Constructor """
         self.data_dir = data_dir
         self.handle_change_component = handle_change_component

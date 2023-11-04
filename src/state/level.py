@@ -19,6 +19,7 @@ LAYER_STATIC_OBJECTS = 1
 LAYER_ITEMS = 2
 LAYER_MAINCHAR = 3
 
+
 class Level:
     def __init__(self, sprites_dir, image_cache, level_file=None):
         self.layers = []
@@ -178,7 +179,6 @@ class Level:
                         self.layers[z][y][x] = None
         return
 
-
     def is_walkable(self, x, y):
         """ Check if a sprite  is walkable"""
         for z in self.layers:
@@ -189,8 +189,6 @@ class Level:
                 return False
 
         return True
-
-
 
     def search_character(self, id):
         """ Search character by id """

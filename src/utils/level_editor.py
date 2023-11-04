@@ -1,9 +1,10 @@
-from sprites.backdrop import Backdrop
-from sprites.wall import Wall
-from sprites.chainsaw import Chainsaw
 from sprites.apple import Apple
+from sprites.backdrop import Backdrop
+from sprites.chainsaw import Chainsaw
 from sprites.coin import Coin
 from sprites.fence import Fence
+from sprites.wall import Wall
+
 
 def get_editor_blocks(sprites_dir, image_cache):
     return [

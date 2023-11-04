@@ -1,10 +1,12 @@
 """ Fence sprite """
 import logging
-from sprites.wall import Wall
-from sprites.chainsaw import Chainsaw
-from utils.audio import play_sound
-import random
 import os
+import random
+
+from sprites.chainsaw import Chainsaw
+from sprites.wall import Wall
+from utils.audio import play_sound
+
 
 class Fence(Wall):
     """ Fence sprite class """
