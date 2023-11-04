@@ -16,9 +16,15 @@ parser = argparse.ArgumentParser(
     description=_('Piggy adventure game')
 )
 
-parser.add_argument('-e', '--edit', action='store_true')  # option that takes a value
-parser.add_argument('-v', '--debug', action='store_true')  # option that takes a value
+parser.add_argument('-e', '--edit', action='store_true', help='Enable In-Game Map Editor')
+parser.add_argument('-v', '--debug', action='store_true', help='Enable debug loglevel')
+
+# Game starts by default without hardware acceleration because I couldn't get
+# the game to work on my machine with pygame.OPENGL flag
+parser.add_argument('-o', '--opengl', action='store_true', help='Enable OpenGL')
 args = parser.parse_args()
+
+print(args)
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
 
@@ -38,5 +44,5 @@ logging.basicConfig(
 
 logging.debug(args)
 
-game = GameContainer(root_dir, enable_edit_mode=args.edit)
+game = GameContainer(root_dir, enable_edit_mode=args.edit, opengl = args.opengl)
 game.start()
