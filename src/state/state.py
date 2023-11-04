@@ -7,11 +7,11 @@ from utils.reflections import get_class
 
 
 class State:
-    def __init__(self, data_dir=None):
+    def __init__(self, data_dir=None, gamepad = None):
         self.cache = ImageCache()
         self.sprites_dir = os.path.join(data_dir, 'images', 'sprites')
         """ Constructor """
-        self.player_state = PlayerState(data_dir)
+        self.player_state = PlayerState(data_dir, gamepad)
         self.level = 1
         self.edit_mode = False
 

@@ -19,6 +19,10 @@ parser = argparse.ArgumentParser(
     description=_('Piggy adventure game')
 )
 
+
+os.environ['SDL_JOYSTICK_HIDAPI_PS4_RUMBLE'] = '1'
+
+
 parser.add_argument('-e', '--edit', action='store_true', help='Enable In-Game Map Editor')
 parser.add_argument('-v', '--debug', action='store_true', help='Enable debug loglevel')
 

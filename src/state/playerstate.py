@@ -12,10 +12,12 @@ FULL_HEALTH = 100
 INVENTORY_PADDING = 10
 FLASH_COLOR_HURT = (255, 0, 0,)
 FLASH_COLOR_HEAL = (255, 255, 255)
-
+RUMBLE_DURATION_PAIN = 200
+RUMBLE_LOW_FREQUENCY = 1
+RUMBLE_HIGH_FREQUENCY = 1
 
 class PlayerState:
-    def __init__(self, data_dir):
+    def __init__(self, data_dir, gamepad = None):
         """ Constructor """
         self.health = FULL_HEALTH
         self.show_detailed = None
@@ -23,6 +25,7 @@ class PlayerState:
         self.flashing = None
         self.flash_start = 0
         self.flash_duration = 0.05
+        self.gamepad = gamepad
 
         self.health_pig = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
@@ -70,8 +73,10 @@ class PlayerState:
         sound = random.choice(self.hurt_sounds)
 
         play_sound(sound)
-
         self.flash(FLASH_COLOR_HURT)
+
+        if self.gamepad:
+            self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
 
     def dead(self):
         """ Check if piggy is dead """

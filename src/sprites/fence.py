@@ -7,6 +7,9 @@ from sprites.chainsaw import Chainsaw
 from sprites.wall import Wall
 from utils.audio import play_sound
 
+RUMBLE_CHAINSAW_DURATION = 300
+RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
+RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 
 class Fence(Wall):
     """ Fence sprite class """
@@ -43,3 +46,11 @@ class Fence(Wall):
             play_sound(
                 os.path.join(sound_dir, random.choice(files))
             )
+
+            # Rumble on gamepad if we have one
+            if element.state.gamepad:
+                element.state.gamepad.joystick.rumble(
+                    RUMBLE_CHAINSAW_LOW_FREQUENCY,
+                    RUMBLE_CHAINSAW_HIGH_FREQUENCY,
+                    RUMBLE_CHAINSAW_DURATION
+                )

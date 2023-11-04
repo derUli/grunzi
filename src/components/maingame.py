@@ -22,11 +22,11 @@ from utils import xbox_360_controller
 
 class MainGame(PausableComponent, Component):
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad = None):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
 
-        self.state = state.state.State(self.data_dir)
+        self.state = state.state.State(self.data_dir, self.gamepad)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
         self.level = Level(self.sprites_dir, self.image_cache)
         self.camera = Camera()

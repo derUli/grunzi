@@ -98,7 +98,7 @@ class GameContainer:
     def init_controller(self):
         """ Init Controller """
         try:
-            self.gamepad = xbox_360_controller.Controller()
+            self.gamepad = xbox_360_controller.Controller(1)
             logging.info('Controller: ' + self.gamepad.joystick.get_name())
             return True
         except pygame.error:
