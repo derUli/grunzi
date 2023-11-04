@@ -17,7 +17,7 @@ from constants.keyboard import *
 from sprites.backdrop import Backdrop
 from state.level import Level, LAYER_MAINCHAR, LAYER_STATIC_OBJECTS
 from utils.camera import Camera
-
+from utils.audio import play_sound
 
 class MainGame(PausableComponent, Component):
 
@@ -143,11 +143,14 @@ class MainGame(PausableComponent, Component):
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
+        beep_sound = os.path.join(self.data_dir, 'sounds', 'beep.ogg')
         if not self.state.player_state.inventory:
+            play_sound(beep_sound)
             logging.debug("Drop item failed. No item in inventory.")
             return
 
         if self.level.layers[LAYER_STATIC_OBJECTS][y][x]:
+            play_sound(beep_sound)
             logging.debug("Drop item failed. Static objects layer not empty")
             return
 
