@@ -18,7 +18,7 @@ from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-
+from utils import xbox_360_controller
 
 class MainGame(PausableComponent, Component):
 
@@ -186,7 +186,10 @@ class MainGame(PausableComponent, Component):
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:
             self.handle_keydown_event(event)
-
+        elif event.type == pygame.JOYBUTTONDOWN:
+            self.handle_joybuttondown(event)
+        else:
+            logging.debug(event)
     def handle_keydown_event(self, event):
         """" Handle keydown events """
         if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
@@ -231,6 +234,7 @@ class MainGame(PausableComponent, Component):
             self.running = False
 
     def handle_joyhatmotion(self, event):
+        """ Handle controller Joyhat """
         x, y = event.value
 
         if x == 1:
@@ -243,6 +247,10 @@ class MainGame(PausableComponent, Component):
             self.move_main_character(DIRECTION_DOWN)
         elif x == 0 and y == 0:
             self.moving = None
+
+    def handle_joybuttondown(self, event):
+        if event.button == xbox_360_controller.Y:
+            self.drop_item()
 
 
     def make_field(self, z, clear=False):
