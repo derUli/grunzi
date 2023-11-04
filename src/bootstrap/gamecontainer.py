@@ -24,23 +24,24 @@ _ = gettext.gettext
 import logging
 
 
-class Game:
+class GameContainer:
     """ Main game class """
 
-    def __init__(self):
+    def __init__(self, root_dir):
         """ Constructor """
+        self.root_dir = root_dir
+        self.data_dir = os.path.join(root_dir, 'data')
         self.screen = None
         self.fps_counter = FPSCounter()
         self.running = True
         self.clock = pygame.time.Clock()
-        self.data_dir = os.path.join(os.path.dirname(__file__), 'data')
         self.current_component = None
         self.settings_state = SettingsState(self.handle_settings_change)
 
     def start(self):
+        """ Start game """
         log_file = os.path.join(get_userdata_path(), 'debug.log')
 
-        """ Start game """
         logging.basicConfig(
             level=logging.DEBUG,
             format="%(asctime)s [%(levelname)s] %(message)s",
@@ -173,7 +174,3 @@ class Game:
         self.current_component.mount()
 
         return self.current_component
-
-
-game = Game()
-game.start()
