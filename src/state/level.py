@@ -1,6 +1,6 @@
 import json
 import random
-
+import os
 import sprites.backdrop
 import sprites.detailed
 import sprites.fire
@@ -24,9 +24,11 @@ class Level:
         self.image_cache = image_cache
 
         self.level_file = level_file
+        self.level_file_last_changed = None
 
     def load(self):
         layers = []
+        self.level_file_last_changed = os.path.getmtime(self.level_file)
 
         with open(self.level_file, 'r') as f:
             leveldata = json.loads(f.read())
@@ -59,7 +61,7 @@ class Level:
 
     def save(self):
         with open(self.level_file, 'w') as f:
-            f.write(json.dumps(self.to_saveable_list(), indent=4))
+            f.write(json.dumps(self.to_saveable_list(), indent=2))
 
     def randomize(self):
         # Three layers
@@ -259,3 +261,16 @@ class Level:
             layers.append(layer)
 
         return layers
+
+
+    def check_for_changes(self):
+        changed = False
+        if not self.level_file:
+            return changed
+            
+        if os.path.getmtime(self.level_file) != self.level_file_last_changed:
+            print(os.path.getmtime(self.level_file))
+            changed = True
+
+
+        return changed

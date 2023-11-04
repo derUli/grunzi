@@ -1,3 +1,4 @@
+import json.decoder
 import math
 import os
 import time
@@ -71,7 +72,11 @@ class MainGame(PausableComponent, Component):
 
     def load_level(self, level_file):
         self.level.level_file = level_file
-        self.level.load()
+
+        try:
+            self.level.load()
+        except json.decoder.JSONDecodeError:
+            print('Invalid level JSON')
 
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state
@@ -92,7 +97,6 @@ class MainGame(PausableComponent, Component):
         pygame.mixer.music.stop()
 
     def update_screen(self, screen):
-
         if self.moving:
             self.move_main_character(self.moving)
 
@@ -148,6 +152,10 @@ class MainGame(PausableComponent, Component):
         if self.state.player_state.dead():
             component = self.handle_change_component(GameOver)
             component.state = self.state
+
+        # Check for changes and do autoreload
+        if self.level.check_for_changes():
+            self.load_level(self.level.level_file)
 
     def update_camera(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
