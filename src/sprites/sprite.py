@@ -1,4 +1,5 @@
 """ Generic sprite """
+import logging
 import os
 
 import pygame
@@ -26,6 +27,10 @@ class Sprite:
 
         file = os.path.join(sprite_dir, sprite)
         image = cache.load_image(file)
+
+        if not image:
+            logging.error('File ' + file + ' not found')
+            return
 
         self.sprite = pygame.transform.smoothscale(image,
                                                    SPRITE_SIZE

@@ -1,3 +1,5 @@
+import logging
+
 import pygame
 
 
@@ -8,6 +10,10 @@ class ImageCache:
 
     def load_image(self, path):
         if not path in self.images:
-            self.images[path] = pygame.image.load(path).convert_alpha()
+            try:
+                self.images[path] = pygame.image.load(path).convert_alpha()
+            except FileNotFoundError:
+                logging.error('File not found ' + path)
+                self.images[path] = None
 
         return self.images[path]

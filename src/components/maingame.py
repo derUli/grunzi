@@ -3,6 +3,7 @@ import logging
 import math
 import os
 import time
+
 import pygame
 
 import constants.game
@@ -16,7 +17,7 @@ from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from sprites.backdrop import Backdrop
 from state.level import Level, LAYER_MAINCHAR
-from utils.camera import  Camera
+from utils.camera import Camera
 
 MOVEMENT_KEYS = [
     pygame.K_LEFT,

@@ -1,5 +1,6 @@
 """ Camera """
 
+
 class Camera:
     """Used to store top positions of screen """
 
