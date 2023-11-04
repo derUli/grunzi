@@ -26,7 +26,7 @@ import logging
 class GameContainer:
     """ Main game class """
 
-    def __init__(self, root_dir, enable_edit_mode=False, opengl = False):
+    def __init__(self, root_dir, enable_edit_mode=False, opengl=False):
         """ Constructor """
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
@@ -51,7 +51,6 @@ class GameContainer:
         # IF no settings file exists create it
         if not self.settings_state.load():
             self.settings_state.save()
-        self.settings_state.apply()
 
         self.init_screen()
         self.change_component(components.menu.Menu)

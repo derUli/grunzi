@@ -71,6 +71,11 @@ class Settings(Component):
         self.settings_state.apply_and_save()
         self.refresh_menu()
 
+    def handle_toggle_vsync(self):
+        self.settings_state.vsync = not self.settings_state.vsync
+        self.settings_state.apply_and_save()
+        self.refresh_menu()
+
     def handle_change_quality(self, selection, selected_index):
         selected_item, index = selection
         text, value = selected_item
@@ -143,6 +148,15 @@ class Settings(Component):
             fullscreen_text += _('Window')
 
         menu.add.button(fullscreen_text, self.handle_toggle_fullscreen)
+
+        vsync_text = _('V-Sync: ')
+
+        if self.settings_state.vsync:
+            vsync_text += 'On'
+        else:
+            vsync_text += 'Off'
+
+        menu.add.button(vsync_text, self.handle_toggle_vsync)
 
         menu.add.dropselect(
             title=_('Screen Resolution'),
