@@ -16,8 +16,8 @@ from utils.reflections import get_class
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
-LAYER_MAINCHAR = 2
-
+LAYER_ITEMS = 2
+LAYER_MAINCHAR = 3
 
 class Level:
     def __init__(self, sprites_dir, image_cache, level_file=None):
@@ -50,6 +50,7 @@ class Level:
                         try:
                             klass = get_class(x['sprite_class'])
                             sprite = klass(self.sprites_dir, self.image_cache, sprite_file)
+
                             if 'walkable' in x:
                                 sprite.walkable = bool(x['walkable'])
                             else:

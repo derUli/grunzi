@@ -15,7 +15,7 @@ from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from constants.keyboard import *
 from sprites.backdrop import Backdrop
-from state.level import Level, LAYER_MAINCHAR, LAYER_STATIC_OBJECTS
+from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.camera import Camera
 from utils.audio import play_sound
 
@@ -149,13 +149,13 @@ class MainGame(PausableComponent, Component):
             logging.debug("Drop item failed. No item in inventory.")
             return
 
-        if self.level.layers[LAYER_STATIC_OBJECTS][y][x]:
+        if self.level.layers[LAYER_ITEMS][y][x]:
             play_sound(beep_sound)
             logging.debug("Drop item failed. Static objects layer not empty")
             return
 
         self.state.player_state.inventory.purge = False
-        self.level.layers[LAYER_STATIC_OBJECTS][y][x] = self.state.player_state.inventory
+        self.level.layers[LAYER_ITEMS][y][x] = self.state.player_state.inventory
 
         self.state.player_state.inventory = None
 
