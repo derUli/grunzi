@@ -67,9 +67,8 @@ class GameContainer:
         flags = pygame.SCALED
 
         self.screen = None
-        screen_resolution = constants.game.SCREEN_SIZE
         logging.debug('Init screen')
-        logging.info('Screen resolution: ' + str(screen_resolution))
+        logging.info('Screen resolution: ' + str(self.settings_state.screen_resolution))
         self.set_icon()
         pygame.display.set_caption(_('Grunzi'))
 
@@ -78,7 +77,7 @@ class GameContainer:
 
         if not self.screen:
             self.screen = pygame.display.set_mode(
-                screen_resolution,
+                self.settings_state.screen_resolution,
                 flags,
                 vsync=int(self.settings_state.vsync))
 

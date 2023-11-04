@@ -1,7 +1,6 @@
 import gettext
 import os
 
-import constants.game
 from components.component import Component
 from utils.animation import Animation
 from utils.menu import make_menu
@@ -26,7 +25,7 @@ class Settings(Component):
         self.video = Animation(
             video_path,
             refresh_interval=1 / 25,
-            size=constants.game.SCREEN_SIZE,
+            size=self.settings_state.SCREEN_RESOLUTION,
             async_load=True
         )
 

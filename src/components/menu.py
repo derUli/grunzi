@@ -5,7 +5,6 @@ import pygame
 import pygame_menu
 
 import components.maingame
-import constants.game
 import utils.savegame
 from components.component import Component
 from components.settings import Settings
@@ -33,7 +32,7 @@ class Menu(Component):
         self.video = Animation(
             video_path,
             refresh_interval=1 / 25,
-            size=constants.game.SCREEN_SIZE,
+            size=self.settings_state.screen_resolution,
             async_load=True
         )
         self.menu = None

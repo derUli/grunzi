@@ -14,6 +14,7 @@ SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = [1280, 720]
 
+
 class SettingsState:
     def __init__(self, handle_settings_change):
         """ Constructor """
@@ -86,7 +87,7 @@ class SettingsState:
             'music_volume': self.music_volume,
             'vsync': self.vsync,
             'limit_fps': self.limit_fps,
-            'self.screen_resolution': self.screen_resolution
+            'screen_resolution': self.screen_resolution
         }
 
     def to_json(self):

@@ -40,7 +40,9 @@ class MainGame(PausableComponent, Component):
 
         self.backdrop = pygame.image.load(background_file).convert_alpha()
         self.backdrop = pygame.transform.smoothscale(
-            self.backdrop, constants.game.SCREEN_SIZE)
+            self.backdrop,
+            self.settings_state.screen_resolution
+        )
 
     def load_savegame(self):
         """ Load savegame """
@@ -67,7 +69,6 @@ class MainGame(PausableComponent, Component):
     def mount(self):
         """ On mount hide mouse pointer and start music """
         pygame.mouse.set_visible(0)
-
 
         # CREDITS: https://audionautix.com/creative-commons-music
         atmo = 'level' + str(self.state.level) + '.ogg'
