@@ -27,7 +27,6 @@ class Detailed(Sprite):
             self.detailed).convert_alpha()
 
         x, y = self.screen.get_size()
-        y -= BOTTOM_UI_HEIGHT
         element.state.show_detailed = pygame.transform.smoothscale(
             element.state.show_detailed, (x, y)
         )

@@ -180,16 +180,21 @@ class MainGame(PausableComponent, Component):
         """ Handle events """
         super().handle_event(event)
 
-        if event.type == pygame.JOYHATMOTION:
-            self.handle_joyhatmotion(event)
-        elif event.type == pygame.KEYUP:
+        logging.debug(event)
+
+        if event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:
             self.handle_keydown_event(event)
         elif event.type == pygame.JOYBUTTONDOWN:
             self.handle_joybuttondown(event)
-        else:
-            logging.debug(event)
+        elif event.type == pygame.JOYBUTTONUP:
+            self.handle_joybuttonup(event)
+        elif event.type == pygame.JOYHATMOTION:
+            self.handle_joyhatmotion(event)
+        elif event.type == pygame.JOYAXISMOTION:
+            self.handle_joyaxismotion(event)
+
     def handle_keydown_event(self, event):
         """" Handle keydown events """
         if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
@@ -248,10 +253,36 @@ class MainGame(PausableComponent, Component):
         elif x == 0 and y == 0:
             self.moving = None
 
-    def handle_joybuttondown(self, event):
-        if event.button == xbox_360_controller.Y:
-            self.drop_item()
+    def handle_joyaxismotion(self, event):
+        """ Handle controller Joyhat """
+        value = event.value
+        axis = event.axis
 
+        if value == 0.0:
+            self.moving = None
+            return
+        if axis == 0 and value > 0:
+            self.move_main_character(DIRECTION_RIGHT)
+        if axis == 0 and value < 0:
+            self.move_main_character(DIRECTION_LEFT)
+        elif axis == 1 and value < 0:
+            self.move_main_character(DIRECTION_UP)
+        elif axis == 1 and value > 0:
+            self.move_main_character(DIRECTION_DOWN)
+
+    def handle_joybuttondown(self, event):
+        """ Handle joybutton press """
+        if event.button == xbox_360_controller.A:
+            self.state.player_state.show_detailed = None
+
+        elif event.button == xbox_360_controller.Y:
+            self.drop_item()
+        elif event.button == xbox_360_controller.LEFT_STICK_BTN:
+            self.running = True
+
+    def handle_joybuttonup(self, event):
+        if event.button == xbox_360_controller.LEFT_STICK_BTN:
+            self.running = False
 
     def make_field(self, z, clear=False):
         _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
