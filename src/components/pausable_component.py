@@ -9,8 +9,6 @@ _ = gettext.gettext
 
 
 class PausableComponent:
-
-    # Todo refactor to own class
     def pause_menu(self):
         self.last_screen = self.screen.copy().convert_alpha()
         self.last_screen.set_alpha(100)

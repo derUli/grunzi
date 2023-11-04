@@ -12,9 +12,9 @@ _ = gettext.gettext
 
 
 class Settings(Component):
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad = None):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode)
+        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
 
         video_path = os.path.join(
             data_dir,

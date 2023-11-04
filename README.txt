@@ -28,7 +28,22 @@ ESC: Menü aufrufen
 
 ## Controller
 
-Eine Steuerung per Controller wird in dieser Version nicht unterstützt.
+Das Spiel unterstützt XBox 360 Controller.
+Andere Controller können funktionieren, wurden von mir jedoch nicht getestet.
+
+Linker Joystick oder Directional Pad: Bewegen
+
+A: Bestätigen / Aktion auslösen
+
+Y: Gegenstand fallen lassen
+
+START: Menü aufrufen
+
+Shift-Taste: Rennen
+
+ESC: Menü aufrufen
+
+RT: Rennen
 
 # Einstellungen
 

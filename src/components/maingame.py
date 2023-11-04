@@ -22,9 +22,9 @@ from utils import xbox_360_controller
 
 class MainGame(PausableComponent, Component):
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad = None):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode)
+        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
 
         self.state = state.state.State(self.data_dir)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
@@ -237,7 +237,7 @@ class MainGame(PausableComponent, Component):
             self.running = False
 
     def handle_joyhatmotion(self, event):
-        """ Handle controller Joyhat """
+        """ Handle controller hat motion """
         x, y = event.value
 
         if x == 1:
@@ -252,9 +252,14 @@ class MainGame(PausableComponent, Component):
             self.moving = None
 
     def handle_joyaxismotion(self, event):
-        """ Handle controller Joyhat """
+        """ Handle controller axis motion """
         value = round(event.value, 2)
         axis = event.axis
+
+        # R2 modifier for running
+        if axis == 5:
+            self.running = value > 0
+            return
 
         if value == 0.0 or value > 3 or value < -3:
             self.moving = None

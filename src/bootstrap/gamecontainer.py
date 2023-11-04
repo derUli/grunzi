@@ -19,8 +19,9 @@ from utils.fps_counter import FPSCounter
 from utils.screenshot import make_screenshot
 import platform
 import logging
-_ = gettext.gettext
+from utils import xbox_360_controller
 
+_ = gettext.gettext
 
 
 class GameContainer:
@@ -38,6 +39,7 @@ class GameContainer:
         self.settings_state = SettingsState(self.handle_settings_change)
         self.enable_edit_mode = enable_edit_mode
         self.opengl = opengl
+        self.gamepad = None
 
     def start(self):
         """ Start game """
@@ -58,10 +60,12 @@ class GameContainer:
             self.settings_state.save()
 
         self.init_screen()
+        self.init_controller()
         self.change_component(components.menu.Menu)
 
         signal.signal(signal.SIGINT, self.quit)
         signal.signal(signal.SIGTERM, self.quit)
+
         self.main_loop()
 
     def handle_settings_change(self):
@@ -90,6 +94,16 @@ class GameContainer:
                 self.settings_state.screen_resolution,
                 flags,
                 vsync=int(self.settings_state.vsync))
+
+    def init_controller(self):
+        """ Init Controller """
+        try:
+            self.gamepad = xbox_360_controller.Controller()
+            logging.info('Controller: ' + self.gamepad.joystick.get_name())
+            return True
+        except pygame.error:
+            logging.debug('No controller found')
+            return False
 
     def set_icon(self):
         """ Set window icon """
@@ -167,7 +181,9 @@ class GameContainer:
         self.current_component = component(
             self.data_dir,
             self.change_component,
-            self.settings_state, enable_edit_mode=self.enable_edit_mode
+            self.settings_state,
+            enable_edit_mode=self.enable_edit_mode,
+            gamepad = self.gamepad
         )
 
         if self.current_component:
