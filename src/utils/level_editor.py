@@ -1,6 +1,6 @@
 from sprites.backdrop import Backdrop
 from sprites.wall import Wall
-
+from sprites.takeable import Takeable
 def get_editor_blocks(sprites_dir, image_cache):
     return [
         Backdrop(
@@ -72,5 +72,10 @@ def get_editor_blocks(sprites_dir, image_cache):
             sprites_dir,
             image_cache,
             'wood_fence_vertical.png'
+        ),
+        Takeable(
+            sprites_dir,
+            image_cache,
+            'chainsaw.png'
         )
     ]

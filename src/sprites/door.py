@@ -2,8 +2,8 @@
 import os
 
 from sprites.wall import Wall
+from sprites.key import Key
 from utils.audio import play_sound
-
 
 class Door(Wall):
     """ Wall sprite class """
@@ -29,13 +29,16 @@ class Door(Wall):
         if not element:
             return
 
+        if isinstance(element.state.inventory, Key) or self.walkable:
+            self.open_door(element)
+            return
+
         # Todo: Check for Key
         # Play sound on unlock
-        if not self.walkable and not element.state.inventory:
+        if not self.walkable:
             play_sound(self.door_closed_sound)
             return
 
-        self.open_door(element)
 
     def open_door(self, element=None):
         play_sound(self.door_open_sound)
