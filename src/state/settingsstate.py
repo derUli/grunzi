@@ -6,9 +6,10 @@ import pygame
 
 from constants.quality import QUALITY_MEDIUM
 from utils.path import get_userdata_path
+import utils.audio
 
 SETTINGS_DEFAULT_FULLSCREEN = True
-SETTINGS_DEFAULT_VOLUME = 0.8
+SETTINGS_DEFAULT_VOLUME = 1.0
 SETTINGS_DEFAULT_SHOW_FPS = False
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
@@ -24,6 +25,7 @@ class SettingsState:
         self.show_fps = SETTINGS_DEFAULT_SHOW_FPS
         self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
         self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
+        self.sound_volume = SETTINGS_DEFAULT_VOLUME
         self.music_volume = SETTINGS_DEFAULT_VOLUME
         self.quality = QUALITY_MEDIUM
         self.handle_settings_change = handle_settings_change
@@ -57,6 +59,7 @@ class SettingsState:
 
         # Music volume
         pygame.mixer.music.set_volume(self.music_volume)
+        utils.audio.sound_volume = self.sound_volume
 
     def get_settings_path(self):
         """ Get settings file path """
@@ -83,6 +86,7 @@ class SettingsState:
         return {
             'fullscreen': self.fullscreen,
             'show_fps': self.show_fps,
+            'sound_volume': self.sound_volume,
             'music_volume': self.music_volume,
             'vsync': self.vsync,
             'limit_fps': self.limit_fps,
@@ -102,6 +106,9 @@ class SettingsState:
 
         if 'show_fps' in settings:
             self.show_fps = settings['show_fps']
+
+        if 'sound_volume' in settings:
+            self.sound_volume = settings['sound_volume']
 
         if 'music_volume' in settings:
             self.music_volume = settings['music_volume']

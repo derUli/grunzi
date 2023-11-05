@@ -51,7 +51,7 @@ class Settings(Component):
         self.settings_state.limit_fps = value
         self.settings_state.apply_and_save()
 
-    def handle_screen_resolution(self, selection, selected_index):
+    def handle_change_screen_resolution(self, selection, selected_index):
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.screen_resolution = value
@@ -65,6 +65,10 @@ class Settings(Component):
     def handle_change_music_volume(self, range_value):
         self.settings_state.music_volume = range_value / 100
         self.settings_state.apply_and_save()
+
+    def handle_change_sound_volume(self, range_value):
+            self.settings_state.sound_volume = range_value / 100
+            self.settings_state.apply_and_save()
 
     def handle_toggle_fullscreen(self):
         self.settings_state.fullscreen = not self.settings_state.fullscreen
@@ -162,7 +166,7 @@ class Settings(Component):
             title=_('Screen Resolution'),
             default=self.get_selected_index(self.get_screen_resolution_items(), self.settings_state.screen_resolution),
             items=self.get_screen_resolution_items(),
-            onchange=self.handle_screen_resolution,
+            onchange=self.handle_change_screen_resolution,
             placeholder_add_to_selection_box=False
         )
 
@@ -174,30 +178,39 @@ class Settings(Component):
             placeholder_add_to_selection_box=False
         )
 
-        menu.add.dropselect(
-            title=_('FPS Limit'),
-            default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
-            items=self.get_fps_limit_items(),
-            onchange=self.handle_change_limit_fps,
-            placeholder_add_to_selection_box=False
-        )
+        # menu.add.dropselect(
+        #     title=_('FPS Limit'),
+        #     default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
+        #     items=self.get_fps_limit_items(),
+        #     onchange=self.handle_change_limit_fps,
+        #     placeholder_add_to_selection_box=False
+        # )
 
-        show_fps_text = _('Show FPS: ')
-
-        if self.settings_state.show_fps:
-            show_fps_text += _('On')
-        else:
-            show_fps_text += _('Off')
-
-        menu.add.button(show_fps_text, self.handle_show_fps)
+        # show_fps_text = _('Show FPS: ')
+        #
+        # if self.settings_state.show_fps:
+        #     show_fps_text += _('On')
+        # else:
+        #     show_fps_text += _('Off')
+        #
+        # menu.add.button(show_fps_text, self.handle_show_fps)
 
         menu.add.range_slider(
-            title=_('Music Volume'),
+            title=_('Music'),
             default=int(self.settings_state.music_volume * 100),
             range_values=(0, 100),
             increment=10,
             value_format=lambda x: str(int(x)) + "%",
             onchange=self.handle_change_music_volume
+        )
+
+        menu.add.range_slider(
+            title=_('Sound Effects'),
+            default=int(self.settings_state.sound_volume * 100),
+            range_values=(0, 100),
+            increment=10,
+            value_format=lambda x: str(int(x)) + "%",
+            onchange=self.handle_change_sound_volume
         )
 
         menu.add.button(_('Back To Main Menu'), self.handle_back)
