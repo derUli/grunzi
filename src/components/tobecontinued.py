@@ -21,7 +21,7 @@ class ToBeContinued(Component):
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
         self.menu = None
 
-        file = os.path.join(data_dir, 'images', 'menu', 'to_be_continued.png')
+        file = os.path.join(data_dir, 'images', 'ui', 'to_be_continued.png')
 
         self.backdrop = self.image_cache.load_image(file)
         self.backdrop = pygame.transform.smoothscale(self.backdrop, settings_state.screen_resolution)

@@ -20,7 +20,7 @@ class GameOver(Component):
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
         self.menu = None
 
-        file = os.path.join(data_dir, 'images', 'menu', 'gameover.jpg')
+        file = os.path.join(data_dir, 'images', 'ui', 'gameover.jpg')
 
         self.backdrop = self.image_cache.load_image(file)
 
