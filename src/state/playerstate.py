@@ -156,7 +156,7 @@ class PlayerState:
         """ Draw inventory """
         size = self.inventory_image.get_size()
 
-        surface = pygame.surface.Surface(size)
+        surface = pygame.surface.Surface(size, pygame.SRCALPHA)
         surface.blit(self.inventory_image, (0, 0))
 
         x, y = screen.get_size()
