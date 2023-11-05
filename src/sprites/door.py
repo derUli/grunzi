@@ -17,11 +17,11 @@ class Door(Wall):
         self.walkable = False
 
         self.door_open_sound = os.path.abspath(
-            os.path.join(sprite_dir, '..', '..', 'sounds', 'door_open.ogg')
+            os.path.join(sprite_dir, '..', '..', 'sounds', 'door', 'door_open.ogg')
         )
 
         self.door_closed_sound = os.path.abspath(
-            os.path.join(sprite_dir, '..', '..', 'sounds', 'door_closed.ogg')
+            os.path.join(sprite_dir, '..', '..', 'sounds', 'door', 'door_closed.ogg')
         )
 
     def handle_interact(self, element):
