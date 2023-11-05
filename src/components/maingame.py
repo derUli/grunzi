@@ -178,10 +178,15 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fade()
 
     def ai(self):
-        if not self.state.player_state.use_item:
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+
+        if self.level.is_levelexit(x, y) and not self.state.edit_mode:
+            # Show "To be continued
+            self.handle_change_component(ToBeContinued)
             return
 
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        if not self.state.player_state.use_item:
+            return
 
         character = self.level.get_sprite((z, y, x))
         for z in range(0, len(self.level.layers)):
@@ -425,10 +430,6 @@ class MainGame(PausableComponent, FadeableComponent):
             self.level.layers[z][y][x] = None
 
             self.update_camera()
-
-        if self.level.is_levelexit(next_x, next_y) and not self.state.edit_mode:
-            # TODO: Show "To be continued"
-            self.handle_change_component(ToBeContinued)
 
     def draw_headup(self, screen):
         """ Draw head up display """
