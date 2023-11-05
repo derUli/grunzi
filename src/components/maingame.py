@@ -16,11 +16,12 @@ from constants import gamepad
 from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from constants.keyboard import *
+from sprites.character import Character
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-from sprites.character import Character
+
 
 class MainGame(PausableComponent, Component):
 

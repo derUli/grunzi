@@ -1,9 +1,10 @@
 """ Main character sprite """
 
+import logging
 import os
 import random
 import time
-import logging
+
 import pygame
 
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
@@ -19,6 +20,7 @@ RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 BLOOD_COLOR = (163, 8, 8)
 CHICKEN_SOUND_FADEOUT = 100
 
+
 class Chicken(Character):
     """ Chicken sprite class """
 
@@ -32,7 +34,6 @@ class Chicken(Character):
         self.next_direction_change = time.time()
         # Time until next move
         self.walk_speed = random.randint(1, 3)
-
 
     def draw(self, screen, x, y):
         """ Draw sprite """
@@ -136,7 +137,6 @@ class Chicken(Character):
 
         if time.time() < self.last_movement + self.walk_speed:
             return
-
 
         if time.time() > self.next_direction_change:
             self.calculate_next_direction_change()

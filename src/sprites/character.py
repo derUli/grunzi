@@ -1,7 +1,6 @@
 """ Main character sprite """
 
 import pygame
-import logging
 
 import sprites.sprite
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
