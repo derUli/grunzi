@@ -113336,7 +113336,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
 0,
 0,
 0,
@@ -113767,7 +113770,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
 0,
 0,
 0,
@@ -145229,7 +145235,11 @@
 "walkable": 1
 },
 0,
-0,
+{
+"sprite_class": "sprites.takeable.Takeable",
+"sprite_file": "bucket.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -167707,12 +167717,12 @@
 0,
 0,
 0,
-0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
+0,
 0,
 0,
 0,
