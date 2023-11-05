@@ -45,4 +45,4 @@ class Component(object):
         utils.audio.play_music(file, repeat)
 
     def unmount(self):
-        return
+        return True

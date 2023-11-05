@@ -119,7 +119,7 @@ class Chicken(Character):
             if self.sound and self.sound.get_busy():
                 self.sound.fadeout(CHICKEN_SOUND_FADEOUT)
 
-            logging.debug('Chicked killed by chainsaw')
+            logging.debug('Chicken killed by chainsaw')
 
             element.state.inventory.play_sound()
 

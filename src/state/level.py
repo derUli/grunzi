@@ -227,8 +227,12 @@ class Level:
         old_z, old_y, old_x = self.search_sprite(sprite)
         z, y, x = target_pos
 
+        if self.layers[z][y][x]:
+            return False
+
         self.layers[old_z][old_y][old_x] = None
         self.layers[z][y][x] = sprite
+
 
     def fill_fallback(self, callable):
         max_x, max_y = LEVEL_1_SIZE

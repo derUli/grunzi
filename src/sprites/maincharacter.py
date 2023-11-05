@@ -6,10 +6,11 @@ from sprites.character import Character
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
 from utils.audio import play_sound
 from sprites.inlinesprite import InlineSprite
+from components.fadeable_component import FadeableComponent
 PIG_SOUND_NOTHING = 'nothing.ogg'
 
 
-class MainCharacter(Character):
+class MainCharacter(Character, FadeableComponent):
     """ Main character sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='pig.png'):
@@ -34,6 +35,7 @@ class MainCharacter(Character):
         # Detailed object view
         if self.state.show_detailed:
             screen.blit(self.state.show_detailed, (0, 0))
+
 
     def draw_inventory_item(self, screen, x, y):
         """ Draw inventory item """

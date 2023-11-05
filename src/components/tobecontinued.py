@@ -4,7 +4,7 @@ import os
 
 import pygame
 
-from components.component import Component
+from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
 
@@ -13,7 +13,7 @@ _ = gettext.gettext
 DISCARD_KEYS = keyboard.CONFIRM_KEYS + keyboard.ABORT_KEYS
 
 
-class ToBeContinued(Component):
+class ToBeContinued(FadeableComponent):
     """ To be continued Screen """
 
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
@@ -26,6 +26,9 @@ class ToBeContinued(Component):
         self.backdrop = self.image_cache.load_image(file)
         self.backdrop = pygame.transform.smoothscale(self.backdrop, settings_state.screen_resolution)
 
+    def mount(self):
+        self.fadein()
+
     def unmount(self):
         """ Show mouse on unmount and stop music """
         pygame.mouse.set_visible(1)
@@ -36,7 +39,13 @@ class ToBeContinued(Component):
         screen.blit(self.backdrop, (0, 0))
 
     def update_screen(self, screen):
-        self.draw_background(screen)
+        surface = screen.copy().convert_alpha(screen)
+        surface.set_alpha(self.alpha)
+        self.draw_background(surface)
+
+        self.screen.blit(surface, (0, 0))
+
+        self.fade()
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN and event.key in keyboard.DISCARD_KEYS:

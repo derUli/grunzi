@@ -115635,11 +115635,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
+0,
 0,
 0,
 {
@@ -115841,19 +115837,9 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
-{
-"sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
+0,
+0,
 0,
 {
 "sprite_class": "sprites.fence.Fence",
@@ -116071,20 +116057,15 @@
 0,
 0,
 0,
-0,
-0,
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
 },
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
+0,
+0,
+0,
 0,
 {
 "sprite_class": "sprites.fence.Fence",
@@ -117233,7 +117214,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -117687,11 +117671,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
-"walkable": 1
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",

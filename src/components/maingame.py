@@ -21,9 +21,9 @@ from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
+from components.fadeable_component import FadeableComponent
 
-
-class MainGame(PausableComponent, Component):
+class MainGame(PausableComponent, FadeableComponent):
 
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
@@ -80,12 +80,18 @@ class MainGame(PausableComponent, Component):
         level_file = os.path.join(self.data_dir, 'levels', 'level1.json')
         self.load_level(level_file)
 
+        self.fadein()
+
     def unmount(self):
         """ On unmount show mouse cursor and stop music """
         pygame.mouse.set_visible(1)
         pygame.mixer.music.stop()
 
+        self.fadeout()
+
     def update_screen(self, screen):
+        screen = screen.copy().convert_alpha()
+
         """ Draw screen """
         if self.moving:
             self.move_main_character(self.moving)
@@ -139,9 +145,9 @@ class MainGame(PausableComponent, Component):
                 y += 1
                 x = 0
 
-        self.screen.blit(virtual_screen, (0, 0))
+        screen.blit(virtual_screen, (0, 0))
 
-        self.draw_headup(self.screen)
+        self.draw_headup(screen)
 
         if self.state.player_state.dead():
             component = self.handle_change_component(GameOver)
@@ -151,6 +157,12 @@ class MainGame(PausableComponent, Component):
         if self.state.edit_mode and self.level.check_for_changes():
             # If the level file was changes do a reload
             self.load_level(self.level.level_file)
+
+        screen.set_alpha(self.alpha)
+
+        self.screen.blit(screen, (0,0))
+
+        self.fade()
 
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
