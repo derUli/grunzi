@@ -22,7 +22,9 @@ from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
+from constants.quality import QUALITY_LOW
 
+BACKDROP_COLOR = (36,63,64)
 
 class MainGame(PausableComponent, FadeableComponent):
 
@@ -107,7 +109,10 @@ class MainGame(PausableComponent, FadeableComponent):
         h -= BOTTOM_UI_HEIGHT
         virtual_screen = pygame.surface.Surface((w, h))
 
-        virtual_screen.blit(self.backdrop, (0, 0))
+        if self.settings_state.quality == QUALITY_LOW:
+            virtual_screen.fill(BACKDROP_COLOR)
+        else:
+            virtual_screen.blit(self.backdrop, (0, 0))
 
         tolerance_x = math.ceil(w / sprite_width)
         tolerance_y = math.ceil(h / sprite_height)
