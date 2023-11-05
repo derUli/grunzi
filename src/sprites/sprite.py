@@ -67,8 +67,13 @@ class Sprite:
             (255, 255, 255)
         )
 
-        pos = self.calculate_pos(x, y)
-        screen.blit(text, pos)
+        pos_x, pos_y = self.calculate_pos(x, y)
+
+        pos_y -= DEBUG_TILE_FONT_SIZE
+
+        if pos_y < 0:
+            pos_y = 0
+        screen.blit(text, (pos_x, pos_y))
 
     def calculate_pos(self, x, y):
         """

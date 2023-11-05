@@ -15,7 +15,7 @@ class ImageCache:
 
             cache_id = cache_id + '-' + str(x) + '-' + str(y)
 
-        if not cache_id in self.images:
+        if cache_id not in self.images:
             try:
                 image = pygame.image.load(path).convert_alpha()
                 if scale:
