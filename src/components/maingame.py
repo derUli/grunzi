@@ -130,6 +130,7 @@ class MainGame(PausableComponent, FadeableComponent):
             for y in range(0, len(filtered_layers[z])):
                 filtered_layers[z][y] = filtered_layers[z][y][from_x:to_x]
 
+        z = 0
         for layer in filtered_layers:
             y = 0
             x = 0
@@ -138,14 +139,22 @@ class MainGame(PausableComponent, FadeableComponent):
                     if col:
                         col.draw(virtual_screen, x, y)
 
+                        if self.state.edit_mode and isinstance(col, Character):
+                            col.draw_debug(
+                                virtual_screen,
+                                x,
+                                y,
+                                from_x,
+                                from_y
+                            )
+
                     if isinstance(col, Character):
-                        new_pos = col.ai(self.level)
+                        col.ai(self.level)
 
                     x += 1
 
                 y += 1
                 x = 0
-
         screen.blit(virtual_screen, (0, 0))
 
         self.draw_headup(screen)
@@ -400,7 +409,7 @@ class MainGame(PausableComponent, FadeableComponent):
         walkable = self.level.is_walkable(next_x, next_y)
 
         for layer in range(0, layer_count):
-            element = self.level.layers[layer][next_y][next_x]
+            element = self.level.get_sprite((layer, next_y, next_x))
 
             if element:
                 element.handle_interact(character)

@@ -112362,7 +112362,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -112563,7 +112563,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -112761,7 +112761,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -112998,7 +112998,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -113209,7 +113209,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -113395,7 +113395,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -113631,7 +113631,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -113833,7 +113833,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -114044,7 +114044,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -114263,7 +114263,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -114518,7 +114518,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -114747,7 +114747,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -114981,7 +114981,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -115186,7 +115186,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -115414,7 +115414,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -115658,7 +115658,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -115869,7 +115869,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -116099,7 +116099,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -116306,7 +116306,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -116551,7 +116551,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -116799,7 +116799,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -117021,7 +117021,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -117253,7 +117253,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -117468,7 +117468,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -117706,7 +117706,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -117927,7 +117927,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -118146,7 +118146,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -118373,7 +118373,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -118584,7 +118584,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -118799,7 +118799,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -119006,7 +119006,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -119256,7 +119256,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -119455,7 +119455,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -119658,7 +119658,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -119873,7 +119873,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -120072,7 +120072,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -120275,7 +120275,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -120482,7 +120482,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -120701,7 +120701,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -120908,7 +120908,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -121167,7 +121167,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -121358,7 +121358,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -121561,7 +121561,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -121784,7 +121784,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -121999,7 +121999,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -122242,7 +122242,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -122680,7 +122680,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -122891,7 +122891,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -123110,7 +123110,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -123333,7 +123333,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -123556,7 +123556,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -123767,7 +123767,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -123966,7 +123966,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -124184,7 +124184,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -124371,7 +124371,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -124590,7 +124590,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -124781,7 +124781,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -124996,7 +124996,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -125211,7 +125211,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -125414,7 +125414,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -125637,7 +125637,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -125852,7 +125852,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -126075,7 +126075,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -126302,7 +126302,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -126525,7 +126525,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -126744,7 +126744,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -126967,7 +126967,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -127190,7 +127190,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -127429,7 +127429,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -127676,7 +127676,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -127879,7 +127879,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -128090,7 +128090,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -128277,7 +128277,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -128500,7 +128500,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -128731,7 +128731,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -128946,7 +128946,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -129153,7 +129153,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -129364,7 +129364,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -129579,7 +129579,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -129790,7 +129790,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -130025,7 +130025,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -130248,7 +130248,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -130463,7 +130463,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -130681,7 +130681,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -130920,7 +130920,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -131139,7 +131139,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -131346,7 +131346,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -131557,7 +131557,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -131740,7 +131740,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -131955,7 +131955,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -132190,7 +132190,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -132409,7 +132409,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -132608,7 +132608,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -132835,7 +132835,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -133030,7 +133030,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -133269,7 +133269,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -133468,7 +133468,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -133683,7 +133683,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -133906,7 +133906,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -134105,7 +134105,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -134348,7 +134348,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -134575,7 +134575,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -134798,7 +134798,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -135009,7 +135009,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -135212,7 +135212,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -135411,7 +135411,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -135618,7 +135618,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -136020,7 +136020,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -136243,7 +136243,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -136458,7 +136458,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -136657,7 +136657,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -136860,7 +136860,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -137083,7 +137083,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -137286,7 +137286,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -137496,7 +137496,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -137711,7 +137711,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -137926,7 +137926,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -138157,7 +138157,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -138384,7 +138384,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -138595,7 +138595,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -138810,7 +138810,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -139005,7 +139005,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -139224,7 +139224,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -139455,7 +139455,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -139662,7 +139662,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -139885,7 +139885,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -140120,7 +140120,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -140335,7 +140335,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -140554,7 +140554,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -140785,7 +140785,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -141016,7 +141016,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -141462,7 +141462,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -141680,7 +141680,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -141891,7 +141891,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -142122,7 +142122,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -142377,7 +142377,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -142592,7 +142592,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -142791,7 +142791,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -143026,7 +143026,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 {
@@ -143261,7 +143261,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -143691,7 +143691,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -143898,7 +143898,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -144113,7 +144113,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,
@@ -144344,7 +144344,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit",
+"sprite_file": null,
 "walkable": 1
 },
 0,

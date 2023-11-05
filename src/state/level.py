@@ -199,6 +199,9 @@ class Level:
     def is_levelexit(self, x, y):
         """ Check if a sprite  is walkable"""
         for z in self.layers:
+            if len(z[y]) > x:
+                return False
+
             if not z[y][x]:
                 continue
 
