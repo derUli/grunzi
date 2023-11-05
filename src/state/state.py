@@ -14,6 +14,7 @@ class State:
         self.player_state = PlayerState(data_dir, gamepad)
         self.level = 1
         self.edit_mode = False
+        self.show_only_layer = None
 
     def to_dict(self):
         """ To dictionary """

@@ -137,9 +137,15 @@ class MainGame(PausableComponent, FadeableComponent):
         for layer in filtered_layers:
             y = 0
             x = 0
+
+            draw_layer = True
+
+            if self.state.show_only_layer is not None and z != self.state.show_only_layer:
+                draw_layer = False
+
             for row in layer:
                 for col in row:
-                    if col:
+                    if col and draw_layer:
                         col.draw(virtual_screen, x, y)
 
                         if self.state.edit_mode and isinstance(col, Character):
@@ -158,6 +164,8 @@ class MainGame(PausableComponent, FadeableComponent):
 
                 y += 1
                 x = 0
+            z += 1
+
         screen.blit(virtual_screen, (0, 0))
 
         self.draw_headup(screen)
@@ -265,7 +273,7 @@ class MainGame(PausableComponent, FadeableComponent):
             if self.editor_block_index < 0:
                 self.editor_block_index = length - 1
         elif event.key == K_TOGGLE_EDIT_MODE and self.enable_edit_mode:
-            self.state.edit_mode = not self.state.edit_mode
+            self.toggle_edit_mode()
         elif self.state.edit_mode and event.key == K_SAVE_LEVEL:
             self.level.save()
         elif self.state.edit_mode and event.key in NUMERIC_KEYS:
@@ -273,6 +281,8 @@ class MainGame(PausableComponent, FadeableComponent):
             # Shift is the key for running
             # Shift + Number sets null
             self.make_field(index, self.running)
+        elif self.state.edit_mode and event.key == K_NEXT_LAYER:
+           self.next_layer()
         elif event.key == K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == K_RIGHT:
@@ -367,6 +377,18 @@ class MainGame(PausableComponent, FadeableComponent):
 
         self.level.layers[z][y][x] = editor_block
 
+    def next_layer(self):
+        if self.state.show_only_layer is None:
+            self.state.show_only_layer = -1
+
+        self.state.show_only_layer += 1
+
+        if self.state.show_only_layer >= len(self.level.layers):
+            self.state.show_only_layer = None
+
+    def toggle_edit_mode(self):
+        self.state.edit_mode = not self.state.edit_mode
+        self.state.show_only_layer = None
     def move_main_character(self, direction):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]
