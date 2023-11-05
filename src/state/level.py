@@ -170,14 +170,19 @@ class Level:
                 self.image_cache
             )
 
-    def purge_sprites(self):
+    def update_sprites(self):
         """ Search character by id """
         for z in range(0, len(self.layers)):
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
-                    if element and element.purge:
+                    if not element:
+                        continue
+                    if element.purge:
                         self.layers[z][y][x] = None
+
+                    if element.replace_with:
+                        self.layers[z][y][x] = element.replace_with
         return
 
     def is_walkable(self, x, y):

@@ -22,6 +22,8 @@ class Sprite:
         self.state = None
         self.center_camera = False
         self.purge = False
+        self.replace_with = None
+        self.cache = cache
 
         if not sprite:
             return

@@ -97,7 +97,7 @@ class MainGame(PausableComponent, FadeableComponent):
         if self.moving:
             self.move_main_character(self.moving)
 
-        self.level.purge_sprites()
+        self.level.update_sprites()
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
         w, h = screen.get_size()

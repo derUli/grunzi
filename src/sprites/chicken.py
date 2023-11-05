@@ -12,6 +12,7 @@ from sprites.chainsaw import Chainsaw
 from sprites.character import Character
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
+from sprites.feather import Feather
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
@@ -104,6 +105,7 @@ class Chicken(Character):
             self.image_direction = direction
 
     def handle_interact(self, element):
+        """ Handle interact """
         logging.debug('interact')
         # Destroy if player has the chainsaw
         if not element:
@@ -111,9 +113,11 @@ class Chicken(Character):
 
         logging.debug('inventory ' + str(element.state.inventory))
 
+        # Chicken is killed by chainsaw
         if isinstance(element.state.inventory, Chainsaw) and not self.walkable:
             self.walkable = True
-            self.purge = True
+            # Replace chicken with feather
+            self.replace_with = Feather(self.sprite_dir, self.cache)
             element.state.flash(BLOOD_COLOR)
 
             if self.sound and self.sound.get_busy():
