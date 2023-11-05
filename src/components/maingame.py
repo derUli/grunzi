@@ -90,7 +90,8 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fadeout()
 
     def update_screen(self, screen):
-        screen = screen.copy().convert_alpha()
+        if self.do_fade:
+            screen = screen.copy().convert_alpha()
 
         """ Draw screen """
         if self.moving:
@@ -158,9 +159,10 @@ class MainGame(PausableComponent, FadeableComponent):
             # If the level file was changes do a reload
             self.load_level(self.level.level_file)
 
-        screen.set_alpha(self.alpha)
 
-        self.screen.blit(screen, (0,0))
+        if self.do_fade:
+            screen.set_alpha(self.alpha)
+            self.screen.blit(screen, (0,0))
 
         self.fade()
 
