@@ -7,7 +7,7 @@ import pygame
 from constants.quality import QUALITY_MEDIUM
 from utils.path import get_userdata_path
 
-SETTINGS_DEFAULT_FULLSCREEN = False
+SETTINGS_DEFAULT_FULLSCREEN = True
 SETTINGS_DEFAULT_VOLUME = 0.8
 SETTINGS_DEFAULT_SHOW_FPS = False
 SETTINGS_DEFAULT_VSYNC = True

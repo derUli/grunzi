@@ -122426,7 +122426,7 @@
 [
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "qrcode2.png",
+"sprite_file": "qrcode2.png", 
 "walkable": 1
 },
 0,

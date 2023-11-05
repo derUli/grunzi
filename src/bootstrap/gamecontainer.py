@@ -61,6 +61,8 @@ class GameContainer:
         if not self.settings_state.load():
             self.settings_state.save()
 
+        self.settings_state.apply()
+
         self.init_screen()
         if not self.disable_controller:
             self.init_controller()
