@@ -49,7 +49,7 @@ class Chicken(Character):
             self.change_direction(DIRECTION_LEFT)
             self.play_sound()
 
-        self.next_direction_change = time.time() + random.randint(1, 6)
+        self.next_direction_change = time.time() + random.randint(2, 6)
 
         return self.next_direction_change
 

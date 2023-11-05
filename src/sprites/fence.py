@@ -31,22 +31,9 @@ class Fence(Wall):
             self.walkable = True
             self.purge = True
 
-            sound_dir = os.path.abspath(
-                os.path.join(self.sprite_dir, '..', '..', 'sounds', 'chainsaw')
-            )
-
             logging.debug('Fence sprite destroyed with chainsaw')
 
-            files = [
-                'chainsaw1.ogg',
-                'chainsaw2.ogg',
-                'chainsaw3.ogg',
-                'chainsaw4.ogg',
-            ]
-
-            play_sound(
-                os.path.join(sound_dir, random.choice(files))
-            )
+            element.state.inventory.play_sound()
 
             # Rumble on gamepad if we have one
             if element.state.gamepad:
