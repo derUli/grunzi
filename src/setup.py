@@ -4,7 +4,7 @@ import cx_Freeze
 
 base = None
 
-if sys.platform == 'nt':
+if sys.platform == 'win32':
     base = "Win32GUI"
 
 target = cx_Freeze.Executable(
@@ -23,7 +23,10 @@ cx_Freeze.setup(
                 'sprites'
             ],
             'include_files': [
-                'data/', '../CREDITS.txt', '../README.txt'
+                'data/',
+                '../CREDITS.txt',
+                '../README.txt',
+                '../CHANGES.txt'
             ]
         }
     },
