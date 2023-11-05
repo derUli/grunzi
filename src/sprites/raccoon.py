@@ -16,6 +16,7 @@ class Raccoon(sprites.character.Character):
         """ Constructor """
         super().__init__(sprite_dir, cache, 'raccoon.png')
         self.center_camera = False
+        self.sound = None
 
     def handle_interact(self, element):
         """ Play sound on interaction """
@@ -28,6 +29,9 @@ class Raccoon(sprites.character.Character):
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'raccoon')
         )
 
+        if self.sound and self.sound.get_busy():
+            return
+
         logging.debug('Henlo Fren!')
 
         # CREDITS: https://soundbible.com/1853-Raccoon.html
@@ -38,4 +42,6 @@ class Raccoon(sprites.character.Character):
         ]
         file = os.path.join(sound_dir, random.choice(files))
 
-        utils.audio.play_sound(file)
+        self.sound = utils.audio.play_sound(file)
+
+
