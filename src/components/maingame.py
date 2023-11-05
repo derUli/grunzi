@@ -54,6 +54,7 @@ class MainGame(PausableComponent, Component):
         """ Load level from JSON file """
         self.level.level_file = level_file
 
+
         try:
             self.level.load()
         except json.decoder.JSONDecodeError:
