@@ -112474,8 +112474,14 @@
 ],
 [
 0,
-0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "tree1.png"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "tree1.png"
+},
 0,
 0,
 0,
@@ -112895,8 +112901,14 @@
 ],
 [
 0,
-0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "tree1.png"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "tree1.png"
+},
 0,
 0,
 0,
@@ -167683,12 +167695,12 @@
 0,
 0,
 0,
+0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
-0,
 0,
 0,
 0,
