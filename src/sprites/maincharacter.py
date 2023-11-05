@@ -1,10 +1,11 @@
 """ Main character sprite """
 import os
-
+import pygame
 import constants.game
 from sprites.character import Character
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
 from utils.audio import play_sound
-
+from sprites.inlinesprite import InlineSprite
 PIG_SOUND_NOTHING = 'nothing.ogg'
 
 
@@ -28,9 +29,34 @@ class MainCharacter(Character):
         """ Draw main character """
         super().draw(screen, x, y)
 
+        self.draw_inventory_item(screen, x, y)
+
         # Detailed object view
         if self.state.show_detailed:
             screen.blit(self.state.show_detailed, (0, 0))
+
+    def draw_inventory_item(self, screen, x, y):
+        """ Draw inventory item """
+        if not isinstance(self.state.inventory, InlineSprite):
+            return
+
+        sprite = self.state.inventory.sprite.copy().convert_alpha()
+
+        if self.direction == DIRECTION_UP:
+            sprite = pygame.transform.rotate(sprite, 90)
+            y -= 1
+        elif self.direction == DIRECTION_DOWN:
+            sprite = pygame.transform.rotate(sprite, 270)
+            y += 1
+        elif self.direction == DIRECTION_RIGHT:
+            x += 1
+        elif self.direction == DIRECTION_LEFT:
+            sprite = pygame.transform.flip(sprite, flip_x = True, flip_y= False)
+            x -= 1
+
+        pos = self.calculate_pos(x, y)
+        screen.blit(sprite, pos)
+
 
     def play_sound(self, sound):
         if self.sound and self.sound.get_busy():

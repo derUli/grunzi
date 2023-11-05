@@ -3,10 +3,11 @@ import os
 import random
 
 from sprites.takeable import Takeable
+from sprites.inlinesprite import InlineSprite
 from utils.audio import play_sound
 
 
-class Chainsaw(Takeable):
+class Chainsaw(Takeable, InlineSprite):
     """ Chainsaw sprite class """
 
     def __init__(self, sprite_dir, cache, sprite=None):
