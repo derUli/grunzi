@@ -3,9 +3,9 @@ from sprites.backdrop import Backdrop
 from sprites.chainsaw import Chainsaw
 from sprites.coin import Coin
 from sprites.fence import Fence
-from sprites.wall import Wall
 from sprites.levelexit import LevelExit
-
+from sprites.wall import Wall
+from sprites.chicken import Chicken
 
 def get_editor_blocks(sprites_dir, image_cache):
     return [
@@ -101,4 +101,8 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache,
             'exit'
         ),
+        Chicken(
+            sprites_dir,
+            image_cache
+        )
     ]

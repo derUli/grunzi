@@ -112969,11 +112969,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -115845,9 +115841,19 @@
 0,
 0,
 0,
-0,
-0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 {
 "sprite_class": "sprites.fence.Fence",
@@ -117681,7 +117687,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit",
+"walkable": 1
+},
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -119801,10 +119811,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -130601,7 +130608,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -137439,7 +137449,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -141595,7 +141608,10 @@
 "walkable": 1
 },
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower5.png",
@@ -168224,12 +168240,12 @@
 0,
 0,
 0,
+0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
-0,
 0,
 0,
 0,

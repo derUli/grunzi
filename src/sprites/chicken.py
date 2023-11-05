@@ -16,6 +16,7 @@ RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
 RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 
 BLOOD_COLOR = (163, 8, 8)
+CHICKEN_SOUND_FADEOUT = 100
 
 class Chicken(Character):
     """ Chicken sprite class """
@@ -104,6 +105,9 @@ class Chicken(Character):
             self.walkable = True
             self.purge = True
             element.state.flash(BLOOD_COLOR)
+
+            if self.sound and self.sound.get_busy():
+                self.sound.fadeout(CHICKEN_SOUND_FADEOUT)
 
             logging.debug('Chicked killed by chainsaw')
 
