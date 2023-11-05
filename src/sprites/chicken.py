@@ -1,13 +1,12 @@
 """ Main character sprite """
 
-import logging
 import os
 import random
 import time
-
+import logging
 import pygame
 
-from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
 from sprites.chainsaw import Chainsaw
 from sprites.character import Character
 from sprites.maincharacter import PIG_SOUND_NOTHING
@@ -31,13 +30,12 @@ class Chicken(Character):
         self.image_direction = self.direction
         self.sound = None
         self.next_direction_change = time.time()
+        # Time until next move
+        self.walk_speed = random.randint(1, 3)
 
 
     def draw(self, screen, x, y):
         """ Draw sprite """
-
-        if time.time() > self.next_direction_change:
-            self.calculate_next_direction_change()
 
         sprite = self.sprite.copy()
 
@@ -54,15 +52,24 @@ class Chicken(Character):
 
         return pos
 
-    def calculate_next_direction_change(self):
-        if self.direction == DIRECTION_LEFT:
-            self.change_direction(DIRECTION_RIGHT)
-            self.play_sound()
-        else:
-            self.change_direction(DIRECTION_LEFT)
-            self.play_sound()
+    def random_direction(self):
+        direction = random.choice([
+            DIRECTION_LEFT,
+            DIRECTION_RIGHT,
+            DIRECTION_UP,
+            DIRECTION_DOWN
+        ])
 
-        self.next_direction_change = time.time() + random.randint(2, 6)
+        if direction == self.direction:
+            return self.random_direction()
+
+        return direction
+
+    def calculate_next_direction_change(self):
+        self.change_direction(self.random_direction())
+        self.play_sound()
+
+        self.next_direction_change = time.time() + random.randint(1, 10)
 
         return self.next_direction_change
 
@@ -124,3 +131,37 @@ class Chicken(Character):
                 )
         else:
             element.play_sound(PIG_SOUND_NOTHING)
+
+    def ai(self, level):
+
+        if time.time() < self.last_movement + self.walk_speed:
+            return
+
+
+        if time.time() > self.next_direction_change:
+            self.calculate_next_direction_change()
+
+        self.walk_speed = random.randint(1, 3)
+
+        z, y, x = level.search_sprite(self)
+
+        next_x = x
+        next_y = y
+
+        print(self.direction)
+        if self.direction == DIRECTION_LEFT:
+            next_x -= 1
+        elif self.direction == DIRECTION_RIGHT:
+            next_x += 1
+        elif self.direction == DIRECTION_UP:
+            next_y -= 1
+        elif self.direction == DIRECTION_DOWN:
+            next_y += 1
+
+        walkable = level.is_walkable(next_x, next_y)
+
+        if walkable:
+            level.move_sprite(self, (z, next_y, next_x))
+            self.last_movement = time.time()
+        else:
+            self.change_direction(self.random_direction())

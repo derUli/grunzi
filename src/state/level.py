@@ -223,6 +223,15 @@ class Level:
 
         return (0, 0, 0)
 
+    def move_sprite(self, sprite, target_pos):
+        old_z, old_y, old_x = self.search_sprite(sprite)
+        z, y, x = target_pos
+
+        self.layers[old_z][old_y][old_x] = None
+        self.layers[z][y][x] = sprite
+
+
+
     def fill_fallback(self, callable):
         max_x, max_y = LEVEL_1_SIZE
 

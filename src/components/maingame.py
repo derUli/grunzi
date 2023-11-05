@@ -131,7 +131,7 @@ class MainGame(PausableComponent, Component):
                         col.draw(virtual_screen, x, y)
 
                     if isinstance(col, Character):
-                        col.ai(self.level)
+                        new_pos = col.ai(self.level)
 
                     x += 1
 
