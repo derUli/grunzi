@@ -112297,11 +112297,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -117530,7 +117526,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "truck2.png"
+},
 0,
 0,
 0,
@@ -119045,7 +119044,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "truck.png"
+"sprite_file": "truck1.png"
 },
 0,
 0,
@@ -167557,7 +167556,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.maincharacter.MainCharacter",
+"sprite_file": "pig.png",
+"id": "grunzi"
+},
 0,
 0,
 0,
@@ -167707,11 +167710,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.maincharacter.MainCharacter",
-"sprite_file": "pig.png",
-"id": "grunzi"
-},
+0,
 0,
 0,
 0,
