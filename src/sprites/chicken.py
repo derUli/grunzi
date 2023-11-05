@@ -8,6 +8,15 @@ import os
 from sprites.character import Character
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
 from utils.audio import play_sound
+from sprites.chainsaw import Chainsaw
+from sprites.maincharacter import PIG_SOUND_NOTHING
+
+RUMBLE_CHAINSAW_DURATION = 300
+RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
+RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
+
+BLOOD_COLOR = (163, 8, 8)
+
 class Chicken(Character):
     """ Chicken sprite class """
 
@@ -82,3 +91,30 @@ class Chicken(Character):
         self.direction = direction
         if direction in [DIRECTION_LEFT, DIRECTION_RIGHT]:
             self.image_direction = direction
+
+    def handle_interact(self, element):
+        logging.debug('interact')
+        # Destroy if player has the chainsaw
+        if not element:
+            return
+
+        logging.debug('inventory ' + str(element.state.inventory))
+
+        if isinstance(element.state.inventory, Chainsaw) and not self.walkable:
+            self.walkable = True
+            self.purge = True
+            element.state.flash(BLOOD_COLOR)
+
+            logging.debug('Chicked killed by chainsaw')
+
+            element.state.inventory.play_sound()
+
+            # Rumble on gamepad if we have one
+            if element.state.gamepad:
+                element.state.gamepad.joystick.rumble(
+                    RUMBLE_CHAINSAW_LOW_FREQUENCY,
+                    RUMBLE_CHAINSAW_HIGH_FREQUENCY,
+                    RUMBLE_CHAINSAW_DURATION
+                )
+        else:
+            element.play_sound(PIG_SOUND_NOTHING)

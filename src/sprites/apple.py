@@ -20,7 +20,7 @@ class Apple(sprites.sprite.Sprite):
             self.walkable = True
 
             sound = os.path.abspath(
-                os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pig_smacks.ogg')
+                os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pig', 'smacks.ogg')
             )
 
             play_sound(sound)
