@@ -3,7 +3,7 @@ import logging
 import math
 import os
 import time
-
+import pygame
 import constants.game
 import constants.graphics
 import state.state
@@ -15,7 +15,7 @@ from components.tobecontinued import ToBeContinued
 from constants import gamepad
 from constants import direction
 from constants.headup import BOTTOM_UI_HEIGHT
-from constants.keyboard import *
+from constants import keyboard
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
@@ -262,36 +262,36 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def handle_keydown_event(self, event):
         """" Handle keydown events """
-        if event.key in DISCARD_KEYS and self.state.player_state.show_detailed:
+        if event.key in keyboard.DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
-        elif event.key == K_CHANGE_BLOCK_DOWN:
+        elif event.key == keyboard.K_CHANGE_BLOCK_DOWN:
             self.editor_block_index += 1
             length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
             if self.editor_block_index >= length:
                 self.editor_block_index = 0
-        elif event.key == K_CHANGE_BLOCK_UP:
+        elif event.key == keyboard.K_CHANGE_BLOCK_UP:
             self.editor_block_index -= 1
             length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
             if self.editor_block_index < 0:
                 self.editor_block_index = length - 1
-        elif event.key == K_TOGGLE_EDIT_MODE and self.enable_edit_mode:
+        elif event.key == keyboard.K_TOGGLE_EDIT_MODE and self.enable_edit_mode:
             self.toggle_edit_mode()
-        elif event.key in MOVEMENT_KEYS:
+        elif event.key in keyboard.MOVEMENT_KEYS:
             self.move_main_character(direction.key_to_direction(event.key))
-        elif event.key == K_DROP_ITEM:
+        elif event.key == keyboard.K_DROP_ITEM:
             self.drop_item()
-        elif event.key == K_RUN:
+        elif event.key == keyboard.K_RUN:
             self.running = True
-        elif event.key == K_USE:
+        elif event.key == keyboard.K_USE:
             self.state.player_state.toggle_item()
         elif self.state.edit_mode:
             self.handle_edit_mode_event(event)
 
     def handle_keyup_event(self, event):
         """" Handle keyup events """
-        if event.key in MOVEMENT_KEYS:
+        if event.key in keyboard.MOVEMENT_KEYS:
             self.moving = None
-        elif event.key == K_RUN:
+        elif event.key == keyboard.K_RUN:
             self.running = False
 
     def handle_joyhatmotion(self, event):
@@ -350,16 +350,15 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def handle_edit_mode_event(self, event):
         """ Handle edit mode events """
-        if self.state.edit_mode and event.key == K_SAVE_LEVEL:
+        if self.state.edit_mode and event.key == keyboard.K_SAVE_LEVEL:
             self.level.save()
-
-        elif self.state.edit_mode and event.key in NUMERIC_KEYS:
-            index = NUMERIC_KEYS.index(event.key)
+        elif self.state.edit_mode and event.key in keyboard.NUMERIC_KEYS:
+            index = keyboard.NUMERIC_KEYS.index(event.key)
             # Shift is the key for running
             # Shift + Number sets null
             self.make_field(index, self.running)
 
-        elif self.state.edit_mode and event.key == K_NEXT_LAYER:
+        elif self.state.edit_mode and event.key == keyboard.K_NEXT_LAYER:
             self.next_layer()
 
     def make_field(self, z, clear=False):
