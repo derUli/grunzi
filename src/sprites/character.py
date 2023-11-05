@@ -1,6 +1,7 @@
 """ Main character sprite """
 
 import pygame
+import logging
 
 import sprites.sprite
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
@@ -39,6 +40,10 @@ class Character(sprites.sprite.Sprite):
         screen.blit(sprite, pos)
 
         return pos
+
+    def ai(self, level):
+        # logging.debug(level.search_sprite(self))
+        return
 
     def change_direction(self, direction):
         """ Change sprite direction """

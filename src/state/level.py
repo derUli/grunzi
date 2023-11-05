@@ -213,6 +213,16 @@ class Level:
 
         return (0, 0, 0)
 
+    def search_sprite(self, sprite):
+        """ Search character by id """
+        for z in range(0, len(self.layers)):
+            for y in range(0, len(self.layers[z])):
+                for x in range(0, len(self.layers[z][y])):
+                    if self.layers[z][y][x] == sprite:
+                        return (z, y, x)
+
+        return (0, 0, 0)
+
     def fill_fallback(self, callable):
         max_x, max_y = LEVEL_1_SIZE
 

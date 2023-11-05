@@ -20,7 +20,7 @@ from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-
+from sprites.character import Character
 
 class MainGame(PausableComponent, Component):
 
@@ -129,6 +129,10 @@ class MainGame(PausableComponent, Component):
                 for col in row:
                     if col:
                         col.draw(virtual_screen, x, y)
+
+                    if isinstance(col, Character):
+                        col.ai(self.level)
+
                     x += 1
 
                 y += 1

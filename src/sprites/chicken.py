@@ -20,7 +20,6 @@ RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 BLOOD_COLOR = (163, 8, 8)
 CHICKEN_SOUND_FADEOUT = 100
 
-
 class Chicken(Character):
     """ Chicken sprite class """
 
@@ -32,6 +31,7 @@ class Chicken(Character):
         self.image_direction = self.direction
         self.sound = None
         self.next_direction_change = time.time()
+
 
     def draw(self, screen, x, y):
         """ Draw sprite """
