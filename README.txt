@@ -22,6 +22,7 @@ D: Gegenstand fallen lassen
 F12: Screenshot erstellen
 Shift-Taste: Rennen
 ESC: Menü aufrufen
+E: Item benutzen 
 
 ## Controller
 
@@ -29,7 +30,7 @@ Das Spiel unterstützt XBox 360 Controller.
 Andere Controller können funktionieren, wurden von mir jedoch nicht getestet.
 
 Linker Joystick oder Directional Pad: Bewegen
-A: Bestätigen / Aktion auslösen
+A: Benutzen
 Y: Gegenstand fallen lassen
 START: Menü aufrufen
 Shift-Taste: Rennen

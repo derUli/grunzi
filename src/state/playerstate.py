@@ -7,7 +7,7 @@ import pygame
 
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from utils.audio import play_sound
-
+from sprites.inlinesprite import InlineSprite
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10
 FLASH_COLOR_HURT = (255, 0, 0,)
@@ -28,6 +28,7 @@ class PlayerState:
         self.flash_duration = 0.05
         self.gamepad = gamepad
         self.use_item = False
+        self.data_dir = data_dir
 
         self.health_pig = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
@@ -83,6 +84,19 @@ class PlayerState:
     def toggle_item(self):
         if not self.inventory:
             self.use_item = False
+            return
+
+        if not isinstance(self.inventory, InlineSprite):
+            sound = os.path.abspath(
+                os.path.join(
+                    self.data_dir,
+                    'sounds',
+                    'common',
+                    'beep.ogg'
+                )
+            )
+
+            play_sound(sound)
             return
 
         self.use_item = not self.use_item
