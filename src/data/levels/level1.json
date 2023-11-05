@@ -112290,7 +112290,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.snowman.Snowman",
+"sprite_file": "snowman.png"
+},
 0,
 0,
 {
