@@ -67,6 +67,6 @@ game = GameContainer(
     root_dir,
     enable_edit_mode=args.edit,
     opengl=args.opengl,
-    disable_controller = args.disable_controller
+    disable_controller=args.disable_controller
 )
 game.start()

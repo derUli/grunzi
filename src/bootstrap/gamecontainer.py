@@ -27,7 +27,7 @@ _ = gettext.gettext
 class GameContainer:
     """ Main game class """
 
-    def __init__(self, root_dir, enable_edit_mode=False, opengl=False, disable_controller = False):
+    def __init__(self, root_dir, enable_edit_mode=False, opengl=False, disable_controller=False):
         """ Constructor """
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
