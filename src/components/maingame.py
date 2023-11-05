@@ -13,7 +13,7 @@ from components.gameover import GameOver
 from components.pausable_component import PausableComponent
 from components.tobecontinued import ToBeContinued
 from constants import gamepad
-from constants.direction import *
+from constants import direction
 from constants.headup import BOTTOM_UI_HEIGHT
 from constants.keyboard import *
 from sprites.character import Character
@@ -277,7 +277,7 @@ class MainGame(PausableComponent, FadeableComponent):
         elif event.key == K_TOGGLE_EDIT_MODE and self.enable_edit_mode:
             self.toggle_edit_mode()
         elif event.key in MOVEMENT_KEYS:
-            self.move_main_character(key_to_direction(event.key))
+            self.move_main_character(direction.key_to_direction(event.key))
         elif event.key == K_DROP_ITEM:
             self.drop_item()
         elif event.key == K_RUN:
@@ -299,13 +299,13 @@ class MainGame(PausableComponent, FadeableComponent):
         x, y = event.value
 
         if x == 1:
-            self.move_main_character(DIRECTION_RIGHT)
+            self.move_main_character(direction.DIRECTION_RIGHT)
         elif x == -1:
-            self.move_main_character(DIRECTION_LEFT)
+            self.move_main_character(direction.DIRECTION_LEFT)
         elif y == 1:
-            self.move_main_character(DIRECTION_UP)
+            self.move_main_character(direction.DIRECTION_UP)
         elif y == -1:
-            self.move_main_character(DIRECTION_DOWN)
+            self.move_main_character(direction.DIRECTION_DOWN)
         elif x == 0 and y == 0:
             self.moving = None
 
@@ -323,13 +323,13 @@ class MainGame(PausableComponent, FadeableComponent):
             self.moving = None
 
         if axis == 0 and value > 0:
-            self.move_main_character(DIRECTION_RIGHT)
+            self.move_main_character(direction.DIRECTION_RIGHT)
         if axis == 0 and value < 0:
-            self.move_main_character(DIRECTION_LEFT)
+            self.move_main_character(direction.DIRECTION_LEFT)
         elif axis == 1 and value < 0:
-            self.move_main_character(DIRECTION_UP)
+            self.move_main_character(direction.DIRECTION_UP)
         elif axis == 1 and value > 0:
-            self.move_main_character(DIRECTION_DOWN)
+            self.move_main_character(direction.DIRECTION_DOWN)
 
     def handle_joybuttondown(self, event):
         """ Handle joybutton press """
@@ -396,13 +396,13 @@ class MainGame(PausableComponent, FadeableComponent):
         self.state.edit_mode = not self.state.edit_mode
         self.state.show_only_layer = None
 
-    def move_main_character(self, direction):
+    def move_main_character(self, dir):
         """ Move main character one field in direction """
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]
 
         if not self.moving:
-            self.moving = direction
+            self.moving = dir
             character.last_move = 0
             return
 
@@ -419,16 +419,16 @@ class MainGame(PausableComponent, FadeableComponent):
         next_x = x
         next_y = y
 
-        if direction == DIRECTION_UP:
+        if dir == direction.DIRECTION_UP:
             next_y -= 1
-        elif direction == DIRECTION_LEFT:
+        elif dir == direction.DIRECTION_LEFT:
             next_x -= 1
-        elif direction == DIRECTION_RIGHT:
+        elif dir == direction.DIRECTION_RIGHT:
             next_x += 1
-        elif direction == DIRECTION_DOWN:
+        elif dir == direction.DIRECTION_DOWN:
             next_y += 1
 
-        character.change_direction(direction)
+        character.change_direction(dir)
 
         if (next_y < 0):
             return
