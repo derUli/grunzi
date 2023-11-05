@@ -32,7 +32,7 @@ class Fence(Wall):
             self.purge = True
 
             sound_dir = os.path.abspath(
-                os.path.join(self.sprite_dir, '..', '..', 'sounds')
+                os.path.join(self.sprite_dir, '..', '..', 'sounds', 'chainsaw')
             )
 
             logging.debug('Fence sprite destroyed with chainsaw')

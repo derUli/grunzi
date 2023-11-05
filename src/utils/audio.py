@@ -2,8 +2,8 @@ import pygame
 
 
 def play_sound(file):
-    pygame.mixer.Sound(file).play()
-
+    sound = pygame.mixer.Sound(file)
+    return sound.play()
 
 def play_music(file, repeat=-1):
     pygame.mixer.music.load(file)
