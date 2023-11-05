@@ -45,7 +45,8 @@ class MainCharacter(Character, FadeableComponent):
         if not self.state.use_item:
             return
 
-        sprite = self.state.inventory.sprite.copy().convert_alpha()
+        item = self.state.inventory
+        sprite = item.sprite.copy().convert_alpha()
 
         if self.direction == DIRECTION_UP:
             sprite = pygame.transform.rotate(sprite, 90)
@@ -59,8 +60,11 @@ class MainCharacter(Character, FadeableComponent):
             sprite = pygame.transform.flip(sprite, flip_x = True, flip_y= False)
             x -= 1
 
-        pos = self.calculate_pos(x, y)
-        screen.blit(sprite, pos)
+        item.inline_sprite = sprite.convert_alpha()
+        item.draw_inline(
+            screen,
+            self.calculate_pos(x, y)
+        )
 
 
     def play_sound(self, sound):
