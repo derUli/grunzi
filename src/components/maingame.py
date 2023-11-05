@@ -91,6 +91,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fadeout()
 
     def update_screen(self, screen):
+        """ Update screen """
         if self.do_fade:
             screen = screen.copy().convert_alpha()
 
@@ -275,14 +276,8 @@ class MainGame(PausableComponent, FadeableComponent):
                 self.editor_block_index = length - 1
         elif event.key == K_TOGGLE_EDIT_MODE and self.enable_edit_mode:
             self.toggle_edit_mode()
-        elif event.key == K_LEFT:
-            self.move_main_character(DIRECTION_LEFT)
-        elif event.key == K_RIGHT:
-            self.move_main_character(DIRECTION_RIGHT)
-        elif event.key == K_UP:
-            self.move_main_character(DIRECTION_UP)
-        elif event.key == K_DOWN:
-            self.move_main_character(DIRECTION_DOWN)
+        elif event.key in MOVEMENT_KEYS:
+            self.move_main_character(key_to_direction(event.key))
         elif event.key == K_DROP_ITEM:
             self.drop_item()
         elif event.key == K_RUN:
@@ -368,6 +363,7 @@ class MainGame(PausableComponent, FadeableComponent):
             self.next_layer()
 
     def make_field(self, z, clear=False):
+        """ Make field in edit mode """
         _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         if z >= len(self.level.layers):
@@ -386,6 +382,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.level.layers[z][y][x] = editor_block
 
     def next_layer(self):
+        """ Toggle layers in edit mode"""
         if self.state.show_only_layer is None:
             self.state.show_only_layer = -1
 
@@ -395,10 +392,12 @@ class MainGame(PausableComponent, FadeableComponent):
             self.state.show_only_layer = None
 
     def toggle_edit_mode(self):
+        """ Toggle edit mode """
         self.state.edit_mode = not self.state.edit_mode
         self.state.show_only_layer = None
 
     def move_main_character(self, direction):
+        """ Move main character one field in direction """
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]
 
