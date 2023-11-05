@@ -14,7 +14,7 @@ from sprites.door import Door
 from sprites.key import Key
 from sprites.levelexit import LevelExit
 from utils.reflections import get_class
-
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
 LAYER_ITEMS = 2
@@ -333,3 +333,34 @@ class Level:
             changed = True
 
         return changed
+
+
+    def calculate_next_pos(self, pos, direction):
+        x, y = pos
+
+        if direction == DIRECTION_LEFT:
+            x -= 1
+        elif direction == DIRECTION_RIGHT:
+            x += 1
+
+        if direction == DIRECTION_UP:
+            y -= 1
+        elif direction == DIRECTION_DOWN:
+            y += 1
+
+        if x < 0:
+            x = 0
+
+        if y < 0:
+            y = 0
+
+        return (x, y)
+
+
+    def get_sprite(self, pos):
+        z, y, x = pos
+
+        try:
+            return self.layers[z][y][x]
+        except IndexError:
+            return None

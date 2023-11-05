@@ -8,7 +8,7 @@ import constants.game
 import constants.graphics
 import state.state
 import utils.savegame
-from components.component import Component
+from sprites.inlinesprite import InlineSprite
 from components.gameover import GameOver
 from components.pausable_component import PausableComponent
 from components.tobecontinued import ToBeContinued
@@ -164,6 +164,17 @@ class MainGame(PausableComponent, FadeableComponent):
             self.screen.blit(screen, (0,0))
 
         self.fade()
+
+    def ai(self):
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+
+        character = self.level.get_sprite((z, y, x))
+        for z in range(0, len(self.level.layers)):
+            if isinstance(self.state.player_state.inventory, InlineSprite):
+                i_x, i_y = self.level.calculate_next_pos((x, y), character.direction)
+                i_element = self.level.get_sprite((z, i_y, i_x))
+                if i_element:
+                    i_element.handle_interact_item(character)
 
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
@@ -378,12 +389,13 @@ class MainGame(PausableComponent, FadeableComponent):
 
         layer_count = len(self.level.layers)
 
+        walkable = self.level.is_walkable(next_x, next_y)
+
         for layer in range(0, layer_count):
             element = self.level.layers[layer][next_y][next_x]
+
             if element:
                 element.handle_interact(character)
-
-        walkable = self.level.is_walkable(next_x, next_y)
 
         if self.state.edit_mode:
             walkable = True

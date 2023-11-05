@@ -127,6 +127,7 @@ class GameContainer:
         while self.running:
             self.handle_events()
             self.update_screen()
+            self.ai()
 
     def handle_events(self):
 
@@ -168,6 +169,10 @@ class GameContainer:
             self.show_fps()
 
         pygame.display.flip()
+
+    def ai(self):
+        if self.current_component:
+            self.current_component.ai()
 
     def show_fps(self):
         """ Show fps """

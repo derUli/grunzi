@@ -97,11 +97,6 @@ def get_editor_blocks(sprites_dir, image_cache):
             sprites_dir,
             image_cache
         ),
-        LevelExit(
-            sprites_dir,
-            image_cache,
-            'exit'
-        ),
         Chicken(
             sprites_dir,
             image_cache

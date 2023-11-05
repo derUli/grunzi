@@ -16,7 +16,7 @@ class Fence(Wall):
         """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
 
-    def handle_interact(self, element):
+    def handle_interact_item(self, element):
         logging.debug('interact')
         # Destroy if player has the chainsaw
         if not element:

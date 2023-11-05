@@ -104,7 +104,7 @@ class Chicken(Character):
         if direction in [DIRECTION_LEFT, DIRECTION_RIGHT]:
             self.image_direction = direction
 
-    def handle_interact(self, element):
+    def handle_interact_item(self, element):
         """ Handle interact """
         logging.debug('interact')
         # Destroy if player has the chainsaw
@@ -152,7 +152,6 @@ class Chicken(Character):
         next_x = x
         next_y = y
 
-        print(self.direction)
         if self.direction == DIRECTION_LEFT:
             next_x -= 1
         elif self.direction == DIRECTION_RIGHT:

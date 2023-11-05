@@ -24,7 +24,7 @@ class Door(Wall):
             os.path.join(sprite_dir, '..', '..', 'sounds', 'door', 'door_closed.ogg')
         )
 
-    def handle_interact(self, element):
+    def handle_interact_item(self, element):
         """ Set walkable on interact """
 
         if not element:

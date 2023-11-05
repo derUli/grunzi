@@ -64,6 +64,10 @@ class Sprite:
         """ Handle interact"""
         return
 
+    def handle_interact_item(self, element):
+        """ Handle interact item """
+        return
+
     def change_direction(self, direction):
         """ Change sprite direction """
         return
