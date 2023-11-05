@@ -119045,8 +119045,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
+"sprite_file": "truck.png"
 },
 0,
 0,
