@@ -8,12 +8,21 @@ class ImageCache:
     def __init__(self):
         self.images = {}
 
-    def load_image(self, path):
-        if not path in self.images:
+    def load_image(self, path, scale = None):
+        cache_id = path
+        if scale:
+            x, y = scale
+
+            cache_id = cache_id + '-' + str(x) + '-' + str(y)
+
+        if not cache_id in self.images:
             try:
-                self.images[path] = pygame.image.load(path).convert_alpha()
+                image = pygame.image.load(path).convert_alpha()
+                if scale:
+                    image = pygame.transform.smoothscale(image, scale)
+                self.images[cache_id] = image
             except FileNotFoundError:
                 logging.error('File not found ' + path)
-                self.images[path] = None
+                self.images[cache_id] = None
 
-        return self.images[path]
+        return self.images[cache_id]

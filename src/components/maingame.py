@@ -112,6 +112,9 @@ class MainGame(PausableComponent, FadeableComponent):
 
         filtered_layers = list(self.level.layers)
 
+        from_x = 0
+        from_y = 0
+
         for z in range(0, len(filtered_layers)):
             from_y = self.camera.y - math.ceil(tolerance_y / 2)
             to_y = self.camera.y + tolerance_y

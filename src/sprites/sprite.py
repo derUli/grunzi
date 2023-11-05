@@ -33,13 +33,11 @@ class Sprite:
             return
 
         file = os.path.join(sprite_dir, sprite)
-        image = cache.load_image(file)
+        self.sprite = cache.load_image(file, SPRITE_SIZE)
 
-        if not image:
+        if not self.sprite:
             logging.error('File ' + file + ' not found')
             return
-
-        self.sprite = pygame.transform.smoothscale(image, SPRITE_SIZE)
 
     def draw(self, screen, x, y):
 
