@@ -166,6 +166,9 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fade()
 
     def ai(self):
+        if not self.state.player_state.use_item:
+            return
+
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         character = self.level.get_sprite((z, y, x))
@@ -265,6 +268,8 @@ class MainGame(PausableComponent, FadeableComponent):
             self.drop_item()
         elif event.key == K_RUN:
             self.running = True
+        elif event.key == K_USE:
+            self.state.player_state.toggle_item()
 
     def handle_keyup_event(self, event):
         """" Handle keyup events """
@@ -313,7 +318,10 @@ class MainGame(PausableComponent, FadeableComponent):
     def handle_joybuttondown(self, event):
         """ Handle joybutton press """
         if event.button == gamepad.K_CONFIRM:
-            self.state.player_state.show_detailed = None
+            if self.state.player_state.show_detailed:
+                self.state.player_state.show_detailed = None
+            else:
+                self.state.player_state.toggle_item()
         elif event.button == gamepad.K_DROP_ITEM:
             self.drop_item()
         elif event.button == gamepad.K_RUN:

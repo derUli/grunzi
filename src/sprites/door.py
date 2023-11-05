@@ -24,6 +24,15 @@ class Door(Wall):
             os.path.join(sprite_dir, '..', '..', 'sounds', 'door', 'door_closed.ogg')
         )
 
+    def handle_interact(self, element):
+
+        # Play sound on unlock
+        if not self.walkable:
+            play_sound(self.door_closed_sound)
+            return
+
+        play_sound(self.door_open_sound)
+
     def handle_interact_item(self, element):
         """ Set walkable on interact """
 
@@ -34,13 +43,5 @@ class Door(Wall):
             self.open_door()
             return
 
-        # Todo: Check for Key
-        # Play sound on unlock
-        if not self.walkable:
-            play_sound(self.door_closed_sound)
-            return
-
     def open_door(self):
-        play_sound(self.door_open_sound)
-
         self.walkable = True

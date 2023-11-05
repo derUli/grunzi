@@ -27,6 +27,7 @@ class PlayerState:
         self.flash_start = 0
         self.flash_duration = 0.05
         self.gamepad = gamepad
+        self.use_item = False
 
         self.health_pig = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
@@ -79,6 +80,13 @@ class PlayerState:
         if self.gamepad:
             self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
 
+    def toggle_item(self):
+        if not self.inventory:
+            self.use_item = False
+            return
+
+        self.use_item = not self.use_item
+
     def dead(self):
         """ Check if piggy is dead """
         return self.health <= 0
@@ -126,6 +134,7 @@ class PlayerState:
             return False
 
         self.inventory = item
+        self.use_item = False
 
         return True
 

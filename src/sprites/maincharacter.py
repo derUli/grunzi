@@ -42,6 +42,9 @@ class MainCharacter(Character, FadeableComponent):
         if not isinstance(self.state.inventory, InlineSprite):
             return
 
+        if not self.state.use_item:
+            return
+
         sprite = self.state.inventory.sprite.copy().convert_alpha()
 
         if self.direction == DIRECTION_UP:
