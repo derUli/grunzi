@@ -15,7 +15,7 @@ _ = gettext.gettext
 class GameOver(Component):
     """ Gamve Over Screen """
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad = None):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
         self.menu = None

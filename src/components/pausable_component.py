@@ -3,8 +3,9 @@ import gettext
 import pygame
 
 import utils.savegame
-from utils.menu import make_menu
 from utils import xbox_360_controller
+from utils.menu import make_menu
+
 _ = gettext.gettext
 
 

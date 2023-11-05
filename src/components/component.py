@@ -1,16 +1,16 @@
 import os
 
 import pygame
-import logging
 
 import constants.game
 import constants.headup
 import utils.audio
 import utils.image
 
+
 class Component(object):
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad = None):
+    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
         self.data_dir = data_dir
         self.handle_change_component = handle_change_component
@@ -22,7 +22,6 @@ class Component(object):
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
-
 
     # Create Text
     def render_text(self, what, color, where):

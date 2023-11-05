@@ -6,8 +6,9 @@
 #      <https://github.com/joncoop/pygame-xbox360controller>.
 
 
-import pygame
 import sys
+
+import pygame
 
 LINUX = 0
 MAC = 1
@@ -103,8 +104,7 @@ class Controller:
 
     def __init__(self, dead_zone=0.15, id_num=0):
         """
-        Initializes a controller. IDs for controllers begin at 0 and increment by 1
-        each time a controller is initialized.
+        Initializes a controller.
 
         Args:
             dead_zone: The size of dead zone for the analog sticks (default 0.15)

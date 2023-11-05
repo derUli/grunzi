@@ -7,7 +7,7 @@ from utils.reflections import get_class
 
 
 class State:
-    def __init__(self, data_dir=None, gamepad = None):
+    def __init__(self, data_dir=None, gamepad=None):
         self.cache = ImageCache()
         self.sprites_dir = os.path.join(data_dir, 'images', 'sprites')
         """ Constructor """

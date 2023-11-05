@@ -11,6 +11,7 @@ RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
 RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 
+
 class Fence(Wall):
     """ Fence sprite class """
 

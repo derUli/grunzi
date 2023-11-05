@@ -19,12 +19,26 @@ parser = argparse.ArgumentParser(
     description=_('Piggy adventure game')
 )
 
-
 os.environ['SDL_JOYSTICK_HIDAPI_PS4_RUMBLE'] = '1'
 
-
-parser.add_argument('-e', '--edit', action='store_true', help='Enable In-Game Map Editor')
-parser.add_argument('-v', '--debug', action='store_true', help='Enable debug loglevel')
+parser.add_argument(
+    '-e',
+    '--edit',
+    action='store_true',
+    help='Enable In-Game Map Editor'
+)
+parser.add_argument(
+    '-v',
+    '--debug',
+    action='store_true',
+    help='Enable debug loglevel'
+)
+parser.add_argument(
+    '-d',
+    '--disable-controller',
+    action='store_true',
+    help='Disable Controller Support'
+)
 
 # Game starts by default without hardware acceleration because I couldn't get
 # the game to work on my machine with pygame.OPENGL flag
@@ -49,5 +63,10 @@ logging.basicConfig(
 
 logging.debug(args)
 
-game = GameContainer(root_dir, enable_edit_mode=args.edit, opengl=args.opengl)
+game = GameContainer(
+    root_dir,
+    enable_edit_mode=args.edit,
+    opengl=args.opengl,
+    disable_controller = args.disable_controller
+)
 game.start()

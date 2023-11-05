@@ -3,7 +3,6 @@ import os
 
 import pygame
 
-from constants.headup import BOTTOM_UI_HEIGHT
 from sprites.sprite import Sprite
 
 

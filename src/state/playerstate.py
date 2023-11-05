@@ -16,8 +16,9 @@ RUMBLE_DURATION_PAIN = 200
 RUMBLE_LOW_FREQUENCY = 1
 RUMBLE_HIGH_FREQUENCY = 1
 
+
 class PlayerState:
-    def __init__(self, data_dir, gamepad = None):
+    def __init__(self, data_dir, gamepad=None):
         """ Constructor """
         self.health = FULL_HEALTH
         self.show_detailed = None

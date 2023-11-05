@@ -15,10 +15,11 @@ from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from constants.keyboard import *
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
+from utils import xbox_360_controller
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-from utils import xbox_360_controller
+
 
 class MainGame(PausableComponent, Component):
 
@@ -284,6 +285,7 @@ class MainGame(PausableComponent, Component):
             self.running = True
 
     def handle_joybuttonup(self, event):
+        """ Handle joy button up """
         if event.button == xbox_360_controller.LEFT_STICK_BTN:
             self.running = False
 

@@ -4,7 +4,9 @@
     Initialized the base of the game
 """
 import gettext
+import logging
 import os
+import platform
 import signal
 
 import pygame
@@ -15,11 +17,9 @@ import constants.game
 import constants.headup
 import utils.audio
 from state.settingsstate import SettingsState
+from utils import xbox_360_controller
 from utils.fps_counter import FPSCounter
 from utils.screenshot import make_screenshot
-import platform
-import logging
-from utils import xbox_360_controller
 
 _ = gettext.gettext
 
@@ -27,7 +27,7 @@ _ = gettext.gettext
 class GameContainer:
     """ Main game class """
 
-    def __init__(self, root_dir, enable_edit_mode=False, opengl=False):
+    def __init__(self, root_dir, enable_edit_mode=False, opengl=False, disable_controller = False):
         """ Constructor """
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
@@ -40,6 +40,7 @@ class GameContainer:
         self.enable_edit_mode = enable_edit_mode
         self.opengl = opengl
         self.gamepad = None
+        self.disable_controller = disable_controller
 
     def start(self):
         """ Start game """
@@ -60,7 +61,9 @@ class GameContainer:
             self.settings_state.save()
 
         self.init_screen()
-        self.init_controller()
+        if not self.disable_controller:
+            self.init_controller()
+
         self.change_component(components.menu.Menu)
 
         signal.signal(signal.SIGINT, self.quit)
@@ -98,7 +101,7 @@ class GameContainer:
     def init_controller(self):
         """ Init Controller """
         try:
-            self.gamepad = xbox_360_controller.Controller(1)
+            self.gamepad = xbox_360_controller.Controller()
             logging.info('Controller: ' + self.gamepad.joystick.get_name())
             return True
         except pygame.error:
@@ -183,7 +186,7 @@ class GameContainer:
             self.change_component,
             self.settings_state,
             enable_edit_mode=self.enable_edit_mode,
-            gamepad = self.gamepad
+            gamepad=self.gamepad
         )
 
         if self.current_component:
