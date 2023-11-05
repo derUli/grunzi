@@ -20,6 +20,10 @@ MOVEMENT_KEYS = [
     K_DOWN
 ]
 
+ABORT_KEYS = [
+    pygame.K_ESCAPE
+]
+
 CONFIRM_KEYS = [
     pygame.K_SPACE,
     pygame.K_RETURN

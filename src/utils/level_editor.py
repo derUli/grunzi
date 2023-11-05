@@ -4,6 +4,7 @@ from sprites.chainsaw import Chainsaw
 from sprites.coin import Coin
 from sprites.fence import Fence
 from sprites.wall import Wall
+from sprites.levelexit import LevelExit
 
 
 def get_editor_blocks(sprites_dir, image_cache):
@@ -94,5 +95,10 @@ def get_editor_blocks(sprites_dir, image_cache):
         Apple(
             sprites_dir,
             image_cache
-        )
+        ),
+        LevelExit(
+            sprites_dir,
+            image_cache,
+            'exit'
+        ),
     ]

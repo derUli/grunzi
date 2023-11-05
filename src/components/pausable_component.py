@@ -3,7 +3,8 @@ import gettext
 import pygame
 
 import utils.savegame
-from utils import xbox_360_controller
+from constants import keyboard
+from constants import gamepad
 from utils.menu import make_menu
 
 _ = gettext.gettext
@@ -44,10 +45,10 @@ class PausableComponent:
 
     def handle_event(self, event):
         # Pause on PC
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+        if event.type == pygame.KEYDOWN and event.key in keyboard.ABORT_KEYS:
             self.pause_menu()
             return True
-        elif event.type == pygame.JOYBUTTONDOWN and event.button == xbox_360_controller.START:
+        elif event.type == pygame.JOYBUTTONDOWN and event.button in gamepad.ABORT_KEYS:
             self.pause_menu()
             return True
 

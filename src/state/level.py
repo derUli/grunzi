@@ -13,6 +13,7 @@ from sprites.apple import Apple
 from sprites.door import Door
 from sprites.key import Key
 from utils.reflections import get_class
+from sprites.levelexit import LevelExit
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
@@ -189,6 +190,18 @@ class Level:
                 return False
 
         return True
+
+    def is_levelexit(self, x, y):
+        """ Check if a sprite  is walkable"""
+        for z in self.layers:
+            if not z[y][x]:
+                continue
+
+            if isinstance(z[y][x], LevelExit):
+                return True
+
+        return False
+
 
     def search_character(self, id):
         """ Search character by id """

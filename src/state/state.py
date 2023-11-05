@@ -24,7 +24,8 @@ class State:
 
         return {
             'health': self.player_state.health,
-            'inventory': inventory
+            'inventory': inventory,
+            'level': self.level
         }
 
     def to_json(self):
@@ -33,9 +34,13 @@ class State:
 
     def from_dict(self, savegame):
         """ From dictionary """
+
         self.player_state.health = savegame['health']
         self.player_state.update_health()
         self.player_state.inventory = None
+
+        if 'level' in savegame and savegame['level']:
+            self.level = savegame['level']
 
         if 'inventory' in savegame and savegame['inventory']:
             inventory = savegame['inventory']

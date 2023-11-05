@@ -14,11 +14,12 @@ from components.pausable_component import PausableComponent
 from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from constants.keyboard import *
+from constants import gamepad
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
-from utils import xbox_360_controller
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
+from components.tobecontinued import ToBeContinued
 
 
 class MainGame(PausableComponent, Component):
@@ -277,17 +278,16 @@ class MainGame(PausableComponent, Component):
 
     def handle_joybuttondown(self, event):
         """ Handle joybutton press """
-        if event.button == xbox_360_controller.A:
+        if event.button == gamepad.K_CONFIRM:
             self.state.player_state.show_detailed = None
-
-        elif event.button == xbox_360_controller.Y:
+        elif event.button == gamepad.K_DROP_ITEM:
             self.drop_item()
-        elif event.button == xbox_360_controller.LEFT_STICK_BTN:
+        elif event.button == gamepad.K_RUN:
             self.running = True
 
     def handle_joybuttonup(self, event):
         """ Handle joy button up """
-        if event.button == xbox_360_controller.LEFT_STICK_BTN:
+        if event.button == gamepad.K_RUN:
             self.running = False
 
     def make_field(self, z, clear=False):
@@ -370,6 +370,10 @@ class MainGame(PausableComponent, Component):
             self.level.layers[z][y][x] = None
 
             self.update_camera()
+
+        if self.level.is_levelexit(next_x, next_y) and not self.state.edit_mode:
+            # TODO: Show "To be continued"
+            self.handle_change_component(ToBeContinued)
 
     def draw_headup(self, screen):
         """ Draw head up display """
