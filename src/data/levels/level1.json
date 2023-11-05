@@ -112292,7 +112292,8 @@
 0,
 {
 "sprite_class": "sprites.snowman.Snowman",
-"sprite_file": "snowman.png"
+"sprite_file": "snowman.png",
+"walkable": 1
 },
 0,
 0,
@@ -114161,7 +114162,10 @@
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
 },
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "wardrobe.png"
+},
 0,
 0,
 0,
@@ -116372,7 +116376,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gadsen.png"
+},
 0,
 0,
 0,
@@ -167699,13 +167706,13 @@
 0,
 0,
 0,
+0,
+0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
-0,
-0,
 0,
 0,
 0,
