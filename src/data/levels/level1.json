@@ -121740,11 +121740,7 @@
 ],
 [
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower4.png",
@@ -122426,7 +122422,7 @@
 [
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "qrcode2.png", 
+"sprite_file": "qrcode2.png",
 "walkable": 1
 },
 0,
@@ -123901,7 +123897,10 @@
 0
 ],
 [
-0,
+{
+"sprite_class": "sprites.globus.Globus",
+"sprite_file": "gras1.jpg"
+},
 0,
 0,
 {
@@ -167707,12 +167706,12 @@
 0,
 0,
 0,
+0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
-0,
 0,
 0,
 0,

@@ -1,7 +1,18 @@
 import os
 import time
-
 import pygame
+import re
+
+def atoi(text):
+    return int(text) if text.isdigit() else text.lower()
+
+def natural_keys(text):
+    '''
+    alist.sort(key=natural_keys) sorts in human order
+    http://nedbatchelder.com/blog/200712/human_sorting.html
+    (See Toothy's implementation in the comments)
+    '''
+    return [ atoi(c) for c in re.split('(\d+)', text) ]
 
 IMAGE_EXTENSIONS = ['.jpg', '.png', '.gif']
 
@@ -22,7 +33,7 @@ class Animation():
         self.async_load = async_load
         self.load_chunks = 5
 
-        files = sorted(os.listdir(animation_dir))
+        files = sorted(os.listdir(animation_dir), key = natural_keys)
 
         for file in files:
             extension = os.path.splitext(file)[1]

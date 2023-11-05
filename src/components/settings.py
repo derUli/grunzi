@@ -189,7 +189,7 @@ class Settings(Component):
         else:
             show_fps_text += _('Off')
 
-        # menu.add.button(show_fps_text, self.handle_show_fps)
+        menu.add.button(show_fps_text, self.handle_show_fps)
 
         menu.add.range_slider(
             title=_('Music Volume'),
