@@ -8,7 +8,7 @@ import constants.game
 import constants.graphics
 import state.state
 import utils.savegame
-from sprites.inlinesprite import InlineSprite
+from components.fadeable_component import FadeableComponent
 from components.gameover import GameOver
 from components.pausable_component import PausableComponent
 from components.tobecontinued import ToBeContinued
@@ -17,11 +17,12 @@ from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from constants.keyboard import *
 from sprites.character import Character
+from sprites.inlinesprite import InlineSprite
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-from components.fadeable_component import FadeableComponent
+
 
 class MainGame(PausableComponent, FadeableComponent):
 
@@ -181,7 +182,7 @@ class MainGame(PausableComponent, FadeableComponent):
 
         if self.do_fade:
             screen.set_alpha(self.alpha)
-            self.screen.blit(screen, (0,0))
+            self.screen.blit(screen, (0, 0))
 
         self.fade()
 
@@ -274,15 +275,6 @@ class MainGame(PausableComponent, FadeableComponent):
                 self.editor_block_index = length - 1
         elif event.key == K_TOGGLE_EDIT_MODE and self.enable_edit_mode:
             self.toggle_edit_mode()
-        elif self.state.edit_mode and event.key == K_SAVE_LEVEL:
-            self.level.save()
-        elif self.state.edit_mode and event.key in NUMERIC_KEYS:
-            index = NUMERIC_KEYS.index(event.key)
-            # Shift is the key for running
-            # Shift + Number sets null
-            self.make_field(index, self.running)
-        elif self.state.edit_mode and event.key == K_NEXT_LAYER:
-           self.next_layer()
         elif event.key == K_LEFT:
             self.move_main_character(DIRECTION_LEFT)
         elif event.key == K_RIGHT:
@@ -297,6 +289,8 @@ class MainGame(PausableComponent, FadeableComponent):
             self.running = True
         elif event.key == K_USE:
             self.state.player_state.toggle_item()
+        elif self.state.edit_mode:
+            self.handle_edit_mode_event(event)
 
     def handle_keyup_event(self, event):
         """" Handle keyup events """
@@ -359,6 +353,20 @@ class MainGame(PausableComponent, FadeableComponent):
         if event.button == gamepad.K_RUN:
             self.running = False
 
+    def handle_edit_mode_event(self, event):
+        """ Handle edit mode events """
+        if self.state.edit_mode and event.key == K_SAVE_LEVEL:
+            self.level.save()
+
+        elif self.state.edit_mode and event.key in NUMERIC_KEYS:
+            index = NUMERIC_KEYS.index(event.key)
+            # Shift is the key for running
+            # Shift + Number sets null
+            self.make_field(index, self.running)
+
+        elif self.state.edit_mode and event.key == K_NEXT_LAYER:
+            self.next_layer()
+
     def make_field(self, z, clear=False):
         _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
@@ -389,6 +397,7 @@ class MainGame(PausableComponent, FadeableComponent):
     def toggle_edit_mode(self):
         self.state.edit_mode = not self.state.edit_mode
         self.state.show_only_layer = None
+
     def move_main_character(self, direction):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]
