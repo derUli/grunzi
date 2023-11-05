@@ -23,7 +23,12 @@ class Takeable(Sprite):
 
         if not element.state.take_item(self):
             sound = os.path.abspath(
-                os.path.join(self.sprite_dir, '..', '..', 'sounds', 'beep.ogg')
+                os.path.join(
+                    self.sprite_dir, '..',
+                    '..',
+                    'sounds',
+                    'common',
+                    'beep.ogg')
             )
             play_sound(sound)
             return
@@ -31,6 +36,13 @@ class Takeable(Sprite):
         self.purge = True
 
         sound = os.path.abspath(
-            os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pickup.ogg')
+            os.path.join(
+                self.sprite_dir,
+                '..',
+                '..',
+                'sounds',
+                'common',
+                'pickup.ogg'
+            )
         )
         play_sound(sound)

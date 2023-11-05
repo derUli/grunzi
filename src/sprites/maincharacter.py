@@ -1,10 +1,12 @@
 """ Main character sprite """
 import os
+
 import constants.game
 from sprites.character import Character
 from utils.audio import play_sound
 
 PIG_SOUND_NOTHING = 'nothing.ogg'
+
 
 class MainCharacter(Character):
     """ Main character sprite class """
@@ -19,8 +21,8 @@ class MainCharacter(Character):
         self.last_movement = 0
         self.id = constants.game.MAIN_CHARACTER_ID
         self.sound_dir = os.path.abspath(
-                os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pig')
-            )
+            os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pig')
+        )
 
     def draw(self, screen, x, y):
         """ Draw main character """

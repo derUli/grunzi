@@ -4,6 +4,7 @@ from sprites.backdrop import Backdrop
 
 GRAS_SPRITES = ['gras1.jpg', 'gras2.jpg', 'gras3.jpg']
 
+
 class LevelExit(Backdrop):
     """ Backdrop sprite """
 

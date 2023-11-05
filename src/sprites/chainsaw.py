@@ -1,8 +1,10 @@
 """ Chainsaw sprite """
 import os
 import random
+
 from sprites.takeable import Takeable
 from utils.audio import play_sound
+
 
 class Chainsaw(Takeable):
     """ Chainsaw sprite class """

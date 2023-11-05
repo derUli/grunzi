@@ -1,11 +1,12 @@
 from sprites.apple import Apple
 from sprites.backdrop import Backdrop
 from sprites.chainsaw import Chainsaw
+from sprites.chicken import Chicken
 from sprites.coin import Coin
 from sprites.fence import Fence
 from sprites.levelexit import LevelExit
 from sprites.wall import Wall
-from sprites.chicken import Chicken
+
 
 def get_editor_blocks(sprites_dir, image_cache):
     return [

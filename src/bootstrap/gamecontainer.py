@@ -152,7 +152,7 @@ class GameContainer:
     def screenshot(self):
         """ Save a screenshot  """
         make_screenshot(self.screen)
-        camera_sound = os.path.join(self.data_dir, 'sounds', 'screenshot.ogg')
+        camera_sound = os.path.join(self.data_dir, 'sounds', 'common', 'screenshot.ogg')
         utils.audio.play_sound(camera_sound)
 
     def update_screen(self):

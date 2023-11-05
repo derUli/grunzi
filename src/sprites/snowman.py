@@ -1,7 +1,10 @@
-from sprites.wall import Wall
 from datetime import datetime
 
+from sprites.wall import Wall
+
 MONTH_CHRISTMAS = 12
+
+
 class Snowman(Wall):
     def draw(self, screen, x, y):
         """ Draw snowman only in december """
@@ -12,6 +15,5 @@ class Snowman(Wall):
             return
 
         self.walkable = False
-
 
         super().draw(screen, x, y)

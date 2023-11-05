@@ -5,12 +5,13 @@ import os
 import pygame
 
 from components.component import Component
-from constants import keyboard
 from constants import gamepad
+from constants import keyboard
 
 _ = gettext.gettext
 
 DISCARD_KEYS = keyboard.CONFIRM_KEYS + keyboard.ABORT_KEYS
+
 
 class ToBeContinued(Component):
     """ To be continued Screen """
@@ -36,7 +37,6 @@ class ToBeContinued(Component):
 
     def update_screen(self, screen):
         self.draw_background(screen)
-
 
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN and event.key in keyboard.DISCARD_KEYS:

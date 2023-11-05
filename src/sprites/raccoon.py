@@ -43,5 +43,3 @@ class Raccoon(sprites.character.Character):
         file = os.path.join(sound_dir, random.choice(files))
 
         self.sound = utils.audio.play_sound(file)
-
-

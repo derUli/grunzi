@@ -6,6 +6,7 @@ import constants.graphics
 import sprites.sprite
 from utils.animation import Animation
 
+
 class Fire(sprites.sprite.Sprite):
     """ Fire character class """
 

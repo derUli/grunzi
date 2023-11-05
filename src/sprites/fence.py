@@ -1,15 +1,13 @@
 """ Fence sprite """
 import logging
-import os
-import random
 
 from sprites.chainsaw import Chainsaw
 from sprites.wall import Wall
-from utils.audio import play_sound
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
 RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
+
 
 class Fence(Wall):
     """ Fence sprite class """

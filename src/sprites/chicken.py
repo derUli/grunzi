@@ -1,15 +1,17 @@
 """ Main character sprite """
 
-import pygame
-import random
-import time
 import logging
 import os
-from sprites.character import Character
+import random
+import time
+
+import pygame
+
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
-from utils.audio import play_sound
 from sprites.chainsaw import Chainsaw
+from sprites.character import Character
 from sprites.maincharacter import PIG_SOUND_NOTHING
+from utils.audio import play_sound
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
@@ -17,6 +19,7 @@ RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 
 BLOOD_COLOR = (163, 8, 8)
 CHICKEN_SOUND_FADEOUT = 100
+
 
 class Chicken(Character):
     """ Chicken sprite class """
@@ -85,7 +88,6 @@ class Chicken(Character):
         file = os.path.join(sound_dir, random.choice(files))
 
         self.sound = play_sound(file)
-
 
     def change_direction(self, direction):
         """ Change sprite direction """

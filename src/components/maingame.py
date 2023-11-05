@@ -11,15 +11,15 @@ import utils.savegame
 from components.component import Component
 from components.gameover import GameOver
 from components.pausable_component import PausableComponent
+from components.tobecontinued import ToBeContinued
+from constants import gamepad
 from constants.direction import *
 from constants.headup import BOTTOM_UI_HEIGHT
 from constants.keyboard import *
-from constants import gamepad
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-from components.tobecontinued import ToBeContinued
 
 
 class MainGame(PausableComponent, Component):
@@ -54,7 +54,6 @@ class MainGame(PausableComponent, Component):
     def load_level(self, level_file):
         """ Load level from JSON file """
         self.level.level_file = level_file
-
 
         try:
             self.level.load()
@@ -151,7 +150,13 @@ class MainGame(PausableComponent, Component):
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
-        beep_sound = os.path.join(self.data_dir, 'sounds', 'beep.ogg')
+        beep_sound = os.path.join(
+            self.data_dir,
+            'sounds',
+            'common',
+            'beep.ogg'
+        )
+
         if not self.state.player_state.inventory:
             play_sound(beep_sound)
             logging.debug("Drop item failed. No item in inventory.")
