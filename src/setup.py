@@ -10,7 +10,8 @@ if sys.platform == 'nt':
 target = cx_Freeze.Executable(
     script="Game.py",
     icon='icon.ico',
-    base=base
+    base=base,
+    target_name='Grunzi.exe'
 )
 
 cx_Freeze.setup(

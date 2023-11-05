@@ -49,6 +49,7 @@ class GameContainer:
         logging.info('CPU: ' + platform.processor())
         logging.info('Python version: ' + platform.python_version())
         logging.info('Pygame version: ' + pygame.version.ver)
+        logging.info('SDL Version: ' + str(pygame.version.SDL))
 
         pygame.mixer.pre_init(
             44100, 16, 2, 4096)  # For better and faster audio
