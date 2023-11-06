@@ -20,7 +20,7 @@ from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.fps_counter import FPSCounter
 from utils.screenshot import make_screenshot
-
+from utils.cursor import default_cursor
 _ = gettext.gettext
 
 
@@ -83,6 +83,7 @@ class GameContainer:
         self.screen = None
         logging.debug('Init screen')
         logging.info('Screen resolution: ' + str(self.settings_state.screen_resolution))
+        self.set_mouse_cursor()
         self.set_icon()
         pygame.display.set_caption(_('Grunzi'))
 
@@ -105,6 +106,8 @@ class GameContainer:
             logging.debug('No controller found')
             return False
 
+    def set_mouse_cursor(self):
+        pygame.mouse.set_cursor(default_cursor())
     def set_icon(self):
         """ Set window icon """
         icon_path = os.path.join(self.data_dir, 'images', 'ui', 'icon.png')

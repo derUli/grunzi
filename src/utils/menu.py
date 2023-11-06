@@ -4,8 +4,9 @@ from constants.headup import BOTTOM_UI_BACKGROUND, PIGGY_PINK
 
 THEME_PIG = pygame_menu.Theme(
     background_color=PIGGY_PINK,
-
     scrollbar_shadow=True,
+    widget_cursor=None,
+    scrollbar_cursor= None,
     scrollbar_slider_color=BOTTOM_UI_BACKGROUND,
     scrollbar_slider_hover_color=BOTTOM_UI_BACKGROUND,
     scrollbar_slider_pad=2,
