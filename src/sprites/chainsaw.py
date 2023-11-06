@@ -14,7 +14,7 @@ SHAKE_Y_TO = 2
 class Chainsaw(Takeable, InlineSprite):
     """ Chainsaw sprite class """
 
-    def __init__(self, sprite_dir, cache, sprite=None):
+    def __init__(self, sprite_dir, cache, sprite='chainsaw.png'):
         """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
 

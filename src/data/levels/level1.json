@@ -115844,7 +115844,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -117219,10 +117222,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -119997,7 +119997,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -120199,10 +120202,7 @@
 [
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -128962,13 +128962,27 @@
 0,
 0,
 0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "placeholder.jpg",
+"walkable": 1
+},
 0,
+{
+"sprite_class": "sprites.destroyable.Destroyable",
+"sprite_file": "box.png"
+},
 0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "placeholder.jpg",
+"walkable": 1
+},
 0,
-0,
-0,
-0,
-0,
+{
+"sprite_class": "sprites.destroyable.Destroyable",
+"sprite_file": "box.png"
+},
 0,
 0,
 0,
@@ -150083,7 +150097,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.hammer.Hammer",
+"sprite_file": "hammer.png",
+"walkable": 1
+},
 0,
 0,
 0,

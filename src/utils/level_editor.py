@@ -7,6 +7,7 @@ from sprites.destroyable import Destroyable
 from sprites.fence import Fence
 from sprites.kitten import Kitten
 from sprites.wall import Wall
+from sprites.hammer import Hammer
 
 
 def get_editor_blocks(sprites_dir, image_cache):
@@ -102,8 +103,11 @@ def get_editor_blocks(sprites_dir, image_cache):
         ),
         Chainsaw(
             sprites_dir,
-            image_cache,
-            'chainsaw.png'
+            image_cache
+        ),
+        Hammer(
+                sprites_dir,
+                image_cache
         ),
         Coin(
             sprites_dir,
