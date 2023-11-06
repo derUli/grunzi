@@ -26,7 +26,7 @@ _ = gettext.gettext
 class GameContainer:
     """ Main game class """
 
-    def __init__(self, root_dir, enable_edit_mode=False, opengl=False, disable_controller=False):
+    def __init__(self, root_dir, enable_edit_mode=False, disable_controller=False):
         """ Constructor """
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
@@ -37,7 +37,6 @@ class GameContainer:
         self.current_component = None
         self.settings_state = SettingsState(self.handle_settings_change)
         self.enable_edit_mode = enable_edit_mode
-        self.opengl = opengl
         self.gamepad = None
         self.disable_controller = disable_controller
 
@@ -88,11 +87,6 @@ class GameContainer:
 
         if self.settings_state.fullscreen:
             flags = flags | pygame.FULLSCREEN
-
-            logging.info('OpenGL: ' + str(self.opengl))
-
-            if self.opengl:
-                flags = flags | pygame.OPENGL | pygame.DOUBLEBUF
 
         if not self.screen:
             self.screen = pygame.display.set_mode(

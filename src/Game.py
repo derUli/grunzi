@@ -38,9 +38,6 @@ parser.add_argument(
     help='Disable Controller Support'
 )
 
-# Game starts by default without hardware acceleration because I couldn't get
-# the game to work on my machine with pygame.OPENGL flag
-parser.add_argument('-o', '--opengl', action='store_true', help='Enable OpenGL')
 args = parser.parse_args()
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
@@ -64,7 +61,6 @@ logging.debug(args)
 game = GameContainer(
     root_dir,
     enable_edit_mode=args.edit,
-    opengl=args.opengl,
     disable_controller=args.disable_controller
 )
 game.start()

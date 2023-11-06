@@ -25,7 +25,12 @@ class Component(object):
 
     # Create Text
     def render_text(self, what, color, where):
-        text = self.monotype_font.render(what, 1, pygame.Color(color))
+        text = self.monotype_font.render(
+            what,
+            True,
+            pygame.Color(color)
+        )
+
         self.screen.blit(text, where)
 
     def update_screen(self, screen):
