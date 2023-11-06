@@ -21,6 +21,7 @@ from utils import xbox_360_controller
 from utils.fps_counter import FPSCounter
 from utils.screenshot import make_screenshot
 from utils.cursor import default_cursor
+from utils.helper import get_version
 _ = gettext.gettext
 
 
@@ -49,6 +50,9 @@ class GameContainer:
         logging.info('Python version: ' + platform.python_version())
         logging.info('Pygame version: ' + pygame.version.ver)
         logging.info('SDL Version: ' + str(pygame.version.SDL))
+
+        version_file = os.path.join(self.root_dir, 'LICENSE')
+        logging.info('Grunzi Version: ' + get_version(version_file))
 
         pygame.mixer.pre_init(
             44100, 16, 2, 4096)  # For better and faster audio

@@ -1,3 +1,4 @@
+
 from pygame_emojis import load_emoji
 from utils.quality import scale_method
 import pygame
