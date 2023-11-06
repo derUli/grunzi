@@ -11,9 +11,6 @@ from constants import keyboard
 
 _ = gettext.gettext
 
-DISCARD_KEYS = keyboard.CONFIRM_KEYS + keyboard.ABORT_KEYS
-
-
 class ToBeContinued(FadeableComponent):
     """ To be continued Screen """
 
@@ -49,7 +46,7 @@ class ToBeContinued(FadeableComponent):
         self.fade()
 
     def handle_event(self, event):
-        if event.type == pygame.KEYDOWN and event.key in keyboard.DISCARD_KEYS:
+        if event.type == pygame.KEYDOWN and event.key in keyboard.CONFIRM_KEYS:
             self.handle_exit()
         elif event.type == pygame.JOYBUTTONDOWN and event.button == gamepad.K_CONFIRM:
             self.handle_exit()
