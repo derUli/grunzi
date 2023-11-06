@@ -14,12 +14,12 @@
 "sprite_file": "wall.jpg"
 },
 {
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
+    "sprite_class": "sprites.wall.Wall",
+    "sprite_file": "wall.jpg"
 },
 {
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
+"sprite_class": "sprites.detailed.Detailed",
+"sprite_file": "dont_waste_water.png"
 },
 {
 "sprite_class": "sprites.wall.Wall",
