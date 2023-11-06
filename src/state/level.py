@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import random
+import time
 
 import sprites.backdrop
 import sprites.detailed
@@ -31,6 +32,7 @@ class Level:
         self.level_file_last_changed = None
 
     def load(self):
+        load_start = time.time()
         layers = []
         self.level_file_last_changed = os.path.getmtime(self.level_file)
 
@@ -72,6 +74,10 @@ class Level:
             layers.append(layer)
 
         self.layers = layers
+
+        load_end = time.time()
+        load_time = load_end - load_start
+        logging.debug("Loading time: " + str(load_time))
 
     def save(self):
         with open(self.level_file, 'w') as f:

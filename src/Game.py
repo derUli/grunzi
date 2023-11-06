@@ -19,8 +19,6 @@ parser = argparse.ArgumentParser(
     description=_('Piggy adventure game')
 )
 
-os.environ['SDL_JOYSTICK_HIDAPI_PS4_RUMBLE'] = '1'
-
 parser.add_argument(
     '-e',
     '--edit',
