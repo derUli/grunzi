@@ -35,6 +35,11 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache,
             'pebble.jpg'
         ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'highway1.jpg'
+        ),
         Wall(
             sprites_dir,
             image_cache,
