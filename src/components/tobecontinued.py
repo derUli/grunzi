@@ -53,6 +53,8 @@ class ToBeContinued(FadeableComponent):
             self.handle_exit()
         elif event.type == pygame.JOYBUTTONDOWN and event.button == gamepad.K_CONFIRM:
             self.handle_exit()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            self.handle_exit()
 
     def handle_exit(self):
         """ Back to main menu"""
