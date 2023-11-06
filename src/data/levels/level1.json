@@ -112362,7 +112362,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -112563,7 +112563,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -112761,7 +112761,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -112998,7 +112998,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -113209,7 +113209,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -113395,7 +113395,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -113631,7 +113631,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -113833,7 +113833,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -114044,7 +114044,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -114263,7 +114263,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -114518,7 +114518,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -114747,7 +114747,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -114981,7 +114981,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -115186,7 +115186,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -115414,7 +115414,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -115564,7 +115564,11 @@
 "sprite_file": "bike.png"
 },
 0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "doormat.png",
+"walkable": 1
+},
 0,
 {
 "sprite_class": "sprites.wall.Wall",
@@ -115658,7 +115662,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -115869,7 +115873,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -116099,7 +116103,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -116306,7 +116310,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -116551,7 +116555,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -116799,7 +116803,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -117021,7 +117025,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -117253,7 +117257,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -117468,7 +117472,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -117706,7 +117710,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -117927,7 +117931,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -118146,7 +118150,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -118373,7 +118377,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -118584,7 +118588,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -118799,7 +118803,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -119006,7 +119010,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -119256,7 +119260,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -119455,7 +119459,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -119658,7 +119662,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -119873,7 +119877,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -120072,7 +120076,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -120275,7 +120279,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -120482,7 +120486,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -120701,7 +120705,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -120908,7 +120912,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -121167,7 +121171,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -121358,7 +121362,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -121561,7 +121565,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -121784,7 +121788,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -121999,7 +122003,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -122242,7 +122246,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -122680,7 +122684,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -122891,7 +122895,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 {
@@ -123110,7 +123114,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -123333,7 +123337,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -123556,7 +123560,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -123767,7 +123771,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -123966,7 +123970,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -124184,7 +124188,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -124371,7 +124375,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -124590,7 +124594,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -124781,7 +124785,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -124996,7 +125000,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -125211,7 +125215,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -125414,7 +125418,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -125637,7 +125641,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -125852,7 +125856,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -126075,7 +126079,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -126302,7 +126306,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -126525,7 +126529,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 {
@@ -126744,7 +126748,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -126967,7 +126971,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -127190,7 +127194,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -127429,7 +127433,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -127676,7 +127680,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -127879,7 +127883,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -128090,7 +128094,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -128277,7 +128281,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -128500,7 +128504,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -128731,7 +128735,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -128946,7 +128950,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -129153,7 +129157,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -129364,7 +129368,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -129579,7 +129583,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -129790,7 +129794,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -130025,7 +130029,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -130248,7 +130252,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -130463,7 +130467,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -130681,7 +130685,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -130920,7 +130924,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -131139,7 +131143,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -131346,7 +131350,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -131557,7 +131561,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -131740,7 +131744,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -131955,7 +131959,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -132190,7 +132194,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -132409,7 +132413,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -132608,7 +132612,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -132835,7 +132839,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -133030,7 +133034,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -133269,7 +133273,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -133468,7 +133472,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -133683,7 +133687,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 {
@@ -133906,7 +133910,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -134105,7 +134109,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -134348,7 +134352,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -134575,7 +134579,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -134798,7 +134802,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -135009,7 +135013,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -135212,7 +135216,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -135411,7 +135415,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -135618,7 +135622,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -136020,7 +136024,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -136243,7 +136247,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -136458,7 +136462,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -136657,7 +136661,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -136860,7 +136864,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -137083,7 +137087,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -137286,7 +137290,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -137496,7 +137500,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -137711,7 +137715,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 {
@@ -137926,7 +137930,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -138157,7 +138161,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -138384,7 +138388,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -138595,7 +138599,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -138810,7 +138814,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -139005,7 +139009,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -139224,7 +139228,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -139455,7 +139459,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -139662,7 +139666,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -139885,7 +139889,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -140120,7 +140124,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -140335,7 +140339,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -140554,7 +140558,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -140785,7 +140789,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -141016,7 +141020,7 @@
 },
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -141462,7 +141466,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -141680,7 +141684,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -141891,7 +141895,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -142122,7 +142126,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -142377,7 +142381,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -142592,7 +142596,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -142791,7 +142795,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -143026,7 +143030,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 {
@@ -143261,7 +143265,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -143691,7 +143695,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras1.jpg",
 "walkable": 1
 },
 0,
@@ -143898,7 +143902,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 0,
@@ -144113,7 +144117,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,
@@ -144344,7 +144348,7 @@
 0,
 {
 "sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": null,
+"sprite_file": "gras3.jpg",
 "walkable": 1
 },
 0,

@@ -23,7 +23,6 @@ from utils.screenshot import make_screenshot
 
 _ = gettext.gettext
 
-
 class GameContainer:
     """ Main game class """
 
@@ -125,7 +124,11 @@ class GameContainer:
     def main_loop(self):
         """ Pygame MainLoop """
         while self.running:
-            self.handle_events()
+            try:
+                self.handle_events()
+            except SystemError as e:
+                logging.error(e)
+
             self.update_screen()
             self.ai()
 
@@ -197,8 +200,11 @@ class GameContainer:
             gamepad=self.gamepad
         )
 
-        if self.current_component:
-            self.current_component.set_screen(self.screen)
+        if not self.current_component:
+            return
+
+        self.current_component.image_cache.clear()
+        self.current_component.set_screen(self.screen)
 
         self.current_component.mount()
 

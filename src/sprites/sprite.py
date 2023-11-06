@@ -26,8 +26,8 @@ class Sprite:
         self.replace_with = None
         self.cache = cache
         self.debug = False
-
         self.debug_font_file = os.path.join(self.sprite_dir, '..', '..', 'fonts', MONOTYPE_FONT)
+        self.debug_font = None
 
         if not sprite:
             return
@@ -56,12 +56,13 @@ class Sprite:
 
         text_str = 'X: ' + str(from_x + x) + ' Y: ' + str(from_y + y)
 
-        font = pygame.font.Font(
+        if not self.debug_font:
+            self.debug_font = pygame.font.Font(
             self.debug_font_file,
             DEBUG_TILE_FONT_SIZE
         )
 
-        text = font.render(
+        text = self.debug_font.render(
             text_str,
             1,
             (255, 255, 255)
