@@ -6,7 +6,9 @@ K_RIGHT = pygame.K_RIGHT
 K_UP = pygame.K_UP
 K_DOWN = pygame.K_DOWN
 K_DROP_ITEM = pygame.K_d
-K_RUN = pygame.K_LSHIFT
+
+RUN_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]
+
 K_USE = pygame.K_e  # Use Inventory item
 
 K_TOGGLE_EDIT_MODE = pygame.K_F1

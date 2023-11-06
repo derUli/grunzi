@@ -289,7 +289,7 @@ class MainGame(PausableComponent, FadeableComponent):
             self.move_main_character(direction.key_to_direction(event.key))
         elif event.key == keyboard.K_DROP_ITEM:
             self.drop_item()
-        elif event.key == keyboard.K_RUN:
+        elif event.key in keyboard.RUN_KEYS:
             self.running = True
         elif event.key == keyboard.K_USE:
             self.state.player_state.toggle_item()
@@ -300,7 +300,7 @@ class MainGame(PausableComponent, FadeableComponent):
         """" Handle keyup events """
         if event.key in keyboard.MOVEMENT_KEYS:
             self.moving = None
-        elif event.key == keyboard.K_RUN:
+        elif event.key in keyboard.RUN_KEYS:
             self.running = False
 
     def handle_joyhatmotion(self, event):
