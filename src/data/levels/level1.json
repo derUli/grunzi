@@ -35826,7 +35826,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -119997,10 +119997,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -120202,7 +120199,10 @@
 [
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
