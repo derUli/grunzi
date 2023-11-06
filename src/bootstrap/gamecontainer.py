@@ -18,10 +18,11 @@ import constants.headup
 import utils.audio
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
-from utils.fps_counter import FPSCounter
-from utils.screenshot import make_screenshot
 from utils.cursor import default_cursor
+from utils.fps_counter import FPSCounter
 from utils.helper import get_version
+from utils.screenshot import make_screenshot
+
 _ = gettext.gettext
 
 
@@ -112,6 +113,7 @@ class GameContainer:
 
     def set_mouse_cursor(self):
         pygame.mouse.set_cursor(default_cursor())
+
     def set_icon(self):
         """ Set window icon """
         icon_path = os.path.join(self.data_dir, 'images', 'ui', 'icon.png')

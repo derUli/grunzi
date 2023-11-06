@@ -8,7 +8,9 @@ import components.maingame
 import utils.savegame
 from components.component import Component
 from components.settings import Settings
+from constants.headup import PIGGY_PINK
 from utils.animation import Animation
+from utils.helper import get_version
 from utils.menu import make_menu
 
 _ = gettext.gettext
@@ -37,6 +39,9 @@ class Menu(Component):
         )
         self.menu = None
 
+        version_file = os.path.join(self.data_dir, '..', 'VERSION')
+        self.version_number = get_version(version_file)
+
     def mount(self):
         if not pygame.mixer.music.get_busy():
             self.play_music('menu.ogg')
@@ -61,6 +66,7 @@ class Menu(Component):
 
     def draw_background(self):
         self.screen.blit(self.video.get_frame(), (0, 0))
+        self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
     def draw_menu(self, screen):
         menu = make_menu(_('Grunzi'))

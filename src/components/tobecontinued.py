@@ -11,6 +11,7 @@ from constants import keyboard
 
 _ = gettext.gettext
 
+
 class ToBeContinued(FadeableComponent):
     """ To be continued Screen """
 

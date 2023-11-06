@@ -7,6 +7,7 @@ import constants.headup
 import utils.audio
 import utils.image
 import utils.quality
+from constants.headup import UI_MARGIN
 
 
 class Component(object):
@@ -33,6 +34,28 @@ class Component(object):
         )
 
         self.screen.blit(text, where)
+
+    def draw_notification(self, what, color, screen):
+        """ Draw notification text in the bottom right of the screen"""
+        text = self.monotype_font.render(
+            what,
+            utils.quality.font_antialiasing(),
+            pygame.Color(color)
+        )
+
+        w, h = text.get_size()
+
+        x, y = screen.get_size()
+
+        x -= w
+        y -= h
+
+        y -= UI_MARGIN
+        x -= UI_MARGIN
+
+        where = (x, y)
+
+        self.render_text(what, color, where)
 
     def update_screen(self, screen):
         screen.fill((0, 0, 0))

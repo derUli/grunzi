@@ -1,4 +1,5 @@
 import sys
+
 import cx_Freeze
 
 base = None

@@ -1,5 +1,3 @@
-import logging
-
 import pygame
 
 sound_volume = 1.0

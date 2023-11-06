@@ -4,8 +4,10 @@ import os
 import pygame
 
 from components.component import Component
+from constants.headup import PIGGY_PINK
 from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.animation import Animation
+from utils.helper import get_version
 from utils.menu import make_menu
 
 _ = gettext.gettext
@@ -34,6 +36,9 @@ class Settings(Component):
 
         self.menu = None
 
+        version_file = os.path.join(self.data_dir, '..', 'VERSION')
+        self.version_number = get_version(version_file)
+
     def update_screen(self, screen):
         self.draw_menu(self.screen)
 
@@ -44,6 +49,7 @@ class Settings(Component):
 
     def draw_background(self):
         self.screen.blit(self.video.get_frame(), (0, 0))
+        self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
     def handle_change_limit_fps(self, selection, selected_index):
         selected_item, index = selection

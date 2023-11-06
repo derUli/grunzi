@@ -20,6 +20,7 @@ RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 BLOOD_COLOR = (163, 8, 8)
 KITTEN_SOUND_FADEOUT = 100
 
+
 class Kitten(Character):
     """ Chicken sprite class """
 
@@ -64,7 +65,6 @@ class Kitten(Character):
             return self.random_direction()
 
         return direction
-
 
     def play_sound(self):
         if self.sound and self.sound.get_busy():
@@ -112,7 +112,6 @@ class Kitten(Character):
         if not element:
             return
 
-
         # Chicken is killed by chainsaw
         if isinstance(element.state.inventory, Chainsaw) and not self.walkable:
             self.walkable = True
@@ -157,4 +156,3 @@ class Kitten(Character):
         if walkable:
             level.move_sprite(self, (z, next_y, next_x))
             self.last_movement = time.time()
-
