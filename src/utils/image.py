@@ -1,7 +1,8 @@
 import logging
+import os.path
 
 import pygame
-
+from constants.graphics import ALPHA_IMAGE_FORMATS
 
 class ImageCache:
 
@@ -9,6 +10,9 @@ class ImageCache:
         self.images = {}
 
     def load_image(self, path, scale = None):
+        extension = os.path.splitext(path)[1]
+        is_alpha = extension.lower() in ALPHA_IMAGE_FORMATS
+
         cache_id = path
         if scale:
             x, y = scale
@@ -16,8 +20,15 @@ class ImageCache:
             cache_id = cache_id + '-' + str(x) + '-' + str(y)
 
         if cache_id not in self.images:
+
             try:
-                image = pygame.image.load(path).convert_alpha()
+                image = pygame.image.load(path)
+
+                if is_alpha:
+                    image = image.convert_alpha()
+                else:
+                    image = image.convert()
+
                 if scale:
                     image = pygame.transform.smoothscale(image, scale)
                 self.images[cache_id] = image

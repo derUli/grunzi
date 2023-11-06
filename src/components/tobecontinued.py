@@ -39,7 +39,7 @@ class ToBeContinued(FadeableComponent):
         screen.blit(self.backdrop, (0, 0))
 
     def update_screen(self, screen):
-        surface = screen.copy().convert_alpha(screen)
+        surface = screen.copy().convert_alpha()
         surface.set_alpha(self.alpha)
         self.draw_background(surface)
 

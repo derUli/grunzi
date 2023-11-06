@@ -44,7 +44,7 @@ class MainGame(PausableComponent, FadeableComponent):
             self.sprites_dir, 'backdrops', 'landscape.jpg'
         )
 
-        self.backdrop = pygame.image.load(background_file).convert_alpha()
+        self.backdrop = pygame.image.load(background_file).convert()
         self.backdrop = pygame.transform.smoothscale(
             self.backdrop,
             self.settings_state.screen_resolution

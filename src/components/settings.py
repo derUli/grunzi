@@ -4,7 +4,7 @@ import os
 import pygame
 
 from components.component import Component
-from constants.quality import QUALITY_MEDIUM
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM
 from utils.animation import Animation
 from utils.menu import make_menu
 
@@ -99,7 +99,7 @@ class Settings(Component):
     def get_quality_items(self):
         """ Get items for quality dropdown """
         return [
-            # (_('Low'), QUALITY_LOW),
+            (_('Low'), QUALITY_LOW),
             # Currently no selection because it isn't implemented yet
             (_('Medium'), QUALITY_MEDIUM),
             # (_('High'), QUALITY_HIGH)
