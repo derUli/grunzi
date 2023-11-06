@@ -1,10 +1,12 @@
 """ Direction constants """
 
 from constants import keyboard
+
 DIRECTION_LEFT = 1
 DIRECTION_RIGHT = 2
 DIRECTION_UP = 3
 DIRECTION_DOWN = 4
+
 
 def key_to_direction(key):
     """ Maps keycode to movement direction """

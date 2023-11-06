@@ -3,29 +3,32 @@ import logging
 import math
 import os
 import time
+
 import pygame
+
 import constants.game
 import constants.graphics
 import state.state
+import utils.quality
 import utils.savegame
 from components.fadeable_component import FadeableComponent
 from components.gameover import GameOver
 from components.pausable_component import PausableComponent
 from components.tobecontinued import ToBeContinued
-from constants import gamepad
 from constants import direction
-from constants.headup import BOTTOM_UI_HEIGHT
+from constants import gamepad
 from constants import keyboard
+from constants.headup import BOTTOM_UI_HEIGHT
+from constants.quality import QUALITY_LOW
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-from constants.quality import QUALITY_LOW
-import utils.quality
 
-BACKDROP_COLOR = (36,63,64)
+BACKDROP_COLOR = (36, 63, 64)
+
 
 class MainGame(PausableComponent, FadeableComponent):
 

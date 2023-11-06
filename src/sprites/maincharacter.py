@@ -1,12 +1,15 @@
 """ Main character sprite """
 import os
+
 import pygame
+
 import constants.game
-from sprites.character import Character
-from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
-from utils.audio import play_sound
-from sprites.inlinesprite import InlineSprite
 from components.fadeable_component import FadeableComponent
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
+from sprites.character import Character
+from sprites.inlinesprite import InlineSprite
+from utils.audio import play_sound
+
 PIG_SOUND_NOTHING = 'nothing.ogg'
 
 
@@ -36,7 +39,6 @@ class MainCharacter(Character, FadeableComponent):
         if self.state.show_detailed:
             screen.blit(self.state.show_detailed, (0, 0))
 
-
     def draw_inventory_item(self, screen, x, y):
         """ Draw inventory item """
         if not isinstance(self.state.inventory, InlineSprite):
@@ -57,7 +59,7 @@ class MainCharacter(Character, FadeableComponent):
         elif self.direction == DIRECTION_RIGHT:
             x += 1
         elif self.direction == DIRECTION_LEFT:
-            sprite = pygame.transform.flip(sprite, flip_x = True, flip_y= False)
+            sprite = pygame.transform.flip(sprite, flip_x=True, flip_y=False)
             x -= 1
 
         item.inline_sprite = sprite.convert_alpha()
@@ -65,7 +67,6 @@ class MainCharacter(Character, FadeableComponent):
             screen,
             self.calculate_pos(x, y)
         )
-
 
     def play_sound(self, sound):
         if self.sound and self.sound.get_busy():

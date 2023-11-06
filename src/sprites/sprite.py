@@ -6,10 +6,11 @@ import os
 import pygame
 
 import constants.graphics
+import utils.quality
+from constants.game import MONOTYPE_FONT, DEBUG_TILE_FONT_SIZE
 from constants.graphics import SPRITE_SIZE
 from utils.reflections import fullname
-from constants.game import MONOTYPE_FONT, DEBUG_TILE_FONT_SIZE
-import utils.quality
+
 
 class Sprite:
     """ Generic sprite class """
@@ -52,16 +53,15 @@ class Sprite:
 
         return pos
 
-
     def draw_debug(self, screen, x, y, from_x, from_y):
 
         text_str = 'X: ' + str(from_x + x) + ' Y: ' + str(from_y + y)
 
         if not self.debug_font:
             self.debug_font = pygame.font.Font(
-            self.debug_font_file,
-            DEBUG_TILE_FONT_SIZE
-        )
+                self.debug_font_file,
+                DEBUG_TILE_FONT_SIZE
+            )
 
         text = self.debug_font.render(
             text_str,

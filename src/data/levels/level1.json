@@ -115098,7 +115098,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "shoes.png"
+},
 0,
 0,
 0,
@@ -116060,11 +116063,11 @@
 0,
 0,
 0,
-0,
 {
 "sprite_class": "sprites.chicken.Chicken",
 "sprite_file": "chicken.png"
 },
+0,
 0,
 0,
 0,

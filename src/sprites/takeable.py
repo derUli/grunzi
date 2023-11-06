@@ -3,7 +3,7 @@ import os
 
 from sprites.sprite import Sprite
 from utils.audio import play_sound
-from sprites.inlinesprite import InlineSprite
+
 
 class Takeable(Sprite):
     """ Takeable sprite class """

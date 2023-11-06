@@ -3,8 +3,9 @@ import gettext
 import os
 
 import pygame
-import utils.quality
+
 import utils.image
+import utils.quality
 import utils.savegame
 from components.component import Component
 from utils.menu import make_menu

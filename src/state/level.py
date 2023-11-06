@@ -9,13 +9,14 @@ import sprites.detailed
 import sprites.fire
 import sprites.raccoon
 import sprites.wall
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
 from constants.game import LEVEL_1_SIZE
 from sprites.apple import Apple
 from sprites.door import Door
 from sprites.key import Key
 from sprites.levelexit import LevelExit
 from utils.reflections import get_class
-from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
+
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
 LAYER_ITEMS = 2
@@ -244,7 +245,6 @@ class Level:
         self.layers[old_z][old_y][old_x] = None
         self.layers[z][y][x] = sprite
 
-
     def fill_fallback(self, callable):
         max_x, max_y = LEVEL_1_SIZE
 
@@ -340,7 +340,6 @@ class Level:
 
         return changed
 
-
     def calculate_next_pos(self, pos, direction):
         x, y = pos
 
@@ -361,7 +360,6 @@ class Level:
             y = 0
 
         return (x, y)
-
 
     def get_sprite(self, pos):
         z, y, x = pos

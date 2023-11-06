@@ -1,8 +1,11 @@
 import os
 import re
 import time
+
 import pygame
+
 import utils.quality
+
 
 def atoi(text):
     return int(text) if text.isdigit() else text.lower()

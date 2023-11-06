@@ -1,12 +1,13 @@
 import json
 import logging
 import os
-import utils.quality
+
 import pygame
 
+import utils.audio
+import utils.quality
 from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 from utils.path import get_userdata_path
-import utils.audio
 
 SETTINGS_DEFAULT_FULLSCREEN = True
 SETTINGS_DEFAULT_VOLUME = 1.0

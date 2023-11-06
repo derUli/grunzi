@@ -2,13 +2,14 @@
 import os
 import random
 
-from sprites.takeable import Takeable
-from sprites.inlinesprite import InlineSprite
-from utils.audio import play_sound
 from constants.direction import DIRECTION_UP, DIRECTION_DOWN
+from sprites.inlinesprite import InlineSprite
+from sprites.takeable import Takeable
+from utils.audio import play_sound
 
 SHAKE_Y_FROM = -2
 SHAKE_Y_TO = 2
+
 
 class Chainsaw(Takeable, InlineSprite):
     """ Chainsaw sprite class """
@@ -54,4 +55,3 @@ class Chainsaw(Takeable, InlineSprite):
         play_sound(
             os.path.join(sound_dir, random.choice(files))
         )
-

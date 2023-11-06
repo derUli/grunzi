@@ -4,7 +4,6 @@ from sprites.chainsaw import Chainsaw
 from sprites.chicken import Chicken
 from sprites.coin import Coin
 from sprites.fence import Fence
-from sprites.levelexit import LevelExit
 from sprites.wall import Wall
 
 
@@ -34,6 +33,11 @@ def get_editor_blocks(sprites_dir, image_cache):
             sprites_dir,
             image_cache,
             'pebble.jpg'
+        ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'shoes.png'
         ),
         Backdrop(
             sprites_dir,

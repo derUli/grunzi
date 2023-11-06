@@ -3,8 +3,9 @@ import os
 
 import pygame
 
-from sprites.sprite import Sprite
 import utils.quality
+from sprites.sprite import Sprite
+
 
 class Detailed(Sprite):
     """ Wall sprite class """

@@ -5,10 +5,10 @@ import time
 
 import pygame
 
-from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
-from utils.audio import play_sound
-from sprites.inlinesprite import InlineSprite
 import utils.quality
+from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
+from sprites.inlinesprite import InlineSprite
+from utils.audio import play_sound
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10

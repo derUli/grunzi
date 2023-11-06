@@ -67,8 +67,8 @@ class Settings(Component):
         self.settings_state.apply_and_save()
 
     def handle_change_sound_volume(self, range_value):
-            self.settings_state.sound_volume = range_value / 100
-            self.settings_state.apply_and_save()
+        self.settings_state.sound_volume = range_value / 100
+        self.settings_state.apply_and_save()
 
     def handle_toggle_fullscreen(self):
         self.settings_state.fullscreen = not self.settings_state.fullscreen

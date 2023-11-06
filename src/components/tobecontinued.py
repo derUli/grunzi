@@ -4,10 +4,11 @@ import os
 
 import pygame
 
+import utils.quality
 from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
-import utils.quality
+
 _ = gettext.gettext
 
 DISCARD_KEYS = keyboard.CONFIRM_KEYS + keyboard.ABORT_KEYS

@@ -8,6 +8,7 @@ import utils.audio
 import utils.image
 import utils.quality
 
+
 class Component(object):
 
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):

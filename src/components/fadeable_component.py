@@ -1,5 +1,7 @@
 import gettext
+
 from components.component import Component
+
 _ = gettext.gettext
 
 FADE_IN = 1

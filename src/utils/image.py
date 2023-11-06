@@ -1,8 +1,11 @@
 import logging
 import os.path
-import utils.quality
+
 import pygame
+
+import utils.quality
 from constants.graphics import ALPHA_IMAGE_FORMATS
+
 
 class ImageCache:
 
@@ -12,7 +15,7 @@ class ImageCache:
     def clear(self):
         self.images = {}
 
-    def load_image(self, path, scale = None):
+    def load_image(self, path, scale=None):
         extension = os.path.splitext(path)[1]
         is_alpha = extension.lower() in ALPHA_IMAGE_FORMATS
 
