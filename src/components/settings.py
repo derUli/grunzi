@@ -4,7 +4,7 @@ import os
 import pygame
 
 from components.component import Component
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.animation import Animation
 from utils.menu import make_menu
 
@@ -102,7 +102,7 @@ class Settings(Component):
             (_('Low'), QUALITY_LOW),
             # Currently no selection because it isn't implemented yet
             (_('Medium'), QUALITY_MEDIUM),
-            # (_('High'), QUALITY_HIGH)
+            (_('High'), QUALITY_HIGH)
         ]
 
     def get_screen_resolution_items(self):

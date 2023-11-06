@@ -3,7 +3,7 @@ import gettext
 import os
 
 import pygame
-
+import utils.transform
 import utils.image
 import utils.savegame
 from components.component import Component
@@ -40,7 +40,7 @@ class GameOver(Component):
 
     def update_screen(self, screen):
         """ Draw GameOver screen """
-        self.backdrop = pygame.transform.smoothscale(
+        self.backdrop = utils.transform.scale_method()(
             self.backdrop, screen.get_size())
 
         menu = make_menu(_('Game Over'))

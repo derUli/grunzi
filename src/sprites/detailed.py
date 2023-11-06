@@ -4,7 +4,7 @@ import os
 import pygame
 
 from sprites.sprite import Sprite
-
+import utils.transform
 
 class Detailed(Sprite):
     """ Wall sprite class """
@@ -26,6 +26,6 @@ class Detailed(Sprite):
             self.detailed).convert_alpha()
 
         x, y = self.screen.get_size()
-        element.state.show_detailed = pygame.transform.smoothscale(
+        element.state.show_detailed = utils.transform.scale_method()(
             element.state.show_detailed, (x, y)
         )

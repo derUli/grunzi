@@ -8,6 +8,8 @@ import pygame
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from utils.audio import play_sound
 from sprites.inlinesprite import InlineSprite
+import utils.transform
+
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10
 FLASH_COLOR_HURT = (255, 0, 0,)
@@ -197,7 +199,7 @@ class PlayerState:
                 w -= 1
                 h -= 1
 
-            scaled_item_sprite = pygame.transform.smoothscale(
+            scaled_item_sprite = utils.transform.scale_method()(
                 self.inventory.sprite,
                 (target_w, target_h)
             )

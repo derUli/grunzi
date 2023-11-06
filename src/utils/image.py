@@ -1,6 +1,6 @@
 import logging
 import os.path
-
+import utils.transform
 import pygame
 from constants.graphics import ALPHA_IMAGE_FORMATS
 
@@ -30,7 +30,7 @@ class ImageCache:
                     image = image.convert()
 
                 if scale:
-                    image = pygame.transform.smoothscale(image, scale)
+                    image = utils.transform.scale_method()(image, scale)
                 self.images[cache_id] = image
             except FileNotFoundError:
                 logging.error('File not found ' + path)
