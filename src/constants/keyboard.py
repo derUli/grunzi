@@ -5,12 +5,11 @@ K_LEFT = [pygame.K_LEFT, pygame.K_a]
 K_RIGHT = [pygame.K_RIGHT, pygame.K_d]
 K_UP = [pygame.K_UP, pygame.K_w]
 K_DOWN = [pygame.K_DOWN, pygame.K_s]
-K_DROP_ITEM = pygame.K_d
+K_DROP_ITEM = pygame.K_z
 
 RUN_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]
 
 K_USE = pygame.K_e  # Use Inventory item
-
 K_TOGGLE_EDIT_MODE = pygame.K_F1
 K_NEXT_LAYER = pygame.K_t
 K_SAVE_LEVEL = pygame.K_F5

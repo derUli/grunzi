@@ -8,7 +8,6 @@ sound_volume = 1.0
 def play_sound(file):
     sound = pygame.mixer.Sound(file)
     sound.set_volume(sound_volume)
-    logging.debug(sound_volume)
     return sound.play()
 
 

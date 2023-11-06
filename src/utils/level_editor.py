@@ -2,6 +2,7 @@ from sprites.apple import Apple
 from sprites.backdrop import Backdrop
 from sprites.chainsaw import Chainsaw
 from sprites.chicken import Chicken
+from sprites.kitten import Kitten
 from sprites.coin import Coin
 from sprites.fence import Fence
 from sprites.wall import Wall
@@ -102,6 +103,10 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache
         ),
         Chicken(
+            sprites_dir,
+            image_cache
+        ),
+        Kitten(
             sprites_dir,
             image_cache
         )
