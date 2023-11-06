@@ -1,5 +1,4 @@
 import sys
-
 import cx_Freeze
 
 base = None
@@ -20,13 +19,15 @@ cx_Freeze.setup(
         'build_exe': {
             'packages': [
                 'pygame',
-                'sprites'
+                'sprites',
+                'pygame_emojis'
             ],
             'include_files': [
                 'data/',
                 '../CREDITS.txt',
                 '../README.txt',
-                '../CHANGES.txt'
+                '../CHANGES.txt',
+                '../VERSION'
             ]
         }
     },
