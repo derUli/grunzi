@@ -6,7 +6,7 @@ import constants.game
 import constants.headup
 import utils.audio
 import utils.image
-
+import utils.quality
 
 class Component(object):
 
@@ -27,7 +27,7 @@ class Component(object):
     def render_text(self, what, color, where):
         text = self.monotype_font.render(
             what,
-            True,
+            utils.quality.font_antialiasing(),
             pygame.Color(color)
         )
 

@@ -1,7 +1,7 @@
 import json
 import logging
 import os
-import utils.transform
+import utils.quality
 import pygame
 
 from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
@@ -61,7 +61,8 @@ class SettingsState:
         pygame.mixer.music.set_volume(self.music_volume)
         utils.audio.sound_volume = self.sound_volume
 
-        utils.transform.ENABLE_SMOOTH_SCALE = self.quality == QUALITY_HIGH
+        utils.quality.ENABLE_SMOOTH_SCALE = self.quality == QUALITY_HIGH
+        utils.quality.ENABLE_FONT_ANTIALIASING = self.quality == QUALITY_HIGH
 
     def get_settings_path(self):
         """ Get settings file path """

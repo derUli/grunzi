@@ -7,7 +7,7 @@ import pygame
 from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
-import utils.transform
+import utils.quality
 _ = gettext.gettext
 
 DISCARD_KEYS = keyboard.CONFIRM_KEYS + keyboard.ABORT_KEYS
@@ -24,7 +24,7 @@ class ToBeContinued(FadeableComponent):
         file = os.path.join(data_dir, 'images', 'ui', 'to_be_continued.jpg')
 
         self.backdrop = self.image_cache.load_image(file)
-        self.backdrop = utils.transform.scale_method()(self.backdrop, settings_state.screen_resolution)
+        self.backdrop = utils.quality.scale_method()(self.backdrop, settings_state.screen_resolution)
 
     def mount(self):
         self.fadein()

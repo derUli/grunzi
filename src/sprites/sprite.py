@@ -9,6 +9,7 @@ import constants.graphics
 from constants.graphics import SPRITE_SIZE
 from utils.reflections import fullname
 from constants.game import MONOTYPE_FONT, DEBUG_TILE_FONT_SIZE
+import utils.quality
 
 class Sprite:
     """ Generic sprite class """
@@ -64,7 +65,7 @@ class Sprite:
 
         text = self.debug_font.render(
             text_str,
-            1,
+            utils.quality.font_antialiasing(),
             (255, 255, 255)
         )
 

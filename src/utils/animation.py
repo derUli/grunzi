@@ -2,7 +2,7 @@ import os
 import re
 import time
 import pygame
-import utils.transform
+import utils.quality
 
 def atoi(text):
     return int(text) if text.isdigit() else text.lower()
@@ -49,7 +49,7 @@ class Animation():
             frame = pygame.image.load(file).convert_alpha()
 
             if self.size:
-                frame = utils.transform.scale_method()(
+                frame = utils.quality.scale_method()(
                     frame,
                     self.size
                 )

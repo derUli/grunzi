@@ -8,7 +8,7 @@ import pygame
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from utils.audio import play_sound
 from sprites.inlinesprite import InlineSprite
-import utils.transform
+import utils.quality
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10
@@ -199,7 +199,7 @@ class PlayerState:
                 w -= 1
                 h -= 1
 
-            scaled_item_sprite = utils.transform.scale_method()(
+            scaled_item_sprite = utils.quality.scale_method()(
                 self.inventory.sprite,
                 (target_w, target_h)
             )

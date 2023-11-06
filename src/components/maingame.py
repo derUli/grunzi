@@ -23,7 +23,7 @@ from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
 from constants.quality import QUALITY_LOW
-import utils.transform
+import utils.quality
 
 BACKDROP_COLOR = (36,63,64)
 
@@ -46,7 +46,7 @@ class MainGame(PausableComponent, FadeableComponent):
         )
 
         self.backdrop = pygame.image.load(background_file).convert()
-        self.backdrop = utils.transform.scale_method()(
+        self.backdrop = utils.quality.scale_method()(
             self.backdrop,
             self.settings_state.screen_resolution
         )
