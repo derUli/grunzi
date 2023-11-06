@@ -6,7 +6,7 @@ from sprites.kitten import Kitten
 from sprites.coin import Coin
 from sprites.fence import Fence
 from sprites.wall import Wall
-
+from sprites.destroyable import Destroyable
 
 def get_editor_blocks(sprites_dir, image_cache):
     return [
@@ -39,6 +39,11 @@ def get_editor_blocks(sprites_dir, image_cache):
             sprites_dir,
             image_cache,
             'shoes.png'
+        ),
+        Destroyable(
+            sprites_dir,
+            image_cache,
+            'box.png'
         ),
         Backdrop(
             sprites_dir,
