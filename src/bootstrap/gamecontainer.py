@@ -181,6 +181,12 @@ class GameContainer:
         if self.current_component:
             self.current_component.ai()
 
+    def tick_and_show_fps(self):
+        self.clock.tick(self.settings_state.limit_fps)
+
+        if self.settings_state.show_fps:
+            self.show_fps()
+
     def show_fps(self):
         """ Show fps """
         self.fps_counter.get_fps(self.clock)
@@ -209,6 +215,7 @@ class GameContainer:
 
         self.current_component.image_cache.clear()
         self.current_component.set_screen(self.screen)
+        self.current_component.show_fps = self.tick_and_show_fps
 
         self.current_component.mount()
 

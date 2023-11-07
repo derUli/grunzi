@@ -184,6 +184,7 @@ class MainGame(PausableComponent, FadeableComponent):
         if self.state.player_state.dead():
             component = self.handle_change_component(GameOver)
             component.state = self.state
+            component.show_fps = self.show_fps
 
         # Check for changes
         if self.state.edit_mode and self.level.check_for_changes():

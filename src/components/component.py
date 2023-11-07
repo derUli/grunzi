@@ -25,6 +25,8 @@ class Component(object):
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
 
+        self.show_fps = None
+
     # Create Text
     def render_text(self, what, color, where):
         text = self.monotype_font.render(
@@ -56,6 +58,10 @@ class Component(object):
         where = (x, y)
 
         self.render_text(what, color, where)
+
+    def tick_and_show_fps(self):
+        if self.settings_state.show_fps and self.show_fps:
+            self.show_fps()
 
     def update_screen(self, screen):
         screen.fill((0, 0, 0))

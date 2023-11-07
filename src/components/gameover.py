@@ -38,13 +38,14 @@ class GameOver(Component):
     def draw_background(self):
         """ Draw backdrop """
         self.screen.blit(self.backdrop, (0, 0))
+        self.show_fps()
 
     def update_screen(self, screen):
         """ Draw GameOver screen """
         self.backdrop = utils.quality.scale_method()(
             self.backdrop, screen.get_size())
 
-        menu = make_menu(_('Game Over'))
+        menu = make_menu(_('Game Over'), self.settings_state.limit_fps)
 
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
             menu.add.button(_('Load Game'), self.handle_load_game)  # Load save game

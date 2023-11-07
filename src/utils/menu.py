@@ -14,11 +14,13 @@ THEME_PIG = pygame_menu.Theme(
     title_background_color=BOTTOM_UI_BACKGROUND,
     title_font_color=(228, 230, 246),
     title_font_shadow=True,
-    widget_font_color=BOTTOM_UI_BACKGROUND
+    widget_font_color=BOTTOM_UI_BACKGROUND,
+    widget_font_size=20
 )
 
 
-def make_menu(title):
+def make_menu(title, limit_fps=0):
+    THEME_PIG.fps = limit_fps
     return pygame_menu.Menu(
         height=480,
         theme=THEME_PIG,

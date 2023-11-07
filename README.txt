@@ -28,6 +28,9 @@ ESC: Menü aufrufen
 Das Spiel unterstützt XBox 360 Controller.
 Andere Controller können funktionieren, wurden von mir jedoch nicht getestet.
 
+Wenn beim Start des Spiels ein Controller angeschlossen ist, wird dieser automatisch aktiviert.
+Wenn mehrere Controller zeitgleich an den PC angeschlossen sind, wird nur einer davon aktiviert.
+
 Linker Joystick oder Directional Pad: Bewegen
 A: Item benutzen
 Y: Item ablegen

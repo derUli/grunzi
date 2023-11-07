@@ -51,6 +51,8 @@ class Settings(Component):
         self.screen.blit(self.video.get_frame(), (0, 0))
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
+        self.show_fps()
+
     def handle_change_limit_fps(self, selection, selected_index):
         selected_item, index = selection
         text, value = selected_item
@@ -95,6 +97,9 @@ class Settings(Component):
     def get_fps_limit_items(self):
         return [
             (_('Unlimited'), 0),
+            ('5', 5),
+            ('20', 20),
+            ('15', 15),
             ('30', 30),
             ('60', 60),
             ('120', 120),
@@ -148,7 +153,7 @@ class Settings(Component):
         self.draw_menu(self.screen)
 
     def draw_menu(self, screen):
-        menu = make_menu(_('Settings'))
+        menu = make_menu(_('Settings'), self.settings_state.limit_fps)
 
         fullscreen_text = _('Display Mode: ')
 
@@ -184,22 +189,22 @@ class Settings(Component):
             placeholder_add_to_selection_box=False
         )
 
-        # menu.add.dropselect(
-        #     title=_('FPS Limit'),
-        #     default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
-        #     items=self.get_fps_limit_items(),
-        #     onchange=self.handle_change_limit_fps,
-        #     placeholder_add_to_selection_box=False
-        # )
+        menu.add.dropselect(
+             title=_('FPS Limit'),
+             default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
+             items=self.get_fps_limit_items(),
+             onchange=self.handle_change_limit_fps,
+             placeholder_add_to_selection_box=False
+        )
 
-        # show_fps_text = _('Show FPS: ')
-        #
-        # if self.settings_state.show_fps:
-        #     show_fps_text += _('On')
-        # else:
-        #     show_fps_text += _('Off')
-        #
-        # menu.add.button(show_fps_text, self.handle_show_fps)
+        show_fps_text = _('Show FPS: ')
+
+        if self.settings_state.show_fps:
+            show_fps_text += _('On')
+        else:
+            show_fps_text += _('Off')
+
+        menu.add.button(show_fps_text, self.handle_show_fps)
 
         menu.add.range_slider(
             title=_('Music'),

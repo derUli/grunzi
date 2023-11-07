@@ -21,8 +21,6 @@ class Menu(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
-        """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state)
 
         video_path = os.path.join(
             data_dir,
@@ -68,8 +66,10 @@ class Menu(Component):
         self.screen.blit(self.video.get_frame(), (0, 0))
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
+        self.show_fps()
+
     def draw_menu(self, screen):
-        menu = make_menu(_('Grunzi'))
+        menu = make_menu(_('Grunzi'), self.settings_state.limit_fps)
         menu.add.button(_('New Game'), self.handle_new_game)
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
             menu.add.button(

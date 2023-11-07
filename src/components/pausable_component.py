@@ -15,7 +15,7 @@ class PausableComponent:
         self.last_screen = self.screen.copy().convert_alpha()
         self.last_screen.set_alpha(100)
 
-        menu = make_menu(_('Pause'))
+        menu = make_menu(_('Pause'), self.settings_state.limit_fps)
 
         menu.add.button(
             _('Continue'),
@@ -33,6 +33,8 @@ class PausableComponent:
 
     def draw_background(self, background):
         self.screen.blit(self.last_screen, (0, 0))
+
+        self.show_fps()
 
     def handle_save_game(self):
         utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state, self.level)
