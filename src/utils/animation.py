@@ -48,6 +48,7 @@ class Animation():
                 self.files.append(fullpath)
 
     def load(self):
+        """" Load images """
         for file in self.files:
             frame = pygame.image.load(file)
 
@@ -73,15 +74,18 @@ class Animation():
         self.loaded = True
 
     def clear(self):
+        """ Clear frames """
         self.frames = []
 
     def reload(self):
+        """ Reload frames """
         self.clear()
         self.async_load = False
         self.loaded = False
         self.load()
 
     def get_frame(self):
+        """ Get next frame """
         if not self.loaded:
             self.load()
 

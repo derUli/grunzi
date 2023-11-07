@@ -7,6 +7,7 @@ class FPSCounter:
     """ Stores the FPS values to diplay the current framerate """
 
     def __init__(self):
+        """ Constructor """
         self.fps = None
         self.max_fps = None
         self.min_fps = None
