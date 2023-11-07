@@ -78,6 +78,7 @@ class Animation():
     def reload(self):
         self.clear()
         self.async_load = False
+        self.loaded = False
         self.load()
 
     def get_frame(self):
