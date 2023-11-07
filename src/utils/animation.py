@@ -20,8 +20,8 @@ def natural_keys(text):
     return [atoi(c) for c in re.split('(\d+)', text)]
 
 
-IMAGE_EXTENSIONS = ['.jpg', '.png', '.gif']
-
+TRANSPARENT_IMAGES = ['.png', '.gif']
+IMAGE_EXTENSIONS = ['.jpg'] + TRANSPARENT_IMAGES
 
 class Animation():
 
@@ -49,7 +49,14 @@ class Animation():
 
     def load(self):
         for file in self.files:
-            frame = pygame.image.load(file).convert_alpha()
+            frame = pygame.image.load(file)
+
+            extension = os.path.splitext(file)[1]
+
+            if extension in TRANSPARENT_IMAGES:
+                frame = frame.convert_alpha()
+            else:
+                frame = frame.convert()
 
             if self.size:
                 frame = utils.quality.scale_method()(
@@ -64,6 +71,14 @@ class Animation():
                 return
 
         self.loaded = True
+
+    def clear(self):
+        self.frames = []
+
+    def reload(self):
+        self.clear()
+        self.async_load = False
+        self.load()
 
     def get_frame(self):
         if not self.loaded:

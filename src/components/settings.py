@@ -93,6 +93,7 @@ class Settings(Component):
         text, value = selected_item
         self.settings_state.quality = value
         self.settings_state.apply_and_save()
+        self.video.reload()
 
     def get_fps_limit_items(self):
         return [
