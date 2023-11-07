@@ -14,12 +14,12 @@
 "sprite_file": "wall.jpg"
 },
 {
-    "sprite_class": "sprites.wall.Wall",
-    "sprite_file": "wall.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
-"sprite_class": "sprites.detailed.Detailed",
-"sprite_file": "dont_waste_water.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.wall.Wall",
@@ -112123,7 +112123,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.detailed.Detailed",
+"sprite_file": "dont_waste_water.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -168757,7 +168761,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.maincharacter.MainCharacter",
+"sprite_file": "pig.png",
+"id": "grunzi"
+},
 0,
 0,
 0,
@@ -168909,11 +168917,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.maincharacter.MainCharacter",
-"sprite_file": "pig.png",
-"id": "grunzi"
-},
+0,
 0,
 0,
 0,
