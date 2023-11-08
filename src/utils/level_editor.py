@@ -9,6 +9,7 @@ from sprites.hammer import Hammer
 from sprites.kitten import Kitten
 from sprites.wall import Wall
 from sprites.piggybank import PiggyBank
+from sprites.levelexit import LevelExit
 
 def get_editor_blocks(sprites_dir, image_cache):
     """ Get editor blocks array for inline map editor"""
@@ -127,6 +128,10 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache
         ),
         Kitten(
+            sprites_dir,
+            image_cache
+        ),
+        LevelExit(
             sprites_dir,
             image_cache
         )
