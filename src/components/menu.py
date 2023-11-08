@@ -58,11 +58,13 @@ class Menu(Component):
             self.menu.disable()
 
     def handle_settings(self):
+        """ Handle open settings menu  """
         component = self.handle_change_component(Settings)
         component.video = self.video
         self.menu.disable()
 
     def draw_background(self):
+        """ Draw menu background """
         video_frame = self.video.get_frame()
         if video_frame:
             self.screen.blit(video_frame, (0, 0))
@@ -71,6 +73,7 @@ class Menu(Component):
         self.show_fps()
 
     def draw_menu(self, screen):
+        """ Draw main menu """
         menu = make_menu(_('Grunzi'), self.settings_state.limit_fps)
         menu.add.button(_('New Game'), self.handle_new_game)
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
