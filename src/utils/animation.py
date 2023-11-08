@@ -23,6 +23,7 @@ def natural_keys(text):
 TRANSPARENT_IMAGES = ['.png', '.gif']
 IMAGE_EXTENSIONS = ['.jpg'] + TRANSPARENT_IMAGES
 
+
 class Animation():
 
     def __init__(self, animation_dir, refresh_interval=0.1,
@@ -37,8 +38,7 @@ class Animation():
         self.last_refresh = time.time()
         self.size = size
         self.async_load = async_load
-        self.load_chunks = 5
-
+        
         files = sorted(os.listdir(animation_dir), key=natural_keys)
 
         for file in files:
@@ -89,6 +89,9 @@ class Animation():
         if not self.loaded:
             self.load()
 
+        if self.current_frame > len(self.frames):
+            return
+            
         frame = self.frames[self.current_frame]
 
         if time.time() - self.last_refresh < self.refresh_interval:

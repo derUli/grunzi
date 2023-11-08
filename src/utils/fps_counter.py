@@ -55,4 +55,5 @@ class FPSCounter:
 
     def get_fps_text(self):
         """ Get fps text for display """
-        return str(self.fps) + ' (AVG: ' + str(self.avg_fps()) + ', MIN:' + str(self.min_fps) + ', MAX: ' + str(self.max_fps) + ')'
+        return str(self.fps) + ' (AVG: ' + str(self.avg_fps()) + ', MIN:' + str(self.min_fps) + ', MAX: ' + str(
+            self.max_fps) + ')'

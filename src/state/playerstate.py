@@ -84,6 +84,7 @@ class PlayerState:
             self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
 
     def toggle_item(self):
+        """ Toggle use item """
         if not self.inventory:
             self.use_item = False
             return
@@ -119,7 +120,7 @@ class PlayerState:
         self.crop_pig()
 
     def crop_pig(self):
-        """ Crop the pig image based on current health"""
+        """ Crop the pig image based on current health """
         width = self.health_pig.get_width()
         height = self.health_pig.get_width()
         one_percent = height / 100

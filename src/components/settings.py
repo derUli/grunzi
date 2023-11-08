@@ -191,11 +191,11 @@ class Settings(Component):
         )
 
         menu.add.dropselect(
-             title=_('FPS Limit'),
-             default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
-             items=self.get_fps_limit_items(),
-             onchange=self.handle_change_limit_fps,
-             placeholder_add_to_selection_box=False
+            title=_('FPS Limit'),
+            default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
+            items=self.get_fps_limit_items(),
+            onchange=self.handle_change_limit_fps,
+            placeholder_add_to_selection_box=False
         )
 
         show_fps_text = _('Show FPS: ')
