@@ -44,6 +44,8 @@ class MainGame(PausableComponent, FadeableComponent):
         self.running = False
         self.editor_blocks_length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
         self.editor_block_index = 0
+        self.disable_ai = False
+
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg'
         )
@@ -168,7 +170,7 @@ class MainGame(PausableComponent, FadeableComponent):
                                 from_y
                             )
 
-                    if isinstance(col, Character):
+                    if isinstance(col, Character) and not self.disable_ai:
                         col.ai(self.level)
 
                     x += 1
@@ -201,7 +203,7 @@ class MainGame(PausableComponent, FadeableComponent):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         if self.level.is_levelexit(x, y) and not self.state.edit_mode:
-            # Show "To be continued
+            # Show "To be continued"
             self.handle_change_component(ToBeContinued)
             return
 

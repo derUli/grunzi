@@ -25,12 +25,21 @@ parser.add_argument(
     action='store_true',
     help='Enable In-Game Map Editor'
 )
+
 parser.add_argument(
     '-v',
     '--debug',
     action='store_true',
     help='Enable debug loglevel'
 )
+
+parser.add_argument(
+    '-a',
+    '--disable-ai',
+    action='store_true',
+    help='Disable AI'
+)
+
 parser.add_argument(
     '-d',
     '--disable-controller',
@@ -61,6 +70,7 @@ logging.debug(args)
 game = GameContainer(
     root_dir,
     enable_edit_mode=args.edit,
-    disable_controller=args.disable_controller
+    disable_controller=args.disable_controller,
+    disable_ai=args.disable_ai
 )
 game.start()

@@ -112483,11 +112483,11 @@
 [
 0,
 {
-"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree1.png"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree1.png"
 },
 0,
@@ -112918,11 +112918,11 @@
 [
 0,
 {
-"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree1.png"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree1.png"
 },
 0,

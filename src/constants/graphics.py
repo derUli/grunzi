@@ -1,5 +1,5 @@
 """ Graphics Constants """
 
-SPRITE_SIZE = (64, 64)
+SPRITE_SIZE = (32, 32)
 
 ALPHA_IMAGE_FORMATS = ['.png', '.gif']

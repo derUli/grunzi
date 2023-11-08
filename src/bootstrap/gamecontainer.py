@@ -29,7 +29,7 @@ _ = gettext.gettext
 class GameContainer:
     """ Main game class """
 
-    def __init__(self, root_dir, enable_edit_mode=False, disable_controller=False):
+    def __init__(self, root_dir, enable_edit_mode=False, disable_controller=False, disable_ai=False):
         """ Constructor """
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
@@ -42,6 +42,7 @@ class GameContainer:
         self.enable_edit_mode = enable_edit_mode
         self.gamepad = None
         self.disable_controller = disable_controller
+        self.disable_ai = disable_ai
 
     def start(self):
         """ Start game """
@@ -216,7 +217,7 @@ class GameContainer:
         self.current_component.image_cache.clear()
         self.current_component.set_screen(self.screen)
         self.current_component.show_fps = self.tick_and_show_fps
-
+        self.current_component.disable_ai = self.disable_ai
         self.current_component.mount()
 
         return self.current_component
