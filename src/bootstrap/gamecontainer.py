@@ -90,7 +90,6 @@ class GameContainer:
         logging.debug('Init screen')
         logging.info('Screen resolution: ' + str(self.settings_state.screen_resolution))
         self.set_mouse_cursor()
-        self.set_icon()
         pygame.display.set_caption(_('Grunzi'))
 
         if self.settings_state.fullscreen:
@@ -102,6 +101,7 @@ class GameContainer:
                 flags,
                 vsync=int(self.settings_state.vsync))
 
+        self.set_icon()
     def init_controller(self):
         """ Init Controller """
         try:
@@ -125,6 +125,7 @@ class GameContainer:
         """ Toggle fullscreen mode """
         self.settings_state.fullscreen = not self.settings_state.fullscreen
         self.settings_state.apply_and_save()
+        self.set_icon()
 
     def main_loop(self):
         """ Pygame MainLoop """

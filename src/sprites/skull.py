@@ -12,7 +12,7 @@ class Skull(Wall):
         super().__init__(sprite_dir, cache, sprite)
 
     def draw(self, screen, x, y):
-        """ Draw skull only on halloween """
+        """ Draw skull only on Helloween """
         day = datetime.now().day
         month = datetime.now().month
 
