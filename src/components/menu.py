@@ -63,7 +63,9 @@ class Menu(Component):
         self.menu.disable()
 
     def draw_background(self):
-        self.screen.blit(self.video.get_frame(), (0, 0))
+        video_frame = self.video.get_frame()
+        if video_frame:
+            self.screen.blit(video_frame, (0, 0))
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
         self.show_fps()
