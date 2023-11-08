@@ -1,6 +1,7 @@
 """ Piggybank sprite """
 import logging
 import os
+
 from sprites.hammer import Hammer
 from sprites.wall import Wall
 from utils.audio import play_sound
@@ -8,6 +9,7 @@ from utils.audio import play_sound
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
 RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
+
 
 class PiggyBank(Wall):
     """ Piggybank sprite class """

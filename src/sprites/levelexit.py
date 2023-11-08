@@ -2,6 +2,7 @@
 
 from sprites.backdrop import Backdrop
 
+
 class LevelExit(Backdrop):
     """ Backdrop sprite """
 

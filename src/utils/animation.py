@@ -38,7 +38,7 @@ class Animation():
         self.last_refresh = time.time()
         self.size = size
         self.async_load = async_load
-        
+
         files = sorted(os.listdir(animation_dir), key=natural_keys)
 
         for file in files:
@@ -90,7 +90,7 @@ class Animation():
 
         if self.current_frame > len(self.frames):
             return
-            
+
         frame = self.frames[self.current_frame]
 
         if time.time() - self.last_refresh < self.refresh_interval:
