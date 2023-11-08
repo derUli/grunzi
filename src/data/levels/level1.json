@@ -116066,7 +116066,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -116276,10 +116279,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -120000,10 +120000,7 @@
 [
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -120613,7 +120610,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower4.png",
@@ -128967,9 +128967,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "placeholder.jpg",
-"walkable": 1
+"sprite_class": "sprites.piggybank.PiggyBank",
+"sprite_file": "piggy_bank.png"
 },
 0,
 {
@@ -128978,9 +128977,8 @@
 },
 0,
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "placeholder.jpg",
-"walkable": 1
+"sprite_class": "sprites.piggybank.PiggyBank",
+"sprite_file": "piggy_bank.png"
 },
 0,
 {
@@ -148520,13 +148518,13 @@
 ],
 [
 0,
-0,
-0,
-0,
 {
 "sprite_class": "sprites.kitten.Kitten",
 "sprite_file": "kitten.png"
 },
+0,
+0,
+0,
 0,
 0,
 0,
@@ -168917,12 +168915,12 @@
 0,
 0,
 0,
-0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
+0,
 0,
 0,
 0,
