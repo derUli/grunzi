@@ -86,7 +86,7 @@ class MainGame(PausableComponent, FadeableComponent):
         atmo = 'level' + str(self.state.level) + '.ogg'
         self.play_music(atmo)
 
-        level_file = os.path.join(self.data_dir, 'levels', 'level1.json')
+        level_file = os.path.join(self.data_dir, 'levels', 'world.json')
         self.load_level(level_file)
 
         self.fadein()
