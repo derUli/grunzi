@@ -1,12 +1,9 @@
 """ Guitar sprite """
 import logging
 import os
-import random
 
-import constants.direction
-import constants.graphics
-from sprites.sprite import Sprite
 import utils.audio
+from sprites.sprite import Sprite
 
 
 class Guitar(Sprite):
@@ -28,6 +25,5 @@ class Guitar(Sprite):
             return
 
         logging.debug('Playing the guitar')
-
 
         self.sound = utils.audio.play_sound(sound_file)

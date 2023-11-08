@@ -8,6 +8,7 @@ MONTH_HALLOWEEN = 10
 
 class Skull(Wall):
     def __init__(self, sprite_dir, cache, sprite='skull.png'):
+        """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
 
     def draw(self, screen, x, y):
