@@ -16,9 +16,6 @@ class Skull(Wall):
         day = datetime.now().day
         month = datetime.now().month
 
-        day = 31
-        month = 10
-
         if month != MONTH_HALLOWEEN and day != DAY_HALLOWEEN:
             self.walkable = True
             return
