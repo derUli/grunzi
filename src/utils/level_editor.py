@@ -10,7 +10,6 @@ from sprites.kitten import Kitten
 from sprites.wall import Wall
 from sprites.piggybank import PiggyBank
 
-
 def get_editor_blocks(sprites_dir, image_cache):
     """ Get editor blocks array for inline map editor"""
     return [

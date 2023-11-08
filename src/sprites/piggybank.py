@@ -17,7 +17,7 @@ class PiggyBank(Wall):
         super().__init__(sprite_dir, cache, sprite)
 
     def handle_interact_item(self, element):
-        # Destroy if player has the chainsaw
+        # Destroy if player has a hammer
         if not element:
             return
 
