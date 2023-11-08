@@ -115397,7 +115397,10 @@
 "walkable": 1
 },
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -115848,10 +115851,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -116276,7 +116276,10 @@
 "walkable": 1
 },
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -116982,10 +116985,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -120000,7 +120000,10 @@
 [
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -120203,10 +120206,7 @@
 [
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -155555,7 +155555,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "qrcode3.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -168761,11 +168765,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.maincharacter.MainCharacter",
-"sprite_file": "pig.png",
-"id": "grunzi"
-},
+0,
 0,
 0,
 0,
@@ -168918,7 +168918,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.maincharacter.MainCharacter",
+"sprite_file": "pig.png",
+"id": "grunzi"
+},
 0,
 0,
 0,
