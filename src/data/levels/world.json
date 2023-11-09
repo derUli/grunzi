@@ -116113,11 +116113,11 @@
 },
 0,
 0,
-0,
 {
 "sprite_class": "sprites.chicken.Chicken",
 "sprite_file": "chicken.png"
 },
+0,
 0,
 0,
 0,
@@ -120516,10 +120516,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -120968,7 +120965,10 @@
 ],
 [
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -137797,7 +137797,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -137999,10 +138002,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -144317,7 +144317,7 @@
 0,
 {
 "sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_file": "wood_fence_horizontal.png"
 },
 {
 "sprite_class": "sprites.fence.Fence",
@@ -144575,12 +144575,12 @@
 },
 0,
 0,
+0,
+0,
 {
 "sprite_class": "sprites.sheep.Sheep",
 "sprite_file": "sheep.png"
 },
-0,
-0,
 {
 "sprite_class": "sprites.fence.Fence",
 "sprite_file": "wood_fence_vertical.png"
@@ -144807,7 +144807,10 @@
 "sprite_class": "sprites.fence.Fence",
 "sprite_file": "wood_fence_vertical.png"
 },
-0,
+{
+"sprite_class": "sprites.sheep.Sheep",
+"sprite_file": "sheep.png"
+},
 0,
 0,
 0,
@@ -145030,11 +145033,11 @@
 "sprite_class": "sprites.fence.Fence",
 "sprite_file": "wood_fence_vertical.png"
 },
+0,
 {
 "sprite_class": "sprites.sheep.Sheep",
 "sprite_file": "sheep.png"
 },
-0,
 0,
 0,
 0,
@@ -145246,10 +145249,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.sheep.Sheep",
-"sprite_file": "sheep.png"
-},
+0,
 0,
 0,
 {
@@ -145496,7 +145496,7 @@
 },
 {
 "sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_file": "wood_fence_horizontal.png"
 },
 0,
 0,
@@ -149572,13 +149572,13 @@
 ],
 [
 0,
+0,
+0,
+0,
 {
 "sprite_class": "sprites.kitten.Kitten",
 "sprite_file": "kitten.png"
 },
-0,
-0,
-0,
 0,
 0,
 0,
@@ -169661,12 +169661,12 @@
 0,
 0,
 0,
+0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
-0,
 0,
 0,
 0,
