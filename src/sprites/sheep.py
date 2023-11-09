@@ -34,7 +34,7 @@ class Sheep(Character):
         self.sound = None
         self.next_direction_change = None
         # Time until next move
-        self.walk_speed = random.randint(1, 3)
+        self.walk_speed = random.randint(3, 5)
 
     def draw(self, screen, x, y):
         """ Draw sprite """
