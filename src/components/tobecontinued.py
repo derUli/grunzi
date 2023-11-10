@@ -41,6 +41,7 @@ class ToBeContinued(FadeableComponent):
         self.fadein()
 
     def unmount(self):
+        super().unmount()
         """ Show mouse on unmount and stop music """
         pygame.mouse.set_visible(1)
         pygame.mixer.music.stop()
@@ -50,6 +51,7 @@ class ToBeContinued(FadeableComponent):
         screen.blit(self.backdrop, (0, 0))
 
     def update_screen(self, screen):
+        """ Update screen """
         surface = screen.copy().convert_alpha()
         surface.set_alpha(self.alpha)
         self.draw_background(surface)
@@ -69,6 +71,7 @@ class ToBeContinued(FadeableComponent):
         screen.blit(grain, (0, 0))
 
     def handle_event(self, event):
+        """ Handle events """
         if event.type == pygame.KEYDOWN and event.key in keyboard.CONFIRM_KEYS:
             self.handle_exit()
         elif event.type == pygame.JOYBUTTONDOWN and event.button == gamepad.K_CONFIRM:

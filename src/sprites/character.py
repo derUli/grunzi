@@ -41,7 +41,6 @@ class Character(sprites.sprite.Sprite):
         return pos
 
     def ai(self, level):
-        # logging.debug(level.search_sprite(self))
         return
 
     def change_direction(self, direction):

@@ -106,7 +106,13 @@ class PlayerState:
 
     def dead(self):
         """ Check if piggy is dead """
-        return self.health <= 0
+        if self.health > 0:
+            return False
+
+        self.flashing = None
+
+        return True
+
 
     def update_health(self):
         """ Normalize health and update pig image """
