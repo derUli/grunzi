@@ -109,7 +109,6 @@ class PlayerState:
 
         return True
 
-
     def update_health(self):
         """ Normalize health and update pig image """
 

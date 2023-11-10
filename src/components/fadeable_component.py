@@ -1,5 +1,7 @@
 import gettext
+
 import pygame
+
 from components.component import Component
 
 _ = gettext.gettext
@@ -8,6 +10,7 @@ FADE_IN = 1
 FADE_OUT = 2
 
 FADE_SPEED = 2.55
+
 
 class FadeableComponent(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad):
@@ -38,7 +41,6 @@ class FadeableComponent(Component):
         self.fadeout()
         pygame.mixer.music.fadeout(1000)
         while self.do_fade:
-
             self.screen.fill((0, 0, 0))
             self.update_screen(self.screen)
             pygame.display.flip()
