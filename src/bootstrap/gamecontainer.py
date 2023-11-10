@@ -102,6 +102,7 @@ class GameContainer:
                 vsync=int(self.settings_state.vsync))
 
         self.set_icon()
+
     def init_controller(self):
         """ Init Controller """
         try:

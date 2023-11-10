@@ -10,7 +10,6 @@ import pygame
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
 from sprites.chainsaw import Chainsaw
 from sprites.character import Character
-from sprites.feather import Feather
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
 
@@ -72,7 +71,7 @@ class Sheep(Character):
         if self.next_direction_change:
             self.play_sound()
 
-        self.next_direction_change = time.time() + random.randint(5,  50)
+        self.next_direction_change = time.time() + random.randint(5, 50)
 
         return self.next_direction_change
 
