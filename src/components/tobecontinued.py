@@ -4,10 +4,13 @@ import os
 
 import pygame
 
+import constants.quality
 import utils.quality
 from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
+from utils.animation import Animation
+
 
 _ = gettext.gettext
 
@@ -21,6 +24,19 @@ class ToBeContinued(FadeableComponent):
         self.menu = None
 
         file = os.path.join(data_dir, 'images', 'ui', 'to_be_continued.jpg')
+
+
+        animation_dir  = os.path.join(data_dir, 'images', 'sprites', 'animations', 'film_grain')
+
+
+        self.film_grain = Animation(
+            animation_dir,
+            refresh_interval=0.13,
+            start_frame=0,
+            size=self.settings_state.screen_resolution,
+            async_load=True
+        )
+
 
         self.backdrop = self.image_cache.load_image(file)
         self.backdrop = utils.quality.scale_method()(self.backdrop, settings_state.screen_resolution)
@@ -45,7 +61,17 @@ class ToBeContinued(FadeableComponent):
         self.screen.blit(surface, (0, 0))
 
         self.fade()
+        self.draw_film_grain(screen)
 
+
+    def draw_film_grain(self, screen):
+        if self.settings_state.quality !=  constants.quality.QUALITY_HIGH:
+            return
+
+        grain = self.film_grain.get_frame()
+        grain.set_alpha(59)
+        screen.blit(grain, (0, 0))
+        
     def handle_event(self, event):
         if event.type == pygame.KEYDOWN and event.key in keyboard.CONFIRM_KEYS:
             self.handle_exit()
