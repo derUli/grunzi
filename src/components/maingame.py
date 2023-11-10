@@ -92,11 +92,10 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fadein()
 
     def unmount(self):
+        super().unmount()
         """ On unmount show mouse cursor and stop music """
         pygame.mouse.set_visible(1)
         pygame.mixer.music.stop()
-
-        self.fadeout()
 
     def update_screen(self, screen):
         """ Update screen """
@@ -183,11 +182,6 @@ class MainGame(PausableComponent, FadeableComponent):
 
         self.draw_headup(screen)
 
-        if self.state.player_state.dead():
-            component = self.handle_change_component(GameOver)
-            component.state = self.state
-            component.show_fps = self.show_fps
-
         # Check for changes
         if self.state.edit_mode and self.level.check_for_changes():
             # If the level file was changes do a reload
@@ -201,6 +195,15 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def ai(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+
+        if self.state.player_state.dead():
+            self.moving = None
+            self.update_screen(self.screen)
+            super().unmount()
+            component = self.handle_change_component(GameOver)
+            component.state = self.state
+            component.show_fps = self.show_fps
+            return
 
         if self.level.is_levelexit(x, y) and not self.state.edit_mode:
             # Show "To be continued"

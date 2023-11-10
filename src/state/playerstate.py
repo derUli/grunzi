@@ -74,11 +74,10 @@ class PlayerState:
     def hurt(self, health):
         """ Hurt piggy """
         self.health -= health
-        self.update_health()
         sound = random.choice(self.hurt_sounds)
-
         play_sound(sound)
         self.flash(FLASH_COLOR_HURT)
+        self.update_health()
 
         if self.gamepad:
             self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
@@ -105,20 +104,17 @@ class PlayerState:
         self.use_item = not self.use_item
 
     def dead(self):
-        """ Check if piggy is dead """
         if self.health > 0:
             return False
-
-        self.flashing = None
 
         return True
 
 
     def update_health(self):
         """ Normalize health and update pig image """
-        if self.health < 1:
-            self.health = 0
 
+        if self.health < 0:
+            self.health = 0
         if self.health > 99:
             self.health = 100
 
@@ -131,6 +127,10 @@ class PlayerState:
         height = self.health_pig.get_width()
         one_percent = height / 100
         new_height = one_percent * self.health
+
+        if new_height < 1:
+            self.cropped_pig = pygame.surface.Surface((1, 1), pygame.SRCALPHA)
+            return
 
         self.cropped_pig = pygame.surface.Surface(
             (width, new_height), pygame.SRCALPHA)

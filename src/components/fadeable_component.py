@@ -38,6 +38,7 @@ class FadeableComponent(Component):
         self.fadeout()
         pygame.mixer.music.fadeout(1000)
         while self.do_fade:
+
             self.screen.fill((0, 0, 0))
             self.update_screen(self.screen)
             pygame.display.flip()

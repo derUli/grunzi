@@ -31,9 +31,8 @@ class PausableComponent:
         self.menu.disable()
         pygame.mouse.set_visible(0)
 
-    def draw_background(self, background):
+    def draw_background(self):
         self.screen.blit(self.last_screen, (0, 0))
-
         self.show_fps()
 
     def handle_save_game(self):
@@ -41,7 +40,7 @@ class PausableComponent:
         self.handle_continue_game()
 
     def back_to_main_menu(self):
-        self.handle_continue_game()
+        self.menu.disable()
         pygame.mouse.set_visible(1)
         self.handle_change_component(None)
 
