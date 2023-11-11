@@ -3,7 +3,7 @@ import logging
 import math
 import os
 import time
-
+import random
 import pygame
 
 import constants.game
@@ -246,6 +246,26 @@ class MainGame(PausableComponent, FadeableComponent):
 
         self.state.player_state.inventory = None
 
+    def grunt(self):
+        """ Pig grunts """
+        dirname = os.path.join(
+            self.data_dir,
+            'sounds',
+            'pig'
+        )
+
+        files = [
+            'grunt1.ogg',
+            'grunt2.ogg',
+            'grunt3.ogg',
+            'grunt4.ogg',
+            'grunt5.ogg',
+        ]
+
+        file = os.path.join(dirname, random.choice(files))
+
+        play_sound(file)
+
     def update_camera(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
@@ -295,6 +315,8 @@ class MainGame(PausableComponent, FadeableComponent):
             self.move_main_character(direction.key_to_direction(event.key))
         elif event.key == keyboard.K_DROP_ITEM:
             self.drop_item()
+        elif event.key == keyboard.K_GRUNT:
+            self.grunt()
         elif event.key in keyboard.RUN_KEYS:
             self.running = True
         elif event.key == keyboard.K_USE:
@@ -355,6 +377,8 @@ class MainGame(PausableComponent, FadeableComponent):
                 self.state.player_state.toggle_item()
         elif event.button == gamepad.K_DROP_ITEM:
             self.drop_item()
+        elif event.button == gamepad.K_GRUNT:
+            self.grunt()
         elif event.button == gamepad.K_RUN:
             self.running = True
 
