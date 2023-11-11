@@ -7,7 +7,9 @@ import constants.direction
 import constants.graphics
 import sprites.character
 import utils.audio
+import gettext
 
+_ = gettext.gettext
 
 class Raccoon(sprites.character.Character):
     """ Raccon character class """
@@ -32,7 +34,7 @@ class Raccoon(sprites.character.Character):
         if self.sound and self.sound.get_busy():
             return
 
-        logging.debug('Henlo Fren!')
+        element.state.say(_('Henlo Fren!'))
 
         # CREDITS: https://soundbible.com/1853-Raccoon.html
         files = [

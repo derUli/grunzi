@@ -2,13 +2,16 @@ import logging
 import os
 import random
 import time
-
+import gettext
 import pygame
 
 import utils.quality
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from sprites.inlinesprite import InlineSprite
 from utils.audio import play_sound
+from utils.display_text import DisplayText
+
+_ = gettext.gettext
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10
@@ -30,6 +33,7 @@ class PlayerState:
         self.flash_duration = 0.05
         self.gamepad = gamepad
         self.use_item = False
+        self.display_text = DisplayText(data_dir)
         self.data_dir = data_dir
 
         self.health_pig = pygame.image.load(
@@ -78,9 +82,13 @@ class PlayerState:
         play_sound(sound)
         self.flash(FLASH_COLOR_HURT)
         self.update_health()
+        self.say(_('Autsch!'))
 
         if self.gamepad:
             self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
+
+    def say(self, text):
+        self.display_text.show_text(text)
 
     def toggle_item(self):
         """ Toggle use item """
@@ -141,6 +149,7 @@ class PlayerState:
         self.draw_background(screen)
         self.draw_health(screen)
         self.draw_inventory(screen)
+        self.draw_text(screen)
 
     def draw_flash(self, screen):
         """ Draw flash effect """
@@ -213,3 +222,17 @@ class PlayerState:
             surface.blit(scaled_item_sprite, (INVENTORY_PADDING, INVENTORY_PADDING))
 
         screen.blit(surface, (x, y))
+
+
+    def draw_text(self, screen):
+        """ Draw ui background """
+
+        if not self.display_text.rendered_text:
+            return
+
+        w, h = self.display_text.rendered_text.get_size()
+
+        x = (screen.get_width() / 2) - (w/2)
+        y = screen.get_height() - (BOTTOM_UI_HEIGHT / 2) - (h/2) - UI_MARGIN
+
+        self.display_text.draw(screen, (x, y))

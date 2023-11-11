@@ -4,7 +4,7 @@ import math
 import os
 import random
 import time
-
+import gettext
 import pygame
 
 import constants.game
@@ -28,8 +28,10 @@ from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
 
-BACKDROP_COLOR = (36, 63, 64)
 
+_ = gettext.gettext
+
+BACKDROP_COLOR = (36, 63, 64)
 
 class MainGame(PausableComponent, FadeableComponent):
 
@@ -266,6 +268,8 @@ class MainGame(PausableComponent, FadeableComponent):
         file = os.path.join(dirname, random.choice(files))
 
         play_sound(file)
+
+        self.state.player_state.say(_('Grunz!'))
 
     def update_camera(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
