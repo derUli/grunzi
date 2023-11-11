@@ -115,7 +115,7 @@ class MainGame(PausableComponent, FadeableComponent):
         h -= BOTTOM_UI_HEIGHT
         virtual_screen = pygame.surface.Surface((w, h))
 
-        if self.settings_state.quality == QUALITY_LOW:
+        if self.settings_state.quality <= QUALITY_LOW:
             virtual_screen.fill(BACKDROP_COLOR)
         else:
             virtual_screen.blit(self.backdrop, (0, 0))

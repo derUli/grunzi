@@ -98,7 +98,7 @@ class Component(object):
 
     def draw_film_grain(self, screen):
         """ Draw film grain """
-        if self.settings_state.quality != QUALITY_HIGH:
+        if self.settings_state.quality < QUALITY_HIGH:
             return
 
         grain = self.film_grain.get_frame()
