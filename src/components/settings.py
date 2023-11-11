@@ -9,7 +9,6 @@ from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
 
-
 class Settings(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
@@ -114,8 +113,7 @@ class Settings(Component):
             (_('Low'), QUALITY_LOW),
             (_('Medium'), QUALITY_MEDIUM),
             (_('High'), QUALITY_HIGH),
-
-            (_('High'), QUALITY_VERY_HIGH),
+            (_('Very High'), QUALITY_VERY_HIGH),
         ]
 
     def get_screen_resolution_items(self):
