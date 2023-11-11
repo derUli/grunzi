@@ -20,7 +20,7 @@ from constants import direction
 from constants import gamepad
 from constants import keyboard
 from constants.headup import BOTTOM_UI_HEIGHT
-from constants.quality import QUALITY_LOW
+from constants.quality import QUALITY_VERY_LOW
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
@@ -115,7 +115,7 @@ class MainGame(PausableComponent, FadeableComponent):
         h -= BOTTOM_UI_HEIGHT
         virtual_screen = pygame.surface.Surface((w, h))
 
-        if self.settings_state.quality <= QUALITY_LOW:
+        if self.settings_state.quality <= QUALITY_VERY_LOW:
             virtual_screen.fill(BACKDROP_COLOR)
         else:
             virtual_screen.blit(self.backdrop, (0, 0))

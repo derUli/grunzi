@@ -4,7 +4,7 @@ import pygame
 
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
+from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
@@ -44,7 +44,7 @@ class Settings(Component):
         self.menu.disable()
 
     def draw_background(self):
-        if self.settings_state.quality > QUALITY_LOW:
+        if self.settings_state.quality >= QUALITY_LOW:
             video_frame = self.video.get_frame()
             if video_frame:
                 self.screen.blit(video_frame, (0, 0))
@@ -110,10 +110,12 @@ class Settings(Component):
     def get_quality_items(self):
         """ Get items for quality dropdown """
         return [
+            (_('Very Low'), QUALITY_VERY_LOW),
             (_('Low'), QUALITY_LOW),
-            # Currently no selection because it isn't implemented yet
             (_('Medium'), QUALITY_MEDIUM),
-            (_('High'), QUALITY_HIGH)
+            (_('High'), QUALITY_HIGH),
+
+            (_('High'), QUALITY_VERY_HIGH),
         ]
 
     def get_screen_resolution_items(self):

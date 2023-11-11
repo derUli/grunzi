@@ -6,7 +6,7 @@ import pygame
 
 import utils.audio
 import utils.quality
-from constants.quality import QUALITY_HIGH
+from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True
@@ -15,7 +15,7 @@ SETTINGS_DEFAULT_SHOW_FPS = False
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
-
+SETTINGS_DEFAULT_QUALITY = QUALITY_VERY_HIGH
 
 class SettingsState:
     def __init__(self, handle_settings_change):
@@ -28,7 +28,7 @@ class SettingsState:
         self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
         self.sound_volume = SETTINGS_DEFAULT_VOLUME
         self.music_volume = SETTINGS_DEFAULT_VOLUME
-        self.quality = QUALITY_HIGH
+        self.quality = SETTINGS_DEFAULT_QUALITY
         self.handle_settings_change = handle_settings_change
 
     def apply_and_save(self):
@@ -62,8 +62,8 @@ class SettingsState:
         pygame.mixer.music.set_volume(self.music_volume)
         utils.audio.sound_volume = self.sound_volume
 
-        utils.quality.ENABLE_SMOOTH_SCALE = self.quality == QUALITY_HIGH
-        utils.quality.ENABLE_FONT_ANTIALIASING = self.quality == QUALITY_HIGH
+        utils.quality.ENABLE_SMOOTH_SCALE = self.quality >= QUALITY_HIGH
+        utils.quality.ENABLE_FONT_ANTIALIASING = self.quality >= QUALITY_MEDIUM
 
     def get_settings_path(self):
         """ Get settings file path """

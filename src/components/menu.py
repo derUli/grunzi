@@ -8,7 +8,7 @@ import utils.savegame
 from components.component import Component
 from components.settings import Settings
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_LOW
+from constants.quality import QUALITY_VERY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
@@ -61,7 +61,7 @@ class Menu(Component):
         self.menu.disable()
 
     def draw_background(self):
-        if self.settings_state.quality> QUALITY_LOW:
+        if self.settings_state.quality> QUALITY_VERY_LOW:
             video_frame = self.video.get_frame()
             if video_frame:
                 self.screen.blit(video_frame, (0, 0))

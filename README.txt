@@ -62,9 +62,11 @@ Damit die Änderung übernommen wird, ist ein Neustart des Spiels erforderlich.
 
 Im Folgenden eine Aufschlüsselung der Grafikqualitäten:
 
-| Qualität | Backdrops  | Weiche Skalierung | Film Grain | Antialiasing für Fonts |
-| -------- |:----------:|:-----------------:|:----------:|:----------------------:|
-| Niedrig  |     ❌    |        ❌         |     ❌     |            ❌         |
-| Mittel   |     ✅    |        ✅         |     ❌     |            ❌         |
-| Hoch     |     ✅    |        ✅         |     ✅     |            ✅         |
+| Qualität     | Backdrops  | Weiche Skalierung | Film Grain | Antialiasing für Fonts |
+| ------------ |:----------:|:-----------------:|:----------:|:----------------------:|
+| Sehr Niedrig |     ❌    |        ❌         |     ❌     |            ❌         |
+| Niedrig      |     ✅    |        ❌         |     ❌     |            ❌         |
+| Mittel       |     ✅    |        ❌         |     ❌     |            ✅         |
+| Hoch         |     ✅    |        ✅         |     ❌     |            ✅         |
+| Sehr hoch    |     ✅    |        ✅         |     ✅     |            ✅         |
 

@@ -8,7 +8,7 @@ import utils.audio
 import utils.image
 import utils.quality
 from constants.headup import UI_MARGIN
-from constants.quality import QUALITY_HIGH
+from constants.quality import QUALITY_VERY_HIGH
 from utils.animation import Animation
 
 
@@ -98,7 +98,7 @@ class Component(object):
 
     def draw_film_grain(self, screen):
         """ Draw film grain """
-        if self.settings_state.quality < QUALITY_HIGH:
+        if self.settings_state.quality < QUALITY_VERY_HIGH:
             return
 
         grain = self.film_grain.get_frame()
