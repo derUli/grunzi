@@ -4,7 +4,7 @@ import pygame
 
 from components.component import Component
 
-_ = gettext.gettext
+
 
 FADE_IN = 1
 FADE_OUT = 2

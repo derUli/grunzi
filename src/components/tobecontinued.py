@@ -11,7 +11,7 @@ from constants import gamepad
 from constants import keyboard
 from utils.animation import Animation
 
-_ = gettext.gettext
+
 
 
 class ToBeContinued(FadeableComponent):

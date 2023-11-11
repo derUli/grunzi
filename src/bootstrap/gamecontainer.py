@@ -23,7 +23,7 @@ from utils.fps_counter import FPSCounter
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
 
-_ = gettext.gettext
+
 
 
 class GameContainer:

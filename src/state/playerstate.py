@@ -12,7 +12,7 @@ from sprites.inlinesprite import InlineSprite
 from utils.audio import play_sound
 from utils.display_text import DisplayText
 
-_ = gettext.gettext
+
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10
@@ -83,7 +83,7 @@ class PlayerState:
         play_sound(sound)
         self.flash(FLASH_COLOR_HURT)
         self.update_health()
-        self.say(_('Autsch!'))
+        self.say(_('Ouch!'))
 
         if self.gamepad:
             self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)

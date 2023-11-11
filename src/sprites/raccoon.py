@@ -8,7 +8,7 @@ import constants.graphics
 import sprites.character
 import utils.audio
 
-_ = gettext.gettext
+
 
 
 class Raccoon(sprites.character.Character):

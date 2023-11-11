@@ -10,7 +10,7 @@ import utils.savegame
 from components.component import Component
 from utils.menu import make_menu
 
-_ = gettext.gettext
+
 
 
 class GameOver(Component):

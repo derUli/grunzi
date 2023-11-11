@@ -7,7 +7,7 @@ from constants import gamepad
 from constants import keyboard
 from utils.menu import make_menu
 
-_ = gettext.gettext
+
 
 
 class PausableComponent:

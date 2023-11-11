@@ -2,17 +2,23 @@
 import argparse
 import logging
 import os
-from gettext import gettext
-
+import gettext
 from components.maingame import MainGame
 from components.menu import Menu
-
+import locale
 from bootstrap.gamecontainer import GameContainer
 from utils.path import get_userdata_path
 
-_ = gettext
-
 root_dir = os.path.join(os.path.dirname(__file__))
+
+locale_path = os.path.join(root_dir, 'data', 'locale')
+
+# Set locale
+os.environ['LANG'] = ':'.join(locale.getlocale())
+
+gettext.install('messages', locale_path)
+
+print(_('Continue'))
 
 if not os.path.exists(get_userdata_path()):
     os.makedirs(get_userdata_path())

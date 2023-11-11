@@ -13,9 +13,6 @@ from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
 
-_ = gettext.gettext
-
-
 class Menu(Component):
 
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):

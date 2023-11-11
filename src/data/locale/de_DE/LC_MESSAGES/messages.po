@@ -1,0 +1,141 @@
+# German (Germany) translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-11-11 19:45+0100\n"
+"PO-Revision-Date: 2023-11-11 20:14+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de_DE\n"
+"Language-Team: de_DE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: Game.py:22 bootstrap/gamecontainer.py:93 components/menu.py:76
+msgid "Grunzi"
+msgstr ""
+
+#: Game.py:23
+msgid "Piggy adventure game"
+msgstr ""
+
+#: components/gameover.py:48
+msgid "Game Over"
+msgstr "Du bist Schinken!"
+
+#: components/gameover.py:51
+msgid "Load Game"
+msgstr "Spiel laden"
+
+#: components/gameover.py:52 components/pausable_component.py:24
+#: components/settings.py:229
+msgid "Back To Main Menu"
+msgstr "Zurück zum Hauptmenü"
+
+#: components/maingame.py:273
+msgid "Grunz!"
+msgstr ""
+
+#: components/menu.py:77
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: components/menu.py:80 components/pausable_component.py:21
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: components/menu.py:83 components/settings.py:158
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: components/menu.py:85
+msgid "Quit"
+msgstr "Beenden"
+
+#: components/pausable_component.py:18
+msgid "Pause"
+msgstr "Pause"
+
+#: components/pausable_component.py:23
+msgid "Save Game"
+msgstr "Spiel speichern"
+
+#: components/settings.py:101
+msgid "Unlimited"
+msgstr "Unbegrenzt"
+
+#: components/settings.py:115
+msgid "Low"
+msgstr "Niedrig"
+
+#: components/settings.py:117
+msgid "Medium"
+msgstr "Mittel"
+
+#: components/settings.py:118
+msgid "High"
+msgstr "Hoch"
+
+#: components/settings.py:160
+msgid "Display Mode: "
+msgstr "Anzeigemodus: "
+
+#: components/settings.py:163
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: components/settings.py:165
+msgid "Window"
+msgstr "Fenster"
+
+#: components/settings.py:169
+msgid "V-Sync: "
+msgstr ""
+
+#: components/settings.py:179
+msgid "Screen Resolution"
+msgstr "Bildschirmauflösung"
+
+#: components/settings.py:187
+msgid "Quality"
+msgstr "Qualität"
+
+#: components/settings.py:195
+msgid "FPS Limit"
+msgstr ""
+
+#: components/settings.py:202
+msgid "Show FPS: "
+msgstr "FPS anzeigen: "
+
+#: components/settings.py:205
+msgid "On"
+msgstr "An"
+
+#: components/settings.py:207
+msgid "Off"
+msgstr "Aus"
+
+#: components/settings.py:212
+msgid "Music"
+msgstr "Musik"
+
+#: components/settings.py:221
+msgid "Sound Effects"
+msgstr "Soundeffekte"
+
+#: sprites/raccoon.py:37
+msgid "Henlo Fren!"
+msgstr ""
+
+#: state/playerstate.py:86
+msgid "Ouch!"
+msgstr "Autsch!"
+

@@ -29,7 +29,7 @@ from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
 
-_ = gettext.gettext
+
 
 BACKDROP_COLOR = (36, 63, 64)
 
