@@ -51,6 +51,11 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache,
             'shoes.png'
         ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'basket.png'
+        ),
         Destroyable(
             sprites_dir,
             image_cache,

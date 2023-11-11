@@ -17,8 +17,9 @@ Das fertige Spiel sollen 4 verschiedene Levels enthalten.
 ## Tastatur
 
 Pfeiltasten: Bewegen
-E: Item benutzen 
+E: Item benutzen
 T: Item ablegen
+G: Grunzen
 F12: Screenshot erstellen
 Shift-Taste: Rennen
 ESC: Menü aufrufen
@@ -34,6 +35,7 @@ Wenn mehrere Controller zeitgleich an den PC angeschlossen sind, wird nur einer 
 Linker Joystick oder Directional Pad: Bewegen
 A: Item benutzen
 Y: Item ablegen
+X: Grunzen
 RT: Rennen
 START: Menü aufrufen
 
