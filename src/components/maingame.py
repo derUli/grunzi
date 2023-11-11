@@ -2,8 +2,9 @@ import json.decoder
 import logging
 import math
 import os
-import time
 import random
+import time
+
 import pygame
 
 import constants.game
