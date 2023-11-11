@@ -191,13 +191,13 @@ class Settings(Component):
             placeholder_add_to_selection_box=False
         )
 
-        menu.add.dropselect(
-            title=_('FPS Limit'),
-            default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
-            items=self.get_fps_limit_items(),
-            onchange=self.handle_change_limit_fps,
-            placeholder_add_to_selection_box=False
-        )
+        # menu.add.dropselect(
+        #     title=_('FPS Limit'),
+        #     default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
+        #     items=self.get_fps_limit_items(),
+        #     onchange=self.handle_change_limit_fps,
+        #     placeholder_add_to_selection_box=False
+        # )
 
         show_fps_text = _('Show FPS: ')
 
@@ -206,7 +206,7 @@ class Settings(Component):
         else:
             show_fps_text += _('Off')
 
-        menu.add.button(show_fps_text, self.handle_show_fps)
+        # menu.add.button(show_fps_text, self.handle_show_fps)
 
         menu.add.range_slider(
             title=_('Music'),
