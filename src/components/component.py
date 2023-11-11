@@ -8,7 +8,8 @@ import utils.audio
 import utils.image
 import utils.quality
 from constants.headup import UI_MARGIN
-
+from constants.quality import QUALITY_HIGH
+from utils.animation import Animation
 
 class Component(object):
 
@@ -26,6 +27,15 @@ class Component(object):
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
 
         self.show_fps = None
+
+        animation_dir = os.path.join(data_dir, 'images', 'sprites', 'animations', 'film_grain')
+
+        self.film_grain = Animation(
+            animation_dir,
+            refresh_interval=0.13,
+            start_frame=0,
+            size=self.settings_state.screen_resolution
+        )
 
     # Create Text
     def render_text(self, what, color, where):
@@ -84,3 +94,12 @@ class Component(object):
 
     def unmount(self):
         return True
+
+    def draw_film_grain(self, screen):
+        """ Draw film grain """
+        if self.settings_state.quality != QUALITY_HIGH:
+            return
+
+        grain = self.film_grain.get_frame()
+        grain.set_alpha(80)
+        screen.blit(grain, (0, 0))

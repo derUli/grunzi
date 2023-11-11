@@ -8,10 +8,9 @@ import utils.image
 import utils.quality
 import utils.savegame
 from components.component import Component
+from constants.quality import QUALITY_LOW
 from utils.menu import make_menu
-
-
-
+from utils.animation import Animation
 
 class GameOver(Component):
     """ Gamve Over Screen """
@@ -37,7 +36,10 @@ class GameOver(Component):
 
     def draw_background(self):
         """ Draw backdrop """
-        self.screen.blit(self.backdrop, (0, 0))
+        if self.settings_state.quality != QUALITY_LOW:
+            self.screen.blit(self.backdrop, (0, 0))
+
+        self.draw_film_grain(self.screen)
         self.show_fps()
 
     def update_screen(self, screen):

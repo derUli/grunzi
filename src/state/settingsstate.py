@@ -6,7 +6,7 @@ import pygame
 
 import utils.audio
 import utils.quality
-from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
+from constants.quality import QUALITY_HIGH
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True
@@ -28,7 +28,7 @@ class SettingsState:
         self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
         self.sound_volume = SETTINGS_DEFAULT_VOLUME
         self.music_volume = SETTINGS_DEFAULT_VOLUME
-        self.quality = QUALITY_MEDIUM
+        self.quality = QUALITY_HIGH
         self.handle_settings_change = handle_settings_change
 
     def apply_and_save(self):

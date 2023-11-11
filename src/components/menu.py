@@ -12,6 +12,7 @@ from constants.headup import PIGGY_PINK
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
 
 class Menu(Component):
 
@@ -60,12 +61,12 @@ class Menu(Component):
         self.menu.disable()
 
     def draw_background(self):
-        """ Draw menu background """
-        video_frame = self.video.get_frame()
-        if video_frame:
-            self.screen.blit(video_frame, (0, 0))
-        self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
+        if self.settings_state.quality != QUALITY_LOW:
+            video_frame = self.video.get_frame()
+            if video_frame:
+                self.screen.blit(video_frame, (0, 0))
 
+        self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
         self.show_fps()
 
     def draw_menu(self, screen):
