@@ -11,9 +11,17 @@ Das fertige Spiel sollen 4 verschiedene Levels enthalten.
 # Spiel starten
 
 Das Spiel kann mit einem Doppelklick auf "Grunzi.exe" gestartet werden.
-Für fortgeschrittene Nutzer gibt es die Möglichkeit, die folgenden Start-Parameter zu übergeben:
+Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden Start-Parameter zu übergeben:
 
-...
+```
+  -h, --help            Show this help message and exit
+  -e, --edit            Enable in-game map editor
+  -v, --debug           Enable debug loglevel
+  -a, --disable-ai      Disable AI
+  -d, --disable-controller
+                        Disable controller support
+  -s, --skip-menu       Skip menu
+```
 
 # Steuerung 
 
@@ -26,6 +34,7 @@ G: Grunzen
 F12: Screenshot erstellen
 Shift-Taste: Rennen
 ESC: Menü aufrufen
+Alt-Enter: Vollbildmodus / Fenster umschalten
 
 ## Controller
 
@@ -44,12 +53,6 @@ START: Menü aufrufen
 
 # Einstellungen
 
-Das Spiel startet beim ersten Start in der Auflösung 1280x720 (720P).
-Eine höhere Einstellung kann in den Grafikoptionen ausgewählt werden.
-In dieser Version muss das Spiel noch neugestartet werden, um eine Änderung der Auflösung zu übernehmen.
-Das selbe gilt für die Option V-Sync.
-Alle anderen Einstellungen werden sofort, ohne Neustart des Spiels, übernommen.
-
-Ich selbst verwende bei der Entwicklung mit 720P und 1080P.
-Das Spiel ist so programmiert, dass es sich dynamisch an die Größe des Bildschirms anpasst, aber ich kann nicht ausschließen, dass
-es bei ungewöhnlichen Bildschirmauflösungen eventuell zu Darstellungsfehlern kommen könnte.
+Das Spiel startet beim ersten Start in der Auflösung 1280x720 (720P) bei hoher Grafikqualität.
+Dies kann in den Grafikeinstellungen geändert werden.
+Damit die Änderung übernommen wird, ist ein Neustart des Spiels erforderlich.

@@ -1,12 +1,13 @@
 """ Grunzi Game Launcher """
 import argparse
+import gettext
+import locale
 import logging
 import os
-import gettext
+
+from bootstrap.gamecontainer import GameContainer
 from components.maingame import MainGame
 from components.menu import Menu
-import locale
-from bootstrap.gamecontainer import GameContainer
 from utils.path import get_userdata_path
 
 root_dir = os.path.join(os.path.dirname(__file__))
@@ -17,8 +18,6 @@ locale_path = os.path.join(root_dir, 'data', 'locale')
 os.environ['LANG'] = ':'.join(locale.getlocale())
 
 gettext.install('messages', locale_path)
-
-print(_('Continue'))
 
 if not os.path.exists(get_userdata_path()):
     os.makedirs(get_userdata_path())
@@ -32,7 +31,7 @@ parser.add_argument(
     '-e',
     '--edit',
     action='store_true',
-    help='Enable In-Game Map Editor'
+    help='Enable in-game map editor'
 )
 
 parser.add_argument(
@@ -53,7 +52,7 @@ parser.add_argument(
     '-d',
     '--disable-controller',
     action='store_true',
-    help='Disable Controller Support'
+    help='Disable controller support'
 )
 
 parser.add_argument(
@@ -94,6 +93,5 @@ game = GameContainer(
     disable_controller=args.disable_controller,
     disable_ai=args.disable_ai
 )
+
 game.start(component)
-
-

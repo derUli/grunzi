@@ -1,4 +1,3 @@
-import gettext
 import logging
 import os
 import random
@@ -11,8 +10,6 @@ from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from sprites.inlinesprite import InlineSprite
 from utils.audio import play_sound
 from utils.display_text import DisplayText
-
-
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10

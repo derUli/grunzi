@@ -11,6 +11,7 @@ from constants.headup import UI_MARGIN
 from constants.quality import QUALITY_HIGH
 from utils.animation import Animation
 
+
 class Component(object):
 
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):

@@ -1,4 +1,3 @@
-import gettext
 import os
 
 import pygame
@@ -9,10 +8,11 @@ import utils.savegame
 from components.component import Component
 from components.settings import Settings
 from constants.headup import PIGGY_PINK
+from constants.quality import QUALITY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
+
 
 class Menu(Component):
 

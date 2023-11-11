@@ -3,7 +3,6 @@
     Game main class
     Initialized the base of the game
 """
-import gettext
 import logging
 import os
 import platform
@@ -22,8 +21,6 @@ from utils.cursor import default_cursor
 from utils.fps_counter import FPSCounter
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
-
-
 
 
 class GameContainer:

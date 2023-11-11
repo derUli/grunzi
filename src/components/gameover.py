@@ -1,5 +1,4 @@
 """ Gamve Over Screen """
-import gettext
 import os
 
 import pygame
@@ -10,7 +9,7 @@ import utils.savegame
 from components.component import Component
 from constants.quality import QUALITY_LOW
 from utils.menu import make_menu
-from utils.animation import Animation
+
 
 class GameOver(Component):
     """ Gamve Over Screen """

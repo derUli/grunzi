@@ -1,4 +1,3 @@
-import gettext
 import json.decoder
 import logging
 import math
@@ -28,8 +27,6 @@ from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-
-
 
 BACKDROP_COLOR = (36, 63, 64)
 

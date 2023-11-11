@@ -1,12 +1,13 @@
+import logging
 import os
 import re
 import time
 from threading import Thread
-import logging
+
 import pygame
 
-from constants.graphics import SPRITE_SIZE
 import utils.quality
+from constants.graphics import SPRITE_SIZE
 
 
 def atoi(text):
@@ -49,7 +50,6 @@ class Animation():
             if extension.lower() in IMAGE_EXTENSIONS:
                 fullpath = os.path.join(animation_dir, file)
                 self.files.append(fullpath)
-
 
     def load(self):
         self.loaded = True
@@ -102,7 +102,6 @@ class Animation():
         if not self.loaded:
             self.load()
             return empty_surface
-
 
         try:
             frame = self.frames[self.current_frame]

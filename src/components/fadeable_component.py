@@ -1,10 +1,6 @@
-import gettext
-
 import pygame
 
 from components.component import Component
-
-
 
 FADE_IN = 1
 FADE_OUT = 2

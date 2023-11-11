@@ -1,17 +1,12 @@
 """ Gamve Over Screen """
-import gettext
 import os
 
 import pygame
 
-import constants.quality
 import utils.quality
 from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
-from utils.animation import Animation
-
-
 
 
 class ToBeContinued(FadeableComponent):

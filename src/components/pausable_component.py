@@ -1,13 +1,9 @@
-import gettext
-
 import pygame
 
 import utils.savegame
 from constants import gamepad
 from constants import keyboard
 from utils.menu import make_menu
-
-
 
 
 class PausableComponent:
