@@ -65,6 +65,6 @@ Im Folgenden eine Aufschlüsselung der Grafikqualitäten:
 | Qualität | Backdrops  | Weiche Skalierung | Film Grain | Antialiasing für Fonts |
 | -------- |:----------:|:-----------------:|:----------:|:----------------------:|
 | Niedrig  |     ❌    |        ❌         |     ❌     |            ❌         |
-| Mittel   |     ✅    |        ❌         |     ❌     |            ❌         |
+| Mittel   |     ✅    |        ✅         |     ❌     |            ❌         |
 | Hoch     |     ✅    |        ✅         |     ✅     |            ✅         |
 
