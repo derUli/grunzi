@@ -10,6 +10,9 @@ Das fertige Spiel sollen 4 verschiedene Levels enthalten.
 
 # Spiel starten
 
+Das Spiel kann mit einem Doppelklick auf "Grunzi.exe" gestartet werden.
+Für fortgeschrittene Nutzer gibt es die Möglichkeit, die folgenden Start-Parameter zu übergeben:
+
 ...
 
 # Steuerung 
