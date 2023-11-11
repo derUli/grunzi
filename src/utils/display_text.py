@@ -1,14 +1,17 @@
+import logging
 import os
+import time
+
+import pygame
+
 from constants.game import TEXT_FONT_SIZE, MONOTYPE_FONT
 from utils.quality import font_antialiasing
-from constants.headup import BOTTOM_UI_HEIGHT
-import pygame
-import logging
-import time
-TEXT_COLOR = (255,255,255)
+
+TEXT_COLOR = (255, 255, 255)
 TIME_PER_CHAR = 0.4
 TIME_MIN = 1
 MIN_FONT_SIZE = 12
+
 
 class DisplayText:
     def __init__(self, data_dir):
@@ -39,11 +42,9 @@ class DisplayText:
                 font_size
             )
 
-
             text = what
             if what != original_what:
                 text += "..."
-
 
             rendered_text = font.render(
                 text,

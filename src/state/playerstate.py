@@ -1,8 +1,9 @@
+import gettext
 import logging
 import os
 import random
 import time
-import gettext
+
 import pygame
 
 import utils.quality
@@ -223,7 +224,6 @@ class PlayerState:
 
         screen.blit(surface, (x, y))
 
-
     def draw_text(self, screen):
         """ Draw ui background """
 
@@ -232,7 +232,7 @@ class PlayerState:
 
         w, h = self.display_text.rendered_text.get_size()
 
-        x = (screen.get_width() / 2) - (w/2)
-        y = screen.get_height() - (BOTTOM_UI_HEIGHT / 2) - (h/2) - UI_MARGIN
+        x = (screen.get_width() / 2) - (w / 2)
+        y = screen.get_height() - (BOTTOM_UI_HEIGHT / 2) - (h / 2) - UI_MARGIN
 
         self.display_text.draw(screen, (x, y))
