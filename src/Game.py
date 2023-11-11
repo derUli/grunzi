@@ -60,7 +60,7 @@ parser.add_argument(
     '-s',
     '--skip-menu',
     action='store_true',
-    help='Disable Controller Support'
+    help='Skip menu'
 )
 
 args = parser.parse_args()
