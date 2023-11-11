@@ -17,6 +17,7 @@ SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_QUALITY = QUALITY_VERY_HIGH
 
+
 class SettingsState:
     def __init__(self, handle_settings_change):
         """ Constructor """
