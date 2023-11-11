@@ -44,7 +44,7 @@ class GameContainer:
         self.disable_controller = disable_controller
         self.disable_ai = disable_ai
 
-    def start(self):
+    def start(self, component=components.menu.Menu):
         """ Start game """
         logging.info('')
         logging.info('OS: ' + platform.platform())
@@ -72,7 +72,7 @@ class GameContainer:
         if not self.disable_controller:
             self.init_controller()
 
-        self.change_component(components.menu.Menu)
+        self.change_component(component)
 
         signal.signal(signal.SIGINT, self.quit)
         signal.signal(signal.SIGTERM, self.quit)

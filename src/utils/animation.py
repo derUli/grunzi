@@ -1,9 +1,11 @@
 import os
 import re
 import time
-
+from threading import Thread
+import logging
 import pygame
 
+from constants.graphics import SPRITE_SIZE
 import utils.quality
 
 
@@ -23,11 +25,13 @@ def natural_keys(text):
 TRANSPARENT_IMAGES = ['.png', '.gif']
 IMAGE_EXTENSIONS = ['.jpg'] + TRANSPARENT_IMAGES
 
+CHUNK_SIZE = 10
+
 
 class Animation():
 
     def __init__(self, animation_dir, refresh_interval=0.1,
-                 start_frame=0, size=None, async_load=True):
+                 start_frame=0, size=None):
         """ Constructor """
 
         self.current_frame = start_frame
@@ -37,7 +41,6 @@ class Animation():
         self.loaded = False
         self.last_refresh = time.time()
         self.size = size
-        self.async_load = async_load
 
         files = sorted(os.listdir(animation_dir), key=natural_keys)
 
@@ -47,59 +50,75 @@ class Animation():
                 fullpath = os.path.join(animation_dir, file)
                 self.files.append(fullpath)
 
+
     def load(self):
-        """" Load images """
-        for file in self.files:
-            frame = pygame.image.load(file)
-
-            extension = os.path.splitext(file)[1]
-
-            if extension in TRANSPARENT_IMAGES:
-                frame = frame.convert_alpha()
-            else:
-                frame = frame.convert()
-
-            if self.size:
-                frame = utils.quality.scale_method()(
-                    frame,
-                    self.size
-                )
-
-            self.frames.append(frame)
-
-            if self.async_load:
-                self.files = self.files[1:]
-                return
-
         self.loaded = True
+        """ Reload frames """
+        logging.debug('Async reload animation started')
+        thread = Thread(target=self.load_async)
+        thread.start()
+        logging.debug('Async reload animation finished')
 
-    def clear(self):
-        """ Clear frames """
-        self.frames = []
+    def load_async(self):
+        for file in self.files:
+            self.frames += [self.load_frame(file)]
 
     def reload(self):
+        self.loaded = True
         """ Reload frames """
-        self.clear()
-        self.async_load = False
-        self.load()
+        logging.debug('Async reload animation started')
+        thread = Thread(target=self.reload_async)
+        thread.start()
+        logging.debug('Async reload animation finished')
+
+    def reload_async(self):
+        frames = []
+        for file in self.files:
+            frames += [self.load_frame(file)]
+
+        self.frames = frames
+
+    def load_frame(self, file):
+        """" Load images """
+        frame = pygame.image.load(file)
+
+        extension = os.path.splitext(file)[1]
+
+        if extension in TRANSPARENT_IMAGES:
+            frame = frame.convert_alpha()
+        else:
+            frame = frame.convert()
+
+        if self.size:
+            frame = utils.quality.scale_method()(
+                frame,
+                self.size
+            )
+
+        return frame
 
     def get_frame(self):
-        """ Get next frame """
+        empty_surface = pygame.surface.Surface(SPRITE_SIZE).convert_alpha()
         if not self.loaded:
             self.load()
+            return empty_surface
 
-        if self.current_frame > len(self.frames):
-            return
 
-        frame = self.frames[self.current_frame]
+        try:
+            frame = self.frames[self.current_frame]
+        except IndexError as e:
+            return empty_surface
 
         if time.time() - self.last_refresh < self.refresh_interval:
             return frame
 
         next_frame = self.current_frame + 1
 
-        if next_frame >= len(self.frames):
+        if next_frame >= len(self.files):
             next_frame = 0
+
+        if next_frame >= len(self.frames):
+            next_frame = self.current_frame
 
         self.current_frame = next_frame
         self.last_refresh = time.time()

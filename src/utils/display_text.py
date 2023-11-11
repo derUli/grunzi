@@ -20,6 +20,9 @@ class DisplayText:
         self.show_end = 0
 
     def draw(self, screen, pos):
+        if not self.rendered_text:
+            return
+
         if time.time() > self.show_end:
             self.rendered_text = None
             return

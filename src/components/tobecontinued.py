@@ -30,8 +30,7 @@ class ToBeContinued(FadeableComponent):
             animation_dir,
             refresh_interval=0.13,
             start_frame=0,
-            size=self.settings_state.screen_resolution,
-            async_load=True
+            size=self.settings_state.screen_resolution
         )
 
         self.backdrop = self.image_cache.load_image(file)

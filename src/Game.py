@@ -4,6 +4,9 @@ import logging
 import os
 from gettext import gettext
 
+from components.maingame import MainGame
+from components.menu import Menu
+
 from bootstrap.gamecontainer import GameContainer
 from utils.path import get_userdata_path
 
@@ -47,6 +50,13 @@ parser.add_argument(
     help='Disable Controller Support'
 )
 
+parser.add_argument(
+    '-s',
+    '--skip-menu',
+    action='store_true',
+    help='Disable Controller Support'
+)
+
 args = parser.parse_args()
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
@@ -67,10 +77,17 @@ logging.basicConfig(
 
 logging.debug(args)
 
+component = Menu
+
+if args.skip_menu:
+    component = MainGame
+
 game = GameContainer(
     root_dir,
     enable_edit_mode=args.edit,
     disable_controller=args.disable_controller,
     disable_ai=args.disable_ai
 )
-game.start()
+game.start(component)
+
+

@@ -30,8 +30,7 @@ class Settings(Component):
         self.video = Animation(
             video_path,
             refresh_interval=1 / 25,
-            size=self.settings_state.screen_resolution,
-            async_load=True
+            size=self.settings_state.screen_resolution
         )
 
         self.menu = None
