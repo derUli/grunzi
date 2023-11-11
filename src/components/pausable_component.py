@@ -33,6 +33,7 @@ class PausableComponent:
 
     def handle_save_game(self):
         utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state, self.level)
+        self.state.player_state.say(_('Game saved.'))
         self.handle_continue_game()
 
     def back_to_main_menu(self):

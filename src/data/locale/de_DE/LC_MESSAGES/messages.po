@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-11 22:57+0100\n"
+"POT-Creation-Date: 2023-11-11 23:33+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -35,7 +35,7 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/gameover.py:53 components/pausable_component.py:20
-#: components/settings.py:230
+#: components/settings.py:227
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
@@ -51,7 +51,7 @@ msgstr "Neues Spiel"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:81 components/settings.py:159
+#: components/menu.py:81 components/settings.py:156
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -67,72 +67,77 @@ msgstr "Pause"
 msgid "Save Game"
 msgstr "Spiel speichern"
 
-#: components/settings.py:101
+#: components/pausable_component.py:36
+#, fuzzy
+msgid "Game saved."
+msgstr "Spiel gespeichert."
+
+#: components/settings.py:98
 msgid "Unlimited"
 msgstr "Unbegrenzt"
 
-#: components/settings.py:115
+#: components/settings.py:112
 msgid "Very Low"
 msgstr "Sehr Niedrig"
 
-#: components/settings.py:116
+#: components/settings.py:113
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings.py:117
+#: components/settings.py:114
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings.py:118
+#: components/settings.py:115
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings.py:119
+#: components/settings.py:116
 #, fuzzy
 msgid "Very High"
 msgstr "Sehr hoch"
 
-#: components/settings.py:161
+#: components/settings.py:158
 msgid "Display Mode: "
 msgstr "Anzeigemodus: "
 
-#: components/settings.py:164
+#: components/settings.py:161
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings.py:166
+#: components/settings.py:163
 msgid "Window"
 msgstr "Fenster"
 
-#: components/settings.py:170
+#: components/settings.py:167
 msgid "V-Sync: "
 msgstr ""
 
-#: components/settings.py:180
+#: components/settings.py:177
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings.py:188
+#: components/settings.py:185
 msgid "Quality"
 msgstr "Qualität"
 
-#: components/settings.py:203
+#: components/settings.py:200
 msgid "Show FPS: "
 msgstr "FPS anzeigen: "
 
-#: components/settings.py:206
+#: components/settings.py:203
 msgid "On"
 msgstr "An"
 
-#: components/settings.py:208
+#: components/settings.py:205
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings.py:213
+#: components/settings.py:210
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings.py:222
+#: components/settings.py:219
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
