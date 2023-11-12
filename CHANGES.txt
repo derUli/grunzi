@@ -1,5 +1,5 @@
 # Changelog
 
-# Alpha 001
+## Alpha 001
 
 * Erster öffentlicher Alpha Build
