@@ -20,8 +20,6 @@ class Water(sprites.sprite.Sprite):
         self.angle = 0
         self.loaded = False
 
-        self.frames = {}
-
         self.update_interval = (1 / 10)
         self.last_update = 0
     def draw(self, screen, x, y):
@@ -35,10 +33,12 @@ class Water(sprites.sprite.Sprite):
             thread = Thread(target=self.generate_frames_async)
             thread.start()
 
-        if self.angle not in self.frames:
+        frame = self.cache.get_processed_image(self.cache_id(self.angle))
+
+        if not frame:
             return
 
-        screen.blit(self.frames[self.angle], pos)
+        screen.blit(frame, pos)
 
         if time.time() - self.last_update < self.update_interval:
             return
@@ -46,20 +46,23 @@ class Water(sprites.sprite.Sprite):
         next_angle = self.angle + 5
         next_angle = next_angle % 360
 
-        if next_angle in self.frames:
+        if self.cache.get_processed_image(self.cache_id(next_angle)):
             self.last_update = time.time()
             self.angle = next_angle
 
     def generate_frames_async(self):
-
         self.loaded = True
 
         angle = 0
         while angle <= 360:
-            if angle not in self.frames:
-                self.frames[angle] = self.next_frame(angle)
+            if not self.cache.get_processed_image(self.cache_id(angle)):
+                self.cache.add_processed_image(self.cache_id(angle), self.next_frame(angle))
 
             angle += 5
+
+
+    def cache_id(self, angle):
+        return 'water-' + str(angle)
 
 
     def next_frame(self, angle):
