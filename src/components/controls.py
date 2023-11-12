@@ -16,7 +16,7 @@ PAGE_CONTROLLER = 1
 TEXT_COLOR = (255, 255, 255)
 LINE_SMALL_MARGIN = 20
 LINE_LARGE_MARGIN = 28
-HORIZONTAL_MARGIN = 40
+HORIZONTAL_MARGIN = 45
 
 FONT_SIZE = 28
 
@@ -48,6 +48,7 @@ class Controls(FadeableComponent):
             (_('Grunt'), 'G_Key_Dark.png'),
             (_('Run'), 'Shift_Key_Dark.png'),
             (_('Pause'), 'Esc_Key_Dark.png'),
+            (_('Make Screenshot'), 'F12_Key_Dark.png'),
         ]
 
     def controller_controls(self):
