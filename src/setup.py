@@ -21,7 +21,8 @@ cx_Freeze.setup(
             'packages': [
                 'pygame',
                 'sprites',
-                'pygame_emojis'
+                'pygame_emojis',
+                'PygameShader'
             ],
             'include_files': [
                 'data/',

@@ -199,8 +199,8 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def ai(self):
         if not self.async_ai_running:
-            thread = Thread(target=self.async_ai)
-            thread.start()
+            Thread(target=self.async_ai_low).start()
+            Thread(target=self.async_ai_high).start()
 
         if self.is_level_exit:
             self.handle_change_component(components.tobecontinued.ToBeContinued)
@@ -215,30 +215,36 @@ class MainGame(PausableComponent, FadeableComponent):
             component.show_fps = self.show_fps
             return
 
-        if not self.state.player_state.use_item:
-            return
-
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
-
-        character = self.level.get_sprite((z, y, x))
-
-        for z in reversed(range(0, len(self.level.layers))):
-            if isinstance(self.state.player_state.inventory, InlineSprite):
-                i_x, i_y = self.level.calculate_next_pos((x, y), character.direction)
-                i_element = self.level.get_sprite((z, i_y, i_x))
-                if i_element:
-                    i_element.handle_interact_item(character)
-
-    def async_ai(self):
+    def async_ai_low(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
-            pygame.time.wait(100)
+            pygame.time.delay(500)
             z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
-            if self.level.is_levelexit(x, y) and not self.state.edit_mode:
+            if not self.state.edit_mode and self.level.is_levelexit(x, y):
                 # Show "To be continued"
                 self.is_level_exit = True
+                return
 
+    def async_ai_high(self):
+        self.async_ai_running = True
+        while self.async_ai_running and not self.do_quit:
+
+            if not self.state.player_state.use_item:
+                pygame.time.delay(300)
+                continue
+
+            pygame.time.delay(50)
+
+            z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+            character = self.level.get_sprite((z, y, x))
+
+            for z in reversed(range(0, len(self.level.layers))):
+                if isinstance(self.state.player_state.inventory, InlineSprite):
+                    i_x, i_y = self.level.calculate_next_pos((x, y), character.direction)
+                    i_element = self.level.get_sprite((z, i_y, i_x))
+                    if i_element:
+                        i_element.handle_interact_item(character)
 
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
