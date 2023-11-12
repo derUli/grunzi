@@ -10,6 +10,7 @@ from sprites.kitten import Kitten
 from sprites.levelexit import LevelExit
 from sprites.piggybank import PiggyBank
 from sprites.sheep import Sheep
+from sprites.dog import Dog
 from sprites.wall import Wall
 
 
@@ -139,6 +140,10 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache
         ),
         Sheep(
+            sprites_dir,
+            image_cache
+        ),
+        Dog(
             sprites_dir,
             image_cache
         ),

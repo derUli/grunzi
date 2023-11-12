@@ -20,7 +20,8 @@ from utils.reflections import get_class
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
 LAYER_ITEMS = 2
-LAYER_MAINCHAR = 3
+LAYER_OTHER_CHARS= 3
+LAYER_MAINCHAR = 4
 
 
 class Level:
@@ -88,7 +89,7 @@ class Level:
         # Three layers
         self.layers = [
             self.fill_fallback(sprites.backdrop.Backdrop),  # Backdrop layer
-            self.fill_fallback(None),  # Static objects
+            self.fill_fallback(None),  # Static objects,
             self.fill_fallback(None),  # Player character
         ]
         self.layers[LAYER_GROUND] = self.build_wall(self.layers[LAYER_GROUND])
