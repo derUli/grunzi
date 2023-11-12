@@ -20,7 +20,6 @@ RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 BLOOD_COLOR = (163, 8, 8)
 KITTEN_SOUND_FADEOUT = 100
 
-
 class Kitten(Character):
     """ Chicken sprite class """
 
@@ -33,7 +32,8 @@ class Kitten(Character):
         self.sound = None
         # Time until next move
         self.walk_speed = 0.3
-        self.next_mew = None
+
+        self.next_mew = time.time() + random.randint(10, 30)
 
     def draw(self, screen, x, y):
         """ Draw sprite """
@@ -75,7 +75,7 @@ class Kitten(Character):
         if time.time() < self.next_mew:
             return
 
-        self.next_mew = time.time() + random.randint(5, 20)
+        self.next_mew = time.time() + random.randint(10, 30)
 
         sound_dir = os.path.abspath(
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'kitten')
@@ -104,7 +104,6 @@ class Kitten(Character):
     def handle_interact(self, element):
         self.change_direction(self.random_direction())
         element.play_sound(PIG_SOUND_NOTHING)
-        self.next_mew = time.time() + random.randint(5, 20)
 
     def handle_interact_item(self, element):
         """ Handle interact """
