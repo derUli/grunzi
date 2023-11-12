@@ -220,7 +220,7 @@ class MainGame(PausableComponent, FadeableComponent):
     def async_ai_low(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
-            pygame.time.delay(500)
+            pygame.time.delay(400)
             z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
             if not self.state.edit_mode and self.level.is_levelexit(x, y):
