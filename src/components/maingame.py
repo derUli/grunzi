@@ -218,6 +218,8 @@ class MainGame(PausableComponent, FadeableComponent):
         if not self.state.player_state.use_item:
             return
 
+        print('foo')
+
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         character = self.level.get_sprite((z, y, x))
@@ -232,7 +234,7 @@ class MainGame(PausableComponent, FadeableComponent):
     def async_ai(self):
         self.async_ai_running = True
 
-        while self.async_ai_running:
+        while self.async_ai_running and self.running:
             pygame.time.wait(100)
             z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
