@@ -185,7 +185,8 @@ class MainGame(PausableComponent, FadeableComponent):
 
         screen.blit(virtual_screen, (0, 0))
 
-        self.draw_headup(screen)
+        # Draw head up display
+        self.state.player_state.draw(screen)
 
         # Check for changes
         if self.state.edit_mode and self.level.check_for_changes():
@@ -530,7 +531,3 @@ class MainGame(PausableComponent, FadeableComponent):
             self.level.layers[z][y][x] = None
 
             self.update_camera()
-
-    def draw_headup(self, screen):
-        """ Draw head up display """
-        self.state.player_state.draw(screen)
