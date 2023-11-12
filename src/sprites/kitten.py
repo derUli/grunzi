@@ -20,6 +20,7 @@ RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 BLOOD_COLOR = (163, 8, 8)
 KITTEN_SOUND_FADEOUT = 100
 
+
 class Kitten(Character):
     """ Chicken sprite class """
 

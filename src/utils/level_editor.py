@@ -4,16 +4,17 @@ from sprites.chainsaw import Chainsaw
 from sprites.chicken import Chicken
 from sprites.coin import Coin
 from sprites.destroyable import Destroyable
+from sprites.dog import Dog
+from sprites.duck import Duck
 from sprites.fence import Fence
 from sprites.hammer import Hammer
 from sprites.kitten import Kitten
 from sprites.levelexit import LevelExit
 from sprites.piggybank import PiggyBank
 from sprites.sheep import Sheep
-from sprites.dog import Dog
 from sprites.wall import Wall
 from sprites.water import Water
-from sprites.duck import Duck
+
 
 def get_editor_blocks(sprites_dir, image_cache):
     """ Get editor blocks array for inline map editor"""

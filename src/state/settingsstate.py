@@ -6,7 +6,7 @@ import pygame
 
 import utils.audio
 import utils.quality
-from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True

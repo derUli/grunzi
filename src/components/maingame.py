@@ -4,9 +4,10 @@ import math
 import os
 import random
 import time
-
+from threading import Thread
 import pygame
 
+import components.tobecontinued
 import constants.game
 import constants.graphics
 import state.state
@@ -15,7 +16,6 @@ import utils.savegame
 from components.fadeable_component import FadeableComponent
 from components.gameover import GameOver
 from components.pausable_component import PausableComponent
-from components.tobecontinued import ToBeContinued
 from constants import direction
 from constants import gamepad
 from constants import keyboard
@@ -46,6 +46,8 @@ class MainGame(PausableComponent, FadeableComponent):
         self.editor_blocks_length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
         self.editor_block_index = 0
         self.disable_ai = False
+        self.async_ai_running = None
+        self.is_level_exit = False
 
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg'
@@ -93,6 +95,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fadein()
 
     def unmount(self):
+        self.async_ai_running = False
         super().unmount()
         """ On unmount show mouse cursor and stop music """
         pygame.mouse.set_visible(1)
@@ -195,6 +198,14 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fade()
 
     def ai(self):
+        if self.async_ai_running is None:
+            thread = Thread(target=self.async_ai)
+            thread.start()
+
+        if self.is_level_exit:
+            self.handle_change_component(components.tobecontinued.ToBeContinued)
+            return
+
         if self.state.player_state.dead():
             self.moving = None
             self.update_screen(self.screen)
@@ -204,15 +215,10 @@ class MainGame(PausableComponent, FadeableComponent):
             component.show_fps = self.show_fps
             return
 
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
-
-        if self.level.is_levelexit(x, y) and not self.state.edit_mode:
-            # Show "To be continued"
-            self.handle_change_component(ToBeContinued)
-            return
-
         if not self.state.player_state.use_item:
             return
+
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         character = self.level.get_sprite((z, y, x))
 
@@ -222,6 +228,18 @@ class MainGame(PausableComponent, FadeableComponent):
                 i_element = self.level.get_sprite((z, i_y, i_x))
                 if i_element:
                     i_element.handle_interact_item(character)
+
+    def async_ai(self):
+        self.async_ai_running = True
+
+        while self.async_ai_running:
+            pygame.time.wait(100)
+            z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+
+            if self.level.is_levelexit(x, y) and not self.state.edit_mode:
+                # Show "To be continued"
+                self.async_ai_running = False
+                self.is_level_exit = True
 
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)

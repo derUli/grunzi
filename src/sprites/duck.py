@@ -1,6 +1,8 @@
 """ Duck character sprite """
 
 from sprites.character import Character
+
+
 class Duck(Character):
     """ Duck sprite class """
 

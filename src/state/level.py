@@ -3,6 +3,9 @@ import logging
 import os
 import random
 import time
+
+import pygame
+
 import constants.graphics
 import sprites.backdrop
 import sprites.detailed
@@ -16,13 +19,12 @@ from sprites.door import Door
 from sprites.key import Key
 from sprites.levelexit import LevelExit
 from utils.reflections import get_class
-import pygame
 from utils.screenshot import make_dump
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
 LAYER_ITEMS = 2
-LAYER_OTHER_CHARS= 3
+LAYER_OTHER_CHARS = 3
 LAYER_MAINCHAR = 4
 
 
@@ -50,7 +52,7 @@ class Level:
                 row = []
 
                 for x in y:
-                    pygame.event.pump() # To prevent UI from freezing while loading
+                    pygame.event.pump()  # To prevent UI from freezing while loading
                     if x:
                         sprite_file = None
                         if 'sprite_file' in x:
@@ -108,8 +110,6 @@ class Level:
 
                         else:
                             element.draw(surface, x, y)
-
-
 
         make_dump(surface)
 

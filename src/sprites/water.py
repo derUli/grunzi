@@ -1,12 +1,15 @@
 """ Backdrop sprite """
 
-import math
-import sprites.sprite
-import time
-from utils.quality import scale_method, shader_enabled
-from threading import Thread
 import logging
+import math
+import time
+from threading import Thread
+
 from PygameShader.shader import wave
+
+import sprites.sprite
+from utils.quality import scale_method, shader_enabled
+
 
 class Water(sprites.sprite.Sprite):
     """ Backdrop sprite """
@@ -23,6 +26,7 @@ class Water(sprites.sprite.Sprite):
 
         self.update_interval = (1 / 10)
         self.last_update = 0
+
     def draw(self, screen, x, y):
         pos = self.calculate_pos(x, y)
 
@@ -31,8 +35,8 @@ class Water(sprites.sprite.Sprite):
             return
 
         if not self.loaded:
-            thread = Thread(target=self.generate_frames_async)
-            thread.start()
+            self.generate_frames()
+
 
         frame = self.cache.get_processed_image(self.cache_id(self.angle))
 
@@ -51,10 +55,8 @@ class Water(sprites.sprite.Sprite):
             self.last_update = time.time()
             self.angle = next_angle
 
-    def generate_frames_async(self):
+    def generate_frames(self):
         self.loaded = True
-
-        start_time = time.time()
 
         angle = 0
         while angle <= 360:
@@ -63,13 +65,8 @@ class Water(sprites.sprite.Sprite):
 
             angle += 5
 
-        end_time = time.time() - start_time
-        logging.debug('Waves generated in ' + str(end_time))
-
-
     def cache_id(self, angle):
         return 'water-' + str(angle)
-
 
     def next_frame(self, angle):
         sprite = self.original_sprite.copy()

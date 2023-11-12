@@ -20,6 +20,7 @@ HORIZONTAL_MARGIN = 45
 
 FONT_SIZE = 28
 
+
 class Controls(FadeableComponent):
     """ Controls screen """
 
@@ -60,6 +61,7 @@ class Controls(FadeableComponent):
             (_('Run'), '360_RT.png'),
             (_('Pause'), '360_Start.png'),
         ]
+
     def mount(self):
         self.fadein()
 
@@ -68,7 +70,6 @@ class Controls(FadeableComponent):
         """ Show mouse on unmount and stop music """
         pygame.mouse.set_visible(1)
         pygame.mixer.music.stop()
-
 
     def update_screen(self, screen):
         """ Update screen """
@@ -108,7 +109,6 @@ class Controls(FadeableComponent):
 
             surface.blit(control_text, (x, y))
 
-
             image_path = os.path.join(self.data_dir, 'images', 'ui', 'controls', image_file)
             scale_to = (control_text.get_height(), control_text.get_height())
             if image_file == 'Arrow_Keys.png':
@@ -119,22 +119,18 @@ class Controls(FadeableComponent):
                 scale_to
             )
 
-
-
             pos_image = (
                 surface.get_width() - HORIZONTAL_MARGIN - image.get_width(),
                 y
             )
 
-            surface.blit(image,pos_image)
+            surface.blit(image, pos_image)
 
             y += controls_text.get_height()
             y += LINE_SMALL_MARGIN
 
-
         self.draw_film_grain(surface)
         screen.blit(surface, (0, 0))
-
 
         self.fade()
 

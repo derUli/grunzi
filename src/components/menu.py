@@ -6,13 +6,14 @@ import pygame_menu
 import components.maingame
 import utils.savegame
 from components.component import Component
+from components.controls import Controls
 from components.settings import Settings
 from constants.headup import PIGGY_PINK
 from constants.quality import QUALITY_VERY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
-from components.controls import Controls
+
 
 class Menu(Component):
 

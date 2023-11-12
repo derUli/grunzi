@@ -4,14 +4,15 @@ import logging
 import os
 import random
 import time
+
 import pygame
 
-from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
+from constants.game import MAIN_CHARACTER_ID
 from sprites.chainsaw import Chainsaw
 from sprites.character import Character
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
-from constants.game import MAIN_CHARACTER_ID
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
@@ -148,7 +149,6 @@ class Dog(Character):
                 level.layers[dog_z][target_y][target_x] = self
                 level.layers[dog_z][dog_y][dog_x] = None
                 break
-
 
     def handle_interact(self, element):
         print(element)
