@@ -195,8 +195,6 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fade()
 
     def ai(self):
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
-
         if self.state.player_state.dead():
             self.moving = None
             self.update_screen(self.screen)
@@ -205,6 +203,8 @@ class MainGame(PausableComponent, FadeableComponent):
             component.state = self.state
             component.show_fps = self.show_fps
             return
+
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         if self.level.is_levelexit(x, y) and not self.state.edit_mode:
             # Show "To be continued"
