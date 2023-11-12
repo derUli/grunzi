@@ -198,7 +198,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fade()
 
     def ai(self):
-        if self.async_ai_running is None:
+        if not self.async_ai_running:
             thread = Thread(target=self.async_ai)
             thread.start()
 
@@ -218,13 +218,11 @@ class MainGame(PausableComponent, FadeableComponent):
         if not self.state.player_state.use_item:
             return
 
-        print('foo')
-
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
         character = self.level.get_sprite((z, y, x))
 
-        for z in range(0, len(self.level.layers)):
+        for z in reversed(range(0, len(self.level.layers))):
             if isinstance(self.state.player_state.inventory, InlineSprite):
                 i_x, i_y = self.level.calculate_next_pos((x, y), character.direction)
                 i_element = self.level.get_sprite((z, i_y, i_x))
@@ -233,15 +231,14 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def async_ai(self):
         self.async_ai_running = True
-
-        while self.async_ai_running and self.running:
+        while self.async_ai_running and not self.do_quit:
             pygame.time.wait(100)
             z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
             if self.level.is_levelexit(x, y) and not self.state.edit_mode:
                 # Show "To be continued"
-                self.async_ai_running = False
                 self.is_level_exit = True
+
 
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)

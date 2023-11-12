@@ -22,6 +22,7 @@ class Component(object):
         self.settings_state = settings_state
         self.enable_edit_mode = enable_edit_mode
         self.gamepad = gamepad
+        self.do_quit = False
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),

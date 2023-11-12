@@ -142,7 +142,7 @@ class GameContainer:
         for event in pygame.event.get():
             if event.type == QUIT:
                 self.quit()
-                continue
+                return
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_F12:
                     self.screenshot()
@@ -155,6 +155,7 @@ class GameContainer:
 
     def quit(self, sig=None, frame=None):
         """ Quit game """
+        self.current_component.do_quit = True
         self.running = False
 
     def screenshot(self):
