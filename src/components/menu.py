@@ -12,7 +12,7 @@ from constants.quality import QUALITY_VERY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
-
+from components.controls import Controls
 
 class Menu(Component):
 
@@ -25,7 +25,8 @@ class Menu(Component):
             'images',
             'sprites',
             'animations',
-            'dancing_pig')
+            'dancing_pig'
+        )
         # 25 Frames by second
         self.video = Animation(
             video_path,
@@ -60,6 +61,11 @@ class Menu(Component):
         component.video = self.video
         self.menu.disable()
 
+    def handle_controls(self):
+        """ Handle open settings menu  """
+        self.handle_change_component(Controls)
+        self.menu.disable()
+
     def draw_background(self):
         if self.settings_state.quality > QUALITY_VERY_LOW:
             video_frame = self.video.get_frame()
@@ -79,6 +85,7 @@ class Menu(Component):
                 self.handle_continue_game)  # Continue game
 
         menu.add.button(_('Settings'), self.handle_settings)
+        menu.add.button(_('Controls'), self.handle_controls)
 
         menu.add.button(_('Quit'), pygame_menu.events.EXIT)
 

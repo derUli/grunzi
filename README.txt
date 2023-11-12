@@ -69,4 +69,3 @@ Im Folgenden eine Aufschlüsselung der Grafikqualitäten:
 | Mittel       |     ✅    |        ❌         |     ❌     |            ✅         |
 | Hoch         |     ✅    |        ✅         |     ❌     |            ✅         |
 | Sehr hoch    |     ✅    |        ✅         |     ✅     |            ✅         |
-
