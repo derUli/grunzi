@@ -208,22 +208,21 @@ class Level:
 
     def update_sprites(self):
         """ Search character by id """
-        for z in range(0, len(self.layers)):
+        for z in reversed(range(0, len(self.layers))):
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
                     if not element:
                         continue
+
                     if element.purge:
                         self.layers[z][y][x] = None
-
                     if element.replace_with:
                         self.layers[z][y][x] = element.replace_with
-        return
 
     def is_walkable(self, x, y):
         """ Check if a sprite  is walkable"""
-        for z in self.layers:
+        for z in reversed(self.layers):
             if not z[y][x]:
                 continue
 
@@ -234,7 +233,7 @@ class Level:
 
     def is_levelexit(self, x, y):
         """ Check if a sprite  is walkable"""
-        for z in self.layers:
+        for z in reversed(self.layers):
             try:
                 if isinstance(z[y][x], LevelExit):
                     return True
@@ -245,7 +244,7 @@ class Level:
 
     def search_character(self, id):
         """ Search character by id """
-        for z in range(0, len(self.layers)):
+        for z in reversed(range(0, len(self.layers))):
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
@@ -256,7 +255,7 @@ class Level:
 
     def search_sprite(self, sprite):
         """ Search character by id """
-        for z in range(0, len(self.layers)):
+        for z in reversed(range(0, len(self.layers))):
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
                     if self.layers[z][y][x] == sprite:

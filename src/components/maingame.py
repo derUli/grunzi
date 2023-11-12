@@ -215,6 +215,7 @@ class MainGame(PausableComponent, FadeableComponent):
             return
 
         character = self.level.get_sprite((z, y, x))
+
         for z in range(0, len(self.level.layers)):
             if isinstance(self.state.player_state.inventory, InlineSprite):
                 i_x, i_y = self.level.calculate_next_pos((x, y), character.direction)
