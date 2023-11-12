@@ -68815,9 +68815,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -120102,7 +120101,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,
@@ -120502,10 +120504,7 @@
 "sprite_file": "qrcode1.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 0,
 0,
 0,
@@ -133566,10 +133565,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -134072,11 +134068,11 @@
 ],
 [
 0,
-0,
 {
 "sprite_class": "sprites.chicken.Chicken",
 "sprite_file": "chicken.png"
 },
+0,
 0,
 0,
 0,
@@ -151011,6 +151007,11 @@
 0,
 0,
 0,
+{
+"sprite_class": "sprites.takeable.Takeable",
+"sprite_file": "bottle.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -151153,7 +151154,6 @@
 0,
 0,
 0,
-0,
 0
 ],
 [
@@ -160733,7 +160733,6 @@
 0
 ],
 [
-0,
 0,
 0,
 0,
@@ -160751,6 +160750,10 @@
 0,
 0,
 0,
+{
+"sprite_class": "sprites.duck.Duck",
+"sprite_file": "duck_swimming.png"
+},
 0,
 0,
 0,
@@ -195721,6 +195724,14 @@
 [
 0,
 0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 {
 "sprite_class": "sprites.kitten.Kitten",
 "sprite_file": "kitten.png"
@@ -195863,14 +195874,6 @@
 0,
 0,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
 0
 ],
 [
@@ -196640,11 +196643,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.takeable.Takeable",
-"sprite_file": "bottle.png",
-"walkable": 1
-},
+0,
 0,
 {
 "sprite_class": "sprites.takeable.Takeable",
@@ -215960,12 +215959,12 @@
 0,
 0,
 0,
-0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
+0,
 0,
 0,
 0,

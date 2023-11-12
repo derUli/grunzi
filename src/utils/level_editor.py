@@ -13,7 +13,7 @@ from sprites.sheep import Sheep
 from sprites.dog import Dog
 from sprites.wall import Wall
 from sprites.water import Water
-
+from sprites.duck import Duck
 
 def get_editor_blocks(sprites_dir, image_cache):
     """ Get editor blocks array for inline map editor"""
@@ -149,6 +149,10 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache
         ),
         Dog(
+            sprites_dir,
+            image_cache
+        ),
+        Duck(
             sprites_dir,
             image_cache
         ),

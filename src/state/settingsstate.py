@@ -6,7 +6,7 @@ import pygame
 
 import utils.audio
 import utils.quality
-from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH, QUALITY_VERY_HIGH
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True
@@ -65,6 +65,7 @@ class SettingsState:
 
         utils.quality.ENABLE_SMOOTH_SCALE = self.quality >= QUALITY_HIGH
         utils.quality.ENABLE_FONT_ANTIALIASING = self.quality >= QUALITY_MEDIUM
+        utils.quality.SHADER_ENABLED = self.quality >= QUALITY_VERY_HIGH
 
     def get_settings_path(self):
         """ Get settings file path """
