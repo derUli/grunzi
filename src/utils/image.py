@@ -11,9 +11,20 @@ class ImageCache:
 
     def __init__(self):
         self.images = {}
+        self.processed_images = {}
 
     def clear(self):
         self.images = {}
+        self.processed_images = {}
+
+    def add_processed_image(self, name, surface):
+        self.processed_images[name] = surface
+
+    def get_processed_image(self, name):
+        if name in self.processed_images:
+            return self.processed_images[name]
+
+        return None
 
     def load_image(self, path, scale=None):
         extension = os.path.splitext(path)[1]

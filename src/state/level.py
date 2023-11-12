@@ -3,7 +3,6 @@ import logging
 import os
 import random
 import time
-
 import constants.graphics
 import sprites.backdrop
 import sprites.detailed
@@ -51,6 +50,7 @@ class Level:
                 row = []
 
                 for x in y:
+                    pygame.event.pump() # To prevent UI from freezing while loading
                     if x:
                         sprite_file = None
                         if 'sprite_file' in x:
