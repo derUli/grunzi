@@ -14,6 +14,7 @@ K_USE = pygame.K_e  # Use Inventory item
 K_TOGGLE_EDIT_MODE = pygame.K_F1
 K_NEXT_LAYER = pygame.K_t
 K_SAVE_LEVEL = pygame.K_F5
+K_DUMP_LEVEL = pygame.K_F6
 K_CHANGE_BLOCK_UP = pygame.K_PAGEUP
 K_CHANGE_BLOCK_DOWN = pygame.K_PAGEDOWN
 MOVEMENT_KEYS = K_UP + K_DOWN + K_LEFT + K_RIGHT

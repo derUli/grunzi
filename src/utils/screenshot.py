@@ -18,3 +18,17 @@ def make_screenshot(screen):
     )
 
     pygame.image.save(screen, screenshot_file)
+
+
+def make_dump(screen):
+    screenshot_dir = os.path.join(get_userdata_path(), 'dumps')
+
+    if not os.path.exists(screenshot_dir):
+        os.makedirs(screenshot_dir)
+
+    screenshot_file = os.path.join(
+        screenshot_dir,
+        time.strftime("%Y%m%d-%H%M%S") + '.jpg'
+    )
+
+    pygame.image.save(screen, screenshot_file)

@@ -4,6 +4,7 @@ import os
 import random
 import time
 
+import constants.graphics
 import sprites.backdrop
 import sprites.detailed
 import sprites.fire
@@ -16,6 +17,8 @@ from sprites.door import Door
 from sprites.key import Key
 from sprites.levelexit import LevelExit
 from utils.reflections import get_class
+import pygame
+from utils.screenshot import make_dump
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
@@ -84,6 +87,23 @@ class Level:
     def save(self):
         with open(self.level_file, 'w') as f:
             f.write(json.dumps(self.to_saveable_list(), indent=0))
+
+    def dump(self):
+        w, h = constants.graphics.SPRITE_SIZE
+
+        total_w = len(self.layers[0][0]) * w
+        total_h = len(self.layers[0]) * h
+
+        surface = pygame.surface.Surface((total_w, total_h))
+
+        for z in range(0, len(self.layers)):
+            for y in range(0, len(self.layers[z])):
+                for x in range(0, len(self.layers[z][y])):
+                    element = self.layers[z][y][x]
+                    if element:
+                        element.draw(surface, x, y)
+
+        make_dump(surface)
 
     def randomize(self):
         # Three layers

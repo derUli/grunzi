@@ -394,6 +394,8 @@ class MainGame(PausableComponent, FadeableComponent):
         """ Handle edit mode events """
         if self.state.edit_mode and event.key == keyboard.K_SAVE_LEVEL:
             self.level.save()
+        elif self.state.edit_mode and event.key == keyboard.K_DUMP_LEVEL:
+            self.level.dump()
         elif self.state.edit_mode and event.key in keyboard.NUMERIC_KEYS:
             index = keyboard.NUMERIC_KEYS.index(event.key)
             # Shift is the key for running
