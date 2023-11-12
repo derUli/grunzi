@@ -101,7 +101,15 @@ class Level:
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
                     if element:
-                        element.draw(surface, x, y)
+                        if hasattr(element, 'animation'):
+                            # Wait for animation frame loading
+                            while len(element.animation.frames) == 0:
+                                element.draw(surface, x, y)
+
+                        else:
+                            element.draw(surface, x, y)
+
+
 
         make_dump(surface)
 

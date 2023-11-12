@@ -12,6 +12,7 @@ from sprites.piggybank import PiggyBank
 from sprites.sheep import Sheep
 from sprites.dog import Dog
 from sprites.wall import Wall
+from sprites.water import Water
 
 
 def get_editor_blocks(sprites_dir, image_cache):
@@ -98,6 +99,10 @@ def get_editor_blocks(sprites_dir, image_cache):
             'flower5.png'
         ),
         Wall(
+            sprites_dir,
+            image_cache
+        ),
+        Water(
             sprites_dir,
             image_cache
         ),
