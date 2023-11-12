@@ -95,9 +95,10 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fadein()
 
     def unmount(self):
+        """ On unmount show mouse cursor and stop music """
+
         self.async_ai_running = False
         super().unmount()
-        """ On unmount show mouse cursor and stop music """
         pygame.mouse.set_visible(1)
         pygame.mixer.music.stop()
 
