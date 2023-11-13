@@ -20,7 +20,7 @@ from constants import direction
 from constants import gamepad
 from constants import keyboard
 from constants.headup import BOTTOM_UI_HEIGHT
-from constants.quality import QUALITY_VERY_LOW
+from constants.quality import QUALITY_LOW
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
@@ -123,12 +123,6 @@ class MainGame(PausableComponent, FadeableComponent):
         w, h = screen.get_size()
 
         h -= BOTTOM_UI_HEIGHT
-        virtual_screen = pygame.surface.Surface((w, h))
-
-        if self.settings_state.quality <= QUALITY_VERY_LOW:
-            virtual_screen.fill(BACKDROP_COLOR)
-        else:
-            virtual_screen.blit(self.backdrop, (0, 0))
 
         tolerance_x = math.ceil(w / sprite_width)
         tolerance_y = math.ceil(h / sprite_height)
@@ -157,6 +151,33 @@ class MainGame(PausableComponent, FadeableComponent):
                 filtered_layers[z][y] = filtered_layers[z][y][from_x:to_x]
 
         z = 0
+
+        # TODO refactor to camera class
+        virtscreen_h = len(filtered_layers[0]) * sprite_height
+        virtscreen_w = len(filtered_layers[0][0]) * sprite_width
+
+        if virtscreen_w > screen.get_width():
+            virtscreen_w = screen.get_width()
+        if virtscreen_h > screen.get_height():
+            virtscreen_h = screen.get_height()
+            virtscreen_h -= BOTTOM_UI_HEIGHT
+
+        virtual_screen = pygame.surface.Surface((virtscreen_w, virtscreen_h))
+
+        show_backdrop = False
+
+        if self.settings_state.quality < QUALITY_LOW:
+            show_backdrop = False
+        elif virtscreen_h < screen.get_height() - BOTTOM_UI_HEIGHT:
+            show_backdrop = True
+        elif virtscreen_w < screen.get_width():
+            show_backdrop = True
+
+        if show_backdrop:
+            screen.blit(self.backdrop, (0, 0, virtscreen_w, virtscreen_h))
+        else:
+            screen.fill(BACKDROP_COLOR)
+
         for layer in filtered_layers:
             y = 0
             x = 0
@@ -169,6 +190,14 @@ class MainGame(PausableComponent, FadeableComponent):
             for row in layer:
                 for col in row:
                     if col and draw_layer:
+
+                        pos_x, pos_y = col.calculate_pos(x, y)
+
+                        if pos_x > virtscreen_w:
+                            break
+                        if pos_y > virtscreen_h:
+                            break
+
                         col.draw(virtual_screen, x, y)
 
                         if self.state.edit_mode and isinstance(col, Character):
