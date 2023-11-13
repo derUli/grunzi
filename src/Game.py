@@ -5,6 +5,8 @@ import locale
 import logging
 import os
 
+# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
+
 from bootstrap.gamecontainer import GameContainer
 from components.maingame import MainGame
 from components.menu import Menu
