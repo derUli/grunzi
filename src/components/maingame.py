@@ -237,8 +237,8 @@ class MainGame(PausableComponent, FadeableComponent):
     def ai(self):
         if not self.async_ai_running:
             thread_fns = [
-                self.async_check_for_levelexit,
-                self.async_handle_interactions
+                self.async_low_prio,
+                self.async_high_prio
             ]
 
             for fn in thread_fns:
@@ -265,7 +265,7 @@ class MainGame(PausableComponent, FadeableComponent):
             component.show_fps = self.show_fps
             return
 
-    def async_check_for_levelexit(self):
+    def async_low_prio(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
             pygame.time.delay(THREAD_INTERVAL_LOW)
@@ -277,7 +277,7 @@ class MainGame(PausableComponent, FadeableComponent):
                 return
 
 
-    def async_handle_interactions(self):
+    def async_high_prio(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
             pygame.time.delay(THREAD_INTERVAL_HIGH)
