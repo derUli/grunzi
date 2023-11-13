@@ -7,7 +7,7 @@ import utils.quality
 from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
-
+from PygameShader.shader import bilinear
 
 class ToBeContinued(FadeableComponent):
     """ To be continued Screen """
@@ -20,7 +20,14 @@ class ToBeContinued(FadeableComponent):
         file = os.path.join(data_dir, 'images', 'ui', 'to_be_continued.jpg')
 
         self.backdrop = self.image_cache.load_image(file)
-        self.backdrop = utils.quality.scale_method()(self.backdrop, settings_state.screen_resolution)
+
+        scale_fn = utils.quality.scale_method()
+
+        # Bilinear is faster for scaling down
+        if self.settings_state.screen_resolution < self.backdrop.get_size():
+            scale_fn = bilinear
+
+        self.backdrop = scale_fn(self.backdrop, settings_state.screen_resolution)
 
     def mount(self):
         self.fadein()

@@ -71,10 +71,10 @@ class Water(sprites.sprite.Sprite):
     def next_frame(self, angle):
         sprite = self.original_sprite.copy()
 
-        w, h = sprite.get_size()
+        # w, h = sprite.get_size()
 
         wave(sprite, angle * math.pi / 180.0, 12)
-        sprite = scale_method()(sprite, (w + 90, h + 90))
+        #sprite = scale_method()(sprite, (w + 90, h + 90))
 
         sprite = sprite.convert()
 
