@@ -115,10 +115,6 @@ class MainGame(PausableComponent, FadeableComponent):
         if self.do_fade:
             screen = screen.copy().convert_alpha()
 
-        """ Draw screen """
-        if self.moving:
-            self.move_main_character(self.moving)
-
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
         w, h = screen.get_size()
@@ -239,6 +235,10 @@ class MainGame(PausableComponent, FadeableComponent):
         if not self.async_ai_running:
             Thread(target=self.async_ai_low).start()
             Thread(target=self.async_ai_high).start()
+
+
+        if self.moving:
+            self.move_main_character(self.moving)
 
         if self.is_level_exit:
             self.handle_change_component(components.tobecontinued.ToBeContinued)
