@@ -55,7 +55,7 @@ class ImageCache:
 
                     image = scale_fn(image, scale)
 
-                    self.images[cache_id] = image
+                self.images[cache_id] = image
 
             except FileNotFoundError:
                 logging.error('File not found ' + path)
