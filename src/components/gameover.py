@@ -9,7 +9,7 @@ import utils.savegame
 from components.component import Component
 from constants.quality import QUALITY_LOW
 from utils.menu import make_menu
-
+from PygameShader.shader import bilinear
 
 class GameOver(Component):
     """ Gamve Over Screen """
@@ -44,8 +44,14 @@ class GameOver(Component):
     def update_screen(self, screen):
         """ Draw GameOver screen """
 
-        self.backdrop = utils.quality.scale_method()(
-            self.backdrop, screen.get_size())
+        scale_fn = utils.quality.scale_method()
+
+        # Bilinear is faster for scaling down
+        if screen.get_size() < self.backdrop.get_size():
+            scale_fn = bilinear
+
+        if self.backdrop.get_size() != screen.get_size():
+            self.backdrop = scale_fn(self.backdrop, screen.get_size())
 
         menu = make_menu(_('Game Over'), self.settings_state.limit_fps)
 
