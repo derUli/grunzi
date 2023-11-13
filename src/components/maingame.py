@@ -511,7 +511,7 @@ class MainGame(PausableComponent, FadeableComponent):
 
         if not self.moving:
             self.moving = dir
-            character.last_move = 0
+            character.last_movement = 0
             return
 
         walk_speed = character.walk_speed
@@ -519,10 +519,10 @@ class MainGame(PausableComponent, FadeableComponent):
         if self.running:
             walk_speed = character.sprint_speed
 
-        if time.time() - character.last_move < walk_speed:
+        if time.time() - character.last_movement < walk_speed:
             return
 
-        character.last_move = time.time()
+        character.last_movement = time.time()
 
         next_x = x
         next_y = y
