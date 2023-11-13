@@ -48,16 +48,13 @@ class ImageCache:
                     image = image.convert()
 
                 if scale:
-                    start_time = time.time()
-
                     # Bilinear is faster but only for scaling down
                     # It can't handle transparency
                     if not is_alpha and scale < image.get_size():
                         image = bilinear(image, scale)
 
                     image = scale_fn(image, scale)
-                    end_time = time.time() - start_time
-                    print(os.path.basename(path) + " " + str(end_time))
+
                     self.images[cache_id] = image
 
             except FileNotFoundError:

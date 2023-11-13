@@ -3,7 +3,7 @@ import os
 import re
 import time
 from threading import Thread
-
+from PygameShader.shader import bilinear
 import pygame
 
 import utils.quality
@@ -84,13 +84,20 @@ class Animation():
 
         extension = os.path.splitext(file)[1]
 
+        is_alpha = False
+
+        scale_fn =  utils.quality.scale_method()
+
         if extension in TRANSPARENT_IMAGES:
             frame = frame.convert_alpha()
         else:
             frame = frame.convert()
+            is_alpha = True
 
         if self.size:
-            frame = utils.quality.scale_method()(
+            if not is_alpha and self.size < frame.get_size():
+                scale_fn = bilinear
+            frame = scale_fn(
                 frame,
                 self.size
             )

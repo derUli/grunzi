@@ -43,6 +43,7 @@ class GameOver(Component):
 
     def update_screen(self, screen):
         """ Draw GameOver screen """
+
         self.backdrop = utils.quality.scale_method()(
             self.backdrop, screen.get_size())
 
