@@ -31,7 +31,8 @@ from PygameShader.shader import bilinear
 
 BACKDROP_COLOR = (36, 63, 64)
 
-THREAD_INTERVAL = 300
+THREAD_INTERVAL_HIGH = 50
+THREAD_INTERVAL_LOW = 500
 
 class MainGame(PausableComponent, FadeableComponent):
 
@@ -268,7 +269,7 @@ class MainGame(PausableComponent, FadeableComponent):
     def async_check_for_levelexit(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
-            pygame.time.delay(THREAD_INTERVAL)
+            pygame.time.delay(THREAD_INTERVAL_LOW)
             z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
             if not self.state.edit_mode and self.level.is_levelexit(x, y):
@@ -279,13 +280,13 @@ class MainGame(PausableComponent, FadeableComponent):
     def async_update_sprites(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
-            pygame.time.delay(THREAD_INTERVAL)
+            pygame.time.delay(THREAD_INTERVAL_HIGH)
             self.level.update_sprites()
 
     def async_handle_interactions(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
-            pygame.time.delay(THREAD_INTERVAL)
+            pygame.time.delay(THREAD_INTERVAL_HIGH)
             if not self.state.player_state.use_item:
                 continue
 
@@ -298,6 +299,8 @@ class MainGame(PausableComponent, FadeableComponent):
                     i_element = self.level.get_sprite((z, i_y, i_x))
                     if i_element:
                         i_element.handle_interact_item(character)
+
+
 
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
