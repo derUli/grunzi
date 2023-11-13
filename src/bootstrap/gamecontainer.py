@@ -169,7 +169,7 @@ class GameContainer:
         # Filling the window with black color
         self.screen.fill((0, 0, 0))
 
-        self.clock.tick(self.settings_state.limit_fps)
+        self.tick_and_show_fps()
 
         self.current_component.update_screen(self.screen)
 

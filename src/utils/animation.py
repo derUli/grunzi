@@ -90,9 +90,9 @@ class Animation():
 
         if extension in TRANSPARENT_IMAGES:
             frame = frame.convert_alpha()
+            is_alpha = True
         else:
             frame = frame.convert()
-            is_alpha = True
 
         if self.size:
             if not is_alpha and self.size < frame.get_size():
