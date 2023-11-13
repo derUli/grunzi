@@ -50,6 +50,8 @@ class MainGame(PausableComponent, FadeableComponent):
         self.async_ai_running = None
         self.is_level_exit = False
 
+        self.last_rendered = None
+
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg'
         )
@@ -117,7 +119,6 @@ class MainGame(PausableComponent, FadeableComponent):
         if self.moving:
             self.move_main_character(self.moving)
 
-        self.level.update_sprites()
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
         w, h = screen.get_size()
@@ -267,6 +268,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
 
+            self.level.update_sprites()
             if not self.state.player_state.use_item:
                 pygame.time.delay(300)
                 continue
