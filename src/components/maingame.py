@@ -223,11 +223,6 @@ class MainGame(PausableComponent, FadeableComponent):
         # Draw head up display
         self.state.player_state.draw(screen)
 
-        # Check for changes
-        if self.state.edit_mode and self.level.check_for_changes():
-            # If the level file was changes do a reload
-            self.load_level(self.level.level_file)
-
         if self.do_fade:
             screen.set_alpha(self.alpha)
             self.screen.blit(screen, (0, 0))
@@ -275,6 +270,11 @@ class MainGame(PausableComponent, FadeableComponent):
                 # Show "To be continued"
                 self.is_level_exit = True
                 return
+
+            # Check for changes
+            if self.state.edit_mode and self.level.check_for_changes():
+                # If the level file was changes do a reload
+                self.load_level(self.level.level_file)
 
 
     def async_high_prio(self):
