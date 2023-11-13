@@ -31,6 +31,7 @@ from PygameShader.shader import bilinear
 
 BACKDROP_COLOR = (36, 63, 64)
 
+THREAD_INTERVAL = 300
 
 class MainGame(PausableComponent, FadeableComponent):
 
@@ -234,8 +235,14 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def ai(self):
         if not self.async_ai_running:
-            Thread(target=self.async_ai_low).start()
-            Thread(target=self.async_ai_high).start()
+            thread_fns = [
+                self.async_check_for_levelexit,
+                self.async_update_sprites,
+                self.async_handle_interactions
+            ]
+
+            for fn in thread_fns:
+                Thread(target=fn).start()
 
         for key in reversed(self.pressed_keys):
             if key in constants.keyboard.MOVEMENT_KEYS:
@@ -258,10 +265,10 @@ class MainGame(PausableComponent, FadeableComponent):
             component.show_fps = self.show_fps
             return
 
-    def async_ai_low(self):
+    def async_check_for_levelexit(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
-            pygame.time.delay(300)
+            pygame.time.delay(THREAD_INTERVAL)
             z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
             if not self.state.edit_mode and self.level.is_levelexit(x, y):
@@ -269,16 +276,18 @@ class MainGame(PausableComponent, FadeableComponent):
                 self.is_level_exit = True
                 return
 
-    def async_ai_high(self):
+    def async_update_sprites(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
-
+            pygame.time.delay(THREAD_INTERVAL)
             self.level.update_sprites()
-            if not self.state.player_state.use_item:
-                pygame.time.delay(300)
-                continue
 
-            pygame.time.delay(50)
+    def async_handle_interactions(self):
+        self.async_ai_running = True
+        while self.async_ai_running and not self.do_quit:
+            pygame.time.delay(THREAD_INTERVAL)
+            if not self.state.player_state.use_item:
+                continue
 
             z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
             character = self.level.get_sprite((z, y, x))
