@@ -40,7 +40,6 @@ Alt-Enter: Vollbildmodus / Fenster umschalten
 
 Das Spiel unterstützt XBox 360 Controller.
 Andere Controller können funktionieren, wurden von mir jedoch nicht getestet.
-
 Wenn beim Start des Spiels ein Controller angeschlossen ist, wird dieser automatisch aktiviert.
 Wenn mehrere Controller zeitgleich an den PC angeschlossen sind, wird nur einer davon aktiviert.
 
@@ -62,10 +61,10 @@ Damit die Änderung übernommen wird, ist ein Neustart des Spiels erforderlich.
 
 Im Folgenden eine Aufschlüsselung der Grafikqualitäten:
 
-| Qualität     | Backdrops  | Weiche Skalierung | Film Grain | Antialiasing für Fonts |
-| ------------ |:----------:|:-----------------:|:----------:|:----------------------:|
-| Sehr Niedrig |     ❌    |        ❌         |     ❌     |            ❌         |
-| Niedrig      |     ✅    |        ❌         |     ❌     |            ❌         |
-| Mittel       |     ✅    |        ❌         |     ❌     |            ✅         |
-| Hoch         |     ✅    |        ✅         |     ❌     |            ✅         |
-| Sehr hoch    |     ✅    |        ✅         |     ✅     |            ✅         |
+| Qualität     | Backdrops  | Weiche Skalierung | Film Grain | Antialiasing für Fonts | Wasser-Animationen | 
+| ------------ |:----------:|:-----------------:|:----------:|:----------------------:|:------------------:|
+| Sehr Niedrig |     ❌    |        ❌         |     ❌     |            ❌         |         ❌        |
+| Niedrig      |     ✅    |        ❌         |     ❌     |            ❌         |         ❌        |
+| Mittel       |     ✅    |        ❌         |     ❌     |            ✅         |         ❌        |
+| Hoch         |     ✅    |        ✅         |     ❌     |            ✅         |         ❌        |
+| Sehr hoch    |     ✅    |        ✅         |     ✅     |            ✅         |         ✅        |
