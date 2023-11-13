@@ -30,6 +30,7 @@ class PlayerState:
         self.flash_start = 0
         self.flash_duration = 0.05
         self.gamepad = gamepad
+        self.rendered_ui = (None, None)
         self.use_item = False
         self.display_text = DisplayText(data_dir)
         self.data_dir = data_dir
@@ -141,13 +142,56 @@ class PlayerState:
             (width, new_height), pygame.SRCALPHA)
         self.cropped_pig.blit(self.health_pig, (0, 0))
 
+    def to_dict(self):
+        data = {
+            'health': self.health,
+            'use_item': self.use_item,
+        }
+
+        if self.inventory and self.inventory.sprite:
+            data['inventory'] = hash(
+                pygame.image.tostring(
+                    self.inventory.sprite,
+                    'RGB'
+                )
+            )
+
+        if self.display_text.rendered_text:
+            data['rendered_text'] = hash(
+                pygame.image.tostring(
+                    self.display_text.rendered_text,
+                    'RGB'
+                )
+            )
+
+        return data
+
+    def to_hash(self):
+        return hash(str(self.to_dict()))
+
     def draw(self, screen):
         """ Draw player state UI """
         self.draw_flash(screen)
-        self.draw_background(screen)
-        self.draw_health(screen)
-        self.draw_inventory(screen)
-        self.draw_text(screen)
+
+        id_string, surf = self.rendered_ui
+        y = screen.get_height() - BOTTOM_UI_HEIGHT
+
+        if self.to_hash() == id_string:
+            screen.blit(surf, (0, y))
+            return
+
+        size = (screen.get_width(), BOTTOM_UI_HEIGHT)
+        surf = pygame.surface.Surface(size, pygame.SRCALPHA)
+
+        self.draw_background(surf)
+        self.draw_health(surf)
+        self.draw_inventory(surf)
+        self.draw_text(surf)
+
+        id_string = self.to_hash()
+        self.rendered_ui = (id_string, surf)
+
+        screen.blit(surf, (0, y))
 
     def draw_flash(self, screen):
         """ Draw flash effect """
@@ -173,22 +217,15 @@ class PlayerState:
 
         x, y = screen.get_size()
         x = x - surface.get_width() - UI_MARGIN
-        y = y - surface.get_height() - UI_MARGIN
+        y = UI_MARGIN
 
         screen.blit(self.cropped_pig, (x, y))
 
     def draw_background(self, screen):
         """ Draw ui background """
-        w = screen.get_width()
-        h = BOTTOM_UI_HEIGHT
 
-        x = 0
-        y = screen.get_height() - h
-        surface = pygame.surface.Surface((w, h))
+        screen.fill(BOTTOM_UI_BACKGROUND)
 
-        surface.fill(BOTTOM_UI_BACKGROUND)
-
-        screen.blit(surface, (x, y))
 
     def draw_inventory(self, screen):
         """ Draw inventory """
@@ -197,9 +234,8 @@ class PlayerState:
         surface = pygame.surface.Surface(size, pygame.SRCALPHA)
         surface.blit(self.inventory_image, (0, 0))
 
-        x, y = screen.get_size()
         x = UI_MARGIN
-        y = y - surface.get_height() - UI_MARGIN
+        y = UI_MARGIN
 
         # If inventory make item sprite fit into the frame
         if self.inventory and self.inventory.sprite:
@@ -230,6 +266,6 @@ class PlayerState:
         w, h = self.display_text.rendered_text.get_size()
 
         x = (screen.get_width() / 2) - (w / 2)
-        y = screen.get_height() - (BOTTOM_UI_HEIGHT / 2) - (h / 2) - UI_MARGIN
+        y = (BOTTOM_UI_HEIGHT / 2) - (h / 2) - UI_MARGIN
 
         self.display_text.draw(screen, (x, y))
