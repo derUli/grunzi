@@ -67,9 +67,9 @@ parser.add_argument(
 
 parser.add_argument(
     '-b',
-    '--do-benchmark',
-    action='store_true',
-    help='Do benchmark'
+    '--benchmark',
+    help='Do benchmark',
+    type=int
 )
 
 args = parser.parse_args()
@@ -78,7 +78,7 @@ log_file = os.path.join(get_userdata_path(), 'debug.log')
 
 log_level = logging.INFO
 
-if args.do_benchmark:
+if args.benchmark:
     args.skip_menu = True
 
 if args.debug:
@@ -107,10 +107,11 @@ game = GameContainer(
     disable_ai=args.disable_ai
 )
 
-minutes = 10
-seconds = minutes * 60
+if args.benchmark:
+    minutes = args.benchmark
+    print('Do benchmark for ' + str(minutes) + "Minutes")
+    seconds = minutes * 60
 
-if args.do_benchmark:
     game.do_benchmark = time.time() + seconds
 
 game.start(component)
