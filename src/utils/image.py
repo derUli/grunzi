@@ -1,11 +1,10 @@
 import logging
 import os.path
-
+import time
 import pygame
-
-import utils.quality
+from PygameShader.shader import bilinear
 from constants.graphics import ALPHA_IMAGE_FORMATS
-
+from utils.quality import scale_method
 
 class ImageCache:
 
@@ -27,8 +26,11 @@ class ImageCache:
         return None
 
     def load_image(self, path, scale=None):
+        start_time = time.time()
         extension = os.path.splitext(path)[1]
         is_alpha = extension.lower() in ALPHA_IMAGE_FORMATS
+
+        scale_fn = scale_method()
 
         cache_id = path
         if scale:
@@ -37,7 +39,6 @@ class ImageCache:
             cache_id = cache_id + '-' + str(x) + '-' + str(y)
 
         if cache_id not in self.images:
-
             try:
                 image = pygame.image.load(path)
 
@@ -47,8 +48,18 @@ class ImageCache:
                     image = image.convert()
 
                 if scale:
-                    image = utils.quality.scale_method()(image, scale)
-                self.images[cache_id] = image
+                    start_time = time.time()
+
+                    # Bilinear is faster but only for scaling down
+                    # It can't handle transparency
+                    if not is_alpha and scale < image.get_size():
+                        image = bilinear(image, scale)
+
+                    image = scale_fn(image, scale)
+                    end_time = time.time() - start_time
+                    print(os.path.basename(path) + " " + str(end_time))
+                    self.images[cache_id] = image
+
             except FileNotFoundError:
                 logging.error('File not found ' + path)
                 self.images[cache_id] = None
