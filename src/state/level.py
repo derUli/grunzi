@@ -210,6 +210,8 @@ class Level:
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):
             for y in range(0, len(self.layers[z])):
+                if not any(self.layers[z][y]):
+                    continue
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
                     if not element:
