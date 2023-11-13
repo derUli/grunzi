@@ -69,7 +69,8 @@ parser.add_argument(
     '-b',
     '--benchmark',
     help='Do benchmark',
-    type=int
+    type=int,
+    required=False
 )
 
 args = parser.parse_args()
@@ -109,7 +110,8 @@ game = GameContainer(
 
 if args.benchmark:
     minutes = args.benchmark
-    print('Do benchmark for ' + str(minutes) + " Minutes")
+    hours = round(minutes / 60, 2)
+    print('Do benchmark for ' + str(hours) + " hours")
     seconds = minutes * 60
 
     game.do_benchmark = time.time() + seconds
