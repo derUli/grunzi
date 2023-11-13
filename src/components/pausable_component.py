@@ -4,12 +4,15 @@ import utils.savegame
 from constants import gamepad
 from constants import keyboard
 from utils.menu import make_menu
+from PygameShader.shader import blur
 
+MAX_BLUR_ITERATIONS = 20
 
 class PausableComponent:
     def pause_menu(self):
-        self.last_screen = self.screen.copy().convert_alpha()
-        self.last_screen.set_alpha(100)
+        self.last_screen = self.screen.copy().convert()
+
+        self.blur_iteration = 0
 
         menu = make_menu(_('Pause'), self.settings_state.limit_fps)
 
@@ -29,6 +32,10 @@ class PausableComponent:
 
     def draw_background(self):
         self.screen.blit(self.last_screen, (0, 0))
+
+        if self.blur_iteration < MAX_BLUR_ITERATIONS:
+            blur(self.last_screen, 1)
+            self.blur_iteration += 1
         self.show_fps()
 
     def handle_save_game(self):
