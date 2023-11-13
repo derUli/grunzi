@@ -413,14 +413,20 @@ class MainGame(PausableComponent, FadeableComponent):
 
         if x == 1:
             self.move_main_character(direction.DIRECTION_RIGHT)
-        elif x == -1:
+            self.pressed_keys += constants.keyboard.K_RIGHT
+        if x == -1:
             self.move_main_character(direction.DIRECTION_LEFT)
-        elif y == 1:
+            self.pressed_keys += constants.keyboard.K_LEFT
+        if y == 1:
             self.move_main_character(direction.DIRECTION_UP)
-        elif y == -1:
+            self.pressed_keys += constants.keyboard.K_UP
+        if y == -1:
             self.move_main_character(direction.DIRECTION_DOWN)
+            self.pressed_keys += constants.keyboard.K_DOWN
         elif x == 0 and y == 0:
             self.moving = None
+            self.pressed_keys = []
+
 
     def handle_joyaxismotion(self, event):
         """ Handle controller axis motion """
@@ -432,17 +438,21 @@ class MainGame(PausableComponent, FadeableComponent):
             self.running = value > 0
             return
 
-        if value == 0.0 or value > 3 or value < -3:
-            self.moving = None
-
         if axis == 0 and value > 0:
             self.move_main_character(direction.DIRECTION_RIGHT)
+            self.pressed_keys += constants.keyboard.K_RIGHT
         if axis == 0 and value < 0:
             self.move_main_character(direction.DIRECTION_LEFT)
+            self.pressed_keys += constants.keyboard.K_LEFT
         elif axis == 1 and value < 0:
             self.move_main_character(direction.DIRECTION_UP)
+            self.pressed_keys += constants.keyboard.K_UP
         elif axis == 1 and value > 0:
             self.move_main_character(direction.DIRECTION_DOWN)
+            self.pressed_keys += constants.keyboard.K_DOWN
+        elif value == 0.0 or value > 3 or value < -3:
+            self.moving = None
+            self.pressed_keys = []
 
     def handle_joybuttondown(self, event):
         """ Handle joybutton press """
