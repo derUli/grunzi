@@ -43,6 +43,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.level = Level(self.sprites_dir, self.image_cache)
         self.camera = Camera()
         self.moving = None
+        self.pressed_keys = []
         self.running = False
         self.editor_blocks_length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
         self.editor_block_index = 0
@@ -236,6 +237,10 @@ class MainGame(PausableComponent, FadeableComponent):
             Thread(target=self.async_ai_low).start()
             Thread(target=self.async_ai_high).start()
 
+        for key in reversed(self.pressed_keys):
+            if key in constants.keyboard.MOVEMENT_KEYS:
+                self.moving = direction.key_to_direction(key)
+                break
 
         if self.moving:
             self.move_main_character(self.moving)
@@ -363,6 +368,7 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def handle_keydown_event(self, event):
         """" Handle keydown events """
+        self.pressed_keys.append(event.key)
         if event.key in keyboard.DISCARD_KEYS and self.state.player_state.show_detailed:
             self.state.player_state.show_detailed = None
         elif event.key == keyboard.K_CHANGE_BLOCK_DOWN:
@@ -392,6 +398,10 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def handle_keyup_event(self, event):
         """" Handle keyup events """
+
+        if event.key in self.pressed_keys:
+            self.pressed_keys.remove(event.key)
+
         if event.key in keyboard.MOVEMENT_KEYS:
             self.moving = None
         elif event.key in keyboard.RUN_KEYS:
