@@ -264,18 +264,21 @@ class MainGame(PausableComponent, FadeableComponent):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
             pygame.time.delay(THREAD_INTERVAL_LOW)
-            z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+            self.check_for_updates()
 
-            if not self.state.edit_mode and self.level.is_levelexit(x, y):
-                # Show "To be continued"
-                self.is_level_exit = True
-                return
 
-            # Check for changes
-            if self.state.edit_mode and self.level.check_for_changes():
-                # If the level file was changes do a reload
-                self.load_level(self.level.level_file)
+    def check_for_updates(self):
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
+        if not self.state.edit_mode and self.level.is_levelexit(x, y):
+            # Show "To be continued"
+            self.is_level_exit = True
+            return
+
+        # Check for changes
+        if self.state.edit_mode and self.level.check_for_changes():
+            # If the level file was changes do a reload
+            self.load_level(self.level.level_file)
 
     def async_high_prio(self):
         self.async_ai_running = True
