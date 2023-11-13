@@ -21,7 +21,8 @@ from utils.cursor import default_cursor
 from utils.fps_counter import FPSCounter
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
-
+import time
+import sys
 
 class GameContainer:
     """ Main game class """
@@ -40,6 +41,7 @@ class GameContainer:
         self.gamepad = None
         self.disable_controller = disable_controller
         self.disable_ai = disable_ai
+        self.do_benchmark = None
 
     def start(self, component=components.menu.Menu):
         """ Start game """
@@ -169,12 +171,9 @@ class GameContainer:
         # Filling the window with black color
         self.screen.fill((0, 0, 0))
 
-        self.tick_and_show_fps()
-
         self.current_component.update_screen(self.screen)
 
-        if self.settings_state.show_fps:
-            self.show_fps()
+        self.tick_and_show_fps()
 
         pygame.display.flip()
 
@@ -186,14 +185,25 @@ class GameContainer:
         self.clock.tick(self.settings_state.limit_fps)
 
         if self.settings_state.show_fps:
-            self.show_fps()
+            fps_text = self.show_fps()
+
+            if not self.do_benchmark:
+                return
+
+            if time.time() > self.do_benchmark:
+                print(fps_text)
+                self.quit()
+
 
     def show_fps(self):
         """ Show fps """
         self.fps_counter.get_fps(self.clock)
-        self.current_component.render_text(self.fps_counter.get_fps_text(),
+        fps_text = self.fps_counter.get_fps_text()
+        self.current_component.render_text(fps_text,
                                            (0, 247, 0),
                                            constants.headup.FPS_TEXT_POSITION)
+
+        return fps_text
 
     def change_component(self, component):
         """ Change component """

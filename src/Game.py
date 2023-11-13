@@ -4,6 +4,7 @@ import gettext
 import locale
 import logging
 import os
+import time
 
 # os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
 
@@ -64,11 +65,21 @@ parser.add_argument(
     help='Skip menu'
 )
 
+parser.add_argument(
+    '-b',
+    '--do-benchmark',
+    action='store_true',
+    help='Do benchmark'
+)
+
 args = parser.parse_args()
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
 
 log_level = logging.INFO
+
+if args.do_benchmark:
+    args.skip_menu = True
 
 if args.debug:
     log_level = logging.DEBUG
@@ -95,5 +106,11 @@ game = GameContainer(
     disable_controller=args.disable_controller,
     disable_ai=args.disable_ai
 )
+
+minutes = 10
+seconds = minutes * 60
+
+if args.do_benchmark:
+    game.do_benchmark = time.time() + seconds
 
 game.start(component)
