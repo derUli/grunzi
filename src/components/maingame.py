@@ -281,18 +281,21 @@ class MainGame(PausableComponent, FadeableComponent):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
             pygame.time.delay(THREAD_INTERVAL_HIGH)
-            if self.state.player_state.use_item:
-                z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
-                character = self.level.get_sprite((z, y, x))
-
-                for z in reversed(range(0, len(self.level.layers))):
-                    if isinstance(self.state.player_state.inventory, InlineSprite):
-                        i_x, i_y = self.level.calculate_next_pos((x, y), character.direction)
-                        i_element = self.level.get_sprite((z, i_y, i_x))
-                        if i_element:
-                            i_element.handle_interact_item(character)
-
+            self.handle_interactions()
             self.level.update_sprites()
+
+
+    def handle_interactions(self):
+        if self.state.player_state.use_item:
+            z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+            character = self.level.get_sprite((z, y, x))
+
+            for z in reversed(range(0, len(self.level.layers))):
+                if isinstance(self.state.player_state.inventory, InlineSprite):
+                    i_x, i_y = self.level.calculate_next_pos((x, y), character.direction)
+                    i_element = self.level.get_sprite((z, i_y, i_x))
+                    if i_element:
+                        i_element.handle_interact_item(character)
 
     def drop_item(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
