@@ -102,7 +102,7 @@ class Sprite:
         """ To dictionary """
         data = {
             'sprite_class': fullname(self),
-            'sprite_file': self.sprite_file
+            'sprite_file': self.sprite_file,
         }
 
         if self.walkable:

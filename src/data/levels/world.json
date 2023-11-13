@@ -115355,7 +115355,8 @@
 0,
 {
 "sprite_class": "sprites.door.Door",
-"sprite_file": "door.png"
+"sprite_file": "door.png",
+"id": "door-1"
 },
 0,
 0,
@@ -193457,7 +193458,8 @@
 {
 "sprite_class": "sprites.key.Key",
 "sprite_file": "key1.png",
-"walkable": 1
+"walkable": 1,
+"id": "key-1"
 },
 {
 "sprite_class": "sprites.kitten.Kitten",

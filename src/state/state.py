@@ -48,8 +48,12 @@ class State:
 
             if 'sprite_file' in inventory:
                 sprite_file = inventory['sprite_file']
+
             klass = get_class(inventory['sprite_class'])
             self.player_state.inventory = klass(self.sprites_dir, self.cache, sprite_file)
+
+            if 'id' in inventory:
+                self.player_state.inventory.id = inventory['id']
 
     def from_json(self, data):
         """ To dictionary """

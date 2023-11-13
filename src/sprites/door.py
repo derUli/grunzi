@@ -39,7 +39,12 @@ class Door(Wall):
         if not element:
             return
 
-        if isinstance(element.state.inventory, Key) and not self.walkable:
+        item = element.state.inventory
+
+        number = self.id.split('-')[1]
+        expected_id = "key-" + number
+
+        if isinstance(item, Key) and not self.walkable and item.id == expected_id:
             self.open_door()
             return
 
