@@ -109,7 +109,7 @@ game = GameContainer(
 
 if args.benchmark:
     minutes = args.benchmark
-    print('Do benchmark for ' + str(minutes) + "Minutes")
+    print('Do benchmark for ' + str(minutes) + " Minutes")
     seconds = minutes * 60
 
     game.do_benchmark = time.time() + seconds
