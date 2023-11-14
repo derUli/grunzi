@@ -48,13 +48,7 @@ class Level:
         if progress_callback:
             progress_callback(0)
 
-        total_blocks = 0
-        for z in leveldata:
-            for y in z:
-                for x in y:
-                    total_blocks += 1
-
-        one_percent = 100 / total_blocks
+        one_percent = 100 / self.total_blocks(leveldata)
         loaded_percent = 0
         loaded_blocks = 0
 
@@ -108,15 +102,25 @@ class Level:
         load_time = load_end - load_start
         logging.debug("Loading time: " + str(load_time))
 
-    def save(self):
+    def save(self, progress_callback = None):
+        if progress_callback:
+            progress_callback(percentage=None, loading_text=_('Saving level...'))
         with open(self.level_file, 'w') as f:
             f.write(json.dumps(self.to_saveable_list(), indent=0))
 
-    def dump(self):
+    def dump(self, progress_callback = None):
         w, h = constants.graphics.SPRITE_SIZE
 
         total_w = len(self.layers[0][0]) * w
         total_h = len(self.layers[0]) * h
+
+
+        one_percent = 100 / self.total_blocks(self.layers)
+        loaded_percent = 0
+        loaded_blocks = 0
+
+        waiting_text = _('Dumping level to image...')
+        progress_callback(loaded_percent, waiting_text)
 
         surface = pygame.surface.Surface((total_w, total_h))
 
@@ -124,6 +128,16 @@ class Level:
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
+
+                    loaded_blocks += 1
+                    percentage = round(one_percent * loaded_blocks)
+
+                    if percentage != loaded_percent:
+                        loaded_percent = percentage
+
+                        if progress_callback:
+                            progress_callback(loaded_percent, waiting_text)
+
                     if element:
                         if hasattr(element, 'animation'):
                             # Wait for animation frame loading
@@ -134,6 +148,18 @@ class Level:
                             element.draw(surface, x, y)
 
         make_dump(surface)
+
+
+    def total_blocks(self, leveldata):
+
+        total_blocks = 0
+
+        for z in leveldata:
+            for y in z:
+                for x in y:
+                    total_blocks += 1
+
+        return total_blocks
 
     def update_sprites(self):
         """ Search character by id """

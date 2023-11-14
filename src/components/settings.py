@@ -31,6 +31,7 @@ class Settings(Component):
             size=self.settings_state.screen_resolution
         )
 
+        self.needs_restart = False
         self.menu = None
 
         version_file = os.path.join(self.data_dir, '..', 'VERSION')
@@ -40,10 +41,15 @@ class Settings(Component):
         self.draw_menu(self.screen)
 
     def handle_back(self):
+        if self.needs_restart:
+            self.restart_app()
+            return
         component = self.handle_change_component(None)
         component.video = self.video
         self.menu.disable()
 
+    def restart_app(self):
+        os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
     def draw_background(self):
         if self.settings_state.quality >= QUALITY_LOW:
             video_frame = self.video.get_frame()
@@ -63,6 +69,7 @@ class Settings(Component):
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.screen_resolution = value
+        self.needs_restart = True
         self.settings_state.apply_and_save()
 
     def handle_show_fps(self):
@@ -86,6 +93,7 @@ class Settings(Component):
     def handle_toggle_vsync(self):
         self.settings_state.vsync = not self.settings_state.vsync
         self.settings_state.apply_and_save()
+        self.needs_restart = True
         self.refresh_menu()
 
     def handle_change_quality(self, selection, selected_index):

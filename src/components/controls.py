@@ -64,12 +64,6 @@ class Controls(FadeableComponent):
     def mount(self):
         self.fadein()
 
-    def unmount(self):
-        super().unmount()
-        """ Show mouse on unmount and stop music """
-        pygame.mouse.set_visible(1)
-        pygame.mixer.music.stop()
-
     def update_screen(self, screen):
         """ Update screen """
         surface = screen.copy().convert_alpha()

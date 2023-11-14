@@ -102,11 +102,13 @@ class MainGame(PausableComponent, FadeableComponent):
 
         return True
 
-    def loading_screen(self, percentage = None):
+    def loading_screen(self, percentage = None, loading_text=None):
         """ Show loading screen """
         self.screen.fill(constants.headup.BOTTOM_UI_BACKGROUND)
 
-        loading_text = _('Loading...')
+        if not loading_text:
+            loading_text = _('Loading...')
+
 
         # Show percentage if given
         if(percentage is not None):
@@ -531,10 +533,10 @@ class MainGame(PausableComponent, FadeableComponent):
     def handle_edit_mode_event(self, event):
         """ Handle edit mode events """
         if self.state.edit_mode and event.key == keyboard.K_SAVE_LEVEL:
-            self.level.save()
+            self.level.save(self.loading_screen)
             self.state.player_state.say(_('Level saved.'))
         elif self.state.edit_mode and event.key == keyboard.K_DUMP_LEVEL:
-            self.level.dump()
+            self.level.dump(self.loading_screen)
             self.state.player_state.say(_('Level dumped.'))
         elif self.state.edit_mode and event.key in keyboard.NUMERIC_KEYS:
             index = keyboard.NUMERIC_KEYS.index(event.key)

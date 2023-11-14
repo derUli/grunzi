@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-14 16:44+0100\n"
+"POT-Creation-Date: 2023-11-14 17:40+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -68,23 +68,23 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/gameover.py:60 components/pausable_component.py:23
-#: components/settings.py:264
+#: components/settings.py:263
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/maingame.py:108
+#: components/maingame.py:110
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:387
+#: components/maingame.py:395
 msgid "Grunz!"
 msgstr ""
 
-#: components/maingame.py:529
+#: components/maingame.py:537
 msgid "Level saved."
 msgstr "Spiel gespeichert."
 
-#: components/maingame.py:532
+#: components/maingame.py:540
 msgid "Level dumped."
 msgstr ""
 
@@ -140,57 +140,65 @@ msgstr "Sehr hoch"
 msgid "No Controller"
 msgstr "Kein Controller"
 
-#: components/settings.py:182
+#: components/settings.py:181
 msgid "Display Mode: "
 msgstr "Anzeigemodus: "
 
-#: components/settings.py:185
+#: components/settings.py:184
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings.py:187
+#: components/settings.py:186
 msgid "Window"
 msgstr "Fenster"
 
-#: components/settings.py:191
+#: components/settings.py:190
 msgid "V-Sync: "
 msgstr ""
 
-#: components/settings.py:201
+#: components/settings.py:200
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings.py:210
-msgid "Controller"
-msgstr "Steuerung"
-
-#: components/settings.py:219
+#: components/settings.py:209
 msgid "Quality"
 msgstr "Qualität"
 
-#: components/settings.py:237
+#: components/settings.py:227
 msgid "Show FPS: "
 msgstr "FPS anzeigen: "
 
-#: components/settings.py:240
+#: components/settings.py:230
 msgid "On"
 msgstr "An"
 
-#: components/settings.py:242
+#: components/settings.py:232
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings.py:247
+#: components/settings.py:237
+msgid "Controller"
+msgstr "Steuerung"
+
+#: components/settings.py:246
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings.py:256
+#: components/settings.py:255
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
 #: sprites/raccoon.py:34
 msgid "Henlo Fren!"
 msgstr ""
+
+#: state/level.py:107
+msgid "Saving level..."
+msgstr "Speichere Level..."
+
+#: state/level.py:122
+msgid "Dumping level to image..."
+msgstr "Generiere Level als Grafikdatei..."
 
 #: state/playerstate.py:92
 msgid "Ouch!"
