@@ -116,6 +116,9 @@ class PlayerState:
             self.use_item = False
             return
 
+        if not self.inventory.player_state:
+            self.inventory.player_state = self
+
         if not isinstance(self.inventory, InlineSprite):
             sound = os.path.abspath(
                 os.path.join(

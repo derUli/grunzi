@@ -31,6 +31,7 @@ class Sprite:
         self.debug_font_file = os.path.join(self.sprite_dir, '..', '..', 'fonts', MONOTYPE_FONT)
         self.debug_font = None
         self.attributes = {}
+        self.player_state = None
 
         if not sprite:
             return
