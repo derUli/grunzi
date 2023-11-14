@@ -138,7 +138,10 @@ class Controls(FadeableComponent):
 
     def next_page(self):
         if self.current_page == PAGE_KEYBOARD:
-            self.current_page = PAGE_CONTROLLER
+            if self.gamepad:
+                self.current_page = PAGE_CONTROLLER
+            else:
+                self.handle_change_component(None)
         elif self.current_page == PAGE_CONTROLLER:
             """ Back to main menu"""
             self.handle_change_component(None)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-14 17:40+0100\n"
+"POT-Creation-Date: 2023-11-14 18:40+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: Game.py:29 bootstrap/gamecontainer.py:91 components/menu.py:83
+#: Game.py:30 bootstrap/gamecontainer.py:92 components/menu.py:83
 msgid "Grunzi"
 msgstr ""
 
-#: Game.py:30
+#: Game.py:31
 msgid "Piggy adventure game"
 msgstr ""
 
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/controls.py:81 components/menu.py:91
+#: components/controls.py:75 components/menu.py:91
 msgid "Controls"
 msgstr "Steuerung"
 
@@ -68,7 +68,7 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/gameover.py:60 components/pausable_component.py:23
-#: components/settings.py:263
+#: components/settings.py:283
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
@@ -96,7 +96,7 @@ msgstr "Neues Spiel"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:90 components/settings.py:176
+#: components/menu.py:90 components/settings.py:196
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -112,79 +112,79 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:100
+#: components/settings.py:120
 msgid "Unlimited"
 msgstr "Unbegrenzt"
 
-#: components/settings.py:114
+#: components/settings.py:134
 msgid "Very Low"
 msgstr "Sehr niedrig"
 
-#: components/settings.py:115
+#: components/settings.py:135
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings.py:116
+#: components/settings.py:136
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings.py:117
+#: components/settings.py:137
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings.py:118
+#: components/settings.py:138
 msgid "Very High"
 msgstr "Sehr hoch"
 
-#: components/settings.py:129
+#: components/settings.py:149
 msgid "No Controller"
 msgstr "Kein Controller"
 
-#: components/settings.py:181
+#: components/settings.py:201
 msgid "Display Mode: "
 msgstr "Anzeigemodus: "
 
-#: components/settings.py:184
+#: components/settings.py:204
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings.py:186
+#: components/settings.py:206
 msgid "Window"
 msgstr "Fenster"
 
-#: components/settings.py:190
+#: components/settings.py:210
 msgid "V-Sync: "
 msgstr ""
 
-#: components/settings.py:200
+#: components/settings.py:220
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings.py:209
+#: components/settings.py:229
 msgid "Quality"
 msgstr "Qualität"
 
-#: components/settings.py:227
+#: components/settings.py:247
 msgid "Show FPS: "
 msgstr "FPS anzeigen: "
 
-#: components/settings.py:230
+#: components/settings.py:250
 msgid "On"
 msgstr "An"
 
-#: components/settings.py:232
+#: components/settings.py:252
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings.py:237
+#: components/settings.py:257
 msgid "Controller"
-msgstr "Steuerung"
+msgstr "Controller"
 
-#: components/settings.py:246
+#: components/settings.py:266
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings.py:255
+#: components/settings.py:275
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 

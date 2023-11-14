@@ -13,8 +13,9 @@ from components.maingame import MainGame
 from components.menu import Menu
 from utils.path import get_userdata_path
 
-root_dir = os.path.join(os.path.dirname(__file__))
+__main__ = __file__
 
+root_dir = os.path.join(os.path.dirname(__main__))
 locale_path = os.path.join(root_dir, 'data', 'locale')
 
 # Set locale
@@ -60,9 +61,16 @@ parser.add_argument(
 
 args = parser.parse_args()
 
+# While still in alpha the log level is always debug
+# TODO: Remove before production release
+args.debug = True
+
 log_file = os.path.join(get_userdata_path(), 'debug.log')
 
 log_level = logging.INFO
+
+if args.debug:
+    log_level = logging.DEBUG
 
 logging.basicConfig(
     level=log_level,
@@ -81,4 +89,6 @@ game = GameContainer(
     disable_controller=args.disable_controller,
     disable_ai=args.disable_ai
 )
+
+game.__main__ = os.path.abspath(__main__)
 game.start()

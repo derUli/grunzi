@@ -41,6 +41,7 @@ class GameContainer:
         self.gamepad = None
         self.disable_controller = disable_controller
         self.disable_ai = disable_ai
+        self.__main__ = None
 
     def start(self, component=components.menu.Menu):
         """ Start game """
@@ -215,6 +216,8 @@ class GameContainer:
 
         if not self.current_component:
             return
+
+        self.current_component.__main__ = self.__main__
 
         self.current_component.image_cache.clear()
         self.current_component.set_screen(self.screen)

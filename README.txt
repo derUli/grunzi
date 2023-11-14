@@ -14,13 +14,12 @@ Das Spiel kann mit einem Doppelklick auf "Grunzi.exe" gestartet werden.
 Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden Start-Parameter zu übergeben:
 
 ```
-  -h, --help            Show this help message and exit
   -e, --edit            Enable in-game map editor
   -v, --debug           Enable debug loglevel
   -a, --disable-ai      Disable AI
   -d, --disable-controller
                         Disable controller support
-  -s, --skip-menu       Skip menu
+  
 ```
 
 # Steuerung 
@@ -54,8 +53,6 @@ START: Menü aufrufen
 
 Das Spiel startet beim ersten Start in der Auflösung 1280x720 (720P) bei hoher Grafikqualität.
 Dies kann in den Grafikeinstellungen geändert werden.
-Damit die Änderung übernommen wird, ist ein Neustart des Spiels erforderlich.
-
 
 ## Grafikqualität
 

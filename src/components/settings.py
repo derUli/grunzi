@@ -9,7 +9,9 @@ from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUA
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
-
+import sys
+import logging
+import subprocess
 
 class Settings(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
@@ -49,7 +51,17 @@ class Settings(Component):
         self.menu.disable()
 
     def restart_app(self):
-        os.execl(sys.executable, os.path.abspath(__file__), *sys.argv)
+        logging.debug('Restart application to apply settings')
+
+        command = [sys.executable] + sys.argv
+
+        # If we are running from Exe
+        if getattr(sys, "frozen", False):
+           command = sys.argv
+
+        subprocess.Popen(command)
+        sys.exit()
+
     def draw_background(self):
         if self.settings_state.quality >= QUALITY_LOW:
             video_frame = self.video.get_frame()
