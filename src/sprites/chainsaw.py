@@ -28,6 +28,8 @@ class Chainsaw(Takeable, InlineSprite):
 
 
     def draw_inline(self, screen, pos):
+        """ draw sprite """
+        px_x, px_y = pos
 
         if self.attributes['fuel'] > 0:
             self.attributes['fuel'] -= FUEL_USAGE
@@ -36,12 +38,8 @@ class Chainsaw(Takeable, InlineSprite):
         else:
             self.attributes['fuel'] = 0
 
-        print(self.attributes['fuel'])
-        # TODO: Chainsaw should stop working if the fuel is empty
-
-        """ draw sprite """
-
-        px_x, px_y = pos
+            screen.blit(self.inline_sprite, (px_x, px_y))
+            return
 
         if self.shake_direction == DIRECTION_DOWN:
             self.shake_y += 1

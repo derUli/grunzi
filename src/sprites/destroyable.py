@@ -22,6 +22,9 @@ class Destroyable(Wall):
             return
 
         if isinstance(element.state.inventory, Chainsaw) and not self.walkable:
+            if element.state.inventory.attributes['fuel'] <= 0:
+                return
+
             self.walkable = True
             self.purge = True
 

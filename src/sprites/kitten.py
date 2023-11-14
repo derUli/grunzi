@@ -114,6 +114,9 @@ class Kitten(Character):
 
         # Chicken is killed by chainsaw
         if isinstance(element.state.inventory, Chainsaw) and not self.walkable:
+            if element.state.inventory.attributes['fuel'] <= 0:
+                return
+
             self.walkable = True
             element.state.flash(BLOOD_COLOR)
 
