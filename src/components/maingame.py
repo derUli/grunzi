@@ -103,29 +103,36 @@ class MainGame(PausableComponent, FadeableComponent):
         return True
 
     def loading_screen(self, percentage = None):
-        self.screen.fill((0,0,0))
+        """ Show loading screen """
+        self.screen.fill(constants.headup.BOTTOM_UI_BACKGROUND)
 
         loading_text = _('Loading...')
 
+        # Show percentage if given
         if(percentage is not None):
-            loading_text += ' ' + str(percentage) + '%'
+            percentage = str(percentage) + "%"
+            percentage = percentage.rjust(4, ' ')
 
+            loading_text += ' ' + str(percentage)
+
+
+        # Render loading text
         rendered_text = self.monotype_font.render(
             loading_text,
             utils.quality.font_antialiasing(),
             (255, 255, 255)
         )
+
+        # Calculate screen center
         pos_x, pos_y = self.screen.get_size()
-
-
         pos_x = pos_x / 2
         pos_y = pos_x / 2
-
         pos_x -= rendered_text.get_width() / 2
         pos_y -= rendered_text.get_height() / 2
-
+        # draw text on screen
         self.screen.blit(rendered_text, (pos_x, pos_y))
 
+        # Pump event queue and flip display to keep the application alive
         pygame.event.pump()
         pygame.display.flip()
 
@@ -307,12 +314,13 @@ class MainGame(PausableComponent, FadeableComponent):
     def check_for_updates(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
+        # Check if standing on level exit
         if not self.state.edit_mode and self.level.is_levelexit(x, y):
             # Show "To be continued"
             self.is_level_exit = True
             return
 
-        # Check for changes
+        # Check for level file changes
         if self.state.edit_mode and self.level.check_for_changes():
             # If the level file was changes do a reload
             self.load_level(self.level.level_file, False)
