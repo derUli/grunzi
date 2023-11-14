@@ -82,12 +82,15 @@ class MainGame(PausableComponent, FadeableComponent):
         level_file = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
         self.load_level(level_file)
 
-    def load_level(self, level_file):
+    def load_level(self, level_file, show_loading_screen=True):
         """ Load level from JSON file """
         self.level.level_file = level_file
 
         try:
-            self.level.load(self.loading_screen)
+            if show_loading_screen:
+                self.level.load(self.loading_screen)
+            else:
+                self.level.load()
         except json.decoder.JSONDecodeError:
             logging.error('Invalid level JSON')
             return False
@@ -314,7 +317,7 @@ class MainGame(PausableComponent, FadeableComponent):
         # Check for changes
         if self.state.edit_mode and self.level.check_for_changes():
             # If the level file was changes do a reload
-            self.load_level(self.level.level_file)
+            self.load_level(self.level.level_file, False)
 
     def async_high_prio(self):
         self.async_ai_running = True

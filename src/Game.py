@@ -58,32 +58,11 @@ parser.add_argument(
     help='Disable controller support'
 )
 
-parser.add_argument(
-    '-s',
-    '--skip-menu',
-    action='store_true',
-    help='Skip menu'
-)
-
-parser.add_argument(
-    '-b',
-    '--benchmark',
-    help='Do benchmark',
-    type=int,
-    required=False
-)
-
 args = parser.parse_args()
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
 
 log_level = logging.INFO
-
-if args.benchmark:
-    args.skip_menu = True
-
-if args.debug:
-    log_level = logging.DEBUG
 
 logging.basicConfig(
     level=log_level,
@@ -96,24 +75,10 @@ logging.basicConfig(
 
 logging.debug(args)
 
-component = Menu
-
-if args.skip_menu:
-    component = MainGame
-
 game = GameContainer(
     root_dir,
     enable_edit_mode=args.edit,
     disable_controller=args.disable_controller,
     disable_ai=args.disable_ai
 )
-
-if args.benchmark:
-    minutes = args.benchmark
-    hours = round(minutes / 60, 2)
-    print('Do benchmark for ' + str(hours) + " hours")
-    seconds = minutes * 60
-
-    game.do_benchmark = time.time() + seconds
-
-game.start(component)
+game.start()

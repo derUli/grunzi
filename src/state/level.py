@@ -38,13 +38,15 @@ class Level:
         self.level_file_last_changed = None
 
     def load(self, progress_callback = None):
-        self.loaded = False
         load_start = time.time()
         layers = []
         self.level_file_last_changed = os.path.getmtime(self.level_file)
 
         with open(self.level_file, 'r') as f:
             leveldata = json.loads(f.read())
+
+        if progress_callback:
+            progress_callback(0)
 
         total_blocks = 0
         for z in leveldata:
@@ -53,12 +55,8 @@ class Level:
                     total_blocks += 1
 
         one_percent = 100 / total_blocks
-
         loaded_percent = 0
         loaded_blocks = 0
-
-        if progress_callback:
-            progress_callback(loaded_percent)
 
         for z in leveldata:
             layer = []

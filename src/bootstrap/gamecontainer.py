@@ -41,7 +41,6 @@ class GameContainer:
         self.gamepad = None
         self.disable_controller = disable_controller
         self.disable_ai = disable_ai
-        self.do_benchmark = None
 
     def start(self, component=components.menu.Menu):
         """ Start game """
@@ -185,14 +184,7 @@ class GameContainer:
         self.clock.tick(self.settings_state.limit_fps)
 
         if self.settings_state.show_fps:
-            fps_text = self.show_fps()
-
-            if not self.do_benchmark:
-                return
-
-            if time.time() > self.do_benchmark:
-                print(fps_text)
-                self.quit()
+            self.show_fps()
 
 
     def show_fps(self):
