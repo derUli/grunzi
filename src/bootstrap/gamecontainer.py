@@ -83,7 +83,7 @@ class GameContainer:
 
     def init_screen(self):
         """ Init the screen """
-        flags = pygame.SCALED
+        flags = pygame.SCALED | pygame.HWSURFACE | pygame.DOUBLEBUF
 
         self.screen = None
         logging.debug('Init screen')
