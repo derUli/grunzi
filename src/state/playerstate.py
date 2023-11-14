@@ -43,7 +43,7 @@ class PlayerState:
 
         self.blood_surface = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
-                         'redvignette.png')
+                         'blood.png')
         ).convert_alpha()
 
         self.blood_mask = None
