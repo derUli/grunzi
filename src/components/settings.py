@@ -2,12 +2,13 @@ import os
 
 import pygame
 
+import constants.headup
 from components.component import Component
 from constants.headup import PIGGY_PINK
 from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
 from utils.animation import Animation
 from utils.helper import get_version
-from utils.menu import make_menu
+from utils.menu import make_menu, get_longest_option
 
 
 class Settings(Component):
@@ -117,6 +118,22 @@ class Settings(Component):
             (_('Very High'), QUALITY_VERY_HIGH),
         ]
 
+    def get_controller(self):
+
+        if self.gamepad:
+            return [
+                (self.gamepad.joystick.get_name(), self.gamepad.joystick.get_name())
+            ]
+
+        return [
+            (_('No Controller'), None)
+        ]
+
+
+    def handle_dummy(self):
+        """ Dummy handler does nothing """
+        return
+
     def get_screen_resolution_items(self):
         modes = sorted(pygame.display.list_modes())
         items = []
@@ -126,6 +143,7 @@ class Settings(Component):
             items.append((label, value))
 
         return items
+
 
     def get_selected_resolution_index(self):
         i = 0
@@ -149,12 +167,17 @@ class Settings(Component):
 
         return i
 
+
     def refresh_menu(self):
         self.menu.disable()
         self.draw_menu(self.screen)
 
     def draw_menu(self, screen):
         menu = make_menu(_('Settings'), self.settings_state.limit_fps)
+
+
+        w = menu.get_width() - (constants.headup.UI_MARGIN * 2)
+        print(w)
 
         fullscreen_text = _('Display Mode: ')
 
@@ -179,7 +202,17 @@ class Settings(Component):
             default=self.get_selected_index(self.get_screen_resolution_items(), self.settings_state.screen_resolution),
             items=self.get_screen_resolution_items(),
             onchange=self.handle_change_screen_resolution,
-            placeholder_add_to_selection_box=False
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_screen_resolution_items()),
+        )
+
+        menu.add.dropselect(
+            title=_('Controller'),
+            default=0,
+            items=self.get_controller(),
+            onchange=self.handle_dummy,
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_controller()),
         )
 
         menu.add.dropselect(
@@ -187,7 +220,8 @@ class Settings(Component):
             default=self.get_selected_index(self.get_quality_items(), self.settings_state.quality),
             items=self.get_quality_items(),
             onchange=self.handle_change_quality,
-            placeholder_add_to_selection_box=False
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_quality_items()),
         )
 
         # menu.add.dropselect(
@@ -195,7 +229,9 @@ class Settings(Component):
         #     default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
         #     items=self.get_fps_limit_items(),
         #     onchange=self.handle_change_limit_fps,
-        #     placeholder_add_to_selection_box=False
+        #     placeholder_add_to_selection_box=False,
+
+        #     placeholder=get_longest_option(self.get_screen_resolution_items()),
         # )
 
         show_fps_text = _('Show FPS: ')
