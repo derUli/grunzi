@@ -14,7 +14,7 @@ from sprites.piggybank import PiggyBank
 from sprites.sheep import Sheep
 from sprites.wall import Wall
 from sprites.water import Water
-
+from sprites.fuel import Fuel
 
 def get_editor_blocks(sprites_dir, image_cache):
     """ Get editor blocks array for inline map editor"""
@@ -118,6 +118,10 @@ def get_editor_blocks(sprites_dir, image_cache):
             'wood_fence_vertical.png'
         ),
         Chainsaw(
+            sprites_dir,
+            image_cache
+        ),
+        Fuel(
             sprites_dir,
             image_cache
         ),

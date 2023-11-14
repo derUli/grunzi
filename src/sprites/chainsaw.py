@@ -6,6 +6,7 @@ from constants.direction import DIRECTION_UP, DIRECTION_DOWN
 from sprites.inlinesprite import InlineSprite
 from sprites.takeable import Takeable
 from utils.audio import play_sound
+from sprites.fuel import Fuel
 
 SHAKE_Y_FROM = -2
 SHAKE_Y_TO = 2
@@ -20,9 +21,15 @@ class Chainsaw(Takeable, InlineSprite):
 
         self.shake_y = 0
         self.shake_direction = DIRECTION_DOWN
+        self.attributes = {
+            'fuel': 100
+        }
+
 
     def draw_inline(self, screen, pos):
         """ draw sprite """
+
+        # TODO: decrase fuel
 
         px_x, px_y = pos
 
@@ -38,7 +45,6 @@ class Chainsaw(Takeable, InlineSprite):
         px_y += self.shake_direction
 
         screen.blit(self.inline_sprite, (px_x, px_y))
-        return
 
     def play_sound(self):
         sound_dir = os.path.abspath(
@@ -55,3 +61,12 @@ class Chainsaw(Takeable, InlineSprite):
         play_sound(
             os.path.join(sound_dir, random.choice(files))
         )
+
+
+    def handle_interact_item(self, element):
+
+        if not isinstance(element.state.inventory, Fuel):
+            return
+
+        # TODO: recharge chainsaw
+        element.state.inventory = None

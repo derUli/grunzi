@@ -55,6 +55,9 @@ class State:
             if 'id' in inventory:
                 self.player_state.inventory.id = inventory['id']
 
+            if 'attributes' in inventory:
+                self.player_state.inventory.attributes = inventory['attributes']
+
     def from_json(self, data):
         """ To dictionary """
         savegame = json.loads(data)

@@ -82,6 +82,9 @@ class Level:
                             else:
                                 sprite.walkable = False
 
+                            if 'attributes' in x:
+                                sprite.attributes = x['attributes']
+
                             if 'id' in x:
                                 sprite.id = x['id']
 

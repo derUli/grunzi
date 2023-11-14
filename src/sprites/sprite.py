@@ -30,6 +30,7 @@ class Sprite:
         self.debug = False
         self.debug_font_file = os.path.join(self.sprite_dir, '..', '..', 'fonts', MONOTYPE_FONT)
         self.debug_font = None
+        self.attributes = {}
 
         if not sprite:
             return
@@ -40,6 +41,10 @@ class Sprite:
         if not self.sprite:
             logging.error('File ' + file + ' not found')
             return
+
+
+    def init_state(self):
+        self.state = None
 
     def draw(self, screen, x, y):
 
@@ -110,5 +115,9 @@ class Sprite:
 
         if self.id:
             data['id'] = self.id
+
+
+        if self.attributes:
+            data['attributes'] = self.attributes
 
         return data
