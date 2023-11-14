@@ -151,4 +151,4 @@ class Dog(Character):
                 break
 
     def handle_interact(self, element):
-        print(element)
+        return

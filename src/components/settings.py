@@ -177,7 +177,6 @@ class Settings(Component):
 
 
         w = menu.get_width() - (constants.headup.UI_MARGIN * 2)
-        print(w)
 
         fullscreen_text = _('Display Mode: ')
 
@@ -207,15 +206,6 @@ class Settings(Component):
         )
 
         menu.add.dropselect(
-            title=_('Controller'),
-            default=0,
-            items=self.get_controller(),
-            onchange=self.handle_dummy,
-            placeholder_add_to_selection_box=False,
-            placeholder=get_longest_option(self.get_controller()),
-        )
-
-        menu.add.dropselect(
             title=_('Quality'),
             default=self.get_selected_index(self.get_quality_items(), self.settings_state.quality),
             items=self.get_quality_items(),
@@ -242,6 +232,15 @@ class Settings(Component):
             show_fps_text += _('Off')
 
         # menu.add.button(show_fps_text, self.handle_show_fps)
+
+        menu.add.dropselect(
+            title=_('Controller'),
+            default=0,
+            items=self.get_controller(),
+            onchange=self.handle_dummy,
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_controller()),
+        )
 
         menu.add.range_slider(
             title=_('Music'),

@@ -16,9 +16,8 @@ THEME_PIG = pygame_menu.Theme(
     title_font_size=26,
     title_font_shadow=True,
     widget_font_color=BOTTOM_UI_BACKGROUND,
-    widget_font_size=22,
+    widget_font_size=20,
 )
-
 
 WIDTH = 640
 HEIGHT = 480
@@ -40,4 +39,4 @@ def get_longest_option(options):
         if len(text) > len(longest):
             longest = text
 
-    return text
+    return longest
