@@ -33,17 +33,32 @@ class Level:
         self.layers = []
         self.sprites_dir = sprites_dir
         self.image_cache = image_cache
-
+        self.loaded = False
         self.level_file = level_file
         self.level_file_last_changed = None
 
-    def load(self):
+    def load(self, progress_callback = None):
+        self.loaded = False
         load_start = time.time()
         layers = []
         self.level_file_last_changed = os.path.getmtime(self.level_file)
 
         with open(self.level_file, 'r') as f:
             leveldata = json.loads(f.read())
+
+        total_blocks = 0
+        for z in leveldata:
+            for y in z:
+                for x in y:
+                    total_blocks += 1
+
+        one_percent = 100 / total_blocks
+
+        loaded_percent = 0
+        loaded_blocks = 0
+
+        if progress_callback:
+            progress_callback(loaded_percent)
 
         for z in leveldata:
             layer = []
@@ -52,7 +67,15 @@ class Level:
                 row = []
 
                 for x in y:
-                    pygame.event.pump()  # To prevent UI from freezing while loading
+                    loaded_blocks += 1
+                    percentage = round(one_percent * loaded_blocks)
+
+                    if percentage != loaded_percent:
+                        loaded_percent = percentage
+
+                        if progress_callback:
+                            progress_callback(loaded_percent)
+
                     if x:
                         sprite_file = None
                         if 'sprite_file' in x:
@@ -81,6 +104,7 @@ class Level:
             layers.append(layer)
 
         self.layers = layers
+        self.loaded = True
 
         load_end = time.time()
         load_time = load_end - load_start

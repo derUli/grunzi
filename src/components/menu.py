@@ -47,14 +47,14 @@ class Menu(Component):
         self.draw_menu(self.screen)
 
     def handle_new_game(self):
-        self.handle_change_component(components.maingame.MainGame)
+        component = self.handle_change_component(components.maingame.MainGame)
+        component.new_game()
         self.menu.disable()
 
     def handle_continue_game(self):
         component = self.handle_change_component(components.maingame.MainGame)
         component.load_savegame()
-        if self.menu:
-            self.menu.disable()
+        self.menu.disable()
 
     def handle_settings(self):
         """ Handle open settings menu  """

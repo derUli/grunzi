@@ -52,8 +52,11 @@ class MainGame(PausableComponent, FadeableComponent):
         self.disable_ai = False
         self.async_ai_running = None
         self.is_level_exit = False
-
         self.last_rendered = None
+
+        self.monotype_font = pygame.font.Font(
+            os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
+            constants.game.DEBUG_OUTPUT_FONT_SIZE)
 
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg'
@@ -70,6 +73,10 @@ class MainGame(PausableComponent, FadeableComponent):
             self.settings_state.screen_resolution
             )
 
+    def new_game(self):
+        level_file = os.path.join(self.data_dir, 'levels', 'world.json')
+        self.load_level(level_file)
+
     def load_savegame(self):
         """ Load savegame """
         level_file = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
@@ -80,7 +87,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.level.level_file = level_file
 
         try:
-            self.level.load()
+            self.level.load(self.loading_screen)
         except json.decoder.JSONDecodeError:
             logging.error('Invalid level JSON')
             return False
@@ -92,6 +99,35 @@ class MainGame(PausableComponent, FadeableComponent):
 
         return True
 
+    def loading_screen(self, percentage = None):
+        self.screen.fill((0,0,0))
+
+        loading_text = _('Loading...')
+
+        print(percentage)
+
+        if(percentage is not None):
+            loading_text += ' ' + str(percentage) + '%'
+
+        rendered_text = self.monotype_font.render(
+            loading_text,
+            utils.quality.font_antialiasing(),
+            (255, 255, 255)
+        )
+        pos_x, pos_y = self.screen.get_size()
+
+
+        pos_x = pos_x / 2
+        pos_y = pos_x / 2
+
+        pos_x -= rendered_text.get_width() / 2
+        pos_y -= rendered_text.get_height() / 2
+
+        self.screen.blit(rendered_text, (pos_x, pos_y))
+
+        pygame.event.pump()
+        pygame.display.flip()
+
     def mount(self):
         """ On mount hide mouse pointer and start music """
         pygame.mouse.set_visible(0)
@@ -99,9 +135,6 @@ class MainGame(PausableComponent, FadeableComponent):
         # CREDITS: https://audionautix.com/creative-commons-music
         atmo = 'level' + str(self.state.level) + '.ogg'
         self.play_music(atmo)
-
-        level_file = os.path.join(self.data_dir, 'levels', 'world.json')
-        self.load_level(level_file)
 
         self.fadein()
 
@@ -114,6 +147,9 @@ class MainGame(PausableComponent, FadeableComponent):
         pygame.mixer.music.stop()
 
     def update_screen(self, screen):
+        if not self.level.loaded:
+            return
+
         """ Update screen """
         if self.do_fade:
             screen = screen.copy().convert_alpha()
