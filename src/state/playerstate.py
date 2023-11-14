@@ -200,6 +200,7 @@ class PlayerState:
 
         if self.to_hash() == id_string:
             screen.blit(surf, (0, y))
+            self.draw_text(screen)
             return
 
         size = (screen.get_width(), BOTTOM_UI_HEIGHT)
@@ -208,12 +209,11 @@ class PlayerState:
         self.draw_background(surf)
         self.draw_health(surf)
         self.draw_inventory(surf)
-        self.draw_text(surf)
 
         id_string = self.to_hash()
         self.rendered_ui = (id_string, surf)
-
         screen.blit(surf, (0, y))
+        self.draw_text(screen)
 
     def draw_blood(self, screen):
         if not utils.quality.vignette_enabled():
@@ -314,6 +314,6 @@ class PlayerState:
         w, h = self.display_text.rendered_text.get_size()
 
         x = (screen.get_width() / 2) - (w / 2)
-        y = (BOTTOM_UI_HEIGHT / 2) - (h / 2) - UI_MARGIN
+        y = screen.get_height() - (BOTTOM_UI_HEIGHT / 2) - (h / 2) - UI_MARGIN
 
         self.display_text.draw(screen, (x, y))
