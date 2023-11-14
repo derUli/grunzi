@@ -11,6 +11,7 @@ from sprites.fuel import Fuel
 SHAKE_Y_FROM = -2
 SHAKE_Y_TO = 2
 
+FUEL_USAGE = 0.02
 
 class Chainsaw(Takeable, InlineSprite):
     """ Chainsaw sprite class """
@@ -27,9 +28,18 @@ class Chainsaw(Takeable, InlineSprite):
 
 
     def draw_inline(self, screen, pos):
-        """ draw sprite """
 
-        # TODO: decrase fuel
+        if self.attributes['fuel'] > 0:
+            self.attributes['fuel'] -= FUEL_USAGE
+        elif self.attributes['fuel'] > 100:
+            self.attributes['fuel'] = 100
+        else:
+            self.attributes['fuel'] = 0
+
+        print(self.attributes['fuel'])
+        # TODO: Chainsaw should stop working if the fuel is empty
+
+        """ draw sprite """
 
         px_x, px_y = pos
 
@@ -68,5 +78,6 @@ class Chainsaw(Takeable, InlineSprite):
         if not isinstance(element.state.inventory, Fuel):
             return
 
-        # TODO: recharge chainsaw
+        # Recharge chainsaw with fuel
+        self.attributes['fuel'] = 100
         element.state.inventory = None
