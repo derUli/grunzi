@@ -3,7 +3,7 @@ import pygame
 ENABLE_SMOOTH_SCALE = False
 ENABLE_FONT_ANTIALIASING = False
 SHADER_ENABLED = False
-
+VIGNETTE_ENABLED = False
 
 def scale_method():
     """ Get scale method based on the current quality """
@@ -20,3 +20,7 @@ def font_antialiasing():
 
 def shader_enabled():
     return SHADER_ENABLED
+
+def vignette_enabled():
+    return VIGNETTE_ENABLED
+

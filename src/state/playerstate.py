@@ -2,9 +2,9 @@ import logging
 import os
 import random
 import time
-
+from PygameShader.shader import blood
 import pygame
-
+import numpy
 import utils.quality
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from sprites.inlinesprite import InlineSprite
@@ -39,6 +39,14 @@ class PlayerState:
             os.path.join(data_dir, 'images', 'ui',
                          'health.png')
         ).convert_alpha()
+
+
+        self.blood_surface = pygame.image.load(
+            os.path.join(data_dir, 'images', 'ui',
+                         'redvignette.png')
+        ).convert_alpha()
+
+        self.blood_mask = None
 
         self.inventory_image = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
@@ -79,12 +87,25 @@ class PlayerState:
         self.health -= health
         sound = random.choice(self.hurt_sounds)
         play_sound(sound)
-        self.flash(FLASH_COLOR_HURT)
         self.update_health()
+        self.flash()
         self.say(_('Ouch!'))
 
         if self.gamepad:
             self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
+
+    """
+    SHADER 2D GAME "HURT EFFECT"
+
+    This effect is used in 2D game when the player is being hurt
+    THE MASK DETERMINE THE CONTOUR USED FOR THE BLOOD EFFECT.
+
+    :param surface_ : pygame.Surface; compatible surface 24 - 32 bit
+    :param mask_    : numpy.ndarray shape (w, h) of float values in range [0.0...1.0]
+    :param perc_    : Percentage value in range [0.0 ... 1.0] with 1.0 being 100%
+    :return         : void
+
+    """
 
     def say(self, text):
         self.display_text.show_text(text)
@@ -171,6 +192,7 @@ class PlayerState:
 
     def draw(self, screen):
         """ Draw player state UI """
+        self.draw_blood(screen)
         self.draw_flash(screen)
 
         id_string, surf = self.rendered_ui
@@ -192,6 +214,32 @@ class PlayerState:
         self.rendered_ui = (id_string, surf)
 
         screen.blit(surf, (0, y))
+
+    def draw_blood(self, screen):
+        if not utils.quality.vignette_enabled():
+            return
+
+        if self.blood_surface.get_size() != screen.get_size():
+            self.blood_surface = utils.quality.scale_method()(
+                self.blood_surface,
+                screen.get_size()
+            )
+
+            self.blood_mask = numpy.asarray(
+                pygame.surfarray.pixels_alpha(self.blood_surface) / 255.0, numpy.float32
+            )
+
+        if self.blood_mask is None:
+            self.blood_mask = numpy.asarray(
+                pygame.surfarray.pixels_alpha(self.blood_surface) / 255.0, numpy.float32
+            )
+
+        percentage = 1.0 - (self.health / 100)
+
+        if(percentage <= 0):
+            return
+
+        blood(screen, self.blood_mask, percentage)
 
     def draw_flash(self, screen):
         """ Draw flash effect """
