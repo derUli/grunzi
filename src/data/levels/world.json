@@ -112523,11 +112523,17 @@
 "sprite_file": "wood_fence_vertical.png"
 },
 0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "stool.png"
+},
 0,
 0,
 0,
-0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "stool.png"
+},
 0,
 {
 "sprite_class": "sprites.fence.Fence",
@@ -115748,9 +115754,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "highway1.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -116838,7 +116843,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "stool.png"
+},
 0,
 {
 "sprite_class": "sprites.wall.Wall",

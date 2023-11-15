@@ -8,7 +8,7 @@ from constants.game import TEXT_FONT_SIZE, MONOTYPE_FONT
 from utils.quality import font_antialiasing
 
 TEXT_COLOR = (255, 255, 255)
-TIME_PER_CHAR = 0.4
+TIME_PER_CHAR = 0.2
 TIME_MIN = 1
 MIN_FONT_SIZE = 12
 
