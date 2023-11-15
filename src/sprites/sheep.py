@@ -84,7 +84,6 @@ class Sheep(Character):
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'sheep')
         )
 
-        # CREDITS: https://soundbible.com/1853-Raccoon.html
         files = [
             'sheep1.ogg',
             'sheep2.ogg'

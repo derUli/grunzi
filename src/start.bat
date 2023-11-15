@@ -1,2 +1,2 @@
-game.py --edit --debug --disable-controller
+grunzi.py --edit --debug --disable-controller
 pause

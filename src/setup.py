@@ -1,5 +1,4 @@
 import sys
-
 import cx_Freeze
 
 base = None
@@ -8,7 +7,7 @@ if sys.platform == 'win32':
     base = "Win32GUI"
 
 target = cx_Freeze.Executable(
-    script="Game.py",
+    script="grunzi.py",
     icon='icon.ico',
     base=base,
     target_name='Grunzi.exe'

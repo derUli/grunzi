@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: Game.py:30 bootstrap/gamecontainer.py:92 components/menu.py:83
+#: grunzi.py:30 bootstrap/gamecontainer.py:92 components/menu.py:83
 msgid "Grunzi"
 msgstr ""
 
-#: Game.py:31
+#: grunzi.py:31
 msgid "Piggy adventure game"
 msgstr ""
 
@@ -72,19 +72,19 @@ msgstr "Spiel laden"
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/maingame.py:110
+#: components/maingrunzi.py:110
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:395
+#: components/maingrunzi.py:395
 msgid "Grunz!"
 msgstr ""
 
-#: components/maingame.py:537
+#: components/maingrunzi.py:537
 msgid "Level saved."
 msgstr "Spiel gespeichert."
 
-#: components/maingame.py:540
+#: components/maingrunzi.py:540
 msgid "Level dumped."
 msgstr ""
 
