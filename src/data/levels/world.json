@@ -112284,7 +112284,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.fuel.Fuel",
+"sprite_file": "fuel.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -113357,7 +113361,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.fuel.Fuel",
+"sprite_file": "fuel.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -114203,7 +114211,11 @@
 },
 0,
 0,
-0,
+{
+"sprite_class": "sprites.fuel.Fuel",
+"sprite_file": "fuel.png",
+"walkable": 1
+},
 0,
 {
 "sprite_class": "sprites.guitar.Guitar",
@@ -150234,7 +150246,11 @@
 ],
 [
 0,
-0,
+{
+"sprite_class": "sprites.fuel.Fuel",
+"sprite_file": "fuel.png",
+"walkable": 1
+},
 0,
 0,
 0,

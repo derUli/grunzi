@@ -78,6 +78,9 @@ class Chainsaw(Takeable, InlineSprite):
         if not isinstance(element.state.inventory, Fuel):
             return
 
+        if self.attributes['fuel'] >= 100:
+            return
+
         # Recharge chainsaw with fuel
         self.attributes['fuel'] = 100
         element.state.inventory = None
