@@ -10,6 +10,7 @@ target = cx_Freeze.Executable(
     script="grunzi.py",
     icon='icon.ico',
     base=base,
+
     target_name='Grunzi.exe'
 )
 
@@ -20,7 +21,6 @@ cx_Freeze.setup(
             'packages': [
                 'pygame',
                 'sprites',
-                'pygame_emojis',
                 'PygameShader'
             ],
             'include_files': [
