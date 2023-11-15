@@ -37,7 +37,6 @@ class PausableComponent:
         if self.blur_iteration < MAX_BLUR_ITERATIONS:
             blur(self.last_screen, 1)
             self.blur_iteration += 1
-        self.show_fps()
 
     def handle_save_game(self):
         utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state, self.level)

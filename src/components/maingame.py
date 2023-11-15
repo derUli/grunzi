@@ -303,7 +303,6 @@ class MainGame(PausableComponent, FadeableComponent):
             super().unmount()
             component = self.handle_change_component(GameOver)
             component.state = self.state
-            component.show_fps = self.show_fps
             return
 
     def async_low_prio(self):

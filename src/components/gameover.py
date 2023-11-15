@@ -40,7 +40,6 @@ class GameOver(Component):
             self.screen.blit(self.backdrop, (0, 0))
 
         self.draw_film_grain(self.screen)
-        self.show_fps()
 
     def update_screen(self, screen):
         """ Draw GameOver screen """

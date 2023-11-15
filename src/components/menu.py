@@ -76,7 +76,6 @@ class Menu(Component):
                 self.screen.blit(video_frame, (0, 0))
 
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
-        self.show_fps()
 
     def draw_menu(self, screen):
         """ Draw main menu """

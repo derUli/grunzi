@@ -70,7 +70,6 @@ class Settings(Component):
                 self.screen.blit(video_frame, (0, 0))
 
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
-        self.show_fps()
 
     def handle_change_limit_fps(self, selection, selected_index):
         selected_item, index = selection
@@ -84,11 +83,6 @@ class Settings(Component):
         self.settings_state.screen_resolution = value
         self.needs_restart = True
         self.settings_state.apply_and_save()
-
-    def handle_show_fps(self):
-        self.settings_state.show_fps = not self.settings_state.show_fps
-        self.settings_state.apply_and_save()
-        self.refresh_menu()
 
     def handle_change_music_volume(self, range_value):
         self.settings_state.music_volume = range_value / 100
@@ -230,25 +224,6 @@ class Settings(Component):
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_quality_items()),
         )
-
-        # menu.add.dropselect(
-        #     title=_('FPS Limit'),
-        #     default=self.get_selected_index(self.get_fps_limit_items(), self.settings_state.limit_fps),
-        #     items=self.get_fps_limit_items(),
-        #     onchange=self.handle_change_limit_fps,
-        #     placeholder_add_to_selection_box=False,
-
-        #     placeholder=get_longest_option(self.get_screen_resolution_items()),
-        # )
-
-        show_fps_text = _('Show FPS: ')
-
-        if self.settings_state.show_fps:
-            show_fps_text += _('On')
-        else:
-            show_fps_text += _('Off')
-
-        # menu.add.button(show_fps_text, self.handle_show_fps)
 
         menu.add.dropselect(
             title=_('Controller'),

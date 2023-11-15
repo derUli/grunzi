@@ -11,7 +11,6 @@ from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True
 SETTINGS_DEFAULT_VOLUME = 1.0
-SETTINGS_DEFAULT_SHOW_FPS = False
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
@@ -24,7 +23,6 @@ class SettingsState:
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.vsync = SETTINGS_DEFAULT_VSYNC
-        self.show_fps = SETTINGS_DEFAULT_SHOW_FPS
         self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
         self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
         self.sound_volume = SETTINGS_DEFAULT_VOLUME
@@ -92,7 +90,6 @@ class SettingsState:
         """ To dict """
         return {
             'fullscreen': self.fullscreen,
-            'show_fps': self.show_fps,
             'sound_volume': self.sound_volume,
             'music_volume': self.music_volume,
             'vsync': self.vsync,
@@ -110,9 +107,6 @@ class SettingsState:
         if 'fullscreen' in settings:
             self.fullscreen = settings['fullscreen']
             self.old_fullscreen = settings['fullscreen']
-
-        if 'show_fps' in settings:
-            self.show_fps = settings['show_fps']
 
         if 'sound_volume' in settings:
             self.sound_volume = settings['sound_volume']

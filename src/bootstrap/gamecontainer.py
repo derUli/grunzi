@@ -17,7 +17,6 @@ import constants.headup
 import utils.audio
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
-from utils.fps_counter import FPSCounter
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
 
@@ -30,7 +29,6 @@ class GameContainer:
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
         self.screen = None
-        self.fps_counter = FPSCounter()
         self.running = True
         self.clock = pygame.time.Clock()
         self.current_component = None
@@ -167,7 +165,7 @@ class GameContainer:
 
         self.current_component.update_screen(self.screen)
 
-        self.tick_and_show_fps()
+        self.tick()
 
         pygame.display.flip()
 
@@ -175,21 +173,8 @@ class GameContainer:
         if self.current_component:
             self.current_component.ai()
 
-    def tick_and_show_fps(self):
+    def tick(self):
         self.clock.tick(self.settings_state.limit_fps)
-
-        if self.settings_state.show_fps:
-            self.show_fps()
-
-    def show_fps(self):
-        """ Show fps """
-        self.fps_counter.get_fps(self.clock)
-        fps_text = self.fps_counter.get_fps_text()
-        self.current_component.render_text(fps_text,
-                                           (0, 247, 0),
-                                           constants.headup.FPS_TEXT_POSITION)
-
-        return fps_text
 
     def change_component(self, component):
         """ Change component """
@@ -214,7 +199,6 @@ class GameContainer:
 
         self.current_component.image_cache.clear()
         self.current_component.set_screen(self.screen)
-        self.current_component.show_fps = self.tick_and_show_fps
         self.current_component.disable_ai = self.disable_ai
         self.current_component.mount()
 
