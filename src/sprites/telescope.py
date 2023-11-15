@@ -14,7 +14,7 @@ class Telescope(Sprite):
 
     def handle_interact(self, element):
         if element and element.state:
-            element.state.say(_('[Please insert coin]'))
+            element.state.say(_('[Insert Coin]'))
 
 
     def handle_interact_item(self, element):
@@ -25,5 +25,5 @@ class Telescope(Sprite):
         if isinstance(element.state.inventory, Coin):
             element.state.say(_('Not implemented yet'))
             element.state.use_item = False
-            #element.state.inventory = None
+            # element.state.inventory = None
 
