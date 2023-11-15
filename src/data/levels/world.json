@@ -112088,7 +112088,7 @@
 0,
 0,
 {
-"sprite_class": "sprites.detailed.Detailed",
+"sprite_class": "sprites.wall.Wall",
 "sprite_file": "dont_waste_water.png",
 "walkable": 1
 },
@@ -112668,7 +112668,7 @@
 0,
 0,
 {
-"sprite_class": "sprites.detailed.Detailed",
+"sprite_class": "sprites.wall.Wall",
 "sprite_file": "bubblegum.png"
 },
 0,
@@ -113741,7 +113741,7 @@
 ],
 [
 {
-"sprite_class": "sprites.detailed.Detailed",
+"sprite_class": "sprites.wall.Wall",
 "sprite_file": "sunset.png"
 },
 0,
