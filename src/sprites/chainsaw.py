@@ -33,11 +33,12 @@ class Chainsaw(Takeable, InlineSprite):
 
         if self.attributes['fuel'] > 0:
             self.attributes['fuel'] -= FUEL_USAGE
+            if self.attributes['fuel'] <= 0:
+                self.player_state.say(_('The petrol is empty.'))
 
         elif self.attributes['fuel'] > 100:
             self.attributes['fuel'] = 100
         else:
-            self.player_state.say(_('The petrol is empty.'))
             self.attributes['fuel'] = 0
 
             screen.blit(self.inline_sprite, (px_x, px_y))
