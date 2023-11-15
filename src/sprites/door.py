@@ -46,8 +46,6 @@ class Door(Wall):
         expected_id = "key-" + number
 
         if isinstance(item, Key) and not self.walkable and item.id == expected_id:
-            self.open_door()
-            return
+            self.walkable = True
 
-    def open_door(self):
-        self.walkable = True
+            element.state.say(_('The door is now open.'))
