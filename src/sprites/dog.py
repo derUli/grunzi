@@ -135,9 +135,9 @@ class Dog(Character):
             new_y -= 1
 
         move_options = [
-            (new_x, new_y),
             (new_x, dog_y),
-            (dog_x, new_y)
+            (dog_x, new_y),
+            (new_x, new_y),
         ]
 
         # Attacks piggy
