@@ -120,24 +120,21 @@ class Dog(Character):
         new_y = dog_y
         new_x = dog_x
 
-        if mainchar_x > new_x:
+        if mainchar_y > new_y:
+            new_y += 1
+        elif mainchar_x > new_x:
             new_x += 1
             self.change_direction(DIRECTION_RIGHT)
-
-        if mainchar_x < new_x:
+        elif mainchar_y < new_y:
+            new_y -= 1
+        elif mainchar_x < new_x:
             new_x -= 1
             self.change_direction(DIRECTION_LEFT)
 
-        if mainchar_y > new_y:
-            new_y += 1
-
-        if mainchar_y < new_y:
-            new_y -= 1
-
         move_options = [
-            (new_x, dog_y),
-            (dog_x, new_y),
             (new_x, new_y),
+            (new_x, dog_y),
+            (dog_x, new_y)
         ]
 
         # Attacks piggy
