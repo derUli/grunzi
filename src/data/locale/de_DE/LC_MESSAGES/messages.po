@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-15 01:25+0100\n"
+"POT-Creation-Date: 2023-11-15 19:46+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,44 +18,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: grunzi.py:30 bootstrap/gamecontainer.py:92 components/menu.py:83
+#: bootstrap/gamecontainer.py:87 components/menu.py:82 grunzi.py:27
 msgid "Grunzi"
 msgstr ""
 
-#: grunzi.py:31
+#: grunzi.py:28
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/controls.py:45 components/controls.py:56
+#: components/controls.py:46 components/controls.py:57
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/controls.py:46 components/controls.py:57
+#: components/controls.py:47 components/controls.py:58
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/controls.py:47 components/controls.py:58
+#: components/controls.py:48 components/controls.py:59
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/controls.py:48 components/controls.py:59
+#: components/controls.py:49 components/controls.py:60
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/controls.py:49 components/controls.py:60
+#: components/controls.py:50 components/controls.py:61
 msgid "Run"
 msgstr "Rennen"
 
-#: components/controls.py:50 components/controls.py:61
-#: components/pausable_component.py:17
+#: components/controls.py:51 components/controls.py:62
+#: components/pausable_component.py:18
 msgid "Pause"
 msgstr ""
 
-#: components/controls.py:51
+#: components/controls.py:52
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/controls.py:75 components/menu.py:91
+#: components/controls.py:76 components/menu.py:90
 msgid "Controls"
 msgstr "Steuerung"
 
@@ -67,44 +67,44 @@ msgstr "Du bist Schinken!"
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/gameover.py:60 components/pausable_component.py:23
-#: components/settings.py:283
+#: components/gameover.py:60 components/pausable_component.py:24
+#: components/settings.py:255
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/maingrunzi.py:110
+#: components/maingame.py:112
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingrunzi.py:395
+#: components/maingame.py:392
 msgid "Grunz!"
 msgstr ""
 
-#: components/maingrunzi.py:537
+#: components/maingame.py:533
 msgid "Level saved."
 msgstr "Spiel gespeichert."
 
-#: components/maingrunzi.py:540
+#: components/maingame.py:536
 msgid "Level dumped."
 msgstr ""
 
-#: components/menu.py:84
+#: components/menu.py:83
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:87 components/pausable_component.py:20
+#: components/menu.py:86 components/pausable_component.py:21
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:90 components/settings.py:196
+#: components/menu.py:89 components/settings.py:188
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/menu.py:93
+#: components/menu.py:92
 msgid "Quit"
 msgstr "Beenden"
 
-#: components/pausable_component.py:22
+#: components/pausable_component.py:23
 msgid "Save Game"
 msgstr "Spiel speichern"
 
@@ -112,79 +112,67 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:120
+#: components/settings.py:115
 msgid "Unlimited"
 msgstr "Unbegrenzt"
 
-#: components/settings.py:134
+#: components/settings.py:129
 msgid "Very Low"
 msgstr "Sehr niedrig"
 
-#: components/settings.py:135
+#: components/settings.py:130
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings.py:136
+#: components/settings.py:131
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings.py:137
+#: components/settings.py:132
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings.py:138
+#: components/settings.py:133
 msgid "Very High"
 msgstr "Sehr hoch"
 
-#: components/settings.py:149
+#: components/settings.py:144
 msgid "No Controller"
 msgstr "Kein Controller"
 
-#: components/settings.py:201
+#: components/settings.py:192
 msgid "Display Mode: "
 msgstr "Anzeigemodus: "
 
-#: components/settings.py:204
+#: components/settings.py:195
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings.py:206
+#: components/settings.py:197
 msgid "Window"
 msgstr "Fenster"
 
-#: components/settings.py:210
+#: components/settings.py:201
 msgid "V-Sync: "
 msgstr ""
 
-#: components/settings.py:220
+#: components/settings.py:211
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings.py:229
+#: components/settings.py:220
 msgid "Quality"
 msgstr "Qualität"
 
-#: components/settings.py:247
-msgid "Show FPS: "
-msgstr "FPS anzeigen: "
-
-#: components/settings.py:250
-msgid "On"
-msgstr "An"
-
-#: components/settings.py:252
-msgid "Off"
-msgstr "Aus"
-
-#: components/settings.py:257
+#: components/settings.py:229
 msgid "Controller"
 msgstr "Controller"
 
-#: components/settings.py:266
+#: components/settings.py:238
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings.py:275
+#: components/settings.py:247
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
@@ -192,26 +180,43 @@ msgstr "Soundeffekte"
 msgid "The petrol is empty."
 msgstr "Das Benzin ist leer."
 
-#: sprites/chainsaw.py:87
+#: sprites/chainsaw.py:86
 msgid "The chainsaw was recharged."
 msgstr "Die Kettensäge wurde aufgefüllt."
+
+#: sprites/door.py:32
+msgid "The door is closed. I need a key."
+msgstr "Die Tür ist abgeschlossen. Ich brauche einen Schlüssel."
+
+#: sprites/keyhole.py:34
+msgid "There is a keyhole in the wall."
+msgstr "Da ist ein Schlüsselloch in der Mauer."
 
 #: sprites/raccoon.py:34
 msgid "Henlo Fren!"
 msgstr ""
 
-#: state/level.py:110
+#: state/level.py:100
 msgid "Saving level..."
 msgstr "Speichere Level..."
 
-#: state/level.py:125
+#: state/level.py:114
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
-#: state/playerstate.py:92
+#: state/playerstate.py:93
 msgid "Ouch!"
 msgstr "Autsch!"
 
 #~ msgid "FPS Limit"
 #~ msgstr ""
+
+#~ msgid "Show FPS: "
+#~ msgstr "FPS anzeigen: "
+
+#~ msgid "On"
+#~ msgstr "An"
+
+#~ msgid "Off"
+#~ msgstr "Aus"
 

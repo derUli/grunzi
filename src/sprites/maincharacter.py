@@ -36,10 +36,12 @@ class MainCharacter(Character, FadeableComponent):
         self.draw_inventory_item(screen, x, y)
 
         # Detailed object view
-        if self.state.show_detailed:
+        if self.state and self.state.show_detailed:
             screen.blit(self.state.show_detailed, (0, 0))
 
     def draw_inventory_item(self, screen, x, y):
+        if not self.state:
+            return
         """ Draw inventory item """
         if not isinstance(self.state.inventory, InlineSprite):
             return

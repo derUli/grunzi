@@ -29,6 +29,7 @@ class Door(Wall):
         # Play sound on unlock
         if not self.walkable:
             play_sound(self.door_closed_sound)
+            element.state.say(_('The door is closed. I need a key.'))
             return
 
         play_sound(self.door_open_sound)
