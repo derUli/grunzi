@@ -14893,32 +14893,32 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "soccer/row-1-column-1.png",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "soccer/row-1-column-2.png",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "soccer/row-1-column-3.png",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "soccer/row-1-column-4.png",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "soccer/row-1-column-5.png",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "soccer/row-1-column-6.png",
 "walkable": 1
 },
 {
@@ -15665,11 +15665,7 @@
 "sprite_file": "gras2.jpg",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "gras1.jpg",
@@ -116648,12 +116644,12 @@
 0,
 0,
 0,
+0,
 {
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "ball.png",
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-1-column-7.png",
 "walkable": 1
 },
-0,
 0,
 0,
 0,
@@ -116901,13 +116897,41 @@
 "walkable": 1
 },
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-2-column-1.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-2-column-2.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-2-column-3.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-2-column-4.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-2-column-5.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-2-column-6.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-2-column-7.png",
+"walkable": 1
+},
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower4.png",
@@ -117123,17 +117147,41 @@
 0,
 0,
 0,
-0,
-0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
+"sprite_file": "soccer/row-3-column-1.png",
 "walkable": 1
 },
-0,
-0,
-0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-3-column-2.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-3-column-3.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-3-column-4.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-3-column-5.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-3-column-6.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-3-column-7.png",
+"walkable": 1
+},
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -117356,19 +117404,39 @@
 0,
 0,
 0,
-0,
-0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
+"sprite_file": "soccer/row-4-column-1.png",
 "walkable": 1
 },
-0,
-0,
-0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
+"sprite_file": "soccer/row-4-column-2.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-4-column-3.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-4-column-4.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-4-column-5.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-4-column-6.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-4-column-7.png",
 "walkable": 1
 },
 0,
@@ -117601,13 +117669,41 @@
 0,
 0,
 0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-5-column-1.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-5-column-2.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-5-column-3.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-5-column-4.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-5-column-5.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-5-column-6.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "soccer/row-5-column-7.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -150700,7 +150796,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "ball.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -216575,12 +216675,12 @@
 0,
 0,
 0,
-0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
+0,
 0,
 0,
 0,
