@@ -83,4 +83,6 @@ class Chainsaw(Takeable, InlineSprite):
 
         # Recharge chainsaw with fuel
         self.attributes['fuel'] = 100
+        self.player_state.say('')
+
         element.state.inventory = None
