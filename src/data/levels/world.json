@@ -133235,11 +133235,7 @@
 ],
 [
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -133938,11 +133934,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -160760,7 +160752,7 @@
 0,
 {
 "sprite_class": "sprites.wall.Wall",
-"sprite_file": "wrench2.png"
+"sprite_file": "wrench1.png"
 },
 0,
 0,
@@ -160771,7 +160763,7 @@
 0,
 {
 "sprite_class": "sprites.wall.Wall",
-"sprite_file": "wrench1.png"
+"sprite_file": "wrench2.png"
 },
 0,
 0,
@@ -160949,7 +160941,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wrench4.png"
+},
 0,
 0,
 0,
@@ -161057,7 +161052,10 @@
 [
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wrench3.png"
+},
 0,
 0,
 0,
@@ -161381,7 +161379,7 @@
 0,
 {
 "sprite_class": "sprites.wall.Wall",
-"sprite_file": "wrench2.png"
+"sprite_file": "wrench1.png"
 },
 0,
 0,
@@ -161392,7 +161390,7 @@
 0,
 {
 "sprite_class": "sprites.wall.Wall",
-"sprite_file": "wrench1.png"
+"sprite_file": "wrench2.png"
 },
 0,
 0,
@@ -216139,7 +216137,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.maincharacter.MainCharacter",
+"sprite_file": "pig.png",
+"id": "grunzi"
+},
 0,
 0,
 0,
@@ -216290,11 +216292,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.maincharacter.MainCharacter",
-"sprite_file": "pig.png",
-"id": "grunzi"
-},
+0,
 0,
 0,
 0,

@@ -75,6 +75,16 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache,
             'wrench2.png'
         ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'wrench3.png'
+        ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'wrench4.png'
+        ),
         Backdrop(
             sprites_dir,
             image_cache,
