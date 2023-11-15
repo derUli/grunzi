@@ -59,6 +59,9 @@ class Animation():
         thread.start()
         logging.debug('Async reload animation finished')
 
+    def fully_loaded(self):
+        return len(self.frames) == len(self.files)
+
     def reload_async(self):
         frames = []
         for file in self.files:

@@ -132,12 +132,18 @@ class Level:
 
                     if element:
                         if hasattr(element, 'animation'):
+                            animation = element.animation
                             # Wait for animation frame loading
-                            while len(element.animation.frames) == 0:
-                                element.draw(surface, x, y)
+                            animation.load()
+                            frames = animation.frames
+                            files = animation.files
 
-                        else:
-                            element.draw(surface, x, y)
+                            # wait for animation loaded
+                            while not animation.fully_loaded():
+                                continue
+
+
+                        element.draw(surface, x, y)
 
         make_dump(surface)
 
