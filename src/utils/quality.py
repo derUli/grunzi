@@ -18,10 +18,8 @@ def font_antialiasing():
     """ Get fount antialiasing based on the current quality """
     return ENABLE_FONT_ANTIALIASING
 
-
 def shader_enabled():
     return SHADER_ENABLED
-
 
 def vignette_enabled():
     return VIGNETTE_ENABLED

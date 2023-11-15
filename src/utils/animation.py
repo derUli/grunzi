@@ -1,6 +1,5 @@
 import logging
 import os
-import re
 import time
 from threading import Thread
 
@@ -9,19 +8,7 @@ from PygameShader.shader import bilinear
 
 import utils.quality
 from constants.graphics import SPRITE_SIZE
-
-
-def atoi(text):
-    return int(text) if text.isdigit() else text.lower()
-
-
-def natural_keys(text):
-    '''
-    alist.sort(key=natural_keys) sorts in human order
-    http://nedbatchelder.com/blog/200712/human_sorting.html
-    (See Toothy's implementation in the comments)
-    '''
-    return [atoi(c) for c in re.split('(\d+)', text)]
+from utils.string import natural_keys
 
 
 TRANSPARENT_IMAGES = ['.png', '.gif']
