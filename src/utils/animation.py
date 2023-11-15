@@ -3,8 +3,9 @@ import os
 import re
 import time
 from threading import Thread
-from PygameShader.shader import bilinear
+
 import pygame
+from PygameShader.shader import bilinear
 
 import utils.quality
 from constants.graphics import SPRITE_SIZE
@@ -86,7 +87,7 @@ class Animation():
 
         is_alpha = False
 
-        scale_fn =  utils.quality.scale_method()
+        scale_fn = utils.quality.scale_method()
 
         if extension in TRANSPARENT_IMAGES:
             frame = frame.convert_alpha()

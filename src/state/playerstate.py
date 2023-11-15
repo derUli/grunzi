@@ -2,9 +2,11 @@ import logging
 import os
 import random
 import time
-from PygameShader.shader import blood
-import pygame
+
 import numpy
+import pygame
+from PygameShader.shader import blood
+
 import utils.quality
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from sprites.inlinesprite import InlineSprite
@@ -39,7 +41,6 @@ class PlayerState:
             os.path.join(data_dir, 'images', 'ui',
                          'health.png')
         ).convert_alpha()
-
 
         self.blood_surface = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
@@ -239,7 +240,7 @@ class PlayerState:
 
         percentage = 1.0 - (self.health / 100)
 
-        if(percentage <= 0):
+        if (percentage <= 0):
             return
 
         blood(screen, self.blood_mask, percentage)
@@ -276,7 +277,6 @@ class PlayerState:
         """ Draw ui background """
 
         screen.fill(BOTTOM_UI_BACKGROUND)
-
 
     def draw_inventory(self, screen):
         """ Draw inventory """

@@ -3,15 +3,16 @@ import os
 import random
 
 from constants.direction import DIRECTION_UP, DIRECTION_DOWN
+from sprites.fuel import Fuel
 from sprites.inlinesprite import InlineSprite
 from sprites.takeable import Takeable
 from utils.audio import play_sound
-from sprites.fuel import Fuel
 
 SHAKE_Y_FROM = -2
 SHAKE_Y_TO = 2
 
 FUEL_USAGE = 0.02
+
 
 class Chainsaw(Takeable, InlineSprite):
     """ Chainsaw sprite class """
@@ -25,7 +26,6 @@ class Chainsaw(Takeable, InlineSprite):
         self.attributes = {
             'fuel': 100
         }
-
 
     def draw_inline(self, screen, pos):
         """ draw sprite """
@@ -72,7 +72,6 @@ class Chainsaw(Takeable, InlineSprite):
         play_sound(
             os.path.join(sound_dir, random.choice(files))
         )
-
 
     def handle_interact_item(self, element):
 

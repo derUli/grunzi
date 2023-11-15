@@ -43,7 +43,6 @@ class Sprite:
             logging.error('File ' + file + ' not found')
             return
 
-
     def init_state(self):
         self.state = None
 
@@ -116,7 +115,6 @@ class Sprite:
 
         if self.id:
             data['id'] = self.id
-
 
         if self.attributes:
             data['attributes'] = self.attributes

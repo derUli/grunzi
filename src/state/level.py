@@ -1,22 +1,12 @@
 import json
 import logging
 import os
-import random
 import time
 
 import pygame
 
 import constants.graphics
-import sprites.backdrop
-import sprites.detailed
-import sprites.fire
-import sprites.raccoon
-import sprites.wall
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
-from constants.game import LEVEL_1_SIZE
-from sprites.apple import Apple
-from sprites.door import Door
-from sprites.key import Key
 from sprites.levelexit import LevelExit
 from utils.reflections import get_class
 from utils.screenshot import make_dump
@@ -37,7 +27,7 @@ class Level:
         self.level_file = level_file
         self.level_file_last_changed = None
 
-    def load(self, progress_callback = None):
+    def load(self, progress_callback=None):
         load_start = time.time()
         layers = []
         self.level_file_last_changed = os.path.getmtime(self.level_file)
@@ -105,18 +95,17 @@ class Level:
         load_time = load_end - load_start
         logging.debug("Loading time: " + str(load_time))
 
-    def save(self, progress_callback = None):
+    def save(self, progress_callback=None):
         if progress_callback:
             progress_callback(percentage=None, loading_text=_('Saving level...'))
         with open(self.level_file, 'w') as f:
             f.write(json.dumps(self.to_saveable_list(), indent=0))
 
-    def dump(self, progress_callback = None):
+    def dump(self, progress_callback=None):
         w, h = constants.graphics.SPRITE_SIZE
 
         total_w = len(self.layers[0][0]) * w
         total_h = len(self.layers[0]) * h
-
 
         one_percent = 100 / self.total_blocks(self.layers)
         loaded_percent = 0
@@ -151,7 +140,6 @@ class Level:
                             element.draw(surface, x, y)
 
         make_dump(surface)
-
 
     def total_blocks(self, leveldata):
 

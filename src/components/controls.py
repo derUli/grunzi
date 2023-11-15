@@ -20,6 +20,7 @@ HORIZONTAL_MARGIN = 45
 
 FONT_SIZE = 28
 
+
 class Controls(FadeableComponent):
     """ Controls screen """
 

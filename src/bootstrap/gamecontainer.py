@@ -21,8 +21,7 @@ from utils.cursor import default_cursor
 from utils.fps_counter import FPSCounter
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
-import time
-import sys
+
 
 class GameContainer:
     """ Main game class """
@@ -186,7 +185,6 @@ class GameContainer:
 
         if self.settings_state.show_fps:
             self.show_fps()
-
 
     def show_fps(self):
         """ Show fps """

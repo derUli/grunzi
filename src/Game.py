@@ -4,14 +4,11 @@ import gettext
 import locale
 import logging
 import os
-import time
-
-# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
 
 from bootstrap.gamecontainer import GameContainer
-from components.maingame import MainGame
-from components.menu import Menu
 from utils.path import get_userdata_path
+
+# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
 
 __main__ = __file__
 

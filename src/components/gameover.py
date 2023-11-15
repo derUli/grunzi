@@ -2,6 +2,7 @@
 import os
 
 import pygame
+from PygameShader.shader import bilinear
 
 import utils.image
 import utils.quality
@@ -9,7 +10,7 @@ import utils.savegame
 from components.component import Component
 from constants.quality import QUALITY_LOW
 from utils.menu import make_menu
-from PygameShader.shader import bilinear
+
 
 class GameOver(Component):
     """ Gamve Over Screen """

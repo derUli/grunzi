@@ -1,12 +1,13 @@
 import pygame
+from PygameShader.shader import blur
 
 import utils.savegame
 from constants import gamepad
 from constants import keyboard
 from utils.menu import make_menu
-from PygameShader.shader import blur
 
 MAX_BLUR_ITERATIONS = 20
+
 
 class PausableComponent:
     def pause_menu(self):

@@ -1,4 +1,7 @@
+import logging
 import os
+import subprocess
+import sys
 
 import pygame
 
@@ -9,9 +12,7 @@ from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUA
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
-import sys
-import logging
-import subprocess
+
 
 class Settings(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
@@ -57,7 +58,7 @@ class Settings(Component):
 
         # If we are running from Exe
         if getattr(sys, "frozen", False):
-           command = sys.argv
+            command = sys.argv
 
         subprocess.Popen(command)
         sys.exit()
@@ -149,7 +150,6 @@ class Settings(Component):
             (_('No Controller'), None)
         ]
 
-
     def handle_dummy(self):
         """ Dummy handler does nothing """
         return
@@ -163,7 +163,6 @@ class Settings(Component):
             items.append((label, value))
 
         return items
-
 
     def get_selected_resolution_index(self):
         i = 0
@@ -187,14 +186,12 @@ class Settings(Component):
 
         return i
 
-
     def refresh_menu(self):
         self.menu.disable()
         self.draw_menu(self.screen)
 
     def draw_menu(self, screen):
         menu = make_menu(_('Settings'), self.settings_state.limit_fps)
-
 
         w = menu.get_width() - (constants.headup.UI_MARGIN * 2)
 

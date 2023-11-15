@@ -5,7 +5,9 @@ import os
 import random
 import time
 from threading import Thread
+
 import pygame
+from PygameShader.shader import bilinear
 
 import components.tobecontinued
 import constants.game
@@ -27,12 +29,12 @@ from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-from PygameShader.shader import bilinear
 
 BACKDROP_COLOR = (36, 63, 64)
 
 THREAD_INTERVAL_HIGH = 50
 THREAD_INTERVAL_LOW = 500
+
 
 class MainGame(PausableComponent, FadeableComponent):
 
@@ -69,8 +71,8 @@ class MainGame(PausableComponent, FadeableComponent):
             self.backdrop = bilinear(self.backdrop, self.settings_state.screen_resolution)
         else:
             self.backdrop = utils.quality.scale_method()(
-            self.backdrop,
-            self.settings_state.screen_resolution
+                self.backdrop,
+                self.settings_state.screen_resolution
             )
 
     def new_game(self):
@@ -102,21 +104,19 @@ class MainGame(PausableComponent, FadeableComponent):
 
         return True
 
-    def loading_screen(self, percentage = None, loading_text=None):
+    def loading_screen(self, percentage=None, loading_text=None):
         """ Show loading screen """
         self.screen.fill(constants.headup.BOTTOM_UI_BACKGROUND)
 
         if not loading_text:
             loading_text = _('Loading...')
 
-
         # Show percentage if given
-        if(percentage is not None):
+        if (percentage is not None):
             percentage = str(percentage) + "%"
             percentage = percentage.rjust(4, ' ')
 
             loading_text += ' ' + str(percentage)
-
 
         # Render loading text
         rendered_text = self.monotype_font.render(
@@ -312,7 +312,6 @@ class MainGame(PausableComponent, FadeableComponent):
             pygame.time.delay(THREAD_INTERVAL_LOW)
             self.check_for_updates()
 
-
     def check_for_updates(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
 
@@ -333,7 +332,6 @@ class MainGame(PausableComponent, FadeableComponent):
             pygame.time.delay(THREAD_INTERVAL_HIGH)
             self.handle_interactions()
             self.level.update_sprites()
-
 
     def handle_interactions(self):
         if self.state.player_state.use_item:
@@ -483,7 +481,6 @@ class MainGame(PausableComponent, FadeableComponent):
         elif x == 0 and y == 0:
             self.moving = None
             self.pressed_keys = []
-
 
     def handle_joyaxismotion(self, event):
         """ Handle controller axis motion """

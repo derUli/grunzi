@@ -2,12 +2,13 @@
 import os
 
 import pygame
+from PygameShader.shader import bilinear
 
 import utils.quality
 from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
-from PygameShader.shader import bilinear
+
 
 class ToBeContinued(FadeableComponent):
     """ To be continued Screen """

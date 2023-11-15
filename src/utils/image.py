@@ -1,10 +1,13 @@
 import logging
 import os.path
 import time
+
 import pygame
 from PygameShader.shader import bilinear
+
 from constants.graphics import ALPHA_IMAGE_FORMATS
 from utils.quality import scale_method
+
 
 class ImageCache:
 

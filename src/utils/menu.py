@@ -1,6 +1,6 @@
 import pygame_menu
 
-from constants.headup import BOTTOM_UI_BACKGROUND, PIGGY_PINK, UI_MARGIN
+from constants.headup import BOTTOM_UI_BACKGROUND, PIGGY_PINK
 
 THEME_PIG = pygame_menu.Theme(
     background_color=PIGGY_PINK,
@@ -21,6 +21,7 @@ THEME_PIG = pygame_menu.Theme(
 
 WIDTH = 640
 HEIGHT = 480
+
 
 def make_menu(title, limit_fps=0):
     THEME_PIG.fps = limit_fps

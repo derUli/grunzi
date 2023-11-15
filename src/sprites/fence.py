@@ -1,7 +1,5 @@
 """ Fence sprite """
-import logging
 
-from sprites.chainsaw import Chainsaw
 from sprites.destroyable import Destroyable
 
 RUMBLE_CHAINSAW_DURATION = 300
