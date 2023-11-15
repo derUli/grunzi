@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-14 18:40+0100\n"
+"POT-Creation-Date: 2023-11-15 01:25+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -188,15 +188,23 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
+#: sprites/chainsaw.py:37
+msgid "The petrol is empty."
+msgstr "Das Benzin ist leer."
+
+#: sprites/chainsaw.py:87
+msgid "The chainsaw was recharged."
+msgstr "Die Kettensäge wurde aufgefüllt."
+
 #: sprites/raccoon.py:34
 msgid "Henlo Fren!"
 msgstr ""
 
-#: state/level.py:107
+#: state/level.py:110
 msgid "Saving level..."
 msgstr "Speichere Level..."
 
-#: state/level.py:122
+#: state/level.py:125
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
