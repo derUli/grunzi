@@ -40,14 +40,12 @@ class Destroyable(Fadeable, Wall):
             if pixel_fades_enabled():
                 if not self.fadeout:
                     self.start_fade()
-                    element.state.inventory.play_sound()
             else:
                 self.purge = True
                 self.walkable = True
-
-                element.state.inventory.play_sound()
-
                 logging.debug('Destroyable sprite destroyed with chainsaw')
+
+            element.state.inventory.play_sound()
 
 
             # Rumble on gamepad if we have one

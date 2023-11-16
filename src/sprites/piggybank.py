@@ -33,12 +33,11 @@ class PiggyBank(Fadeable, Wall):
             if pixel_fades_enabled():
                 if not self.fadeout:
                     self.start_fade()
-                    self.play_sound()
             else:
                 self.purge = True
                 self.walkable = True
-                self.play_sound()
 
+            self.play_sound()
 
             # Rumble on gamepad if we have one
             if element.state.gamepad:
