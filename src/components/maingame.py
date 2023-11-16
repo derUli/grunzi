@@ -57,7 +57,12 @@ class MainGame(PausableComponent, FadeableComponent):
         self.async_ai_running = None
         self.is_level_exit = False
         self.last_rendered = None
-        self.mouse_handler = MouseHandler(self.move_main_character)
+        self.mouse_handler = MouseHandler(
+            self.move_main_character,
+            self.state.player_state.toggle_item,
+            self.grunt,
+            self.drop_item
+        )
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
@@ -277,13 +282,19 @@ class MainGame(PausableComponent, FadeableComponent):
         screen.blit(virtual_screen, (0, 0))
 
         # Draw head up display
-        self.state.player_state.draw(screen)
+        headup_display = self.state.player_state.draw(screen)
 
         if self.do_fade:
             screen.set_alpha(self.alpha)
             self.screen.blit(screen, (0, 0))
 
-        self.mouse_handler.draw(self.screen, mainchar_rect)
+        self.mouse_handler.draw(
+            screen,
+            mainchar_rect,
+            headup_display,
+            self.state.player_state.drawn_inventory,
+            self.state.player_state.drawn_health
+        )
 
         self.fade()
 
@@ -419,10 +430,14 @@ class MainGame(PausableComponent, FadeableComponent):
         """ Handle events """
         super().handle_event(event)
 
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if event.type == pygame.MOUSEMOTION:
+            self.mouse_handler.enable()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
             self.mouse_handler.handle_mousedown()
         elif event.type == pygame.MOUSEBUTTONUP:
             self.mouse_handler.handle_mouseup()
+        else:
+            self.mouse_handler.disable()
         if event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:
