@@ -26,9 +26,11 @@ from constants.quality import QUALITY_LOW
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
+from sprites.maincharacter import MainCharacter
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
+from utils.mouse_handler import MouseHandler
 
 BACKDROP_COLOR = (36, 63, 64)
 
@@ -55,6 +57,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.async_ai_running = None
         self.is_level_exit = False
         self.last_rendered = None
+        self.mouse_handler = MouseHandler(self.move_main_character)
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
@@ -224,6 +227,8 @@ class MainGame(PausableComponent, FadeableComponent):
         else:
             screen.fill(BACKDROP_COLOR)
 
+        mainchar_rect = None
+
         for layer in filtered_layers:
             y = 0
             x = 0
@@ -244,7 +249,11 @@ class MainGame(PausableComponent, FadeableComponent):
                         if pos_y > virtscreen_h:
                             break
 
-                        col.draw(virtual_screen, x, y)
+
+                        drawn = col.draw(virtual_screen, x, y)
+
+                        if isinstance(col, MainCharacter):
+                            mainchar_rect = drawn
 
                         if self.state.edit_mode and isinstance(col, Character):
                             col.draw_debug(
@@ -254,6 +263,7 @@ class MainGame(PausableComponent, FadeableComponent):
                                 from_x,
                                 from_y
                             )
+
 
                     if isinstance(col, Character) and not self.disable_ai:
                         col.ai(self.level)
@@ -272,6 +282,8 @@ class MainGame(PausableComponent, FadeableComponent):
         if self.do_fade:
             screen.set_alpha(self.alpha)
             self.screen.blit(screen, (0, 0))
+
+        self.mouse_handler.draw(self.screen, mainchar_rect)
 
         self.fade()
 
@@ -407,6 +419,10 @@ class MainGame(PausableComponent, FadeableComponent):
         """ Handle events """
         super().handle_event(event)
 
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            self.mouse_handler.handle_mousedown()
+        elif event.type == pygame.MOUSEBUTTONUP:
+            self.mouse_handler.handle_mouseup()
         if event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:
@@ -581,6 +597,10 @@ class MainGame(PausableComponent, FadeableComponent):
         """ Move main character one field in direction """
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]
+
+        if dir == None:
+            self.moving = None
+            return
 
         if not self.moving:
             self.moving = dir
