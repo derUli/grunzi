@@ -14,15 +14,15 @@ target = cx_Freeze.Executable(
     target_name='Grunzi.exe'
 )
 
-cx_Freeze.setup(
-    name='Grunzi',
-    options={
+options = {
         'build_exe': {
+            # "include_msvcr": True, Not allowed to legal reasons
             'packages': [
                 'pygame',
                 'sprites',
                 'PygameShader'
             ],
+            'optimize': 2,
             'include_files': [
                 'data/',
                 '../CREDITS.txt',
@@ -31,7 +31,12 @@ cx_Freeze.setup(
                 '../VERSION'
             ]
         }
-    },
+
+}
+
+cx_Freeze.setup(
+    name='Grunzi',
+    options=options,
     executables=[
         target
     ]
