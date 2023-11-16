@@ -22,7 +22,7 @@ options = {
                 'sprites',
                 'PygameShader'
             ],
-            'optimize': 2,
+            'optimize': 0,
             'include_files': [
                 'data/',
                 '../CREDITS.txt',
