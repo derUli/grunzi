@@ -22,7 +22,7 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   
 ```
 
-Wenn der Start des Spiels mit der Fehlermeldung, dass die "MSVCR140.dll" fehlt, fehlschlägt, müssen Sie das
+Wenn der Start des Spiels mit der Fehlermeldung, dass die "VCRUNTIME140.dll" fehlt, fehlschlägt, müssen Sie das
 "Visual C++ Redistributable" von Microsoft installieren.
 
 Sie können es hier herunterladen:
