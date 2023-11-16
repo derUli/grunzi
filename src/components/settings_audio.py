@@ -12,6 +12,7 @@ from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUA
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
+import utils.audio
 
 class SettingsAudio(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
@@ -26,6 +27,8 @@ class SettingsAudio(Component):
             'dancing_pig'
         )
         self.old_component = None
+
+        self.playing = None
 
         # 25 Frames by second
         self.video = Animation(
@@ -62,6 +65,12 @@ class SettingsAudio(Component):
     def handle_change_sound_volume(self, range_value):
         self.settings_state.sound_volume = range_value / 100
         self.settings_state.apply_and_save()
+
+        if self.playing and self.playing.get_busy():
+            self.playing.stop()
+
+        test_sound = os.path.join(self.data_dir, 'sounds', 'pig', 'grunt1.ogg')
+        self.playing = utils.audio.play_sound(test_sound)
 
     def draw_menu(self, screen):
         menu = make_menu(_('Video'), self.settings_state.limit_fps)
