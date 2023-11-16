@@ -20,6 +20,9 @@ HORIZONTAL_MARGIN = 45
 
 FONT_SIZE = 28
 
+SUPPORTED_CONTROLLERS = [
+    'Xbox 360 Controller'
+]
 
 class Controls(FadeableComponent):
     """ Controls screen """
@@ -122,6 +125,28 @@ class Controls(FadeableComponent):
 
             y += controls_text.get_height()
             y += LINE_SMALL_MARGIN
+
+
+        text = _('Controller: ')
+
+        if self.gamepad and self.gamepad.joystick:
+            controller_name = self.gamepad.joystick.get_name()
+            text += controller_name
+
+            if controller_name not in SUPPORTED_CONTROLLERS:
+                text += ' (' + _('Unsupported') + ')'
+        else:
+            text += _('No Controller')
+
+        control_text = self.font.render(
+            text,
+            utils.quality.font_antialiasing_enabled(),
+            pygame.Color(TEXT_COLOR)
+        )
+
+        y = screen.get_height() - controls_text.get_height() - HORIZONTAL_MARGIN
+
+        surface.blit(control_text, (x, y))
 
         self.draw_film_grain(surface)
         screen.blit(surface, (0, 0))

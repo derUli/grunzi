@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-16 00:07+0100\n"
+"POT-Creation-Date: 2023-11-16 17:31+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -26,38 +26,51 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/controls.py:46 components/controls.py:57
+#: components/controls.py:50 components/controls.py:61
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/controls.py:47 components/controls.py:58
+#: components/controls.py:51 components/controls.py:62
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/controls.py:48 components/controls.py:59
+#: components/controls.py:52 components/controls.py:63
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/controls.py:49 components/controls.py:60
+#: components/controls.py:53 components/controls.py:64
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/controls.py:50 components/controls.py:61
+#: components/controls.py:54 components/controls.py:65
 msgid "Run"
 msgstr "Rennen"
 
-#: components/controls.py:51 components/controls.py:62
+#: components/controls.py:55 components/controls.py:66
 #: components/pausable_component.py:18
 msgid "Pause"
 msgstr ""
 
-#: components/controls.py:52
+#: components/controls.py:56
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/controls.py:76 components/menu.py:90
+#: components/controls.py:80 components/menu.py:90
 msgid "Controls"
 msgstr "Steuerung"
+
+#: components/controls.py:131
+#, fuzzy
+msgid "Controller: "
+msgstr "Controller: "
+
+#: components/controls.py:138
+msgid "Unsupported"
+msgstr "Nicht unterstützt"
+
+#: components/controls.py:140 components/settings.py:144
+msgid "No Controller"
+msgstr "Kein Controller"
 
 #: components/gameover.py:56
 msgid "Game Over"
@@ -68,7 +81,7 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/gameover.py:60 components/pausable_component.py:24
-#: components/settings.py:255
+#: components/settings.py:263
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
@@ -96,7 +109,7 @@ msgstr "Neues Spiel"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:89 components/settings.py:188
+#: components/menu.py:89 components/settings.py:196
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -136,43 +149,39 @@ msgstr "Hoch"
 msgid "Very High"
 msgstr "Sehr hoch"
 
-#: components/settings.py:144
-msgid "No Controller"
-msgstr "Kein Controller"
-
-#: components/settings.py:192
+#: components/settings.py:200
 msgid "Display Mode: "
 msgstr "Anzeigemodus: "
 
-#: components/settings.py:195
+#: components/settings.py:203
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings.py:197
+#: components/settings.py:205
 msgid "Window"
 msgstr "Fenster"
 
-#: components/settings.py:201
+#: components/settings.py:209
 msgid "V-Sync: "
 msgstr ""
 
-#: components/settings.py:211
+#: components/settings.py:219
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings.py:220
+#: components/settings.py:228
 msgid "Quality"
 msgstr "Qualität"
 
-#: components/settings.py:229
+#: components/settings.py:237
 msgid "Controller"
 msgstr "Controller"
 
-#: components/settings.py:238
+#: components/settings.py:246
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings.py:247
+#: components/settings.py:255
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
