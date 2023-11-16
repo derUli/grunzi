@@ -4,7 +4,7 @@ ENABLE_SMOOTH_SCALE = False
 ENABLE_FONT_ANTIALIASING = False
 SHADER_ENABLED = False
 VIGNETTE_ENABLED = False
-
+PIXEL_FADES = False
 
 def scale_method():
     """ Get scale method based on the current quality """
@@ -13,8 +13,7 @@ def scale_method():
 
     return pygame.transform.scale
 
-
-def font_antialiasing():
+def font_antialiasing_enabled():
     """ Get fount antialiasing based on the current quality """
     return ENABLE_FONT_ANTIALIASING
 
@@ -23,3 +22,6 @@ def shader_enabled():
 
 def vignette_enabled():
     return VIGNETTE_ENABLED
+
+def pixel_fades_enabled():
+    return PIXEL_FADES

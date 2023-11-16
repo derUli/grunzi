@@ -65,6 +65,7 @@ class SettingsState:
         utils.quality.ENABLE_FONT_ANTIALIASING = self.quality >= QUALITY_MEDIUM
         utils.quality.SHADER_ENABLED = self.quality >= QUALITY_HIGH
         utils.quality.VIGNETTE_ENABLED = self.quality >= QUALITY_VERY_HIGH
+        utils.quality.PIXEL_FADES = self.quality >= QUALITY_HIGH
 
     def get_settings_path(self):
         """ Get settings file path """

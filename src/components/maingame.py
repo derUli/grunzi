@@ -121,7 +121,7 @@ class MainGame(PausableComponent, FadeableComponent):
         # Render loading text
         rendered_text = self.monotype_font.render(
             loading_text,
-            utils.quality.font_antialiasing(),
+            utils.quality.font_antialiasing_enabled(),
             (255, 255, 255)
         )
 

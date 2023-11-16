@@ -5,7 +5,7 @@ import time
 import pygame
 
 from constants.game import TEXT_FONT_SIZE, MONOTYPE_FONT
-from utils.quality import font_antialiasing
+from utils.quality import font_antialiasing_enabled
 
 TEXT_COLOR = (255, 255, 255)
 TIME_PER_CHAR = 0.2
@@ -51,7 +51,7 @@ class DisplayText:
 
             rendered_text = font.render(
                 text,
-                font_antialiasing(),
+                font_antialiasing_enabled(),
                 TEXT_COLOR
             ).convert_alpha()
 

@@ -42,7 +42,7 @@ class Component(object):
     def render_text(self, what, color, where):
         text = self.monotype_font.render(
             what,
-            utils.quality.font_antialiasing(),
+            utils.quality.font_antialiasing_enabled(),
             pygame.Color(color)
         )
 
@@ -52,7 +52,7 @@ class Component(object):
         """ Draw notification text in the bottom right of the screen"""
         text = self.monotype_font.render(
             what,
-            utils.quality.font_antialiasing(),
+            utils.quality.font_antialiasing_enabled(),
             pygame.Color(color)
         )
 

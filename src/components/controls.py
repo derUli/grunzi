@@ -74,7 +74,7 @@ class Controls(FadeableComponent):
             surface.blit(self.backdrop, (0, 0))
         controls_text = self.font.render(
             _('Controls'),
-            utils.quality.font_antialiasing(),
+            utils.quality.font_antialiasing_enabled(),
             pygame.Color(TEXT_COLOR)
         )
 
@@ -97,7 +97,7 @@ class Controls(FadeableComponent):
 
             control_text = self.font.render(
                 label,
-                utils.quality.font_antialiasing(),
+                utils.quality.font_antialiasing_enabled(),
                 pygame.Color(TEXT_COLOR)
             )
 

@@ -70,7 +70,7 @@ class Sprite:
 
         text = self.debug_font.render(
             text_str,
-            utils.quality.font_antialiasing(),
+            utils.quality.font_antialiasing_enabled(),
             (255, 255, 255)
         )
 
