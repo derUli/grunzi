@@ -8,8 +8,7 @@ from utils.quality import pixel_fades_enabled
 from threading import Thread
 
 
-
-class Fadeable(Sprite):
+class Killable(Sprite):
     """ Fence sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='box.png'):
@@ -54,7 +53,7 @@ class Fadeable(Sprite):
 
             r, g, b, a = self.sprite.get_at((rand_x, rand_y))
 
-        self.sprite.set_at((rand_x, rand_y), (r, g, b, 0))
+        self.sprite.set_at((rand_x, rand_y), (255, 0, 0, a))
         self.persistent_pixels -= 1
 
 
@@ -64,7 +63,11 @@ class Fadeable(Sprite):
         for x in range(0, w):
             for y in range(0, h):
                 r, g, b, a = self.sprite.get_at((x, y))
-                if a > 0:
+                if r != 255 and g != 0 and b != 0:
                     persistent += 1
 
         return persistent
+
+
+    def killed(self):
+        return self.walkable or self.fadeout or self.purge

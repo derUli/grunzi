@@ -12,6 +12,8 @@ from sprites.chainsaw import Chainsaw
 from sprites.character import Character
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
+from sprites.killable import Killable
+from utils.quality import pixel_fades_enabled
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
@@ -21,7 +23,7 @@ BLOOD_COLOR = (163, 8, 8)
 KITTEN_SOUND_FADEOUT = 100
 
 
-class Kitten(Character):
+class Kitten(Killable, Character):
     """ Chicken sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='kitten.png'):
@@ -46,6 +48,7 @@ class Kitten(Character):
 
         if self.image_direction == DIRECTION_LEFT:
             flip_x = True
+
         sprite = pygame.transform.flip(sprite, flip_x, flip_y)
 
         pos = self.calculate_pos(x, y)
@@ -112,19 +115,27 @@ class Kitten(Character):
         if not element:
             return
 
+        if self.killed():
+            return
+
         # Chicken is killed by chainsaw
         if isinstance(element.state.inventory, Chainsaw) and not self.walkable:
             if element.state.inventory.attributes['fuel'] <= 0:
                 return
 
             self.walkable = True
-            element.state.flash(BLOOD_COLOR)
 
             if self.sound and self.sound.get_busy():
                 self.sound.fadeout(KITTEN_SOUND_FADEOUT)
 
             logging.debug('Kitten killed by chainsaw')
-            self.purge = True
+
+            if pixel_fades_enabled():
+                if not self.fadeout:
+                    self.start_fade()
+            else:
+                self.purge = True
+                self.walkable = True
 
             element.state.inventory.play_sound()
 

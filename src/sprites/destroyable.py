@@ -30,7 +30,7 @@ class Destroyable(Fadeable, Wall):
         if not element:
             return
 
-        if self.walkable or self.fadeout or self.purge:
+        if self.destroyed():
             return
 
         if isinstance(element.state.inventory, Chainsaw):
@@ -43,7 +43,8 @@ class Destroyable(Fadeable, Wall):
             else:
                 self.purge = True
                 self.walkable = True
-                logging.debug('Destroyable sprite destroyed with chainsaw')
+
+            logging.debug('Destroyable sprite destroyed with chainsaw')
 
             element.state.inventory.play_sound()
 
@@ -55,3 +56,7 @@ class Destroyable(Fadeable, Wall):
                     RUMBLE_CHAINSAW_HIGH_FREQUENCY,
                     RUMBLE_CHAINSAW_DURATION
                 )
+
+
+    def destroyed(self):
+        return self.walkable or self.fadeout or self.purge
