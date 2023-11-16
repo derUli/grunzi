@@ -593,14 +593,17 @@ class MainGame(PausableComponent, FadeableComponent):
         self.state.edit_mode = not self.state.edit_mode
         self.state.show_only_layer = None
 
-    def move_main_character(self, dir):
+    def move_main_character(self, dir, running = None):
         """ Move main character one field in direction """
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]
 
-        if dir == None:
+        if dir is None:
             self.moving = None
             return
+
+        if running is not None:
+            self.running = running
 
         if not self.moving:
             self.moving = dir

@@ -6,6 +6,7 @@ COLOR_POINTER_MOVE_UP = (255,0,0)
 COLOR_POINTER_MOVE_DOWN = (255,255,0)
 COLOR_POINTER_MOVE_LEFT = (255,0,255)
 COLOR_POINTER_MOVE_RIGHT = (0,255,255)
+DOUBLECLICK_SPEED = 500
 
 POINTER_SIZE = 16
 
@@ -18,6 +19,8 @@ class MouseHandler:
         self.mainchar_rect = None
         self.screen = None
         self.mousedown = False
+        self.running = False
+        self.dbclock = pygame.time.Clock()
 
     def pointer_rect(self):
         x, y = pygame.mouse.get_pos()
@@ -27,9 +30,16 @@ class MouseHandler:
 
     def handle_mouseup(self):
         self.mousedown = False
+        self.running = False
         self.handle_move(None)
 
     def handle_mousedown(self):
+        if not self.mousedown and self.dbclock.tick() < DOUBLECLICK_SPEED:
+            print(DOUBLECLICK_SPEED)
+            self.running = True
+
+        print(self.running)
+
         self.mousedown = True
         if not self.enabled:
             return
@@ -45,7 +55,7 @@ class MouseHandler:
             if hotspot['rect'].colliderect(rect):
                 direction = hotspot['direction']
 
-        self.handle_move(direction)
+        self.handle_move(direction, self.running)
 
     def movement_hotspots(self):
         screen = self.screen
