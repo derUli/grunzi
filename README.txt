@@ -58,10 +58,10 @@ Dies kann in den Grafikeinstellungen geändert werden.
 
 Im Folgenden eine Aufschlüsselung der Grafikqualitäten:
 
-| Qualität     | Backdrops  | Weiche Skalierung | Film Grain | Antialiasing für Fonts | Wasser-Animationen | Bloody Screen
-| ------------ |:----------:|:-----------------:|:----------:|:----------------------:|:------------------:|:-------------:|
-| Sehr Niedrig |     ❌    |        ❌         |     ❌     |            ❌         |         ❌        |       ❌      |
-| Niedrig      |     ✅    |        ❌         |     ❌     |            ❌         |         ❌        |       ❌      |
-| Mittel       |     ✅    |        ❌         |     ❌     |            ✅         |         ❌        |       ❌      |
-| Hoch         |     ✅    |        ✅         |     ❌     |            ✅         |         ✅        |       ❌      |
-| Sehr hoch    |     ✅    |        ✅         |     ✅     |            ✅         |         ✅        |       ✅      |
+| Qualität     | Backdrops  | Weiche Skalierung | Film Grain | Antialiasing für Fonts | Wasser-Animationen | Bloody Screen | Pixel Fades |
+| ------------ |:----------:|:-----------------:|:----------:|:----------------------:|:------------------:|:-------------:|:------------:|
+| Sehr Niedrig |     ❌    |        ❌         |     ❌     |            ❌         |         ❌        |       ❌      |     ❌      |
+| Niedrig      |     ✅    |        ❌         |     ❌     |            ❌         |         ❌        |       ❌      |     ❌      |
+| Mittel       |     ✅    |        ❌         |     ❌     |            ✅         |         ❌        |       ❌      |     ❌      |
+| Hoch         |     ✅    |        ✅         |     ❌     |            ✅         |         ✅        |       ❌      |     ✅      |
+| Sehr hoch    |     ✅    |        ✅         |     ✅     |            ✅         |         ✅        |       ✅      |     ✅      |
