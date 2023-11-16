@@ -57,16 +57,16 @@ class MouseHandler:
 
         rect = self.pointer_rect()
 
-        if rect.colliderect(self.inventory_display):
+        if not self.mousedown and rect.colliderect(self.inventory_display):
             self.handle_toggle_item()
             return
 
-        if rect.colliderect(self.health_display):
+        if not self.mousedown and rect.colliderect(self.health_display):
             self.handle_grunt()
             return
 
 
-        if rect.colliderect(self.mainchar_rect):
+        if not self.mousedown and rect.colliderect(self.mainchar_rect):
             self.handle_drop_item()
             return
 
