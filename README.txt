@@ -22,6 +22,12 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   
 ```
 
+Wenn der Start des Spiels mit der Fehlermeldung, dass die "MSVCR140.dll" fehlt, fehlschlägt, müssen Sie das
+"Visual C++ Redistributable" von Microsoft installieren.
+
+Sie können es hier herunterladen:
+https://www.microsoft.com/de-de/download/details.aspx?id=48145
+
 # Steuerung 
 
 ## Tastatur
