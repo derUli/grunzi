@@ -1,9 +1,10 @@
 """ Piggybank sprite """
 import logging
 import os
-
+from utils.quality import pixel_fades_enabled
 from sprites.hammer import Hammer
 from sprites.wall import Wall
+from sprites.fadeable import Fadeable
 from utils.audio import play_sound
 
 RUMBLE_CHAINSAW_DURATION = 300
@@ -11,7 +12,7 @@ RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
 RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 
 
-class PiggyBank(Wall):
+class PiggyBank(Fadeable, Wall):
     """ Piggybank sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='piggy_bank.png'):
@@ -23,12 +24,21 @@ class PiggyBank(Wall):
         if not element:
             return
 
-        if isinstance(element.state.inventory, Hammer) and not self.walkable:
+        if self.walkable or self.fadeout or self.purge:
+            return
+
+        if isinstance(element.state.inventory, Hammer):
             logging.debug('Piggy bank destroyed with hammer')
 
-            self.walkable = True
-            self.purge = True
-            self.play_sound()
+            if pixel_fades_enabled():
+                if not self.fadeout:
+                    self.start_fade()
+                    self.play_sound()
+            else:
+                self.purge = True
+                self.walkable = True
+                self.play_sound()
+
 
             # Rumble on gamepad if we have one
             if element.state.gamepad:
