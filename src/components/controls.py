@@ -16,7 +16,7 @@ PAGE_CONTROLLER = 1
 TEXT_COLOR = (255, 255, 255)
 LINE_SMALL_MARGIN = 20
 LINE_LARGE_MARGIN = 28
-HORIZONTAL_MARGIN = 45
+HORIZONTAL_MARGIN = 90
 
 FONT_SIZE = 28
 
@@ -33,10 +33,9 @@ class Controls(FadeableComponent):
         self.menu = None
 
         self.current_page = PAGE_KEYBOARD
-
-        file = os.path.join(data_dir, 'images', 'ui', 'schoolboard.jpg')
-
-        self.backdrop = self.image_cache.load_image(file, self.settings_state.screen_resolution)
+        self.old_component = None
+        self.data_dir = data_dir
+        self.backdrop = None
 
         fontfile_headline = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
         self.font = pygame.font.Font(
@@ -68,8 +67,15 @@ class Controls(FadeableComponent):
     def mount(self):
         self.fadein()
 
+    def unmount(self):
+        return
+
     def update_screen(self, screen):
         """ Update screen """
+        if not self.backdrop:
+            file = os.path.join(self.data_dir, 'images', 'ui', 'schoolboard.jpg')
+            self.backdrop = self.image_cache.load_image(file, screen.get_size())
+
         surface = screen.copy().convert_alpha()
         surface.set_alpha(self.alpha)
 
@@ -169,5 +175,5 @@ class Controls(FadeableComponent):
             else:
                 self.handle_change_component(None)
         elif self.current_page == PAGE_CONTROLLER:
-            """ Back to main menu"""
-            self.handle_change_component(None)
+            #  Back to settings menu
+            self.handle_change_component(self.old_component)

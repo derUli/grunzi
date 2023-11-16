@@ -19,7 +19,7 @@ from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
-
+from components.component import Component
 
 class GameContainer:
     """ Main game class """
@@ -184,13 +184,17 @@ class GameContainer:
         if self.current_component:
             self.current_component.unmount()
 
-        self.current_component = component(
-            self.data_dir,
-            self.change_component,
-            self.settings_state,
-            enable_edit_mode=self.enable_edit_mode,
-            gamepad=self.gamepad
-        )
+        if callable(component):
+            self.current_component = component(
+                self.data_dir,
+                self.change_component,
+                self.settings_state,
+                enable_edit_mode=self.enable_edit_mode,
+                gamepad=self.gamepad
+            )
+
+        else:
+            self.current_component = component
 
         if not self.current_component:
             return

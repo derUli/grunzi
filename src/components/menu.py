@@ -6,7 +6,6 @@ import pygame_menu
 import components.maingame
 import utils.savegame
 from components.component import Component
-from components.controls import Controls
 from components.settings import Settings
 from constants.headup import PIGGY_PINK
 from constants.quality import QUALITY_VERY_LOW
@@ -64,10 +63,6 @@ class Menu(Component):
         component.video = self.video
         self.menu.disable()
 
-    def handle_controls(self):
-        """ Handle open settings menu  """
-        self.handle_change_component(Controls)
-        self.menu.disable()
 
     def draw_background(self):
         if self.settings_state.quality > QUALITY_VERY_LOW:
@@ -87,7 +82,6 @@ class Menu(Component):
                 self.handle_continue_game)  # Continue game
 
         menu.add.button(_('Settings'), self.handle_settings)
-        menu.add.button(_('Controls'), self.handle_controls)
 
         menu.add.button(_('Quit'), pygame_menu.events.EXIT)
 

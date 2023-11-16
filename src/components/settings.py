@@ -3,16 +3,17 @@ import os
 import subprocess
 import sys
 
-import pygame
+import pygame.mixer_music
 
-import constants.headup
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
-from utils.menu import make_menu, get_longest_option
-
+from utils.menu import make_menu
+from components.settings_audio import SettingsAudio
+from components.settings_video import SettingsVideo
+from components.controls import Controls
 
 class Settings(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
@@ -52,6 +53,7 @@ class Settings(Component):
         self.menu.disable()
 
     def restart_app(self):
+        pygame.mixer.music.stop()
         logging.debug('Restart application to apply settings')
 
         command = [sys.executable] + sys.argv
@@ -63,6 +65,30 @@ class Settings(Component):
         subprocess.Popen(command)
         sys.exit()
 
+    def restart_app(self):
+        logging.debug('Restart application to apply settings')
+
+        command = [sys.executable] + sys.argv
+
+        # If we are running from Exe
+        if getattr(sys, "frozen", False):
+            command = sys.argv
+
+        subprocess.Popen(command)
+        sys.exit()
+
+    def handle_video(self):
+        component = self.handle_change_component(SettingsVideo)
+        component.video = self.video
+        component.old_component = self
+        self.menu.disable()
+
+    def handle_audio(self):
+        component = self.handle_change_component(SettingsAudio)
+        component.video = self.video
+        component.old_component = self
+        self.menu.disable()
+
     def draw_background(self):
         if self.settings_state.quality >= QUALITY_LOW:
             video_frame = self.video.get_frame()
@@ -71,195 +97,19 @@ class Settings(Component):
 
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
-    def handle_change_limit_fps(self, selection, selected_index):
-        selected_item, index = selection
-        text, value = selected_item
-        self.settings_state.limit_fps = value
-        self.settings_state.apply_and_save()
+    def handle_controls(self):
+        """ Handle open settings menu  """
+        component = self.handle_change_component(Controls)
+        component.old_component = self
 
-    def handle_change_screen_resolution(self, selection, selected_index):
-        selected_item, index = selection
-        text, value = selected_item
-        self.settings_state.screen_resolution = value
-        self.needs_restart = True
-        self.settings_state.apply_and_save()
-
-    def handle_change_music_volume(self, range_value):
-        self.settings_state.music_volume = range_value / 100
-        self.settings_state.apply_and_save()
-
-    def handle_change_sound_volume(self, range_value):
-        self.settings_state.sound_volume = range_value / 100
-        self.settings_state.apply_and_save()
-
-    def handle_toggle_fullscreen(self):
-        self.settings_state.fullscreen = not self.settings_state.fullscreen
-        self.settings_state.apply_and_save()
-        self.refresh_menu()
-
-    def handle_toggle_vsync(self):
-        self.settings_state.vsync = not self.settings_state.vsync
-        self.settings_state.apply_and_save()
-        self.needs_restart = True
-        self.refresh_menu()
-
-    def handle_change_quality(self, selection, selected_index):
-        selected_item, index = selection
-        text, value = selected_item
-        self.settings_state.quality = value
-        self.settings_state.apply_and_save()
-        self.video.reload()
-
-    def get_fps_limit_items(self):
-        return [
-            (_('Unlimited'), 0),
-            ('5', 5),
-            ('20', 20),
-            ('15', 15),
-            ('30', 30),
-            ('60', 60),
-            ('120', 120),
-            ('144', 144),
-            ('240', 240),
-        ]
-
-    def get_quality_items(self):
-        """ Get items for quality dropdown """
-        return [
-            (_('Very Low'), QUALITY_VERY_LOW),
-            (_('Low'), QUALITY_LOW),
-            (_('Medium'), QUALITY_MEDIUM),
-            (_('High'), QUALITY_HIGH),
-            (_('Very High'), QUALITY_VERY_HIGH),
-        ]
-
-    def get_controller(self):
-
-        if self.gamepad:
-            return [
-                (self.gamepad.joystick.get_name(), self.gamepad.joystick.get_name())
-            ]
-
-        return [
-            (_('No Controller'), None)
-        ]
-
-    def handle_dummy(self):
-        """ Dummy handler does nothing """
-        return
-
-    def get_screen_resolution_items(self):
-        """ Get screen resolution items """
-        modes = pygame.display.list_modes()
-
-        # If the current screen resolution is not in supported modes add it
-        if self.settings_state.screen_resolution not in modes:
-            modes.append(self.settings_state.screen_resolution)
-
-        modes = sorted(modes)
-
-        items = []
-        for x, y in modes:
-            label = (str(x) + 'x' + str(y))
-            value = (x, y)
-            items.append((label, value))
-
-        return items
-
-    def get_selected_resolution_index(self):
-        i = 0
-        for label, value in self.get_screen_resolution_items():
-            if value == self.settings_state.screen_resolution:
-                continue
-
-            i += 1
-
-        return i
-
-    def get_selected_index(self, items, selected):
-        i = 0
-        for item in items:
-            text, value = item
-
-            if value == selected:
-                break
-
-            i += 1
-
-        return i
-
-    def refresh_menu(self):
         self.menu.disable()
-        self.draw_menu(self.screen)
 
     def draw_menu(self, screen):
         menu = make_menu(_('Settings'), self.settings_state.limit_fps)
 
-        w = menu.get_width() - (constants.headup.UI_MARGIN * 2)
-
-        fullscreen_text = _('Display Mode: ')
-
-        if self.settings_state.fullscreen:
-            fullscreen_text += _('Fullscreen')
-        else:
-            fullscreen_text += _('Window')
-
-        menu.add.button(fullscreen_text, self.handle_toggle_fullscreen)
-
-        vsync_text = _('V-Sync: ')
-
-        if self.settings_state.vsync:
-            vsync_text += 'On'
-        else:
-            vsync_text += 'Off'
-
-        menu.add.button(vsync_text, self.handle_toggle_vsync)
-
-        menu.add.dropselect(
-            title=_('Screen Resolution'),
-            default=self.get_selected_index(self.get_screen_resolution_items(), self.settings_state.screen_resolution),
-            items=self.get_screen_resolution_items(),
-            onchange=self.handle_change_screen_resolution,
-            placeholder_add_to_selection_box=False,
-            placeholder=get_longest_option(self.get_screen_resolution_items()),
-        )
-
-        menu.add.dropselect(
-            title=_('Quality'),
-            default=self.get_selected_index(self.get_quality_items(), self.settings_state.quality),
-            items=self.get_quality_items(),
-            onchange=self.handle_change_quality,
-            placeholder_add_to_selection_box=False,
-            placeholder=get_longest_option(self.get_quality_items()),
-        )
-
-        menu.add.dropselect(
-            title=_('Controller'),
-            default=0,
-            items=self.get_controller(),
-            onchange=self.handle_dummy,
-            placeholder_add_to_selection_box=False,
-            placeholder=get_longest_option(self.get_controller()),
-        )
-
-        menu.add.range_slider(
-            title=_('Music'),
-            default=int(self.settings_state.music_volume * 100),
-            range_values=(0, 100),
-            increment=10,
-            value_format=lambda x: str(int(x)) + "%",
-            onchange=self.handle_change_music_volume
-        )
-
-        menu.add.range_slider(
-            title=_('Sound Effects'),
-            default=int(self.settings_state.sound_volume * 100),
-            range_values=(0, 100),
-            increment=10,
-            value_format=lambda x: str(int(x)) + "%",
-            onchange=self.handle_change_sound_volume
-        )
-
+        menu.add.button(_('Video'), self.handle_video)
+        menu.add.button(_('Audio'), self.handle_audio)
+        menu.add.button(_('Controls'), self.handle_controls)
         menu.add.button(_('Back To Main Menu'), self.handle_back)
 
         self.menu = menu

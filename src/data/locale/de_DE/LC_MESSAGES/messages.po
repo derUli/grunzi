@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-16 17:31+0100\n"
+"POT-Creation-Date: 2023-11-16 19:57+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: bootstrap/gamecontainer.py:87 components/menu.py:82 grunzi.py:27
+#: bootstrap/gamecontainer.py:87 components/menu.py:77 grunzi.py:27
 msgid "Grunzi"
 msgstr ""
 
@@ -26,49 +26,49 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/controls.py:50 components/controls.py:61
+#: components/controls.py:48 components/controls.py:59
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/controls.py:51 components/controls.py:62
+#: components/controls.py:49 components/controls.py:60
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/controls.py:52 components/controls.py:63
+#: components/controls.py:50 components/controls.py:61
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/controls.py:53 components/controls.py:64
+#: components/controls.py:51 components/controls.py:62
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/controls.py:54 components/controls.py:65
+#: components/controls.py:52 components/controls.py:63
 msgid "Run"
 msgstr "Rennen"
 
-#: components/controls.py:55 components/controls.py:66
+#: components/controls.py:53 components/controls.py:64
 #: components/pausable_component.py:18
 msgid "Pause"
 msgstr ""
 
-#: components/controls.py:56
+#: components/controls.py:54
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/controls.py:80 components/menu.py:90
+#: components/controls.py:85 components/settings.py:112
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/controls.py:131
+#: components/controls.py:136
 #, fuzzy
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/controls.py:138
+#: components/controls.py:143
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/controls.py:140 components/settings.py:144
+#: components/controls.py:145
 msgid "No Controller"
 msgstr "Kein Controller"
 
@@ -81,7 +81,7 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/gameover.py:60 components/pausable_component.py:24
-#: components/settings.py:263
+#: components/settings.py:113
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
@@ -101,19 +101,19 @@ msgstr "Level gespeichert."
 msgid "Level dumped."
 msgstr ""
 
-#: components/menu.py:83
+#: components/menu.py:78
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:86 components/pausable_component.py:21
+#: components/menu.py:81 components/pausable_component.py:21
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:89 components/settings.py:196
+#: components/menu.py:84 components/settings.py:108
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/menu.py:92
+#: components/menu.py:86
 msgid "Quit"
 msgstr "Beenden"
 
@@ -125,65 +125,70 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:115
-msgid "Unlimited"
-msgstr "Unbegrenzt"
-
-#: components/settings.py:129
-msgid "Very Low"
-msgstr "Sehr niedrig"
-
-#: components/settings.py:130
-msgid "Low"
-msgstr "Niedrig"
-
-#: components/settings.py:131
-msgid "Medium"
-msgstr "Mittel"
-
-#: components/settings.py:132
-msgid "High"
-msgstr "Hoch"
-
-#: components/settings.py:133
-msgid "Very High"
-msgstr "Sehr hoch"
-
-#: components/settings.py:200
-msgid "Display Mode: "
-msgstr "Anzeigemodus: "
-
-#: components/settings.py:203
-msgid "Fullscreen"
-msgstr "Vollbild"
-
-#: components/settings.py:205
-msgid "Window"
-msgstr "Fenster"
-
-#: components/settings.py:209
-msgid "V-Sync: "
+#: components/settings.py:110 components/settings_audio.py:67
+#: components/settings_video.py:139
+msgid "Video"
 msgstr ""
 
-#: components/settings.py:219
-msgid "Screen Resolution"
-msgstr "Bildschirmauflösung"
+#: components/settings.py:111
+msgid "Audio"
+msgstr ""
 
-#: components/settings.py:228
-msgid "Quality"
-msgstr "Qualität"
-
-#: components/settings.py:237
-msgid "Controller"
-msgstr "Controller"
-
-#: components/settings.py:246
+#: components/settings_audio.py:70
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings.py:255
+#: components/settings_audio.py:79
 msgid "Sound Effects"
 msgstr "Soundeffekte"
+
+#: components/settings_audio.py:87 components/settings_video.py:179
+msgid "Back"
+msgstr "Zurück"
+
+#: components/settings_video.py:93
+msgid "Very Low"
+msgstr "Sehr niedrig"
+
+#: components/settings_video.py:94
+msgid "Low"
+msgstr "Niedrig"
+
+#: components/settings_video.py:95
+msgid "Medium"
+msgstr "Mittel"
+
+#: components/settings_video.py:96
+msgid "High"
+msgstr "Hoch"
+
+#: components/settings_video.py:97
+msgid "Very High"
+msgstr "Sehr hoch"
+
+#: components/settings_video.py:143
+msgid "Display Mode: "
+msgstr "Anzeigemodus: "
+
+#: components/settings_video.py:146
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: components/settings_video.py:148
+msgid "Window"
+msgstr "Fenster"
+
+#: components/settings_video.py:152
+msgid "V-Sync: "
+msgstr ""
+
+#: components/settings_video.py:162
+msgid "Screen Resolution"
+msgstr "Bildschirmauflösung"
+
+#: components/settings_video.py:171
+msgid "Quality"
+msgstr "Qualität"
 
 #: sprites/chainsaw.py:37
 msgid "The petrol is empty."
@@ -240,4 +245,10 @@ msgstr "Autsch!"
 
 #~ msgid "Off"
 #~ msgstr "Aus"
+
+#~ msgid "Unlimited"
+#~ msgstr "Unbegrenzt"
+
+#~ msgid "Controller"
+#~ msgstr "Controller"
 
