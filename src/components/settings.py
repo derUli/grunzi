@@ -149,7 +149,13 @@ class Settings(Component):
         return
 
     def get_screen_resolution_items(self):
-        modes = sorted(pygame.display.list_modes())
+        modes = pygame.display.list_modes()
+
+        if self.settings_state.screen_resolution not in modes:
+            modes.append(self.settings_state.screen_resolution)
+
+        modes = sorted(modes)
+
         items = []
         for x, y in modes:
             label = (str(x) + 'x' + str(y))
