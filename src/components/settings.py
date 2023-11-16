@@ -149,8 +149,10 @@ class Settings(Component):
         return
 
     def get_screen_resolution_items(self):
+        """ Get screen resolution items """
         modes = pygame.display.list_modes()
 
+        # If the current screen resolution is not in supported modes add it
         if self.settings_state.screen_resolution not in modes:
             modes.append(self.settings_state.screen_resolution)
 
