@@ -12054,7 +12054,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -12064,7 +12064,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -116366,10 +116366,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
+0,
 0,
 0,
 0,
@@ -116626,7 +116623,10 @@
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
 },
-0,
+{
+"sprite_class": "sprites.piggybank.PiggyBank",
+"sprite_file": "piggy_bank.png"
+},
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -117328,7 +117328,11 @@
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
 },
-0,
+{
+"sprite_class": "sprites.apple.Apple",
+"sprite_file": "apple.png",
+"walkable": 1
+},
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -129783,9 +129787,10 @@
 "sprite_file": "wall.jpg"
 },
 {
-"sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit.jpg",
-"walkable": 1
+"sprite_class": "sprites.key.Key",
+"sprite_file": "key2.png",
+"walkable": 1,
+"id": "key-2"
 },
 {
 "sprite_class": "sprites.wall.Wall",
@@ -150698,7 +150703,7 @@
 0,
 {
 "sprite_class": "sprites.keyhole.Keyhole",
-"sprite_file": "keyhole.png",
+"sprite_file": "keyhole-wall.png",
 "id": "door-2"
 },
 0,
@@ -217310,7 +217315,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.maincharacter.MainCharacter",
+"sprite_file": "pig.png",
+"id": "grunzi"
+},
 0,
 0,
 0,
@@ -217462,11 +217471,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.maincharacter.MainCharacter",
-"sprite_file": "pig.png",
-"id": "grunzi"
-},
+0,
 0,
 0,
 0,

@@ -47,9 +47,13 @@ class Keyhole(Wall):
         number = self.id.split('-')[1]
         expected_id = "key-" + number
 
+        print(item)
+        print(item.id)
+
         if isinstance(item, Key) and not self.walkable and item.id == expected_id:
             self.open_door()
             return
 
     def open_door(self):
-        self.walkable = True
+        # TODO: Fadeout
+        self.purge = True
