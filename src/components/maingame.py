@@ -330,7 +330,6 @@ class MainGame(PausableComponent, FadeableComponent):
 
         if self.state.player_state.dead():
             self.moving = None
-            self.update_screen(self.screen)
             component = self.handle_change_component(GameOver)
             component.state = self.state
             return
