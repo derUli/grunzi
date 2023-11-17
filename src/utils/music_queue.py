@@ -34,6 +34,9 @@ class MusicQueue:
         self.playing = False
         pygame.mixer.music.stop()
 
+    def pause(self):
+        pygame.mixer.music.pause()
+
     def check_for_next(self):
         if not self.playing:
             return

@@ -11,7 +11,7 @@ from utils.audio import play_sound
 SHAKE_Y_FROM = -2
 SHAKE_Y_TO = 2
 
-FUEL_USAGE = 0.03
+FUEL_USAGE = 0.04
 
 
 class Chainsaw(Takeable, InlineSprite):

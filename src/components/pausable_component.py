@@ -12,7 +12,6 @@ MAX_BLUR_ITERATIONS = 20
 class PausableComponent:
     def pause_menu(self):
         self.last_screen = self.screen.copy().convert()
-
         self.blur_iteration = 0
 
         menu = make_menu(_('Pause'), self.settings_state.limit_fps)
@@ -25,10 +24,12 @@ class PausableComponent:
                         self.back_to_main_menu)  # Return to main menu
 
         self.menu = menu
+        self.music_queue.pause()
         menu.mainloop(self.screen, self.draw_background)
 
     def handle_continue_game(self):
         self.menu.disable()
+        self.music_queue.unpause()
         pygame.mouse.set_visible(0)
 
     def draw_background(self):
