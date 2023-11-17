@@ -23,7 +23,6 @@ class Sprite:
         self.sprite_dir = sprite_dir
         self.id = None
         self.state = None
-        self.center_camera = False
         self.purge = False
         self.replace_with = None
         self.cache = cache

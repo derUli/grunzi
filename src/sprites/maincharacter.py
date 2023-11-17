@@ -19,8 +19,6 @@ class MainCharacter(Character, FadeableComponent):
     def __init__(self, sprite_dir, cache, sprite='pig.png'):
         """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
-
-        self.center_camera = True
         self.sound = None
 
         self.last_movement = 0

@@ -2,10 +2,10 @@
 
 ## Alpha 002
 
-* Neues Puzzle mit Schlüsselloch hinzugefügt
-* Neue Music-Tracks hinzugefügt
-* Steuerung: Experimentelle Maussteuerung
-* Video-Einstellungen: Entferne Auflösungen kleiner als 640x480
+* Neuen Bereich hinter Schlüsselloch hinzugefügt
+* Mehr Musik-Tracks
+* Experimentelle Maussteuerung
+* Video-Einstellungen: Auflösungen kleiner als 640x480 entfernt
 
 ## Alpha 001
 

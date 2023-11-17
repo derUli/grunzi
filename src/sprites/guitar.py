@@ -12,7 +12,6 @@ class Guitar(Sprite):
     def __init__(self, sprite_dir, cache, sprite=None):
         """ Constructor """
         super().__init__(sprite_dir, cache, 'guitar.png')
-        self.center_camera = False
         self.sound = None
 
     def handle_interact(self, element):
