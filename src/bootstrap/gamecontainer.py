@@ -160,7 +160,6 @@ class GameContainer:
     def update_screen(self):
         """ Update the screen  """
         # Filling the window with black color
-        self.screen.fill((0, 0, 0))
 
         self.current_component.update_screen(self.screen)
 
