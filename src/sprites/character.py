@@ -18,9 +18,8 @@ class Character(sprites.sprite.Sprite):
 
         self.center_camera = False
 
-        # One tile by second
-        self.walk_speed = 0.15
-        self.sprint_speed = self.walk_speed * 0.4
+        self.walk_speed = 0.10
+        self.sprint_speed = self.walk_speed * 0.7
         self.last_movement = 0
 
     def draw(self, screen, x, y):

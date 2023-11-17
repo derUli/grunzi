@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-17 13:26+0100\n"
+"POT-Creation-Date: 2023-11-17 15:11+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -47,7 +47,7 @@ msgid "Run"
 msgstr "Rennen"
 
 #: components/controls.py:56 components/controls.py:67
-#: components/pausable_component.py:18
+#: components/pausable_component.py:17
 msgid "Pause"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr "Controller"
 #: components/controls.py:124
 #, fuzzy
 msgid "Mouse"
-msgstr "Musik"
+msgstr "Maus"
 
 #: components/controls.py:186
 #, fuzzy
@@ -118,7 +118,7 @@ msgstr "Du bist Schinken!"
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/gameover.py:60 components/pausable_component.py:24
+#: components/gameover.py:60 components/pausable_component.py:23
 #: components/settings.py:114
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
@@ -143,7 +143,7 @@ msgstr ""
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:80 components/pausable_component.py:21
+#: components/menu.py:80 components/pausable_component.py:20
 msgid "Continue"
 msgstr "Fortsetzen"
 
@@ -155,11 +155,11 @@ msgstr "Einstellungen"
 msgid "Quit"
 msgstr "Beenden"
 
-#: components/pausable_component.py:23
+#: components/pausable_component.py:22
 msgid "Save Game"
 msgstr "Spiel speichern"
 
-#: components/pausable_component.py:43
+#: components/pausable_component.py:44
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
