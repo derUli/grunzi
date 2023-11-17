@@ -12,6 +12,7 @@ from constants.quality import QUALITY_LOW
 
 PAGE_KEYBOARD = 0
 PAGE_CONTROLLER = 1
+PAGE_MOUSE = 2
 
 TEXT_COLOR = (255, 255, 255)
 LINE_SMALL_MARGIN = 20
@@ -23,6 +24,7 @@ FONT_SIZE = 28
 SUPPORTED_CONTROLLERS = [
     'Xbox 360 Controller'
 ]
+
 
 class Controls(FadeableComponent):
     """ Controls screen """
@@ -36,6 +38,7 @@ class Controls(FadeableComponent):
         self.old_component = None
         self.data_dir = data_dir
         self.backdrop = None
+        self.enable_mouse = False
 
         fontfile_headline = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
         self.font = pygame.font.Font(
@@ -64,6 +67,34 @@ class Controls(FadeableComponent):
             (_('Pause'), '360_Start.png'),
         ]
 
+    def mouse_controls(self):
+        controls = [(_('Experimental mouse support'), None)]
+
+        state = _('Status') + ': '
+
+        mouse_enabled = self.enable_mouse
+
+        if mouse_enabled:
+            state += _('Enabled')
+        else:
+            state += _('Disabled')
+
+        controls.append((state, None))
+
+        if not mouse_enabled:
+            controls.append(
+                (
+                    _('To enable the experimental mouse support run the game with'), None
+                )
+            )
+            controls.append(
+                (
+                    _('the --enable-mouse flag.'), None
+                )
+            )
+
+        return controls
+
     def mount(self):
         self.fadein()
 
@@ -89,6 +120,8 @@ class Controls(FadeableComponent):
             headline += _('Keyboard')
         elif self.current_page == PAGE_CONTROLLER:
             headline += _('Controller')
+        elif self.current_page == PAGE_MOUSE:
+            headline += _('Mouse')
 
         headline += ')'
 
@@ -111,6 +144,8 @@ class Controls(FadeableComponent):
             controls = self.keyboard_controls()
         elif self.current_page == PAGE_CONTROLLER:
             controls = self.controller_controls()
+        elif self.current_page == PAGE_MOUSE:
+            controls = self.mouse_controls()
 
         for control in controls:
             label, image_file = control
@@ -122,6 +157,11 @@ class Controls(FadeableComponent):
             )
 
             surface.blit(control_text, (x, y))
+
+            if not image_file:
+                y += controls_text.get_height()
+                y += LINE_SMALL_MARGIN
+                continue
 
             image_path = os.path.join(self.data_dir, 'images', 'ui', 'controls', image_file)
             scale_to = (control_text.get_height(), control_text.get_height())
@@ -183,5 +223,7 @@ class Controls(FadeableComponent):
         if self.current_page == PAGE_KEYBOARD:
             self.current_page = PAGE_CONTROLLER
         elif self.current_page == PAGE_CONTROLLER:
+            self.current_page = PAGE_MOUSE
+        else:
             #  Back to settings menu
             self.handle_change_component(self.old_component)

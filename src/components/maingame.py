@@ -54,6 +54,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.editor_blocks_length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
         self.editor_block_index = 0
         self.disable_ai = False
+        self.enable_mouse = False
         self.async_ai_running = None
         self.is_level_exit = False
         self.last_rendered = None
@@ -429,14 +430,25 @@ class MainGame(PausableComponent, FadeableComponent):
         """ Handle events """
         super().handle_event(event)
 
-        if event.type == pygame.MOUSEMOTION:
+
+        mouse_events = [
+            pygame.MOUSEMOTION,
+            pygame.MOUSEBUTTONDOWN,
+            pygame.MOUSEBUTTONUP
+        ]
+
+        if event.type in mouse_events and not self.enable_mouse:
+            return
+
+        if event.type == pygame.MOUSEMOTION :
             self.mouse_handler.enable()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             self.mouse_handler.handle_mousedown()
         elif event.type == pygame.MOUSEBUTTONUP:
             self.mouse_handler.handle_mouseup()
-        else:
+        elif self.enable_mouse:
             self.mouse_handler.disable()
+
         if event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:

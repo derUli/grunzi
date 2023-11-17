@@ -42,11 +42,19 @@ parser.add_argument(
     help='Enable debug loglevel'
 )
 
+
 parser.add_argument(
     '-a',
     '--disable-ai',
     action='store_true',
     help='Disable AI'
+)
+
+parser.add_argument(
+    '-m',
+    '--enable-mouse',
+    action='store_true',
+    help='Enable experimental mouse support'
 )
 
 parser.add_argument(
@@ -84,7 +92,8 @@ game = GameContainer(
     root_dir,
     enable_edit_mode=args.edit,
     disable_controller=args.disable_controller,
-    disable_ai=args.disable_ai
+    disable_ai=args.disable_ai,
+    enable_mouse=args.enable_mouse
 )
 
 game.__main__ = os.path.abspath(__main__)
