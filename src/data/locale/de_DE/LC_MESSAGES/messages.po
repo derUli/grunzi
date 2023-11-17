@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-17 02:38+0100\n"
+"POT-Creation-Date: 2023-11-17 13:24+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: bootstrap/gamecontainer.py:85 components/menu.py:76 grunzi.py:27
+#: bootstrap/gamecontainer.py:86 components/menu.py:76 grunzi.py:27
 msgid "Grunzi"
 msgstr ""
 
@@ -26,58 +26,87 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/controls.py:48 components/controls.py:59
+#: components/controls.py:51 components/controls.py:62
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/controls.py:49 components/controls.py:60
+#: components/controls.py:52 components/controls.py:63
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/controls.py:50 components/controls.py:61
+#: components/controls.py:53 components/controls.py:64
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/controls.py:51 components/controls.py:62
+#: components/controls.py:54 components/controls.py:65
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/controls.py:52 components/controls.py:63
+#: components/controls.py:55 components/controls.py:66
 msgid "Run"
 msgstr "Rennen"
 
-#: components/controls.py:53 components/controls.py:64
+#: components/controls.py:56 components/controls.py:67
 #: components/pausable_component.py:18
 msgid "Pause"
 msgstr ""
 
-#: components/controls.py:54
+#: components/controls.py:57
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/controls.py:85 components/settings.py:113
+#: components/controls.py:71
+msgid "Experimental mouse support"
+msgstr ""
+
+#: components/controls.py:73
+msgid "Status"
+msgstr ""
+
+#: components/controls.py:78
+msgid "Enabled"
+msgstr ""
+
+#: components/controls.py:80
+msgid "Disabled"
+msgstr ""
+
+#: components/controls.py:87
+msgid "To enable the experimental mouse support run the game with"
+msgstr ""
+
+#: components/controls.py:92
+msgid "the --enable-mouse flag."
+msgstr ""
+
+#: components/controls.py:116 components/settings.py:113
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/controls.py:89
+#: components/controls.py:120
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/controls.py:91
+#: components/controls.py:122
 #, fuzzy
 msgid "Controller"
 msgstr "Controller"
 
-#: components/controls.py:146
+#: components/controls.py:124
+#, fuzzy
+msgid "Mouse"
+msgstr "Musik"
+
+#: components/controls.py:186
 #, fuzzy
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/controls.py:153
+#: components/controls.py:193
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/controls.py:155
+#: components/controls.py:195
 msgid "No Controller"
 msgstr "Kein Controller"
 
@@ -94,19 +123,19 @@ msgstr "Spiel laden"
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/maingame.py:121
+#: components/maingame.py:124
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:414
+#: components/maingame.py:423
 msgid "Grunz!"
 msgstr ""
 
-#: components/maingame.py:563
+#: components/maingame.py:583
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:566
+#: components/maingame.py:586
 msgid "Level dumped."
 msgstr ""
 
@@ -134,12 +163,11 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:111 components/settings_audio.py:71
-#: components/settings_video.py:136
+#: components/settings.py:111 components/settings_video.py:141
 msgid "Video"
 msgstr ""
 
-#: components/settings.py:112
+#: components/settings.py:112 components/settings_audio.py:71
 msgid "Audio"
 msgstr ""
 
@@ -151,51 +179,51 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:91 components/settings_video.py:176
+#: components/settings_audio.py:91 components/settings_video.py:181
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:90
+#: components/settings_video.py:91
 msgid "Very Low"
 msgstr "Sehr niedrig"
 
-#: components/settings_video.py:91
+#: components/settings_video.py:92
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings_video.py:92
+#: components/settings_video.py:93
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings_video.py:93
+#: components/settings_video.py:94
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:94
+#: components/settings_video.py:95
 msgid "Very High"
 msgstr "Sehr hoch"
 
-#: components/settings_video.py:140
+#: components/settings_video.py:145
 msgid "Display Mode: "
 msgstr "Anzeigemodus: "
 
-#: components/settings_video.py:143
+#: components/settings_video.py:148
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:145
+#: components/settings_video.py:150
 msgid "Window"
 msgstr "Fenster"
 
-#: components/settings_video.py:149
+#: components/settings_video.py:154
 msgid "V-Sync: "
 msgstr ""
 
-#: components/settings_video.py:159
+#: components/settings_video.py:164
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:168
+#: components/settings_video.py:173
 msgid "Quality"
 msgstr "Qualität"
 

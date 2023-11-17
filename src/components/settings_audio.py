@@ -68,7 +68,7 @@ class SettingsAudio(Component):
         self.playing = utils.audio.play_sound(test_sound)
 
     def draw_menu(self, screen):
-        menu = make_menu(_('Video'), self.settings_state.limit_fps)
+        menu = make_menu(_('Audio'), self.settings_state.limit_fps)
 
         menu.add.range_slider(
             title=_('Music'),

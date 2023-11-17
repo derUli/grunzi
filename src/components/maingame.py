@@ -31,6 +31,7 @@ from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
 from utils.mouse_handler import MouseHandler
+from utils.music_queue import MusicQueue
 
 BACKDROP_COLOR = (36, 63, 64)
 
@@ -58,6 +59,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.async_ai_running = None
         self.is_level_exit = False
         self.last_rendered = None
+        self.music_queue = MusicQueue()
         self.mouse_handler = MouseHandler(
             data_dir,
             self.move_main_character,
@@ -153,8 +155,12 @@ class MainGame(PausableComponent, FadeableComponent):
         pygame.mouse.set_visible(0)
 
         # CREDITS: https://audionautix.com/creative-commons-music
-        atmo = 'level' + str(self.state.level) + '.ogg'
-        self.play_music(atmo)
+
+        self.music_queue.from_directory(
+            os.path.join(self.data_dir, 'music', 'level1')
+        )
+        self.music_queue.shuffle()
+        self.music_queue.play()
 
         self.fadein()
 
@@ -164,7 +170,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.async_ai_running = False
         super().unmount()
         pygame.mouse.set_visible(1)
-        pygame.mixer.music.stop()
+        self.music_queue.stop()
 
     def update_screen(self, screen):
         if not self.level.loaded:
@@ -299,6 +305,8 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fade()
 
     def ai(self):
+        self.music_queue.check_for_next()
+
         if not self.async_ai_running:
             thread_fns = [
                 self.async_low_prio,
