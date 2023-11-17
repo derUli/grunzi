@@ -215,9 +215,11 @@ class Level:
             for y in range(0, len(self.layers[z])):
                 if not any(self.layers[z][y]):
                     continue
-                for x in range(0, len(self.layers[z][y])):
-                    if self.layers[z][y][x] == sprite:
-                        return (z, y, x)
+                try:
+                    x = self.layers[z][y].index(sprite)
+                    return (z, y, x)
+                except ValueError:
+                    continue
 
         return (0, 0, 0)
 
