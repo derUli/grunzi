@@ -276,7 +276,7 @@ class MainGame(PausableComponent, FadeableComponent):
                                 from_y
                             )
 
-                    if isinstance(col, Character) and not self.disable_ai:
+                    if not self.disable_ai and col:
                         col.ai(self.level)
 
                     x += 1

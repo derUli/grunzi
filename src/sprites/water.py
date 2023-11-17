@@ -7,8 +7,9 @@ from PygameShader.shader import wave
 
 import sprites.sprite
 from utils.quality import shader_enabled
-
-
+from sprites.wood import Wood
+from sprites.woodonwater import WoodOnWater
+from state.level import LAYER_STATIC_OBJECTS, LAYER_GROUND, LAYER_OTHER_CHARS
 class Water(sprites.sprite.Sprite):
     """ Backdrop sprite """
 
@@ -17,11 +18,12 @@ class Water(sprites.sprite.Sprite):
         super().__init__(sprite_dir, cache, sprite)
 
         self.walkable = False
+        self.player_state = None
         self.original_sprite = self.sprite.copy().convert()
 
         self.angle = 0
         self.loaded = False
-
+        self.player_State = None
         self.update_interval = (1 / 10)
         self.last_update = 0
 
@@ -76,3 +78,17 @@ class Water(sprites.sprite.Sprite):
         sprite = sprite.convert()
 
         return sprite
+
+
+    def handle_interact_item(self, element):
+
+        if not isinstance(element.state.inventory, Wood):
+            return
+
+        self.replace_with = WoodOnWater(self.sprite_dir, self.cache)
+        element.state.inventory = None
+
+
+
+
+

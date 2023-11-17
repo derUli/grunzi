@@ -121,3 +121,6 @@ class Sprite:
             data['attributes'] = self.attributes
 
         return data
+
+    def ai(self, level):
+        return

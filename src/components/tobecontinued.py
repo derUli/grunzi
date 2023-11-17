@@ -2,13 +2,11 @@
 import os
 
 import pygame
-from PygameShader.shader import bilinear
-
 import utils.quality
-from components.fadeable_component import FadeableComponent
+from components.fadeable_component import FadeableComponent, FADE_OUT
 from constants import gamepad
 from constants import keyboard
-
+from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
 
 class ToBeContinued(FadeableComponent):
     """ To be continued Screen """
@@ -18,17 +16,9 @@ class ToBeContinued(FadeableComponent):
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
         self.menu = None
 
-        file = os.path.join(data_dir, 'images', 'ui', 'to_be_continued.jpg')
-
-        self.backdrop = self.image_cache.load_image(file)
-
-        scale_fn = utils.quality.scale_method()
-
-        # Bilinear is faster for scaling down
-        if self.settings_state.screen_resolution < self.backdrop.get_size():
-            scale_fn = bilinear
-
-        self.backdrop = scale_fn(self.backdrop, settings_state.screen_resolution)
+        self.monotype_font = pygame.font.Font(
+            os.path.join(data_dir, 'fonts', MONOTYPE_FONT),
+            LARGE_FONT_SIZE)
 
     def mount(self):
         self.fadein()
@@ -39,21 +29,37 @@ class ToBeContinued(FadeableComponent):
         pygame.mouse.set_visible(1)
         pygame.mixer.music.stop()
 
-    def draw_background(self, screen):
-        """ Draw backdrop """
-        screen.blit(self.backdrop, (0, 0))
-        self.draw_film_grain(self.screen)
 
     def update_screen(self, screen):
         """ Update screen """
-        surface = screen.copy().convert_alpha()
-        surface.set_alpha(self.alpha)
-        self.draw_background(surface)
+        if self.do_fade:
+            screen = screen.copy().convert_alpha()
+            screen.set_alpha(self.alpha)
 
-        self.screen.blit(surface, (0, 0))
+        screen.fill((0, 0, 0))
 
-        self.fade()
+        rendered_text = self.monotype_font.render(
+            _('To be continued'),
+            utils.quality.font_antialiasing_enabled(),
+            (255, 255, 255)
+        )
+
+        pos_x, pos_y = self.screen.get_size()
+        pos_x = pos_x / 2
+        pos_y = pos_x / 2
+        pos_x -= rendered_text.get_width() / 2
+        pos_y -= rendered_text.get_height() / 2
+
+        screen.blit(rendered_text, (pos_x, pos_y))
+
         self.draw_film_grain(screen)
+
+        if self.do_fade:
+            self.screen.blit(screen, (0, 0))
+
+            self.fade()
+
+
 
     def handle_event(self, event):
         """ Handle events """

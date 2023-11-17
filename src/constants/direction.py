@@ -9,7 +9,7 @@ DIRECTION_DOWN = 4
 
 
 def key_to_direction(key):
-    """ Maps keycode to movement direction """
+    """ Map keycode to movement direction """
     if key in keyboard.K_UP:
         return DIRECTION_UP
     elif key in keyboard.K_DOWN:

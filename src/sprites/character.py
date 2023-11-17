@@ -16,7 +16,7 @@ class Character(sprites.sprite.Sprite):
         self.direction = DIRECTION_RIGHT
         self.image_direction = self.direction
 
-        self.walk_speed = 0.10
+        self.walk_speed = 0.12
         self.sprint_speed = self.walk_speed * 0.7
         self.last_movement = 0
 
@@ -41,8 +41,6 @@ class Character(sprites.sprite.Sprite):
 
         return drawn
 
-    def ai(self, level):
-        return
 
     def change_direction(self, direction):
         """ Change sprite direction """

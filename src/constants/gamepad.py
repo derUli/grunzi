@@ -9,6 +9,5 @@ ABORT_KEYS = [
 ]
 
 K_RUN = xbox_360_controller.LEFT_STICK_BTN
-
 K_CONFIRM = xbox_360_controller.A
 K_GRUNT = xbox_360_controller.X

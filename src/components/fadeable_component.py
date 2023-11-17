@@ -24,18 +24,17 @@ class FadeableComponent(Component):
         if self.do_fade == FADE_IN:
             self.alpha += FADE_SPEED
             if self.alpha >= 255:
+                self.alpha = 255
                 self.do_fade = None
         elif self.do_fade == FADE_OUT:
             self.alpha -= FADE_SPEED
             if self.alpha <= 0:
                 self.do_fade = None
+                self.alpha = 0
 
     def mount(self):
         self.fadein()
 
     def unmount(self):
-        self.fadeout()
         pygame.mixer.music.fadeout(1000)
-        while self.do_fade:
-            self.update_screen(self.screen)
-            pygame.display.flip()
+
