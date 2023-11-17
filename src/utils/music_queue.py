@@ -8,6 +8,7 @@ class MusicQueue:
     def __init__(self, files=[]):
         self.files = files
         self.queue = []
+        self.paused = False
 
     def set_files(self, files):
         self.files = files
@@ -28,17 +29,27 @@ class MusicQueue:
 
     def play(self):
         self.playing = True
+        self.paused = False
         self.next()
 
     def stop(self):
         self.playing = False
+        self.paused = False
         pygame.mixer.music.stop()
 
     def pause(self):
         pygame.mixer.music.pause()
+        self.paused = True
+
+    def unpause(self):
+        pygame.mixer.music.unpause()
+        self.paused = False
 
     def check_for_next(self):
         if not self.playing:
+            return
+
+        if self.paused:
             return
 
         if not pygame.mixer.music.get_busy():
