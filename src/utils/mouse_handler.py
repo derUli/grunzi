@@ -1,21 +1,24 @@
+import os
 import pygame
 from constants.headup import BOTTOM_UI_HEIGHT
+from constants.graphics import SPRITE_SIZE
 from constants.direction import DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_LEFT, DIRECTION_DOWN
 COLOR_POINTER_DEFAULT = (255,255,255)
-COLOR_POINTER_MOVE_UP = (255,0,0)
-COLOR_POINTER_MOVE_DOWN = (255,255,0)
-COLOR_POINTER_MOVE_LEFT = (255,0,255)
-COLOR_POINTER_MOVE_RIGHT = (0,255,255)
+
+POINTER_UP = 'up'
+POINTER_RIGHT = 'right'
+POINTER_DOWN = 'down'
+POINTER_LEFT = 'left'
 COLOR_POINTER_ACTION = (0, 0, 0)
 DOUBLECLICK_SPEED = 500
 
-POINTER_SIZE = 16
-
 class MouseHandler:
 
-    def __init__(self, handle_move, handle_toggle_item, handle_grunt, handle_drop_item):
+    def __init__(self, data_dir, handle_move, handle_toggle_item, handle_grunt, handle_drop_item):
         self.enabled = False
         self.pointer = None
+        self.data_dir  = data_dir
+
         self.handle_move = handle_move
         self.handle_toggle_item = handle_toggle_item
         self.handle_grunt = handle_grunt
@@ -27,6 +30,7 @@ class MouseHandler:
         self.running = False
         self.dbclock = pygame.time.Clock()
         self.inventory_display = None
+        self.pointers = self.init_pointers()
 
     def enable(self):
         self.enabled = True
@@ -36,7 +40,7 @@ class MouseHandler:
 
     def pointer_rect(self):
         x, y = pygame.mouse.get_pos()
-        w, h = POINTER_SIZE, POINTER_SIZE
+        w, h = SPRITE_SIZE
 
         return pygame.rect.Rect((x, y, w, h))
 
@@ -47,6 +51,21 @@ class MouseHandler:
         self.mousedown = False
         self.running = False
         self.handle_move(None)
+
+    def init_pointers(self):
+        cursor_dir = os.path.join( self.data_dir, 'images', 'pointers')
+        return {
+
+                POINTER_UP:  pygame.image.load(os.path.join(cursor_dir, 'arrow_up.png')).
+                convert_alpha(),
+                POINTER_RIGHT: pygame.image.load(os.path.join(cursor_dir, 'arrow_right.png')).
+                convert_alpha(),
+                POINTER_DOWN: pygame.image.load(os.path.join(cursor_dir, 'arrow_down.png')).
+                convert_alpha(),
+                POINTER_LEFT: pygame.image.load(os.path.join(cursor_dir, 'arrow_left.png')).
+                convert_alpha()
+
+        }
 
     def handle_mousedown(self):
         if not self.enabled:
@@ -79,12 +98,14 @@ class MouseHandler:
         for hotspot in self.movement_hotspots():
             if hotspot['rect'].colliderect(rect):
                 direction = hotspot['direction']
+                break
 
         self.handle_move(direction, self.running)
 
     def movement_hotspots(self):
         screen = self.screen
         mainchar_rect = self.mainchar_rect
+        sw, sh = SPRITE_SIZE
 
         hotspots = []
 
@@ -92,24 +113,24 @@ class MouseHandler:
             {
                 'rect': pygame.rect.Rect(
                     mainchar_rect.x + mainchar_rect.w,
-                    0,
-                    screen.get_width(),
-                    mainchar_rect.y + mainchar_rect.h,
+                    mainchar_rect.y - (mainchar_rect.h * 2),
+                    screen.get_width() - (mainchar_rect.x + mainchar_rect.w) - 5,
+                    (sh * 4),
                 ),
                 'direction': DIRECTION_RIGHT,
-                'color': COLOR_POINTER_MOVE_RIGHT
+                'pointer': self.pointers[POINTER_RIGHT]
             })
 
         hotspots.append(
             {
                 'rect': pygame.rect.Rect(
                     0,
-                    0,
+                    mainchar_rect.y - (mainchar_rect.h * 2),
                     mainchar_rect.x,
-                    mainchar_rect.y + mainchar_rect.h,
+                    (sh * 4),
                 ),
                 'direction': DIRECTION_LEFT,
-                'color': COLOR_POINTER_MOVE_LEFT
+                'pointer': self.pointers[POINTER_LEFT]
             })
 
         hotspots.append(
@@ -118,23 +139,24 @@ class MouseHandler:
                     0,
                     0,
                     screen.get_width(),
-                    mainchar_rect.y
+                    mainchar_rect.y - (mainchar_rect.h * 2)
                 ),
                 'direction': DIRECTION_UP,
-                'color': COLOR_POINTER_MOVE_UP
+                'pointer': self.pointers[POINTER_UP]
             })
 
         hotspots.append(
             {
                 'rect': pygame.rect.Rect(
                     0,
-                    mainchar_rect.y + mainchar_rect.h,
-                    screen.get_width(),
-                    screen.get_height() - mainchar_rect.y + mainchar_rect.h
+                    mainchar_rect.y + (mainchar_rect.h * 2),
+                    self.screen.get_width(),
+                    (sh * 3),
                 ),
                 'direction': DIRECTION_DOWN,
-                'color': COLOR_POINTER_MOVE_DOWN
+                'pointer': self.pointers[POINTER_DOWN]
             })
+
 
         return hotspots
 
@@ -156,14 +178,15 @@ class MouseHandler:
         self.mainchar_rect = mainchar_rect
 
         color = COLOR_POINTER_DEFAULT
+        pointer = None
 
         if self.mousedown:
             self.handle_mousedown()
 
         for hotspot in self.movement_hotspots():
             if rect.colliderect(hotspot['rect']):
-                color = hotspot['color']
-
+                pointer = hotspot['pointer']
+                break
 
         if rect.colliderect(headup_display):
             color = COLOR_POINTER_DEFAULT
@@ -186,5 +209,9 @@ class MouseHandler:
 
         if rect.colliderect(mainchar_rect):
             color = COLOR_POINTER_ACTION
+
+        if pointer:
+            screen.blit(pointer, (rect.x, rect.y))
+            return
 
         pygame.draw.rect(screen, color, rect)

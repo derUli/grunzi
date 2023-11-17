@@ -58,10 +58,11 @@ class MainGame(PausableComponent, FadeableComponent):
         self.is_level_exit = False
         self.last_rendered = None
         self.mouse_handler = MouseHandler(
+            data_dir,
             self.move_main_character,
             self.state.player_state.toggle_item,
             self.grunt,
-            self.drop_item
+            self.drop_item,
         )
 
         self.monotype_font = pygame.font.Font(
