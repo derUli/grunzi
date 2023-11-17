@@ -286,2799 +286,2798 @@
 "sprite_file": "wall.jpg"
 },
 {
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+}
+],
+[
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+}
+],
+[
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+}
+],
+[
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "metal.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "snow.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+}
+],
+[
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
+{
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "rock.jpg",
 "walkable": 1
 },
 {
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-}
-],
-[
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-}
-],
-[
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-}
-],
-[
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-}
-],
-[
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "sand.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "gras3.jpg",
 "walkable": 1
 },
@@ -3189,7 +3188,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "metal.jpg",
 "walkable": 1
 },
 {
@@ -3209,27 +3208,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -3926,52 +3925,52 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "gras1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -4672,7 +4671,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "metal.jpg",
 "walkable": 1
 },
 {
@@ -4692,27 +4691,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -5432,27 +5431,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -6174,27 +6173,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -6905,27 +6904,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -7648,27 +7647,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -8396,27 +8395,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -9145,27 +9144,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -9893,27 +9892,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -10641,27 +10640,27 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "snow.jpg",
 "walkable": 1
 },
 {
@@ -11395,17 +11394,17 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -112147,7 +112146,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "qrcode5.png"
+},
 0,
 0,
 0,
@@ -112307,18 +112309,10 @@
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower5.png",
-"walkable": 1
-},
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
+0,
+0,
 0,
 0,
 0,
@@ -112363,15 +112357,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -112598,21 +112587,12 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower5.png",
-"walkable": 1
-},
+0,
+0,
 0,
 0,
 0,
@@ -112820,15 +112800,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -113103,6 +113078,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -113116,19 +113092,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.piggybank.PiggyBank",
+"sprite_file": "piggy_bank.png"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -113361,15 +113328,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -113573,6 +113535,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -113586,24 +113549,11 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.fence.Fence",
+"sprite_file": "wood_fence_vertical.png"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
+0,
+0,
 0,
 0,
 0,
@@ -113829,8 +113779,16 @@
 "walkable": 1
 },
 0,
-0,
-0,
+{
+"sprite_class": "sprites.wood.Wood",
+"sprite_file": "wood.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -113873,15 +113831,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -114128,15 +114081,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -114366,15 +114314,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -114631,15 +114574,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -114925,15 +114863,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -115224,55 +115157,18 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "pebble.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "pebble.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "pebble.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "pebble.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "pebble.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "pebble.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "pebble.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "pebble.jpg",
-"walkable": 1
-},
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 0,
 0,
 {
@@ -115509,15 +115405,10 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -115764,21 +115655,12 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
+0,
+0,
 0,
 0,
 {
@@ -148149,11 +148031,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "rock.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -148645,7 +148523,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.fuel.Fuel",
+"sprite_file": "fuel.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -148790,7 +148672,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wood.Wood",
+"sprite_file": "wood.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -148959,7 +148845,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.apple.Apple",
+"sprite_file": "apple.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -149262,7 +149152,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wood.Wood",
+"sprite_file": "wood.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -171057,11 +170951,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.levelexit.LevelExit",
-"sprite_file": "exit.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -217106,381 +216996,381 @@
 0,
 0,
 0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
-],
-[
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0
-],
-[
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
 0,
 0,
 0,

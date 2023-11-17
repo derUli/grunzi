@@ -50,6 +50,11 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache,
             'highway1.jpg'
         ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'snow.jpg'
+        ),
         Wall(
             sprites_dir,
             image_cache,
