@@ -42,7 +42,6 @@ parser.add_argument(
     help='Enable debug loglevel'
 )
 
-
 parser.add_argument(
     '-a',
     '--disable-ai',
