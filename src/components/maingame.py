@@ -436,7 +436,6 @@ class MainGame(PausableComponent, FadeableComponent):
         """ Handle events """
         super().handle_event(event)
 
-
         mouse_events = [
             pygame.MOUSEMOTION,
             pygame.MOUSEBUTTONDOWN,
@@ -446,7 +445,7 @@ class MainGame(PausableComponent, FadeableComponent):
         if event.type in mouse_events and not self.enable_mouse:
             return
 
-        if event.type == pygame.MOUSEMOTION :
+        if event.type == pygame.MOUSEMOTION:
             self.mouse_handler.enable()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             self.mouse_handler.handle_mousedown()
@@ -576,19 +575,18 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def handle_edit_mode_event(self, event):
         """ Handle edit mode events """
-        if self.state.edit_mode and event.key == keyboard.K_SAVE_LEVEL:
+        if event.key == keyboard.K_SAVE_LEVEL:
             self.level.save(self.loading_screen)
             self.state.player_state.say(_('Level saved.'))
-        elif self.state.edit_mode and event.key == keyboard.K_DUMP_LEVEL:
+        elif event.key == keyboard.K_DUMP_LEVEL:
             self.level.dump(self.loading_screen)
             self.state.player_state.say(_('Level dumped.'))
-        elif self.state.edit_mode and event.key in keyboard.NUMERIC_KEYS:
+        elif event.key in keyboard.NUMERIC_KEYS:
             index = keyboard.NUMERIC_KEYS.index(event.key)
             # Shift is the key for running
             # Shift + Number sets null
             self.make_field(index, self.running)
-
-        elif self.state.edit_mode and event.key == keyboard.K_NEXT_LAYER:
+        elif event.key == keyboard.K_NEXT_LAYER:
             self.next_layer()
 
     def make_field(self, z, clear=False):
