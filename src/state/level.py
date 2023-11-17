@@ -203,6 +203,7 @@ class Level:
                 if not any(self.layers[z][y]):
                     continue
                 for x in range(0, len(self.layers[z][y])):
+
                     element = self.layers[z][y][x]
                     if element and element.id == id:
                         return (z, y, x)
@@ -222,19 +223,6 @@ class Level:
                     continue
 
         return (0, 0, 0)
-
-    def search_instances(self, className):
-        instances = []
-        """ Search character by id """
-        for z in reversed(range(0, len(self.layers))):
-            for y in range(0, len(self.layers[z])):
-                if not any(self.layers[z][y]):
-                    continue
-                for x in range(0, len(self.layers[z][y])):
-                    if isinstance(self.layers[z][y][x], className):
-                        instances.append(self.layers[z][y][x])
-
-        return instances
 
     def move_sprite(self, sprite, target_pos):
         old_z, old_y, old_x = self.search_sprite(sprite)

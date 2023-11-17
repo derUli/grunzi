@@ -305,8 +305,6 @@ class MainGame(PausableComponent, FadeableComponent):
         self.fade()
 
     def ai(self):
-        self.music_queue.check_for_next()
-
         if not self.async_ai_running:
             thread_fns = [
                 self.async_low_prio,
@@ -315,6 +313,8 @@ class MainGame(PausableComponent, FadeableComponent):
 
             for fn in thread_fns:
                 Thread(target=fn).start()
+
+        self.music_queue.check_for_next()
 
         for key in reversed(self.pressed_keys):
             if key in constants.keyboard.MOVEMENT_KEYS:
@@ -331,7 +331,6 @@ class MainGame(PausableComponent, FadeableComponent):
         if self.state.player_state.dead():
             self.moving = None
             self.update_screen(self.screen)
-            super().unmount()
             component = self.handle_change_component(GameOver)
             component.state = self.state
             return
