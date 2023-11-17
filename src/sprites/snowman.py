@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sprites.wall import Wall
 
-MONTH_CHRISTMAS = 12
+MONTH_CHRISTMAS = 11
 
 
 class Snowman(Wall):
