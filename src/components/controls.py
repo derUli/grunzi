@@ -24,7 +24,6 @@ SUPPORTED_CONTROLLERS = [
     'Xbox 360 Controller'
 ]
 
-
 class Controls(FadeableComponent):
     """ Controls screen """
 
@@ -82,8 +81,19 @@ class Controls(FadeableComponent):
 
         if self.settings_state.quality >= QUALITY_LOW:
             surface.blit(self.backdrop, (0, 0))
+
+        headline = _('Controls')
+
+        headline += ' ('
+        if self.current_page == PAGE_KEYBOARD:
+            headline += _('Keyboard')
+        elif self.current_page == PAGE_CONTROLLER:
+            headline += _('Controller')
+
+        headline += ')'
+
         controls_text = self.font.render(
-            _('Controls'),
+            headline,
             utils.quality.font_antialiasing_enabled(),
             pygame.Color(TEXT_COLOR)
         )
@@ -152,7 +162,8 @@ class Controls(FadeableComponent):
 
         y = screen.get_height() - controls_text.get_height() - HORIZONTAL_MARGIN
 
-        surface.blit(control_text, (x, y))
+        if self.current_page == PAGE_CONTROLLER:
+            surface.blit(control_text, (x, y))
 
         self.draw_film_grain(surface)
         screen.blit(surface, (0, 0))
@@ -170,10 +181,7 @@ class Controls(FadeableComponent):
 
     def next_page(self):
         if self.current_page == PAGE_KEYBOARD:
-            if self.gamepad:
-                self.current_page = PAGE_CONTROLLER
-            else:
-                self.handle_change_component(None)
+            self.current_page = PAGE_CONTROLLER
         elif self.current_page == PAGE_CONTROLLER:
             #  Back to settings menu
             self.handle_change_component(self.old_component)
