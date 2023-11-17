@@ -1,12 +1,10 @@
 """ Destroyable sprite """
-import logging
-import pygame
-from sprites.chainsaw import Chainsaw
-from sprites.sprite import Sprite
 import random
-from utils.quality import pixel_fades_enabled
 from threading import Thread
 
+import pygame
+
+from sprites.sprite import Sprite
 
 
 class Fadeable(Sprite):
@@ -44,7 +42,7 @@ class Fadeable(Sprite):
             self.stop_fade()
             return
 
-        r,g,b,a = 0, 0, 0, 0
+        r, g, b, a = 0, 0, 0, 0
         rand_x = 0
         rand_y = 0
 
@@ -56,7 +54,6 @@ class Fadeable(Sprite):
 
         self.sprite.set_at((rand_x, rand_y), (r, g, b, 0))
         self.persistent_pixels -= 1
-
 
     def count_persistent_pixels(self):
         persistent = 0

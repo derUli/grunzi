@@ -63,7 +63,6 @@ class Menu(Component):
         component.video = self.video
         self.menu.disable()
 
-
     def draw_background(self):
         if self.settings_state.quality > QUALITY_VERY_LOW:
             video_frame = self.video.get_frame()

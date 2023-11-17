@@ -1,7 +1,4 @@
-import logging
 import os
-import subprocess
-import sys
 
 import pygame
 
@@ -13,6 +10,7 @@ from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
 
+MIN_SCREEN_RESOLUTION = (640, 480)
 
 class SettingsVideo(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
@@ -113,6 +111,10 @@ class SettingsVideo(Component):
 
         items = []
         for x, y in modes:
+            # Screen resolutions lower than this would crash
+            if(x, y) < MIN_SCREEN_RESOLUTION:
+                continue
+
             label = (str(x) + 'x' + str(y))
             value = (x, y)
             items.append((label, value))

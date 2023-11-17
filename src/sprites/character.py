@@ -36,9 +36,9 @@ class Character(sprites.sprite.Sprite):
 
         pos = self.calculate_pos(x, y)
 
-        screen.blit(sprite, pos)
+        drawn = screen.blit(sprite, pos)
 
-        return pos
+        return drawn
 
     def ai(self, level):
         return

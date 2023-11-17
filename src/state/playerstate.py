@@ -36,7 +36,8 @@ class PlayerState:
         self.use_item = False
         self.display_text = DisplayText(data_dir)
         self.data_dir = data_dir
-
+        self.drawn_inventory = None
+        self.drawn_health = None
         self.health_pig = pygame.image.load(
             os.path.join(data_dir, 'images', 'ui',
                          'health.png')
@@ -203,9 +204,9 @@ class PlayerState:
         y = screen.get_height() - BOTTOM_UI_HEIGHT
 
         if self.to_hash() == id_string:
-            screen.blit(surf, (0, y))
+            drawn = screen.blit(surf, (0, y))
             self.draw_text(screen)
-            return
+            return drawn
 
         size = (screen.get_width(), BOTTOM_UI_HEIGHT)
         surf = pygame.surface.Surface(size, pygame.SRCALPHA)
@@ -216,8 +217,10 @@ class PlayerState:
 
         id_string = self.to_hash()
         self.rendered_ui = (id_string, surf)
-        screen.blit(surf, (0, y))
+        drawn = screen.blit(surf, (0, y))
         self.draw_text(screen)
+
+        return drawn
 
     def draw_blood(self, screen):
         if not utils.quality.vignette_enabled():
@@ -271,7 +274,7 @@ class PlayerState:
         x = x - surface.get_width() - UI_MARGIN
         y = UI_MARGIN
 
-        screen.blit(self.cropped_pig, (x, y))
+        self.drawn_health = screen.blit(self.cropped_pig, (x, y))
 
     def draw_background(self, screen):
         """ Draw ui background """
@@ -306,7 +309,7 @@ class PlayerState:
 
             surface.blit(scaled_item_sprite, (INVENTORY_PADDING, INVENTORY_PADDING))
 
-        screen.blit(surface, (x, y))
+        self.drawn_inventory = screen.blit(surface, (x, y))
 
     def draw_text(self, screen):
         """ Draw ui background """

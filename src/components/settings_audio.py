@@ -1,18 +1,13 @@
-import logging
 import os
-import subprocess
-import sys
 
-import pygame
-
-import constants.headup
+import utils.audio
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
-from utils.menu import make_menu, get_longest_option
-import utils.audio
+from utils.menu import make_menu
+
 
 class SettingsAudio(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):

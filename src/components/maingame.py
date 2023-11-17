@@ -25,10 +25,12 @@ from constants.headup import BOTTOM_UI_HEIGHT
 from constants.quality import QUALITY_LOW
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
+from sprites.maincharacter import MainCharacter
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
+from utils.mouse_handler import MouseHandler
 
 BACKDROP_COLOR = (36, 63, 64)
 
@@ -52,9 +54,17 @@ class MainGame(PausableComponent, FadeableComponent):
         self.editor_blocks_length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
         self.editor_block_index = 0
         self.disable_ai = False
+        self.enable_mouse = False
         self.async_ai_running = None
         self.is_level_exit = False
         self.last_rendered = None
+        self.mouse_handler = MouseHandler(
+            data_dir,
+            self.move_main_character,
+            self.state.player_state.toggle_item,
+            self.grunt,
+            self.drop_item,
+        )
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
@@ -224,6 +234,8 @@ class MainGame(PausableComponent, FadeableComponent):
         else:
             screen.fill(BACKDROP_COLOR)
 
+        mainchar_rect = None
+
         for layer in filtered_layers:
             y = 0
             x = 0
@@ -244,7 +256,10 @@ class MainGame(PausableComponent, FadeableComponent):
                         if pos_y > virtscreen_h:
                             break
 
-                        col.draw(virtual_screen, x, y)
+                        drawn = col.draw(virtual_screen, x, y)
+
+                        if isinstance(col, MainCharacter):
+                            mainchar_rect = drawn
 
                         if self.state.edit_mode and isinstance(col, Character):
                             col.draw_debug(
@@ -267,11 +282,19 @@ class MainGame(PausableComponent, FadeableComponent):
         screen.blit(virtual_screen, (0, 0))
 
         # Draw head up display
-        self.state.player_state.draw(screen)
+        headup_display = self.state.player_state.draw(screen)
 
         if self.do_fade:
             screen.set_alpha(self.alpha)
             self.screen.blit(screen, (0, 0))
+
+        self.mouse_handler.draw(
+            screen,
+            mainchar_rect,
+            headup_display,
+            self.state.player_state.drawn_inventory,
+            self.state.player_state.drawn_health
+        )
 
         self.fade()
 
@@ -406,6 +429,25 @@ class MainGame(PausableComponent, FadeableComponent):
     def handle_event(self, event):
         """ Handle events """
         super().handle_event(event)
+
+
+        mouse_events = [
+            pygame.MOUSEMOTION,
+            pygame.MOUSEBUTTONDOWN,
+            pygame.MOUSEBUTTONUP
+        ]
+
+        if event.type in mouse_events and not self.enable_mouse:
+            return
+
+        if event.type == pygame.MOUSEMOTION :
+            self.mouse_handler.enable()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            self.mouse_handler.handle_mousedown()
+        elif event.type == pygame.MOUSEBUTTONUP:
+            self.mouse_handler.handle_mouseup()
+        elif self.enable_mouse:
+            self.mouse_handler.disable()
 
         if event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
@@ -577,10 +619,17 @@ class MainGame(PausableComponent, FadeableComponent):
         self.state.edit_mode = not self.state.edit_mode
         self.state.show_only_layer = None
 
-    def move_main_character(self, dir):
+    def move_main_character(self, dir, running=None):
         """ Move main character one field in direction """
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]
+
+        if dir is None:
+            self.moving = None
+            return
+
+        if running is not None:
+            self.running = running
 
         if not self.moving:
             self.moving = dir

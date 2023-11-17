@@ -2,11 +2,11 @@
 import os
 
 from sprites.key import Key
-from sprites.wall import Wall
+from utils.quality import pixel_fades_enabled
 from utils.audio import play_sound
+from sprites.fadeable import Fadeable
 
-
-class Keyhole(Wall):
+class Keyhole(Fadeable):
     """ Keyhole sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='keyhole.png'):
@@ -47,9 +47,17 @@ class Keyhole(Wall):
         number = self.id.split('-')[1]
         expected_id = "key-" + number
 
+        print(item)
+        print(item.id)
+
         if isinstance(item, Key) and not self.walkable and item.id == expected_id:
             self.open_door()
             return
 
     def open_door(self):
-        self.walkable = True
+        if pixel_fades_enabled():
+            if not self.fadeout:
+                self.start_fade()
+        else:
+            self.purge = True
+            self.walkable = True

@@ -31,13 +31,15 @@ class MainCharacter(Character, FadeableComponent):
 
     def draw(self, screen, x, y):
         """ Draw main character """
-        super().draw(screen, x, y)
+        drawn = super().draw(screen, x, y)
 
         self.draw_inventory_item(screen, x, y)
 
         # Detailed object view
         if self.state and self.state.show_detailed:
             screen.blit(self.state.show_detailed, (0, 0))
+
+        return drawn
 
     def draw_inventory_item(self, screen, x, y):
         if not self.state:

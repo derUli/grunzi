@@ -4,6 +4,8 @@ import time
 import pygame
 
 from utils.path import get_userdata_path
+
+
 def make_screenshot(screen):
     screenshot_dir = os.path.join(get_userdata_path(), 'screenshots')
 

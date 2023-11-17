@@ -10,9 +10,9 @@ import pygame
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
 from sprites.chainsaw import Chainsaw
 from sprites.character import Character
+from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
-from sprites.killable import Killable
 from utils.quality import pixel_fades_enabled
 
 RUMBLE_CHAINSAW_DURATION = 300

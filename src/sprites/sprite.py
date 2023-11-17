@@ -54,9 +54,7 @@ class Sprite:
         if not self.sprite:
             return None
 
-        screen.blit(self.sprite, pos)
-
-        return pos
+        return screen.blit(self.sprite, pos)
 
     def draw_debug(self, screen, x, y, from_x, from_y):
 

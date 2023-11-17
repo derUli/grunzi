@@ -1,12 +1,10 @@
 """ Destroyable sprite """
 import logging
-import pygame
+
 from sprites.chainsaw import Chainsaw
-from sprites.wall import Wall
 from sprites.fadeable import Fadeable
-import random
+from sprites.wall import Wall
 from utils.quality import pixel_fades_enabled
-from threading import Thread
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
@@ -48,7 +46,6 @@ class Destroyable(Fadeable, Wall):
 
             element.state.inventory.play_sound()
 
-
             # Rumble on gamepad if we have one
             if element.state.gamepad:
                 element.state.gamepad.joystick.rumble(
@@ -56,7 +53,6 @@ class Destroyable(Fadeable, Wall):
                     RUMBLE_CHAINSAW_HIGH_FREQUENCY,
                     RUMBLE_CHAINSAW_DURATION
                 )
-
 
     def destroyed(self):
         return self.walkable or self.fadeout or self.purge

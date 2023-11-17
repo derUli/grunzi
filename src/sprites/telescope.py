@@ -16,7 +16,6 @@ class Telescope(Sprite):
         if element and element.state:
             element.state.say(_('[Insert Coin]'))
 
-
     def handle_interact_item(self, element):
         # Activate the telescope with a coin
         if not element:
@@ -26,4 +25,3 @@ class Telescope(Sprite):
             element.state.say(_('Not implemented yet'))
             element.state.use_item = False
             # element.state.inventory = None
-

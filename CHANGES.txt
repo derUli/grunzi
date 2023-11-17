@@ -1,5 +1,10 @@
 # Changelog
 
+## Alpha 002
+
+* Steuerung: Experimentelle Maussteuerung
+* Video-Einstellungen: Entferne Auflösungen kleiner als 640x480
+
 ## Alpha 001
 
 * Erster öffentlicher Alpha Build
