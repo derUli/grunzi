@@ -1,4 +1,5 @@
 pygame==2.5.2
 pygame-menu==4.4.3
 PygameShader==1.0.10
-cx_Freeze===6.15.10
+cx_Freeze==6.15.10
+patchelf==0.17.2.1

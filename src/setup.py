@@ -6,15 +6,17 @@ import cx_Freeze
 
 base = None
 
+target_name = 'Grunzi'
+
 if sys.platform == 'win32':
     base = "Win32GUI"
+    target_name += '.exe'
 
 target = cx_Freeze.Executable(
     script="grunzi.py",
     icon='icon.ico',
     base=base,
-
-    target_name='Grunzi.exe'
+    target_name=target_name
 )
 
 options = {
