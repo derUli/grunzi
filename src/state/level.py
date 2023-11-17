@@ -144,6 +144,7 @@ class Level:
 
                         element.draw(surface, x, y)
 
+
         make_dump(surface)
 
     def total_blocks(self, leveldata):

@@ -32,9 +32,12 @@ class Character(sprites.sprite.Sprite):
             flip_x = True
         sprite = pygame.transform.flip(sprite, flip_x, flip_y)
 
-        pos = self.calculate_pos(x, y)
+        pos_x, pos_y = self.calculate_pos(x, y)
 
-        drawn = screen.blit(sprite, pos)
+        pos_x += self.mov_offset_x
+        pos_y += self.mov_offset_y
+
+        drawn = screen.blit(sprite, (pos_x, pos_y))
 
         return drawn
 
