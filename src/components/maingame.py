@@ -25,8 +25,8 @@ from constants.headup import BOTTOM_UI_HEIGHT
 from constants.quality import QUALITY_LOW
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
-from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from sprites.maincharacter import MainCharacter
+from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
@@ -255,7 +255,6 @@ class MainGame(PausableComponent, FadeableComponent):
                         if pos_y > virtscreen_h:
                             break
 
-
                         drawn = col.draw(virtual_screen, x, y)
 
                         if isinstance(col, MainCharacter):
@@ -269,7 +268,6 @@ class MainGame(PausableComponent, FadeableComponent):
                                 from_x,
                                 from_y
                             )
-
 
                     if isinstance(col, Character) and not self.disable_ai:
                         col.ai(self.level)
@@ -609,7 +607,7 @@ class MainGame(PausableComponent, FadeableComponent):
         self.state.edit_mode = not self.state.edit_mode
         self.state.show_only_layer = None
 
-    def move_main_character(self, dir, running = None):
+    def move_main_character(self, dir, running=None):
         """ Move main character one field in direction """
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]

@@ -24,6 +24,7 @@ SUPPORTED_CONTROLLERS = [
     'Xbox 360 Controller'
 ]
 
+
 class Controls(FadeableComponent):
     """ Controls screen """
 
@@ -131,7 +132,6 @@ class Controls(FadeableComponent):
 
             y += controls_text.get_height()
             y += LINE_SMALL_MARGIN
-
 
         text = _('Controller: ')
 

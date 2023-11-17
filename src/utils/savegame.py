@@ -5,6 +5,7 @@ from utils.path import get_userdata_path
 
 DEFAULT_SAVE = 'default'
 
+
 def load_game(name, state):
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
     state_file = os.path.join(save_dir, 'state.json')
@@ -22,11 +23,13 @@ def load_game(name, state):
 
     return level_file
 
+
 def has_savegame(name):
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
     state_file = os.path.join(save_dir, 'state.json')
 
     return os.path.exists(state_file)
+
 
 def save_game(name, state, level=None):
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)

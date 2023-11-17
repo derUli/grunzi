@@ -6,14 +6,15 @@ import sys
 import pygame.mixer_music
 
 from components.component import Component
+from components.controls import Controls
+from components.settings_audio import SettingsAudio
+from components.settings_video import SettingsVideo
 from constants.headup import PIGGY_PINK
 from constants.quality import QUALITY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
-from components.settings_audio import SettingsAudio
-from components.settings_video import SettingsVideo
-from components.controls import Controls
+
 
 class Settings(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):

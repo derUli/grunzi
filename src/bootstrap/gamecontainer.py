@@ -12,14 +12,12 @@ import pygame
 from pygame.locals import QUIT
 
 import components.menu
-import constants.game
-import constants.headup
 import utils.audio
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
-from components.component import Component
+
 
 class GameContainer:
     """ Main game class """

@@ -10,7 +10,6 @@ import utils.quality
 from constants.graphics import SPRITE_SIZE
 from utils.string import natural_keys
 
-
 TRANSPARENT_IMAGES = ['.png', '.gif']
 IMAGE_EXTENSIONS = ['.jpg'] + TRANSPARENT_IMAGES
 

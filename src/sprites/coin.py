@@ -1,7 +1,7 @@
 """ Wall sprite """
 
-from sprites.takeable import Takeable
 from sprites.inlinesprite import InlineSprite
+from sprites.takeable import Takeable
 
 
 class Coin(Takeable, InlineSprite):

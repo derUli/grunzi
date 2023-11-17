@@ -1,4 +1,5 @@
 import sys
+
 import cx_Freeze
 
 base = None
@@ -15,22 +16,22 @@ target = cx_Freeze.Executable(
 )
 
 options = {
-        'build_exe': {
-            # "include_msvcr": True, Not allowed to legal reasons
-            'packages': [
-                'pygame',
-                'sprites',
-                'PygameShader'
-            ],
-            'optimize': 0,
-            'include_files': [
-                'data/',
-                '../CREDITS.txt',
-                '../README.txt',
-                '../CHANGES.txt',
-                '../VERSION'
-            ]
-        }
+    'build_exe': {
+        # "include_msvcr": True, Not allowed to legal reasons
+        'packages': [
+            'pygame',
+            'sprites',
+            'PygameShader'
+        ],
+        'optimize': 0,
+        'include_files': [
+            'data/',
+            '../CREDITS.txt',
+            '../README.txt',
+            '../CHANGES.txt',
+            '../VERSION'
+        ]
+    }
 
 }
 

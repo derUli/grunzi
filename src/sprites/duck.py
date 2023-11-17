@@ -1,10 +1,12 @@
 """ Duck character sprite """
-import time
-import os
 import logging
+import os
 import random
+import time
+
 from sprites.character import Character
 from utils.audio import play_sound
+
 
 class Duck(Character):
     """ Duck sprite class """

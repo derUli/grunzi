@@ -142,7 +142,6 @@ class Level:
                             while not animation.fully_loaded():
                                 continue
 
-
                         element.draw(surface, x, y)
 
         make_dump(surface)

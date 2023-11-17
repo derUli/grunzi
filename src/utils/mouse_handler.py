@@ -1,8 +1,10 @@
 import os
+
 import pygame
-from constants.headup import BOTTOM_UI_HEIGHT
-from constants.graphics import SPRITE_SIZE
+
 from constants.direction import DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_LEFT, DIRECTION_DOWN
+from constants.graphics import SPRITE_SIZE
+from constants.headup import BOTTOM_UI_HEIGHT
 from utils.quality import scale_method
 
 POINTER_UP = 'up'
@@ -15,12 +17,13 @@ POINTER_DEFAULT = 'default'
 POINTER_SIZE = (32, 32)
 DOUBLECLICK_SPEED = 500
 
+
 class MouseHandler:
 
     def __init__(self, data_dir, handle_move, handle_toggle_item, handle_grunt, handle_drop_item):
         self.enabled = False
         self.pointer = None
-        self.data_dir  = data_dir
+        self.data_dir = data_dir
 
         self.handle_move = handle_move
         self.handle_toggle_item = handle_toggle_item
@@ -60,15 +63,15 @@ class MouseHandler:
         self.handle_move(None)
 
     def init_pointers(self):
-        cursor_dir = os.path.join( self.data_dir, 'images', 'pointers')
+        cursor_dir = os.path.join(self.data_dir, 'images', 'pointers')
         pointers = {
 
-                POINTER_UP:  pygame.image.load(os.path.join(cursor_dir, 'arrow_up.png')).convert_alpha(),
-                POINTER_RIGHT: pygame.image.load(os.path.join(cursor_dir, 'arrow_right.png')).convert_alpha(),
-                POINTER_DOWN: pygame.image.load(os.path.join(cursor_dir, 'arrow_down.png')).convert_alpha(),
-                POINTER_LEFT: pygame.image.load(os.path.join(cursor_dir, 'arrow_left.png')).convert_alpha(),
-                POINTER_ACTION: pygame.image.load(os.path.join(cursor_dir, 'action.png')).convert_alpha(),
-                POINTER_DEFAULT: pygame.image.load(os.path.join(cursor_dir, 'default.png')).convert_alpha(),
+            POINTER_UP: pygame.image.load(os.path.join(cursor_dir, 'arrow_up.png')).convert_alpha(),
+            POINTER_RIGHT: pygame.image.load(os.path.join(cursor_dir, 'arrow_right.png')).convert_alpha(),
+            POINTER_DOWN: pygame.image.load(os.path.join(cursor_dir, 'arrow_down.png')).convert_alpha(),
+            POINTER_LEFT: pygame.image.load(os.path.join(cursor_dir, 'arrow_left.png')).convert_alpha(),
+            POINTER_ACTION: pygame.image.load(os.path.join(cursor_dir, 'action.png')).convert_alpha(),
+            POINTER_DEFAULT: pygame.image.load(os.path.join(cursor_dir, 'default.png')).convert_alpha(),
         }
 
         scale = scale_method()
@@ -93,7 +96,6 @@ class MouseHandler:
         if not self.mousedown and rect.colliderect(self.health_display):
             self.handle_grunt()
             return
-
 
         if not self.mousedown and rect.colliderect(self.mainchar_rect):
             self.handle_drop_item()
@@ -214,12 +216,10 @@ class MouseHandler:
 
         pointer = self.pointers[POINTER_DEFAULT]
 
-
         for hotspot in self.movement_hotspots():
             if rect.colliderect(hotspot['rect']):
                 pointer = hotspot['pointer']
                 break
-
 
         if not self.inventory_display:
             self.inventory_display = inventory_display
