@@ -96,7 +96,10 @@ class MainGame(PausableComponent, FadeableComponent):
         self.load_level(level_file)
         savegame = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
         self.level.apply_diff(savegame)
-        print(self.state.to_json())
+
+        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        self.level.layers[z][y][x].state = self.state.player_state
+
         self.update_camera()
 
     def load_level(self, level_file, show_loading_screen=True):
