@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-17 15:11+0100\n"
+"POT-Creation-Date: 2023-11-18 12:17+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -123,19 +123,19 @@ msgstr "Spiel laden"
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/maingame.py:124
+#: components/maingame.py:130
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:423
+#: components/maingame.py:427
 msgid "Grunz!"
 msgstr ""
 
-#: components/maingame.py:583
+#: components/maingame.py:586
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:586
+#: components/maingame.py:589
 msgid "Level dumped."
 msgstr ""
 
@@ -227,6 +227,11 @@ msgstr "Bildschirmauflösung"
 msgid "Quality"
 msgstr "Qualität"
 
+#: components/tobecontinued.py:36
+#, fuzzy
+msgid "To be continued"
+msgstr "Fortsetzen"
+
 #: sprites/chainsaw.py:37
 msgid "The petrol is empty."
 msgstr "Das Benzin ist leer."
@@ -247,23 +252,27 @@ msgstr "Die Tür ist jetzt offen."
 msgid "There is a keyhole in the wall."
 msgstr "Da ist ein Schlüsselloch in der Mauer."
 
-#: sprites/raccoon.py:34
+#: sprites/raccoon.py:33
 msgid "Henlo Fren!"
 msgstr ""
 
-#: sprites/telescope.py:17
+#: sprites/telescope.py:16
 msgid "[Insert Coin]"
 msgstr "[Münze einwerfen]"
 
-#: sprites/telescope.py:25
+#: sprites/telescope.py:24
 msgid "Not implemented yet"
 msgstr ""
 
-#: state/level.py:100
+#: state/level.py:90 state/level.py:95 state/level.py:109
+msgid "Applying savegame..."
+msgstr "Spielstand laden..."
+
+#: state/level.py:113
 msgid "Saving level..."
 msgstr "Speichere Level..."
 
-#: state/level.py:114
+#: state/level.py:127
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 

@@ -95,7 +95,7 @@ class MainGame(PausableComponent, FadeableComponent):
         level_file = os.path.join(self.data_dir, 'levels', 'world.json')
         self.load_level(level_file)
         savegame = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
-        self.level.apply_diff(savegame)
+        self.level.apply_diff(savegame, self.loading_screen)
 
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state
