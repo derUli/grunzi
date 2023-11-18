@@ -72,7 +72,10 @@ class GameContainer:
         signal.signal(signal.SIGINT, self.quit)
         signal.signal(signal.SIGTERM, self.quit)
 
-        self.main_loop()
+        try:
+            self.mainloop()
+        except Exception as e:
+            logging.error(e)
 
     def handle_settings_change(self):
         self.settings_state.apply()
@@ -119,7 +122,7 @@ class GameContainer:
         self.settings_state.apply_and_save()
         self.set_icon()
 
-    def main_loop(self):
+    def mainloop(self):
         """ Pygame MainLoop """
         while self.running:
             try:
