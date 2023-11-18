@@ -16,7 +16,5 @@ class StringTest(unittest.TestCase):
     def test_label_value(self):
         self.assertEqual(
             'Level: 123.45',
-            label_value(
-                'Level',
-                123.45)
+            label_value('Level', 123.45)
         )
