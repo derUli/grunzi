@@ -106,8 +106,11 @@ class Controls(FadeableComponent):
             file = os.path.join(self.data_dir, 'images', 'ui', 'schoolboard.jpg')
             self.backdrop = self.image_cache.load_image(file, screen.get_size())
 
-        surface = screen.copy().convert_alpha()
-        surface.set_alpha(self.alpha)
+        if self.do_fade:
+            surface = screen.copy().convert_alpha()
+            surface.set_alpha(self.alpha)
+        else:
+            surface = screen
 
         if self.settings_state.quality >= QUALITY_LOW:
             surface.blit(self.backdrop, (0, 0))
@@ -205,7 +208,9 @@ class Controls(FadeableComponent):
             surface.blit(control_text, (x, y))
 
         self.draw_film_grain(surface)
-        screen.blit(surface, (0, 0))
+
+        if self.do_fade:
+            screen.blit(surface, (0, 0))
 
         self.fade()
 
