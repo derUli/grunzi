@@ -34,7 +34,7 @@ https://www.microsoft.com/de-de/download/details.aspx?id=48145
 
 Pfeiltasten: Bewegen
 E: Item benutzen
-T: Item ablegen
+Z: Item ablegen
 G: Grunzen
 F12: Screenshot erstellen
 Shift-Taste: Rennen
