@@ -5,7 +5,7 @@ import locale
 import logging
 import os
 
-# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
+os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
 
 from bootstrap.gamecontainer import GameContainer
 from utils.path import get_userdata_path
