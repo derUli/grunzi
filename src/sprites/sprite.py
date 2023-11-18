@@ -71,7 +71,7 @@ class Sprite:
         self.sprite = cache.load_image(file, SPRITE_SIZE)
 
         if not self.sprite:
-            logging.error('File ' + file + ' not found')
+            logging.error(' '.join(['File', file, 'not found']))
             return
 
     def init_state(self):

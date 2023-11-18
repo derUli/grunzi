@@ -133,7 +133,7 @@ class MainGame(PausableComponent, FadeableComponent):
             percentage = str(percentage) + "%"
             percentage = percentage.rjust(4, ' ')
 
-            loading_text += ' ' + str(percentage)
+            loading_text = ' '.join([loading_text, str(percentage)])
 
         # Render loading text
         rendered_text = self.monotype_font.render(

@@ -61,7 +61,7 @@ class ImageCache:
                 self.images[cache_id] = image
 
             except FileNotFoundError:
-                logging.error('File not found ' + path)
+                logging.error(' '.join(['File not found', path]))
                 self.images[cache_id] = None
 
         return self.images[cache_id]
