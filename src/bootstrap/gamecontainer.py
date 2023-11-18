@@ -7,7 +7,7 @@ import logging
 import os
 import platform
 import signal
-
+from utils.string import label_value
 import pygame
 from pygame.locals import QUIT
 
@@ -39,16 +39,15 @@ class GameContainer:
         self.__main__ = None
 
     def start(self, component=components.menu.Menu):
-        """ Start game """
-        logging.info('')
-        logging.info('OS: ' + platform.platform())
-        logging.info('CPU: ' + platform.processor())
-        logging.info('Python version: ' + platform.python_version())
-        logging.info('Pygame version: ' + pygame.version.ver)
-        logging.info('SDL Version: ' + str(pygame.version.SDL))
-
         version_file = os.path.join(self.root_dir, 'LICENSE')
-        logging.info('Grunzi Version: ' + get_version(version_file))
+
+        """ Start game """
+        logging.info(label_value('OS', platform.platform()))
+        logging.info(label_value('CPU',  platform.processor()))
+        logging.info(label_value('Python version', platform.python_version()))
+        logging.info(label_value('Pygame version',  pygame.version.ver))
+        logging.info(label_value('SDL Version', pygame.version.SDL))
+        logging.info(label_value('Grunzi Version', get_version(version_file)))
 
         pygame.mixer.pre_init(
             44100, 16, 2, 4096)  # For better and faster audio

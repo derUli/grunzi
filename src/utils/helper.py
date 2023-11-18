@@ -1,6 +1,5 @@
 import os
 
-
 def get_version(file):
     text = 'Unknown Build'
 
