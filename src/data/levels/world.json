@@ -113494,7 +113494,11 @@
 "sprite_class": "sprites.fence.Fence",
 "sprite_file": "wood_fence_horizontal.png"
 },
-0,
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -216827,11 +216831,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.maincharacter.MainCharacter",
-"sprite_file": "pig.png",
-"id": "grunzi"
-},
+0,
 0,
 0,
 0,
@@ -216978,7 +216978,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.maincharacter.MainCharacter",
+"sprite_file": "pig.png",
+"id": "grunzi"
+},
 0,
 0,
 0,
