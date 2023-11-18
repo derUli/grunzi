@@ -99,7 +99,6 @@ class MainGame(PausableComponent, FadeableComponent):
 
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state
-
         self.update_camera()
 
     def load_level(self, level_file, show_loading_screen=True):
