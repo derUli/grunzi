@@ -16,12 +16,15 @@ def load_game(name, state):
     with open(state_file, 'r') as f:
         state.from_json(f.read())
 
-    level_file = os.path.join(save_dir, 'level.json')
+    savegame = os.path.join(save_dir, 'level.json')
 
-    if not os.path.exists(level_file):
+    if not os.path.exists(savegame):
         return None
 
-    return level_file
+    with open(savegame, 'r') as f:
+        return json.loads(f.read())
+
+    return None
 
 
 def has_savegame(name):

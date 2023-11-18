@@ -9,8 +9,36 @@ import constants.graphics
 import utils.quality
 from constants.game import MONOTYPE_FONT, DEBUG_TILE_FONT_SIZE
 from constants.graphics import SPRITE_SIZE
-from utils.reflections import fullname
+from utils.reflections import fullname, get_class
 
+def from_dict(x, sprites_dir, image_cache):
+    if not x:
+        return None
+
+    sprite_file = None
+    if 'sprite_file' in x:
+        sprite_file = x['sprite_file']
+
+    try:
+        klass = get_class(x['sprite_class'])
+        sprite = klass(sprites_dir, image_cache, sprite_file)
+
+        if 'walkable' in x:
+            sprite.walkable = bool(x['walkable'])
+        else:
+            sprite.walkable = False
+
+        if 'attributes' in x:
+            sprite.attributes = x['attributes']
+
+        if 'id' in x:
+            sprite.id = x['id']
+
+    except ImportError:
+        sprite = None
+        logging.error('Import ' + x['sprite_class'] + ' failed')
+
+    return sprite
 
 class Sprite:
     """ Generic sprite class """

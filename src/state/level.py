@@ -8,8 +8,8 @@ import pygame
 import constants.graphics
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
 from sprites.levelexit import LevelExit
-from utils.reflections import get_class
 from utils.screenshot import make_dump
+import sprites.sprite
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
@@ -58,34 +58,9 @@ class Level:
 
                         if progress_callback:
                             progress_callback(loaded_percent)
+                    sprite = sprites.sprite.from_dict(x, self.sprites_dir, self.image_cache)
+                    row.append(sprite)
 
-                    if x:
-                        sprite_file = None
-                        if 'sprite_file' in x:
-                            sprite_file = x['sprite_file']
-
-                        try:
-                            klass = get_class(x['sprite_class'])
-                            sprite = klass(self.sprites_dir, self.image_cache, sprite_file)
-
-                            if 'walkable' in x:
-                                sprite.walkable = bool(x['walkable'])
-                            else:
-                                sprite.walkable = False
-
-                            if 'attributes' in x:
-                                sprite.attributes = x['attributes']
-
-                            if 'id' in x:
-                                sprite.id = x['id']
-
-                        except ImportError:
-                            sprite = None
-                            logging.error('Import ' + x['sprite_class'] + ' failed')
-
-                        row.append(sprite)
-                    else:
-                        row.append(None)
                 layer.append(row)
             layers.append(layer)
 
@@ -110,6 +85,18 @@ class Level:
                         update_list[z][y][x] = 'removed'
 
         return update_list
+
+    def apply_diff(self, update_list):
+        for z in range(len(update_list)):
+            for y in range(len(update_list[z])):
+                for x in range(len(update_list[z][y])):
+                    new_value = update_list[z][y][x]
+
+                    if new_value == 'removed':
+                        self.layers[z][y][x] = None
+                    elif new_value is not None:
+                        self.layers[z][y][x] = sprites.sprite.from_dict(new_value, self.sprites_dir, self.image_cache)
+
 
     def save(self, progress_callback=None):
         if progress_callback:

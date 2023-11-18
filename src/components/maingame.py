@@ -92,8 +92,12 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def load_savegame(self):
         """ Load savegame """
-        level_file = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
+        level_file = os.path.join(self.data_dir, 'levels', 'world.json')
         self.load_level(level_file)
+        savegame = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
+        self.level.apply_diff(savegame)
+        print(self.state.to_json())
+        self.update_camera()
 
     def load_level(self, level_file, show_loading_screen=True):
         """ Load level from JSON file """
