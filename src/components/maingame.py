@@ -38,7 +38,6 @@ BACKDROP_COLOR = (36, 63, 64)
 THREAD_INTERVAL_HIGH = 50
 THREAD_INTERVAL_LOW = 250
 
-
 class MainGame(PausableComponent, FadeableComponent):
 
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
