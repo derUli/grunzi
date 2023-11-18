@@ -4,11 +4,21 @@ import gettext
 import locale
 import logging
 import os
+from utils.path import is_windows
+
+# Add support for high DPI on windows
+if is_windows():
+    import ctypes
+    try:
+       ctypes.windll.user32.SetProcessDPIAware()
+    except AttributeError:
+        pass # Windows XP doesn't support monitor scaling, so just do nothing
+
+
+# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
 
 from bootstrap.gamecontainer import GameContainer
 from utils.path import get_userdata_path
-
-# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
 
 __main__ = __file__
 

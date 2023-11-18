@@ -7,6 +7,7 @@
 * Spielstände jetzt aufwärtskompatibel
 * Experimentelle Maussteuerung
 * Video-Einstellungen: Auflösungen kleiner als 640x480 entfernt
+* Unterstützung für High DPI
 
 ## Alpha 001
 
