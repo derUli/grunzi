@@ -1,6 +1,8 @@
 import unittest
 
 from utils.string import natural_keys, label_value
+
+
 class StringTest(unittest.TestCase):
     def test_natural_keys(self):
         arr = [

@@ -11,6 +11,7 @@ __main__ = __file__
 
 ROOT_DIR = os.path.join(os.path.dirname(__main__))
 
+
 def configure_logger(log_level):
     log_file = os.path.join(get_userdata_path(), 'debug.log')
     logging.basicConfig(

@@ -1,6 +1,8 @@
 import unittest
 
 from utils.string import natural_keys
+
+
 class StringTest(unittest.TestCase):
     def test_direction(self):
         arr = [

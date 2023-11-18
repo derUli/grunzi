@@ -1,7 +1,9 @@
+import os
 import unittest
 
 from utils.helper import get_version
-import os
+
+
 class HelperTest(unittest.TestCase):
     def test_get_version1(self):
         self.assertEqual('Unknown Build', get_version('foo'))

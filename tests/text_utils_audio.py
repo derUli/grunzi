@@ -1,7 +1,11 @@
-import unittest
 import os
+import unittest
+
 import pygame
+
 from utils.audio import play_sound, play_music, stop_music
+
+
 class AudioTest(unittest.TestCase):
 
     def setUp(self):
@@ -9,6 +13,7 @@ class AudioTest(unittest.TestCase):
 
         self.test_file = os.path.join(os.path.dirname(__file__), 'test.ogg')
         self.test_sound = pygame.mixer.Sound(self.test_file)
+
     def tearDown(self):
         pygame.mixer.quit()
 
@@ -28,7 +33,6 @@ class AudioTest(unittest.TestCase):
 
         pygame.time.delay(2000)
         self.assertFalse(pygame.mixer.music.get_busy())
-
 
     def test_play_music(self):
         play_music(self.test_file, 2)
