@@ -31,7 +31,7 @@ class Killable(Sprite):
     def remove_pixels(self):
         bulk = 5
         while self.fadeout:
-            pygame.time.delay(1)
+            pygame.time.wait(1)
             for i in range(bulk):
                 self.remove_random_pixel()
 
