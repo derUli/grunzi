@@ -10,6 +10,6 @@ class HelperTest(unittest.TestCase):
         file = os.path.join(
             os.path.dirname(__file__),
             'VERSION',
-
         )
+
         self.assertEqual('1.0 Beta', get_version(file))
