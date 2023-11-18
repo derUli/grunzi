@@ -4,20 +4,20 @@ import gettext
 import locale
 import logging
 import os
+
 from utils.helper import configure_logger, enable_high_dpi
 from utils.path import get_userdata_path
 
 __main__ = __file__
 ROOT_DIR = os.path.join(os.path.dirname(__main__))
 
+# Set locale
+locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
+os.environ['LANG'] = ':'.join(locale.getlocale())
+gettext.install('messages', locale_path)
+
 
 def parse_args():
-    locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
-
-    # Set locale
-    os.environ['LANG'] = ':'.join(locale.getlocale())
-    gettext.install('messages', locale_path)
-
     if not os.path.exists(get_userdata_path()):
         os.makedirs(get_userdata_path())
 
@@ -62,6 +62,7 @@ def parse_args():
     )
 
     return parser.parse_args()
+
 
 args = parse_args()
 

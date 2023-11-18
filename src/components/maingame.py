@@ -154,7 +154,7 @@ class MainGame(PausableComponent, FadeableComponent):
 
         # Pump event queue and flip display to keep the application alive
         pygame.event.pump()
-        pygame.display.update()
+        pygame.display.flip()
 
     def mount(self):
         """ On mount hide mouse pointer and start music """

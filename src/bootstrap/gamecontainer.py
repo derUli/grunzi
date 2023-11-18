@@ -165,7 +165,7 @@ class GameContainer:
         self.current_component.update_screen(self.screen)
 
         self.tick()
-        pygame.display.update()
+        pygame.display.flip()
 
     def ai(self):
         if self.current_component:
