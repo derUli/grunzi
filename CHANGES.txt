@@ -4,6 +4,7 @@
 
 * Neues Puzzle mit Holzbrettern hinzugefügt
 * Mehr Musik-Tracks
+* Spielstände jetzt aufwärtskompatibel
 * Experimentelle Maussteuerung
 * Video-Einstellungen: Auflösungen kleiner als 640x480 entfernt
 
