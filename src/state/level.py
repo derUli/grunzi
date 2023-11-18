@@ -98,8 +98,6 @@ class Level:
                         self.layers[z][y][x] = None
                     elif new_value is not None:
                         self.layers[z][y][x] = sprites.sprite.from_dict(new_value, self.sprites_dir, self.image_cache)
-
-
     def save(self, progress_callback=None):
         if progress_callback:
             progress_callback(percentage=None, loading_text=_('Saving level...'))
