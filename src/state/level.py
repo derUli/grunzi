@@ -89,6 +89,8 @@ class Level:
     def apply_diff(self, update_list):
         for z in range(len(update_list)):
             for y in range(len(update_list[z])):
+                if not any(update_list[z][y]):
+                    continue
                 for x in range(len(update_list[z][y])):
                     new_value = update_list[z][y][x]
 
