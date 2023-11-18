@@ -10,6 +10,7 @@ import utils.quality
 from constants.game import MONOTYPE_FONT, DEBUG_TILE_FONT_SIZE
 from constants.graphics import SPRITE_SIZE
 from utils.reflections import fullname, get_class
+from utils.string import label_value
 
 def from_dict(x, sprites_dir, image_cache):
     if not x:
@@ -89,7 +90,10 @@ class Sprite:
 
     def draw_debug(self, screen, x, y, from_x, from_y):
 
-        text_str = 'X: ' + str(from_x + x) + ' Y: ' + str(from_y + y)
+        text_str = ' '.join([
+            label_value('X', from_x + x),
+            label_value('Y', from_y + y),
+        ])
 
         if not self.debug_font:
             self.debug_font = pygame.font.Font(

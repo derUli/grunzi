@@ -149,7 +149,6 @@ class PlayerState:
             self.health = 0
         if self.health > 99:
             self.health = 100
-
         logging.debug('Current health: ' + str(self.health))
         self.crop_pig()
 
