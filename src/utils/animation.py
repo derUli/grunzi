@@ -94,16 +94,18 @@ class Animation():
 
         return frame
 
+    def empty_surface(self):
+        return pygame.surface.Surface(SPRITE_SIZE).convert_alpha()
+
     def get_frame(self):
-        empty_surface = pygame.surface.Surface(SPRITE_SIZE).convert_alpha()
         if not self.loaded:
             self.load()
-            return empty_surface
+            return self.empty_surface()
 
         try:
             frame = self.frames[self.current_frame]
         except IndexError as e:
-            return empty_surface
+            return self.empty_surface()
 
         if time.time() - self.last_refresh < self.refresh_interval:
             return frame
