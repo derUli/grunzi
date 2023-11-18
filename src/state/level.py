@@ -86,14 +86,8 @@ class Level:
 
         return update_list
 
-    def apply_diff(self, update_list, progress_callback):
-        progress_callback(percentage=0, loading_text=_('Applying savegame...'))
-
-        one_percent = 100 / len(update_list)
-
+    def apply_diff(self, update_list):
         for z in range(len(update_list)):
-            progress_callback(percentage=int(one_percent*z), loading_text=_('Applying savegame...'))
-
             for y in range(len(update_list[z])):
                 if not any(update_list[z][y]):
                     continue
@@ -104,8 +98,6 @@ class Level:
                         self.layers[z][y][x] = None
                     elif new_value is not None:
                         self.layers[z][y][x] = sprites.sprite.from_dict(new_value, self.sprites_dir, self.image_cache)
-
-        progress_callback(percentage=100, loading_text=_('Applying savegame...'))
 
     def save(self, progress_callback=None):
         if progress_callback:

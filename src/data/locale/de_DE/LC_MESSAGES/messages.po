@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-18 12:17+0100\n"
+"POT-Creation-Date: 2023-11-18 12:22+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -264,15 +264,15 @@ msgstr "[Münze einwerfen]"
 msgid "Not implemented yet"
 msgstr ""
 
-#: state/level.py:90 state/level.py:95 state/level.py:109
+#: state/level.py:102
 msgid "Applying savegame..."
 msgstr "Spielstand laden..."
 
-#: state/level.py:113
+#: state/level.py:106
 msgid "Saving level..."
 msgstr "Speichere Level..."
 
-#: state/level.py:127
+#: state/level.py:120
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
