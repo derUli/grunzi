@@ -9,7 +9,7 @@ from constants import gamepad
 from constants import keyboard
 from constants.game import MONOTYPE_FONT
 from constants.quality import QUALITY_LOW
-
+from utils.string import label_value
 PAGE_KEYBOARD = 0
 PAGE_CONTROLLER = 1
 PAGE_MOUSE = 2
@@ -70,16 +70,14 @@ class Controls(FadeableComponent):
     def mouse_controls(self):
         controls = [(_('Experimental mouse support'), None)]
 
-        state = _('Status') + ': '
+        state_text = _('Disabled')
 
         mouse_enabled = self.enable_mouse
 
         if mouse_enabled:
-            state += _('Enabled')
-        else:
-            state += _('Disabled')
+            state_text = _('Enabled')
 
-        controls.append((state, None))
+        controls.append((label_value(_('Status'), state_text), None))
 
         if not mouse_enabled:
             controls.append(
