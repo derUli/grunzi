@@ -4,24 +4,11 @@ import gettext
 import locale
 import logging
 import os
-
-from utils.path import is_windows, get_userdata_path
+from utils.helper import configure_logger, enable_high_dpi
+from utils.path import get_userdata_path
 
 __main__ = __file__
-
 ROOT_DIR = os.path.join(os.path.dirname(__main__))
-
-
-def configure_logger(log_level):
-    log_file = os.path.join(get_userdata_path(), 'debug.log')
-    logging.basicConfig(
-        level=log_level,
-        format="%(asctime)s [%(levelname)s] %(message)s",
-        handlers=[
-            logging.FileHandler(log_file),
-            logging.StreamHandler()
-        ]
-    )
 
 
 def parse_args():
@@ -76,21 +63,6 @@ def parse_args():
 
     return parser.parse_args()
 
-
-def enable_high_dpi():
-    # Add support for high DPI on windows
-    if not is_windows():
-        return
-
-    import ctypes
-
-    try:
-        ctypes.windll.user32.SetProcessDPIAware()
-        logging.debug('SetProcessDPIAware')
-    except AttributeError as e:
-        logging.error(e)  # Windows XP doesn't support monitor scaling, so just do nothing
-
-
 args = parse_args()
 
 # While still in alpha the log level is always debug
@@ -106,7 +78,6 @@ configure_logger(log_level)
 logging.debug(args)
 
 enable_high_dpi()
-# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
 
 from bootstrap.gamecontainer import GameContainer
 
