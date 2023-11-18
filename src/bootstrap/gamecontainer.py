@@ -80,8 +80,8 @@ class GameContainer:
         flags = pygame.SCALED | pygame.HWSURFACE | pygame.DOUBLEBUF
 
         self.screen = None
-        logging.debug('Init screen')
-        logging.info('Screen resolution: ' + str(self.settings_state.screen_resolution))
+        logging.info('Init screen')
+        logging.info(label_value('Screen resolution', str(self.settings_state)))
         pygame.display.set_caption(_('Grunzi'))
 
         if self.settings_state.fullscreen:
@@ -99,10 +99,10 @@ class GameContainer:
         """ Init Controller """
         try:
             self.gamepad = xbox_360_controller.Controller()
-            logging.info('Controller: ' + self.gamepad.joystick.get_name())
+            logging.info(label_value('Controller', self.gamepad.joystick.get_name()))
             return True
         except pygame.error:
-            logging.debug('No controller found')
+            logging.info('No controller found')
             return False
 
     def set_icon(self):
