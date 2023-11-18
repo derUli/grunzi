@@ -16,7 +16,7 @@ IMAGE_EXTENSIONS = ['.jpg'] + TRANSPARENT_IMAGES
 CHUNK_SIZE = 10
 
 
-class Animation():
+class Animation:
 
     def __init__(self, animation_dir, refresh_interval=0.1,
                  start_frame=0, size=None):
