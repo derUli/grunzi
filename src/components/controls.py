@@ -51,7 +51,7 @@ class Controls(FadeableComponent):
         return [
             (_('Walk'), 'Arrow_Keys.png'),
             (_('Use item'), 'E_Key_Dark.png'),
-            (_('Drop item'), 'Z_Key_Dark.png'),
+            (_('Drop item'), 'Q_Key_Dark.png'),
             (_('Grunt'), 'G_Key_Dark.png'),
             (_('Run'), 'Shift_Key_Dark.png'),
             (_('Pause'), 'Esc_Key_Dark.png'),

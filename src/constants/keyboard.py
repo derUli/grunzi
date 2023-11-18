@@ -5,7 +5,7 @@ K_LEFT = [pygame.K_LEFT, pygame.K_a]
 K_RIGHT = [pygame.K_RIGHT, pygame.K_d]
 K_UP = [pygame.K_UP, pygame.K_w]
 K_DOWN = [pygame.K_DOWN, pygame.K_s]
-K_DROP_ITEM = pygame.K_z
+K_DROP_ITEM = pygame.K_q
 K_GRUNT = pygame.K_g
 
 RUN_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]
