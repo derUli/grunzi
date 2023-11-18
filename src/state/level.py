@@ -106,7 +106,7 @@ class Level:
                     new_value = update_list[z][y][x]
                     if new_value == old_value:
                         update_list[z][y][x] = None
-                    elif new_value and not old_value:
+                    elif not bool(new_value) and bool(old_value):
                         update_list[z][y][x] = 'removed'
 
         return update_list

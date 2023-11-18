@@ -31,8 +31,11 @@ def has_savegame(name):
     return os.path.exists(state_file)
 
 
-def save_game(name, state, level=None):
+def save_game(name, state, diff_list=None):
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
+
+    if not diff_list:
+        return
 
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
@@ -42,10 +45,7 @@ def save_game(name, state, level=None):
     with open(state_file, 'w') as f:
         f.write(state.to_json())
 
-    if not level:
-        return
-
     level_file = os.path.join(save_dir, 'level.json')
 
     with open(level_file, 'w') as f:
-        f.write(json.dumps(level.to_saveable_list()))
+        f.write(json.dumps(diff_list))
