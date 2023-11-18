@@ -114,6 +114,8 @@ class Controls(FadeableComponent):
 
         if self.settings_state.quality >= QUALITY_LOW:
             surface.blit(self.backdrop, (0, 0))
+        else:
+            surface.fill((0,0,0))
 
         headline = _('Controls')
 
