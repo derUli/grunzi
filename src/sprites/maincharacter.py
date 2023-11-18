@@ -12,6 +12,7 @@ from utils.audio import play_sound
 
 PIG_SOUND_NOTHING = 'nothing.ogg'
 
+
 class MainCharacter(Character, FadeableComponent):
     """ Main character sprite class """
 

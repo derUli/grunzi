@@ -1,8 +1,10 @@
-import random
 import os
+import random
+
 import pygame
-from threading import Thread
+
 AUDIO_EXTENSIONS = ['.ogg']
+
 
 class MusicQueue:
     def __init__(self, files=[]):
@@ -21,7 +23,6 @@ class MusicQueue:
             if ext in AUDIO_EXTENSIONS:
                 abspath = os.path.join(dir, file)
                 self.files.append(abspath)
-
 
     def shuffle(self):
         self.queue = list(self.files)
@@ -62,4 +63,3 @@ class MusicQueue:
         pygame.mixer.music.load(self.queue[0])
         pygame.mixer.music.play()
         self.queue = self.queue[1:]
-

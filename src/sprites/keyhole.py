@@ -1,10 +1,11 @@
 """ Keyhole sprite """
 import os
 
-from sprites.key import Key
-from utils.quality import pixel_fades_enabled
-from utils.audio import play_sound
 from sprites.fadeable import Fadeable
+from sprites.key import Key
+from utils.audio import play_sound
+from utils.quality import pixel_fades_enabled
+
 
 class Keyhole(Fadeable):
     """ Keyhole sprite class """

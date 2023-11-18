@@ -1,7 +1,7 @@
 """ Wall sprite """
-from sprites.inlinesprite import InlineSprite
-from sprites.takeable import Takeable
 from sprites.sprite import Sprite
+
+
 class WoodOnWater(Sprite):
     """ Wall sprite class """
 

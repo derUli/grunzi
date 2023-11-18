@@ -12,6 +12,7 @@ from constants.graphics import SPRITE_SIZE
 from utils.reflections import fullname, get_class
 from utils.string import label_value
 
+
 def from_dict(x, sprites_dir, image_cache):
     if not x:
         return None
@@ -40,6 +41,7 @@ def from_dict(x, sprites_dir, image_cache):
         logging.error('Import ' + x['sprite_class'] + ' failed')
 
     return sprite
+
 
 class Sprite:
     """ Generic sprite class """

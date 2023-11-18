@@ -6,10 +6,10 @@ import time
 import pygame
 
 import constants.graphics
+import sprites.sprite
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
 from sprites.levelexit import LevelExit
 from utils.screenshot import make_dump
-import sprites.sprite
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
@@ -147,7 +147,6 @@ class Level:
                                 continue
 
                         element.draw(surface, x, y)
-
 
         make_dump(surface)
 

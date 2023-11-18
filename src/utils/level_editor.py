@@ -17,6 +17,7 @@ from sprites.wall import Wall
 from sprites.water import Water
 from sprites.wood import Wood
 
+
 def get_editor_blocks(sprites_dir, image_cache):
     """ Get editor blocks array for inline map editor"""
     return [

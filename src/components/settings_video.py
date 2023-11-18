@@ -2,7 +2,6 @@ import os
 
 import pygame
 
-import constants.headup
 from components.component import Component
 from constants.headup import PIGGY_PINK
 from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
@@ -11,6 +10,7 @@ from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
 
 MIN_SCREEN_RESOLUTION = (640, 480)
+
 
 class SettingsVideo(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
@@ -40,7 +40,6 @@ class SettingsVideo(Component):
 
     def update_screen(self, screen):
         self.draw_menu(self.screen)
-
 
     def handle_back(self):
         component = self.handle_change_component(self.old_component)
@@ -113,7 +112,7 @@ class SettingsVideo(Component):
         items = []
         for x, y in modes:
             # Screen resolutions lower than this would crash
-            if(x, y) < MIN_SCREEN_RESOLUTION:
+            if (x, y) < MIN_SCREEN_RESOLUTION:
                 continue
 
             label = (str(x) + 'x' + str(y))
@@ -147,7 +146,7 @@ class SettingsVideo(Component):
             _('Fullscreen'),
             self.settings_state.fullscreen,
             self.handle_toggle_fullscreen,
-            state_text = state_text
+            state_text=state_text
         )
 
         menu.add.toggle_switch(

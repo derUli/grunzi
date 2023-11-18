@@ -6,10 +6,11 @@ import time
 from PygameShader.shader import wave
 
 import sprites.sprite
-from utils.quality import shader_enabled
 from sprites.wood import Wood
 from sprites.woodonwater import WoodOnWater
-from state.level import LAYER_STATIC_OBJECTS, LAYER_GROUND, LAYER_OTHER_CHARS
+from utils.quality import shader_enabled
+
+
 class Water(sprites.sprite.Sprite):
     """ Backdrop sprite """
 
@@ -79,7 +80,6 @@ class Water(sprites.sprite.Sprite):
 
         return sprite
 
-
     def handle_interact_item(self, element):
 
         if not isinstance(element.state.inventory, Wood):
@@ -87,8 +87,3 @@ class Water(sprites.sprite.Sprite):
 
         self.replace_with = WoodOnWater(self.sprite_dir, self.cache)
         element.state.inventory = None
-
-
-
-
-

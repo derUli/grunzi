@@ -37,4 +37,3 @@ class FadeableComponent(Component):
 
     def unmount(self):
         pygame.mixer.music.fadeout(1000)
-

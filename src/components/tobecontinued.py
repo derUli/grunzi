@@ -2,11 +2,13 @@
 import os
 
 import pygame
+
 import utils.quality
-from components.fadeable_component import FadeableComponent, FADE_OUT
+from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
 from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
+
 
 class ToBeContinued(FadeableComponent):
     """ To be continued Screen """
@@ -22,7 +24,6 @@ class ToBeContinued(FadeableComponent):
 
     def mount(self):
         self.fadein()
-
 
     def update_screen(self, screen):
         """ Update screen """
@@ -52,8 +53,6 @@ class ToBeContinued(FadeableComponent):
             self.screen.blit(screen, (0, 0))
 
             self.fade()
-
-
 
     def handle_event(self, event):
         """ Handle events """

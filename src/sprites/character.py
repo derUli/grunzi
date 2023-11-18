@@ -41,7 +41,6 @@ class Character(sprites.sprite.Sprite):
 
         return drawn
 
-
     def change_direction(self, direction):
         """ Change sprite direction """
         self.direction = direction

@@ -7,7 +7,7 @@ import logging
 import os
 import platform
 import signal
-from utils.string import label_value
+
 import pygame
 from pygame.locals import QUIT
 
@@ -17,12 +17,14 @@ from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
+from utils.string import label_value
 
 
 class GameContainer:
     """ Main game class """
 
-    def __init__(self, root_dir, enable_edit_mode=False, disable_controller=False, disable_ai=False, enable_mouse=False):
+    def __init__(self, root_dir, enable_edit_mode=False, disable_controller=False, disable_ai=False,
+                 enable_mouse=False):
         """ Constructor """
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
@@ -43,9 +45,9 @@ class GameContainer:
 
         """ Start game """
         logging.info(label_value('OS', platform.platform()))
-        logging.info(label_value('CPU',  platform.processor()))
+        logging.info(label_value('CPU', platform.processor()))
         logging.info(label_value('Python version', platform.python_version()))
-        logging.info(label_value('Pygame version',  pygame.version.ver))
+        logging.info(label_value('Pygame version', pygame.version.ver))
         logging.info(label_value('SDL Version', pygame.version.SDL))
         logging.info(label_value('Grunzi Version', get_version(version_file)))
 
@@ -81,7 +83,7 @@ class GameContainer:
 
         self.screen = None
         logging.info('Init screen')
-        logging.info(label_value('Screen resolution', str(self.settings_state)))
+        logging.info(label_value('Screen resolution', str(self.settings_state.screen_resolution)))
         pygame.display.set_caption(_('Grunzi'))
 
         if self.settings_state.fullscreen:
