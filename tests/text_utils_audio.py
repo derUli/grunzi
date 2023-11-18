@@ -35,4 +35,3 @@ class AudioTest(unittest.TestCase):
         self.assertTrue(pygame.mixer.music.get_busy())
         stop_music()
         self.assertFalse(pygame.mixer.music.get_busy())
-
