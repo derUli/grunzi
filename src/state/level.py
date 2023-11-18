@@ -26,6 +26,7 @@ class Level:
         self.loaded = False
         self.level_file = level_file
         self.level_file_last_changed = None
+        self.original_layers = []
 
     def load(self, progress_callback=None):
         load_start = time.time()
@@ -89,11 +90,26 @@ class Level:
             layers.append(layer)
 
         self.layers = layers
+        self.original_layers = self.to_saveable_list()
         self.loaded = True
 
         load_end = time.time()
         load_time = load_end - load_start
         logging.debug("Loading time: " + str(load_time))
+
+    def to_diff_list(self):
+        update_list = self.to_saveable_list()
+        for z in range(len(update_list)):
+            for y in range(len(update_list[z])):
+                for x in range(len(update_list[z][y])):
+                    old_value = self.original_layers[z][y][x]
+                    new_value = update_list[z][y][x]
+                    if new_value == old_value:
+                        update_list[z][y][x] = None
+                    elif new_value and not old_value:
+                        update_list[z][y][x] = 'removed'
+
+        return update_list
 
     def save(self, progress_callback=None):
         if progress_callback:
