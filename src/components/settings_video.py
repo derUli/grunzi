@@ -41,6 +41,7 @@ class SettingsVideo(Component):
     def update_screen(self, screen):
         self.draw_menu(self.screen)
 
+
     def handle_back(self):
         component = self.handle_change_component(self.old_component)
         component.video = self.video
@@ -67,13 +68,13 @@ class SettingsVideo(Component):
         self.old_component.needs_restart = True
         self.settings_state.apply_and_save()
 
-    def handle_toggle_fullscreen(self):
-        self.settings_state.fullscreen = not self.settings_state.fullscreen
+    def handle_toggle_fullscreen(self, value):
+        self.settings_state.fullscreen = value
         self.settings_state.apply_and_save()
         self.refresh_menu()
 
-    def handle_toggle_vsync(self):
-        self.settings_state.vsync = not self.settings_state.vsync
+    def handle_toggle_vsync(self, value):
+        self.settings_state.vsync = value
         self.settings_state.apply_and_save()
         self.old_component.needs_restart = True
         self.refresh_menu()
@@ -140,25 +141,21 @@ class SettingsVideo(Component):
     def draw_menu(self, screen):
         menu = make_menu(_('Video'), self.settings_state.limit_fps)
 
-        w = menu.get_width() - (constants.headup.UI_MARGIN * 2)
+        state_text = (_('Off'), _('On'))
 
-        fullscreen_text = _('Display Mode: ')
+        menu.add.toggle_switch(
+            _('Fullscreen'),
+            self.settings_state.fullscreen,
+            self.handle_toggle_fullscreen,
+            state_text = state_text
+        )
 
-        if self.settings_state.fullscreen:
-            fullscreen_text += _('Fullscreen')
-        else:
-            fullscreen_text += _('Window')
-
-        menu.add.button(fullscreen_text, self.handle_toggle_fullscreen)
-
-        vsync_text = _('V-Sync: ')
-
-        if self.settings_state.vsync:
-            vsync_text += 'On'
-        else:
-            vsync_text += 'Off'
-
-        menu.add.button(vsync_text, self.handle_toggle_vsync)
+        menu.add.toggle_switch(
+            _('V-Sync'),
+            self.settings_state.vsync,
+            self.handle_toggle_vsync,
+            state_text=state_text
+        )
 
         menu.add.dropselect(
             title=_('Screen Resolution'),

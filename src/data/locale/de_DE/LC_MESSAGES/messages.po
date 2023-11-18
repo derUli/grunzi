@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-18 12:37+0100\n"
+"POT-Creation-Date: 2023-11-18 14:13+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: bootstrap/gamecontainer.py:86 components/menu.py:76 grunzi.py:27
+#: bootstrap/gamecontainer.py:85 components/menu.py:76 grunzi.py:27
 msgid "Grunzi"
 msgstr ""
 
@@ -60,7 +60,7 @@ msgid "Experimental mouse support"
 msgstr ""
 
 #: components/controls.py:73
-msgid "Status"
+msgid "Disabled"
 msgstr ""
 
 #: components/controls.py:78
@@ -68,45 +68,45 @@ msgid "Enabled"
 msgstr ""
 
 #: components/controls.py:80
-msgid "Disabled"
+msgid "Status"
 msgstr ""
 
-#: components/controls.py:87
+#: components/controls.py:85
 msgid "To enable the experimental mouse support run the game with"
 msgstr ""
 
-#: components/controls.py:92
+#: components/controls.py:90
 msgid "the --enable-mouse flag."
 msgstr ""
 
-#: components/controls.py:116 components/settings.py:113
+#: components/controls.py:114 components/settings.py:113
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/controls.py:120
+#: components/controls.py:118
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/controls.py:122
+#: components/controls.py:120
 #, fuzzy
 msgid "Controller"
 msgstr "Controller"
 
-#: components/controls.py:124
+#: components/controls.py:122
 #, fuzzy
 msgid "Mouse"
 msgstr "Maus"
 
-#: components/controls.py:186
+#: components/controls.py:184
 #, fuzzy
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/controls.py:193
+#: components/controls.py:191
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/controls.py:195
+#: components/controls.py:193
 msgid "No Controller"
 msgstr "Kein Controller"
 
@@ -123,19 +123,19 @@ msgstr "Spiel laden"
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/maingame.py:130
+#: components/maingame.py:129
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:427
+#: components/maingame.py:426
 msgid "Grunz!"
 msgstr ""
 
-#: components/maingame.py:586
+#: components/maingame.py:585
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:589
+#: components/maingame.py:588
 msgid "Level dumped."
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:111 components/settings_video.py:141
+#: components/settings.py:111 components/settings_video.py:142
 msgid "Video"
 msgstr ""
 
@@ -179,51 +179,51 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:91 components/settings_video.py:181
+#: components/settings_audio.py:91 components/settings_video.py:178
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:91
+#: components/settings_video.py:92
 msgid "Very Low"
 msgstr "Sehr niedrig"
 
-#: components/settings_video.py:92
+#: components/settings_video.py:93
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings_video.py:93
+#: components/settings_video.py:94
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings_video.py:94
+#: components/settings_video.py:95
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:95
+#: components/settings_video.py:96
 msgid "Very High"
 msgstr "Sehr hoch"
 
-#: components/settings_video.py:145
-msgid "Display Mode: "
-msgstr "Anzeigemodus: "
+#: components/settings_video.py:144
+msgid "Off"
+msgstr "Aus"
 
-#: components/settings_video.py:148
+#: components/settings_video.py:144
+msgid "On"
+msgstr "An"
+
+#: components/settings_video.py:147
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:150
-msgid "Window"
-msgstr "Fenster"
-
 #: components/settings_video.py:154
-msgid "V-Sync: "
+msgid "V-Sync"
 msgstr ""
 
-#: components/settings_video.py:164
+#: components/settings_video.py:161
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:173
+#: components/settings_video.py:170
 msgid "Quality"
 msgstr "Qualität"
 
@@ -275,25 +275,4 @@ msgstr "Generiere Level als Grafikdatei..."
 #: state/playerstate.py:94
 msgid "Ouch!"
 msgstr "Autsch!"
-
-#~ msgid "FPS Limit"
-#~ msgstr ""
-
-#~ msgid "Show FPS: "
-#~ msgstr "FPS anzeigen: "
-
-#~ msgid "On"
-#~ msgstr "An"
-
-#~ msgid "Off"
-#~ msgstr "Aus"
-
-#~ msgid "Unlimited"
-#~ msgstr "Unbegrenzt"
-
-#~ msgid "Controller"
-#~ msgstr "Controller"
-
-#~ msgid "Applying savegame..."
-#~ msgstr "Spielstand laden..."
 
