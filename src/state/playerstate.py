@@ -223,6 +223,9 @@ class PlayerState:
         return drawn
 
     def draw_blood(self, screen):
+        if self.health == 100:
+            return
+
         if not utils.quality.vignette_enabled():
             return
 
