@@ -206,6 +206,10 @@ class Intro(FadeableComponent):
         """ Handle events """
         if event.type == pygame.KEYDOWN and event.key in keyboard.CONFIRM_KEYS:
             self.start_game()
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_1:
+            self.scale = pygame.transform.scale
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_2:
+            self.scale = pygame.transform.smoothscale
 
     def start_game(self):
         logging.debug(label_value('FPS Avg', numpy.mean(self.fps_counter)))
