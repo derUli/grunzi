@@ -64,7 +64,7 @@ class SettingsAudio(Component):
         if self.playing and self.playing.get_busy():
             self.playing.stop()
 
-        test_sound = os.path.join(self.data_dir, 'sounds', 'pig', 'grunt1.ogg')
+        test_sound = os.path.join(self.data_dir, 'sounds', 'pig', 'grunt4.ogg')
         self.playing = utils.audio.play_sound(test_sound)
 
     def draw_menu(self, screen):
