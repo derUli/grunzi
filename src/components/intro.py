@@ -32,104 +32,21 @@ class Intro(FadeableComponent):
         self.w, self.h = 0, 0
         self.surface = None
         self.white_surface = None
+        self.faded_out = False
 
+        self.fade_speed = 1
+
+        self.clock = pygame.time.Clock()
         self.scale = scale_method()
         self.backdrops = []
-
-    def draw(self, screen):
-
-        surface = self.surface
-
-        centerx = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.25))
-        centery = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.5))
-        dx = self.prev_centerx - centerx
-        dy = self.prev_centery - centery
-
-        if dx > 0:
-            dx = -1
-        elif dx < 0:
-            dx = 1
-        if dy > 0:
-            dy = -1
-        elif dy < 0:
-            dy = 1
-
-        scroll24_inplace(self.backdrops[1], dx, dy)
-
-        surface.blit(self.backdrops[0], (0, 0))
-
-        zx = 0.9999 - (self.frame / float(800.0))
-        surf = zoom(self.backdrops[1], 400, 400, max(zx, 0))
-        surface.blit(surf, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
-
-        percentage = (1 - zx) * 60
-
-        if percentage > 100:
-            percentage = 100
-
-        blend_inplace(
-            source_=surface,
-            destination_=pixels3d(self.backdrops[2]),
-            percentage_=percentage
-        )
-
-        surface_ = tunnel_render24(
-            self.frame * self.acceleration,
-            self.w,
-            self.h,
-            self.w >> 1,
-            self.h >> 1,
-            self.distances,
-            self.angles,
-            self.shades,
-            self.scr_data,
-            self.dest_array
-        )
-
-        surface.blit(surface_, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
-
-        if self.alpha > 0:
-            self.white_surface.set_alpha(self.alpha)
-            surface.blit(self.white_surface, (0,0))
-
-        screen.blit(self.scale(surface, screen.get_size()), (0, 0))
-
-        self.frame += self.df
-        self.acceleration += self.dc
-
-        if self.acceleration > 100:
-            self.dc *= -1
-            self.df *= -1
-
-        if self.acceleration < 1:
-            self.dc *= -1
-
-        if self.frame <= 0:
-            self.df *= -1
-
-        self.prev_centerx = centerx
-        self.prev_centery = centery
-
-        music_pos = pygame.mixer.music.get_pos()
-        # 23000
-
-        if not self.do_fade and music_pos >= 20000:
-            self.fadein()
-
-        self.fade()
-
-    def ai(self):
-        if self.alpha >= 255:
-            self.start_game()
 
     def mount(self):
         pygame.mouse.set_visible(0)
         w, h = self.settings_state.screen_resolution
 
-        w, h = min(w, h),  min(w, h)
+        w, h = min(w, h), min(w, h)
 
         # Scale factor based on quality settings
-
         scale_factor = 1.0
 
         if self.settings_state.quality >= QUALITY_VERY_HIGH:
@@ -168,18 +85,108 @@ class Intro(FadeableComponent):
         self.zx = 0
         self.frame = 0
 
-        self.prev_centerx = 400 + floor((400 >> 1) * math.sin(0 * self. acceleration * 0.25))
+        self.prev_centerx = 400 + floor((400 >> 1) * math.sin(0 * self.acceleration * 0.25))
         self.prev_centery = 400 + floor((400 >> 1) * math.sin(0 * self.acceleration * 0.5))
 
-        self.surface = pygame.surface.Surface((self.w, self.h))
-        self.white_surface = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA)
+        self.surface = pygame.surface.Surface((self.w, self.h)).convert(32, pygame.RLEACCEL)
+        self.white_surface = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA | pygame.RLEACCEL).convert()
         self.white_surface.fill((255, 255, 255))
 
         music_file = os.path.join(self.data_dir, 'music', 'intro.ogg')
         pygame.mixer.music.load(music_file)
         pygame.mixer.music.play()
 
+    def draw(self, screen):
 
+        if self.faded_out:
+            screen.fill((255,255,255))
+            return
+
+        surface = self.surface
+
+        centerx = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.25))
+        centery = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.5))
+        dx = self.prev_centerx - centerx
+        dy = self.prev_centery - centery
+
+        if dx > 0:
+            dx = -1
+        elif dx < 0:
+            dx = 1
+        if dy > 0:
+            dy = -1
+        elif dy < 0:
+            dy = 1
+
+        scroll24_inplace(self.backdrops[1], dx, dy)
+
+        surface.blit(self.backdrops[0], (0, 0))
+
+        zx = 0.9999 - (self.frame / float(800.0))
+        surf = zoom(self.backdrops[1], 400, 400, max(zx, 0))
+        surface.blit(surf, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
+
+
+        percentage = (1 - zx) * 60
+
+        if percentage > 100:
+            percentage = 100
+
+        blend_inplace(
+            source_=surface,
+            destination_=pixels3d(self.backdrops[2]),
+            percentage_=percentage
+        )
+
+        surface_ = tunnel_render24(
+            self.frame * self.acceleration,
+            self.w,
+            self.h,
+            self.w >> 1,
+            self.h >> 1,
+            self.distances,
+            self.angles,
+            self.shades,
+            self.scr_data,
+            self.dest_array
+        )
+
+        surface.blit(surface_, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
+
+        if self.alpha > 0:
+            self.white_surface.set_alpha(self.alpha)
+            surface.blit(self.white_surface, (0,0))
+
+        scaled = self.scale(surface, screen.get_size())
+        screen.blit(scaled, (0, 0))
+
+        self.frame += self.df
+        self.acceleration += self.dc
+
+        if self.acceleration > 100:
+            self.acceleration = 100
+
+        if self.acceleration < 1:
+            self.dc *= -1
+
+        if self.frame <= 0:
+            self.df *= -1
+
+        self.prev_centerx = centerx
+        self.prev_centery = centery
+
+        music_pos = pygame.mixer.music.get_pos()
+
+        self.fade()
+
+        if self.alpha >= 255:
+            self.faded_out = True
+            self.start_game()
+
+        if not self.do_fade and music_pos >= 18000 and not self.faded_out:
+            self.fadein()
+
+        self.clock.tick(self.settings_state.limit_fps)
 
     def handle_event(self, event):
         """ Handle events """
