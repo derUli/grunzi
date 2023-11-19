@@ -1,7 +1,7 @@
 """ Guitar sprite """
 from sprites.coin import Coin
 from sprites.sprite import Sprite
-
+import random
 
 class Telescope(Sprite):
     """ Guitar sprite class """
@@ -10,6 +10,12 @@ class Telescope(Sprite):
         """ Constructor """
         super().__init__(sprite_dir, cache, 'telescope.png')
         self.sound = None
+        code = [1, 2, 3, 4]
+        random.shuffle(code)
+
+        self.attributes = {
+            'code': code
+        }
 
     def handle_interact(self, element):
         if element and element.state:
