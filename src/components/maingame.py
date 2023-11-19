@@ -129,7 +129,7 @@ class MainGame(PausableComponent, FadeableComponent):
             loading_text = _('Loading...')
 
         # Show percentage if given
-        if (percentage is not None):
+        if percentage is not None:
             percentage = str(percentage) + "%"
             percentage = percentage.rjust(4, ' ')
 
