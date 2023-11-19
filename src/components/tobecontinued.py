@@ -25,7 +25,7 @@ class ToBeContinued(FadeableComponent):
     def mount(self):
         self.fadein()
 
-    def update_screen(self, screen):
+    def draw(self, screen):
         """ Update screen """
         if self.do_fade:
             screen = screen.copy().convert_alpha()

@@ -100,7 +100,7 @@ class Controls(FadeableComponent):
     def unmount(self):
         return
 
-    def update_screen(self, screen):
+    def draw(self, screen):
         """ Update screen """
         if not self.backdrop:
             file = os.path.join(self.data_dir, 'images', 'ui', 'schoolboard.jpg')

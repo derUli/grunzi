@@ -70,7 +70,7 @@ class Component(object):
 
         self.render_text(what, color, where)
 
-    def update_screen(self, screen):
+    def draw(self, screen):
         screen.fill((0, 0, 0))
 
     def handle_event(self, event):

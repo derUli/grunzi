@@ -130,7 +130,7 @@ class GameContainer:
             except SystemError as e:
                 logging.error(e)
 
-            self.update_screen()
+            self.draw()
             self.ai()
 
     def handle_events(self):
@@ -161,11 +161,11 @@ class GameContainer:
         camera_sound = os.path.join(self.data_dir, 'sounds', 'common', 'screenshot.ogg')
         utils.audio.play_sound(camera_sound)
 
-    def update_screen(self):
+    def draw(self):
         """ Update the screen  """
         # Filling the window with black color
 
-        self.current_component.update_screen(self.screen)
+        self.current_component.draw(self.screen)
 
         self.tick()
         pygame.display.update()

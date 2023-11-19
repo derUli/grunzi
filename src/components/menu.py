@@ -42,7 +42,7 @@ class Menu(Component):
         if not pygame.mixer.music.get_busy():
             self.play_music('menu.ogg')
 
-    def update_screen(self, screen):
+    def draw(self, screen):
         self.draw_menu(self.screen)
 
     def handle_new_game(self):

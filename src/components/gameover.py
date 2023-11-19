@@ -41,7 +41,7 @@ class GameOver(Component):
 
         self.draw_film_grain(self.screen)
 
-    def update_screen(self, screen):
+    def draw(self, screen):
         """ Draw GameOver screen """
 
         scale_fn = utils.quality.scale_method()

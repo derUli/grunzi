@@ -175,7 +175,7 @@ class MainGame(PausableComponent, FadeableComponent):
         pygame.mouse.set_visible(1)
         self.music_queue.stop()
 
-    def update_screen(self, screen):
+    def draw(self, screen):
         """ Draw screen """
         if not self.level.loaded:
             return

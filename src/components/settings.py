@@ -42,8 +42,8 @@ class Settings(Component):
         version_file = os.path.join(self.data_dir, '..', 'VERSION')
         self.version_number = get_version(version_file)
 
-    def update_screen(self, screen):
-        self.draw_menu(self.screen)
+    def draw(self, screen):
+        self.draw_menu(screen)
 
     def handle_back(self):
         if self.needs_restart:
