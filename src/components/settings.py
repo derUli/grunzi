@@ -34,6 +34,7 @@ class Settings(Component):
             size=self.settings_state.screen_resolution
         )
 
+        """ Some video settings need a restart of the game after change """
         self.needs_restart = False
         self.menu = None
 
@@ -52,6 +53,7 @@ class Settings(Component):
         self.menu.disable()
 
     def restart_app(self):
+        """ Restart game """
         logging.debug('Restart application to apply settings')
 
         command = [sys.executable] + sys.argv
