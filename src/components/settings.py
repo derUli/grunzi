@@ -3,8 +3,6 @@ import os
 import subprocess
 import sys
 
-import pygame.mixer_music
-
 from components.component import Component
 from components.controls import Controls
 from components.settings_audio import SettingsAudio
@@ -77,6 +75,13 @@ class Settings(Component):
         component.old_component = self
         self.menu.disable()
 
+    def handle_controls(self):
+        """ Handle open settings menu  """
+        component = self.handle_change_component(Controls)
+        component.old_component = self
+
+        self.menu.disable()
+
     def draw_background(self):
         if self.settings_state.quality >= QUALITY_LOW:
             video_frame = self.video.get_frame()
@@ -84,13 +89,6 @@ class Settings(Component):
                 self.screen.blit(video_frame, (0, 0))
 
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
-
-    def handle_controls(self):
-        """ Handle open settings menu  """
-        component = self.handle_change_component(Controls)
-        component.old_component = self
-
-        self.menu.disable()
 
     def draw_menu(self, screen):
         menu = make_menu(_('Settings'), self.settings_state.limit_fps)
