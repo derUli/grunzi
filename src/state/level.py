@@ -79,6 +79,9 @@ class Level:
                 for x in range(len(update_list[z][y])):
                     old_value = self.original_layers[z][y][x]
                     new_value = update_list[z][y][x]
+
+                    if isinstance(new_value, dict) and 'attributes' in new_value and new_value['attributes']:
+                        continue
                     if new_value == old_value:
                         update_list[z][y][x] = None
                     elif not bool(new_value) and bool(old_value):
