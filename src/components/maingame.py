@@ -16,6 +16,7 @@ import state.state
 import utils.quality
 import utils.savegame
 from components.fadeable_component import FadeableComponent
+from components.loading_screen import LoadingScreen
 from components.gameover import GameOver
 from components.pausable_component import PausableComponent
 from constants import direction
@@ -39,7 +40,7 @@ THREAD_INTERVAL_HIGH = 50
 THREAD_INTERVAL_LOW = 250
 
 
-class MainGame(PausableComponent, FadeableComponent):
+class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
@@ -120,40 +121,6 @@ class MainGame(PausableComponent, FadeableComponent):
         self.update_camera()
 
         return True
-
-    def loading_screen(self, percentage=None, loading_text=None):
-        """ Show loading screen """
-        self.screen.fill(constants.headup.BOTTOM_UI_BACKGROUND)
-
-        if not loading_text:
-            loading_text = _('Loading...')
-
-        # Show percentage if given
-        if percentage is not None:
-            percentage = str(percentage) + "%"
-            percentage = percentage.rjust(4, ' ')
-
-            loading_text = ' '.join([loading_text, str(percentage)])
-
-        # Render loading text
-        rendered_text = self.monotype_font.render(
-            loading_text,
-            utils.quality.font_antialiasing_enabled(),
-            (255, 255, 255)
-        )
-
-        # Calculate screen center
-        pos_x, pos_y = self.screen.get_size()
-        pos_x = pos_x / 2
-        pos_y = pos_x / 2
-        pos_x -= rendered_text.get_width() / 2
-        pos_y -= rendered_text.get_height() / 2
-        # draw text on screen
-        self.screen.blit(rendered_text, (pos_x, pos_y))
-
-        # Pump event queue and flip display to keep the application alive
-        pygame.event.pump()
-        pygame.display.update()
 
     def mount(self):
         """ On mount hide mouse pointer and start music """
