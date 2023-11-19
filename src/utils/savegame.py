@@ -1,6 +1,6 @@
 import json
 import os
-
+import time
 from utils.path import get_userdata_path
 
 DEFAULT_SAVE = 'default'
@@ -43,12 +43,20 @@ def save_game(name, state, diff_list=None):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 
-    state_file = os.path.join(save_dir, 'state.json')
+    time_str = time.strftime("%Y-%m-%d-%H-%M-%S")
 
-    with open(state_file, 'w') as f:
-        f.write(state.to_json())
+    state_files = [
+        os.path.join(save_dir, 'state-' + time_str + '.json'),
+        os.path.join(save_dir, 'state.json'),
+    ]
+    for state_file in state_files:
+        with open(state_file, 'w') as f:
+            f.write(state.to_json())
 
-    level_file = os.path.join(save_dir, 'level.json')
-
-    with open(level_file, 'w') as f:
-        f.write(json.dumps(diff_list))
+    level_files = [
+        os.path.join(save_dir, 'level-' + time_str + '.json'),
+        os.path.join(save_dir, 'level.json')
+    ]
+    for level_file in level_files:
+        with open(level_file, 'w') as f:
+            f.write(json.dumps(diff_list))
