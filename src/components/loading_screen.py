@@ -11,11 +11,9 @@ class LoadingScreen(Component):
 
     def loading_screen(self, percentage=None, loading_text=None):
         """
-
         :param int percentage Loading percentage
         :param string Loading Text
         :rtype None
-
         """
         self.screen.fill(BOTTOM_UI_BACKGROUND)
 
