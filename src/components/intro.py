@@ -1,9 +1,9 @@
 """ Gamve Over Screen """
 import os
-
+from utils.string import label_value
 from utils.quality import scale_method
 from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_VERY_HIGH, QUALITY_VERY_LOW
-from constants import gamepad
+from constants.headup import BOTTOM_UI_BACKGROUND
 from constants import keyboard
 from components.maingame import MainGame
 from components.fadeable_component import FadeableComponent
@@ -16,6 +16,7 @@ from PygameShader.BlendFlags import blend_add_surface
 import numpy
 import math
 from math import floor
+import logging
 
 MINIMUM_FPS = 30
 
@@ -41,6 +42,7 @@ class Intro(FadeableComponent):
         self.clock = pygame.time.Clock()
         self.scale = scale_method()
         self.backdrops = []
+        self.fps_counter = []
         self.scale_factor = None
 
     def mount(self):
@@ -57,7 +59,7 @@ class Intro(FadeableComponent):
             scale_factor = 1.0
 
             if self.settings_state.quality >= QUALITY_VERY_HIGH:
-                scale_factor = 1.2
+                scale_factor = 1.1
             elif self.settings_state.quality >= QUALITY_MEDIUM:
                 scale_factor = 1.0
             elif self.settings_state.quality >= QUALITY_LOW:
@@ -99,7 +101,7 @@ class Intro(FadeableComponent):
 
         self.surface = pygame.surface.Surface((self.w, self.h)).convert(32, pygame.RLEACCEL)
         self.white_surface = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA | pygame.RLEACCEL).convert()
-        self.white_surface.fill((255, 255, 255))
+        self.white_surface.fill(BOTTOM_UI_BACKGROUND)
 
         music_file = os.path.join(self.data_dir, 'music', 'intro.ogg')
         pygame.mixer.music.load(music_file)
@@ -107,7 +109,7 @@ class Intro(FadeableComponent):
 
     def draw(self, screen):
         if self.faded_out:
-            screen.fill((255,255,255))
+            screen.fill()
             return
 
         surface = self.surface
@@ -127,6 +129,7 @@ class Intro(FadeableComponent):
             dy = 1
 
         scroll24_inplace(self.backdrops[1], dx, dy)
+
 
         surface.blit(self.backdrops[0], (0, 0))
 
@@ -195,12 +198,19 @@ class Intro(FadeableComponent):
 
         self.clock.tick(self.settings_state.limit_fps)
 
+        fps = self.clock.get_fps()
+        if fps > 0:
+            self.fps_counter.append(fps)
+
     def handle_event(self, event):
         """ Handle events """
         if event.type == pygame.KEYDOWN and event.key in keyboard.CONFIRM_KEYS:
             self.start_game()
 
     def start_game(self):
+        logging.debug(label_value('FPS Avg', numpy.mean(self.fps_counter)))
+        logging.debug(label_value('FPS Min', numpy.min(self.fps_counter)))
+        logging.debug(label_value('FPS Max', numpy.max(self.fps_counter)))
         component = self.handle_change_component(MainGame)
         component.new_game()
 
