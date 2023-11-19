@@ -182,6 +182,7 @@ class Intro(FadeableComponent):
 
 
     def handle_event(self, event):
+        return
         """ Handle events """
         if event.type == pygame.KEYDOWN and event.key in keyboard.CONFIRM_KEYS:
             self.handle_exit()
