@@ -3,9 +3,10 @@ import os
 import pygame
 import pygame_menu
 
-import components.maingame
 import utils.savegame
 from components.component import Component
+from components.maingame import MainGame
+from components.intro import Intro
 from components.settings import Settings
 from constants.headup import PIGGY_PINK
 from constants.quality import QUALITY_VERY_LOW
@@ -46,13 +47,12 @@ class Menu(Component):
         self.draw_menu(self.screen)
 
     def handle_new_game(self):
-        component = self.handle_change_component(components.maingame.MainGame)
+        self.handle_change_component(Intro)
         if self.menu:
             self.menu.disable()
-        component.new_game()
 
     def handle_continue_game(self):
-        component = self.handle_change_component(components.maingame.MainGame)
+        component = self.handle_change_component(MainGame)
         if self.menu:
             self.menu.disable()
         component.load_savegame()
