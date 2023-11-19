@@ -11,7 +11,7 @@ from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
 import pygame
 from pygame.surfarray import pixels3d
 from PygameShader import tunnel_modeling24, tunnel_render24,\
-    zoom, scroll24_inplace, blend_inplace, blur
+    zoom, scroll24_inplace, blend_inplace
 from PygameShader.BlendFlags import blend_add_surface
 import numpy
 import math
@@ -30,13 +30,15 @@ class Intro(FadeableComponent):
             LARGE_FONT_SIZE)
 
         self.w, self.h = 0, 0
+        self.surface = None
+        self.white_surface = None
 
         self.scale = scale_method()
         self.backdrops = []
 
     def draw(self, screen):
 
-        surface = pygame.surface.Surface((self.w, self.h))
+        surface = self.surface
 
         centerx = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.25))
         centery = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.5))
@@ -86,11 +88,10 @@ class Intro(FadeableComponent):
 
         surface.blit(surface_, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
 
-        white = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA)
-        white.fill((255,255, 255))
-        print(self.alpha)
-        white.set_alpha(self.alpha)
-        surface.blit(white, (0,0))
+        if self.alpha > 0:
+            self.white_surface.set_alpha(self.alpha)
+            surface.blit(self.white_surface, (0,0))
+
         screen.blit(self.scale(surface, screen.get_size()), (0, 0))
 
         self.frame += self.df
@@ -112,18 +113,14 @@ class Intro(FadeableComponent):
         music_pos = pygame.mixer.music.get_pos()
         # 23000
 
-        if not self.do_fade and music_pos >= 23000:
+        if not self.do_fade and music_pos >= 20000:
             self.fadein()
-            return
-
-        print(self.alpha)
-
-        if self.alpha >= 255:
-            self.start_game()
 
         self.fade()
 
-
+    def ai(self):
+        if self.alpha >= 255:
+            self.start_game()
 
     def mount(self):
         pygame.mouse.set_visible(0)
@@ -173,6 +170,10 @@ class Intro(FadeableComponent):
 
         self.prev_centerx = 400 + floor((400 >> 1) * math.sin(0 * self. acceleration * 0.25))
         self.prev_centery = 400 + floor((400 >> 1) * math.sin(0 * self.acceleration * 0.5))
+
+        self.surface = pygame.surface.Surface((self.w, self.h))
+        self.white_surface = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA)
+        self.white_surface.fill((255, 255, 255))
 
         music_file = os.path.join(self.data_dir, 'music', 'intro.ogg')
         pygame.mixer.music.load(music_file)
