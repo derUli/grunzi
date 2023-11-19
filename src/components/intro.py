@@ -1,5 +1,7 @@
 """ Gamve Over Screen """
 import os
+from components.loading_screen import LoadingScreen
+from utils.render_cache import store_render, load_render
 from utils.string import label_value
 from utils.quality import scale_method
 from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_VERY_HIGH, QUALITY_VERY_LOW
@@ -17,17 +19,20 @@ import numpy
 import math
 from math import floor
 import logging
+import time
+FPS = 30
 
-MINIMUM_FPS = 30
+# Seconds
+FADEOUT_DURATION = 5
 
-class Intro(FadeableComponent):
+class Intro(FadeableComponent, LoadingScreen):
     """ To be continued Screen """
 
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
         self.menu = None
-
+        self.cached = []
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', MONOTYPE_FONT),
             LARGE_FONT_SIZE)
@@ -36,39 +41,39 @@ class Intro(FadeableComponent):
         self.surface = None
         self.white_surface = None
         self.faded_out = False
+        self.anim = None
 
-        self.fade_speed = 1
+        self.fade_speed = (1000 * FADEOUT_DURATION) / 255
+        self.fade_begin = 20 * FPS
 
         self.clock = pygame.time.Clock()
         self.scale = scale_method()
         self.backdrops = []
         self.fps_counter = []
-        self.scale_factor = None
+        self.scale_factor = 1.5
+        self.prerender_started = time.time()
 
     def mount(self):
         pygame.mouse.set_visible(0)
-        self.init()
+        pygame.mixer.music.stop()
+
+        self.anim = load_render(
+            'intro',
+            refresh_interval = FPS / 1000,
+            size = self.settings_state.screen_resolution,
+            loop = False
+        )
+
+        if not self.anim:
+            self.init()
+        else:
+            music_file = os.path.join(self.data_dir, 'music', 'intro.ogg')
+            pygame.mixer.music.load(music_file)
+            pygame.mixer.music.play()
 
     def init(self):
         w, h = self.settings_state.screen_resolution
-
         w, h = min(w, h), min(w, h)
-
-        # Scale factor based on quality settings
-        if not self.scale_factor:
-            scale_factor = 1.0
-
-            if self.settings_state.quality >= QUALITY_VERY_HIGH:
-                scale_factor = 1.1
-            elif self.settings_state.quality >= QUALITY_MEDIUM:
-                scale_factor = 1.0
-            elif self.settings_state.quality >= QUALITY_LOW:
-                scale_factor = 0.8
-            elif self.settings_state.quality >= QUALITY_VERY_LOW:
-                scale_factor = 0.5
-
-            self.scale_factor = scale_factor
-
         w, h = round(w * self.scale_factor), round(h * self.scale_factor)
 
         self.w = w
@@ -103,13 +108,13 @@ class Intro(FadeableComponent):
         self.white_surface = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA | pygame.RLEACCEL).convert()
         self.white_surface.fill(BOTTOM_UI_BACKGROUND)
 
-        music_file = os.path.join(self.data_dir, 'music', 'intro.ogg')
-        pygame.mixer.music.load(music_file)
-        pygame.mixer.music.play()
-
     def draw(self, screen):
-        if self.faded_out:
-            screen.fill()
+        if self.anim:
+            frame = self.anim.get_frame()
+            screen.blit(frame, (0,0))
+
+            if not self.anim.has_more_frames():
+                self.start_game()
             return
 
         surface = self.surface
@@ -129,7 +134,6 @@ class Intro(FadeableComponent):
             dy = 1
 
         scroll24_inplace(self.backdrops[1], dx, dy)
-
 
         surface.blit(self.backdrops[0], (0, 0))
 
@@ -167,8 +171,11 @@ class Intro(FadeableComponent):
             self.white_surface.set_alpha(self.alpha)
             surface.blit(self.white_surface, (0,0))
 
-        scaled = self.scale(surface, screen.get_size())
-        screen.blit(scaled, (0, 0))
+        self.cached.append(surface.copy())
+
+        self.loading_screen(percentage=self.calculate_render_percentage(), loading_text=_('Prerendering sequence...'))
+        # scaled = self.scale(surface, screen.get_size())
+        # screen.blit(scaled, (0, 0))
 
         self.frame += self.df
         self.acceleration += self.dc
@@ -185,22 +192,42 @@ class Intro(FadeableComponent):
         self.prev_centerx = centerx
         self.prev_centery = centery
 
-        music_pos = pygame.mixer.music.get_pos()
-
         self.fade()
 
         if self.alpha >= 255:
             self.faded_out = True
-            self.start_game()
 
-        if not self.do_fade and music_pos >= 18000 and not self.faded_out:
+            store_render('intro', self.cached, self.loading_screen)
+            prerender_end = time.time() - self.prerender_started
+            logging.debug(label_value('Intro sequence prerendered in ', prerender_end))
+            self.cached = []
+            self.mount()
+
+        if not self.do_fade and self.frame >= self.fade_begin and not self.faded_out:
             self.fadein()
 
-        self.clock.tick(self.settings_state.limit_fps)
+        self.clock.tick(FPS)
 
         fps = self.clock.get_fps()
         if fps > 0:
             self.fps_counter.append(fps)
+
+    def calculate_render_percentage(self):
+        if self.frame == 0:
+            return 0
+
+        one_second_in_ms = 1000 / FPS
+        total_seconds = 18
+        current_second = self.frame / one_second_in_ms
+
+        one_percent = 100 / total_seconds
+        percentage = int(current_second * one_percent)
+
+        if percentage > 100:
+            percentage = 100
+
+        return percentage
+
 
     def handle_event(self, event):
         """ Handle events """
@@ -212,9 +239,9 @@ class Intro(FadeableComponent):
             self.scale = pygame.transform.smoothscale
 
     def start_game(self):
-        logging.debug(label_value('FPS Avg', numpy.mean(self.fps_counter)))
-        logging.debug(label_value('FPS Min', numpy.min(self.fps_counter)))
-        logging.debug(label_value('FPS Max', numpy.max(self.fps_counter)))
+        self.screen.fill(BOTTOM_UI_BACKGROUND)
+        pygame.display.update()
+
         component = self.handle_change_component(MainGame)
         component.new_game()
 

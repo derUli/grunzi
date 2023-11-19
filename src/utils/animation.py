@@ -18,8 +18,7 @@ CHUNK_SIZE = 10
 
 class Animation:
 
-    def __init__(self, animation_dir, refresh_interval=0.1,
-                 start_frame=0, size=None):
+    def __init__(self, animation_dir, refresh_interval=0.1, start_frame=0, size=None, loop = True):
         """ Constructor """
 
         self.current_frame = start_frame
@@ -29,6 +28,7 @@ class Animation:
         self.loaded = False
         self.last_refresh = time.time()
         self.size = size
+        self.loop = loop
 
         files = sorted(os.listdir(animation_dir), key=natural_keys)
 
@@ -112,8 +112,9 @@ class Animation:
 
         next_frame = self.current_frame + 1
 
-        if next_frame >= len(self.files):
+        if next_frame >= len(self.files) and self.loop:
             next_frame = 0
+
 
         if next_frame >= len(self.frames):
             next_frame = self.current_frame
@@ -122,3 +123,6 @@ class Animation:
         self.last_refresh = time.time()
 
         return frame
+
+    def has_more_frames(self):
+        return self.current_frame + 1 < len(self.files)

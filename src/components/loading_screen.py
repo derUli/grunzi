@@ -22,7 +22,7 @@ class LoadingScreen(Component):
 
         # Show percentage if given
         if percentage is not None:
-            percentage = str(percentage) + "%"
+            percentage = str(int(percentage)) + "%"
             percentage = percentage.rjust(4, ' ')
 
             loading_text = ' '.join([loading_text, str(percentage)])
