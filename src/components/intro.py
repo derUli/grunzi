@@ -4,6 +4,7 @@ from components.loading_screen import LoadingScreen
 from utils.render_cache import store_render, load_render
 from utils.string import label_value
 from utils.quality import scale_method
+import constants.gamepad as gamepad
 from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_LOW
 from constants.headup import BOTTOM_UI_BACKGROUND
 from constants import keyboard
@@ -185,8 +186,6 @@ class Intro(FadeableComponent, LoadingScreen):
         self.cached.append(surface.copy())
 
         self.loading_screen(percentage=self.calculate_render_percentage(), loading_text=_('Prerendering sequence...'))
-        # scaled = self.scale(surface, screen.get_size())
-        # screen.blit(scaled, (0, 0))
 
         self.frame += self.df
         self.acceleration += self.dc
@@ -242,10 +241,8 @@ class Intro(FadeableComponent, LoadingScreen):
         """ Handle events """
         if event.type == pygame.KEYDOWN and event.key in keyboard.CONFIRM_KEYS:
             self.start_game()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_1:
-            self.scale = pygame.transform.scale
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_2:
-            self.scale = pygame.transform.smoothscale
+        elif event.type == pygame.JOYBUTTONDOWN and event.button == gamepad.K_CONFIRM:
+            self.start_game()
 
     def start_game(self):
         self.screen.fill(BOTTOM_UI_BACKGROUND)
