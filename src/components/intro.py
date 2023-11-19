@@ -119,15 +119,14 @@ class Intro(FadeableComponent):
         print(self.alpha)
 
         if self.alpha >= 255:
-            component = self.handle_change_component(MainGame)
-            component.new_game()
-
+            self.start_game()
 
         self.fade()
 
 
 
     def mount(self):
+        pygame.mouse.set_visible(0)
         w, h = self.settings_state.screen_resolution
 
         w, h = min(w, h),  min(w, h)
@@ -182,14 +181,13 @@ class Intro(FadeableComponent):
 
 
     def handle_event(self, event):
-        return
         """ Handle events """
         if event.type == pygame.KEYDOWN and event.key in keyboard.CONFIRM_KEYS:
-            self.handle_exit()
-        elif event.type == pygame.JOYBUTTONDOWN and event.button == gamepad.K_CONFIRM:
-            self.handle_exit()
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            self.handle_exit()
+            self.start_game()
+
+    def start_game(self):
+        component = self.handle_change_component(MainGame)
+        component.new_game()
 
     def handle_exit(self):
         """ Back to main menu"""
