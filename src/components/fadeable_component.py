@@ -13,21 +13,24 @@ class FadeableComponent(Component):
         super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
         self.alpha = 0
         self.do_fade = None
+        self.fade_speed = FADE_SPEED
 
     def fadein(self):
         self.do_fade = FADE_IN
+        self.alpha = 0
 
     def fadeout(self):
         self.do_fade = FADE_OUT
+        self.alpha = 255
 
     def fade(self):
         if self.do_fade == FADE_IN:
-            self.alpha += FADE_SPEED
+            self.alpha += self.fade_speed
             if self.alpha >= 255:
                 self.alpha = 255
                 self.do_fade = None
         elif self.do_fade == FADE_OUT:
-            self.alpha -= FADE_SPEED
+            self.alpha -= self.fade_speed
             if self.alpha <= 0:
                 self.do_fade = None
                 self.alpha = 0

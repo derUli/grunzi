@@ -72,10 +72,8 @@ class GameContainer:
         signal.signal(signal.SIGINT, self.quit)
         signal.signal(signal.SIGTERM, self.quit)
 
-        try:
-            self.mainloop()
-        except Exception as e:
-            logging.error(e)
+        self.mainloop()
+
 
     def handle_settings_change(self):
         self.settings_state.apply()

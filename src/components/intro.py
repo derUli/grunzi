@@ -1,23 +1,21 @@
 """ Gamve Over Screen """
 import os
 
-import pygame
-
 from utils.quality import scale_method
-from constants.quality import QUALITY_LOW, QUALITY_HIGH, QUALITY_MEDIUM, QUALITY_VERY_HIGH, QUALITY_VERY_LOW
-from components.fadeable_component import FadeableComponent
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_VERY_HIGH, QUALITY_VERY_LOW
 from constants import gamepad
 from constants import keyboard
+from components.maingame import MainGame
+from components.fadeable_component import FadeableComponent
 from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
 import pygame
-from pygame import RLEACCEL
 from pygame.surfarray import pixels3d
 from PygameShader import tunnel_modeling24, tunnel_render24,\
-    zoom, scroll24_inplace, blend_inplace
+    zoom, scroll24_inplace, blend_inplace, blur
 from PygameShader.BlendFlags import blend_add_surface
 import numpy
 import math
-from math import sin, floor
+from math import floor
 
 class Intro(FadeableComponent):
     """ To be continued Screen """
@@ -37,6 +35,7 @@ class Intro(FadeableComponent):
         self.backdrops = []
 
     def draw(self, screen):
+
         surface = pygame.surface.Surface((self.w, self.h))
 
         centerx = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.25))
@@ -87,9 +86,12 @@ class Intro(FadeableComponent):
 
         surface.blit(surface_, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
 
+        white = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA)
+        white.fill((255,255, 255))
+        print(self.alpha)
+        white.set_alpha(self.alpha)
+        surface.blit(white, (0,0))
         screen.blit(self.scale(surface, screen.get_size()), (0, 0))
-
-        pygame.display.flip()
 
         self.frame += self.df
         self.acceleration += self.dc
@@ -107,15 +109,43 @@ class Intro(FadeableComponent):
         self.prev_centerx = centerx
         self.prev_centery = centery
 
-    def mount(self):
-        self.fadein()
+        music_pos = pygame.mixer.music.get_pos()
+        # 23000
 
+        if not self.do_fade and music_pos >= 23000:
+            self.fadein()
+            return
+
+        print(self.alpha)
+
+        if self.alpha >= 255:
+            component = self.handle_change_component(MainGame)
+            component.new_game()
+
+
+        self.fade()
+
+
+
+    def mount(self):
         w, h = self.settings_state.screen_resolution
 
         w, h = min(w, h),  min(w, h)
 
+        # Scale factor based on quality settings
+
+        scale_factor = 1.0
+
         if self.settings_state.quality >= QUALITY_VERY_HIGH:
-            w, h = round(w * 1.0), round(h * 1.0)
+            scale_factor = 1.1
+        elif self.settings_state.quality >= QUALITY_MEDIUM:
+            scale_factor = 1.0
+        elif self.settings_state.quality >= QUALITY_LOW:
+            scale_factor = 0.8
+        elif self.settings_state.quality >= QUALITY_VERY_LOW:
+            scale_factor = 0.5
+
+        w, h = round(w * scale_factor), round(h * scale_factor)
 
         self.w = w
         self.h = h
@@ -144,6 +174,10 @@ class Intro(FadeableComponent):
 
         self.prev_centerx = 400 + floor((400 >> 1) * math.sin(0 * self. acceleration * 0.25))
         self.prev_centery = 400 + floor((400 >> 1) * math.sin(0 * self.acceleration * 0.5))
+
+        music_file = os.path.join(self.data_dir, 'music', 'intro.ogg')
+        pygame.mixer.music.load(music_file)
+        pygame.mixer.music.play()
 
 
 
