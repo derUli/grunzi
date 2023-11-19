@@ -4,7 +4,7 @@ from components.loading_screen import LoadingScreen
 from utils.render_cache import store_render, load_render
 from utils.string import label_value
 from utils.quality import scale_method
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_VERY_HIGH, QUALITY_VERY_LOW
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_LOW
 from constants.headup import BOTTOM_UI_BACKGROUND
 from constants import keyboard
 from components.maingame import MainGame
@@ -20,7 +20,7 @@ import math
 from math import floor
 import logging
 import time
-FPS = 30
+FPS = 35
 
 # Seconds
 FADEOUT_DURATION = 5
@@ -50,10 +50,21 @@ class Intro(FadeableComponent, LoadingScreen):
         self.scale = scale_method()
         self.backdrops = []
         self.fps_counter = []
-        self.scale_factor = 1.5
+        self.scale_factor = None
         self.prerender_started = time.time()
 
     def mount(self):
+        self.scale_factor = 1.0
+
+        if self.settings_state.quality >= QUALITY_HIGH:
+            self.scale_factor = 1.2
+        elif self.settings_state.quality >= QUALITY_MEDIUM:
+            self.scale_factor = 1.0
+        elif self.settings_state.quality >= QUALITY_LOW:
+            self.scale_factor = 0.8
+        elif self.settings_state.quality >= QUALITY_VERY_LOW:
+            self.scale_factor = 0.5
+
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
 
@@ -216,13 +227,11 @@ class Intro(FadeableComponent, LoadingScreen):
         if self.frame == 0:
             return 0
 
-        one_second_in_ms = 1000 / FPS
-        total_seconds = 18
-        current_second = self.frame / one_second_in_ms
+        total_seconds = 20
+        total_frames = FPS * total_seconds
+        one_percent = 100 / total_frames
 
-        one_percent = 100 / total_seconds
-        percentage = int(current_second * one_percent)
-
+        percentage = self.frame * one_percent
         if percentage > 100:
             percentage = 100
 

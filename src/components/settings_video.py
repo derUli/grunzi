@@ -8,6 +8,7 @@ from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUA
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
+from utils.render_cache import store_clear
 
 MIN_SCREEN_RESOLUTION = (640, 480)
 
@@ -54,18 +55,13 @@ class SettingsVideo(Component):
 
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
-    def handle_change_limit_fps(self, selection, selected_index):
-        selected_item, index = selection
-        text, value = selected_item
-        self.settings_state.limit_fps = value
-        self.settings_state.apply_and_save()
-
     def handle_change_screen_resolution(self, selection, selected_index):
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.screen_resolution = value
         self.old_component.needs_restart = True
         self.settings_state.apply_and_save()
+        store_clear()
 
     def handle_toggle_fullscreen(self, value):
         self.settings_state.fullscreen = value
@@ -83,6 +79,7 @@ class SettingsVideo(Component):
         text, value = selected_item
         self.settings_state.quality = value
         self.settings_state.apply_and_save()
+        store_clear()
         self.video.reload()
 
     def get_quality_items(self):
@@ -94,10 +91,6 @@ class SettingsVideo(Component):
             (_('High'), QUALITY_HIGH),
             (_('Very High'), QUALITY_VERY_HIGH),
         ]
-
-    def handle_dummy(self):
-        """ Dummy handler does nothing """
-        return
 
     def get_screen_resolution_items(self):
         """ Get screen resolution items """
