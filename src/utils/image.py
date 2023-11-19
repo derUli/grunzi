@@ -55,8 +55,8 @@ class ImageCache:
                     # It can't handle transparency
                     if not is_alpha and scale < image.get_size():
                         image = bilinear(image, scale)
-
-                    image = scale_fn(image, scale)
+                    else:
+                        image = scale_fn(image, scale)
 
                 self.images[cache_id] = image
 
