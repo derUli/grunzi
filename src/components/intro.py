@@ -154,7 +154,7 @@ class Intro(FadeableComponent):
             self.image_cache.load_image(os.path.join(intro_dir, 'Bokeh.jpg'), size),
             self.image_cache.load_image(os.path.join(intro_dir, 'space1.jpg'), size),
             self.image_cache.load_image(os.path.join(intro_dir, 'space2.jpg'), size),
-            self.image_cache.load_image(os.path.join(intro_dir, 'space1_alpha.jpg'))
+            self.image_cache.load_image(os.path.join(intro_dir, 'space1_alpha.jpg'), size)
         ]
 
         blend_add_surface(self.backdrops[2], self.backdrops[2])
