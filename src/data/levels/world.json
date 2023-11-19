@@ -113500,7 +113500,11 @@
 "walkable": 1
 },
 0,
-0,
+{
+"sprite_class": "sprites.coin.Coin",
+"sprite_file": "coin.png",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -148332,7 +148336,15 @@
 0,
 {
 "sprite_class": "sprites.telescope.Telescope",
-"sprite_file": "telescope.png"
+"sprite_file": "telescope.png",
+"attributes": {
+"code": [
+3,
+4,
+2,
+1
+]
+}
 },
 0,
 0,
@@ -217129,12 +217141,12 @@
 0,
 0,
 0,
-0,
 {
 "sprite_class": "sprites.maincharacter.MainCharacter",
 "sprite_file": "pig.png",
 "id": "grunzi"
 },
+0,
 0,
 0,
 0,
