@@ -54,19 +54,6 @@ class Settings(Component):
         self.menu.disable()
 
     def restart_app(self):
-        pygame.mixer.music.stop()
-        logging.debug('Restart application to apply settings')
-
-        command = [sys.executable] + sys.argv
-
-        # If we are running from Exe
-        if getattr(sys, "frozen", False):
-            command = sys.argv
-
-        subprocess.Popen(command)
-        sys.exit()
-
-    def restart_app(self):
         logging.debug('Restart application to apply settings')
 
         command = [sys.executable] + sys.argv
