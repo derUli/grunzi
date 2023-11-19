@@ -14,12 +14,18 @@ class Telescope(Sprite):
         random.shuffle(code)
 
         self.attributes = {
-            'code': code
+            'code': code,
+            'unlocked': False
         }
 
     def handle_interact(self, element):
-        if element and element.state:
+        unlocked = 'unlocked' in self.attributes and self.attributes['unlocked']
+        if not unlocked:
             element.state.say(_('[Insert Coin]'))
+            return
+
+        element.state.say(_('Not implemented yet'))
+
 
     def handle_interact_item(self, element):
         # Activate the telescope with a coin
@@ -27,6 +33,6 @@ class Telescope(Sprite):
             return
 
         if isinstance(element.state.inventory, Coin):
-            element.state.say(_('Not implemented yet'))
+            self.attributes['unlocked'] = True
             element.state.use_item = False
             # element.state.inventory = None
