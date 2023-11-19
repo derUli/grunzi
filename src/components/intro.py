@@ -17,6 +17,8 @@ import numpy
 import math
 from math import floor
 
+MINIMUM_FPS = 30
+
 class Intro(FadeableComponent):
     """ To be continued Screen """
 
@@ -39,26 +41,33 @@ class Intro(FadeableComponent):
         self.clock = pygame.time.Clock()
         self.scale = scale_method()
         self.backdrops = []
+        self.scale_factor = None
 
     def mount(self):
         pygame.mouse.set_visible(0)
+        self.init()
+
+    def init(self):
         w, h = self.settings_state.screen_resolution
 
         w, h = min(w, h), min(w, h)
 
         # Scale factor based on quality settings
-        scale_factor = 1.0
-
-        if self.settings_state.quality >= QUALITY_VERY_HIGH:
-            scale_factor = 1.1
-        elif self.settings_state.quality >= QUALITY_MEDIUM:
+        if not self.scale_factor:
             scale_factor = 1.0
-        elif self.settings_state.quality >= QUALITY_LOW:
-            scale_factor = 0.8
-        elif self.settings_state.quality >= QUALITY_VERY_LOW:
-            scale_factor = 0.5
 
-        w, h = round(w * scale_factor), round(h * scale_factor)
+            if self.settings_state.quality >= QUALITY_VERY_HIGH:
+                scale_factor = 1.2
+            elif self.settings_state.quality >= QUALITY_MEDIUM:
+                scale_factor = 1.0
+            elif self.settings_state.quality >= QUALITY_LOW:
+                scale_factor = 0.8
+            elif self.settings_state.quality >= QUALITY_VERY_LOW:
+                scale_factor = 0.5
+
+            self.scale_factor = scale_factor
+
+        w, h = round(w * self.scale_factor), round(h * self.scale_factor)
 
         self.w = w
         self.h = h
@@ -97,7 +106,6 @@ class Intro(FadeableComponent):
         pygame.mixer.music.play()
 
     def draw(self, screen):
-
         if self.faded_out:
             screen.fill((255,255,255))
             return
@@ -125,7 +133,6 @@ class Intro(FadeableComponent):
         zx = 0.9999 - (self.frame / float(800.0))
         surf = zoom(self.backdrops[1], 400, 400, max(zx, 0))
         surface.blit(surf, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
-
 
         percentage = (1 - zx) * 60
 
