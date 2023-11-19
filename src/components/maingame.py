@@ -52,13 +52,12 @@ class MainGame(PausableComponent, FadeableComponent):
         self.moving = None
         self.pressed_keys = []
         self.running = False
-        self.editor_blocks_length = len(get_editor_blocks(self.sprites_dir, self.image_cache))
         self.editor_block_index = 0
         self.disable_ai = False
         self.enable_mouse = False
         self.async_ai_running = None
         self.is_level_exit = False
-        self.last_rendered = None
+
         self.music_queue = MusicQueue()
         self.mouse_handler = MouseHandler(
             data_dir,
@@ -172,17 +171,15 @@ class MainGame(PausableComponent, FadeableComponent):
 
     def unmount(self):
         """ On unmount show mouse cursor and stop music """
-
         self.async_ai_running = False
-        super().unmount()
         pygame.mouse.set_visible(1)
         self.music_queue.stop()
 
     def update_screen(self, screen):
+        """ Draw screen """
         if not self.level.loaded:
             return
 
-        """ Update screen """
         if self.do_fade:
             screen = screen.copy().convert_alpha()
 
@@ -424,19 +421,11 @@ class MainGame(PausableComponent, FadeableComponent):
 
         play_sound(file)
 
-        self.state.player_state.say(_('Grunz!'))
+        self.state.player_state.say(_('Grunt!'))
 
     def update_camera(self):
         z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
-
-        if x < 0:
-            x = 0
-
-        if y < 0:
-            y = 0
-
-        self.camera.x = x
-        self.camera.y = y
+        self.camera.update(x, y)
 
     def handle_event(self, event):
         """ Handle events """
@@ -459,7 +448,6 @@ class MainGame(PausableComponent, FadeableComponent):
             self.mouse_handler.handle_mouseup()
         elif self.enable_mouse:
             self.mouse_handler.disable()
-
         if event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:

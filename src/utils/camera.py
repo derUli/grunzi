@@ -9,6 +9,15 @@ class Camera:
         self.x = x
         self.y = y
 
+    def update(self, x, y):
+        if x < 0:
+            x = 0
+
+        if y < 0:
+            y = 0
+
+        self.x, self.y = x, y
+
     def to_dict(self):
         """ To dict """
         return (self.x, self.y)
