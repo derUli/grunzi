@@ -38,7 +38,7 @@ class Intro(FadeableComponent, LoadingScreen):
             LARGE_FONT_SIZE)
 
         self.w, self.h = 0, 0
-        self.surface = None
+        self.base_surface = None
         self.white_surface = None
         self.faded_out = False
         self.anim = None
@@ -105,7 +105,7 @@ class Intro(FadeableComponent, LoadingScreen):
         self.prev_centerx = 400 + floor((400 >> 1) * math.sin(0 * self.acceleration * 0.25))
         self.prev_centery = 400 + floor((400 >> 1) * math.sin(0 * self.acceleration * 0.5))
 
-        self.surface = pygame.surface.Surface((self.w, self.h)).convert(32, pygame.RLEACCEL)
+        self.base_surface = pygame.surface.Surface((self.w, self.h)).convert(32, pygame.RLEACCEL)
         self.white_surface = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA | pygame.RLEACCEL).convert()
         self.white_surface.fill(BOTTOM_UI_BACKGROUND)
 
@@ -118,7 +118,7 @@ class Intro(FadeableComponent, LoadingScreen):
                 self.start_game()
             return
 
-        surface = self.surface
+        surface = self.base_surface
 
         centerx = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.25))
         centery = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.5))
