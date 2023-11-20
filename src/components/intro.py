@@ -44,7 +44,6 @@ class Intro(FadeableComponent, LoadingScreen):
         self.anim = None
 
         self.fade_speed = 1000 / FPS / 10
-        print(self.fade_speed)
         self.fade_begin = 15 * FPS
 
         self.clock = pygame.time.Clock()
@@ -62,9 +61,8 @@ class Intro(FadeableComponent, LoadingScreen):
 
         self.anim = load_render(
             'intro',
-            refresh_interval = FPS / 1000,
-            size = self.settings_state.screen_resolution,
-            loop = False
+            refresh_interval=FPS/1000,
+            loop=False
         )
 
         if not self.anim:
@@ -114,7 +112,7 @@ class Intro(FadeableComponent, LoadingScreen):
     def draw(self, screen):
         if self.anim:
             frame = self.anim.get_frame()
-            screen.blit(frame, (0,0))
+            screen.blit(frame,(0,0))
 
             if not self.anim.has_more_frames():
                 self.start_game()
@@ -174,7 +172,7 @@ class Intro(FadeableComponent, LoadingScreen):
             self.white_surface.set_alpha(self.alpha)
             surface.blit(self.white_surface, (0,0))
 
-        save_surface = surface.copy()
+        save_surface = self.scale(surface.copy(), self.screen.get_size())
         self.cached.append(save_surface)
 
         self.loading_screen(percentage=self.calculate_render_percentage(), loading_text=_('Prerendering sequence...'))
