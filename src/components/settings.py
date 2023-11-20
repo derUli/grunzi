@@ -53,6 +53,7 @@ class Settings(Component):
         self.menu.disable()
 
     def restart_app(self):
+        pygame.mixer.music.stop()
         """ Restart game """
         logging.debug('Restart application to apply settings')
 

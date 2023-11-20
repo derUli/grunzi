@@ -5,7 +5,6 @@ from utils.render_cache import store_render, load_render
 from utils.string import label_value
 from utils.quality import scale_method
 import constants.gamepad as gamepad
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH, QUALITY_VERY_LOW
 from constants.headup import BOTTOM_UI_BACKGROUND
 from constants import keyboard
 from components.maingame import MainGame
@@ -21,7 +20,7 @@ import math
 from math import floor
 import logging
 import time
-FPS = 35
+FPS = 30
 
 # Seconds
 FADEOUT_DURATION = 5
@@ -44,8 +43,9 @@ class Intro(FadeableComponent, LoadingScreen):
         self.faded_out = False
         self.anim = None
 
-        self.fade_speed = (1000 * FADEOUT_DURATION) / 255
-        self.fade_begin = 15 * FPS
+        self.fade_speed = 1000 / FPS
+        print(self.fade_speed)
+        self.fade_begin = 18 * FPS
 
         self.clock = pygame.time.Clock()
         self.scale = scale_method()
@@ -56,15 +56,6 @@ class Intro(FadeableComponent, LoadingScreen):
 
     def mount(self):
         self.scale_factor = 1.0
-
-        if self.settings_state.quality >= QUALITY_VERY_HIGH:
-            self.scale_factor = 1.1
-        elif self.settings_state.quality >= QUALITY_MEDIUM:
-            self.scale_factor = 1.0
-        elif self.settings_state.quality >= QUALITY_LOW:
-            self.scale_factor = 0.9
-        elif self.settings_state.quality >= QUALITY_VERY_LOW:
-            self.scale_factor = 0.8
 
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
@@ -183,7 +174,8 @@ class Intro(FadeableComponent, LoadingScreen):
             self.white_surface.set_alpha(self.alpha)
             surface.blit(self.white_surface, (0,0))
 
-        self.cached.append(surface.copy())
+        save_surface = surface.copy()
+        self.cached.append(save_surface)
 
         self.loading_screen(percentage=self.calculate_render_percentage(), loading_text=_('Prerendering sequence...'))
 
