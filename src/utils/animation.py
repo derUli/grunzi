@@ -11,7 +11,7 @@ from constants.graphics import SPRITE_SIZE
 from utils.string import natural_keys
 
 TRANSPARENT_IMAGES = ['.png', '.gif']
-IMAGE_EXTENSIONS = ['.jpg', '.bmp', '.tga'] + TRANSPARENT_IMAGES
+IMAGE_EXTENSIONS = ['.jpg', '.bmp'] + TRANSPARENT_IMAGES
 
 CHUNK_SIZE = 10
 

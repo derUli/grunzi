@@ -5,7 +5,7 @@ from utils.render_cache import store_render, load_render
 from utils.string import label_value
 from utils.quality import scale_method
 import constants.gamepad as gamepad
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_LOW
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH, QUALITY_VERY_LOW
 from constants.headup import BOTTOM_UI_BACKGROUND
 from constants import keyboard
 from components.maingame import MainGame
@@ -57,14 +57,14 @@ class Intro(FadeableComponent, LoadingScreen):
     def mount(self):
         self.scale_factor = 1.0
 
-        if self.settings_state.quality >= QUALITY_HIGH:
-            self.scale_factor = 1.2
+        if self.settings_state.quality >= QUALITY_VERY_HIGH:
+            self.scale_factor = 1.1
         elif self.settings_state.quality >= QUALITY_MEDIUM:
             self.scale_factor = 1.0
         elif self.settings_state.quality >= QUALITY_LOW:
-            self.scale_factor = 0.8
+            self.scale_factor = 0.9
         elif self.settings_state.quality >= QUALITY_VERY_LOW:
-            self.scale_factor = 0.5
+            self.scale_factor = 0.8
 
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
