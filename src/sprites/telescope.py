@@ -101,7 +101,7 @@ class Telescope(Sprite):
         if cache_id in self.cached:
             return self.cached[cache_id]
 
-        if zoom_gpu:
+        if callable(zoom_gpu):
             if not self.grid:
                 self.grid, self.block = block_grid(self.screen.get_width(), self.screen.get_height())
             surf = zoom_gpu(self.base_surface, MOUSE_POS.x, MOUSE_POS.y, self.grid, self.block, self.scale_z)
@@ -115,7 +115,7 @@ class Telescope(Sprite):
             self.scopes = self.scale(self.scopes, self.screen.get_size())
 
         if MOUSE_POS.y < 255:
-            if bloom_gpu:
+            if callable(bloom_gpu):
                 surf = bloom_gpu(surf, threshold_=MOUSE_POS.y)
             else:
                 shader_bloom_fast1(surf, threshold_=MOUSE_POS.y)
