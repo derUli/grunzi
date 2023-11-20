@@ -13,7 +13,6 @@ except ImportError as e:
     zoom_gpu = None
     bloom_gpu = None
 
-
 from PygameShader.shader import zoom, shader_bloom_fast1
 
 from pygame.math import Vector2
@@ -122,7 +121,7 @@ class Telescope(Sprite):
 
         surf.blit(self.scopes, (0,0))
 
-        # self.cached[cache_id] = surf
+        self.cached[cache_id] = surf
 
         return surf
 
