@@ -43,9 +43,9 @@ class Intro(FadeableComponent, LoadingScreen):
         self.faded_out = False
         self.anim = None
 
-        self.fade_speed = 1000 / FPS
+        self.fade_speed = 1000 / FPS / 10
         print(self.fade_speed)
-        self.fade_begin = 18 * FPS
+        self.fade_begin = 15 * FPS
 
         self.clock = pygame.time.Clock()
         self.scale = scale_method()
