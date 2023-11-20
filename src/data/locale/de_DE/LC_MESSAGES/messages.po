@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-19 11:27+0100\n"
+"POT-Creation-Date: 2023-11-20 22:08+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: bootstrap/gamecontainer.py:90 components/menu.py:76 grunzi.py:25
+#: bootstrap/gamecontainer.py:87 components/menu.py:76 grunzi.py:25
 msgid "Grunzi"
 msgstr ""
 
@@ -79,7 +79,7 @@ msgstr ""
 msgid "the --enable-mouse flag."
 msgstr ""
 
-#: components/controls.py:120 components/settings.py:113
+#: components/controls.py:120 components/settings.py:103
 msgid "Controls"
 msgstr "Steuerung"
 
@@ -119,24 +119,28 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/gameover.py:60 components/pausable_component.py:23
-#: components/settings.py:114
+#: components/settings.py:104
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/maingame.py:130
+#: components/intro.py:190
+msgid "Prerendering sequence..."
+msgstr "Sequenz vorrendern"
+
+#: components/loading_screen.py:21
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:425
+#: components/maingame.py:391
 #, fuzzy
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/maingame.py:584
+#: components/maingame.py:541
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:587
+#: components/maingame.py:544
 msgid "Level dumped."
 msgstr ""
 
@@ -148,7 +152,7 @@ msgstr "Neues Spiel"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:83 components/settings.py:109
+#: components/menu.py:83 components/settings.py:99
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -164,11 +168,11 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:111 components/settings_video.py:141
+#: components/settings.py:101 components/settings_video.py:134
 msgid "Video"
 msgstr ""
 
-#: components/settings.py:112 components/settings_audio.py:71
+#: components/settings.py:102 components/settings_audio.py:71
 msgid "Audio"
 msgstr ""
 
@@ -180,51 +184,51 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:91 components/settings_video.py:177
+#: components/settings_audio.py:91 components/settings_video.py:170
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:91
+#: components/settings_video.py:88
 msgid "Very Low"
 msgstr "Sehr niedrig"
 
-#: components/settings_video.py:92
+#: components/settings_video.py:89
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings_video.py:93
+#: components/settings_video.py:90
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings_video.py:94
+#: components/settings_video.py:91
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:95
+#: components/settings_video.py:92
 msgid "Very High"
 msgstr "Sehr hoch"
 
-#: components/settings_video.py:143
+#: components/settings_video.py:136
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings_video.py:143
+#: components/settings_video.py:136
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:146
+#: components/settings_video.py:139
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:153
+#: components/settings_video.py:146
 msgid "V-Sync"
 msgstr ""
 
-#: components/settings_video.py:160
+#: components/settings_video.py:153
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:169
+#: components/settings_video.py:162
 msgid "Quality"
 msgstr "Qualität"
 
@@ -257,19 +261,19 @@ msgstr "Da ist ein Schlüsselloch in der Mauer."
 msgid "Henlo Fren!"
 msgstr ""
 
-#: sprites/telescope.py:16
+#: sprites/telescope.py:120
 msgid "[Insert Coin]"
 msgstr "[Münze einwerfen]"
 
-#: sprites/telescope.py:24
-msgid "Not implemented yet"
-msgstr ""
+#: sprites/telescope.py:126
+msgid "Move mouse to look"
+msgstr "Maus bewegen zum Umschauen"
 
-#: state/level.py:104
+#: state/level.py:107
 msgid "Saving level..."
 msgstr "Speichere Level..."
 
-#: state/level.py:118
+#: state/level.py:121
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
@@ -277,6 +281,7 @@ msgstr "Generiere Level als Grafikdatei..."
 msgid "Ouch!"
 msgstr "Autsch!"
 
-#~ msgid "Grunz!"
-#~ msgstr ""
+#: utils/render_cache.py:30 utils/render_cache.py:49 utils/render_cache.py:51
+msgid "Generating cache..."
+msgstr "Generiere Cache..."d
 

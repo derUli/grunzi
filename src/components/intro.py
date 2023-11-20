@@ -181,8 +181,6 @@ class Intro(FadeableComponent, LoadingScreen):
             self.white_surface.set_alpha(self.alpha)
             surface.blit(self.white_surface, (0, 0))
 
-        print(surface.get_size())
-        print(self.screen.get_size())
         save_surface = self.scale(surface.copy(), self.screen.get_size())
 
         self.cached.append(save_surface)
