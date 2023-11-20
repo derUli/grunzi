@@ -1,7 +1,7 @@
 """ Guitar sprite """
 import pygame.surface
 from sprites.coin import Coin
-from utils.quality import font_antialiasing_enabled
+from utils.quality import font_antialiasing_enabled, vignette_enabled
 from sprites.sprite import Sprite
 import random
 import os
@@ -113,7 +113,7 @@ class Telescope(Sprite):
         if self.scopes.get_size() != self.screen.get_size():
             self.scopes = self.scale(self.scopes, self.screen.get_size())
 
-        if MOUSE_POS.y < 255:
+        if MOUSE_POS.y < 255 and vignette_enabled():
             if callable(bloom_gpu):
                 surf = bloom_gpu(surf, threshold_=MOUSE_POS.y)
             else:
