@@ -4,6 +4,8 @@ import shutil
 from utils.path import get_userdata_path
 from utils.animation import Animation
 
+# BMP is the fastest image encoder supported by pygame.image.save()
+STORED_EXTENSION = '.bmp'
 
 def store_clear():
     cached_dir = os.path.join(get_userdata_path(), 'cached')
@@ -26,7 +28,8 @@ def store_render(name, images, progress_callback = None):
 
     for image in images:
         percent += one_percent
-        path = os.path.join(cached_dir, str(frame).rjust(4, '0') + '.jpg')
+        # BMP, TGA, PNG, or JPEG
+        path = os.path.join(cached_dir, str(frame).rjust(4, '0') + STORED_EXTENSION)
 
         pygame.image.save(image, path)
         frame += 1
