@@ -95,21 +95,8 @@ class PlayerState:
 
         if self.gamepad:
             self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
-
-    """
-    SHADER 2D GAME "HURT EFFECT"
-
-    This effect is used in 2D game when the player is being hurt
-    THE MASK DETERMINE THE CONTOUR USED FOR THE BLOOD EFFECT.
-
-    :param surface_ : pygame.Surface; compatible surface 24 - 32 bit
-    :param mask_    : numpy.ndarray shape (w, h) of float values in range [0.0...1.0]
-    :param perc_    : Percentage value in range [0.0 ... 1.0] with 1.0 being 100%
-    :return         : void
-
-    """
-
     def say(self, text):
+        """ Display text in bottom UI """
         self.display_text.show_text(text)
 
     def toggle_item(self):
@@ -137,6 +124,7 @@ class PlayerState:
         self.use_item = not self.use_item
 
     def dead(self):
+        """ Check if player is dead """
         if self.health > 0:
             return False
 

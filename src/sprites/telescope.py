@@ -44,7 +44,6 @@ class Telescope(Sprite):
             os.path.join(self.sprite_dir, '..', 'ui', 'scopes.png')
         ).convert_alpha()
 
-        # TODO: Replace with a better fitting font
         self.font = pygame.font.Font(
             os.path.join(self.sprite_dir, '..', '..', 'fonts', TEXT_FONT),
             FONT_SIZE

@@ -54,14 +54,12 @@ class Intro(FadeableComponent, LoadingScreen):
         self.scale = scale_method()
         self.backdrops = []
         self.fps_counter = []
-        self.scale_factor = None
         self.prerender_started = time.time()
 
         self.grid = None
         self.block = None
 
     def mount(self):
-        self.scale_factor = 1.0
 
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
@@ -82,7 +80,6 @@ class Intro(FadeableComponent, LoadingScreen):
     def init(self):
         w, h = self.settings_state.screen_resolution
         w, h = min(w, h), min(w, h)
-        w, h = round(w * self.scale_factor), round(h * self.scale_factor)
 
         self.w = w
         self.h = h

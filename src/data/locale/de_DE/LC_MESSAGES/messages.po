@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-20 22:08+0100\n"
+"POT-Creation-Date: 2023-11-20 22:40+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -123,9 +123,9 @@ msgstr "Spiel laden"
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/intro.py:190
+#: components/intro.py:185
 msgid "Prerendering sequence..."
-msgstr "Sequenz vorrendern"
+msgstr "Sequenz vorrendern..."
 
 #: components/loading_screen.py:21
 msgid "Loading..."
@@ -261,11 +261,11 @@ msgstr "Da ist ein Schlüsselloch in der Mauer."
 msgid "Henlo Fren!"
 msgstr ""
 
-#: sprites/telescope.py:120
+#: sprites/telescope.py:119
 msgid "[Insert Coin]"
 msgstr "[Münze einwerfen]"
 
-#: sprites/telescope.py:126
+#: sprites/telescope.py:125
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
@@ -283,5 +283,5 @@ msgstr "Autsch!"
 
 #: utils/render_cache.py:30 utils/render_cache.py:49 utils/render_cache.py:51
 msgid "Generating cache..."
-msgstr "Generiere Cache..."d
+msgstr "Generiere Cache..."
 
