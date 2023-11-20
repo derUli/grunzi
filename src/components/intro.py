@@ -1,7 +1,7 @@
 """ Gamve Over Screen """
 import os
 from components.loading_screen import LoadingScreen
-from utils.render_cache import store_render, load_render
+from utils.render_cache import store_rendered_sequence, load_rendered_sequence
 from utils.string import label_value
 from utils.quality import scale_method
 import constants.gamepad as gamepad
@@ -59,7 +59,7 @@ class Intro(FadeableComponent, LoadingScreen):
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
 
-        self.anim = load_render(
+        self.anim = load_rendered_sequence(
             'intro',
             refresh_interval=FPS/1000,
             loop=False
@@ -197,7 +197,7 @@ class Intro(FadeableComponent, LoadingScreen):
         if self.alpha >= 255:
             self.faded_out = True
 
-            store_render('intro', self.cached, self.loading_screen)
+            store_rendered_sequence('intro', self.cached, self.loading_screen)
             prerender_end = time.time() - self.prerender_started
             logging.debug(label_value('Intro sequence prerendered in ', prerender_end))
             self.cached = []

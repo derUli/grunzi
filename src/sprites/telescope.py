@@ -5,14 +5,24 @@ from utils.quality import font_antialiasing_enabled
 from sprites.sprite import Sprite
 import random
 import os
+import logging
+try:
+    from PygameShader.shader_gpu import block_grid, get_gpu_info, zoom_gpu, bloom_gpu
+    logging.debug(get_gpu_info())
+except ImportError as e:
+    logging.error(e)
+    zoom_gpu = None
+    bloom_gpu = None
+
 from PygameShader.shader import zoom, shader_bloom_fast1
+
 from pygame.math import Vector2
 from utils.quality import scale_method
 TEXT_POS = (830, 50)
 FONT_SIZE = 24
 TEXT_COLOR=(0,0,0)
 SCALE_SPEED = 0.005
-SCALE_FROM = 1.0
+SCALE_FROM = 0.9999
 SCALE_TO = 0.5
 
 TEXT_FONT='adrip1.ttf'
@@ -52,11 +62,15 @@ class Telescope(Sprite):
         self.scale = scale_method()
         self.cached = {}
 
+        self.grid = None
+        self.block = None
+
 
     def draw(self, screen, x, y):
         self.screen = screen
         if self.player_state and self.player_state.show_detailed:
             self.player_state.show_detailed = self.draw_telescope_view(self.screen)
+            return
 
         super().draw(screen, x, y)
 
@@ -87,7 +101,13 @@ class Telescope(Sprite):
         if cache_id in self.cached:
             return self.cached[cache_id]
 
-        surf = zoom(self.base_surface, MOUSE_POS.x, MOUSE_POS.y, self.scale_z)
+        if zoom_gpu:
+            if not self.grid:
+                self.grid, self.block = block_grid(self.screen.get_width(), self.screen.get_height())
+
+            surf = zoom_gpu(self.base_surface, MOUSE_POS.x, MOUSE_POS.y, self.grid, self.block, self.scale_z)
+        else:
+            surf = zoom(self.base_surface, MOUSE_POS.x, MOUSE_POS.y, self.scale_z)
 
         if self.scale_z >= SCALE_TO:
             self.scale_z -= SCALE_SPEED
@@ -96,11 +116,14 @@ class Telescope(Sprite):
             self.scopes = self.scale(self.scopes, self.screen.get_size())
 
         if MOUSE_POS.y < 255:
-            shader_bloom_fast1(surf, threshold_=MOUSE_POS.y, smooth_=1)
+            if bloom_gpu:
+                surf = bloom_gpu(surf, threshold_=MOUSE_POS.y)
+            else:
+                shader_bloom_fast1(surf, threshold_=MOUSE_POS.y)
 
         surf.blit(self.scopes, (0,0))
 
-        self.cached[cache_id] = surf.copy()
+        self.cached[cache_id] = surf
 
         return surf
 
@@ -108,12 +131,6 @@ class Telescope(Sprite):
         unlocked = 'unlocked' in self.attributes and self.attributes['unlocked']
         if not unlocked:
             element.state.say(_('[Insert Coin]'))
-            return
-
-
-        # element.state.say(_('Not implemented yet'))
-        if element.state.show_detailed:
-            element.state.show_detailed = None
             return
 
         self.player_state = element.state

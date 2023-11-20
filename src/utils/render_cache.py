@@ -12,7 +12,7 @@ def store_clear():
     if os.path.exists(cached_dir):
         shutil.rmtree(cached_dir)
 
-def store_render(name, images, progress_callback = None):
+def store_rendered_sequence(name, images, progress_callback = None):
 
     cached_dir = os.path.join(get_userdata_path(), 'cached', name)
 
@@ -27,11 +27,19 @@ def store_render(name, images, progress_callback = None):
         progress_callback(percent, _('Generating cache...'))
 
     for image in images:
+        if isinstance(image, tuple):
+            name, surface = image
+        else:
+            name = str(frame).rjust(4, '0')
+            surface = image
+
+        name += STORED_EXTENSION
+
         percent += one_percent
         # BMP, TGA, PNG, or JPEG
-        path = os.path.join(cached_dir, str(frame).rjust(4, '0') + STORED_EXTENSION)
+        path = os.path.join(cached_dir, name)
 
-        pygame.image.save(image, path)
+        pygame.image.save(surface, path)
         frame += 1
 
         if progress_callback:
@@ -40,7 +48,7 @@ def store_render(name, images, progress_callback = None):
     progress_callback(100, _('Generating cache...'))
 
 
-def load_render(name, refresh_interval, start_frame=0, size=None, loop = True):
+def load_rendered_sequence(name, refresh_interval, start_frame=0, size=None, loop = True):
     cached_dir = os.path.join(get_userdata_path(), 'cached', name)
 
     if not os.path.exists(cached_dir):
