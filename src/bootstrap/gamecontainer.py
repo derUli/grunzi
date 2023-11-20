@@ -74,7 +74,6 @@ class GameContainer:
 
         self.mainloop()
 
-
     def handle_settings_change(self):
         self.settings_state.apply()
 

@@ -1,35 +1,33 @@
 """ Gamve Over Screen """
+import logging
+import math
 import os
+import time
+from math import floor
+
+import numpy
+import pygame
+from PygameShader import tunnel_modeling24, tunnel_render24, \
+    zoom, scroll24_inplace, blend_inplace
+from PygameShader.BlendFlags import blend_add_surface
+from pygame.surfarray import pixels3d
+
+import constants.gamepad as gamepad
+from components.fadeable_component import FadeableComponent
 from components.loading_screen import LoadingScreen
+from components.maingame import MainGame
+from constants import keyboard
+from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
+from constants.headup import BOTTOM_UI_BACKGROUND
+from utils.quality import scale_method
 from utils.render_cache import store_rendered_sequence, load_rendered_sequence
 from utils.string import label_value
-from utils.quality import scale_method
-import constants.gamepad as gamepad
-from constants.headup import BOTTOM_UI_BACKGROUND
-from constants import keyboard
-from components.maingame import MainGame
-from components.fadeable_component import FadeableComponent
-from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
-import pygame
-from pygame.surfarray import pixels3d
-from PygameShader import tunnel_modeling24, tunnel_render24,\
-    zoom, scroll24_inplace, blend_inplace
 
-try:
-    from PygameShader.shader_gpu import block_grid, get_gpu_info, zoom_gpu, bloom_gpu
-except ImportError as e:
-    zoom_gpu = None
-
-from PygameShader.BlendFlags import blend_add_surface
-import numpy
-import math
-from math import floor
-import logging
-import time
 FPS = 30
 
 # Seconds
 FADEOUT_DURATION = 5
+
 
 class Intro(FadeableComponent, LoadingScreen):
     """ To be continued Screen """
@@ -70,7 +68,7 @@ class Intro(FadeableComponent, LoadingScreen):
 
         self.anim = load_rendered_sequence(
             'intro',
-            refresh_interval=FPS/1000,
+            refresh_interval=FPS / 1000,
             loop=False
         )
 
@@ -121,7 +119,7 @@ class Intro(FadeableComponent, LoadingScreen):
     def draw(self, screen):
         if self.anim:
             frame = self.anim.get_frame()
-            screen.blit(frame,(0,0))
+            screen.blit(frame, (0, 0))
 
             if not self.anim.has_more_frames():
                 self.start_game()
@@ -149,13 +147,7 @@ class Intro(FadeableComponent, LoadingScreen):
 
         zx = 0.9999 - (self.frame / float(800.0))
 
-        if callable(zoom_gpu):
-            if not self.grid:
-                self.grid, self.block = block_grid(screen.get_width(), screen.get_height())
-
-            surf = zoom_gpu(self.backdrops[1],  400, 400, self.grid, self.block, max(zx, 0))
-        else:
-            surf = zoom(self.backdrops[1], 400, 400, max(zx, 0))
+        surf = zoom(self.backdrops[1], 400, 400, max(zx, 0))
 
         surface.blit(surf, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
 
@@ -187,7 +179,7 @@ class Intro(FadeableComponent, LoadingScreen):
 
         if self.alpha > 0:
             self.white_surface.set_alpha(self.alpha)
-            surface.blit(self.white_surface, (0,0))
+            surface.blit(self.white_surface, (0, 0))
 
         print(surface.get_size())
         print(self.screen.get_size())
@@ -245,7 +237,6 @@ class Intro(FadeableComponent, LoadingScreen):
             percentage = 100
 
         return percentage
-
 
     def handle_event(self, event):
         """ Handle events """

@@ -5,8 +5,8 @@ import pygame_menu
 
 import utils.savegame
 from components.component import Component
-from components.maingame import MainGame
 from components.intro import Intro
+from components.maingame import MainGame
 from components.settings import Settings
 from constants.headup import PIGGY_PINK
 from constants.quality import QUALITY_VERY_LOW

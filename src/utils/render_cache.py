@@ -1,19 +1,22 @@
 import os
-import pygame
 import shutil
-from utils.path import get_userdata_path
+
+import pygame
+
 from utils.animation import Animation
+from utils.path import get_userdata_path
 
 # BMP is the fastest image encoder supported by pygame.image.save()
 STORED_EXTENSION = '.bmp'
+
 
 def store_clear():
     cached_dir = os.path.join(get_userdata_path(), 'cached')
     if os.path.exists(cached_dir):
         shutil.rmtree(cached_dir)
 
-def store_rendered_sequence(name, images, progress_callback = None):
 
+def store_rendered_sequence(name, images, progress_callback=None):
     cached_dir = os.path.join(get_userdata_path(), 'cached', name)
 
     if not os.path.exists(cached_dir):
@@ -48,7 +51,7 @@ def store_rendered_sequence(name, images, progress_callback = None):
     progress_callback(100, _('Generating cache...'))
 
 
-def load_rendered_sequence(name, refresh_interval, start_frame=0, size=None, loop = True):
+def load_rendered_sequence(name, refresh_interval, start_frame=0, size=None, loop=True):
     cached_dir = os.path.join(get_userdata_path(), 'cached', name)
 
     if not os.path.exists(cached_dir):

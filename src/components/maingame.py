@@ -16,8 +16,8 @@ import state.state
 import utils.quality
 import utils.savegame
 from components.fadeable_component import FadeableComponent
-from components.loading_screen import LoadingScreen
 from components.gameover import GameOver
+from components.loading_screen import LoadingScreen
 from components.pausable_component import PausableComponent
 from constants import direction
 from constants import gamepad

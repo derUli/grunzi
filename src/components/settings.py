@@ -2,7 +2,9 @@ import logging
 import os
 import subprocess
 import sys
+
 import pygame
+
 from components.component import Component
 from components.controls import Controls
 from components.settings_audio import SettingsAudio
