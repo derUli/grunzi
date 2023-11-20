@@ -8,11 +8,11 @@ import os
 import logging
 try:
     from PygameShader.shader_gpu import block_grid, get_gpu_info, zoom_gpu, bloom_gpu
-    logging.debug(get_gpu_info())
 except ImportError as e:
     logging.error(e)
     zoom_gpu = None
     bloom_gpu = None
+
 
 from PygameShader.shader import zoom, shader_bloom_fast1
 
@@ -104,7 +104,6 @@ class Telescope(Sprite):
         if zoom_gpu:
             if not self.grid:
                 self.grid, self.block = block_grid(self.screen.get_width(), self.screen.get_height())
-
             surf = zoom_gpu(self.base_surface, MOUSE_POS.x, MOUSE_POS.y, self.grid, self.block, self.scale_z)
         else:
             surf = zoom(self.base_surface, MOUSE_POS.x, MOUSE_POS.y, self.scale_z)
@@ -123,7 +122,7 @@ class Telescope(Sprite):
 
         surf.blit(self.scopes, (0,0))
 
-        self.cached[cache_id] = surf
+        # self.cached[cache_id] = surf
 
         return surf
 
