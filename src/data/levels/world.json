@@ -120791,9 +120791,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.feather.Feather",
-"sprite_file": "feather.png",
-"walkable": 1
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
 },
 0,
 0,

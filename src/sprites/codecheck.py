@@ -32,6 +32,7 @@ class CodeCheck(Sprite):
             if isinstance(item, CodeNumber):
                 digits.append(item.attributes['digit'])
 
+        # Purge lasers on enter code
         if digits == self.code:
             z = LAYER_STATIC_OBJECTS
             y = self.y - 1
