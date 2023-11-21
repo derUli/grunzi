@@ -3,7 +3,7 @@ import random
 from threading import Thread
 
 import pygame
-
+from utils.quality import pixel_fades_enabled
 from sprites.sprite import Sprite
 
 
@@ -19,6 +19,11 @@ class Fadeable(Sprite):
     def start_fade(self):
         if self.fadeout:
             return
+
+        if not pixel_fades_enabled():
+            self.purge = True
+            return
+
         self.fadeout = True
         self.sprite = self.sprite.copy().convert_alpha()
         self.persistent_pixels = self.count_persistent_pixels()
