@@ -19,6 +19,7 @@ from utils.helper import get_version
 from utils.screenshot import make_screenshot
 from utils.string import label_value
 
+from GPUtil.GPUtil import getGPUs
 
 class GameContainer:
     """ Main game class """
@@ -46,6 +47,14 @@ class GameContainer:
 
         logging.info(label_value('OS', platform.platform()))
         logging.info(label_value('CPU', platform.processor()))
+
+        if callable(getGPUs):
+            gpus = getGPUs()
+            for gpu in gpus:
+                logging.info(label_value('GPU', gpu.name))
+        else:
+            logging.info(label_value('GPU', 'Unknown'))
+
         logging.info(label_value('Python version', platform.python_version()))
         logging.info(label_value('Pygame version', pygame.version.ver))
         logging.info(label_value('SDL Version', pygame.version.SDL))

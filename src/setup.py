@@ -26,7 +26,8 @@ options = {
         'packages': [
             'pygame',
             'sprites',
-            'PygameShader'
+            'PygameShader',
+            'GPUtil'
         ],
         'optimize': 0,
         'include_files': [
