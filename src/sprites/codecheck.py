@@ -14,6 +14,8 @@ class CodeCheck(Sprite):
         self.x = None
         self.y = None
         self.z = None
+        self.code_valid = False
+
     def draw(self, screen, x, y):
         return
 
@@ -32,8 +34,13 @@ class CodeCheck(Sprite):
             if isinstance(item, CodeNumber):
                 digits.append(item.attributes['digit'])
 
+                if self.code_valid:
+                    item.attributes['locked'] = True
+
+        self.code_valid = digits == self.code
+        print(self.code)
         # Purge lasers on enter code
-        if digits == self.code:
+        if self.code_valid :
             z = LAYER_STATIC_OBJECTS
             y = self.y - 1
             x_from = self.x - 5
@@ -41,4 +48,4 @@ class CodeCheck(Sprite):
             for x in range(x_from, x_to):
                 if not level.layers[z][y][x]:
                     continue
-                level.layers[z][y][x].purge = True
+                level.layers[z][y][x].start_fade()

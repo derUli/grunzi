@@ -17,6 +17,8 @@ class Fadeable(Sprite):
         self.fadeout = False
 
     def start_fade(self):
+        if self.fadeout:
+            return
         self.fadeout = True
         self.sprite = self.sprite.copy().convert_alpha()
         self.persistent_pixels = self.count_persistent_pixels()

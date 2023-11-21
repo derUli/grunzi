@@ -1,13 +1,12 @@
 """ CodeLaser sprite """
 
 from constants.direction import DIRECTION_UP, DIRECTION_DOWN
-import sprites.sprite
-
+from sprites.fadeable import Fadeable
 OFFSET_FROM = -25
 OFFSET_TO = 25
 MOVE_SPEED = 0.1
 
-class CodeLaser(sprites.sprite.Sprite):
+class CodeLaser(Fadeable):
     """ Backdrop sprite """
 
     def __init__(self, sprite_dir, cache, sprite=None):

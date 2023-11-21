@@ -32,6 +32,11 @@ class CodeNumber(Takeable, InlineSprite):
             FONT_SIZE
         )
 
+    def handle_interact(self, element):
+        if 'locked' in self.attributes and self.attributes['locked']:
+            return
+
+        super().handle_interact(element)
 
     def draw(self, screen, x, y):
         if not self.drawn_text:
