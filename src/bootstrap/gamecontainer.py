@@ -12,7 +12,7 @@ import pygame
 from pygame.locals import QUIT
 
 import components.menu
-import utils.audio
+from utils.audio import play_sound, get_devices
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.helper import get_version
@@ -41,9 +41,9 @@ class GameContainer:
         self.__main__ = None
 
     def start(self, component=components.menu.Menu):
+        """ Start game """
         version_file = os.path.join(self.root_dir, 'LICENSE')
 
-        """ Start game """
         logging.info(label_value('OS', platform.platform()))
         logging.info(label_value('CPU', platform.processor()))
         logging.info(label_value('Python version', platform.python_version()))
@@ -55,6 +55,11 @@ class GameContainer:
             44100, 16, 2, 4096)  # For better and faster audio
 
         pygame.init()
+
+        audio_devices = get_devices()
+
+        for device in audio_devices:
+            logging.info(label_value('Audio device', device))
 
         # Load settings from file
         # IF no settings file exists create it
@@ -156,7 +161,7 @@ class GameContainer:
         """ Save a screenshot  """
         make_screenshot(self.screen)
         camera_sound = os.path.join(self.data_dir, 'sounds', 'common', 'screenshot.ogg')
-        utils.audio.play_sound(camera_sound)
+        play_sound(camera_sound)
 
     def draw(self):
         """ Update the screen  """
