@@ -19,7 +19,7 @@ class CodeCheck(Sprite):
 
     def ai(self, level):
         if not self.code:
-            z, y, x = level.search_character('telescope')
+            z, y, x = level.search_by_id('telescope')
             telescope = level.layers[z][y][x]
             self.code = telescope.attributes['code']
 

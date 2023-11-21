@@ -202,7 +202,7 @@ class Level:
 
         return False
 
-    def search_character(self, id):
+    def search_by_id(self, id):
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):
             for y in range(0, len(self.layers[z])):

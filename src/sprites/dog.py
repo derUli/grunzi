@@ -120,7 +120,7 @@ class Dog(Killable, Character):
 
         self.last_movement = time.time()
 
-        mainchar_z, mainchar_y, mainchar_x = level.search_character(MAIN_CHARACTER_ID)
+        mainchar_z, mainchar_y, mainchar_x = level.search_by_id(MAIN_CHARACTER_ID)
         dog_z, dog_y, dog_x = level.search_sprite(self)
 
         new_y = dog_y

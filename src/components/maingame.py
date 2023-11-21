@@ -98,7 +98,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         savegame = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
         self.level.apply_diff(savegame)
 
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state
         self.update_camera()
 
@@ -115,7 +115,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
             logging.error('Invalid level JSON')
             return False
 
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state
 
         self.update_camera()
@@ -311,7 +311,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
             self.check_for_updates()
 
     def check_for_updates(self):
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
 
         # Check if standing on level exit
         if not self.state.edit_mode and self.level.is_levelexit(x, y):
@@ -333,7 +333,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
     def handle_interactions(self):
         if self.state.player_state.use_item:
-            z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+            z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
             character = self.level.get_sprite((z, y, x))
 
             for z in reversed(range(0, len(self.level.layers))):
@@ -344,7 +344,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
                         i_element.handle_interact_item(character)
 
     def drop_item(self):
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
 
         beep_sound = os.path.join(
             self.data_dir,
@@ -391,7 +391,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         self.state.player_state.say(_('Grunt!'))
 
     def update_camera(self):
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
         self.camera.update(x, y)
 
     def handle_event(self, event):
@@ -552,7 +552,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
     def make_field(self, z, clear=False):
         """ Make field in edit mode """
-        _z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        _z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
 
         if z >= len(self.level.layers):
             return
@@ -586,7 +586,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
     def move_main_character(self, dir, running=None):
         """ Move main character one field in direction """
-        z, y, x = self.level.search_character(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
         character = self.level.layers[z][y][x]
 
         if dir is None:
