@@ -77,8 +77,8 @@ class Telescope(Sprite):
                 "".join(map(str, self.attributes['code'])),
                 font_antialiasing_enabled(),
                 TEXT_COLOR
-
             )
+
             self.base_surface.blit(text, TEXT_POS)
 
         w, h = self.base_surface.get_size()
