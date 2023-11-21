@@ -148278,16 +148278,7 @@
 {
 "sprite_class": "sprites.telescope.Telescope",
 "sprite_file": "telescope.png",
-"id": "telescope",
-"attributes": {
-"code": [
-3,
-2,
-4,
-1
-],
-"unlocked": false
-}
+"id": "telescope"
 },
 0,
 0,

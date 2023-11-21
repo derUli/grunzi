@@ -66,6 +66,7 @@ class Sprite:
         self.debug_font = None
         self.attributes = {}
         self.player_state = None
+        self.skip_attributes = False
 
         if not sprite:
             return
@@ -151,7 +152,7 @@ class Sprite:
         if self.id:
             data['id'] = self.id
 
-        if self.attributes:
+        if self.attributes and not self.skip_attributes:
             data['attributes'] = self.attributes
 
         return data

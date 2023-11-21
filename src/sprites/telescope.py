@@ -36,6 +36,7 @@ class Telescope(Sprite):
             'code': code,
             'unlocked': False
         }
+        self.skip_attributes = True
         self.backdrop = pygame.image.load(
             os.path.join(self.sprite_dir, 'backdrops', 'mountainside.jpg')
         ).convert()
