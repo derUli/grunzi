@@ -38,9 +38,9 @@ class CodeCheck(Sprite):
                     item.attributes['locked'] = True
 
         self.code_valid = digits == self.code
-        print(self.code)
+
         # Purge lasers on enter code
-        if self.code_valid :
+        if self.code_valid:
             z = LAYER_STATIC_OBJECTS
             y = self.y - 1
             x_from = self.x - 5
