@@ -48,11 +48,11 @@ class GameContainer:
         logging.info(label_value('OS', platform.platform()))
         logging.info(label_value('CPU', platform.processor()))
 
-        if callable(getGPUs):
-            gpus = getGPUs()
-            for gpu in gpus:
-                logging.info(label_value('GPU', gpu.name))
-        else:
+        gpus = getGPUs()
+        for gpu in gpus:
+            logging.info(label_value('GPU', gpu.name))
+
+        if not any(gpus):
             logging.info(label_value('GPU', 'Unknown'))
 
         logging.info(label_value('Python version', platform.python_version()))
