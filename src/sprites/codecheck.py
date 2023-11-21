@@ -1,7 +1,7 @@
 """ Wall sprite """
 from sprites.sprite import Sprite
 from sprites.codenumber import CodeNumber
-from state.level import LAYER_ITEMS
+from state.level import LAYER_ITEMS, LAYER_STATIC_OBJECTS
 
 class CodeCheck(Sprite):
     """ Wall sprite class """
@@ -33,4 +33,11 @@ class CodeCheck(Sprite):
                 digits.append(item.attributes['digit'])
 
         if digits == self.code:
-            print('TODO: Handle correct code')
+            z = LAYER_STATIC_OBJECTS
+            y = self.y - 1
+            x_from = self.x - 5
+            x_to = self.x + 1
+            for x in range(x_from, x_to):
+                if not level.layers[z][y][x]:
+                    continue
+                level.layers[z][y][x].purge = True
