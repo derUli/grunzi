@@ -149013,7 +149013,14 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.chainsaw.Chainsaw",
+"sprite_file": "chainsaw.png",
+"walkable": 1,
+"attributes": {
+"fuel": 100
+}
+},
 0,
 0,
 0,
@@ -149631,14 +149638,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chainsaw.Chainsaw",
-"sprite_file": "chainsaw.png",
-"walkable": 1,
-"attributes": {
-"fuel": 100
-}
-},
+0,
 0,
 0,
 0,
