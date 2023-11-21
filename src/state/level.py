@@ -209,7 +209,6 @@ class Level:
                 if not any(self.layers[z][y]):
                     continue
                 for x in range(0, len(self.layers[z][y])):
-
                     element = self.layers[z][y][x]
                     if element and element.id == id:
                         return (z, y, x)
