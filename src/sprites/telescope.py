@@ -31,12 +31,13 @@ class Telescope(Sprite):
         code = [1, 2, 3, 4]
         random.shuffle(code)
         self.screen = None
+        self.id = "telescope"
 
         self.attributes = {
             'code': code,
             'unlocked': False
         }
-        self.skip_attributes = True
+        self.skip_attributes = False
 
         self.backdrop = pygame.image.load(
             os.path.join(self.sprite_dir, 'backdrops', 'mountainside.jpg')
