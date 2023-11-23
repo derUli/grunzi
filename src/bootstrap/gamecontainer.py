@@ -9,17 +9,17 @@ import platform
 import signal
 
 import pygame
+from GPUtil.GPUtil import getGPUs
 from pygame.locals import QUIT
 
 import components.menu
-from utils.audio import play_sound, get_devices
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
+from utils.audio import play_sound, get_devices
 from utils.helper import get_version
 from utils.screenshot import make_screenshot
 from utils.string import label_value
 
-from GPUtil.GPUtil import getGPUs
 
 class GameContainer:
     """ Main game class """

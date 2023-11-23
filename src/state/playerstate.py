@@ -95,6 +95,7 @@ class PlayerState:
 
         if self.gamepad:
             self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
+
     def say(self, text):
         """ Display text in bottom UI """
         self.display_text.show_text(text)

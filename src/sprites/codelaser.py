@@ -2,9 +2,11 @@
 
 from constants.direction import DIRECTION_UP, DIRECTION_DOWN
 from sprites.fadeable import Fadeable
+
 OFFSET_FROM = -25
 OFFSET_TO = 25
 MOVE_SPEED = 0.1
+
 
 class CodeLaser(Fadeable):
     """ Backdrop sprite """
@@ -17,7 +19,6 @@ class CodeLaser(Fadeable):
         self.direction = DIRECTION_DOWN
         self.offset_y = 0
         self.cached = {}
-
 
     def draw(self, screen, x, y):
         """ draw sprite """
@@ -36,8 +37,3 @@ class CodeLaser(Fadeable):
 
             if self.offset_y < OFFSET_FROM:
                 self.direction = DIRECTION_DOWN
-
-
-
-
-

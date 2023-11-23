@@ -1,7 +1,8 @@
 """ Wall sprite """
-from sprites.sprite import Sprite
 from sprites.codenumber import CodeNumber
+from sprites.sprite import Sprite
 from state.level import LAYER_ITEMS, LAYER_STATIC_OBJECTS
+
 
 class CodeCheck(Sprite):
     """ Wall sprite class """

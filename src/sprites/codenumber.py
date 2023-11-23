@@ -1,10 +1,12 @@
 """ Wall sprite """
+import os
+
 import pygame
+
+from constants.graphics import SPRITE_SIZE
 from sprites.inlinesprite import InlineSprite
 from sprites.takeable import Takeable
-import os
 from utils.quality import font_antialiasing_enabled
-from constants.graphics import SPRITE_SIZE
 
 W, H = SPRITE_SIZE
 TEXT_COLOR = (0, 0, 0)

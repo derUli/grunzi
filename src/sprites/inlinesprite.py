@@ -12,7 +12,6 @@ class InlineSprite(Sprite):
         if self.sprite:
             self.inline_sprite = self.sprite.copy().convert_alpha()
 
-
     def draw_inline(self, screen, pos):
         """ draw sprite """
         screen.blit(self.inline_sprite, pos)

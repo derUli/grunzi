@@ -3,8 +3,9 @@ import random
 from threading import Thread
 
 import pygame
-from utils.quality import pixel_fades_enabled
+
 from sprites.sprite import Sprite
+from utils.quality import pixel_fades_enabled
 
 
 class Fadeable(Sprite):

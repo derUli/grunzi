@@ -7,6 +7,7 @@ except ImportError:
 
 sound_volume = 1.0
 
+
 def play_sound(file):
     sound = pygame.mixer.Sound(file)
     sound.set_volume(sound_volume)
@@ -22,7 +23,7 @@ def stop_music():
     pygame.mixer.music.stop()
 
 
-def get_devices(capture_devices = False):
+def get_devices(capture_devices=False):
     pygame.init()
     if not sdl2_audio:
         return []
