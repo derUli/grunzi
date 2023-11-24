@@ -99,6 +99,7 @@ class Level:
         return update_list
 
     def apply_diff(self, update_list):
+        """ Apply diff from savegame to loaded level """
         for z in range(len(update_list)):
             for y in range(len(update_list[z])):
                 if not any(update_list[z][y]):
