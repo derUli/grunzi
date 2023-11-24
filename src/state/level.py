@@ -78,6 +78,10 @@ class Level:
         logging.debug("Loading time: " + str(load_time))
 
     def to_diff_list(self):
+        """
+            Save games contains only changes to the initial level state
+            Generate list which will be saved JSON serialized
+        """
         update_list = self.to_saveable_list()
         for z in range(len(update_list)):
             for y in range(len(update_list[z])):
