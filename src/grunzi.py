@@ -18,6 +18,7 @@ gettext.install('messages', locale_path)
 
 
 def parse_args():
+    """ Parse command line args """
     if not os.path.exists(get_userdata_path()):
         os.makedirs(get_userdata_path())
 
@@ -70,12 +71,12 @@ args = parse_args()
 # TODO: Remove before production release
 args.debug = True
 
-log_level = logging.INFO
+LOG_LEVEL = logging.INFO
 
 if args.debug:
-    log_level = logging.DEBUG
+    LOG_LEVEL = logging.DEBUG
 
-configure_logger(log_level)
+configure_logger(LOG_LEVEL)
 logging.debug(args)
 
 enable_high_dpi()
