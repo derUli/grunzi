@@ -1,3 +1,4 @@
+""" Level """
 import json
 import logging
 import os
@@ -19,7 +20,10 @@ LAYER_MAINCHAR = 4
 
 
 class Level:
+    """ Level class """
+
     def __init__(self, sprites_dir, image_cache, level_file=None):
+        """ Contructor """
         self.layers = []
         self.sprites_dir = sprites_dir
         self.image_cache = image_cache
@@ -29,6 +33,7 @@ class Level:
         self.original_layers = []
 
     def load(self, progress_callback=None):
+        """ Load level file """
         load_start = time.time()
         layers = []
         self.level_file_last_changed = os.path.getmtime(self.level_file)
