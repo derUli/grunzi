@@ -113,12 +113,14 @@ class Level:
                         self.layers[z][y][x] = sprites.sprite.from_dict(new_value, self.sprites_dir, self.image_cache)
 
     def save(self, progress_callback=None):
+        """ Save level """
         if progress_callback:
             progress_callback(percentage=None, loading_text=_('Saving level...'))
         with open(self.level_file, 'w') as f:
             f.write(json.dumps(self.to_saveable_list(), indent=0))
 
     def dump(self, progress_callback=None):
+        """ Dump map  to image """
         w, h = constants.graphics.SPRITE_SIZE
 
         total_w = len(self.layers[0][0]) * w
@@ -164,7 +166,7 @@ class Level:
         make_dump(surface)
 
     def total_blocks(self, leveldata):
-
+        """ Calculate total blocks count for progress bar"""
         total_blocks = 0
 
         for z in leveldata:
@@ -191,7 +193,7 @@ class Level:
                         self.layers[z][y][x] = element.replace_with
 
     def is_walkable(self, x, y):
-        """ Check if a sprite  is walkable"""
+        """ Check if a position  is walkable"""
         for z in reversed(self.layers):
             if not z[y][x]:
                 continue
