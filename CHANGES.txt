@@ -4,6 +4,7 @@
 
 * Intro
 * Neues Puzzle mit Zahlencode hinzugefügt
+* Hunde KI verbessert
 
 ## Alpha 002
 

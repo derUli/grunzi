@@ -36,7 +36,7 @@ class Dog(Killable, Character):
         self.sound = None
         self.next_direction_change = None
         # Time until next move
-        self.walk_speed = 0.4
+        self.walk_speed = 0.5
 
     def draw(self, screen, x, y):
         """ Draw sprite """
@@ -128,17 +128,16 @@ class Dog(Killable, Character):
 
         if mainchar_y > new_y:
             new_y += 1
-        elif mainchar_x > new_x:
+        if mainchar_x > new_x:
             new_x += 1
             self.change_direction(DIRECTION_RIGHT)
-        elif mainchar_y < new_y:
+        if mainchar_y < new_y:
             new_y -= 1
-        elif mainchar_x < new_x:
+        if mainchar_x < new_x:
             new_x -= 1
             self.change_direction(DIRECTION_LEFT)
 
         move_options = [
-            (new_x, new_y),
             (new_x, dog_y),
             (dog_x, new_y)
         ]
