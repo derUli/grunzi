@@ -242,6 +242,7 @@ class Level:
         return (0, 0, 0)
 
     def move_sprite(self, sprite, target_pos):
+        """ Move a sprite to target pos """
         old_z, old_y, old_x = self.search_sprite(sprite)
         z, y, x = target_pos
 
