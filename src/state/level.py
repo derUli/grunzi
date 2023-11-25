@@ -285,6 +285,7 @@ class Level:
         return changed
 
     def calculate_next_pos(self, pos, direction):
+        """ Calculate next pos for movement """
         x, y = pos
 
         if direction == DIRECTION_LEFT:
@@ -305,6 +306,7 @@ class Level:
         return (x, y)
 
     def get_sprite(self, pos):
+        """ Get sprite at """
         z, y, x = pos
 
         try:
