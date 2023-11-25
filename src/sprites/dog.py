@@ -36,7 +36,7 @@ class Dog(Killable, Character):
         self.sound = None
         self.next_direction_change = None
         # Time until next move
-        self.walk_speed = 0.5
+        self.walk_speed = 0.4
 
     def draw(self, screen, x, y):
         """ Draw sprite """
