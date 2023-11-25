@@ -11,6 +11,7 @@ class MusicQueue:
         self.files = files
         self.queue = []
         self.paused = False
+        self.playing = False
 
     def set_files(self, files):
         self.files = files

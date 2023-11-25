@@ -120,19 +120,21 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
         self.update_camera()
 
+        self.music_queue.shuffle()
+        self.music_queue.play()
+
         return True
 
     def mount(self):
         """ On mount hide mouse pointer and start music """
         pygame.mouse.set_visible(0)
+        pygame.mixer.music.stop()
 
         # CREDITS: https://audionautix.com/creative-commons-music
 
         self.music_queue.from_directory(
             os.path.join(self.data_dir, 'music', 'level1')
         )
-        self.music_queue.shuffle()
-        self.music_queue.play()
 
         self.fadein()
 
