@@ -213,6 +213,7 @@ class PlayerState:
         return drawn
 
     def draw_blood(self, screen):
+        """ Draw bloody screen overlay """
         if self.health == 100:
             return
 
