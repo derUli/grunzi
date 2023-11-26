@@ -157,6 +157,7 @@ class PlayerState:
         self.cropped_pig.blit(self.health_pig, (0, 0))
 
     def to_dict(self):
+        """ Player state to dict """
         data = {
             'health': self.health,
             'use_item': self.use_item,
@@ -181,6 +182,7 @@ class PlayerState:
         return data
 
     def to_hash(self):
+        """ Hashsum from player state values """
         return hash(str(self.to_dict()))
 
     def draw(self, screen):

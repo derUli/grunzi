@@ -7,7 +7,10 @@ AUDIO_EXTENSIONS = ['.ogg']
 
 
 class MusicQueue:
-    def __init__(self, files=[]):
+    def __init__(self, files=None):
+        if files is None:
+            files = []
+
         self.files = files
         self.queue = []
         self.paused = False
