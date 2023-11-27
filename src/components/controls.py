@@ -1,4 +1,4 @@
-""" Gamve Over Screen """
+""" Controls Screen """
 import os
 
 import pygame
@@ -41,13 +41,14 @@ class Controls(FadeableComponent):
         self.backdrop = None
         self.enable_mouse = False
 
-        fontfile_headline = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
+        fontfile = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
         self.font = pygame.font.Font(
-            fontfile_headline,
+            fontfile,
             FONT_SIZE
         )
 
     def keyboard_controls(self):
+        """ Get keyboard controls """
         return [
             (_('Walk'), 'Arrow_Keys.png'),
             (_('Use item'), 'E_Key_Dark.png'),
@@ -59,6 +60,7 @@ class Controls(FadeableComponent):
         ]
 
     def controller_controls(self):
+        """ Get controller controls """
         return [
             (_('Walk'), '360_Dpad.png'),
             (_('Use item'), '360_A.png'),
@@ -69,6 +71,7 @@ class Controls(FadeableComponent):
         ]
 
     def mouse_controls(self):
+        """ Get mouse controls """
         controls = [(_('Experimental mouse support'), None)]
 
         state_text = _('Disabled')
