@@ -23,6 +23,7 @@ class ToBeContinued(FadeableComponent):
             LARGE_FONT_SIZE)
 
     def mount(self):
+        """ Fade in on mount """
         self.fadein()
 
     def draw(self, screen):
