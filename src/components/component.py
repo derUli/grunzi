@@ -40,6 +40,7 @@ class Component(object):
 
     # Create Text
     def render_text(self, what, color, where):
+        """ Render a text """
         text = self.monotype_font.render(
             what,
             utils.quality.font_antialiasing_enabled(),
@@ -71,9 +72,11 @@ class Component(object):
         self.render_text(what, color, where)
 
     def draw(self, screen):
+        """ Fill screen with black """
         screen.fill((0, 0, 0))
 
     def handle_event(self, event):
+        """ Handle an event """
         return
 
     def set_screen(self, screen):

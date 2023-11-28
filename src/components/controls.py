@@ -98,9 +98,11 @@ class Controls(FadeableComponent):
         return controls
 
     def mount(self):
+        """ Fade in on mount """
         self.fadein()
 
     def unmount(self):
+        """ Do nothing on unmount """
         return
 
     def draw(self, screen):
@@ -229,6 +231,7 @@ class Controls(FadeableComponent):
             self.next_page()
 
     def next_page(self):
+        """ Turn next page """
         if self.current_page == PAGE_KEYBOARD:
             self.current_page = PAGE_CONTROLLER
         elif self.current_page == PAGE_CONTROLLER:
