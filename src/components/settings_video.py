@@ -44,6 +44,7 @@ class SettingsVideo(Component):
         self.draw_menu(self.screen)
 
     def handle_back(self):
+        """ Go back to settings menu """
         component = self.handle_change_component(self.old_component)
         component.video = self.video
         self.menu.disable()
