@@ -135,6 +135,7 @@ class SettingsVideo(Component):
         return i
 
     def refresh_menu(self):
+        """ Refresh menu after chaning display mode"""
         self.menu.disable()
         self.draw_menu(self.screen)
 
