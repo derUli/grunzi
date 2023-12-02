@@ -60,7 +60,7 @@ class Intro(FadeableComponent, LoadingScreen):
         self.block = None
 
     def mount(self):
-
+        """ On mount """
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
 
