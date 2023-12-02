@@ -59,6 +59,7 @@ class SettingsVideo(Component):
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
     def handle_change_screen_resolution(self, selection, selected_index):
+        """ Handle change resolution """
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.screen_resolution = value
@@ -67,11 +68,13 @@ class SettingsVideo(Component):
         store_clear()
 
     def handle_toggle_fullscreen(self, value):
+        """ Handle toggle fullscreen """
         self.settings_state.fullscreen = value
         self.settings_state.apply_and_save()
         self.refresh_menu()
 
     def handle_toggle_vsync(self, value):
+        """ Handle toggle VSync """
         self.settings_state.vsync = value
         self.settings_state.apply_and_save()
         self.old_component.needs_restart = True
