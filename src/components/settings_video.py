@@ -81,6 +81,7 @@ class SettingsVideo(Component):
         self.refresh_menu()
 
     def handle_change_quality(self, selection, selected_index):
+        """ Handle change quality """
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.quality = value
