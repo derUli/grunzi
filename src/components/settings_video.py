@@ -122,6 +122,7 @@ class SettingsVideo(Component):
         return items
 
     def get_selected_index(self, items, selected):
+        """ Get selected index for value """
         i = 0
         for item in items:
             text, value = item
