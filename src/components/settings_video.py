@@ -50,6 +50,7 @@ class SettingsVideo(Component):
         self.menu.disable()
 
     def draw_background(self):
+        """ Draw video background """
         if self.settings_state.quality >= QUALITY_LOW:
             video_frame = self.video.get_frame()
             if video_frame:
