@@ -36,7 +36,7 @@ class Settings(Component):
             size=self.settings_state.screen_resolution
         )
 
-        """ Some video settings need a restart of the game after change """
+        # Some video settings need a restart of the game after change
         self.needs_restart = False
         self.menu = None
 
