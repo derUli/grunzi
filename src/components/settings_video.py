@@ -71,15 +71,12 @@ class SettingsVideo(Component):
         """ Handle toggle fullscreen """
         self.settings_state.fullscreen = value
         self.settings_state.apply_and_save()
-        self.refresh_menu()
 
     def handle_toggle_vsync(self, value):
         """ Handle toggle VSync """
         self.settings_state.vsync = value
         self.settings_state.apply_and_save()
         self.old_component.needs_restart = True
-        self.refresh_menu()
-
     def handle_change_quality(self, selection, selected_index):
         """ Handle change quality """
         selected_item, index = selection
@@ -133,11 +130,6 @@ class SettingsVideo(Component):
             i += 1
 
         return i
-
-    def refresh_menu(self):
-        """ Refresh menu after chaning display mode"""
-        self.menu.disable()
-        self.draw_menu(self.screen)
 
     def draw_menu(self, screen):
         menu = make_menu(_('Video'), self.settings_state.limit_fps)
