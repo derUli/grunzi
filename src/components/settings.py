@@ -44,6 +44,7 @@ class Settings(Component):
         self.version_number = get_version(version_file)
 
     def draw(self, screen):
+        """ Draw """
         self.draw_menu(screen)
 
     def handle_back(self):
@@ -56,8 +57,8 @@ class Settings(Component):
         self.menu.disable()
 
     def restart_app(self):
-        pygame.mixer.music.stop()
         """ Restart game """
+        pygame.mixer.music.stop()
         logging.debug('Restart application to apply settings')
 
         command = [sys.executable] + sys.argv
@@ -66,8 +67,8 @@ class Settings(Component):
         if getattr(sys, "frozen", False):
             command = sys.argv
 
-        subprocess.Popen(command)
-        sys.exit()
+        with subprocess.Popen(command):
+            sys.exit()
 
     def handle_video(self):
         component = self.handle_change_component(SettingsVideo)
