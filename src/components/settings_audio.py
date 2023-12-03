@@ -38,6 +38,7 @@ class SettingsAudio(Component):
         self.version_number = get_version(version_file)
 
     def draw(self, screen):
+        """ Draw """
         self.draw_menu(self.screen)
 
     def handle_back(self):
