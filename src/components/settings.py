@@ -47,6 +47,7 @@ class Settings(Component):
         self.draw_menu(screen)
 
     def handle_back(self):
+        """ Go back to main menu """
         if self.needs_restart:
             self.restart_app()
             return
