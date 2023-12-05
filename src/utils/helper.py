@@ -5,6 +5,7 @@ from utils.path import get_userdata_path, is_windows
 
 
 def configure_logger(log_level):
+    """ Configure logger """
     log_file = os.path.join(get_userdata_path(), 'debug.log')
     logging.basicConfig(
         level=log_level,
