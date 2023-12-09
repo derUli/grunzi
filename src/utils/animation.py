@@ -101,6 +101,7 @@ class Animation:
         return pygame.surface.Surface(SPRITE_SIZE).convert_alpha()
 
     def get_frame(self):
+        """ Get current frame """
         if not self.loaded:
             self.load()
             return self.empty_surface()
