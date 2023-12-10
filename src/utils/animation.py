@@ -64,6 +64,7 @@ class Animation:
         return len(self.frames) == len(self.files)
 
     def reload_async(self):
+        """ Reload frame """
         frames = []
         for file in self.files:
             frames += [self.load_frame(file)]
