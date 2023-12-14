@@ -129,4 +129,5 @@ class Animation:
         return frame
 
     def has_more_frames(self):
+        """ Check if the animation has more frames """
         return self.current_frame + 1 < len(self.files)
