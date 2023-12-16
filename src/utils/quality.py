@@ -21,6 +21,7 @@ def font_antialiasing_enabled():
 
 
 def shader_enabled():
+    """ Get shader enabled """
     return SHADER_ENABLED
 
 
