@@ -26,6 +26,7 @@ def shader_enabled():
 
 
 def vignette_enabled():
+    """ Get vignette enabled """
     return VIGNETTE_ENABLED
 
 
