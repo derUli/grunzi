@@ -11,6 +11,7 @@ def fullname(o):
 
 
 def get_class(class_str: object) -> object:
+    """ Get class instance by name """
     try:
         module_path, class_name = class_str.rsplit('.', 1)
         module = import_module(module_path)
