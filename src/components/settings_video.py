@@ -10,7 +10,7 @@ from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
 from utils.render_cache import store_clear
 
-MIN_SCREEN_RESOLUTION = (640, 480)
+MIN_SCREEN_RESOLUTION = (1280, 720)
 
 
 class SettingsVideo(Component):

@@ -11,12 +11,14 @@ STORED_EXTENSION = '.bmp'
 
 
 def store_clear():
+    """ Clear cache """
     cached_dir = os.path.join(get_userdata_path(), 'cached')
     if os.path.exists(cached_dir):
         shutil.rmtree(cached_dir)
 
 
 def store_rendered_sequence(name, images, progress_callback=None):
+    """ Store sequence """
     cached_dir = os.path.join(get_userdata_path(), 'cached', name)
 
     if not os.path.exists(cached_dir):
