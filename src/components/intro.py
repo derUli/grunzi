@@ -23,7 +23,7 @@ from utils.quality import scale_method
 from utils.render_cache import store_rendered_sequence, load_rendered_sequence
 from utils.string import label_value
 
-FPS = 30
+FPS = 60
 
 # Seconds
 FADEOUT_DURATION = 5
