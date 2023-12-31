@@ -73,6 +73,7 @@ class MainCharacter(Character, FadeableComponent):
         )
 
     def play_sound(self, sound):
+        """ Play a sound """
         if self.sound and self.sound.get_busy():
             return
 

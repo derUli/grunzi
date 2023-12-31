@@ -13,8 +13,18 @@ SETTINGS_DEFAULT_FULLSCREEN = True
 SETTINGS_DEFAULT_VOLUME = 1.0
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
-SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
+
 SETTINGS_DEFAULT_QUALITY = QUALITY_VERY_HIGH
+
+SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
+
+pygame.init()
+info = pygame.display.Info()
+width = info.current_w
+height = info.current_h
+
+if width > 0 and height > 0:
+    SETTINGS_DEFAULT_SCREEN_RESOLUTION = (width, height)
 
 
 class SettingsState:
@@ -25,6 +35,7 @@ class SettingsState:
         self.vsync = SETTINGS_DEFAULT_VSYNC
         self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
         self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
+
         self.sound_volume = SETTINGS_DEFAULT_VOLUME
         self.music_volume = SETTINGS_DEFAULT_VOLUME
         self.quality = SETTINGS_DEFAULT_QUALITY

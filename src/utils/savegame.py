@@ -29,6 +29,7 @@ def load_game(name, state):
 
 
 def has_savegame(name):
+    """ Check if a savegame exists """
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
     state_file = os.path.join(save_dir, 'state.json')
 
