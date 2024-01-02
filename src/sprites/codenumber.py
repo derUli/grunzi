@@ -41,6 +41,7 @@ class CodeNumber(Takeable, InlineSprite):
         super().handle_interact(element)
 
     def draw(self, screen, x, y):
+        """ Draw text """
         if not self.drawn_text:
             self.drawn_text = self.font.render(
                 str(self.attributes['digit']),
