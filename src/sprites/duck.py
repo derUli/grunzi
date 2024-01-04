@@ -20,7 +20,6 @@ class Duck(Character):
 
     def play_sound(self):
         if self.sound and self.sound.get_busy():
-            logging.debug('busy')
             return
 
         sound_dir = os.path.abspath(

@@ -80,6 +80,7 @@ class Component(object):
         return
 
     def set_screen(self, screen):
+        """ Set screen """
         self.screen = screen
 
     def mount(self):

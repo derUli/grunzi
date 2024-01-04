@@ -18,14 +18,6 @@ SETTINGS_DEFAULT_QUALITY = QUALITY_VERY_HIGH
 
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 
-pygame.init()
-info = pygame.display.Info()
-width = info.current_w
-height = info.current_h
-
-if width > 0 and height > 0:
-    SETTINGS_DEFAULT_SCREEN_RESOLUTION = (width, height)
-
 
 class SettingsState:
     def __init__(self, handle_settings_change):

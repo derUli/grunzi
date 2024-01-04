@@ -16,12 +16,11 @@ class Character(sprites.sprite.Sprite):
         self.direction = DIRECTION_RIGHT
         self.image_direction = self.direction
 
-        self.walk_speed = 0.11
-        self.sprint_speed = self.walk_speed * 0.6
+        self.walk_speed = 0.105
+        self.sprint_speed = self.walk_speed * 0.8
         self.last_movement = 0
 
     def draw(self, screen, x, y):
-
         """ Draw sprite """
         sprite = self.sprite.copy()
 
@@ -30,6 +29,7 @@ class Character(sprites.sprite.Sprite):
 
         if self.image_direction == DIRECTION_LEFT:
             flip_x = True
+
         sprite = pygame.transform.flip(sprite, flip_x, flip_y)
 
         pos_x, pos_y = self.calculate_pos(x, y)
