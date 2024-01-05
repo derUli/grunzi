@@ -113119,10 +113119,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -113375,10 +113372,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -113664,10 +113658,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -113944,10 +113935,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -114160,8 +114148,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -114170,10 +114158,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -114408,8 +114393,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -114418,10 +114403,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -114727,8 +114709,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -114737,10 +114719,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -115028,8 +115007,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -115038,10 +115017,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -115296,8 +115272,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -115306,10 +115282,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -115543,8 +115516,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -115553,10 +115526,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -115776,8 +115746,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -115786,10 +115756,6 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
 0,
 0,
 0,
@@ -115798,9 +115764,9 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_file": "keepout.png"
 },
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -116062,8 +116028,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -116072,10 +116038,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -116237,6 +116200,49 @@
 },
 0,
 0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+0,
+0,
+0,
+0,
 0,
 0,
 0,
@@ -116246,56 +116252,12 @@
 "sprite_file": "flower1.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
 0,
 0,
 0,
 0,
 0,
 0,
-0,
-0,
-0,
-0,
-0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
-0,
-0,
-0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
-0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -116523,8 +116485,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -116533,10 +116495,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -116547,11 +116506,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -116718,22 +116673,9 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
 0,
 0,
 0,
-0,
-0,
-0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
 0,
 0,
 0,
@@ -116745,9 +116687,18 @@
 },
 0,
 0,
+0,
+0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "flower4.png",
+"walkable": 1
+},
+0,
+0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -116756,10 +116707,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -116999,8 +116947,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -117009,10 +116957,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -117229,11 +117174,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -117270,11 +117211,7 @@
 "sprite_file": "soccer/row-2-column-7.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -117285,8 +117222,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -117295,10 +117232,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -117521,11 +117455,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower5.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -117539,8 +117469,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -117549,10 +117479,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -117788,38 +117715,68 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
-0,
-0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower5.png",
-"walkable": 1
-},
-0,
-0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.wall.Wall",
@@ -117999,11 +117956,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -118057,8 +118010,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -118067,10 +118020,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -118261,19 +118211,11 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
+0,
+0,
 0,
 0,
 0,
@@ -118291,8 +118233,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -118301,10 +118243,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -118491,29 +118430,6 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
-0,
-0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
-0,
 0,
 0,
 0,
@@ -118530,11 +118446,29 @@
 0,
 0,
 0,
-0,
-0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "fence1.png"
 },
 0,
 0,
@@ -118543,10 +118477,22 @@
 0,
 0,
 0,
+0,
+0,
+0,
+0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 0,
 0,
 {
@@ -118749,29 +118695,10 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
 0,
 0,
 0,
 0,
-0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
-0,
-0,
-0,
-0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
 0,
 0,
 0,
@@ -118780,9 +118707,17 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 0,
 0,
 0,
@@ -119029,8 +118964,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -119039,10 +118974,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -119256,8 +119188,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -119266,10 +119198,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -119494,8 +119423,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -119504,10 +119433,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -119720,8 +119646,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -119730,10 +119656,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -119966,8 +119889,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -119976,10 +119899,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower3.png",
@@ -120188,8 +120108,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -120198,10 +120118,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -120403,8 +120320,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -120413,10 +120330,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -120630,8 +120544,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -120648,10 +120562,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -120863,8 +120774,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -120873,10 +120784,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -121089,8 +120997,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -121107,10 +121015,7 @@
 "sprite_file": "flower2.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -121298,8 +121203,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -121320,10 +121225,7 @@
 "sprite_file": "flower2.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -121531,8 +121433,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -121545,10 +121447,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -121748,8 +121647,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -121758,10 +121657,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -122001,8 +121897,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -122015,10 +121911,7 @@
 "sprite_file": "flower4.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -122213,8 +122106,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -122223,10 +122116,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -122422,8 +122312,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -122432,10 +122322,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -122639,8 +122526,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -122649,10 +122536,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower3.png",
@@ -122864,8 +122748,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -122878,10 +122762,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -123109,8 +122990,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -123123,10 +123004,7 @@
 "sprite_file": "flower1.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -123338,8 +123216,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -123348,10 +123226,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower2.png",
@@ -123568,8 +123443,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -123578,10 +123453,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -123794,8 +123666,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 {
@@ -123808,10 +123680,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -124028,8 +123897,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -124038,10 +123907,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -124246,8 +124112,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -124260,10 +124126,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower3.png",
@@ -124492,8 +124355,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -124502,10 +124365,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -124706,8 +124566,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 {
@@ -124724,10 +124584,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -124920,8 +124777,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -124930,10 +124787,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -125153,8 +125007,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -125163,10 +125017,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -125374,8 +125225,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -125384,10 +125235,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -125609,8 +125457,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -125619,10 +125467,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -125837,8 +125682,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -125851,10 +125696,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -126073,8 +125915,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -126087,10 +125929,7 @@
 "sprite_file": "flower4.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -126323,8 +126162,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -126333,10 +126172,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -126554,8 +126390,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -126568,10 +126404,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -126816,8 +126649,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -126826,10 +126659,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -127041,8 +126871,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -127051,10 +126881,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -127309,8 +127136,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -127323,10 +127150,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -127560,8 +127384,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -127574,10 +127398,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -127805,8 +127626,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -127815,10 +127636,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -128043,8 +127861,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -128053,10 +127871,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -128299,8 +128114,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -128313,10 +128128,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -128524,8 +128336,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 {
@@ -128546,10 +128358,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -128815,8 +128624,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -128825,10 +128634,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -129080,8 +128886,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 {
@@ -129098,10 +128904,7 @@
 "sprite_file": "flower3.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -129332,8 +129135,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -129342,10 +129145,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -129584,8 +129384,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -129594,10 +129394,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -129813,8 +129610,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -129827,10 +129624,7 @@
 "sprite_file": "flower4.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -130050,8 +129844,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -130060,10 +129854,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower2.png",
@@ -130304,8 +130095,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -130318,10 +130109,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -130556,8 +130344,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -130570,10 +130358,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -130789,8 +130574,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -130803,10 +130588,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -131068,8 +130850,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 {
@@ -131082,10 +130864,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -131297,8 +131076,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -131307,10 +131086,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -131514,8 +131290,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -131524,10 +131300,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -131747,8 +131520,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -131765,10 +131538,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -131976,8 +131746,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -131994,10 +131764,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -132221,8 +131988,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -132235,10 +132002,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -132462,8 +132226,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -132484,10 +132248,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -132739,8 +132500,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -132761,10 +132522,7 @@
 "sprite_file": "flower5.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -133012,8 +132770,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -133026,10 +132784,7 @@
 "sprite_file": "flower2.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -133273,8 +133028,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -133283,10 +133038,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -133546,8 +133298,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -133556,10 +133308,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -133802,8 +133551,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -133812,10 +133561,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -134146,8 +133892,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -134164,10 +133910,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -134475,8 +134218,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -134493,10 +134236,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -134758,8 +134498,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -134768,10 +134508,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -135010,8 +134747,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -135020,10 +134757,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -135295,8 +135029,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -135305,10 +135039,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -135532,8 +135263,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -135546,10 +135277,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -135817,8 +135545,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -135827,10 +135555,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -136042,8 +135767,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -136052,10 +135777,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -136287,8 +136009,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -136297,10 +136019,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -136512,8 +136231,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -136522,10 +136241,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -136721,8 +136437,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -136735,10 +136451,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -136958,8 +136671,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -136980,10 +136693,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -137187,8 +136897,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -137197,10 +136907,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -137430,8 +137137,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -137444,10 +137151,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -137651,8 +137355,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -137665,10 +137369,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -137860,8 +137561,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -137874,10 +137575,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -138073,8 +137771,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -138083,10 +137781,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -138282,8 +137977,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -138292,10 +137987,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -138503,8 +138195,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -138513,10 +138205,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -138700,8 +138389,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -138718,10 +138407,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -138933,8 +138619,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -138943,10 +138629,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -139158,8 +138841,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -139172,10 +138855,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -139371,8 +139051,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -139381,10 +139061,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -139587,8 +139264,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -139597,10 +139274,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -139820,8 +139494,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -139830,10 +139504,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -140029,8 +139700,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -140039,10 +139710,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -140246,8 +139914,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -140256,10 +139924,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -140471,8 +140136,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -140481,10 +140146,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -140680,8 +140342,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -140698,10 +140360,7 @@
 "sprite_file": "flower3.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -140933,8 +140592,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -140943,10 +140602,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -141158,8 +140814,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 {
@@ -141172,10 +140828,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -141375,8 +141028,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -141393,10 +141046,7 @@
 "sprite_file": "flower1.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -141608,8 +141258,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -141618,10 +141268,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -141801,8 +141448,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 {
@@ -141815,10 +141462,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -142034,8 +141678,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -142052,10 +141696,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -142279,8 +141920,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -142289,10 +141930,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower3.png",
@@ -142500,8 +142138,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -142510,10 +142148,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -142725,8 +142360,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -142743,10 +142378,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -142970,8 +142602,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -142988,10 +142620,7 @@
 "sprite_file": "flower3.png",
 "walkable": 1
 },
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -143195,8 +142824,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -143209,10 +142838,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -143420,8 +143046,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -143434,10 +143060,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -143673,8 +143296,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -143683,10 +143306,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -143894,8 +143514,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -143912,10 +143532,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -144127,8 +143744,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -144141,10 +143758,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -144364,8 +143978,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -144382,10 +143996,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -144588,8 +144199,8 @@
 },
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -144602,10 +144213,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower5.png",
@@ -144809,8 +144417,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 {
@@ -144827,10 +144435,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -145054,8 +144659,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -145068,10 +144673,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 {
@@ -145323,8 +144925,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -145337,10 +144939,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -145554,8 +145153,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -145568,10 +145167,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -145767,8 +145363,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -145777,10 +145373,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -146021,8 +145614,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -146031,10 +145624,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -146263,8 +145853,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -146277,10 +145867,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -146497,8 +146084,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -146511,10 +146098,7 @@
 "walkable": 1
 },
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -146731,8 +146315,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -146741,10 +146325,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -146950,8 +146531,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -146960,10 +146541,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -147184,8 +146762,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -147194,10 +146772,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -147425,8 +147000,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
 },
 0,
 0,
@@ -147435,10 +147010,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.fence.Fence",
-"sprite_file": "wood_fence_vertical.png"
-},
+0,
 0,
 0,
 0,
@@ -147637,7 +147209,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
 0,
 0,
 0,
@@ -148285,7 +147860,16 @@
 {
 "sprite_class": "sprites.telescope.Telescope",
 "sprite_file": "telescope.png",
-"id": "telescope"
+"id": "telescope",
+"attributes": {
+"code": [
+4,
+1,
+3,
+2
+],
+"unlocked": false
+}
 },
 0,
 0,
