@@ -29846,9 +29846,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -29896,9 +29895,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -112905,11 +112903,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -113146,7 +113140,11 @@
 "walkable": 1
 },
 0,
-0,
+{
+"sprite_class": "sprites.wood.Wood",
+"sprite_file": "wood.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -113398,11 +113396,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
+0,
 0,
 0,
 {
@@ -114180,11 +114174,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.wood.Wood",
-"sprite_file": "wood.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -114437,11 +114427,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -114753,11 +114739,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -115294,17 +115276,9 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
+0,
+0,
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -116268,11 +116242,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -116525,11 +116495,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -122324,6 +122290,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -122360,14 +122327,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -152734,11 +152694,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.wood.Wood",
-"sprite_file": "wood.jpg",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -153382,7 +153338,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wood.Wood",
+"sprite_file": "wood.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -157682,9 +157642,15 @@
 0,
 0,
 0,
+{
+"sprite_class": "sprites.duck.Duck",
+"sprite_file": "duck_swimming.png"
+},
 0,
-0,
-0,
+{
+"sprite_class": "sprites.duck.Duck",
+"sprite_file": "duck_swimming2.png"
+},
 0,
 0,
 0,
