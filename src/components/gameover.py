@@ -36,8 +36,7 @@ class GameOver(Component):
 
     def draw_background(self):
         """ Draw backdrop """
-        if self.settings_state.quality >= QUALITY_LOW:
-            self.screen.blit(self.backdrop, (0, 0))
+        self.screen.blit(self.backdrop, (0, 0))
 
         self.draw_film_grain(self.screen)
 

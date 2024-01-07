@@ -8,7 +8,6 @@ import utils.audio
 import utils.image
 import utils.quality
 from constants.headup import UI_MARGIN
-from constants.quality import QUALITY_VERY_HIGH
 from utils.animation import Animation
 
 

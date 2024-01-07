@@ -64,10 +64,9 @@ class Menu(Component):
         self.menu.disable()
 
     def draw_background(self):
-        if self.settings_state.quality > QUALITY_VERY_LOW:
-            video_frame = self.video.get_frame()
-            if video_frame:
-                self.screen.blit(video_frame, (0, 0))
+        video_frame = self.video.get_frame()
+        if video_frame:
+            self.screen.blit(video_frame, (0, 0))
 
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 

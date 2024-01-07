@@ -33,6 +33,7 @@ class SettingsState:
         self.sound_volume = SETTINGS_DEFAULT_VOLUME
         self.music_volume = SETTINGS_DEFAULT_VOLUME
         self.quality = SETTINGS_DEFAULT_QUALITY
+
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
         self.shader_quality = SETTINGS_DEFAULT_SHADER_QUALITY
         self.handle_settings_change = handle_settings_change
@@ -102,7 +103,8 @@ class SettingsState:
             'vsync': self.vsync,
             'limit_fps': self.limit_fps,
             'screen_resolution': self.screen_resolution,
-            'quality': self.quality
+            'smoothscale': self.smoothscale,
+            'shader_quality': self.shader_quality
         }
 
     def to_json(self):
@@ -130,5 +132,8 @@ class SettingsState:
         if 'screen_resolution' in settings:
             self.screen_resolution = tuple(settings['screen_resolution'])
 
-        if 'quality' in settings:
-            self.quality = settings['quality']
+        if 'smoothscale' in settings:
+            self.smoothscale = settings['smoothscale']
+
+        if 'shader_quality' in settings:
+            self.shader_quality = settings['shader_quality']

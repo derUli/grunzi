@@ -198,7 +198,6 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
         virtual_screen = pygame.surface.Surface((virtscreen_w, virtscreen_h))
 
-        backdrop_enabled = self.settings_state.quality >= QUALITY_LOW
         show_backdrop = False
 
         if virtscreen_h < screen.get_height() - BOTTOM_UI_HEIGHT:
@@ -207,10 +206,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
             show_backdrop = True
 
         if show_backdrop:
-            if backdrop_enabled:
-                screen.blit(self.backdrop, (0, 0, virtscreen_w, virtscreen_h))
-            elif show_backdrop:
-                screen.fill(BACKDROP_COLOR)
+            screen.blit(self.backdrop, (0, 0, virtscreen_w, virtscreen_h))
 
         mainchar_rect = None
 
