@@ -40,9 +40,15 @@ THREAD_INTERVAL_LOW = 250
 
 class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
+        super().__init__(
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad)
 
         self.state = state.state.State(self.data_dir, self.gamepad)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')
@@ -89,7 +95,8 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         """ Load savegame """
         level_file = os.path.join(self.data_dir, 'levels', 'world.json')
         self.load_level(level_file)
-        savegame = utils.savegame.load_game(utils.savegame.DEFAULT_SAVE, self.state)
+        savegame = utils.savegame.load_game(
+            utils.savegame.DEFAULT_SAVE, self.state)
         self.level.apply_diff(savegame)
 
         z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
@@ -255,7 +262,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         if self.do_fade:
             screen.set_alpha(self.alpha)
             self.screen.blit(screen, (0, 0))
-        
+
         self.mouse_handler.draw(
             screen,
             mainchar_rect,
@@ -287,7 +294,8 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
             self.move_main_character(self.moving)
 
         if self.is_level_exit:
-            self.handle_change_component(components.tobecontinued.ToBeContinued)
+            self.handle_change_component(
+                components.tobecontinued.ToBeContinued)
             return
 
         if self.state.player_state.dead():
@@ -330,7 +338,8 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
             for z in reversed(range(0, len(self.level.layers))):
                 if isinstance(self.state.player_state.inventory, InlineSprite):
-                    i_x, i_y = self.level.calculate_next_pos((x, y), character.direction)
+                    i_x, i_y = self.level.calculate_next_pos(
+                        (x, y), character.direction)
                     i_element = self.level.get_sprite((z, i_y, i_x))
                     if i_element:
                         i_element.handle_interact_item(character)

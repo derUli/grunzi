@@ -208,8 +208,10 @@ class Controller:
             Positive values are right and down.
         """
 
-        left_stick_x = self.dead_zone_adjustment(self.joystick.get_axis(LEFT_STICK_X))
-        left_stick_y = self.dead_zone_adjustment(self.joystick.get_axis(LEFT_STICK_Y))
+        left_stick_x = self.dead_zone_adjustment(
+            self.joystick.get_axis(LEFT_STICK_X))
+        left_stick_y = self.dead_zone_adjustment(
+            self.joystick.get_axis(LEFT_STICK_Y))
 
         return (left_stick_x, left_stick_y)
 
@@ -226,8 +228,10 @@ class Controller:
             Positive values are right and down.
         """
 
-        right_stick_x = self.dead_zone_adjustment(self.joystick.get_axis(RIGHT_STICK_X))
-        right_stick_y = self.dead_zone_adjustment(self.joystick.get_axis(RIGHT_STICK_Y))
+        right_stick_x = self.dead_zone_adjustment(
+            self.joystick.get_axis(RIGHT_STICK_X))
+        right_stick_y = self.dead_zone_adjustment(
+            self.joystick.get_axis(RIGHT_STICK_Y))
 
         return (right_stick_x, right_stick_y)
 

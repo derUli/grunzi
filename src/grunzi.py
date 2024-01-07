@@ -1,4 +1,5 @@
 """ Grunzi Game Launcher """
+from bootstrap.gamecontainer import GameContainer
 import argparse
 import gettext
 import locale
@@ -81,7 +82,6 @@ logging.debug(args)
 
 enable_high_dpi()
 
-from bootstrap.gamecontainer import GameContainer
 
 game = GameContainer(
     ROOT_DIR,

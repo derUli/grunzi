@@ -53,7 +53,8 @@ def store_rendered_sequence(name, images, progress_callback=None):
     progress_callback(100, _('Generating cache...'))
 
 
-def load_rendered_sequence(name, refresh_interval, start_frame=0, size=None, loop=True):
+def load_rendered_sequence(name, refresh_interval,
+                           start_frame=0, size=None, loop=True):
     """ Load rendered sequence """
     cached_dir = os.path.join(get_userdata_path(), 'cached', name)
 

@@ -12,10 +12,17 @@ from utils.render_cache import store_clear
 
 MIN_SCREEN_RESOLUTION = (1280, 720)
 
+
 class SettingsVideo(Component):
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
+        super().__init__(
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad)
 
         video_path = os.path.join(
             data_dir,
@@ -41,7 +48,6 @@ class SettingsVideo(Component):
     def draw(self, screen):
         """ Draw """
         self.draw_menu(self.screen)
-
 
     def handle_back(self):
         """ Go back to settings menu """
@@ -169,16 +175,20 @@ class SettingsVideo(Component):
 
         menu.add.dropselect(
             title=_('Screen Resolution'),
-            default=self.get_selected_index(self.get_screen_resolution_items(), self.settings_state.screen_resolution),
+            default=self.get_selected_index(
+                self.get_screen_resolution_items(),
+                self.settings_state.screen_resolution),
             items=self.get_screen_resolution_items(),
             onchange=self.handle_change_screen_resolution,
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_screen_resolution_items()),
         )
-        
+
         menu.add.dropselect(
             title=_('Shader Quality'),
-            default=self.get_selected_index(self.get_shader_quality_items(), self.settings_state.shader_quality),
+            default=self.get_selected_index(
+                self.get_shader_quality_items(),
+                self.settings_state.shader_quality),
             items=self.get_shader_quality_items(),
             onchange=self.handle_change_shader_quality,
             placeholder_add_to_selection_box=False,
@@ -187,7 +197,9 @@ class SettingsVideo(Component):
 
         menu.add.dropselect(
             title=_('Postprocessing'),
-            default=self.get_selected_index(self.get_postprocessing_items(), self.settings_state.postprocessing),
+            default=self.get_selected_index(
+                self.get_postprocessing_items(),
+                self.settings_state.postprocessing),
             items=self.get_postprocessing_items(),
             onchange=self.handle_change_postprocessing,
             placeholder_add_to_selection_box=False,

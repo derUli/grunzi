@@ -20,6 +20,7 @@ RUMBLE_DURATION_PAIN = 200
 RUMBLE_LOW_FREQUENCY = 1
 RUMBLE_HIGH_FREQUENCY = 1
 
+
 class PlayerState:
     def __init__(self, data_dir, gamepad=None):
         """ Constructor """
@@ -92,7 +93,10 @@ class PlayerState:
         self.say(_('Ouch!'))
 
         if self.gamepad:
-            self.gamepad.joystick.rumble(RUMBLE_LOW_FREQUENCY, RUMBLE_HIGH_FREQUENCY, RUMBLE_DURATION_PAIN)
+            self.gamepad.joystick.rumble(
+                RUMBLE_LOW_FREQUENCY,
+                RUMBLE_HIGH_FREQUENCY,
+                RUMBLE_DURATION_PAIN)
 
     def say(self, text):
         """ Display text in bottom UI """
@@ -224,12 +228,14 @@ class PlayerState:
             )
 
             self.blood_mask = numpy.asarray(
-                pygame.surfarray.pixels_alpha(self.blood_surface) / 255.0, numpy.float32
+                pygame.surfarray.pixels_alpha(
+                    self.blood_surface) / 255.0, numpy.float32
             )
 
         if self.blood_mask is None:
             self.blood_mask = numpy.asarray(
-                pygame.surfarray.pixels_alpha(self.blood_surface) / 255.0, numpy.float32
+                pygame.surfarray.pixels_alpha(
+                    self.blood_surface) / 255.0, numpy.float32
             )
 
         percentage = 1.0 - (self.health / 100)
@@ -240,7 +246,7 @@ class PlayerState:
         # Low quality blood
         if not utils.quality.blood_enabled_high():
             self.blood_surface.set_alpha(255 / 100 * (percentage * 100))
-            screen.blit(self.blood_surface, (0,0))
+            screen.blit(self.blood_surface, (0, 0))
             return
 
         blood(screen, self.blood_mask, percentage)
@@ -304,7 +310,10 @@ class PlayerState:
                 (target_w, target_h)
             )
 
-            surface.blit(scaled_item_sprite, (INVENTORY_PADDING, INVENTORY_PADDING))
+            surface.blit(
+                scaled_item_sprite,
+                (INVENTORY_PADDING,
+                 INVENTORY_PADDING))
 
         self.drawn_inventory = screen.blit(surface, (x, y))
 

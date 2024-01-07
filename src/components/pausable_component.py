@@ -40,7 +40,10 @@ class PausableComponent:
             self.blur_iteration += 1
 
     def handle_save_game(self):
-        utils.savegame.save_game(utils.savegame.DEFAULT_SAVE, self.state, self.level.to_diff_list())
+        utils.savegame.save_game(
+            utils.savegame.DEFAULT_SAVE,
+            self.state,
+            self.level.to_diff_list())
         self.state.player_state.say(_('Game saved.'))
         self.handle_continue_game()
 

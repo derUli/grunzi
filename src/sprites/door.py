@@ -17,11 +17,23 @@ class Door(Wall):
         self.walkable = False
 
         self.door_open_sound = os.path.abspath(
-            os.path.join(sprite_dir, '..', '..', 'sounds', 'door', 'door_open.ogg')
+            os.path.join(
+                sprite_dir,
+                '..',
+                '..',
+                'sounds',
+                'door',
+                'door_open.ogg')
         )
 
         self.door_closed_sound = os.path.abspath(
-            os.path.join(sprite_dir, '..', '..', 'sounds', 'door', 'door_closed.ogg')
+            os.path.join(
+                sprite_dir,
+                '..',
+                '..',
+                'sounds',
+                'door',
+                'door_closed.ogg')
         )
 
     def handle_interact(self, element):
@@ -45,7 +57,8 @@ class Door(Wall):
         number = self.id.split('-')[1]
         expected_id = "key-" + number
 
-        if isinstance(item, Key) and not self.walkable and item.id == expected_id:
+        if isinstance(
+                item, Key) and not self.walkable and item.id == expected_id:
             self.walkable = True
 
             element.state.say(_('The door is now open.'))

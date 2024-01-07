@@ -13,9 +13,15 @@ from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
 class ToBeContinued(FadeableComponent):
     """ To be continued Screen """
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
+        super().__init__(
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad)
         self.menu = None
 
         self.monotype_font = pygame.font.Font(

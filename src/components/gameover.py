@@ -13,9 +13,15 @@ from utils.menu import make_menu
 class GameOver(Component):
     """ Gamve Over Screen """
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
+        super().__init__(
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad)
         self.menu = None
 
         file = os.path.join(data_dir, 'images', 'ui', 'gameover.jpg')
@@ -49,7 +55,8 @@ class GameOver(Component):
         menu = make_menu(_('Game Over'), self.settings_state.limit_fps)
 
         if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
-            menu.add.button(_('Load Game'), self.handle_load_game)  # Load save game
+            menu.add.button(_('Load Game'),
+                            self.handle_load_game)  # Load save game
         menu.add.button(_('Back To Main Menu'),
                         self.handle_back_to_main_menu)  # Return to main menu
 

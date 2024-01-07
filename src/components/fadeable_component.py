@@ -10,9 +10,15 @@ FADE_SPEED = 2.55
 
 class FadeableComponent(Component):
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode, gamepad):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
+        super().__init__(
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad)
         self.alpha = 0
         self.do_fade = None
         self.fade_speed = FADE_SPEED

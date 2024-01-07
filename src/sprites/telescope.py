@@ -63,14 +63,16 @@ class Telescope(Sprite):
     def draw(self, screen, x, y):
         self.screen = screen
         if self.player_state and self.player_state.show_detailed:
-            self.player_state.show_detailed = self.draw_telescope_view(self.screen)
+            self.player_state.show_detailed = self.draw_telescope_view(
+                self.screen)
             return
 
         super().draw(screen, x, y)
 
     def draw_telescope_view(self, screen):
         if not self.base_surface:
-            self.base_surface = pygame.surface.Surface(self.backdrop.get_size())
+            self.base_surface = pygame.surface.Surface(
+                self.backdrop.get_size())
 
             self.base_surface.blit(self.backdrop, (0, 0))
 
@@ -85,10 +87,14 @@ class Telescope(Sprite):
         w, h = self.base_surface.get_size()
 
         MOUSE_POS = Vector2(pygame.mouse.get_pos())
-        if MOUSE_POS.x < 0: MOUSE_POS.x = 0
-        if MOUSE_POS.x > w: MOUSE_POS.x = w
-        if MOUSE_POS.y < 0: MOUSE_POS.y = 0
-        if MOUSE_POS.y > h: MOUSE_POS.y = h
+        if MOUSE_POS.x < 0:
+            MOUSE_POS.x = 0
+        if MOUSE_POS.x > w:
+            MOUSE_POS.x = w
+        if MOUSE_POS.y < 0:
+            MOUSE_POS.y = 0
+        if MOUSE_POS.y > h:
+            MOUSE_POS.y = h
 
         cache_id = (MOUSE_POS.x, MOUSE_POS.y, self.scale_z)
 

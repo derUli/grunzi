@@ -13,7 +13,11 @@ def get_userdata_path():
     homedir = os.path.expanduser('~')
 
     if is_windows():
-        homedir = os.path.join(homedir, 'Documents', 'My Games', GAMEDIR_NAME_WINDOWS)
+        homedir = os.path.join(
+            homedir,
+            'Documents',
+            'My Games',
+            GAMEDIR_NAME_WINDOWS)
     else:
         homedir = os.path.join(homedir, GAMEDIR_NAME_LINUX)
 

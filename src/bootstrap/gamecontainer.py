@@ -97,7 +97,10 @@ class GameContainer:
 
         self.screen = None
         logging.info('Init screen')
-        logging.info(label_value('Screen resolution', str(self.settings_state.screen_resolution)))
+        logging.info(
+            label_value(
+                'Screen resolution', str(
+                    self.settings_state.screen_resolution)))
         pygame.display.set_caption(_('Grunzi'))
 
         if self.settings_state.fullscreen:
@@ -115,7 +118,10 @@ class GameContainer:
         """ Init Controller """
         try:
             self.gamepad = xbox_360_controller.Controller()
-            logging.info(label_value('Controller', self.gamepad.joystick.get_name()))
+            logging.info(
+                label_value(
+                    'Controller',
+                    self.gamepad.joystick.get_name()))
             return True
         except pygame.error:
             logging.info('No controller found')
@@ -145,7 +151,6 @@ class GameContainer:
             self.ai()
 
     def handle_events(self):
-
         """ Handle events """
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -169,7 +174,11 @@ class GameContainer:
     def screenshot(self):
         """ Save a screenshot  """
         make_screenshot(self.screen)
-        camera_sound = os.path.join(self.data_dir, 'sounds', 'common', 'screenshot.ogg')
+        camera_sound = os.path.join(
+            self.data_dir,
+            'sounds',
+            'common',
+            'screenshot.ogg')
         play_sound(camera_sound)
 
     def draw(self):

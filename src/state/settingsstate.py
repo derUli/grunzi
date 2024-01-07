@@ -21,6 +21,7 @@ SETTINGS_DEFAULT_POSTPROCESSING = QUALITY_VERY_HIGH
 
 SETTINGS_DEFAULT_VOLUME = 1.0
 
+
 class SettingsState:
     def __init__(self, handle_settings_change):
         """ Constructor """
@@ -73,7 +74,7 @@ class SettingsState:
         utils.quality.ENABLE_SMOOTH_SCALE = self.smoothscale
         utils.quality.SHADER_QUALITY = self.shader_quality
         utils.quality.POST_PROCESSING = self.postprocessing
-        
+
     def get_settings_path(self):
         """ Get settings file path """
         return os.path.join(get_userdata_path(), 'settings.json')

@@ -63,7 +63,8 @@ class Level:
 
                         if progress_callback:
                             progress_callback(loaded_percent)
-                    sprite = sprites.sprite.from_dict(x, self.sprites_dir, self.image_cache)
+                    sprite = sprites.sprite.from_dict(
+                        x, self.sprites_dir, self.image_cache)
                     row.append(sprite)
 
                 layer.append(row)
@@ -89,7 +90,8 @@ class Level:
                     old_value = self.original_layers[z][y][x]
                     new_value = update_list[z][y][x]
 
-                    if isinstance(new_value, dict) and 'attributes' in new_value and new_value['attributes']:
+                    if isinstance(
+                            new_value, dict) and 'attributes' in new_value and new_value['attributes']:
                         continue
                     if new_value == old_value:
                         update_list[z][y][x] = None
@@ -110,12 +112,15 @@ class Level:
                     if new_value == 'removed':
                         self.layers[z][y][x] = None
                     elif new_value is not None:
-                        self.layers[z][y][x] = sprites.sprite.from_dict(new_value, self.sprites_dir, self.image_cache)
+                        self.layers[z][y][x] = sprites.sprite.from_dict(
+                            new_value, self.sprites_dir, self.image_cache)
 
     def save(self, progress_callback=None):
         """ Save level """
         if progress_callback:
-            progress_callback(percentage=None, loading_text=_('Saving level...'))
+            progress_callback(
+                percentage=None,
+                loading_text=_('Saving level...'))
         with open(self.level_file, 'w') as f:
             f.write(json.dumps(self.to_saveable_list(), indent=0))
 
@@ -169,7 +174,8 @@ class Level:
 
         end_time = time.time()
 
-        logging.debug('Map dumped in ' + str(end_time - start_time) + ' seconds')
+        logging.debug('Map dumped in ' +
+                      str(end_time - start_time) + ' seconds')
 
     def total_blocks(self, leveldata):
         """ Calculate total blocks count for progress bar"""

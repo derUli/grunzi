@@ -20,7 +20,8 @@ DOUBLECLICK_SPEED = 500
 
 class MouseHandler:
 
-    def __init__(self, data_dir, handle_move, handle_toggle_item, handle_grunt, handle_drop_item):
+    def __init__(self, data_dir, handle_move, handle_toggle_item,
+                 handle_grunt, handle_drop_item):
         self.enabled = False
         self.pointer = None
         self.data_dir = data_dir

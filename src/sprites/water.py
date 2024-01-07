@@ -61,7 +61,8 @@ class Water(sprites.sprite.Sprite):
         angle = 0
         while angle <= 360:
             if not self.cache.get_processed_image(self.cache_id(angle)):
-                self.cache.add_processed_image(self.cache_id(angle), self.next_frame(angle))
+                self.cache.add_processed_image(
+                    self.cache_id(angle), self.next_frame(angle))
 
             angle += 5
 

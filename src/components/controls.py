@@ -29,9 +29,15 @@ SUPPORTED_CONTROLLERS = [
 class Controls(FadeableComponent):
     """ Controls screen """
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
+        super().__init__(
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad)
         self.menu = None
 
         self.current_page = PAGE_KEYBOARD
@@ -107,8 +113,13 @@ class Controls(FadeableComponent):
     def draw(self, screen):
         """ Update screen """
         if not self.backdrop:
-            file = os.path.join(self.data_dir, 'images', 'ui', 'schoolboard.jpg')
-            self.backdrop = self.image_cache.load_image(file, screen.get_size())
+            file = os.path.join(
+                self.data_dir,
+                'images',
+                'ui',
+                'schoolboard.jpg')
+            self.backdrop = self.image_cache.load_image(
+                file, screen.get_size())
 
         if self.do_fade:
             surface = screen.copy().convert_alpha()
@@ -168,7 +179,8 @@ class Controls(FadeableComponent):
                 y += LINE_SMALL_MARGIN
                 continue
 
-            image_path = os.path.join(self.data_dir, 'images', 'ui', 'controls', image_file)
+            image_path = os.path.join(
+                self.data_dir, 'images', 'ui', 'controls', image_file)
             scale_to = (control_text.get_height(), control_text.get_height())
             if image_file == 'Arrow_Keys.png':
                 scale_to = (156, control_text.get_height())

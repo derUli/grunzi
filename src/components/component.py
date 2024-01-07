@@ -13,7 +13,8 @@ from utils.animation import Animation
 
 class Component(object):
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
         self.data_dir = data_dir
         self.handle_change_component = handle_change_component
@@ -28,7 +29,12 @@ class Component(object):
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
 
-        animation_dir = os.path.join(data_dir, 'images', 'sprites', 'animations', 'film_grain')
+        animation_dir = os.path.join(
+            data_dir,
+            'images',
+            'sprites',
+            'animations',
+            'film_grain')
 
         self.film_grain = Animation(
             animation_dir,

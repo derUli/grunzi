@@ -32,9 +32,15 @@ FADEOUT_DURATION = 5
 class Intro(FadeableComponent, LoadingScreen):
     """ To be continued Screen """
 
-    def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
-        super().__init__(data_dir, handle_change_component, settings_state, enable_edit_mode, gamepad)
+        super().__init__(
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad)
         self.menu = None
         self.cached = []
         self.monotype_font = pygame.font.Font(
@@ -89,15 +95,20 @@ class Intro(FadeableComponent, LoadingScreen):
         size = (self.w, self.h)
 
         self.backdrops = [
-            self.image_cache.load_image(os.path.join(intro_dir, 'Bokeh.jpg'), size),
-            self.image_cache.load_image(os.path.join(intro_dir, 'space1.jpg'), size),
-            self.image_cache.load_image(os.path.join(intro_dir, 'space2.jpg'), size),
-            self.image_cache.load_image(os.path.join(intro_dir, 'space1_alpha.jpg'), size)
+            self.image_cache.load_image(
+                os.path.join(intro_dir, 'Bokeh.jpg'), size),
+            self.image_cache.load_image(
+                os.path.join(intro_dir, 'space1.jpg'), size),
+            self.image_cache.load_image(
+                os.path.join(intro_dir, 'space2.jpg'), size),
+            self.image_cache.load_image(os.path.join(
+                intro_dir, 'space1_alpha.jpg'), size)
         ]
 
         blend_add_surface(self.backdrops[2], self.backdrops[2])
 
-        self.distances, self.angles, self.shades, self.scr_data = tunnel_modeling24(self.w, self.h, self.backdrops[3])
+        self.distances, self.angles, self.shades, self.scr_data = tunnel_modeling24(
+            self.w, self.h, self.backdrops[3])
         self.dest_array = numpy.empty((self.w * self.h * 4), numpy.uint8)
 
         self.acceleration = 1.0
@@ -106,11 +117,16 @@ class Intro(FadeableComponent, LoadingScreen):
         self.zx = 0
         self.frame = 0
 
-        self.prev_centerx = 400 + floor((400 >> 1) * math.sin(0 * self.acceleration * 0.25))
-        self.prev_centery = 400 + floor((400 >> 1) * math.sin(0 * self.acceleration * 0.5))
+        self.prev_centerx = 400 + \
+            floor((400 >> 1) * math.sin(0 * self.acceleration * 0.25))
+        self.prev_centery = 400 + \
+            floor((400 >> 1) * math.sin(0 * self.acceleration * 0.5))
 
-        self.base_surface = pygame.surface.Surface((self.w, self.h)).convert(32, pygame.RLEACCEL)
-        self.white_surface = pygame.surface.Surface((self.w, self.h), pygame.SRCALPHA | pygame.RLEACCEL).convert()
+        self.base_surface = pygame.surface.Surface(
+            (self.w, self.h)).convert(
+            32, pygame.RLEACCEL)
+        self.white_surface = pygame.surface.Surface(
+            (self.w, self.h), pygame.SRCALPHA | pygame.RLEACCEL).convert()
         self.white_surface.fill(BOTTOM_UI_BACKGROUND)
 
     def draw(self, screen):
@@ -124,8 +140,18 @@ class Intro(FadeableComponent, LoadingScreen):
 
         surface = self.base_surface
 
-        centerx = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.25))
-        centery = floor((400 >> 1) * math.sin(self.frame * self.acceleration * 0.5))
+        centerx = floor(
+            (400 >> 1) *
+            math.sin(
+                self.frame *
+                self.acceleration *
+                0.25))
+        centery = floor(
+            (400 >> 1) *
+            math.sin(
+                self.frame *
+                self.acceleration *
+                0.5))
         dx = self.prev_centerx - centerx
         dy = self.prev_centery - centery
 
@@ -182,7 +208,9 @@ class Intro(FadeableComponent, LoadingScreen):
 
         self.cached.append(save_surface)
 
-        self.loading_screen(percentage=self.calculate_render_percentage(), loading_text=_('Prerendering sequence...'))
+        self.loading_screen(
+            percentage=self.calculate_render_percentage(),
+            loading_text=_('Prerendering sequence...'))
 
         self.frame += self.df
         self.acceleration += self.dc
@@ -206,7 +234,10 @@ class Intro(FadeableComponent, LoadingScreen):
 
             store_rendered_sequence('intro', self.cached, self.loading_screen)
             prerender_end = time.time() - self.prerender_started
-            logging.debug(label_value('Intro sequence prerendered in ', prerender_end))
+            logging.debug(
+                label_value(
+                    'Intro sequence prerendered in ',
+                    prerender_end))
             self.cached = []
             self.mount()
 
