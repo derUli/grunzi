@@ -1,9 +1,8 @@
 import pygame
-from constants.quality import QUALITY_VERY_LOW, QUALITY_HIGH
+from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
 
-ENABLE_BLOOM = False
 ENABLE_SMOOTH_SCALE = False
-ENABLE_FONT_ANTIALIASING = False
+ENABLE_FONT_ANTIALIASING = True
 SHADER_QUALITY = QUALITY_VERY_LOW
 PIXEL_FADES = False
 POST_PROCESSING = QUALITY_VERY_LOW
@@ -23,15 +22,18 @@ def shader_enabled():
     """ Get shader enabled """
     return SHADER_QUALITY > QUALITY_VERY_LOW
 
-def postprocessing():
-    """ Vignette enabled """
-    return POST_PROCESSING > QUALITY_VERY_LOW
-
-def postprocessing_high():
-    return POST_PROCESSING >= QUALITY_HIGH
-
+def film_grain():
+    """ Postprocessing enabled """
+    return POST_PROCESSING >= QUALITY_LOW
+    
 def pixel_fades_enabled():
     return shader_enabled()
 
 def bloom_enabled():
-    return ENABLE_BLOOM
+    return POST_PROCESSING >= QUALITY_VERY_HIGH
+
+def blood_enabled():
+    return POST_PROCESSING >= QUALITY_MEDIUM
+    
+def blood_enabled_high():
+    return POST_PROCESSING >= QUALITY_HIGH

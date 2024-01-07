@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-07 20:30+0100\n"
+"POT-Creation-Date: 2024-01-07 21:38+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -168,7 +168,7 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:101 components/settings_video.py:157
+#: components/settings.py:101 components/settings_video.py:152
 msgid "Video"
 msgstr ""
 
@@ -184,59 +184,60 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:90 components/settings_video.py:217
+#: components/settings_audio.py:90 components/settings_video.py:204
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:108 components/settings_video.py:115
-#: components/settings_video.py:159
+#: components/settings_video.py:102 components/settings_video.py:109
+#: components/settings_video.py:154
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings_video.py:109 components/settings_video.py:118
+#: components/settings_video.py:103 components/settings_video.py:112
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:116
+#: components/settings_video.py:110
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings_video.py:117
+#: components/settings_video.py:111
 msgid "Medium"
 msgstr ""
 
-#: components/settings_video.py:159
+#: components/settings_video.py:113
+#, fuzzy
+msgid "Very High"
+msgstr "Sehr Hoch"
+
+#: components/settings_video.py:154
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:162
+#: components/settings_video.py:157
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:169
+#: components/settings_video.py:164
 msgid "V-Sync"
 msgstr ""
 
-#: components/settings_video.py:176
+#: components/settings_video.py:171
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:185
+#: components/settings_video.py:180
 #, fuzzy
 msgid "Shader Quality"
 msgstr "Shader-Qualität"
 
-#: components/settings_video.py:194
+#: components/settings_video.py:189
 msgid "Postprocessing"
 msgstr ""
 
-#: components/settings_video.py:203
+#: components/settings_video.py:198
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
-
-#: components/settings_video.py:210
-msgid "Font Smoothing"
-msgstr "Schriftglättung"
 
 #: components/tobecontinued.py:38
 #, fuzzy
@@ -305,4 +306,7 @@ msgstr "Generiere Cache..."
 
 #~ msgid "Bloom"
 #~ msgstr ""
+
+#~ msgid "Font Smoothing"
+#~ msgstr "Schriftglättung"
 

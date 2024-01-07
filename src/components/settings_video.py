@@ -4,14 +4,13 @@ import pygame
 
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
+from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
 from utils.render_cache import store_clear
 
 MIN_SCREEN_RESOLUTION = (1280, 720)
-
 
 class SettingsVideo(Component):
     def __init__(self, data_dir, handle_change_component, settings_state, enable_edit_mode=False, gamepad=None):
@@ -110,7 +109,8 @@ class SettingsVideo(Component):
             (_('Off'), QUALITY_VERY_LOW),
             (_('Low'), QUALITY_LOW),
             (_('Medium'), QUALITY_MEDIUM),
-            (_('High'), QUALITY_HIGH)
+            (_('High'), QUALITY_HIGH),
+            (_('Very High'), QUALITY_VERY_HIGH)
         ]
 
     def get_screen_resolution_items(self):
