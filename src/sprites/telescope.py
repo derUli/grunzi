@@ -110,8 +110,6 @@ class Telescope(Sprite):
 
         self.cached[cache_id] = surf
 
-        print(len(self.cached))
-
         return surf
 
     def handle_interact(self, element):
