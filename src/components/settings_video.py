@@ -83,11 +83,6 @@ class SettingsVideo(Component):
         self.settings_state.smoothscale = value
         self.settings_state.apply_and_save()
 
-    def handle_toggle_font_antialiasing(self, value):
-        """ Handle font antialiasing fullscreen """
-        self.settings_state.font_antialiasing = value
-        self.settings_state.apply_and_save()
-
     def handle_change_shader_quality(self, selection, selected_index):
         """ Handle change quality """
         selected_item, index = selection
@@ -205,14 +200,6 @@ class SettingsVideo(Component):
             self.handle_toggle_smoothscale,
             state_text=state_text
         )
-
-        menu.add.toggle_switch(
-            _('Font Smoothing'),
-            self.settings_state.font_antialiasing,
-            self.handle_toggle_font_antialiasing,
-            state_text=state_text
-        )
-
 
         menu.add.button(_('Back'), self.handle_back)
 

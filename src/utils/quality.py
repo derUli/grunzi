@@ -5,6 +5,7 @@ ENABLE_BLOOM = False
 ENABLE_SMOOTH_SCALE = False
 ENABLE_FONT_ANTIALIASING = False
 SHADER_QUALITY = QUALITY_VERY_LOW
+PIXEL_FADES = False
 POST_PROCESSING = QUALITY_VERY_LOW
 
 def scale_method():
@@ -23,7 +24,7 @@ def shader_enabled():
     return SHADER_QUALITY > QUALITY_VERY_LOW
 
 def postprocessing():
-    """ Postprocessing enabled """
+    """ Vignette enabled """
     return POST_PROCESSING > QUALITY_VERY_LOW
 
 def postprocessing_high():
@@ -33,4 +34,4 @@ def pixel_fades_enabled():
     return shader_enabled()
 
 def bloom_enabled():
-    return POST_PROCESSING >= QUALITY_HIGH
+    return ENABLE_BLOOM
