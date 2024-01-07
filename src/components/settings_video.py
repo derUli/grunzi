@@ -4,7 +4,7 @@ import pygame
 
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_HIGH
+from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
@@ -43,7 +43,6 @@ class SettingsVideo(Component):
         """ Draw """
         self.draw_menu(self.screen)
 
-        
 
     def handle_back(self):
         """ Go back to settings menu """
@@ -84,31 +83,38 @@ class SettingsVideo(Component):
         self.settings_state.smoothscale = value
         self.settings_state.apply_and_save()
 
-
-    def handle_toggle_bloom(self, value):
-        """ Handle toggle bloom """
-        self.settings_state.bloom = value
-        self.settings_state.apply_and_save()
-
     def handle_toggle_font_antialiasing(self, value):
         """ Handle font antialiasing fullscreen """
         self.settings_state.font_antialiasing = value
         self.settings_state.apply_and_save()
 
-        
     def handle_change_shader_quality(self, selection, selected_index):
         """ Handle change quality """
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.shader_quality = value
         self.settings_state.apply_and_save()
-        store_clear()
+
+    def handle_change_postprocessing(self, selection, selected_index):
+        """ Handle change postprocessing """
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.postprocessing = value
+        self.settings_state.apply_and_save()
 
     def get_shader_quality_items(self):
         """ Get items for quality dropdown """
         return [
             (_('Off'), QUALITY_VERY_LOW),
+            (_('High'), QUALITY_HIGH)
+        ]
+
+    def get_postprocessing_items(self):
+        """ Get items for postprocessing dropdown """
+        return [
+            (_('Off'), QUALITY_VERY_LOW),
             (_('Low'), QUALITY_LOW),
+            (_('Medium'), QUALITY_MEDIUM),
             (_('High'), QUALITY_HIGH)
         ]
 
@@ -184,11 +190,13 @@ class SettingsVideo(Component):
             placeholder=get_longest_option(self.get_shader_quality_items()),
         )
 
-        menu.add.toggle_switch(
-            _('Bloom'),
-            self.settings_state.bloom,
-            self.handle_toggle_bloom,
-            state_text=state_text
+        menu.add.dropselect(
+            title=_('Postprocessing'),
+            default=self.get_selected_index(self.get_postprocessing_items(), self.settings_state.postprocessing),
+            items=self.get_postprocessing_items(),
+            onchange=self.handle_change_postprocessing,
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_postprocessing_items()),
         )
 
         menu.add.toggle_switch(

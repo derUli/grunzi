@@ -211,7 +211,7 @@ class PlayerState:
         return drawn
 
     def draw_blood(self, screen):
-        if not utils.quality.vignette_enabled():
+        if not utils.quality.postprocessing():
             return
 
         """ Draw bloody screen overlay """
@@ -238,7 +238,7 @@ class PlayerState:
             return
 
         # Low quality blood
-        if not utils.quality.vignette_quality_high():
+        if not utils.quality.postprocessing_high():
             self.blood_surface.set_alpha(255 / 100 * (percentage * 100))
             screen.blit(self.blood_surface, (0,0))
             return

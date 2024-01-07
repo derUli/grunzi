@@ -97,7 +97,7 @@ class Component(object):
 
     def draw_film_grain(self, screen):
         """ Draw film grain """
-        if not utils.quality.shader_enabled():
+        if not utils.quality.postprocessing():
             return
 
         grain = self.film_grain.get_frame()

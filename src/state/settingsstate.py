@@ -14,13 +14,11 @@ SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 
-
-SETTINGS_DEFAULT_BLOOM = True
 SETTINGS_DEFAULT_SMOOTHSCALE = True
 SETTINGS_DEFAULT_FONT_ANTI_ALIASING = True
 
 SETTINGS_DEFAULT_SHADER_QUALITY = QUALITY_HIGH
-
+SETTINGS_DEFAULT_POSTPROCESSING = QUALITY_HIGH
 
 SETTINGS_DEFAULT_VOLUME = 1.0
 
@@ -38,9 +36,9 @@ class SettingsState:
 
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
         self.font_antialiasing = SETTINGS_DEFAULT_FONT_ANTI_ALIASING
-        self.bloom = SETTINGS_DEFAULT_BLOOM
 
         self.shader_quality = SETTINGS_DEFAULT_SHADER_QUALITY
+        self.postprocessing = SETTINGS_DEFAULT_POSTPROCESSING
         self.handle_settings_change = handle_settings_change
 
     def apply_and_save(self):
@@ -76,10 +74,9 @@ class SettingsState:
 
         utils.quality.ENABLE_SMOOTH_SCALE = self.smoothscale
         utils.quality.ENABLE_FONT_ANTIALIASING = self.font_antialiasing
-        utils.quality.ENABLE_BLOOM = self.bloom
         utils.quality.SHADER_QUALITY = self.shader_quality
-        utils.quality.PIXEL_FADES = self.shader_quality >= QUALITY_LOW
-
+        utils.quality.POST_PROCESSING = self.postprocessing
+        
     def get_settings_path(self):
         """ Get settings file path """
         return os.path.join(get_userdata_path(), 'settings.json')
@@ -112,7 +109,7 @@ class SettingsState:
             'smoothscale': self.smoothscale,
             'shader_quality': self.shader_quality,
             'font_antialiasing': self.font_antialiasing,
-            'bloom': self.bloom
+            'postprocessing': self.postprocessing
         }
 
     def to_json(self):
@@ -149,5 +146,5 @@ class SettingsState:
         if 'shader_quality' in settings:
             self.shader_quality = settings['shader_quality']
 
-        if 'bloom' in settings:
-            self.bloom = settings['bloom']
+        if 'postprocessing' in settings:
+            self.postprocessing = settings['postprocessing']
