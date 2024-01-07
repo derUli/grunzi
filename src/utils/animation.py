@@ -4,7 +4,6 @@ import time
 from threading import Thread
 
 import pygame
-from PygameShader.shader import bilinear
 
 import utils.quality
 from constants.graphics import SPRITE_SIZE
@@ -88,8 +87,6 @@ class Animation:
             frame = frame.convert()
 
         if self.size:
-            if not is_alpha and self.size < frame.get_size():
-                scale_fn = bilinear
             frame = scale_fn(
                 frame,
                 self.size

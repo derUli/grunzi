@@ -7,7 +7,6 @@ import time
 from threading import Thread
 
 import pygame
-from PygameShader.shader import bilinear
 
 import components.tobecontinued
 import constants.game
@@ -77,14 +76,10 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
 
         self.backdrop = pygame.image.load(background_file).convert()
 
-        # bilinear is faster than smoothscale for scaling down
-        if self.settings_state.screen_resolution < self.backdrop.get_size():
-            self.backdrop = bilinear(self.backdrop, self.settings_state.screen_resolution)
-        else:
-            self.backdrop = utils.quality.scale_method()(
-                self.backdrop,
-                self.settings_state.screen_resolution
-            )
+        self.backdrop = utils.quality.scale_method()(
+            self.backdrop,
+            self.settings_state.screen_resolution
+        )
 
     def new_game(self):
         level_file = os.path.join(self.data_dir, 'levels', 'world.json')
@@ -260,7 +255,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         if self.do_fade:
             screen.set_alpha(self.alpha)
             self.screen.blit(screen, (0, 0))
-
+        
         self.mouse_handler.draw(
             screen,
             mainchar_rect,

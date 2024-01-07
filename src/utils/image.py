@@ -3,7 +3,6 @@ import os.path
 import time
 
 import pygame
-from PygameShader.shader import bilinear
 
 from constants.graphics import ALPHA_IMAGE_FORMATS
 from utils.quality import scale_method
@@ -51,12 +50,7 @@ class ImageCache:
                     image = image.convert()
 
                 if scale:
-                    # Bilinear is faster but only for scaling down
-                    # It can't handle transparency
-                    if not is_alpha and scale < image.get_size():
-                        image = bilinear(image, scale)
-                    else:
-                        image = scale_fn(image, scale)
+                    image = scale_fn(image, scale)
 
                 self.images[cache_id] = image
 

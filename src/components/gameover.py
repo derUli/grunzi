@@ -2,7 +2,6 @@
 import os
 
 import pygame
-from PygameShader.shader import bilinear
 
 import utils.image
 import utils.quality
@@ -43,10 +42,6 @@ class GameOver(Component):
         """ Draw GameOver screen """
 
         scale_fn = utils.quality.scale_method()
-
-        # Bilinear is faster for scaling down
-        if screen.get_size() < self.backdrop.get_size():
-            scale_fn = bilinear
 
         if self.backdrop.get_size() != screen.get_size():
             self.backdrop = scale_fn(self.backdrop, screen.get_size())

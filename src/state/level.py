@@ -75,7 +75,7 @@ class Level:
 
         load_end = time.time()
         load_time = load_end - load_start
-        logging.debug("Loading time: " + str(load_time))
+        logging.debug("Map loaded in " + str(load_time) + ' seconds')
 
     def to_diff_list(self):
         """
