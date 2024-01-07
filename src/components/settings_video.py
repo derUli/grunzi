@@ -43,6 +43,8 @@ class SettingsVideo(Component):
         """ Draw """
         self.draw_menu(self.screen)
 
+        
+
     def handle_back(self):
         """ Go back to settings menu """
         component = self.handle_change_component(self.old_component)
@@ -81,7 +83,12 @@ class SettingsVideo(Component):
         """ Handle toggle Smoothscale """
         self.settings_state.smoothscale = value
         self.settings_state.apply_and_save()
-        store_clear()
+        self.video.reload()
+
+    def handle_toggle_font_antialiasing(self, value):
+        """ Handle toggle fullscreen """
+        self.settings_state.font_antialiasing = value
+        self.settings_state.apply_and_save()
 
         
     def handle_change_shader_quality(self, selection, selected_index):
@@ -172,7 +179,6 @@ class SettingsVideo(Component):
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_shader_quality_items()),
         )
-        
 
         menu.add.toggle_switch(
             _('Smooth Scale'),
@@ -180,6 +186,14 @@ class SettingsVideo(Component):
             self.handle_toggle_smoothscale,
             state_text=state_text
         )
+
+        menu.add.toggle_switch(
+            _('Font Smoothing'),
+            self.settings_state.font_antialiasing,
+            self.handle_toggle_font_antialiasing,
+            state_text=state_text
+        )
+
 
         menu.add.button(_('Back'), self.handle_back)
 

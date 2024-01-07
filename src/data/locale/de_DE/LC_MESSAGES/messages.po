@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-07 19:13+0100\n"
+"POT-Creation-Date: 2024-01-07 19:33+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:101 components/menu.py:76 grunzi.py:26
+#: bootstrap/gamecontainer.py:101 components/menu.py:75 grunzi.py:26
 msgid "Grunzi"
 msgstr ""
 
@@ -79,47 +79,47 @@ msgstr ""
 msgid "the --enable-mouse flag."
 msgstr ""
 
-#: components/controls.py:125 components/settings.py:105
+#: components/controls.py:122 components/settings.py:104
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/controls.py:129
+#: components/controls.py:126
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/controls.py:131
+#: components/controls.py:128
 #, fuzzy
 msgid "Controller"
 msgstr "Controller"
 
-#: components/controls.py:133
+#: components/controls.py:130
 #, fuzzy
 msgid "Mouse"
 msgstr "Maus"
 
-#: components/controls.py:195
+#: components/controls.py:192
 #, fuzzy
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/controls.py:202
+#: components/controls.py:199
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/controls.py:204
+#: components/controls.py:201
 msgid "No Controller"
 msgstr "Kein Controller"
 
-#: components/gameover.py:56
+#: components/gameover.py:55
 msgid "Game Over"
 msgstr "Du bist Schinken!"
 
-#: components/gameover.py:59
+#: components/gameover.py:58
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/gameover.py:60 components/pausable_component.py:23
-#: components/settings.py:106
+#: components/gameover.py:59 components/pausable_component.py:23
+#: components/settings.py:105
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
@@ -131,32 +131,32 @@ msgstr "Sequenz vorrendern..."
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:393
+#: components/maingame.py:389
 #, fuzzy
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/maingame.py:543
+#: components/maingame.py:539
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:546
+#: components/maingame.py:542
 msgid "Level dumped."
 msgstr ""
 
-#: components/menu.py:77
+#: components/menu.py:76
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:80 components/pausable_component.py:20
+#: components/menu.py:79 components/pausable_component.py:20
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:83 components/settings.py:101
+#: components/menu.py:82 components/settings.py:100
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/menu.py:85
+#: components/menu.py:84
 msgid "Quit"
 msgstr "Beenden"
 
@@ -168,62 +168,66 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:103 components/settings_video.py:141
+#: components/settings.py:102 components/settings_video.py:147
 msgid "Video"
 msgstr ""
 
-#: components/settings.py:104 components/settings_audio.py:72
+#: components/settings.py:103 components/settings_audio.py:71
 msgid "Audio"
 msgstr ""
 
-#: components/settings_audio.py:75
+#: components/settings_audio.py:74
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings_audio.py:84
+#: components/settings_audio.py:83
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:92 components/settings_video.py:185
+#: components/settings_audio.py:91 components/settings_video.py:198
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:100 components/settings_video.py:143
+#: components/settings_video.py:106 components/settings_video.py:149
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings_video.py:101
+#: components/settings_video.py:107
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings_video.py:102
+#: components/settings_video.py:108
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:143
+#: components/settings_video.py:149
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:146
+#: components/settings_video.py:152
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:153
+#: components/settings_video.py:159
 msgid "V-Sync"
 msgstr ""
 
-#: components/settings_video.py:160
+#: components/settings_video.py:166
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:169
+#: components/settings_video.py:175
 #, fuzzy
 msgid "Shader Quality"
 msgstr "Shader-Qualität"
 
-#: components/settings_video.py:179
+#: components/settings_video.py:184
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
+
+#: components/settings_video.py:191
+msgid "Font Smoothing"
+msgstr "Schriftglättung"
 
 #: components/tobecontinued.py:38
 #, fuzzy
@@ -286,4 +290,7 @@ msgstr "Generiere Cache..."
 
 #~ msgid "Very High"
 #~ msgstr "Sehr hoch"
+
+#~ msgid "Font Antialiasing"
+#~ msgstr ""
 

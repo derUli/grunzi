@@ -6,7 +6,7 @@ import pygame
 
 import utils.audio
 import utils.quality
-from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_LOW, QUALITY_HIGH
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True
@@ -14,8 +14,8 @@ SETTINGS_DEFAULT_VOLUME = 1.0
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 
-SETTINGS_DEFAULT_QUALITY = QUALITY_VERY_HIGH
 SETTINGS_DEFAULT_SMOOTHSCALE = True
+SETTINGS_DEFAULT_FONT_ANTI_ALIASING = True
 SETTINGS_DEFAULT_SHADER_QUALITY = QUALITY_HIGH
 
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
@@ -32,9 +32,10 @@ class SettingsState:
 
         self.sound_volume = SETTINGS_DEFAULT_VOLUME
         self.music_volume = SETTINGS_DEFAULT_VOLUME
-        self.quality = SETTINGS_DEFAULT_QUALITY
 
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
+        self.font_antialiasing = SETTINGS_DEFAULT_FONT_ANTI_ALIASING
+
         self.shader_quality = SETTINGS_DEFAULT_SHADER_QUALITY
         self.handle_settings_change = handle_settings_change
 
@@ -70,9 +71,9 @@ class SettingsState:
         utils.audio.sound_volume = self.sound_volume
 
         utils.quality.ENABLE_SMOOTH_SCALE = self.smoothscale
-        utils.quality.ENABLE_FONT_ANTIALIASING = self.quality >= QUALITY_MEDIUM
+        utils.quality.ENABLE_FONT_ANTIALIASING = self.font_antialiasing
         utils.quality.SHADER_QUALITY = self.shader_quality
-        utils.quality.PIXEL_FADES = self.quality >= QUALITY_HIGH
+        utils.quality.PIXEL_FADES = self.shader_quality >= QUALITY_LOW
 
     def get_settings_path(self):
         """ Get settings file path """
@@ -104,7 +105,8 @@ class SettingsState:
             'limit_fps': self.limit_fps,
             'screen_resolution': self.screen_resolution,
             'smoothscale': self.smoothscale,
-            'shader_quality': self.shader_quality
+            'shader_quality': self.shader_quality,
+            'font_antialiasing': self.font_antialiasing
         }
 
     def to_json(self):
@@ -134,6 +136,9 @@ class SettingsState:
 
         if 'smoothscale' in settings:
             self.smoothscale = settings['smoothscale']
+
+        if 'font_antialiasing' in settings:
+            self.font_antialiasing = settings['font_antialiasing']
 
         if 'shader_quality' in settings:
             self.shader_quality = settings['shader_quality']
