@@ -8,7 +8,7 @@ from pygame.math import Vector2
 
 from sprites.coin import Coin
 from sprites.sprite import Sprite
-from utils.quality import font_antialiasing_enabled, shader_quality_high, scale_method
+from utils.quality import font_antialiasing_enabled, bloom_enabled, scale_method
 TEXT_POS = (830, 50)
 FONT_SIZE = 24
 TEXT_COLOR = (0, 0, 0)
@@ -103,7 +103,7 @@ class Telescope(Sprite):
         if self.scopes.get_size() != self.screen.get_size():
             self.scopes = self.scale(self.scopes, self.screen.get_size())
 
-        if MOUSE_POS.y < 255 and shader_quality_high():
+        if MOUSE_POS.y < 255 and bloom_enabled():
             shader_bloom_fast1(surf, threshold_=MOUSE_POS.y)
 
         surf.blit(self.scopes, (0, 0))

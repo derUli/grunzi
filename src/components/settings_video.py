@@ -84,8 +84,14 @@ class SettingsVideo(Component):
         self.settings_state.smoothscale = value
         self.settings_state.apply_and_save()
 
+
+    def handle_toggle_bloom(self, value):
+        """ Handle toggle bloom """
+        self.settings_state.bloom = value
+        self.settings_state.apply_and_save()
+
     def handle_toggle_font_antialiasing(self, value):
-        """ Handle toggle fullscreen """
+        """ Handle font antialiasing fullscreen """
         self.settings_state.font_antialiasing = value
         self.settings_state.apply_and_save()
 
@@ -176,6 +182,13 @@ class SettingsVideo(Component):
             onchange=self.handle_change_shader_quality,
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_shader_quality_items()),
+        )
+
+        menu.add.toggle_switch(
+            _('Bloom'),
+            self.settings_state.bloom,
+            self.handle_toggle_bloom,
+            state_text=state_text
         )
 
         menu.add.toggle_switch(

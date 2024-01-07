@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-07 19:33+0100\n"
+"POT-Creation-Date: 2024-01-07 20:09+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -26,100 +26,100 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/controls.py:53 components/controls.py:65
+#: components/controls.py:52 components/controls.py:64
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/controls.py:54 components/controls.py:66
+#: components/controls.py:53 components/controls.py:65
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/controls.py:55 components/controls.py:67
+#: components/controls.py:54 components/controls.py:66
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/controls.py:56 components/controls.py:68
+#: components/controls.py:55 components/controls.py:67
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/controls.py:57 components/controls.py:69
+#: components/controls.py:56 components/controls.py:68
 msgid "Run"
 msgstr "Rennen"
 
-#: components/controls.py:58 components/controls.py:70
+#: components/controls.py:57 components/controls.py:69
 #: components/pausable_component.py:17
 msgid "Pause"
 msgstr ""
 
-#: components/controls.py:59
+#: components/controls.py:58
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/controls.py:75
+#: components/controls.py:74
 msgid "Experimental mouse support"
 msgstr ""
 
-#: components/controls.py:77
+#: components/controls.py:76
 msgid "Disabled"
 msgstr ""
 
-#: components/controls.py:82
+#: components/controls.py:81
 msgid "Enabled"
 msgstr ""
 
-#: components/controls.py:84
+#: components/controls.py:83
 msgid "Status"
 msgstr ""
 
-#: components/controls.py:89
+#: components/controls.py:88
 msgid "To enable the experimental mouse support run the game with"
 msgstr ""
 
-#: components/controls.py:94
+#: components/controls.py:93
 msgid "the --enable-mouse flag."
 msgstr ""
 
-#: components/controls.py:122 components/settings.py:104
+#: components/controls.py:121 components/settings.py:103
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/controls.py:126
+#: components/controls.py:125
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/controls.py:128
+#: components/controls.py:127
 #, fuzzy
 msgid "Controller"
 msgstr "Controller"
 
-#: components/controls.py:130
+#: components/controls.py:129
 #, fuzzy
 msgid "Mouse"
 msgstr "Maus"
 
-#: components/controls.py:192
+#: components/controls.py:191
 #, fuzzy
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/controls.py:199
+#: components/controls.py:198
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/controls.py:201
+#: components/controls.py:200
 msgid "No Controller"
 msgstr "Kein Controller"
 
-#: components/gameover.py:55
+#: components/gameover.py:54
 msgid "Game Over"
 msgstr "Du bist Schinken!"
 
-#: components/gameover.py:58
+#: components/gameover.py:57
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/gameover.py:59 components/pausable_component.py:23
-#: components/settings.py:105
+#: components/gameover.py:58 components/pausable_component.py:23
+#: components/settings.py:104
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
@@ -131,16 +131,16 @@ msgstr "Sequenz vorrendern..."
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:389
+#: components/maingame.py:388
 #, fuzzy
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/maingame.py:539
+#: components/maingame.py:538
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:542
+#: components/maingame.py:541
 msgid "Level dumped."
 msgstr ""
 
@@ -152,7 +152,7 @@ msgstr "Neues Spiel"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:82 components/settings.py:100
+#: components/menu.py:82 components/settings.py:99
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -168,64 +168,68 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:102 components/settings_video.py:147
+#: components/settings.py:101 components/settings_video.py:151
 msgid "Video"
 msgstr ""
 
-#: components/settings.py:103 components/settings_audio.py:71
+#: components/settings.py:102 components/settings_audio.py:70
 msgid "Audio"
 msgstr ""
 
-#: components/settings_audio.py:74
+#: components/settings_audio.py:73
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings_audio.py:83
+#: components/settings_audio.py:82
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:91 components/settings_video.py:198
+#: components/settings_audio.py:90 components/settings_video.py:209
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:106 components/settings_video.py:149
+#: components/settings_video.py:110 components/settings_video.py:153
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings_video.py:107
+#: components/settings_video.py:111
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings_video.py:108
+#: components/settings_video.py:112
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:149
+#: components/settings_video.py:153
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:152
+#: components/settings_video.py:156
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:159
+#: components/settings_video.py:163
 msgid "V-Sync"
 msgstr ""
 
-#: components/settings_video.py:166
+#: components/settings_video.py:170
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:175
+#: components/settings_video.py:179
 #, fuzzy
 msgid "Shader Quality"
 msgstr "Shader-Qualität"
 
-#: components/settings_video.py:184
+#: components/settings_video.py:188
+msgid "Bloom"
+msgstr ""
+
+#: components/settings_video.py:195
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
-#: components/settings_video.py:191
+#: components/settings_video.py:202
 msgid "Font Smoothing"
 msgstr "Schriftglättung"
 
@@ -274,7 +278,7 @@ msgstr "Speichere Level..."
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
-#: state/playerstate.py:93
+#: state/playerstate.py:92
 msgid "Ouch!"
 msgstr "Autsch!"
 

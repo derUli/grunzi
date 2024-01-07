@@ -1,5 +1,7 @@
 import pygame
 from constants.quality import QUALITY_VERY_LOW, QUALITY_HIGH
+
+ENABLE_BLOOM = False
 ENABLE_SMOOTH_SCALE = False
 ENABLE_FONT_ANTIALIASING = False
 SHADER_QUALITY = QUALITY_VERY_LOW
@@ -36,4 +38,5 @@ def vignette_quality_high():
 def pixel_fades_enabled():
     return shader_enabled()
 
-
+def bloom_enabled():
+    return ENABLE_BLOOM
