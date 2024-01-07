@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-07 18:17+0100\n"
+"POT-Creation-Date: 2024-01-07 19:13+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -168,7 +168,7 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:103 components/settings_video.py:142
+#: components/settings.py:103 components/settings_video.py:141
 msgid "Video"
 msgstr ""
 
@@ -184,55 +184,44 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:92 components/settings_video.py:186
+#: components/settings_audio.py:92 components/settings_video.py:185
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:99
-msgid "Very Low"
-msgstr "Sehr niedrig"
-
-#: components/settings_video.py:100
-msgid "Low"
-msgstr "Niedrig"
+#: components/settings_video.py:100 components/settings_video.py:143
+msgid "Off"
+msgstr "Aus"
 
 #: components/settings_video.py:101
-msgid "Medium"
-msgstr "Mittel"
+msgid "Low"
+msgstr "Niedrig"
 
 #: components/settings_video.py:102
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:103
-msgid "Very High"
-msgstr "Sehr hoch"
-
-#: components/settings_video.py:144
-msgid "Off"
-msgstr "Aus"
-
-#: components/settings_video.py:144
+#: components/settings_video.py:143
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:147
+#: components/settings_video.py:146
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:154
+#: components/settings_video.py:153
 msgid "V-Sync"
 msgstr ""
 
-#: components/settings_video.py:161
+#: components/settings_video.py:160
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:170
-msgid "Quality"
-msgstr "Qualität"
+#: components/settings_video.py:169
+#, fuzzy
+msgid "Shader Quality"
+msgstr "Shader-Qualität"
 
-#: components/settings_video.py:180
+#: components/settings_video.py:179
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
@@ -265,11 +254,11 @@ msgstr "Da ist ein Schlüsselloch in der Mauer."
 msgid "Henlo Fren!"
 msgstr ""
 
-#: sprites/telescope.py:122
+#: sprites/telescope.py:120
 msgid "[Insert Coin]"
 msgstr "[Münze einwerfen]"
 
-#: sprites/telescope.py:128
+#: sprites/telescope.py:126
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
@@ -288,4 +277,13 @@ msgstr "Autsch!"
 #: utils/render_cache.py:32 utils/render_cache.py:51 utils/render_cache.py:53
 msgid "Generating cache..."
 msgstr "Generiere Cache..."
+
+#~ msgid "Very Low"
+#~ msgstr "Sehr niedrig"
+
+#~ msgid "Medium"
+#~ msgstr "Mittel"
+
+#~ msgid "Very High"
+#~ msgstr "Sehr hoch"
 

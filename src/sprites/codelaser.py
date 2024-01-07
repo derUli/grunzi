@@ -2,6 +2,7 @@
 
 from constants.direction import DIRECTION_UP, DIRECTION_DOWN
 from sprites.fadeable import Fadeable
+from utils.quality import shader_enabled
 
 OFFSET_FROM = -25
 OFFSET_TO = 25
@@ -27,6 +28,9 @@ class CodeLaser(Fadeable):
         y += self.offset_y
 
         screen.blit(self.sprite, (x, y))
+
+        if not shader_enabled():
+            return
 
         if self.direction == DIRECTION_DOWN:
             self.offset_y += MOVE_SPEED

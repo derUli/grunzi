@@ -4,7 +4,7 @@ import pygame
 
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_HIGH
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
@@ -84,23 +84,22 @@ class SettingsVideo(Component):
         self.settings_state.apply_and_save()
         store_clear()
 
-    def handle_change_quality(self, selection, selected_index):
+        
+    def handle_change_shader_quality(self, selection, selected_index):
         """ Handle change quality """
         selected_item, index = selection
         text, value = selected_item
-        self.settings_state.quality = value
+        self.settings_state.shader_quality = value
         self.settings_state.apply_and_save()
         store_clear()
         self.video.reload()
 
-    def get_quality_items(self):
+    def get_shader_quality_items(self):
         """ Get items for quality dropdown """
         return [
-            (_('Very Low'), QUALITY_VERY_LOW),
+            (_('Off'), QUALITY_VERY_LOW),
             (_('Low'), QUALITY_LOW),
-            (_('Medium'), QUALITY_MEDIUM),
-            (_('High'), QUALITY_HIGH),
-            (_('Very High'), QUALITY_VERY_HIGH),
+            (_('High'), QUALITY_HIGH)
         ]
 
     def get_screen_resolution_items(self):
@@ -165,17 +164,17 @@ class SettingsVideo(Component):
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_screen_resolution_items()),
         )
-
-        menu.add.dropselect(
-            title=_('Quality'),
-            default=self.get_selected_index(self.get_quality_items(), self.settings_state.quality),
-            items=self.get_quality_items(),
-            onchange=self.handle_change_quality,
-            placeholder_add_to_selection_box=False,
-            placeholder=get_longest_option(self.get_quality_items()),
-        )
-
         
+        menu.add.dropselect(
+            title=_('Shader Quality'),
+            default=self.get_selected_index(self.get_shader_quality_items(), self.settings_state.shader_quality),
+            items=self.get_shader_quality_items(),
+            onchange=self.handle_change_shader_quality,
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_shader_quality_items()),
+        )
+        
+
         menu.add.toggle_switch(
             _('Smooth Scale'),
             self.settings_state.smoothscale,

@@ -16,6 +16,7 @@ SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 
 SETTINGS_DEFAULT_QUALITY = QUALITY_VERY_HIGH
 SETTINGS_DEFAULT_SMOOTHSCALE = True
+SETTINGS_DEFAULT_SHADER_QUALITY = QUALITY_HIGH
 
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 
@@ -33,6 +34,7 @@ class SettingsState:
         self.music_volume = SETTINGS_DEFAULT_VOLUME
         self.quality = SETTINGS_DEFAULT_QUALITY
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
+        self.shader_quality = SETTINGS_DEFAULT_SHADER_QUALITY
         self.handle_settings_change = handle_settings_change
 
     def apply_and_save(self):
@@ -68,8 +70,7 @@ class SettingsState:
 
         utils.quality.ENABLE_SMOOTH_SCALE = self.smoothscale
         utils.quality.ENABLE_FONT_ANTIALIASING = self.quality >= QUALITY_MEDIUM
-        utils.quality.SHADER_ENABLED = self.quality >= QUALITY_HIGH
-        utils.quality.VIGNETTE_ENABLED = self.quality >= QUALITY_VERY_HIGH
+        utils.quality.SHADER_QUALITY = self.shader_quality
         utils.quality.PIXEL_FADES = self.quality >= QUALITY_HIGH
 
     def get_settings_path(self):

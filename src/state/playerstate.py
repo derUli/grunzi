@@ -6,7 +6,7 @@ import time
 import numpy
 import pygame
 from PygameShader.shader import blood
-
+from constants.quality import QUALITY_LOW
 import utils.quality
 from constants.headup import UI_MARGIN, BOTTOM_UI_HEIGHT, BOTTOM_UI_BACKGROUND
 from sprites.inlinesprite import InlineSprite
@@ -212,6 +212,9 @@ class PlayerState:
         return drawn
 
     def draw_blood(self, screen):
+        if not utils.quality.vignette_enabled():
+            return
+
         """ Draw bloody screen overlay """
         if self.health == 100:
             return
@@ -235,8 +238,8 @@ class PlayerState:
         if (percentage <= 0):
             return
 
-                    
-        if not utils.quality.vignette_enabled():
+        # Low quality blood
+        if not utils.quality.vignette_quality_high():
             self.blood_surface.set_alpha(255 / 100 * (percentage * 100))
             screen.blit(self.blood_surface, (0,0))
             return
