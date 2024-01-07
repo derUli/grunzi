@@ -59,15 +59,3 @@ START: Menü aufrufen
 
 Das Spiel startet beim ersten Start in der Auflösung 1280x720 (720P) bei hoher Grafikqualität.
 Dies kann in den Grafikeinstellungen geändert werden.
-
-## Grafikqualität
-
-Im Folgenden eine Aufschlüsselung der Grafikqualitäten:
-
-| Qualität     | Backdrops  | Weiche Skalierung | Film Grain | Antialiasing für Fonts | Wasser-Animationen | Bloody Screen | Pixel Fades |
-| ------------ |:----------:|:-----------------:|:----------:|:---------------------:|:-----------------:|:--------------:|:------------:|
-| Sehr Niedrig |     ❌    |        ❌         |     ❌     |            ❌         |         ❌        |       ❌       |     ❌      |
-| Niedrig      |     ✅    |        ❌         |     ❌     |            ❌         |         ❌        |       ❌       |     ❌      |
-| Mittel       |     ✅    |        ❌         |     ❌     |            ✅         |         ❌        |       ❌       |     ❌      |
-| Hoch         |     ✅    |        ✅         |     ❌     |            ✅         |         ✅        |       ❌       |     ✅      |
-| Sehr hoch    |     ✅    |        ✅         |     ✅     |            ✅         |         ✅        |       ✅       |     ✅      |

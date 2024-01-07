@@ -83,7 +83,6 @@ class SettingsVideo(Component):
         """ Handle toggle Smoothscale """
         self.settings_state.smoothscale = value
         self.settings_state.apply_and_save()
-        self.video.reload()
 
     def handle_toggle_font_antialiasing(self, value):
         """ Handle toggle fullscreen """
@@ -98,7 +97,6 @@ class SettingsVideo(Component):
         self.settings_state.shader_quality = value
         self.settings_state.apply_and_save()
         store_clear()
-        self.video.reload()
 
     def get_shader_quality_items(self):
         """ Get items for quality dropdown """

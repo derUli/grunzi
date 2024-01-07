@@ -10,7 +10,6 @@ from components.controls import Controls
 from components.settings_audio import SettingsAudio
 from components.settings_video import SettingsVideo
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu

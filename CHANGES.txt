@@ -1,6 +1,10 @@
 # Changelog
 
-# Alpha 003
+## Alpha 004
+
+* Grafik-Optionen sind jetzt getrennt einstellbar
+
+## Alpha 003
 
 * Intro
 * Neues Puzzle mit Zahlencode hinzugefügt

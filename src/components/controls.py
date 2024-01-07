@@ -8,7 +8,6 @@ from components.fadeable_component import FadeableComponent
 from constants import gamepad
 from constants import keyboard
 from constants.game import MONOTYPE_FONT
-from constants.quality import QUALITY_LOW
 from utils.string import label_value
 
 PAGE_KEYBOARD = 0

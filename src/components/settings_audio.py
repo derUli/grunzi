@@ -3,7 +3,6 @@ import os
 import utils.audio
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu

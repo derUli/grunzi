@@ -23,7 +23,6 @@ from constants import direction
 from constants import gamepad
 from constants import keyboard
 from constants.headup import BOTTOM_UI_HEIGHT
-from constants.quality import QUALITY_LOW
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from sprites.maincharacter import MainCharacter
