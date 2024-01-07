@@ -21,7 +21,6 @@ RUMBLE_DURATION_PAIN = 200
 RUMBLE_LOW_FREQUENCY = 1
 RUMBLE_HIGH_FREQUENCY = 1
 
-
 class PlayerState:
     def __init__(self, data_dir, gamepad=None):
         """ Constructor """
@@ -216,10 +215,6 @@ class PlayerState:
         """ Draw bloody screen overlay """
         if self.health == 100:
             return
-
-        if not utils.quality.vignette_enabled():
-            return
-
         if self.blood_surface.get_size() != screen.get_size():
             self.blood_surface = utils.quality.scale_method()(
                 self.blood_surface,
@@ -238,6 +233,12 @@ class PlayerState:
         percentage = 1.0 - (self.health / 100)
 
         if (percentage <= 0):
+            return
+
+                    
+        if not utils.quality.vignette_enabled():
+            self.blood_surface.set_alpha(255 / 100 * (percentage * 100))
+            screen.blit(self.blood_surface, (0,0))
             return
 
         blood(screen, self.blood_mask, percentage)
