@@ -77,6 +77,13 @@ class SettingsVideo(Component):
         self.settings_state.vsync = value
         self.settings_state.apply_and_save()
         self.old_component.needs_restart = True
+
+    def handle_toggle_smoothscale(self, value):
+        """ Handle toggle Smoothscale """
+        self.settings_state.smoothscale = value
+        self.settings_state.apply_and_save()
+        store_clear()
+
     def handle_change_quality(self, selection, selected_index):
         """ Handle change quality """
         selected_item, index = selection
@@ -166,6 +173,14 @@ class SettingsVideo(Component):
             onchange=self.handle_change_quality,
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_quality_items()),
+        )
+
+        
+        menu.add.toggle_switch(
+            _('Smooth Scale'),
+            self.settings_state.smoothscale,
+            self.handle_toggle_smoothscale,
+            state_text=state_text
         )
 
         menu.add.button(_('Back'), self.handle_back)
