@@ -120,6 +120,8 @@ class Level:
             f.write(json.dumps(self.to_saveable_list(), indent=0))
 
     def dump(self, progress_callback=None):
+        start_time = time.time()
+
         """ Dump map  to image """
         w, h = constants.graphics.SPRITE_SIZE
 
@@ -164,6 +166,10 @@ class Level:
                         element.draw(surface, x, y)
 
         make_dump(surface)
+
+        end_time = time.time()
+
+        logging.debug('Map dumped in ' + str(end_time - start_time) + ' seconds')
 
     def total_blocks(self, leveldata):
         """ Calculate total blocks count for progress bar"""
