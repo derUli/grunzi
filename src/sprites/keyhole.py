@@ -27,7 +27,7 @@ class Keyhole(Fadeable):
         )
 
     def handle_interact(self, element):
-
+        """ Handle interaction witohut item """
         # Play sound on unlock
         if not self.walkable:
             play_sound(self.door_closed_sound)

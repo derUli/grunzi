@@ -5,7 +5,7 @@
 * Intro
 * Neues Puzzle mit Zahlencode hinzugefügt
 * Hunde KI verbessert
-* Standard-Bildschirmauflösung wird jetzt dynamisch ermittelt
+* Dekoration hinzugefügt
 
 ## Alpha 002
 
