@@ -24,6 +24,8 @@ class Dynamite(Takeable):
             return
 
         second = int(self.clock.duration)
+
+        # TODO: Add visual countdown to dynamyte image
         if second > self.last_second:
             self.last_second = second
             self.play_countdown_sound()
@@ -31,10 +33,11 @@ class Dynamite(Takeable):
         # TODO: If countdown expired explode
         if second >= COUNT_TO:
             self.clock.stop()
+            self.play_explosion_sound()
 
 
     def play_countdown_sound(self):
-           play_sound(
+        play_sound(
             os.path.join(
                 self.sprite_dir,
                 '..',
@@ -45,3 +48,14 @@ class Dynamite(Takeable):
             )
         )
 
+    def play_explosion_sound(self):
+        play_sound(
+            os.path.join(
+                self.sprite_dir,
+                '..',
+                '..',
+                'sounds',
+                'common',
+                'explosion.ogg'
+            )
+        )
