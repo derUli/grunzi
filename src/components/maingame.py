@@ -31,6 +31,7 @@ from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
 from utils.mouse_handler import MouseHandler
 from utils.music_queue import MusicQueue
+from utils.atmosphere.atmosphere import Atmosphere
 
 BACKDROP_COLOR = (36, 63, 64)
 
@@ -62,6 +63,8 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         self.enable_mouse = False
         self.async_ai_running = None
         self.is_level_exit = False
+
+        self.atmosphere = Atmosphere()
 
         self.music_queue = MusicQueue()
         self.mouse_handler = MouseHandler(
@@ -130,6 +133,8 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         """ On mount hide mouse pointer and start music """
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
+
+        self.atmosphere.start()
 
         # CREDITS: https://audionautix.com/creative-commons-music
 
@@ -255,9 +260,12 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
                 x = 0
             z += 1
 
-            
+
+        
 
         screen.blit(virtual_screen, (0, 0))
+
+        self.atmosphere.draw(screen)
 
         # Draw head up display
         headup_display = self.state.player_state.draw(screen)
