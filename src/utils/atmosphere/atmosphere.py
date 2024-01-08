@@ -1,6 +1,9 @@
 import pygame
 import time
 from utils.atmosphere.daynightcycle import DayNightCycle
+from utils.atmosphere.fog import Fog
+from utils.atmosphere.rain import Rain
+
 
 class Atmosphere:
 
@@ -16,6 +19,8 @@ class Atmosphere:
 
     def reset(self):
         self.atmosphere_layers = [
+            Fog(),
+            Rain(),
             DayNightCycle()
         ]
 
