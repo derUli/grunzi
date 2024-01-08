@@ -51,4 +51,7 @@ class Horse(Killable, Character):
 
     def handle_interact(self, element):
         if element and element.state:
+            if element.state.display_text.rendered_text:
+                return
+
             element.state.say(self.next_sentence())
