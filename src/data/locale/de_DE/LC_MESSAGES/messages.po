@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-08 11:27+0100\n"
+"POT-Creation-Date: 2024-01-08 21:09+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -47,7 +47,7 @@ msgid "Run"
 msgstr "Rennen"
 
 #: components/controls.py:63 components/controls.py:75
-#: components/pausable_component.py:17
+#: components/pausable_component.py:19
 msgid "Pause"
 msgstr ""
 
@@ -118,7 +118,7 @@ msgstr "Du bist Schinken!"
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/gameover.py:60 components/pausable_component.py:23
+#: components/gameover.py:60 components/pausable_component.py:25
 #: components/settings.py:110
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
@@ -131,16 +131,16 @@ msgstr "Sequenz vorrendern..."
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:392
+#: components/maingame.py:402
 #, fuzzy
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/maingame.py:542
+#: components/maingame.py:552
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:545
+#: components/maingame.py:555
 msgid "Level dumped."
 msgstr ""
 
@@ -148,7 +148,7 @@ msgstr ""
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:85 components/pausable_component.py:20
+#: components/menu.py:85 components/pausable_component.py:22
 msgid "Continue"
 msgstr "Fortsetzen"
 
@@ -160,11 +160,11 @@ msgstr "Einstellungen"
 msgid "Quit"
 msgstr "Beenden"
 
-#: components/pausable_component.py:22
+#: components/pausable_component.py:24
 msgid "Save Game"
 msgstr "Spiel speichern"
 
-#: components/pausable_component.py:47
+#: components/pausable_component.py:51
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
@@ -260,9 +260,25 @@ msgstr "Die Tür ist abgeschlossen. Ich brauche einen Schlüssel."
 msgid "The door is now open."
 msgstr "Die Tür ist jetzt offen."
 
-#: sprites/dynamite.py:126
+#: sprites/dynamite.py:128
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
+
+#: sprites/horse.py:36
+msgid "Infinity bloodless!"
+msgstr "Unendlich blutleer!"
+
+#: sprites/horse.py:37
+msgid "I don't have a single drop of blood left."
+msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
+
+#: sprites/horse.py:38
+msgid "Please give me some blood!"
+msgstr "Bitte gib mir etwas Blut!"
+
+#: sprites/horse.py:39
+msgid "I am infinitely thirsty for blood."
+msgstr "Ich bin unendlich durstig nach Blut!"
 
 #: sprites/keyhole.py:47
 msgid "There is a keyhole in the wall."
@@ -288,7 +304,7 @@ msgstr "Speichere Level..."
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
-#: state/playerstate.py:91
+#: state/playerstate.py:92
 msgid "Ouch!"
 msgstr "Autsch!"
 
@@ -313,4 +329,7 @@ msgstr "Generiere Cache..."
 
 #~ msgid "Font Smoothing"
 #~ msgstr "Schriftglättung"
+
+#~ msgid "Infinity bloodles!"
+#~ msgstr ""
 
