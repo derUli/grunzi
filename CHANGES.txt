@@ -1,5 +1,13 @@
 # Changelog
 
+## Alpha 005 (Not yet released)
+
+* [ ] Quest mit blutleerem Pferd hinzufügen
+* [ ] Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
+* [ ] Autosave (?)
+* [ ] Quest-Anzeige (?)
+* [ ] Sprachausgabe (?)
+
 ## Alpha 004
 
 * Puzzle mit Sprengstoff hinzugefügt
