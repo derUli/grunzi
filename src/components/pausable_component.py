@@ -5,12 +5,14 @@ import utils.savegame
 from constants import gamepad
 from constants import keyboard
 from utils.menu import make_menu
+from utils.audio import pause_sounds, unpause_sounds, stop_sounds
 
 MAX_BLUR_ITERATIONS = 20
 
 
 class PausableComponent:
     def pause_menu(self):
+        pause_sounds()
         self.last_screen = self.screen.copy().convert()
         self.blur_iteration = 0
 
@@ -29,6 +31,7 @@ class PausableComponent:
 
     def handle_continue_game(self):
         self.menu.disable()
+        unpause_sounds()
         self.music_queue.unpause()
         pygame.mouse.set_visible(0)
 
@@ -50,6 +53,7 @@ class PausableComponent:
     def back_to_main_menu(self):
         self.menu.disable()
         pygame.mouse.set_visible(1)
+        stop_sounds()
         self.handle_change_component(None)
 
     def handle_event(self, event):

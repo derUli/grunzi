@@ -2,6 +2,8 @@
 
 ## Alpha 004
 
+* Puzzle mit Sprengstoff hinzugefügt
+* Wenn man das Spiel pausiert, werden jetzt auch die Soundeffekte gestoppt
 * Grafik-Optionen sind jetzt getrennt einstellbar
 
 ## Alpha 003

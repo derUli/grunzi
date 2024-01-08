@@ -7,12 +7,33 @@ except ImportError:
 
 sound_volume = 1.0
 
+CHANNELS = []
 
 def play_sound(file):
     """ Play a sound once """
     sound = pygame.mixer.Sound(file)
     sound.set_volume(sound_volume)
-    return sound.play()
+
+    channel = sound.play()
+    CHANNELS.append(channel)
+    return channel
+
+def stop_sounds():
+    for channel in CHANNELS:
+        if channel and channel.get_busy():
+            channel.stop()
+
+    CHANNELS.clear()
+
+def pause_sounds():
+    for channel in CHANNELS:
+        if channel and channel.get_busy():
+            channel.pause()
+
+def unpause_sounds():
+    for channel in CHANNELS:
+        if channel and channel.get_busy():
+            channel.unpause()
 
 
 def play_music(file, repeat=-1):

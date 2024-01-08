@@ -26,7 +26,7 @@ from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from sprites.maincharacter import MainCharacter
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
-from utils.audio import play_sound
+from utils.audio import play_sound, stop_sounds
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
 from utils.mouse_handler import MouseHandler
@@ -144,6 +144,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         self.async_ai_running = False
         pygame.mouse.set_visible(1)
         self.music_queue.stop()
+        stop_sounds()
 
     def draw(self, screen):
         """ Draw screen """

@@ -20,7 +20,6 @@ RUMBLE_DURATION_PAIN = 200
 RUMBLE_LOW_FREQUENCY = 1
 RUMBLE_HIGH_FREQUENCY = 1
 
-
 class PlayerState:
     def __init__(self, data_dir, gamepad=None):
         """ Constructor """
@@ -89,7 +88,6 @@ class PlayerState:
         sound = random.choice(self.hurt_sounds)
         play_sound(sound)
         self.update_health()
-        self.flash()
         self.say(_('Ouch!'))
 
         if self.gamepad:
@@ -263,6 +261,9 @@ class PlayerState:
         """ Put item into inventory """
         if self.inventory:
             return False
+
+        if not item.walkable:
+            return
 
         self.inventory = item
         self.use_item = False

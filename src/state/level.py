@@ -146,6 +146,7 @@ class Level:
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
+                    print(element)
 
                     loaded_blocks += 1
                     percentage = round(one_percent * loaded_blocks)
