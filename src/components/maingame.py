@@ -255,6 +255,8 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
                 x = 0
             z += 1
 
+            
+
         screen.blit(virtual_screen, (0, 0))
 
         # Draw head up display

@@ -9,13 +9,13 @@
 ## Alpha 003
 
 * Intro
-* Neues Puzzle mit Zahlencode hinzugefügt
+* Puzzle mit Zahlencode hinzugefügt
 * Hunde KI verbessert
 * Dekoration hinzugefügt
 
 ## Alpha 002
 
-* Neues Puzzle mit Holzbrettern hinzugefügt
+* Puzzle mit Holzbrettern hinzugefügt
 * Mehr Musik-Tracks
 * Spielstände jetzt aufwärtskompatibel
 * Experimentelle Maussteuerung
