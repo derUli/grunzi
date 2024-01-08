@@ -1,35 +1,50 @@
 import time
 import pygame
-UPDATE_DATETIME_INTERVAL = 0.01 # Update the datetime lightning any X seconds
-DARKEST_DATETIME = 200
-BRIGHTES_DATETIME = 0
+from utils.quality import daynightcycle_enabled, bloom_enabled
+from utils.atmosphere.globaleffect import GlobalEffect
+from PygameShader.shader import zoom, shader_bloom_fast1
 
+UPDATE_DATETIME_INTERVAL = 1.1765 # Halber Tag in Spielzeit = 300 Sekunden
+DARKEST_DAYTIME = 240
+BRIGHTEST_DAYTIME = 0
+
+DEFAULT_DAYTIME = 20
 MODIFIER_DARK = 1
 MODIFIER_LIGHT = -1
 
 
-from PygameShader.shader import zoom, shader_bloom_fast1
-
-class DayNightCycle:
+class DayNightCycle(GlobalEffect):
 
     def __init__(self):
-        self.daytime = 190
-        self.daytime_updated = time.time()
-        self.modifier = MODIFIER_DARK
-        self.surface = None
-        self.enabled = False
-
-    def start(self):
-        self.reset()
-
-
-    def reset(self):
         self.daytime = 0
         self.daytime_updated = time.time()
-        self.surface = None
-        self.enabled = True
+        self.modifier = MODIFIER_DARK
+        self.surfaces = None
+        self.enabled = False
 
-        pass
+    def start(self, args = {}):
+        self.reset()
+
+        if 'dnc_daytime' in args:
+            self.daytime = args['dnc_daytime']
+
+        if 'dnc_modifier' in args:
+            self.modifier = args['dnc_modifier']
+
+
+    def to_dict(self):
+        return {
+            'dnc_daytime': self.daytime,
+            'dnc_modifier': self.modifier
+        }
+
+    def reset(self):
+        self.daytime = DEFAULT_DAYTIME
+        self.daytime_updated = time.time()
+        self.surface = None
+        self.enabled = daynightcycle_enabled()
+        self.modifier = MODIFIER_DARK
+        self.surfaces = None
 
     def init_surface(self, screen):
         w, h = screen.get_size()
@@ -51,18 +66,23 @@ class DayNightCycle:
         if time.time() - self.daytime_updated >= UPDATE_DATETIME_INTERVAL:
             self.daytime_updated = time.time()
             self.daytime += self.modifier
-            print(self.daytime)
             self.surface.set_alpha(self.daytime)
 
-            if self.daytime <= BRIGHTES_DATETIME:
-                self.modifier = MODIFIER_DARK
-            elif self.daytime >= DARKEST_DATETIME:
-                self.modifier = MODIFIER_LIGHT
 
-        # If Alpha is 0 don't draw the layer for performance reasons
-        if self.daytime <= 0:
-            return 
+            if self.daytime >= DARKEST_DAYTIME:
+                self.modifier = MODIFIER_LIGHT
+            elif self.daytime <= BRIGHTEST_DAYTIME:
+                self.modifier = MODIFIER_DARK
 
         self.surface.set_alpha(self.daytime)
 
         screen.blit((self.surface), (0, 0))
+
+        if not bloom_enabled():
+            return 
+
+        bloom_amount = 127.5 + self.daytime
+
+
+        if bloom_amount < 255:
+            shader_bloom_fast1(screen, bloom_amount)

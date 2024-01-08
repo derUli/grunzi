@@ -43,6 +43,7 @@ class PausableComponent:
             self.blur_iteration += 1
 
     def handle_save_game(self):
+        self.state.atmosphere = self.atmosphere
         utils.savegame.save_game(
             utils.savegame.DEFAULT_SAVE,
             self.state,

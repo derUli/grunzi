@@ -97,6 +97,8 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
     def load_savegame(self):
         """ Load savegame """
         level_file = os.path.join(self.data_dir, 'levels', 'world.json')
+
+        self.state.atmosphere = self.atmosphere
         self.load_level(level_file)
         savegame = utils.savegame.load_game(
             utils.savegame.DEFAULT_SAVE, self.state)

@@ -16,6 +16,7 @@ class State:
         self.level = 1
         self.edit_mode = False
         self.show_only_layer = None
+        self.atmosphere = None
 
     def to_dict(self):
         """ To dictionary """
@@ -24,11 +25,17 @@ class State:
         if inventory:
             inventory = inventory.to_dict()
 
-        return {
+        savdict = {
             'health': self.player_state.health,
             'inventory': inventory,
             'level': self.level
         }
+        
+
+        if self.atmosphere:
+            savdict = savdict | self.atmosphere.to_dict()
+
+        return savdict
 
     def to_json(self):
         """ To json """
@@ -40,6 +47,8 @@ class State:
         self.player_state.health = savegame['health']
         self.player_state.update_health()
         self.player_state.inventory = None
+
+        self.atmosphere.start(savegame)
 
         if 'level' in savegame and savegame['level']:
             self.level = savegame['level']
