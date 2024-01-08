@@ -11,7 +11,7 @@ class Atmosphere:
         self.atmosphere_layers = []
         pass
 
-    def start(self, args = {}):
+    def start(self, args={}):
         self.reset()
 
         for layer in self.atmosphere_layers:
@@ -30,13 +30,11 @@ class Atmosphere:
     def draw(self, screen):
         for layer in self.atmosphere_layers:
             layer.draw(screen)
-       
 
     def to_dict(self):
         savdict = {}
 
         for layer in self.atmosphere_layers:
-            savdict = savdict |  layer.to_dict()
-
+            savdict = savdict | layer.to_dict()
 
         return savdict

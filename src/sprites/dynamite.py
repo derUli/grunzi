@@ -18,6 +18,7 @@ TARGET_POS_Y = 148
 
 DAMAGE_ZONE = 2
 
+
 class Dynamite(Takeable):
     """ Wall sprite class """
 
@@ -31,7 +32,13 @@ class Dynamite(Takeable):
 
         animation_dir = os.path.join(sprite_dir, 'animations', 'explosion')
 
-        data_dir = os.path.abspath(os.path.join(self.sprite_dir, '..', ' ..', '..', '..'))
+        data_dir = os.path.abspath(
+            os.path.join(
+                self.sprite_dir,
+                '..',
+                ' ..',
+                '..',
+                '..'))
 
         self.exploded = False
 
@@ -40,31 +47,30 @@ class Dynamite(Takeable):
             refresh_interval=0.08,
             start_frame=0,
             size=SPRITE_SIZE,
-            loop = False
+            loop=False
         )
-        
+
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', MONOTYPE_FONT),
             6
         )
-
 
     def start_counter(self):
         self.last_second = 0
         self.clock.reset()
         self.clock.start()
         self.walkable = False
-    
+
     def draw(self, screen, x, y):
         timer_text = ''
-        
+
         if self.clock.running:
             timer_text = str(COUNT_TO - self.last_second)
 
         timer_color = (0, 0, 255)
-         
+
         pos = self.calculate_pos(x, y)
-        
+
         if not self.exploded:
             super().draw(screen, x, y)
 
@@ -78,9 +84,9 @@ class Dynamite(Takeable):
 
             text_pos_y += 29
             text_pos_x += 32
-            
+
             screen.blit(rendered_text, (text_pos_x, text_pos_y))
-            
+
             return
 
         frame = self.explosion.get_frame()
@@ -90,7 +96,6 @@ class Dynamite(Takeable):
         if not self.explosion.has_more_frames():
             self.purge = True
 
-
     def ai(self, level):
         z, y, x = level.search_sprite(self)
 
@@ -98,12 +103,12 @@ class Dynamite(Takeable):
         mainchar = level.layers[mc_z][mc_y][mc_x]
 
         if self.exploded:
-            
+
             if mainchar and mc_y == y:
                 diff_x = x - mc_x
-                
+
                 if diff_x <= DAMAGE_ZONE:
-                    
+
                     damage_amount = 1
 
                     if diff_x <= 1:
@@ -118,7 +123,6 @@ class Dynamite(Takeable):
                 microwave.explode = True
             return
 
-
         if y == TARGET_POS_Y and x == TARGET_POS_X and not self.clock.running:
             self.start_counter()
             mainchar.state.say(_('Allahu Akbar!'))
@@ -130,13 +134,12 @@ class Dynamite(Takeable):
         if second > self.last_second and not self.exploded:
             self.last_second = second
             self.play_countdown_sound()
-        
+
         # TODO: If countdown expired explode
         if second >= COUNT_TO:
             self.clock.stop()
             self.play_explosion_sound()
             self.exploded = True
-
 
     def play_countdown_sound(self):
         play_sound(

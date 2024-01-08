@@ -9,6 +9,7 @@ sound_volume = 1.0
 
 CHANNELS = []
 
+
 def play_sound(file):
     """ Play a sound once """
     sound = pygame.mixer.Sound(file)
@@ -18,6 +19,7 @@ def play_sound(file):
     CHANNELS.append(channel)
     return channel
 
+
 def stop_sounds():
     for channel in CHANNELS:
         if channel and channel.get_busy():
@@ -25,10 +27,12 @@ def stop_sounds():
 
     CHANNELS.clear()
 
+
 def pause_sounds():
     for channel in CHANNELS:
         if channel and channel.get_busy():
             channel.pause()
+
 
 def unpause_sounds():
     for channel in CHANNELS:

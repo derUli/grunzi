@@ -4,7 +4,7 @@ from utils.quality import daynightcycle_enabled, bloom_enabled
 from utils.atmosphere.globaleffect import GlobalEffect
 from PygameShader.shader import zoom, shader_bloom_fast1
 
-UPDATE_DATETIME_INTERVAL = 1.1765 # Halber Tag in Spielzeit = 300 Sekunden
+UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
 DARKEST_DAYTIME = 240
 BRIGHTEST_DAYTIME = 0
 
@@ -22,7 +22,7 @@ class DayNightCycle(GlobalEffect):
         self.surfaces = None
         self.enabled = False
 
-    def start(self, args = {}):
+    def start(self, args={}):
         self.reset()
 
         if 'dnc_daytime' in args:
@@ -30,7 +30,6 @@ class DayNightCycle(GlobalEffect):
 
         if 'dnc_modifier' in args:
             self.modifier = args['dnc_modifier']
-
 
     def to_dict(self):
         return {
@@ -51,7 +50,6 @@ class DayNightCycle(GlobalEffect):
         self.surface = pygame.surface.Surface(
             (w, h), pygame.SRCALPHA | pygame.RLEACCEL).convert_alpha()
 
-            
         self.surface.fill((0, 0, 0))
 
     def draw(self, screen):
@@ -68,7 +66,6 @@ class DayNightCycle(GlobalEffect):
             self.daytime += self.modifier
             self.surface.set_alpha(self.daytime)
 
-
             if self.daytime >= DARKEST_DAYTIME:
                 self.modifier = MODIFIER_LIGHT
             elif self.daytime <= BRIGHTEST_DAYTIME:
@@ -79,10 +76,9 @@ class DayNightCycle(GlobalEffect):
         screen.blit((self.surface), (0, 0))
 
         if not bloom_enabled():
-            return 
+            return
 
         bloom_amount = 127.5 + self.daytime
-
 
         if bloom_amount < 255:
             shader_bloom_fast1(screen, bloom_amount)

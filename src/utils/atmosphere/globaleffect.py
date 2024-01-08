@@ -10,9 +10,8 @@ class GlobalEffect:
     def __init__(self):
         pass
 
-    def start(self, args = {}):
+    def start(self, args={}):
         pass
-
 
     def reset(self):
         pass
@@ -21,4 +20,4 @@ class GlobalEffect:
         pass
 
     def to_dict(self):
-        return { }
+        return {}

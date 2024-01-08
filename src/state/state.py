@@ -30,7 +30,6 @@ class State:
             'inventory': inventory,
             'level': self.level
         }
-        
 
         if self.atmosphere:
             savdict = savdict | self.atmosphere.to_dict()

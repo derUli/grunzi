@@ -30,7 +30,6 @@ def film_grain():
     """ Postprocessing enabled """
     return POST_PROCESSING >= QUALITY_LOW
 
-    
 
 def daynightcycle_enabled():
     """ Postprocessing enabled """
@@ -51,4 +50,3 @@ def blood_enabled():
 
 def blood_enabled_high():
     return POST_PROCESSING >= QUALITY_HIGH
-

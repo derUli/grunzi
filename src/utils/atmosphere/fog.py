@@ -6,7 +6,7 @@ from PygameShader.shader import zoom, shader_bloom_fast1
 from utils.image import ImageCache
 
 
-UPDATE_DATETIME_INTERVAL = 1.1765 # Halber Tag in Spielzeit = 300 Sekunden
+UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
 DARKEST_DAYTIME = 240
 BRIGHTEST_DAYTIME = 0
 
@@ -25,11 +25,8 @@ class Fog(GlobalEffect):
         # Not implemented yet
         self.enabled = False
 
-
     def draw(self, screen):
         if not self.enabled:
             return
 
-        screen.fill((255,255,255))
-
-        
+        screen.fill((255, 255, 255))
