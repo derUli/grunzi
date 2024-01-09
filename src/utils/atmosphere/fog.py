@@ -1,6 +1,7 @@
 import time
 import os
 import pygame
+from time import time
 from utils.quality import fog_enabled
 from utils.atmosphere.globaleffect import GlobalEffect
 from PygameShader.shader import zoom, shader_bloom_fast1
@@ -16,7 +17,9 @@ MODIFIER_DARK = 1
 MODIFIER_LIGHT = -1
 
 FOG_ALPHA_SPEED = 0.5
-FOG_MOVE_SPEED = 0.5
+FOG_MOVE_SPEED = 1 / 10
+
+FOG_SIZE = (2,)
 
 class Fog(GlobalEffect):
 
@@ -25,6 +28,7 @@ class Fog(GlobalEffect):
         self.fog = []
         self.alpha = 0
         self.target_alpha = 0
+        self.last_updated = time()
 
     def start(self, args={}, sprites_dir = None, image_cache = None):
         super().start(args, sprites_dir, image_cache)
@@ -43,6 +47,8 @@ class Fog(GlobalEffect):
         self.alpha = 0
         self.target_alpha = 255
 
+        self.buffer = None
+
     def draw(self, screen):
         if not self.enabled:
             return
@@ -56,27 +62,32 @@ class Fog(GlobalEffect):
             self.alpha -= FOG_ALPHA_SPEED
 
 
-        buffer = pygame.surface.Surface(screen.get_size(), pygame.SRCALPHA)
+        if time() < self.last_updated + FOG_MOVE_SPEED and self.buffer:
+            
+            screen.blit(self.buffer, (0,0))
+            return
+
+        self.buffer = pygame.surface.Surface(screen.get_size(), pygame.SRCALPHA)
 
         for fog in self.fog:
             
-            w = buffer.get_width()
+            w = fog['image'].get_width()
             x, y = fog['pos']
-            x -= FOG_MOVE_SPEED
-            
-            if x <= w * -1:
+
+            self.last_updated = time()
+            x -= 1
+        
+            if x < w * -1:
                 x = w
 
             if self.alpha > 0:
                 fog['image'].set_alpha(int(self.alpha))
-                buffer.blit(fog['image'], (x, y))
-
-
+                self.buffer.blit(fog['image'], (x, y))
 
 
             fog['pos'] = (x, y)
         
-        screen.blit(buffer, (0,0))
+        screen.blit(self.buffer, (0,0))
 
 
     def to_dict(self):
