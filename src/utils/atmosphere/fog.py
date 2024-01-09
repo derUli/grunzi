@@ -25,7 +25,7 @@ class Fog(GlobalEffect):
         # Not implemented yet
         self.enabled = False
 
-    def draw(self, screen):
+    def draw(self, screen, sprites_dir = None, image_cache = None):
         if not self.enabled:
             return
 

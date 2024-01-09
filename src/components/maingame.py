@@ -64,7 +64,7 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         self.async_ai_running = None
         self.is_level_exit = False
 
-        self.atmosphere = Atmosphere()
+        self.atmosphere = Atmosphere(self.sprites_dir, self.image_cache)
 
         self.music_queue = MusicQueue()
         self.mouse_handler = MouseHandler(

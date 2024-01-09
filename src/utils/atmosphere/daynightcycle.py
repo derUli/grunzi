@@ -22,7 +22,7 @@ class DayNightCycle(GlobalEffect):
         self.surfaces = None
         self.enabled = False
 
-    def start(self, args={}):
+    def start(self, args={}, sprites_dir = None, image_cache = None):
         self.reset()
 
         if 'dnc_daytime' in args:

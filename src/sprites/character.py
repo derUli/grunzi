@@ -17,7 +17,7 @@ class Character(sprites.sprite.Sprite):
         self.image_direction = self.direction
 
         self.walk_speed = 0.105
-        self.sprint_speed = self.walk_speed * 0.8
+        self.sprint_speed = self.walk_speed * 0.7
         self.last_movement = 0
 
     def draw(self, screen, x, y):
