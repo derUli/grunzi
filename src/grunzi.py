@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 """ Grunzi Game Launcher """
 import argparse
 import gettext
