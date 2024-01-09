@@ -32,7 +32,7 @@ from utils.level_editor import get_editor_blocks
 from utils.mouse_handler import MouseHandler
 from utils.music_queue import MusicQueue
 from utils.atmosphere.atmosphere import Atmosphere
-
+from constants.headup import BOTTOM_UI_HEIGHT
 BACKDROP_COLOR = (36, 63, 64)
 
 THREAD_INTERVAL_HIGH = 50
@@ -262,9 +262,14 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
                 x = 0
             z += 1
 
-        self.atmosphere.draw(virtual_screen)
+        print(show_backdrop)
+        if not show_backdrop:
+            self.atmosphere.draw(virtual_screen)
 
         screen.blit(virtual_screen, (0, 0))
+
+        if show_backdrop:
+            self.atmosphere.draw(screen)
 
         # Draw head up display
         headup_display = self.state.player_state.draw(screen)

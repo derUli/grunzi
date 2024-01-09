@@ -19,8 +19,6 @@ MODIFIER_LIGHT = -1
 FOG_ALPHA_SPEED = 0.5
 FOG_MOVE_SPEED = 1 / 10
 
-FOG_SIZE = (2,)
-
 class Fog(GlobalEffect):
 
     def __init__(self):
