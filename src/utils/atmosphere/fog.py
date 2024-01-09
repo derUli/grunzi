@@ -16,7 +16,7 @@ MODIFIER_DARK = 1
 MODIFIER_LIGHT = -1
 
 FOG_ALPHA_SPEED = 0.5
-FOG_MOVE_SPEED = 0.1
+FOG_MOVE_SPEED = 0.5
 
 class Fog(GlobalEffect):
 
@@ -56,22 +56,27 @@ class Fog(GlobalEffect):
             self.alpha -= FOG_ALPHA_SPEED
 
 
+        buffer = pygame.surface.Surface(screen.get_size(), pygame.SRCALPHA)
+
         for fog in self.fog:
             
+            w = buffer.get_width()
             x, y = fog['pos']
+            x -= FOG_MOVE_SPEED
+            
+            if x <= w * -1:
+                x = w
 
             if self.alpha > 0:
                 fog['image'].set_alpha(int(self.alpha))
-                screen.blit(fog['image'], (int(x), y))
+                buffer.blit(fog['image'], (x, y))
 
-            x -= FOG_MOVE_SPEED
 
-            w = fog['image'].get_width()
 
-            if x <= w * -1:
-                x = w + 1
 
             fog['pos'] = (x, y)
+        
+        screen.blit(buffer, (0,0))
 
 
     def to_dict(self):
@@ -92,7 +97,7 @@ class Fog(GlobalEffect):
                 'image': image_left
             },
             {
-                'pos': (image_right.get_width() + 1, 0),
+                'pos': (image_right.get_width(), 0),
                 'image': image_right
             }
         ]
