@@ -15,8 +15,8 @@ DEFAULT_DAYTIME = 20
 MODIFIER_DARK = 1
 MODIFIER_LIGHT = -1
 
-FOG_ALPHA_SPEED = 1
-FOG_MOVE_SPEED = 1
+FOG_ALPHA_SPEED = 0.5
+FOG_MOVE_SPEED = 0.1
 
 class Fog(GlobalEffect):
 
@@ -57,18 +57,19 @@ class Fog(GlobalEffect):
 
 
         for fog in self.fog:
+            
+            x, y = fog['pos']
+
             if self.alpha > 0:
                 fog['image'].set_alpha(int(self.alpha))
-                screen.blit(fog['image'], fog['pos'])
-
-            x, y = fog['pos']
+                screen.blit(fog['image'], (int(x), y))
 
             x -= FOG_MOVE_SPEED
 
             w = fog['image'].get_width()
 
-            if x < w * -1:
-                x = w - 1
+            if x <= w * -1:
+                x = w + 1
 
             fog['pos'] = (x, y)
 
@@ -91,7 +92,7 @@ class Fog(GlobalEffect):
                 'image': image_left
             },
             {
-                'pos': (image_right.get_width(), 0),
+                'pos': (image_right.get_width() + 1, 0),
                 'image': image_right
             }
         ]
