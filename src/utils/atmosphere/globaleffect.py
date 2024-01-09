@@ -1,6 +1,5 @@
 import time
 import pygame
-from utils.quality import daynightcycle_enabled, bloom_enabled
 
 from PygameShader.shader import zoom, shader_bloom_fast1
 

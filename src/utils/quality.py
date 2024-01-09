@@ -33,6 +33,11 @@ def film_grain():
 
 def daynightcycle_enabled():
     """ Postprocessing enabled """
+    return POST_PROCESSING >= QUALITY_MEDIUM
+
+    
+def fog_enabled():
+    """ Postprocessing enabled """
     return POST_PROCESSING >= QUALITY_HIGH
 
 

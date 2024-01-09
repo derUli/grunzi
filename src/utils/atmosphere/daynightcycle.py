@@ -23,7 +23,7 @@ class DayNightCycle(GlobalEffect):
         self.enabled = False
 
     def start(self, args={}, sprites_dir = None, image_cache = None):
-        self.reset()
+        super().start(args, sprites_dir, image_cache)
 
         if 'dnc_daytime' in args:
             self.daytime = args['dnc_daytime']
@@ -70,10 +70,9 @@ class DayNightCycle(GlobalEffect):
                 self.modifier = MODIFIER_LIGHT
             elif self.daytime <= BRIGHTEST_DAYTIME:
                 self.modifier = MODIFIER_DARK
-
-        self.surface.set_alpha(self.daytime)
-
-        screen.blit((self.surface), (0, 0))
+        if self.daytime > 0:
+            self.surface.set_alpha(self.daytime)
+            screen.blit((self.surface), (0, 0))
 
         if not bloom_enabled():
             return
