@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-08 21:09+0100\n"
+"POT-Creation-Date: 2024-01-09 14:08+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:104 components/menu.py:81 grunzi.py:27
+#: bootstrap/gamecontainer.py:104 components/menu.py:81 grunzi.py:29
 msgid "Grunzi"
 msgstr ""
 
-#: grunzi.py:28
+#: grunzi.py:30
 msgid "Piggy adventure game"
 msgstr ""
 
@@ -168,7 +168,7 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:107 components/settings_video.py:158
+#: components/settings.py:107 components/settings_video.py:160
 msgid "Video"
 msgstr ""
 
@@ -184,58 +184,66 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:96 components/settings_video.py:216
+#: components/settings_audio.py:96 components/settings_video.py:218
 msgid "Back"
 msgstr "Zurück"
 
 #: components/settings_video.py:108 components/settings_video.py:115
-#: components/settings_video.py:160
+#: components/settings_video.py:162
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings_video.py:109 components/settings_video.py:118
+#: components/settings_video.py:109 components/settings_video.py:119
 msgid "High"
 msgstr "Hoch"
 
 #: components/settings_video.py:116
+msgid "Very Low"
+msgstr "Sehr Niedrig"
+
+#: components/settings_video.py:117
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings_video.py:117
+#: components/settings_video.py:118
 msgid "Medium"
-msgstr ""
+msgstr "Mittel"
 
-#: components/settings_video.py:119
+#: components/settings_video.py:120
 #, fuzzy
 msgid "Very High"
 msgstr "Sehr Hoch"
 
-#: components/settings_video.py:160
+#: components/settings_video.py:121
+msgid "Extreme"
+msgstr "Extrem"
+
+#: components/settings_video.py:162
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:163
+#: components/settings_video.py:165
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:170
+#: components/settings_video.py:172
 msgid "V-Sync"
 msgstr ""
 
-#: components/settings_video.py:177
+#: components/settings_video.py:179
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:188
+#: components/settings_video.py:190
 #, fuzzy
 msgid "Shader Quality"
 msgstr "Shader-Qualität"
 
-#: components/settings_video.py:199
+#: components/settings_video.py:201
 msgid "Postprocessing"
 msgstr ""
 
-#: components/settings_video.py:210
+#: components/settings_video.py:212
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
@@ -264,19 +272,19 @@ msgstr "Die Tür ist jetzt offen."
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
-#: sprites/horse.py:36
+#: sprites/horse.py:42
 msgid "Infinity bloodless!"
 msgstr "Unendlich blutleer!"
 
-#: sprites/horse.py:37
+#: sprites/horse.py:43
 msgid "I don't have a single drop of blood left."
 msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
 
-#: sprites/horse.py:38
+#: sprites/horse.py:44
 msgid "Please give me some blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:39
+#: sprites/horse.py:45
 msgid "I am infinitely thirsty for blood."
 msgstr "Ich bin unendlich durstig nach Blut!"
 

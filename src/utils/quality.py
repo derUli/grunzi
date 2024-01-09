@@ -1,11 +1,11 @@
 import pygame
-from constants.quality import QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_OFF, QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH, QUALITY_EXTREME
 
 ENABLE_SMOOTH_SCALE = False
 ENABLE_FONT_ANTIALIASING = True
-SHADER_QUALITY = QUALITY_VERY_LOW
+SHADER_QUALITY = QUALITY_OFF
 PIXEL_FADES = False
-POST_PROCESSING = QUALITY_VERY_LOW
+POST_PROCESSING = QUALITY_OFF
 
 
 def scale_method():
@@ -23,22 +23,22 @@ def font_antialiasing_enabled():
 
 def shader_enabled():
     """ Get shader enabled """
-    return SHADER_QUALITY > QUALITY_VERY_LOW
+    return SHADER_QUALITY > QUALITY_OFF
 
 
 def film_grain():
     """ Postprocessing enabled """
-    return POST_PROCESSING >= QUALITY_LOW
+    return POST_PROCESSING >= QUALITY_VERY_LOW
 
 
 def daynightcycle_enabled():
     """ Postprocessing enabled """
-    return POST_PROCESSING >= QUALITY_MEDIUM
+    return POST_PROCESSING >= QUALITY_LOW
 
     
 def fog_enabled():
     """ Postprocessing enabled """
-    return POST_PROCESSING >= QUALITY_HIGH
+    return POST_PROCESSING >= QUALITY_VERY_HIGH
 
 
 def pixel_fades_enabled():
@@ -46,7 +46,7 @@ def pixel_fades_enabled():
 
 
 def bloom_enabled():
-    return POST_PROCESSING >= QUALITY_VERY_HIGH
+    return POST_PROCESSING >= QUALITY_EXTREME
 
 
 def blood_enabled():
