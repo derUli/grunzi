@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """ Grunzi Game Launcher """
 from bootstrap.gamecontainer import GameContainer
 import argparse
