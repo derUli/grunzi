@@ -38,7 +38,7 @@ def pixel_fades_enabled():
 
 def bloom_enabled():
     """ Too much demanding make it optional """
-    return False
+    return settings_state and settings_state.bloom
 
 
 def blood_enabled():

@@ -14,6 +14,7 @@ SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_BLOOD = QUALITY_HIGH
+SETTINGS_DEFAULT_BLOOM = False
 
 SETTINGS_DEFAULT_VOLUME = 1.0
 
@@ -31,6 +32,7 @@ class SettingsState:
         self.music_volume = SETTINGS_DEFAULT_VOLUME
         self.handle_settings_change = handle_settings_change
         self.blood = SETTINGS_DEFAULT_BLOOD
+        self.bloom = SETTINGS_DEFAULT_BLOOM
 
     def apply_and_save(self):
         """ Apply and save """
@@ -94,7 +96,8 @@ class SettingsState:
             'vsync': self.vsync,
             'limit_fps': self.limit_fps,
             'screen_resolution': self.screen_resolution,
-            'blood': self.blood
+            'blood': self.blood,
+            'bloom': self.bloom
         }
 
     def to_json(self):
@@ -124,4 +127,9 @@ class SettingsState:
             self.screen_resolution = tuple(settings['screen_resolution'])
 
         if 'blood' in settings:
-            self.blood = tuple(settings['blood'])
+            self.blood = settings['blood']
+
+            
+        if 'bloom' in settings:
+            self.bloom = bool(settings['bloom'])
+

@@ -118,6 +118,12 @@ class SettingsVideo(Component):
         self.settings_state.blood = value
         self.settings_state.apply_and_save()
 
+        
+    def handle_toggle_bloom(self, value):
+        """ Handle toggle bloom """
+        self.settings_state.bloom = value
+        self.settings_state.apply_and_save()
+
     def get_selected_index(self, items, selected):
         """ Get selected index for value """
         i = 0
@@ -172,6 +178,15 @@ class SettingsVideo(Component):
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_blood_items()),
         )
+
+        
+        menu.add.toggle_switch(
+            _('Bloom'),
+            self.settings_state.bloom,
+            self.handle_toggle_bloom,
+            state_text=state_text
+        )
+
 
         menu.add.button(_('Back'), self.handle_back)
 
