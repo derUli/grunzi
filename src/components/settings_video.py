@@ -12,7 +12,6 @@ from utils.render_cache import store_clear
 
 MIN_SCREEN_RESOLUTION = (1280, 720)
 
-
 class SettingsVideo(Component):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
@@ -124,6 +123,12 @@ class SettingsVideo(Component):
         self.settings_state.bloom = value
         self.settings_state.apply_and_save()
 
+        
+    def handle_toggle_fog(self, value):
+        """ Handle toggle fog """
+        self.settings_state.fog = value
+        self.settings_state.apply_and_save()
+
     def get_selected_index(self, items, selected):
         """ Get selected index for value """
         i = 0
@@ -179,6 +184,12 @@ class SettingsVideo(Component):
             placeholder=get_longest_option(self.get_blood_items()),
         )
 
+        menu.add.toggle_switch(
+            _('Fog'),
+            self.settings_state.fog,
+            self.handle_toggle_fog,
+            state_text=state_text
+        )
         
         menu.add.toggle_switch(
             _('Bloom'),

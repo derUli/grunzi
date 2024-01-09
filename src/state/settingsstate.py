@@ -15,6 +15,7 @@ SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_BLOOD = QUALITY_HIGH
 SETTINGS_DEFAULT_BLOOM = False
+SETTINGS_DEFAULT_FOG = True
 
 SETTINGS_DEFAULT_VOLUME = 1.0
 
@@ -33,6 +34,7 @@ class SettingsState:
         self.handle_settings_change = handle_settings_change
         self.blood = SETTINGS_DEFAULT_BLOOD
         self.bloom = SETTINGS_DEFAULT_BLOOM
+        self.fog = SETTINGS_DEFAULT_FOG
 
     def apply_and_save(self):
         """ Apply and save """
@@ -97,7 +99,8 @@ class SettingsState:
             'limit_fps': self.limit_fps,
             'screen_resolution': self.screen_resolution,
             'blood': self.blood,
-            'bloom': self.bloom
+            'bloom': self.bloom,
+            'fog': self.fog
         }
 
     def to_json(self):
@@ -128,8 +131,9 @@ class SettingsState:
 
         if 'blood' in settings:
             self.blood = settings['blood']
-
             
         if 'bloom' in settings:
             self.bloom = bool(settings['bloom'])
-
+            
+        if 'fog' in settings:
+            self.fog = bool(settings['fog'])
