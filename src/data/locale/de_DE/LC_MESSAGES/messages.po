@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 17:30+0100\n"
+"POT-Creation-Date: 2024-01-09 18:41+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -168,7 +168,7 @@ msgstr "Spiel speichern"
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:107 components/settings_video.py:160
+#: components/settings.py:107 components/settings_video.py:146
 msgid "Video"
 msgstr ""
 
@@ -184,68 +184,50 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:96 components/settings_video.py:218
+#: components/settings_audio.py:96 components/settings_video.py:202
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:108 components/settings_video.py:115
-#: components/settings_video.py:162
+#: components/settings_video.py:108 components/settings_video.py:148
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings_video.py:109 components/settings_video.py:119
+#: components/settings_video.py:109
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:116
-msgid "Very Low"
-msgstr "Sehr Niedrig"
-
-#: components/settings_video.py:117
-msgid "Low"
-msgstr "Niedrig"
-
-#: components/settings_video.py:118
-msgid "Medium"
-msgstr "Mittel"
-
-#: components/settings_video.py:120
+#: components/settings_video.py:110
 #, fuzzy
 msgid "Very High"
 msgstr "Sehr Hoch"
 
-#: components/settings_video.py:121
-msgid "Extreme"
-msgstr "Extrem"
-
-#: components/settings_video.py:162
+#: components/settings_video.py:148
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:165
+#: components/settings_video.py:151
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:172
+#: components/settings_video.py:158
 msgid "V-Sync"
 msgstr "Vertikale Synchronisation"
 
-#: components/settings_video.py:179
+#: components/settings_video.py:165
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:190
-#, fuzzy
-msgid "Shader"
-msgstr "Shader"
+#: components/settings_video.py:177
+msgid "Blood"
+msgstr "Blut"
 
-#: components/settings_video.py:201
-msgid "Postprocessing"
-msgstr "Postprocessing"
+#: components/settings_video.py:188
+msgid "Fog"
+msgstr "Nebel"
 
-#: components/settings_video.py:212
-msgid "Smooth Scale"
-msgstr "Weiche Skalierung"
+#: components/settings_video.py:195
+msgid "Bloom"
+msgstr "Bloom"
 
 #: components/tobecontinued.py:44
 #, fuzzy
@@ -321,7 +303,7 @@ msgid "Generating cache..."
 msgstr "Generiere Cache..."
 
 #~ msgid "Very Low"
-#~ msgstr "Sehr niedrig"
+#~ msgstr "Sehr Niedrig"
 
 #~ msgid "Medium"
 #~ msgstr "Mittel"
@@ -340,4 +322,19 @@ msgstr "Generiere Cache..."
 
 #~ msgid "Infinity bloodles!"
 #~ msgstr ""
+
+#~ msgid "Low"
+#~ msgstr "Niedrig"
+
+#~ msgid "Extreme"
+#~ msgstr "Extrem"
+
+#~ msgid "Shader"
+#~ msgstr "Shader"
+
+#~ msgid "Postprocessing"
+#~ msgstr "Postprocessing"
+
+#~ msgid "Smooth Scale"
+#~ msgstr "Weiche Skalierung"
 
