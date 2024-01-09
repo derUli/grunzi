@@ -70,7 +70,6 @@ class SettingsVideo(Component):
         self.settings_state.screen_resolution = value
         self.old_component.needs_restart = True
         self.settings_state.apply_and_save()
-        store_clear()
 
     def handle_toggle_fullscreen(self, value):
         """ Handle toggle fullscreen """
@@ -82,44 +81,6 @@ class SettingsVideo(Component):
         self.settings_state.vsync = value
         self.settings_state.apply_and_save()
         self.old_component.needs_restart = True
-
-    def handle_toggle_smoothscale(self, value):
-        """ Handle toggle Smoothscale """
-        self.settings_state.smoothscale = value
-        self.settings_state.apply_and_save()
-
-    def handle_change_shader_quality(self, selection, selected_index):
-        """ Handle change quality """
-        selected_item, index = selection
-        text, value = selected_item
-        self.settings_state.shader_quality = value
-        self.settings_state.apply_and_save()
-
-    def handle_change_postprocessing(self, selection, selected_index):
-        """ Handle change postprocessing """
-        selected_item, index = selection
-        text, value = selected_item
-        self.settings_state.postprocessing = value
-        self.settings_state.apply_and_save()
-
-    def get_shader_quality_items(self):
-        """ Get items for quality dropdown """
-        return [
-            (_('Off'), QUALITY_OFF),
-            (_('High'), QUALITY_HIGH)
-        ]
-
-    def get_postprocessing_items(self):
-        """ Get items for postprocessing dropdown """
-        return [
-            (_('Off'), QUALITY_OFF),
-            (_('Very Low'), QUALITY_VERY_LOW),
-            (_('Low'), QUALITY_LOW),
-            (_('Medium'), QUALITY_MEDIUM),
-            (_('High'), QUALITY_HIGH),
-            (_('Very High'), QUALITY_VERY_HIGH),
-            (_('Extreme'), QUALITY_VERY_HIGH)
-        ]
 
     def get_screen_resolution_items(self):
         """ Get screen resolution items """
@@ -142,6 +103,20 @@ class SettingsVideo(Component):
             items.append((label, value))
 
         return items
+
+    def get_blood_items(self):
+         return [
+            (_('Off'), QUALITY_OFF),
+            (_('High'), QUALITY_HIGH),
+            (_('Very High'), QUALITY_VERY_HIGH),
+        ]
+
+    
+    def handle_change_blood(self, selection, selected_index):
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.blood = value
+        self.settings_state.apply_and_save()
 
     def get_selected_index(self, items, selected):
         """ Get selected index for value """
@@ -186,33 +161,16 @@ class SettingsVideo(Component):
             placeholder=get_longest_option(self.get_screen_resolution_items()),
         )
 
+        
         menu.add.dropselect(
-            title=_('Shader'),
+            title=_('Blood'),
             default=self.get_selected_index(
-                self.get_shader_quality_items(),
-                self.settings_state.shader_quality),
-            items=self.get_shader_quality_items(),
-            onchange=self.handle_change_shader_quality,
+                self.get_blood_items(),
+                self.settings_state.blood),
+            items=self.get_blood_items(),
+            onchange=self.handle_change_blood,
             placeholder_add_to_selection_box=False,
-            placeholder=get_longest_option(self.get_shader_quality_items()),
-        )
-
-        menu.add.dropselect(
-            title=_('Postprocessing'),
-            default=self.get_selected_index(
-                self.get_postprocessing_items(),
-                self.settings_state.postprocessing),
-            items=self.get_postprocessing_items(),
-            onchange=self.handle_change_postprocessing,
-            placeholder_add_to_selection_box=False,
-            placeholder=get_longest_option(self.get_postprocessing_items()),
-        )
-
-        menu.add.toggle_switch(
-            _('Smooth Scale'),
-            self.settings_state.smoothscale,
-            self.handle_toggle_smoothscale,
-            state_text=state_text
+            placeholder=get_longest_option(self.get_blood_items()),
         )
 
         menu.add.button(_('Back'), self.handle_back)

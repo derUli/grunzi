@@ -1,44 +1,35 @@
 import pygame
-from constants.quality import QUALITY_OFF, QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH, QUALITY_EXTREME
+from constants.quality import QUALITY_OFF, QUALITY_HIGH, QUALITY_VERY_HIGH
 
-ENABLE_SMOOTH_SCALE = False
-ENABLE_FONT_ANTIALIASING = True
-SHADER_QUALITY = QUALITY_OFF
-PIXEL_FADES = False
-POST_PROCESSING = QUALITY_OFF
-
+settings_state = None
 
 def scale_method():
-    """ Get scale method based on the current quality """
-    if ENABLE_SMOOTH_SCALE:
-        return pygame.transform.smoothscale
-
-    return pygame.transform.scale
+    return pygame.transform.smoothscale
 
 
 def font_antialiasing_enabled():
     """ Get fount antialiasing based on the current quality """
-    return ENABLE_FONT_ANTIALIASING
+    return True
 
 
 def shader_enabled():
     """ Get shader enabled """
-    return SHADER_QUALITY > QUALITY_OFF
+    return True
 
 
 def film_grain():
-    """ Postprocessing enabled """
-    return POST_PROCESSING >= QUALITY_VERY_LOW
+    """ Filmgrain enabled """
+    return True
 
 
 def daynightcycle_enabled():
-    """ Postprocessing enabled """
-    return POST_PROCESSING >= QUALITY_LOW
+    """ Daynight Cycle enabled """
+    return True
 
     
 def fog_enabled():
-    """ Postprocessing enabled """
-    return POST_PROCESSING >= QUALITY_VERY_HIGH
+    """ Too much demanding, make it optional """
+    return False
 
 
 def pixel_fades_enabled():
@@ -46,12 +37,13 @@ def pixel_fades_enabled():
 
 
 def bloom_enabled():
-    return POST_PROCESSING >= QUALITY_EXTREME
+    """ Too much demanding make it optional """
+    return False
 
 
 def blood_enabled():
-    return POST_PROCESSING >= QUALITY_MEDIUM
+    return settings_state and settings_state.blood >= QUALITY_HIGH
 
 
 def blood_enabled_high():
-    return POST_PROCESSING >= QUALITY_HIGH
+    return settings_state and settings_state.blood >= QUALITY_VERY_HIGH

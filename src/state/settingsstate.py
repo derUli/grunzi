@@ -13,11 +13,7 @@ SETTINGS_DEFAULT_FULLSCREEN = True
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
-
-SETTINGS_DEFAULT_SMOOTHSCALE = True
-
-SETTINGS_DEFAULT_SHADER_QUALITY = QUALITY_HIGH
-SETTINGS_DEFAULT_POSTPROCESSING = QUALITY_VERY_HIGH
+SETTINGS_DEFAULT_BLOOD = QUALITY_HIGH
 
 SETTINGS_DEFAULT_VOLUME = 1.0
 
@@ -33,12 +29,8 @@ class SettingsState:
 
         self.sound_volume = SETTINGS_DEFAULT_VOLUME
         self.music_volume = SETTINGS_DEFAULT_VOLUME
-
-        self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
-
-        self.shader_quality = SETTINGS_DEFAULT_SHADER_QUALITY
-        self.postprocessing = SETTINGS_DEFAULT_POSTPROCESSING
         self.handle_settings_change = handle_settings_change
+        self.blood = SETTINGS_DEFAULT_BLOOD
 
     def apply_and_save(self):
         """ Apply and save """
@@ -71,9 +63,7 @@ class SettingsState:
         pygame.mixer.music.set_volume(self.music_volume)
         utils.audio.sound_volume = self.sound_volume
 
-        utils.quality.ENABLE_SMOOTH_SCALE = self.smoothscale
-        utils.quality.SHADER_QUALITY = self.shader_quality
-        utils.quality.POST_PROCESSING = self.postprocessing
+        utils.quality.settings_state = self
 
     def get_settings_path(self):
         """ Get settings file path """
@@ -104,9 +94,7 @@ class SettingsState:
             'vsync': self.vsync,
             'limit_fps': self.limit_fps,
             'screen_resolution': self.screen_resolution,
-            'smoothscale': self.smoothscale,
-            'shader_quality': self.shader_quality,
-            'postprocessing': self.postprocessing
+            'blood': self.blood
         }
 
     def to_json(self):
@@ -115,6 +103,7 @@ class SettingsState:
 
     def from_dict(self, settings):
         """ From dictionary """
+
         if 'fullscreen' in settings:
             self.fullscreen = settings['fullscreen']
             self.old_fullscreen = settings['fullscreen']
@@ -134,11 +123,5 @@ class SettingsState:
         if 'screen_resolution' in settings:
             self.screen_resolution = tuple(settings['screen_resolution'])
 
-        if 'smoothscale' in settings:
-            self.smoothscale = settings['smoothscale']
-
-        if 'shader_quality' in settings:
-            self.shader_quality = settings['shader_quality']
-
-        if 'postprocessing' in settings:
-            self.postprocessing = settings['postprocessing']
+        if 'blood' in settings:
+            self.blood = tuple(settings['blood'])
