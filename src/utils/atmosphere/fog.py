@@ -77,7 +77,7 @@ class Fog(GlobalEffect):
             self.last_updated = time()
             x -= 1
         
-            if x < w * -1:
+            if x <= w * -1:
                 x = w
 
             if self.alpha > 0:
