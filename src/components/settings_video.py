@@ -187,7 +187,7 @@ class SettingsVideo(Component):
         )
 
         menu.add.dropselect(
-            title=_('Shader Quality'),
+            title=_('Shader'),
             default=self.get_selected_index(
                 self.get_shader_quality_items(),
                 self.settings_state.shader_quality),

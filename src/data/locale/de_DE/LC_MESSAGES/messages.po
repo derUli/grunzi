@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 14:08+0100\n"
+"POT-Creation-Date: 2024-01-09 17:30+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -228,7 +228,7 @@ msgstr "Vollbild"
 
 #: components/settings_video.py:172
 msgid "V-Sync"
-msgstr ""
+msgstr "Vertikale Synchronisation"
 
 #: components/settings_video.py:179
 msgid "Screen Resolution"
@@ -236,12 +236,12 @@ msgstr "Bildschirmauflösung"
 
 #: components/settings_video.py:190
 #, fuzzy
-msgid "Shader Quality"
-msgstr "Shader-Qualität"
+msgid "Shader"
+msgstr "Shader"
 
 #: components/settings_video.py:201
 msgid "Postprocessing"
-msgstr ""
+msgstr "Postprocessing"
 
 #: components/settings_video.py:212
 msgid "Smooth Scale"
