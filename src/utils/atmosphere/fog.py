@@ -39,8 +39,7 @@ class Fog(GlobalEffect):
 
 
     def reset(self):
-        # self.enabled = fog_enabled()
-        self.enblade = True # Disable fog
+        self.enabled = fog_enabled()
         self.fog = []
         self.alpha = 0
         self.target_alpha = 255
@@ -54,14 +53,15 @@ class Fog(GlobalEffect):
         if len(self.fog) == 0:
             self.init_fog(screen.get_size())
 
+
         if self.alpha < self.target_alpha:
             self.alpha += FOG_ALPHA_SPEED
         elif self.alpha > self.target_alpha:
             self.alpha -= FOG_ALPHA_SPEED
 
-
         if time() < self.last_updated + FOG_MOVE_SPEED and self.buffer:
             
+            self.buffer.set_alpha(int(self.alpha))
             screen.blit(self.buffer, (0,0))
             return
 
@@ -79,12 +79,12 @@ class Fog(GlobalEffect):
                 x = w
 
             if self.alpha > 0:
-                fog['image'].set_alpha(int(self.alpha))
                 self.buffer.blit(fog['image'], (x, y))
 
 
             fog['pos'] = (x, y)
         
+        self.buffer.set_alpha(int(self.alpha))
         screen.blit(self.buffer, (0,0))
 
 
