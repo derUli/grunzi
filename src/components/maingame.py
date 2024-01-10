@@ -14,7 +14,6 @@ import constants.graphics
 import state.state
 import utils.quality
 import utils.savegame
-from components.fadeable_component import FadeableComponent
 from components.gameover import GameOver
 from components.loading_screen import LoadingScreen
 from components.pausable_component import PausableComponent
@@ -39,7 +38,7 @@ THREAD_INTERVAL_HIGH = 50
 THREAD_INTERVAL_LOW = 250
 
 
-class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
+class MainGame(PausableComponent, LoadingScreen):
 
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
@@ -144,8 +143,6 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
             os.path.join(self.data_dir, 'music', 'level1')
         )
 
-        self.fadein()
-
     def unmount(self):
         """ On unmount show mouse cursor and stop music """
         self.async_ai_running = False
@@ -157,9 +154,6 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         """ Draw screen """
         if not self.level.loaded:
             return
-
-        if self.do_fade:
-            screen = screen.copy().convert_alpha()
 
         sprite_width, sprite_height = constants.graphics.SPRITE_SIZE
 
@@ -275,10 +269,6 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
         # Draw head up display
         headup_display = self.state.player_state.draw(screen)
 
-        if self.do_fade:
-            screen.set_alpha(self.alpha)
-            self.screen.blit(screen, (0, 0))
-
         self.mouse_handler.draw(
             screen,
             mainchar_rect,
@@ -286,8 +276,6 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
             self.state.player_state.drawn_inventory,
             self.state.player_state.drawn_health
         )
-
-        self.fade()
 
     def ai(self):
         if not self.async_ai_running:
