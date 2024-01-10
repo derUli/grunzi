@@ -251,6 +251,7 @@ class MainGame(PausableComponent, LoadingScreen):
                             col.ai(self.level)
 
                         col.update_atmosphere(self.atmosphere)
+                        col.update_state(self.state)
 
                     x += 1
 

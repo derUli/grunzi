@@ -34,6 +34,8 @@ class Horse(Character):
             'given_blood': 0
         }
 
+        self.task = None
+
         self.sentences = [
             _('Infinity bloodless!'),
             _('I don\'t have a single drop of blood left.'),
@@ -83,6 +85,8 @@ class Horse(Character):
                 return
 
             element.state.say(self.next_sentence())
+
+            self.task = 'horse'
             
 
     def ai(self, level):
@@ -139,3 +143,9 @@ class Horse(Character):
             return
 
         fog.update(HORSE_FOG)
+
+
+    def update_state(self, state):
+        if self.task:
+            state.task = self.task
+            self.task = None

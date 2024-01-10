@@ -5,7 +5,6 @@
 * [ ] Quest mit blutleerem Pferd hinzufügen
 * [ ] Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
 * [ ] Autosave (?)
-* [ ] Quest-Anzeige (?)
 * [ ] Sprachausgabe (?)
 
 ## Alpha 004
@@ -13,6 +12,7 @@
 * Puzzle mit Sprengstoff hinzugefügt
 * Wenn man das Spiel pausiert, werden jetzt auch die Soundeffekte gestoppt
 * Grafik-Optionen sind jetzt getrennt einstellbar
+* Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
 * Tag-Nacht-Zyklus
 
 ## Alpha 003

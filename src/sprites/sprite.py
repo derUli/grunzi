@@ -163,3 +163,6 @@ class Sprite:
 
     def update_atmosphere(self, atmosphere):
         pass
+
+    def update_state(self, state):
+        pass
