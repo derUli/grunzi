@@ -262,7 +262,6 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
                 x = 0
             z += 1
 
-        print(show_backdrop)
         if not show_backdrop:
             self.atmosphere.draw(virtual_screen)
 
