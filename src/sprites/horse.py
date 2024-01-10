@@ -18,6 +18,9 @@ from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
 from utils.quality import pixel_fades_enabled
 from sprites.blood import Blood 
+from utils.atmosphere import ATMOSPHERE_FOG
+
+HORSE_FOG = 255
 
 class Horse(Character):
     """ Chicken sprite class """
@@ -102,7 +105,6 @@ class Horse(Character):
     def handle_interact_item(self, element):
         """ Handle interact """
         logging.debug('interact')
-        # Destroy if player has the chainsaw
         if not element:
             return
         
@@ -124,3 +126,16 @@ class Horse(Character):
             self.sentence = -1
 
             element.state.say(self.next_sentence())
+
+
+    def update_atmosphere(self, atmosphere):
+        fog = atmosphere.get_layer_by_id(ATMOSPHERE_FOG)
+
+        if not fog:
+            return
+            
+        if self.attributes['blood'] >= 100:
+            fog.update(0)
+            return
+
+        fog.update(HORSE_FOG)

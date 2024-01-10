@@ -9,6 +9,7 @@ class GlobalEffect:
     def __init__(self):
         self.sprites_dir = None
         self.image_cache = None
+        self.id = None
         pass
 
     def start(self, args={}, sprites_dir = None, image_cache = None):

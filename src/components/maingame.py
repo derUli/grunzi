@@ -253,8 +253,10 @@ class MainGame(PausableComponent, FadeableComponent, LoadingScreen):
                                 from_y
                             )
 
-                    if not self.disable_ai and col:
-                        col.ai(self.level)
+                        if not self.disable_ai:
+                            col.ai(self.level)
+
+                        col.update_atmosphere(self.atmosphere)
 
                     x += 1
 

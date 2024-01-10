@@ -6,7 +6,7 @@ from utils.quality import fog_enabled
 from utils.atmosphere.globaleffect import GlobalEffect
 from PygameShader.shader import zoom, shader_bloom_fast1
 from utils.image import ImageCache
-
+from utils.atmosphere import ATMOSPHERE_FOG
 
 UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
 DARKEST_DAYTIME = 240
@@ -27,6 +27,9 @@ class Fog(GlobalEffect):
         self.alpha = 0
         self.target_alpha = 0
         self.last_updated = time()
+        self.id = ATMOSPHERE_FOG
+
+        print(ATMOSPHERE_FOG)
 
     def start(self, args={}, sprites_dir = None, image_cache = None):
         super().start(args, sprites_dir, image_cache)
@@ -42,7 +45,7 @@ class Fog(GlobalEffect):
         self.enabled = fog_enabled()
         self.fog = []
         self.alpha = 0
-        self.target_alpha = 255
+        self.target_alpha = 0
 
         self.buffer = None
 
@@ -110,3 +113,7 @@ class Fog(GlobalEffect):
                 'image': image_right
             }
         ]
+
+
+    def update(self, alpha):
+        self.target_alpha = alpha

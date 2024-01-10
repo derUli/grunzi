@@ -11,7 +11,7 @@ from constants.game import MONOTYPE_FONT, DEBUG_TILE_FONT_SIZE
 from constants.graphics import SPRITE_SIZE
 from utils.reflections import fullname, get_class
 from utils.string import label_value
-
+from utils.atmosphere import ATMOSPHERE_FOG
 
 def from_dict(x, sprites_dir, image_cache):
     if not x:
@@ -160,3 +160,6 @@ class Sprite:
 
     def ai(self, level):
         return
+
+    def update_atmosphere(self, atmosphere):
+        pass

@@ -1,0 +1,1 @@
+ATMOSPHERE_FOG = 'fog'
