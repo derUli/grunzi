@@ -20,7 +20,7 @@ class Chainsaw(Takeable, InlineSprite):
     def __init__(self, sprite_dir, cache, sprite='chainsaw.png'):
         """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
-
+        self.sounds = []
         self.shake_y = 0
         self.shake_direction = DIRECTION_DOWN
         self.attributes = {
@@ -58,6 +58,15 @@ class Chainsaw(Takeable, InlineSprite):
         screen.blit(self.inline_sprite, (px_x, px_y))
 
     def play_sound(self):
+        
+        busy = 0
+        for sound in self.sounds:
+            if sound and sound.get_busy():
+                busy += 1
+            
+        if busy >= 3:
+            return
+
         sound_dir = os.path.abspath(
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'chainsaw')
         )
@@ -69,7 +78,7 @@ class Chainsaw(Takeable, InlineSprite):
             'chainsaw4.ogg',
         ]
 
-        play_sound(
+        self.sound = play_sound(
             os.path.join(sound_dir, random.choice(files))
         )
 

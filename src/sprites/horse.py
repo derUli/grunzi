@@ -26,7 +26,7 @@ BLOOD_COLOR = (163, 8, 8)
 CHICKEN_SOUND_FADEOUT = 100
 
 
-class Horse(Killable, Character):
+class Horse(Character):
     """ Chicken sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='horse.png'):

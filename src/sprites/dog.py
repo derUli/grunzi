@@ -16,13 +16,9 @@ from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
 from utils.quality import pixel_fades_enabled
 
-RUMBLE_CHAINSAW_DURATION = 300
-RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
-RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
-
 BLOOD_COLOR = (163, 8, 8)
 SOUND_FADEOUT = 100
-
+HURT_DAMAGE = 5
 
 class Dog(Killable, Character):
     """ Dog sprite class """
@@ -89,12 +85,7 @@ class Dog(Killable, Character):
             if element.state.inventory.attributes['fuel'] <= 0:
                 return
 
-            if pixel_fades_enabled():
-                if not self.fadeout:
-                    self.start_fade()
-            else:
-                self.walkable = True
-                self.purge = True
+            self.kill()
 
             if self.sound and self.sound.get_busy():
                 self.sound.fadeout(SOUND_FADEOUT)
@@ -103,13 +94,7 @@ class Dog(Killable, Character):
 
             element.state.inventory.play_sound()
 
-            # Rumble on gamepad if we have one
-            if element.state.gamepad:
-                element.state.gamepad.joystick.rumble(
-                    RUMBLE_CHAINSAW_LOW_FREQUENCY,
-                    RUMBLE_CHAINSAW_HIGH_FREQUENCY,
-                    RUMBLE_CHAINSAW_DURATION
-                )
+            self.rumble(element.state.gamepad)
         else:
             element.play_sound(PIG_SOUND_NOTHING)
 
@@ -146,7 +131,7 @@ class Dog(Killable, Character):
         if new_y == mainchar_y and new_x == mainchar_x:
             mainchar = level.layers[mainchar_z][mainchar_y][mainchar_x]
             self.play_sound()
-            mainchar.state.hurt(5)
+            mainchar.state.hurt(HURT_DAMAGE)
 
         for option in move_options:
             target_x, target_y = option

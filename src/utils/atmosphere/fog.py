@@ -39,8 +39,8 @@ class Fog(GlobalEffect):
 
 
     def reset(self):
-        # Not implemented yet
-        self.enabled = fog_enabled()
+        # self.enabled = fog_enabled()
+        self.enblade = True # Disable fog
         self.fog = []
         self.alpha = 0
         self.target_alpha = 255

@@ -1,11 +1,15 @@
 """ Destroyable sprite """
 import random
 from threading import Thread
+from utils.quality import pixel_fades_enabled
 
 import pygame
 
 from sprites.sprite import Sprite
 
+RUMBLE_CHAINSAW_DURATION = 300
+RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
+RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 
 class Killable(Sprite):
     """ Fence sprite class """
@@ -15,6 +19,14 @@ class Killable(Sprite):
         super().__init__(sprite_dir, cache, sprite)
         self.persistent_pixels = 0
         self.fadeout = False
+
+    def kill(self):
+        if pixel_fades_enabled():
+            if not self.fadeout:
+                self.start_fade()
+        else:
+            self.walkable = True
+            self.purge = True
 
     def start_fade(self):
         self.fadeout = True
@@ -68,3 +80,12 @@ class Killable(Sprite):
 
     def killed(self):
         return self.walkable or self.fadeout or self.purge
+
+    def rumble(self, gamepad):
+        # Rumble on gamepad if we have one
+        if gamepad:
+            gamepad.joystick.rumble(
+            RUMBLE_CHAINSAW_LOW_FREQUENCY,
+            RUMBLE_CHAINSAW_HIGH_FREQUENCY,
+                RUMBLE_CHAINSAW_DURATION
+        )
