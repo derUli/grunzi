@@ -17,6 +17,7 @@ class State:
         self.edit_mode = False
         self.show_only_layer = None
         self.atmosphere = None
+        self.task = None
 
     def to_dict(self):
         """ To dictionary """
@@ -28,7 +29,8 @@ class State:
         savdict = {
             'health': self.player_state.health,
             'inventory': inventory,
-            'level': self.level
+            'level': self.level,
+            'task': self.task
         }
 
         if self.atmosphere:
@@ -51,6 +53,11 @@ class State:
 
         if 'level' in savegame and savegame['level']:
             self.level = savegame['level']
+
+            
+
+        if 'task' in savegame and savegame['task']:
+            self.task = savegame['task']
 
         if 'inventory' in savegame and savegame['inventory']:
             inventory = savegame['inventory']

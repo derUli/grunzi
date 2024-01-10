@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-09 19:12+0100\n"
+"POT-Creation-Date: 2024-01-10 12:38+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -47,7 +47,7 @@ msgid "Run"
 msgstr "Rennen"
 
 #: components/controls.py:63 components/controls.py:75
-#: components/pausable_component.py:19
+#: components/pausable_component.py:23
 msgid "Pause"
 msgstr ""
 
@@ -118,7 +118,7 @@ msgstr "Du bist Schinken!"
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/gameover.py:60 components/pausable_component.py:25
+#: components/gameover.py:60 components/pausable_component.py:29
 #: components/settings.py:110
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
@@ -131,16 +131,16 @@ msgstr "Sequenz vorrendern..."
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:402
+#: components/maingame.py:406
 #, fuzzy
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/maingame.py:552
+#: components/maingame.py:556
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:555
+#: components/maingame.py:559
 msgid "Level dumped."
 msgstr ""
 
@@ -148,7 +148,7 @@ msgstr ""
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:85 components/pausable_component.py:22
+#: components/menu.py:85 components/pausable_component.py:26
 msgid "Continue"
 msgstr "Fortsetzen"
 
@@ -160,11 +160,15 @@ msgstr "Einstellungen"
 msgid "Quit"
 msgstr "Beenden"
 
-#: components/pausable_component.py:24
+#: components/pausable_component.py:28
 msgid "Save Game"
 msgstr "Spiel speichern"
 
-#: components/pausable_component.py:51
+#: components/pausable_component.py:50
+msgid "Aufgabe"
+msgstr ""
+
+#: components/pausable_component.py:70
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
@@ -238,7 +242,7 @@ msgstr "Wird fortgesetzt"
 msgid "The petrol is empty."
 msgstr "Das Benzin ist leer."
 
-#: sprites/chainsaw.py:86
+#: sprites/chainsaw.py:95
 msgid "The chainsaw was recharged."
 msgstr "Die Kettensäge wurde aufgefüllt."
 
@@ -254,21 +258,46 @@ msgstr "Die Tür ist jetzt offen."
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
-#: sprites/horse.py:42
+#: sprites/horse.py:35
 msgid "Infinity bloodless!"
 msgstr "Unendlich blutleer!"
 
-#: sprites/horse.py:43
+#: sprites/horse.py:36
 msgid "I don't have a single drop of blood left."
 msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
 
-#: sprites/horse.py:44
+#: sprites/horse.py:37
 msgid "Please give me some blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:45
+#: sprites/horse.py:38
 msgid "I am infinitely thirsty for blood."
 msgstr "Ich bin unendlich durstig nach Blut!"
+
+#: sprites/horse.py:117
+msgid "Now I have a bit more blood."
+msgstr "Jetzt habe ich ein wenig mehr Blut."
+
+#: sprites/horse.py:118
+msgid "I still haven't enough blood."
+msgstr "Ich habe immer noch nicht genug Blut."
+
+#: sprites/horse.py:119
+msgid "Yummy blood!"
+msgstr "Leckeres Blut!"
+
+#: sprites/horse.py:120
+#, fuzzy
+msgid "Give me more blood!"
+msgstr "Bitte gib mir etwas Blut!"
+
+#: sprites/horse.py:121
+msgid "Tasty blood!"
+msgstr "Köstliches Blood!"
+
+#: sprites/horse.py:122
+msgid "I need more blood!"
+msgstr "Ich brauche mehr Blut!"
 
 #: sprites/keyhole.py:47
 msgid "There is a keyhole in the wall."
@@ -301,6 +330,14 @@ msgstr "Autsch!"
 #: utils/render_cache.py:32 utils/render_cache.py:51 utils/render_cache.py:53
 msgid "Generating cache..."
 msgstr "Generiere Cache..."
+
+#: utils/tasks.py:3
+msgid "Keine Aufgabe"
+msgstr ""
+
+#: utils/tasks.py:6
+msgid "Suche Blut für das Pferd"
+msgstr ""
 
 #~ msgid "Very Low"
 #~ msgstr "Sehr Niedrig"
@@ -337,4 +374,10 @@ msgstr "Generiere Cache..."
 
 #~ msgid "Smooth Scale"
 #~ msgstr "Weiche Skalierung"
+
+#~ msgid "No Task"
+#~ msgstr "Keine Aufgabe"
+
+#~ msgid "Task:"
+#~ msgstr "Aufgabe: "
 

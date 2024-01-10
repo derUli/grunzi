@@ -17,14 +17,7 @@ from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
 from utils.quality import pixel_fades_enabled
-
-RUMBLE_CHAINSAW_DURATION = 300
-RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
-RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
-
-BLOOD_COLOR = (163, 8, 8)
-CHICKEN_SOUND_FADEOUT = 100
-
+from sprites.blood import Blood 
 
 class Horse(Character):
     """ Chicken sprite class """
@@ -92,7 +85,6 @@ class Horse(Character):
     def ai(self, level):
         part = 0.5
 
-
         if round(self.attributes['given_blood']) <=  0 :
             return
         
@@ -105,3 +97,30 @@ class Horse(Character):
         
         if self.attributes['blood'] < 0:
             self.attributes['blood'] = 0
+
+
+    def handle_interact_item(self, element):
+        """ Handle interact """
+        logging.debug('interact')
+        # Destroy if player has the chainsaw
+        if not element:
+            return
+        
+        if isinstance(element.state.inventory, Blood):
+            amount = element.state.inventory.blood_amount
+
+            element.state.inventory.blood_amount -= amount
+            self.attributes['given_blood'] += amount
+
+            element.state.inventory = None
+            self.sentences = [
+                _('Now I have a bit more blood.'),
+                _('I still haven\'t enough blood.'),
+                _('Yummy blood!'),
+                _('Give me more blood!'),
+                _('Tasty blood!'),
+                _('I need more blood!')
+            ]
+            self.sentence = -1
+
+            element.state.say(self.next_sentence())

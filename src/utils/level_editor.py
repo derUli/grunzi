@@ -17,6 +17,7 @@ from sprites.sheep import Sheep
 from sprites.wall import Wall
 from sprites.water import Water
 from sprites.wood import Wood
+from sprites.blood import Blood
 
 
 def get_editor_blocks(sprites_dir, image_cache):
@@ -52,7 +53,7 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache,
             'tree2.png'
         ),
-        Backdrop(
+        Wall(
             sprites_dir,
             image_cache,
             'cactus1.png'
@@ -200,6 +201,10 @@ def get_editor_blocks(sprites_dir, image_cache):
             image_cache
         ),
         Apple(
+            sprites_dir,
+            image_cache
+        ),
+        Blood(
             sprites_dir,
             image_cache
         ),
