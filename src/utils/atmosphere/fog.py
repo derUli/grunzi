@@ -29,8 +29,6 @@ class Fog(GlobalEffect):
         self.last_updated = time()
         self.id = ATMOSPHERE_FOG
 
-        print(ATMOSPHERE_FOG)
-
     def start(self, args={}, sprites_dir = None, image_cache = None):
         super().start(args, sprites_dir, image_cache)
 

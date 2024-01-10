@@ -12,4 +12,4 @@ class WoodOnWater(Sprite):
         self.can_swim = False
 
     def handle_interact(self, element):
-        print('Wood on water')
+        pass

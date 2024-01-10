@@ -9,6 +9,7 @@ import pygame
 import constants.graphics
 import sprites.sprite
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
+from constants.game import MAIN_CHARACTER_ID
 from sprites.levelexit import LevelExit
 from utils.screenshot import make_dump
 
@@ -48,6 +49,8 @@ class Level:
         loaded_percent = 0
         loaded_blocks = 0
 
+        mainchar_added = False
+
         for z in leveldata:
             layer = []
 
@@ -56,6 +59,7 @@ class Level:
 
                 for x in y:
                     loaded_blocks += 1
+                    
                     percentage = round(one_percent * loaded_blocks)
 
                     if percentage != loaded_percent:
@@ -63,12 +67,23 @@ class Level:
 
                         if progress_callback:
                             progress_callback(loaded_percent)
+
+                    
+                    if not x:
+                        next
+
                     sprite = sprites.sprite.from_dict(
                         x, self.sprites_dir, self.image_cache)
+                        
+                    if sprite and sprite.id == MAIN_CHARACTER_ID:
+                        if mainchar_added:
+                            sprite = None
+                        mainchar_added = True
                     row.append(sprite)
-
+                
                 layer.append(row)
             layers.append(layer)
+
 
         self.layers = layers
         self.original_layers = self.to_saveable_list()

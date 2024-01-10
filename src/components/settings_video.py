@@ -69,6 +69,7 @@ class SettingsVideo(Component):
         self.settings_state.screen_resolution = value
         self.old_component.needs_restart = True
         self.settings_state.apply_and_save()
+        store_clear()
 
     def handle_toggle_fullscreen(self, value):
         """ Handle toggle fullscreen """
