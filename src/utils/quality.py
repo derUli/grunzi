@@ -1,5 +1,5 @@
 import pygame
-from constants.quality import QUALITY_OFF, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 
 settings_state = None
 
@@ -34,8 +34,8 @@ def bloom_enabled():
     return settings_state and settings_state.bloom
 
 def blood_enabled():
-    return settings_state and settings_state.blood >= QUALITY_HIGH
+    return settings_state and settings_state.blood >= QUALITY_MEDIUM
 
 
 def blood_enabled_high():
-    return settings_state and settings_state.blood >= QUALITY_VERY_HIGH
+    return settings_state and settings_state.blood >= QUALITY_HIGH

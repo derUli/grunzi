@@ -107,8 +107,8 @@ class SettingsVideo(Component):
     def get_blood_items(self):
          return [
             (_('Off'), QUALITY_OFF),
+            (_('Medium'), QUALITY_MEDIUM),
             (_('High'), QUALITY_HIGH),
-            (_('Very High'), QUALITY_VERY_HIGH),
         ]
 
     
