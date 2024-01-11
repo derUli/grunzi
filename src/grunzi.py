@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 
+import os
+# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
+
 """ Grunzi Game Launcher """
 from bootstrap.gamecontainer import GameContainer
 import argparse
 import gettext
 import locale
 import logging
-import os
 
 from utils.helper import configure_logger, enable_high_dpi
 from utils.path import get_userdata_path

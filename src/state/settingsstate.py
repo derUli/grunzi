@@ -16,6 +16,7 @@ SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_BLOOD = QUALITY_MEDIUM
 SETTINGS_DEFAULT_BLOOM = False
 SETTINGS_DEFAULT_FOG = True
+SETTINGS_DEFAULT_SMOOTHSCALE = True
 
 SETTINGS_DEFAULT_VOLUME = 1.0
 
@@ -35,6 +36,7 @@ class SettingsState:
         self.blood = SETTINGS_DEFAULT_BLOOD
         self.bloom = SETTINGS_DEFAULT_BLOOM
         self.fog = SETTINGS_DEFAULT_FOG
+        self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
 
     def apply_and_save(self):
         """ Apply and save """
@@ -100,7 +102,8 @@ class SettingsState:
             'screen_resolution': self.screen_resolution,
             'blood': self.blood,
             'bloom': self.bloom,
-            'fog': self.fog
+            'fog': self.fog,
+            'smoothscale': self.smoothscale
         }
 
     def to_json(self):
@@ -137,3 +140,6 @@ class SettingsState:
             
         if 'fog' in settings:
             self.fog = bool(settings['fog'])
+
+        if 'smoothscale' in settings:
+            self.smoothscale = bool(settings['smoothscale'])

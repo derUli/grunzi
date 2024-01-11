@@ -1,5 +1,4 @@
 import os
-
 import pygame
 
 from components.component import Component
@@ -9,8 +8,16 @@ from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
 from utils.render_cache import store_clear
+import math
+
 
 MIN_SCREEN_RESOLUTION = (1280, 720)
+
+def calculate_aspect(width: int, height: int) -> str:
+    r = math.gcd(width, height)
+    x = int(width / r)
+    y = int(height / r)
+    return f"{x}:{y}"
 
 class SettingsVideo(Component):
     def __init__(self, data_dir, handle_change_component,
@@ -124,6 +131,12 @@ class SettingsVideo(Component):
         self.settings_state.bloom = value
         self.settings_state.apply_and_save()
 
+                
+    def handle_toggle_smoothscale(self, value):
+        """ Handle toggle bloom """
+        self.settings_state.smoothscale = value
+        self.settings_state.apply_and_save()
+
         
     def handle_toggle_fog(self, value):
         """ Handle toggle fog """
@@ -173,7 +186,6 @@ class SettingsVideo(Component):
             placeholder=get_longest_option(self.get_screen_resolution_items()),
         )
 
-        
         menu.add.dropselect(
             title=_('Blood'),
             default=self.get_selected_index(
@@ -196,6 +208,14 @@ class SettingsVideo(Component):
             _('Bloom'),
             self.settings_state.bloom,
             self.handle_toggle_bloom,
+            state_text=state_text
+        )
+
+        
+        menu.add.toggle_switch(
+            _('Smooth Scale'),
+            self.settings_state.smoothscale,
+            self.handle_toggle_smoothscale,
             state_text=state_text
         )
 

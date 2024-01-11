@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-10 12:38+0100\n"
+"POT-Creation-Date: 2024-01-11 17:12+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -26,87 +26,58 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/controls.py:58 components/controls.py:70
+#: components/controls.py:56 components/controls.py:68
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/controls.py:59 components/controls.py:71
+#: components/controls.py:57 components/controls.py:69
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/controls.py:60 components/controls.py:72
+#: components/controls.py:58 components/controls.py:70
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/controls.py:61 components/controls.py:73
+#: components/controls.py:59 components/controls.py:71
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/controls.py:62 components/controls.py:74
+#: components/controls.py:60 components/controls.py:72
 msgid "Run"
 msgstr "Rennen"
 
-#: components/controls.py:63 components/controls.py:75
+#: components/controls.py:61 components/controls.py:73
 #: components/pausable_component.py:23
 msgid "Pause"
 msgstr ""
 
-#: components/controls.py:64
+#: components/controls.py:62
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/controls.py:80
-msgid "Experimental mouse support"
-msgstr ""
-
-#: components/controls.py:82
-msgid "Disabled"
-msgstr ""
-
-#: components/controls.py:87
-msgid "Enabled"
-msgstr ""
-
-#: components/controls.py:89
-msgid "Status"
-msgstr ""
-
-#: components/controls.py:94
-msgid "To enable the experimental mouse support run the game with"
-msgstr ""
-
-#: components/controls.py:99
-msgid "the --enable-mouse flag."
-msgstr ""
-
-#: components/controls.py:132 components/settings.py:109
+#: components/controls.py:103 components/settings.py:109
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/controls.py:136
+#: components/controls.py:107
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/controls.py:138
+#: components/controls.py:109
 #, fuzzy
 msgid "Controller"
 msgstr "Controller"
 
-#: components/controls.py:140
-#, fuzzy
-msgid "Mouse"
-msgstr "Maus"
-
-#: components/controls.py:203
+#: components/controls.py:170
 #, fuzzy
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/controls.py:210
+#: components/controls.py:177
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/controls.py:212
+#: components/controls.py:179
 msgid "No Controller"
 msgstr "Kein Controller"
 
@@ -131,16 +102,16 @@ msgstr "Sequenz vorrendern..."
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:406
+#: components/maingame.py:379
 #, fuzzy
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/maingame.py:556
+#: components/maingame.py:512
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:559
+#: components/maingame.py:515
 msgid "Level dumped."
 msgstr ""
 
@@ -172,7 +143,7 @@ msgstr ""
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:107 components/settings_video.py:146
+#: components/settings.py:107 components/settings_video.py:153
 msgid "Video"
 msgstr ""
 
@@ -188,50 +159,53 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:96 components/settings_video.py:202
+#: components/settings_audio.py:96 components/settings_video.py:216
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:108 components/settings_video.py:148
+#: components/settings_video.py:109 components/settings_video.py:155
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings_video.py:109
+#: components/settings_video.py:110
+msgid "Medium"
+msgstr ""
+
+#: components/settings_video.py:111
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:110
-#, fuzzy
-msgid "Very High"
-msgstr "Sehr Hoch"
-
-#: components/settings_video.py:148
+#: components/settings_video.py:155
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:151
+#: components/settings_video.py:158
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:158
+#: components/settings_video.py:165
 msgid "V-Sync"
 msgstr "Vertikale Synchronisation"
 
-#: components/settings_video.py:165
+#: components/settings_video.py:172
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:177
+#: components/settings_video.py:183
 msgid "Blood"
 msgstr "Blut"
 
-#: components/settings_video.py:188
+#: components/settings_video.py:194
 msgid "Fog"
 msgstr "Nebel"
 
-#: components/settings_video.py:195
+#: components/settings_video.py:201
 msgid "Bloom"
 msgstr "Bloom"
+
+#: components/settings_video.py:209
+msgid "Smooth Scale"
+msgstr "Weiche Skalierung"
 
 #: components/tobecontinued.py:44
 #, fuzzy
@@ -258,44 +232,44 @@ msgstr "Die Tür ist jetzt offen."
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
-#: sprites/horse.py:35
+#: sprites/horse.py:40
 msgid "Infinity bloodless!"
 msgstr "Unendlich blutleer!"
 
-#: sprites/horse.py:36
+#: sprites/horse.py:41
 msgid "I don't have a single drop of blood left."
 msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
 
-#: sprites/horse.py:37
+#: sprites/horse.py:42
 msgid "Please give me some blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:38
+#: sprites/horse.py:43
 msgid "I am infinitely thirsty for blood."
 msgstr "Ich bin unendlich durstig nach Blut!"
 
-#: sprites/horse.py:117
+#: sprites/horse.py:123
 msgid "Now I have a bit more blood."
 msgstr "Jetzt habe ich ein wenig mehr Blut."
 
-#: sprites/horse.py:118
+#: sprites/horse.py:124
 msgid "I still haven't enough blood."
 msgstr "Ich habe immer noch nicht genug Blut."
 
-#: sprites/horse.py:119
+#: sprites/horse.py:125
 msgid "Yummy blood!"
 msgstr "Leckeres Blut!"
 
-#: sprites/horse.py:120
+#: sprites/horse.py:126
 #, fuzzy
 msgid "Give me more blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:121
+#: sprites/horse.py:127
 msgid "Tasty blood!"
 msgstr "Köstliches Blood!"
 
-#: sprites/horse.py:122
+#: sprites/horse.py:128
 msgid "I need more blood!"
 msgstr "Ich brauche mehr Blut!"
 
@@ -315,11 +289,11 @@ msgstr "[Münze einwerfen]"
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
-#: state/level.py:123
+#: state/level.py:138
 msgid "Saving level..."
 msgstr "Speichere Level..."
 
-#: state/level.py:140
+#: state/level.py:155
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
@@ -331,11 +305,11 @@ msgstr "Autsch!"
 msgid "Generating cache..."
 msgstr "Generiere Cache..."
 
-#: utils/tasks.py:3
+#: utils/tasks.py:2
 msgid "Keine Aufgabe"
 msgstr ""
 
-#: utils/tasks.py:6
+#: utils/tasks.py:5
 msgid "Suche Blut für das Pferd"
 msgstr ""
 
@@ -346,7 +320,7 @@ msgstr ""
 #~ msgstr "Mittel"
 
 #~ msgid "Very High"
-#~ msgstr "Sehr hoch"
+#~ msgstr "Sehr Hoch"
 
 #~ msgid "Font Antialiasing"
 #~ msgstr ""
@@ -380,4 +354,25 @@ msgstr ""
 
 #~ msgid "Task:"
 #~ msgstr "Aufgabe: "
+
+#~ msgid "Experimental mouse support"
+#~ msgstr ""
+
+#~ msgid "Disabled"
+#~ msgstr ""
+
+#~ msgid "Enabled"
+#~ msgstr ""
+
+#~ msgid "Status"
+#~ msgstr ""
+
+#~ msgid "To enable the experimental mouse support run the game with"
+#~ msgstr ""
+
+#~ msgid "the --enable-mouse flag."
+#~ msgstr ""
+
+#~ msgid "Mouse"
+#~ msgstr "Maus"
 

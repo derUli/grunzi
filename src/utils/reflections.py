@@ -1,6 +1,5 @@
 from importlib import import_module
 
-
 def fullname(o):
     """ Get the fully qualified class name """
     klass = o.__class__
