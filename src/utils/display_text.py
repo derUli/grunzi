@@ -14,12 +14,12 @@ MIN_FONT_SIZE = 12
 
 
 class DisplayText:
-    def __init__(self, data_dir):
+    def __init__(self, data_dir: str):
         self.font = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
         self.rendered_text = None
         self.show_end = 0
 
-    def draw(self, screen, pos):
+    def draw(self, screen: pygame.surface.Surface, pos: tuple):
         if not self.rendered_text:
             return
 
@@ -29,7 +29,7 @@ class DisplayText:
 
         screen.blit(self.rendered_text, pos)
 
-    def show_text(self, what, fit_width=450):
+    def show_text(self, what: str, fit_width: int = 450) -> None:
         logging.info(what)
         original_what = what
 

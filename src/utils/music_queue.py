@@ -1,13 +1,12 @@
 import os
 import random
-
 import pygame
 
 AUDIO_EXTENSIONS = ['.ogg']
 
 
 class MusicQueue:
-    def __init__(self, files=None):
+    def __init__(self, files: list = []):
         if files is None:
             files = []
 
@@ -16,10 +15,10 @@ class MusicQueue:
         self.paused = False
         self.playing = False
 
-    def set_files(self, files):
+    def set_files(self, files) -> None:
         self.files = files
 
-    def from_directory(self, dir):
+    def from_directory(self, dir) -> None:
         files = sorted(os.listdir(dir))
         self.files = []
         for file in files:
@@ -28,29 +27,29 @@ class MusicQueue:
                 abspath = os.path.join(dir, file)
                 self.files.append(abspath)
 
-    def shuffle(self):
+    def shuffle(self) -> None:
         self.queue = list(self.files)
         random.shuffle(self.queue)
 
-    def play(self):
+    def play(self) -> None:
         self.playing = True
         self.paused = False
         self.next()
 
-    def stop(self):
+    def stop(self) -> None:
         self.playing = False
         self.paused = False
         pygame.mixer.music.stop()
 
-    def pause(self):
+    def pause(self) -> None:
         pygame.mixer.music.pause()
         self.paused = True
 
-    def unpause(self):
+    def unpause(self) -> None:
         pygame.mixer.music.unpause()
         self.paused = False
 
-    def check_for_next(self):
+    def check_for_next(self) -> None:
         if not self.playing:
             return
 
@@ -60,7 +59,7 @@ class MusicQueue:
         if not pygame.mixer.music.get_busy():
             self.next()
 
-    def next(self):
+    def next(self) -> None:
         if len(self.queue) == 0:
             self.shuffle()
 

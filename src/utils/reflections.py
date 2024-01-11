@@ -1,7 +1,7 @@
 from importlib import import_module
 
 
-def fullname(o):
+def fullname(o: any) -> str:
     """ Get the fully qualified class name """
     klass = o.__class__
     module = klass.__module__
@@ -10,7 +10,7 @@ def fullname(o):
     return module + '.' + klass.__qualname__
 
 
-def get_class(class_str: object) -> object:
+def get_class(class_str: str) -> any:
     """ Get class instance by name """
     try:
         module_path, class_name = class_str.rsplit('.', 1)
