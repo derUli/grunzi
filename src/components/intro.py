@@ -70,6 +70,10 @@ class Intro(FadeableComponent, LoadingScreen):
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
 
+        if self.settings_state.skip_intro:
+            self.start_game()
+            return
+
         self.anim = load_rendered_sequence(
             'intro',
             refresh_interval=FPS / 1000,
@@ -130,6 +134,9 @@ class Intro(FadeableComponent, LoadingScreen):
         self.white_surface.fill(BOTTOM_UI_BACKGROUND)
 
     def draw(self, screen):
+        if self.settings_state.skip_intro:
+            return
+
         if self.anim:
             frame = self.anim.get_frame()
             screen.blit(frame, (0, 0))

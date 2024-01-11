@@ -17,26 +17,38 @@ SETTINGS_DEFAULT_BLOOD = QUALITY_MEDIUM
 SETTINGS_DEFAULT_BLOOM = False
 SETTINGS_DEFAULT_FOG = True
 SETTINGS_DEFAULT_SMOOTHSCALE = True
-
+SETTINGS_DEFAULT_SKIP_INTRO = False
 SETTINGS_DEFAULT_VOLUME = 1.0
 
 
 class SettingsState:
     def __init__(self, handle_settings_change):
         """ Constructor """
+
+        # Game settings
+        self.skip_intro = SETTINGS_DEFAULT_SKIP_INTRO
+        
+        # Screen settings
+        self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.vsync = SETTINGS_DEFAULT_VSYNC
         self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
-        self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
 
+        # Audio settings
         self.sound_volume = SETTINGS_DEFAULT_VOLUME
         self.music_volume = SETTINGS_DEFAULT_VOLUME
-        self.handle_settings_change = handle_settings_change
+
+        # Graphics settings
         self.blood = SETTINGS_DEFAULT_BLOOD
         self.bloom = SETTINGS_DEFAULT_BLOOM
         self.fog = SETTINGS_DEFAULT_FOG
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
+
+
+
+        # Event handler
+        self.handle_settings_change = handle_settings_change
 
     def apply_and_save(self):
         """ Apply and save """
@@ -103,7 +115,8 @@ class SettingsState:
             'blood': self.blood,
             'bloom': self.bloom,
             'fog': self.fog,
-            'smoothscale': self.smoothscale
+            'smoothscale': self.smoothscale,
+            'skip_intro': self.skip_intro
         }
 
     def to_json(self):
@@ -143,3 +156,6 @@ class SettingsState:
 
         if 'smoothscale' in settings:
             self.smoothscale = bool(settings['smoothscale'])
+
+        if 'skip_intro' in settings:
+            self.skip_intro = bool(settings['skip_intro'])
