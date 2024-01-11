@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-11 20:44+0100\n"
+"POT-Creation-Date: 2024-01-11 22:40+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:109 components/menu.py:80 grunzi.py:30
+#: bootstrap/gamecontainer.py:109 components/menu.py:52 grunzi.py:30
 msgid "Grunzi"
 msgstr ""
 
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/controls.py:102 components/settings.py:109
+#: components/controls.py:102 components/settings.py:89
 msgid "Controls"
 msgstr "Steuerung"
 
@@ -64,12 +64,10 @@ msgid "Keyboard"
 msgstr "Tastatur"
 
 #: components/controls.py:108
-#, fuzzy
 msgid "Controller"
 msgstr "Controller"
 
 #: components/controls.py:169
-#, fuzzy
 msgid "Controller: "
 msgstr "Controller: "
 
@@ -90,11 +88,11 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/gameover.py:60 components/pausable_component.py:30
-#: components/settings.py:110
+#: components/settings.py:90
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/intro.py:213
+#: components/intro.py:220
 msgid "Prerendering sequence..."
 msgstr "Sequenz vorrendern..."
 
@@ -103,7 +101,6 @@ msgid "Loading..."
 msgstr "Wird geladen..."
 
 #: components/maingame.py:375
-#, fuzzy
 msgid "Grunt!"
 msgstr "Grunz"
 
@@ -115,19 +112,19 @@ msgstr "Level gespeichert."
 msgid "Level dumped."
 msgstr ""
 
-#: components/menu.py:81
+#: components/menu.py:53
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:84 components/pausable_component.py:27
+#: components/menu.py:56 components/pausable_component.py:27
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:87 components/settings.py:105
+#: components/menu.py:59 components/settings.py:84
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/menu.py:89
+#: components/menu.py:61
 msgid "Quit"
 msgstr "Beenden"
 
@@ -143,72 +140,88 @@ msgstr ""
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:107 components/settings_video.py:151
+#: components/settings.py:86 components/settings_video.py:84
 msgid "Video"
 msgstr ""
 
-#: components/settings.py:108 components/settings_audio.py:76
+#: components/settings.py:87 components/settings_audio.py:44
 msgid "Audio"
 msgstr ""
 
-#: components/settings_audio.py:79
+#: components/settings.py:88 components/settings_game.py:21
+msgid "Game"
+msgstr "Spiel"
+
+#: components/settings_audio.py:47
 msgid "Music"
 msgstr "Musik"
 
-#: components/settings_audio.py:88
+#: components/settings_audio.py:56
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings_audio.py:96 components/settings_video.py:212
+#: components/settings_audio.py:64 components/settings_game.py:32
+#: components/settings_video.py:145
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings_video.py:111 components/settings_video.py:153
+#: components/settings_game.py:23
+msgid "No"
+msgstr "Nein"
+
+#: components/settings_game.py:23
+msgid "Yes"
+msgstr "Ja"
+
+#: components/settings_game.py:26
+msgid "Skip Intro"
+msgstr "Intro überspringen"
+
+#: components/settings_video.py:57 components/settings_video.py:86
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings_video.py:112
+#: components/settings_video.py:58
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings_video.py:113
+#: components/settings_video.py:59
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings_video.py:153
+#: components/settings_video.py:86
 msgid "On"
 msgstr "An"
 
-#: components/settings_video.py:156
+#: components/settings_video.py:89
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings_video.py:163
+#: components/settings_video.py:96
 msgid "V-Sync"
 msgstr "Vertikale Synchronisation"
 
-#: components/settings_video.py:170
+#: components/settings_video.py:103
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings_video.py:181
+#: components/settings_video.py:114
 msgid "Blood"
 msgstr "Blut"
 
-#: components/settings_video.py:192
+#: components/settings_video.py:125
 msgid "Fog"
 msgstr "Nebel"
 
-#: components/settings_video.py:199
+#: components/settings_video.py:132
 msgid "Bloom"
 msgstr "Bloom"
 
-#: components/settings_video.py:206
+#: components/settings_video.py:139
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
 #: components/tobecontinued.py:44
-#, fuzzy
 msgid "To be continued"
 msgstr "Wird fortgesetzt"
 
@@ -261,7 +274,6 @@ msgid "Yummy blood!"
 msgstr "Leckeres Blut!"
 
 #: sprites/horse.py:110
-#, fuzzy
 msgid "Give me more blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
@@ -301,15 +313,15 @@ msgstr "Generiere Level als Grafikdatei..."
 msgid "Ouch!"
 msgstr "Autsch!"
 
-#: utils/render_cache.py:32 utils/render_cache.py:51 utils/render_cache.py:53
+#: utils/render_cache.py:33 utils/render_cache.py:53 utils/render_cache.py:55
 msgid "Generating cache..."
 msgstr "Generiere Cache..."
 
-#: utils/tasks.py:4
+#: utils/tasks.py:5
 msgid "Keine Aufgabe"
 msgstr ""
 
-#: utils/tasks.py:7
+#: utils/tasks.py:8
 msgid "Suche Blut für das Pferd"
 msgstr ""
 

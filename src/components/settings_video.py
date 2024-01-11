@@ -10,17 +10,6 @@ from utils.render_cache import store_clear
 MIN_SCREEN_RESOLUTION = (800, 600)
 
 class SettingsVideo(SettingsComponent):
-    def __init__(self, data_dir, handle_change_component,
-                 settings_state, enable_edit_mode=False, gamepad=None):
-        """ Constructor """
-        super().__init__(
-            data_dir,
-            handle_change_component,
-            settings_state,
-            enable_edit_mode,
-            gamepad
-        )
-
     def handle_change_screen_resolution(self, selection, selected_index):
         """ Handle change resolution """
         selected_item, index = selection

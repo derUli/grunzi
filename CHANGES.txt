@@ -13,6 +13,7 @@
 * Tag-Nacht-Zyklus
 * Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
 * Grafik-Optionen sind jetzt feiner einstellbar
+* Option "Intro überspringen" hinzugefügt
 * Maussteuerung entfernt
 * Fehler im Handling der Tastatur-Events korrigiert
 * Wenn man das Spiel pausiert, werden jetzt auch die Soundeffekte gestoppt

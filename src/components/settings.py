@@ -9,6 +9,7 @@ from components.menucomponent import MenuComponent
 from components.controls import Controls
 from components.settings_audio import SettingsAudio
 from components.settings_video import SettingsVideo
+from components.settings_game import SettingsGame
 from constants.headup import PIGGY_PINK
 from utils.animation import Animation
 from utils.helper import get_version
@@ -65,6 +66,13 @@ class Settings(MenuComponent):
         component.old_component = self
         self.menu.disable()
 
+        
+    def handle_game(self):
+        component = self.handle_change_component(SettingsGame)
+        component.video = self.video
+        component.old_component = self
+        self.menu.disable()
+
     def handle_controls(self):
         """ Handle open settings menu  """
         component = self.handle_change_component(Controls)
@@ -77,6 +85,7 @@ class Settings(MenuComponent):
 
         menu.add.button(_('Video'), self.handle_video)
         menu.add.button(_('Audio'), self.handle_audio)
+        menu.add.button(_('Game'), self.handle_game)
         menu.add.button(_('Controls'), self.handle_controls)
         menu.add.button(_('Back To Main Menu'), self.handle_back)
 
