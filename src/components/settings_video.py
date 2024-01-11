@@ -3,7 +3,7 @@ import pygame
 
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_OFF, QUALITY_VERY_LOW, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
@@ -13,11 +13,13 @@ import math
 
 MIN_SCREEN_RESOLUTION = (1280, 720)
 
+
 def calculate_aspect(width: int, height: int) -> str:
     r = math.gcd(width, height)
     x = int(width / r)
     y = int(height / r)
     return f"{x}:{y}"
+
 
 class SettingsVideo(Component):
     def __init__(self, data_dir, handle_change_component,
@@ -112,32 +114,28 @@ class SettingsVideo(Component):
         return items
 
     def get_blood_items(self):
-         return [
+        return [
             (_('Off'), QUALITY_OFF),
             (_('Medium'), QUALITY_MEDIUM),
             (_('High'), QUALITY_HIGH),
         ]
 
-    
     def handle_change_blood(self, selection, selected_index):
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.blood = value
         self.settings_state.apply_and_save()
 
-        
     def handle_toggle_bloom(self, value):
         """ Handle toggle bloom """
         self.settings_state.bloom = value
         self.settings_state.apply_and_save()
 
-                
     def handle_toggle_smoothscale(self, value):
         """ Handle toggle bloom """
         self.settings_state.smoothscale = value
         self.settings_state.apply_and_save()
 
-        
     def handle_toggle_fog(self, value):
         """ Handle toggle fog """
         self.settings_state.fog = value
@@ -203,7 +201,7 @@ class SettingsVideo(Component):
             self.handle_toggle_fog,
             state_text=state_text
         )
-        
+
         menu.add.toggle_switch(
             _('Bloom'),
             self.settings_state.bloom,
@@ -211,14 +209,12 @@ class SettingsVideo(Component):
             state_text=state_text
         )
 
-        
         menu.add.toggle_switch(
             _('Smooth Scale'),
             self.settings_state.smoothscale,
             self.handle_toggle_smoothscale,
             state_text=state_text
         )
-
 
         menu.add.button(_('Back'), self.handle_back)
 

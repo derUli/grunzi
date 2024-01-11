@@ -3,6 +3,7 @@
 from sprites.inlinesprite import InlineSprite
 from sprites.takeable import Takeable
 
+
 class Blood(Takeable, InlineSprite):
     """ blood sprite class """
 

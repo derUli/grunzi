@@ -54,8 +54,6 @@ class State:
         if 'level' in savegame and savegame['level']:
             self.level = savegame['level']
 
-            
-
         if 'task' in savegame and savegame['task']:
             self.task = savegame['task']
 

@@ -1,28 +1,23 @@
 """ Main character sprite """
 
 import logging
-import os
-import random
 import time
 
 import pygame
 
-from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
+from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
 from constants.headup import NPC_HEALTH_COLOR_ENEMY, NPC_HEALTH_HEIGHT
 from constants.graphics import SPRITE_SIZE
 from sprites.chainsaw import Chainsaw
 from sprites.character import Character
-from sprites.feather import Feather
 from sprites.killable import Killable
-from sprites.maincharacter import PIG_SOUND_NOTHING
-from utils.audio import play_sound
-from utils.quality import pixel_fades_enabled
 from constants.game import MAIN_CHARACTER_ID
 
 BLOOD_COLOR = (163, 8, 8)
 CHICKEN_SOUND_FADEOUT = 100
 CHAINSAW_DAMAGE = 2
 HURT_DAMAGE = 10
+
 
 class Skeleton(Killable, Character):
     """ Skeleton sprite class """
@@ -36,22 +31,20 @@ class Skeleton(Killable, Character):
         }
 
         self.walk_speed = 0.8
-    
+
     def draw(self, screen, x, y):
         super().draw(screen, x, y)
-
 
         pos = self.calculate_pos(x, y)
 
         self.draw_health(screen, pos)
-    
+
     def draw_health(self, screen, pos):
 
         x, y = pos
         w, h = SPRITE_SIZE
 
         y += h - NPC_HEALTH_HEIGHT
-        
 
         w = w / 100 * self.attributes['health']
         h = NPC_HEALTH_HEIGHT
@@ -65,7 +58,6 @@ class Skeleton(Killable, Character):
 
         screen.blit(surface, (x, y))
 
-    
     def handle_interact_item(self, element):
         """ Handle interact """
         logging.debug('interact')
@@ -76,7 +68,6 @@ class Skeleton(Killable, Character):
         if self.purge:
             return
 
-
         # Chicken is killed by chainsaw
         if isinstance(element.state.inventory, Chainsaw):
             if element.state.inventory.attributes['fuel'] <= 0:
@@ -86,16 +77,14 @@ class Skeleton(Killable, Character):
 
             self.attributes['health'] -= CHAINSAW_DAMAGE
 
-
             if self.attributes['health'] <= 0:
                 self.attributes['health'] = 0
-                
+
                 logging.debug('Skeleton killed by chainsaw')
                 self.kill()
 
             element.state.inventory.play_sound()
 
-    
     def ai(self, level):
         if time.time() - self.last_movement < self.walk_speed:
             return
@@ -128,7 +117,7 @@ class Skeleton(Killable, Character):
         # Attacks piggy
         if new_y == mainchar_y and new_x == mainchar_x:
             mainchar = level.layers[mainchar_z][mainchar_y][mainchar_x]
-            #self.play_sound()
+            # self.play_sound()
             mainchar.state.hurt(HURT_DAMAGE)
 
         for option in move_options:

@@ -1,26 +1,17 @@
 """ Main character sprite """
 
 import logging
-import os
-import random
-import time
 
 import pygame
 
-from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
 from constants.headup import NPC_HEALTH_COLOR_FRIENDLY, NPC_HEALTH_HEIGHT
 from constants.graphics import SPRITE_SIZE
-from sprites.chainsaw import Chainsaw
 from sprites.character import Character
-from sprites.feather import Feather
-from sprites.killable import Killable
-from sprites.maincharacter import PIG_SOUND_NOTHING
-from utils.audio import play_sound
-from utils.quality import pixel_fades_enabled
-from sprites.blood import Blood 
+from sprites.blood import Blood
 from utils.atmosphere import ATMOSPHERE_FOG
 
 HORSE_FOG = 255
+
 
 class Horse(Character):
     """ Chicken sprite class """
@@ -43,22 +34,19 @@ class Horse(Character):
             _('I am infinitely thirsty for blood.')
         ]
 
-    
     def draw(self, screen, x, y):
         super().draw(screen, x, y)
-
 
         pos = self.calculate_pos(x, y)
 
         self.draw_health(screen, pos)
-    
+
     def draw_health(self, screen, pos):
 
         x, y = pos
         w, h = SPRITE_SIZE
 
         y += h - NPC_HEALTH_HEIGHT
-        
 
         w = w / 100 * self.attributes['blood']
         h = NPC_HEALTH_HEIGHT
@@ -71,13 +59,11 @@ class Horse(Character):
 
     def next_sentence(self):
         self.sentence += 1
-        
+
         if self.sentence >= len(self.sentences):
             self.sentence = 0
 
-        
         return self.sentences[self.sentence]
-
 
     def handle_interact(self, element):
         if element and element.state:
@@ -87,31 +73,29 @@ class Horse(Character):
             element.state.say(self.next_sentence())
 
             self.task = 'horse'
-            
 
     def ai(self, level):
         part = 0.5
 
-        if round(self.attributes['given_blood']) <=  0 :
+        if round(self.attributes['given_blood']) <= 0:
             return
-        
+
         self.attributes['blood'] += part
         self.attributes['given_blood'] -= part
 
         if self.attributes['blood'] > 100:
             self.attributes['blood'] = 100
             self.attributes['given_blood'] = 0
-        
+
         if self.attributes['blood'] < 0:
             self.attributes['blood'] = 0
-
 
     def handle_interact_item(self, element):
         """ Handle interact """
         logging.debug('interact')
         if not element:
             return
-        
+
         if isinstance(element.state.inventory, Blood):
             amount = element.state.inventory.blood_amount
 
@@ -131,19 +115,17 @@ class Horse(Character):
 
             element.state.say(self.next_sentence())
 
-
     def update_atmosphere(self, atmosphere):
         fog = atmosphere.get_layer_by_id(ATMOSPHERE_FOG)
 
         if not fog:
             return
-            
+
         if self.attributes['blood'] >= 100:
             fog.update(0)
             return
 
         fog.update(HORSE_FOG)
-
 
     def update_state(self, state):
         if self.task:

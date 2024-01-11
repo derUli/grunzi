@@ -6,7 +6,7 @@ import pygame
 
 import utils.audio
 import utils.quality
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH, QUALITY_VERY_HIGH
+from constants.quality import QUALITY_MEDIUM
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True
@@ -134,10 +134,10 @@ class SettingsState:
 
         if 'blood' in settings:
             self.blood = settings['blood']
-            
+
         if 'bloom' in settings:
             self.bloom = bool(settings['bloom'])
-            
+
         if 'fog' in settings:
             self.fog = bool(settings['fog'])
 

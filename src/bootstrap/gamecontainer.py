@@ -24,7 +24,8 @@ from utils.string import label_value
 class GameContainer:
     """ Main game class """
 
-    def __init__(self, root_dir, enable_edit_mode=False, disable_controller=False, disable_ai=False):
+    def __init__(self, root_dir, enable_edit_mode=False,
+                 disable_controller=False, disable_ai=False):
         """ Constructor """
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
@@ -53,7 +54,10 @@ class GameContainer:
         if not any(gpus):
             logging.info(label_value('GPU', 'Unknown'))
 
-        logging.info(label_value('Smoothscale backend', pygame.transform.get_smoothscale_backend()))
+        logging.info(
+            label_value(
+                'Smoothscale backend',
+                pygame.transform.get_smoothscale_backend()))
 
         logging.info(label_value('Python version', platform.python_version()))
         logging.info(label_value('Pygame version', pygame.version.ver))

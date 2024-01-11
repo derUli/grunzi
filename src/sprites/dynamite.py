@@ -1,13 +1,11 @@
 """ Wall sprite """
-from sprites.inlinesprite import InlineSprite
 from sprites.takeable import Takeable
-from threading import Thread
 from stopwatch import Stopwatch
 from utils.audio import play_sound
 from utils.animation import Animation
 from constants.graphics import SPRITE_SIZE
 from utils.quality import font_antialiasing_enabled
-from constants.game import MONOTYPE_FONT, DEBUG_OUTPUT_FONT_SIZE, MAIN_CHARACTER_ID
+from constants.game import MONOTYPE_FONT, MAIN_CHARACTER_ID
 import os
 import pygame
 

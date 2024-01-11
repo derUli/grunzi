@@ -2,7 +2,7 @@ import time
 import pygame
 from utils.quality import daynightcycle_enabled, bloom_enabled
 from utils.atmosphere.globaleffect import GlobalEffect
-from PygameShader.shader import zoom, shader_bloom_fast1
+from PygameShader.shader import shader_bloom_fast1
 
 UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
 DARKEST_DAYTIME = 240
@@ -22,7 +22,7 @@ class DayNightCycle(GlobalEffect):
         self.surfaces = None
         self.enabled = False
 
-    def start(self, args={}, sprites_dir = None, image_cache = None):
+    def start(self, args={}, sprites_dir=None, image_cache=None):
         super().start(args, sprites_dir, image_cache)
 
         if 'dnc_daytime' in args:

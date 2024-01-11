@@ -79,4 +79,3 @@ class MainCharacter(Character, FadeableComponent):
 
         sound_dir = os.path.join(self.sound_dir, sound)
         self.sound = play_sound(sound_dir)
-        

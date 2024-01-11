@@ -4,8 +4,6 @@ import pygame
 from time import time
 from utils.quality import fog_enabled
 from utils.atmosphere.globaleffect import GlobalEffect
-from PygameShader.shader import zoom, shader_bloom_fast1
-from utils.image import ImageCache
 from utils.atmosphere import ATMOSPHERE_FOG
 
 UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
@@ -19,6 +17,7 @@ MODIFIER_LIGHT = -1
 FOG_ALPHA_SPEED = 0.5
 FOG_MOVE_SPEED = 1 / 10
 
+
 class Fog(GlobalEffect):
 
     def __init__(self):
@@ -29,15 +28,14 @@ class Fog(GlobalEffect):
         self.last_updated = time()
         self.id = ATMOSPHERE_FOG
 
-    def start(self, args={}, sprites_dir = None, image_cache = None):
+    def start(self, args={}, sprites_dir=None, image_cache=None):
         super().start(args, sprites_dir, image_cache)
 
         if 'fog_alpha' in args:
             self.alpha = args['fog_alpha']
-        
+
         if 'fog_target_alpha' in args:
             self.target_alpha = args['fog_target_alpha']
-
 
     def reset(self):
         self.enabled = fog_enabled()
@@ -54,28 +52,28 @@ class Fog(GlobalEffect):
         if len(self.fog) == 0:
             self.init_fog(screen.get_size())
 
-
         if self.alpha < self.target_alpha:
             self.alpha += FOG_ALPHA_SPEED
         elif self.alpha > self.target_alpha:
             self.alpha -= FOG_ALPHA_SPEED
 
         if time() < self.last_updated + FOG_MOVE_SPEED and self.buffer:
-            
+
             self.buffer.set_alpha(int(self.alpha))
-            screen.blit(self.buffer, (0,0))
+            screen.blit(self.buffer, (0, 0))
             return
 
-        self.buffer = pygame.surface.Surface(screen.get_size(), pygame.SRCALPHA)
+        self.buffer = pygame.surface.Surface(
+            screen.get_size(), pygame.SRCALPHA)
 
         for fog in self.fog:
-            
+
             w = fog['image'].get_width()
             x, y = fog['pos']
 
             self.last_updated = time()
             x -= 1
-        
+
             if x <= w * -1:
                 x = w
 
@@ -83,10 +81,9 @@ class Fog(GlobalEffect):
                 self.buffer.blit(fog['image'], (x, y))
 
             fog['pos'] = (x, y)
-            
-        self.buffer.set_alpha(int(self.alpha))
-        screen.blit(self.buffer, (0,0))
 
+        self.buffer.set_alpha(int(self.alpha))
+        screen.blit(self.buffer, (0, 0))
 
     def to_dict(self):
         return {
@@ -94,11 +91,11 @@ class Fog(GlobalEffect):
             'fog_target_alpha': self.target_alpha
         }
 
-
     def init_fog(self, size):
         file = os.path.join(self.sprites_dir, 'backdrops', 'fog.png')
         image_left = self.image_cache.load_image(file, size)
-        image_right = pygame.transform.flip(image_left, flip_x = True, flip_y = False)
+        image_right = pygame.transform.flip(
+            image_left, flip_x=True, flip_y=False)
 
         self.fog = [
             {
@@ -110,7 +107,6 @@ class Fog(GlobalEffect):
                 'image': image_right
             }
         ]
-
 
     def update(self, alpha):
         self.target_alpha = alpha

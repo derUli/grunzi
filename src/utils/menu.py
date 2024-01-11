@@ -22,6 +22,7 @@ THEME_PIG = pygame_menu.Theme(
 WIDTH = 640
 HEIGHT = 480
 
+
 def make_menu(title, limit_fps=0):
     """ Make pygame menu """
     THEME_PIG.fps = limit_fps
@@ -31,6 +32,7 @@ def make_menu(title, limit_fps=0):
         theme=THEME_PIG,
         title=title
     )
+
 
 def get_longest_option(options):
     """ Get the longest option """

@@ -28,7 +28,7 @@ class ImageCache:
         return None
 
     def load_image(self, path, scale=None):
-        start_time = time.time()
+        time.time()
         extension = os.path.splitext(path)[1]
         is_alpha = extension.lower() in ALPHA_IMAGE_FORMATS
 

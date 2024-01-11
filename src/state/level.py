@@ -59,7 +59,7 @@ class Level:
 
                 for x in y:
                     loaded_blocks += 1
-                    
+
                     percentage = round(one_percent * loaded_blocks)
 
                     if percentage != loaded_percent:
@@ -68,22 +68,20 @@ class Level:
                         if progress_callback:
                             progress_callback(loaded_percent)
 
-                    
                     if not x:
                         next
 
                     sprite = sprites.sprite.from_dict(
                         x, self.sprites_dir, self.image_cache)
-                        
+
                     if sprite and sprite.id == MAIN_CHARACTER_ID:
                         if mainchar_added:
                             sprite = None
                         mainchar_added = True
                     row.append(sprite)
-                
+
                 layer.append(row)
             layers.append(layer)
-
 
         self.layers = layers
         self.original_layers = self.to_saveable_list()
@@ -176,8 +174,8 @@ class Level:
                             animation = element.animation
                             # Wait for animation frame loading
                             animation.load()
-                            frames = animation.frames
-                            files = animation.files
+                            animation.frames
+                            animation.files
 
                             # wait for animation loaded
                             while not animation.fully_loaded():

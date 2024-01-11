@@ -9,7 +9,6 @@ from components.intro import Intro
 from components.maingame import MainGame
 from components.settings import Settings
 from constants.headup import PIGGY_PINK
-from constants.quality import QUALITY_VERY_LOW
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu

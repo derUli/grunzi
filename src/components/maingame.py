@@ -54,7 +54,6 @@ class MainGame(PausableComponent, LoadingScreen):
         self.level = Level(self.sprites_dir, self.image_cache)
         self.camera = Camera()
         self.moving = None
-        self.pressed_keys = []
         self.running = False
         self.editor_block_index = 0
         self.disable_ai = False
@@ -200,8 +199,6 @@ class MainGame(PausableComponent, LoadingScreen):
         if show_backdrop:
             screen.blit(self.backdrop, (0, 0, virtscreen_w, virtscreen_h))
 
-        mainchar_rect = None
-
         for layer in filtered_layers:
             y = 0
             x = 0
@@ -222,10 +219,10 @@ class MainGame(PausableComponent, LoadingScreen):
                         if pos_y > virtscreen_h:
                             break
 
-                        drawn = col.draw(virtual_screen, x, y)
+                        col.draw(virtual_screen, x, y)
 
                         if isinstance(col, MainCharacter):
-                            mainchar_rect = drawn
+                            pass
 
                         if self.state.edit_mode and isinstance(col, Character):
                             col.draw_debug(
@@ -257,7 +254,7 @@ class MainGame(PausableComponent, LoadingScreen):
             self.atmosphere.draw(screen)
 
         # Draw head up display
-        headup_display = self.state.player_state.draw(screen)
+        self.state.player_state.draw(screen)
 
     def ai(self):
         if not self.async_ai_running:

@@ -58,12 +58,12 @@ class Chainsaw(Takeable, InlineSprite):
         screen.blit(self.inline_sprite, (px_x, px_y))
 
     def play_sound(self):
-        
+
         busy = 0
         for sound in self.sounds:
             if sound and sound.get_busy():
                 busy += 1
-            
+
         if busy >= 3:
             return
 

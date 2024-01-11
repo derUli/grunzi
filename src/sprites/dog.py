@@ -14,11 +14,11 @@ from sprites.character import Character
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
-from utils.quality import pixel_fades_enabled
 
 BLOOD_COLOR = (163, 8, 8)
 SOUND_FADEOUT = 100
 HURT_DAMAGE = 5
+
 
 class Dog(Killable, Character):
     """ Dog sprite class """

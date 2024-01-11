@@ -1,5 +1,3 @@
-import pygame
-import time
 from utils.atmosphere.daynightcycle import DayNightCycle
 from utils.atmosphere.fog import Fog
 from utils.atmosphere.rain import Rain
@@ -11,7 +9,6 @@ class Atmosphere:
         self.layers = []
         self.sprites_dir = sprites_dir
         self.image_cache = image_cache
-        pass
 
     def start(self, args={}):
         self.reset()
@@ -47,4 +44,3 @@ class Atmosphere:
                 return layer
 
         return None
-    

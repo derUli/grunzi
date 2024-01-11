@@ -24,6 +24,7 @@ class Component(object):
         self.gamepad = gamepad
         self.do_quit = False
         self.__main__ = None
+        self.pressed_keys = []
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),

@@ -77,13 +77,10 @@ class Animation:
 
         extension = os.path.splitext(file)[1]
 
-        is_alpha = False
-
         scale_fn = utils.quality.scale_method()
 
         if extension in TRANSPARENT_IMAGES:
             frame = frame.convert_alpha()
-            is_alpha = True
         else:
             frame = frame.convert()
 

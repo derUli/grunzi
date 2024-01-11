@@ -1,6 +1,6 @@
-def get_task(name = None):
+def get_task(name=None):
     task = _('Keine Aufgabe')
-        
+
     tasks = {
         "horse": _('Suche Blut für das Pferd')
     }
@@ -9,5 +9,3 @@ def get_task(name = None):
         task = tasks[name]
 
     return task
-
-    

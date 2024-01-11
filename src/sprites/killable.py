@@ -11,6 +11,7 @@ RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
 RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 
+
 class Killable(Sprite):
     """ Fence sprite class """
 
@@ -85,7 +86,7 @@ class Killable(Sprite):
         # Rumble on gamepad if we have one
         if gamepad:
             gamepad.joystick.rumble(
-            RUMBLE_CHAINSAW_LOW_FREQUENCY,
-            RUMBLE_CHAINSAW_HIGH_FREQUENCY,
+                RUMBLE_CHAINSAW_LOW_FREQUENCY,
+                RUMBLE_CHAINSAW_HIGH_FREQUENCY,
                 RUMBLE_CHAINSAW_DURATION
-        )
+            )
