@@ -7,7 +7,7 @@
 * [ ] Autosave (?)
 * [ ] Sprachausgabe (?)
 * [ ] Neue Waffe hinzugefügt: Schwert
-* [ ] Video Einstellungen aufteilen in "Bildschirm" und "Grafik" als Unterpunkt von "Video"
+* [ ] Video Einstellungen aufteilen in "Bildschirm" und "Grafik" als Unterpunkte von "Video"
 
 ## Alpha 004
 
