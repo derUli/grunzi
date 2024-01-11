@@ -4,6 +4,7 @@ from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 settings_state = None
 
 def scale_method():
+    """ Get scale method based on video settings """
     if settings_state.smoothscale:
         return pygame.transform.smoothscale
 

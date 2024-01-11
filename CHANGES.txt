@@ -14,6 +14,7 @@
 * Grafik-Optionen sind jetzt getrennt einstellbar
 * Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
 * Tag-Nacht-Zyklus
+* Maussteuerung entfernt
 
 ## Alpha 003
 

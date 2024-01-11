@@ -70,6 +70,7 @@ class DayNightCycle(GlobalEffect):
                 self.modifier = MODIFIER_LIGHT
             elif self.daytime <= BRIGHTEST_DAYTIME:
                 self.modifier = MODIFIER_DARK
+
         if self.daytime > 0:
             self.surface.set_alpha(self.daytime)
             screen.blit((self.surface), (0, 0))

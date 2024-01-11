@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import os
-# os.environ['PYGAME_BLEND_ALPHA_SDL2'] = '1'
 
 """ Grunzi Game Launcher """
 from bootstrap.gamecontainer import GameContainer

@@ -80,15 +80,14 @@ class MainGame(PausableComponent, LoadingScreen):
         )
 
     def new_game(self):
+        """ Load level """
         level_file = os.path.join(self.data_dir, 'levels', 'world.json')
         self.load_level(level_file)
+        self.state.atmosphere = self.atmosphere
 
     def load_savegame(self):
         """ Load savegame """
-        level_file = os.path.join(self.data_dir, 'levels', 'world.json')
-
-        self.state.atmosphere = self.atmosphere
-        self.load_level(level_file)
+        self.new_game()
         savegame = utils.savegame.load_game(
             utils.savegame.DEFAULT_SAVE, self.state)
         self.level.apply_diff(savegame)

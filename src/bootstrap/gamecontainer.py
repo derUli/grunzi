@@ -89,6 +89,7 @@ class GameContainer:
         self.mainloop()
 
     def handle_settings_change(self):
+        """ Apply settings on change """
         self.settings_state.apply()
 
     def init_screen(self):

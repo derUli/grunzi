@@ -82,9 +82,8 @@ class Fog(GlobalEffect):
             if self.alpha > 0:
                 self.buffer.blit(fog['image'], (x, y))
 
-
             fog['pos'] = (x, y)
-        
+            
         self.buffer.set_alpha(int(self.alpha))
         screen.blit(self.buffer, (0,0))
 
