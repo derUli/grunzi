@@ -55,7 +55,6 @@ class GameContainer:
         if not any(gpus):
             logging.info(label_value('GPU', 'Unknown'))
 
-        
         logging.info(label_value('Smoothscale backend', pygame.transform.get_smoothscale_backend()))
 
         logging.info(label_value('Python version', platform.python_version()))
