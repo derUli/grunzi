@@ -1,11 +1,8 @@
 import os
 import pygame
 
-from components.component import Component
-from constants.headup import PIGGY_PINK
+from components.settings_component import SettingsComponent
 from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
-from utils.animation import Animation
-from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
 from utils.render_cache import store_clear
 
@@ -13,7 +10,7 @@ from utils.render_cache import store_clear
 MIN_SCREEN_RESOLUTION = (800, 600)
 
 
-class SettingsVideo(Component):
+class SettingsVideo(SettingsComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
@@ -22,46 +19,14 @@ class SettingsVideo(Component):
             handle_change_component,
             settings_state,
             enable_edit_mode,
-            gamepad)
-
-        video_path = os.path.join(
-            data_dir,
-            'images',
-            'sprites',
-            'animations',
-            'dancing_pig'
+            gamepad
         )
-
-        # 25 Frames by second
-        self.video = Animation(
-            video_path,
-            refresh_interval=1 / 25,
-            size=self.settings_state.screen_resolution
-        )
-
-        self.menu = None
-        self.old_component = None
-
-        version_file = os.path.join(self.data_dir, '..', 'VERSION')
-        self.version_number = get_version(version_file)
-
-    def draw(self, screen):
-        """ Draw """
-        self.draw_menu(self.screen)
 
     def handle_back(self):
         """ Go back to settings menu """
         component = self.handle_change_component(self.old_component)
         component.video = self.video
         self.menu.disable()
-
-    def draw_background(self):
-        """ Draw video background """
-        video_frame = self.video.get_frame()
-        if video_frame:
-            self.screen.blit(video_frame, (0, 0))
-
-        self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
     def handle_change_screen_resolution(self, selection, selected_index):
         """ Handle change resolution """
@@ -132,19 +97,6 @@ class SettingsVideo(Component):
         """ Handle toggle fog """
         self.settings_state.fog = value
         self.settings_state.apply_and_save()
-
-    def get_selected_index(self, items, selected):
-        """ Get selected index for value """
-        i = 0
-        for item in items:
-            text, value = item
-
-            if value == selected:
-                break
-
-            i += 1
-
-        return i
 
     def draw_menu(self, screen):
         menu = make_menu(_('Video'), self.settings_state.limit_fps)

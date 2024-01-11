@@ -5,7 +5,7 @@ import sys
 
 import pygame
 
-from components.component import Component
+from components.settings_component import SettingsComponent
 from components.controls import Controls
 from components.settings_audio import SettingsAudio
 from components.settings_video import SettingsVideo
@@ -15,7 +15,7 @@ from utils.helper import get_version
 from utils.menu import make_menu
 
 
-class Settings(Component):
+class Settings(SettingsComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
@@ -24,33 +24,11 @@ class Settings(Component):
             handle_change_component,
             settings_state,
             enable_edit_mode,
-            gamepad)
-
-        video_path = os.path.join(
-            data_dir,
-            'images',
-            'sprites',
-            'animations',
-            'dancing_pig'
-        )
-
-        # 25 Frames by second
-        self.video = Animation(
-            video_path,
-            refresh_interval=1 / 25,
-            size=self.settings_state.screen_resolution
+            gamepad
         )
 
         # Some video settings need a restart of the game after change
         self.needs_restart = False
-        self.menu = None
-
-        version_file = os.path.join(self.data_dir, '..', 'VERSION')
-        self.version_number = get_version(version_file)
-
-    def draw(self, screen):
-        """ Draw """
-        self.draw_menu(screen)
 
     def handle_back(self):
         """ Go back to main menu """
@@ -93,13 +71,6 @@ class Settings(Component):
         component.old_component = self
 
         self.menu.disable()
-
-    def draw_background(self):
-        video_frame = self.video.get_frame()
-        if video_frame:
-            self.screen.blit(video_frame, (0, 0))
-
-        self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
     def draw_menu(self, screen):
         menu = make_menu(_('Settings'), self.settings_state.limit_fps)
