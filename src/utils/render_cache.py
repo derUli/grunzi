@@ -10,14 +10,15 @@ from utils.path import get_userdata_path
 STORED_EXTENSION = '.bmp'
 
 
-def store_clear():
+def store_clear() -> None:
     """ Clear cache """
     cached_dir = os.path.join(get_userdata_path(), 'cached')
     if os.path.exists(cached_dir):
         shutil.rmtree(cached_dir)
 
 
-def store_rendered_sequence(name, images, progress_callback=None):
+def store_rendered_sequence(name: str, images: list,
+                            progress_callback=None) -> None:
     """ Store sequence """
     cached_dir = os.path.join(get_userdata_path(), 'cached', name)
 
@@ -41,6 +42,7 @@ def store_rendered_sequence(name, images, progress_callback=None):
         name += STORED_EXTENSION
 
         percent += one_percent
+
         # BMP, TGA, PNG, or JPEG
         path = os.path.join(cached_dir, name)
 
