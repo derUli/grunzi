@@ -18,10 +18,10 @@ from sprites.wall import Wall
 from sprites.water import Water
 from sprites.wood import Wood
 from sprites.blood import Blood
+from utils.image import ImageCache
 
-
-def get_editor_blocks(sprites_dir, image_cache):
-    """ Get editor blocks array for inline map editor"""
+def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
+    """ Returns the items for the ingame block editor """
     return [
         Backdrop(
             sprites_dir,

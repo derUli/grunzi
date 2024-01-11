@@ -14,13 +14,6 @@ import math
 MIN_SCREEN_RESOLUTION = (1280, 720)
 
 
-def calculate_aspect(width: int, height: int) -> str:
-    r = math.gcd(width, height)
-    x = int(width / r)
-    y = int(height / r)
-    return f"{x}:{y}"
-
-
 class SettingsVideo(Component):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):

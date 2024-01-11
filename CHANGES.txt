@@ -10,11 +10,12 @@
 ## Alpha 004
 
 * Puzzle mit Sprengstoff hinzugefügt
-* Wenn man das Spiel pausiert, werden jetzt auch die Soundeffekte gestoppt
-* Grafik-Optionen sind jetzt getrennt einstellbar
-* Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
 * Tag-Nacht-Zyklus
+* Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
+* Grafik-Optionen sind jetzt feiner einstellbar
 * Maussteuerung entfernt
+* Fehler im Handling der Tastatur-Events korrigiert
+* Wenn man das Spiel pausiert, werden jetzt auch die Soundeffekte gestoppt
 
 ## Alpha 003
 
