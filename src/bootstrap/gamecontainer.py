@@ -55,9 +55,12 @@ class GameContainer:
         if not any(gpus):
             logging.info(label_value('GPU', 'Unknown'))
 
+        
+        logging.info(label_value('Smoothscale backend', pygame.transform.get_smoothscale_backend()))
+
         logging.info(label_value('Python version', platform.python_version()))
         logging.info(label_value('Pygame version', pygame.version.ver))
-        logging.info(label_value('SDL Version', pygame.version.SDL))
+        logging.info(label_value('SDL version', pygame.version.SDL))
         logging.info(label_value('Grunzi Version', get_version(version_file)))
 
         pygame.mixer.pre_init(
