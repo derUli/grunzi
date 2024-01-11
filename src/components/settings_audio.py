@@ -1,14 +1,14 @@
 import os
 
 import utils.audio
-from components.settings_component import SettingsComponent
+from components.menucomponent import MenuComponent
 from constants.headup import PIGGY_PINK
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
 
 
-class SettingsAudio(SettingsComponent):
+class SettingsAudio(MenuComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """

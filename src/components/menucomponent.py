@@ -4,7 +4,7 @@ from components.component import Component
 from utils.helper import get_version
 from constants.headup import PIGGY_PINK
 
-class SettingsComponent(Component):
+class MenuComponent(Component):
 
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):

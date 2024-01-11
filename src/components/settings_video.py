@@ -1,7 +1,7 @@
 import os
 import pygame
 
-from components.settings_component import SettingsComponent
+from components.menucomponent import MenuComponent
 from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.menu import make_menu, get_longest_option
 from utils.render_cache import store_clear
@@ -10,7 +10,7 @@ from utils.render_cache import store_clear
 MIN_SCREEN_RESOLUTION = (800, 600)
 
 
-class SettingsVideo(SettingsComponent):
+class SettingsVideo(MenuComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """

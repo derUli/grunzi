@@ -5,7 +5,7 @@ import sys
 
 import pygame
 
-from components.settings_component import SettingsComponent
+from components.menucomponent import MenuComponent
 from components.controls import Controls
 from components.settings_audio import SettingsAudio
 from components.settings_video import SettingsVideo
@@ -15,7 +15,7 @@ from utils.helper import get_version
 from utils.menu import make_menu
 
 
-class Settings(SettingsComponent):
+class Settings(MenuComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """

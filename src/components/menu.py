@@ -4,7 +4,7 @@ import pygame
 import pygame_menu
 
 import utils.savegame
-from components.settings_component import SettingsComponent
+from components.menucomponent import MenuComponent
 from components.intro import Intro
 from components.maingame import MainGame
 from components.settings import Settings
@@ -14,7 +14,7 @@ from utils.helper import get_version
 from utils.menu import make_menu
 
 
-class Menu(SettingsComponent):
+class Menu(MenuComponent):
 
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
