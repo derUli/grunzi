@@ -1,5 +1,6 @@
 from typing import Union
 
+
 def get_task(name: Union[str, None] = None) -> Union[str, None]:
     task = _('Keine Aufgabe')
 

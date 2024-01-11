@@ -20,6 +20,7 @@ from sprites.wood import Wood
 from sprites.blood import Blood
 from utils.image import ImageCache
 
+
 def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
     """ Returns the items for the ingame block editor """
     return [

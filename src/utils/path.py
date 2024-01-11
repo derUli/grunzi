@@ -3,12 +3,12 @@ import os
 from constants.game import GAMEDIR_NAME_WINDOWS, GAMEDIR_NAME_LINUX
 
 
-def is_windows():
+def is_windows() -> bool:
     """ Check if we are on Windows """
     return os.name == 'nt'
 
 
-def get_userdata_path():
+def get_userdata_path() -> str:
     """ Get savegame dir """
     homedir = os.path.expanduser('~')
 

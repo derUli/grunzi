@@ -8,7 +8,6 @@ from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu, get_longest_option
 from utils.render_cache import store_clear
-import math
 
 
 MIN_SCREEN_RESOLUTION = (1280, 720)

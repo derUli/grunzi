@@ -4,7 +4,7 @@ import os
 from utils.path import get_userdata_path, is_windows
 
 
-def configure_logger(log_level):
+def configure_logger(log_level) -> None:
     """ Configure logger """
     log_file = os.path.join(get_userdata_path(), 'debug.log')
     logging.basicConfig(
@@ -17,7 +17,10 @@ def configure_logger(log_level):
     )
 
 
-def get_version(file):
+def get_version(file: str) -> str:
+    """ Get build number from VERSION file """
+
+    # Fallback string if no VERSION exists
     text = 'Unknown Build'
 
     if not os.path.isfile(file):
@@ -29,12 +32,12 @@ def get_version(file):
     return text.strip()
 
 
-def enable_high_dpi():
+def enable_high_dpi() -> bool:
     """ Add support for high DPI on windows """
 
     # Abort if not windows
     if not is_windows():
-        return
+        return False
 
     import ctypes
 
@@ -45,3 +48,6 @@ def enable_high_dpi():
     except AttributeError as e:
         # Windows XP doesn't support monitor scaling, so just do nothing
         logging.error(e)
+        return False
+
+    return True

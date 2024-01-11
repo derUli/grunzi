@@ -1,5 +1,5 @@
 import pygame
-
+import logging
 try:
     import pygame._sdl2.audio as sdl2_audio
 except ImportError:
@@ -10,7 +10,8 @@ sound_volume = 1.0
 CHANNELS = []
 
 
-def play_sound(file):
+def play_sound(file: str) -> pygame.mixer.Channel:
+    logging.debug('Play sound ' + file)
     """ Play a sound once """
     sound = pygame.mixer.Sound(file)
     sound.set_volume(sound_volume)
@@ -20,7 +21,7 @@ def play_sound(file):
     return channel
 
 
-def stop_sounds():
+def stop_sounds() -> None:
     for channel in CHANNELS:
         if channel and channel.get_busy():
             channel.stop()
@@ -28,28 +29,28 @@ def stop_sounds():
     CHANNELS.clear()
 
 
-def pause_sounds():
+def pause_sounds() -> None:
     for channel in CHANNELS:
         if channel and channel.get_busy():
             channel.pause()
 
 
-def unpause_sounds():
+def unpause_sounds() -> None:
     for channel in CHANNELS:
         if channel and channel.get_busy():
             channel.unpause()
 
 
-def play_music(file, repeat=-1):
+def play_music(file, repeat=-1) -> None:
     pygame.mixer.music.load(file)
     pygame.mixer.music.play(repeat)
 
 
-def stop_music():
+def stop_music() -> None:
     pygame.mixer.music.stop()
 
 
-def get_devices(capture_devices=False):
+def get_devices(capture_devices: bool = False) -> list:
     pygame.init()
     if not sdl2_audio:
         return []

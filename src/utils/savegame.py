@@ -28,7 +28,7 @@ def load_game(name, state):
     return None
 
 
-def has_savegame(name):
+def has_savegame(name: str) -> bool:
     """ Check if a savegame exists """
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
     state_file = os.path.join(save_dir, 'state.json')
@@ -36,7 +36,7 @@ def has_savegame(name):
     return os.path.exists(state_file)
 
 
-def save_game(name, state, diff_list=None):
+def save_game(name: str, state, diff_list=None) -> None:
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
 
     if not diff_list:
