@@ -4,6 +4,7 @@ from components.component import Component
 from utils.helper import get_version
 from constants.headup import PIGGY_PINK
 
+
 class MenuComponent(Component):
 
     def __init__(self, data_dir, handle_change_component,
@@ -37,7 +38,6 @@ class MenuComponent(Component):
         version_file = os.path.join(self.data_dir, '..', 'VERSION')
         self.version_number = get_version(version_file)
 
-
     def draw_background(self):
         """ Draw video background """
         video_frame = self.video.get_frame()
@@ -46,12 +46,9 @@ class MenuComponent(Component):
 
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
-
     def draw(self, screen):
         """ Draw """
         self.draw_menu(self.screen)
-
-
 
     def get_selected_index(self, items, selected):
         """ Get selected index for value """
@@ -68,7 +65,7 @@ class MenuComponent(Component):
 
 
 class SettingsComponent(MenuComponent):
-    
+
     def handle_back(self):
         """ Go back to settings menu """
         component = self.handle_change_component(self.old_component)

@@ -1,12 +1,10 @@
 import os
 
 import utils.audio
-from components.menucomponent import MenuComponent
-from constants.headup import PIGGY_PINK
-from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
 from components.menucomponent import SettingsComponent
+
 
 class SettingsAudio(SettingsComponent):
     def __init__(self, data_dir, handle_change_component,
@@ -24,7 +22,6 @@ class SettingsAudio(SettingsComponent):
 
         version_file = os.path.join(self.data_dir, '..', 'VERSION')
         self.version_number = get_version(version_file)
-
 
     def handle_change_music_volume(self, range_value):
         self.settings_state.music_volume = range_value / 100

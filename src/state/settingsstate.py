@@ -27,7 +27,7 @@ class SettingsState:
 
         # Game settings
         self.skip_intro = SETTINGS_DEFAULT_SKIP_INTRO
-        
+
         # Screen settings
         self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
@@ -44,8 +44,6 @@ class SettingsState:
         self.bloom = SETTINGS_DEFAULT_BLOOM
         self.fog = SETTINGS_DEFAULT_FOG
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
-
-
 
         # Event handler
         self.handle_settings_change = handle_settings_change

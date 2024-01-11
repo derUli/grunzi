@@ -128,12 +128,10 @@ class Dynamite(Takeable):
 
         second = int(self.clock.duration)
 
-        # TODO: Add visual countdown to dynamyte image
         if second > self.last_second and not self.exploded:
             self.last_second = second
             self.play_countdown_sound()
 
-        # TODO: If countdown expired explode
         if second >= COUNT_TO:
             self.clock.stop()
             self.play_explosion_sound()

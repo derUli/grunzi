@@ -1,4 +1,3 @@
-import os
 import pygame
 
 from components.menucomponent import SettingsComponent
@@ -8,6 +7,7 @@ from utils.render_cache import store_clear
 
 
 MIN_SCREEN_RESOLUTION = (800, 600)
+
 
 class SettingsVideo(SettingsComponent):
     def handle_change_screen_resolution(self, selection, selected_index):

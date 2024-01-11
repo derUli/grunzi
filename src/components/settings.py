@@ -1,5 +1,4 @@
 import logging
-import os
 import subprocess
 import sys
 
@@ -10,9 +9,6 @@ from components.controls import Controls
 from components.settings_audio import SettingsAudio
 from components.settings_video import SettingsVideo
 from components.settings_game import SettingsGame
-from constants.headup import PIGGY_PINK
-from utils.animation import Animation
-from utils.helper import get_version
 from utils.menu import make_menu
 
 
@@ -66,7 +62,6 @@ class Settings(MenuComponent):
         component.old_component = self
         self.menu.disable()
 
-        
     def handle_game(self):
         component = self.handle_change_component(SettingsGame)
         component.video = self.video
