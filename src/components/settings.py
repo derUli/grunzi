@@ -24,9 +24,6 @@ class Settings(MenuComponent):
             gamepad
         )
 
-        # Some video settings need a restart of the game after change
-        self.needs_restart = False
-
     def handle_back(self):
         """ Go back to main menu """
         if self.needs_restart:

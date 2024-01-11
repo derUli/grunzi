@@ -12,7 +12,6 @@ class SettingsGame(SettingsComponent):
         """ Handle toggle VSync """
         self.settings_state.skip_intro = value
         self.settings_state.apply_and_save()
-        self.old_component.needs_restart = True
 
     def draw_menu(self, screen):
         menu = make_menu(_('Game'), self.settings_state.limit_fps)
