@@ -52,13 +52,6 @@ def parse_args():
     )
 
     parser.add_argument(
-        '-m',
-        '--enable-mouse',
-        action='store_true',
-        help='Enable experimental mouse support'
-    )
-
-    parser.add_argument(
         '-d',
         '--disable-controller',
         action='store_true',
@@ -89,8 +82,7 @@ game = GameContainer(
     ROOT_DIR,
     enable_edit_mode=args.edit,
     disable_controller=args.disable_controller,
-    disable_ai=args.disable_ai,
-    enable_mouse=args.enable_mouse
+    disable_ai=args.disable_ai
 )
 
 game.__main__ = os.path.abspath(__main__)

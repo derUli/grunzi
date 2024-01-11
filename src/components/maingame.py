@@ -28,7 +28,6 @@ from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.audio import play_sound, stop_sounds
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
-from utils.mouse_handler import MouseHandler
 from utils.music_queue import MusicQueue
 from utils.atmosphere.atmosphere import Atmosphere
 from constants.headup import BOTTOM_UI_HEIGHT
@@ -59,20 +58,11 @@ class MainGame(PausableComponent, LoadingScreen):
         self.running = False
         self.editor_block_index = 0
         self.disable_ai = False
-        self.enable_mouse = False
         self.async_ai_running = None
         self.is_level_exit = False
 
         self.atmosphere = Atmosphere(self.sprites_dir, self.image_cache)
-
         self.music_queue = MusicQueue()
-        self.mouse_handler = MouseHandler(
-            data_dir,
-            self.move_main_character,
-            self.state.player_state.toggle_item,
-            self.grunt,
-            self.drop_item,
-        )
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
@@ -270,14 +260,6 @@ class MainGame(PausableComponent, LoadingScreen):
         # Draw head up display
         headup_display = self.state.player_state.draw(screen)
 
-        self.mouse_handler.draw(
-            screen,
-            mainchar_rect,
-            headup_display,
-            self.state.player_state.drawn_inventory,
-            self.state.player_state.drawn_health
-        )
-
     def ai(self):
         if not self.async_ai_running:
             thread_fns = [
@@ -404,23 +386,6 @@ class MainGame(PausableComponent, LoadingScreen):
         """ Handle events """
         super().handle_event(event)
 
-        mouse_events = [
-            pygame.MOUSEMOTION,
-            pygame.MOUSEBUTTONDOWN,
-            pygame.MOUSEBUTTONUP
-        ]
-
-        if event.type in mouse_events and not self.enable_mouse:
-            return
-
-        if event.type == pygame.MOUSEMOTION:
-            self.mouse_handler.enable()
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            self.mouse_handler.handle_mousedown()
-        elif event.type == pygame.MOUSEBUTTONUP:
-            self.mouse_handler.handle_mouseup()
-        elif self.enable_mouse:
-            self.mouse_handler.disable()
         if event.type == pygame.KEYUP:
             self.handle_keyup_event(event)
         elif event.type == pygame.KEYDOWN:
