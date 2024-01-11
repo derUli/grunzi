@@ -65,3 +65,12 @@ class MenuComponent(Component):
             i += 1
 
         return i
+
+
+class SettingsComponent(MenuComponent):
+    
+    def handle_back(self):
+        """ Go back to settings menu """
+        component = self.handle_change_component(self.old_component)
+        component.video = self.video
+        self.menu.disable()

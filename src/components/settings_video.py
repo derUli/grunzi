@@ -1,7 +1,7 @@
 import os
 import pygame
 
-from components.menucomponent import MenuComponent
+from components.menucomponent import SettingsComponent
 from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.menu import make_menu, get_longest_option
 from utils.render_cache import store_clear
@@ -9,8 +9,7 @@ from utils.render_cache import store_clear
 
 MIN_SCREEN_RESOLUTION = (800, 600)
 
-
-class SettingsVideo(MenuComponent):
+class SettingsVideo(SettingsComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
@@ -21,12 +20,6 @@ class SettingsVideo(MenuComponent):
             enable_edit_mode,
             gamepad
         )
-
-    def handle_back(self):
-        """ Go back to settings menu """
-        component = self.handle_change_component(self.old_component)
-        component.video = self.video
-        self.menu.disable()
 
     def handle_change_screen_resolution(self, selection, selected_index):
         """ Handle change resolution """

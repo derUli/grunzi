@@ -6,9 +6,9 @@ from constants.headup import PIGGY_PINK
 from utils.animation import Animation
 from utils.helper import get_version
 from utils.menu import make_menu
+from components.menucomponent import SettingsComponent
 
-
-class SettingsAudio(MenuComponent):
+class SettingsAudio(SettingsComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
@@ -25,10 +25,6 @@ class SettingsAudio(MenuComponent):
         version_file = os.path.join(self.data_dir, '..', 'VERSION')
         self.version_number = get_version(version_file)
 
-    def handle_back(self):
-        component = self.handle_change_component(self.old_component)
-        component.video = self.video
-        self.menu.disable()
 
     def handle_change_music_volume(self, range_value):
         self.settings_state.music_volume = range_value / 100
