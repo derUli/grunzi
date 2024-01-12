@@ -1,13 +1,15 @@
 """ Wall sprite """
-from sprites.takeable import Takeable
-from stopwatch import Stopwatch
-from utils.audio import play_sound
-from utils.animation import Animation
-from constants.graphics import SPRITE_SIZE
-from utils.quality import font_antialiasing_enabled
-from constants.game import MONOTYPE_FONT, MAIN_CHARACTER_ID
 import os
+
 import pygame
+from stopwatch import Stopwatch
+
+from constants.game import MONOTYPE_FONT, MAIN_CHARACTER_ID
+from constants.graphics import SPRITE_SIZE
+from sprites.takeable import Takeable
+from utils.animation import Animation
+from utils.audio import play_sound
+from utils.quality import font_antialiasing_enabled
 
 COUNT_TO = 3
 

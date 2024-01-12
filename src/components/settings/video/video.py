@@ -1,10 +1,7 @@
-
 from components.menucomponent import SettingsComponent
-from components.settings.video.screen import SettingsScreen
 from components.settings.video.graphics import SettingsGraphics
-
+from components.settings.video.screen import SettingsScreen
 from utils.menu import make_menu
-
 
 MIN_SCREEN_RESOLUTION = (800, 600)
 

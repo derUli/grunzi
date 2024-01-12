@@ -80,7 +80,7 @@ class Level:
                         mainchar_added = True
                     elif sprite:
                         sprite.preload()
-                        
+
                     row.append(sprite)
 
                 layer.append(row)

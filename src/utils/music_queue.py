@@ -1,5 +1,6 @@
 import os
 import random
+
 import pygame
 
 AUDIO_EXTENSIONS = ['.ogg']

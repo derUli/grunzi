@@ -1,8 +1,9 @@
 import os
-from utils.animation import Animation
+
 from components.component import Component
-from utils.helper import get_version
 from constants.headup import PIGGY_PINK
+from utils.animation import Animation
+from utils.helper import get_version
 
 
 class MenuComponent(Component):

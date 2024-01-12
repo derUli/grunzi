@@ -7,7 +7,6 @@ from sprites.fuel import Fuel
 from sprites.inlinesprite import InlineSprite
 from sprites.takeable import Takeable
 from sprites.weapon import Weapon
-
 from utils.audio import play_sound
 
 SHAKE_Y_FROM = -2

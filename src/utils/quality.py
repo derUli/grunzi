@@ -1,6 +1,9 @@
-import pygame
-from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 from typing import Callable
+
+import pygame
+
+from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
+
 settings_state = None
 
 

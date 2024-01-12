@@ -6,13 +6,13 @@ import time
 import pygame
 
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
-from constants.headup import NPC_HEALTH_COLOR_ENEMY, NPC_HEALTH_HEIGHT
+from constants.game import MAIN_CHARACTER_ID
 from constants.graphics import SPRITE_SIZE
+from constants.headup import NPC_HEALTH_COLOR_ENEMY, NPC_HEALTH_HEIGHT
 from sprites.chainsaw import Chainsaw
-from sprites.sword import Sword
 from sprites.character import Character
 from sprites.killable import Killable
-from constants.game import MAIN_CHARACTER_ID
+from sprites.sword import Sword
 
 BLOOD_COLOR = (163, 8, 8)
 CHICKEN_SOUND_FADEOUT = 100

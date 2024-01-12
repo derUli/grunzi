@@ -1,7 +1,7 @@
 import pygame
+
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.image import ImageCache
-
 
 UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
 DARKEST_DAYTIME = 240

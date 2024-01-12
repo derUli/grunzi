@@ -1,9 +1,9 @@
 import os
 
 import utils.audio
+from components.menucomponent import SettingsComponent
 from utils.helper import get_version
 from utils.menu import make_menu
-from components.menucomponent import SettingsComponent
 
 
 class SettingsAudio(SettingsComponent):

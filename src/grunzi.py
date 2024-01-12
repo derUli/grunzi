@@ -78,7 +78,6 @@ logging.debug(args)
 
 enable_high_dpi()
 
-
 game = GameContainer(
     ROOT_DIR,
     enable_edit_mode=args.edit,

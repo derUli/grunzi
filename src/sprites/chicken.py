@@ -9,12 +9,11 @@ import pygame
 
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
 from sprites.chainsaw import Chainsaw
-from sprites.weapon import Weapon
 from sprites.character import Character
 from sprites.feather import Feather
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
-
+from sprites.weapon import Weapon
 from utils.audio import play_sound
 from utils.quality import pixel_fades_enabled
 
@@ -116,7 +115,6 @@ class Chicken(Killable, Character):
 
         if self.killed():
             return
-
 
         if self.walkable:
             return

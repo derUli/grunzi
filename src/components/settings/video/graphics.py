@@ -1,8 +1,6 @@
-
 from components.menucomponent import SettingsComponent
 from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.menu import make_menu, get_longest_option
-
 
 MIN_SCREEN_RESOLUTION = (800, 600)
 

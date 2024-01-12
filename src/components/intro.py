@@ -122,9 +122,9 @@ class Intro(FadeableComponent, LoadingScreen):
         self.frame = 0
 
         self.prev_centerx = 400 + \
-            floor((400 >> 1) * math.sin(0 * self.acceleration * 0.25))
+                            floor((400 >> 1) * math.sin(0 * self.acceleration * 0.25))
         self.prev_centery = 400 + \
-            floor((400 >> 1) * math.sin(0 * self.acceleration * 0.5))
+                            floor((400 >> 1) * math.sin(0 * self.acceleration * 0.5))
 
         self.base_surface = pygame.surface.Surface(
             (self.w, self.h)).convert(

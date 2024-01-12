@@ -1,5 +1,7 @@
-import pygame
 import logging
+
+import pygame
+
 try:
     import pygame._sdl2.audio as sdl2_audio
 except ImportError:

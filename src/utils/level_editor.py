@@ -1,6 +1,7 @@
 from sprites.apple import Apple
-from sprites.burger import Burger
 from sprites.backdrop import Backdrop
+from sprites.blood import Blood
+from sprites.burger import Burger
 from sprites.chainsaw import Chainsaw
 from sprites.chicken import Chicken
 from sprites.coin import Coin
@@ -11,17 +12,17 @@ from sprites.fence import Fence
 from sprites.fuel import Fuel
 from sprites.hammer import Hammer
 from sprites.kitten import Kitten
-from sprites.skeleton import Skeleton
+from sprites.landmine import LandMine
 from sprites.levelexit import LevelExit
 from sprites.piggybank import PiggyBank
 from sprites.sheep import Sheep
+from sprites.skeleton import Skeleton
+from sprites.sword import Sword
 from sprites.wall import Wall
 from sprites.water import Water
 from sprites.wood import Wood
-from sprites.blood import Blood
-from sprites.landmine import LandMine
-from sprites.sword import Sword
 from utils.image import ImageCache
+
 
 def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
     """ Returns the items for the ingame block editor """

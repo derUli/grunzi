@@ -1,12 +1,12 @@
 import logging
 import os.path
 import time
+from typing import Union
 
 import pygame
 
 from constants.graphics import ALPHA_IMAGE_FORMATS
 from utils.quality import scale_method
-from typing import Union
 
 
 class ImageCache:

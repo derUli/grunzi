@@ -1,7 +1,8 @@
+import logging
 import os
 import time
+
 import pygame
-import logging
 
 from utils.path import get_userdata_path
 

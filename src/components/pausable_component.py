@@ -3,12 +3,12 @@ from PygameShader.shader import blur
 
 import utils.savegame
 from constants import gamepad
-from constants.headup import UI_MARGIN
 from constants import keyboard
-from utils.menu import make_menu
+from constants.headup import UI_MARGIN
 from utils.audio import pause_sounds, unpause_sounds, stop_sounds
-from utils.tasks import get_task
+from utils.menu import make_menu
 from utils.string import label_value
+from utils.tasks import get_task
 
 MAX_BLUR_ITERATIONS = 20
 TEXT_COLOR = (255, 255, 255)

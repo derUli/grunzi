@@ -1,11 +1,10 @@
 """ Landmine """
 import os
-
-from sprites.sprite import Sprite
-from utils.animation import Animation
-from constants.graphics import SPRITE_SIZE
 from random import randint
 
+from constants.graphics import SPRITE_SIZE
+from sprites.sprite import Sprite
+from utils.animation import Animation
 
 LANDMINE_HURT_MIN = 10
 LANDMINE_HURT_MAX = 60

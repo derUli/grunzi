@@ -10,10 +10,10 @@ import pygame
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
 from constants.game import MAIN_CHARACTER_ID
 from sprites.chainsaw import Chainsaw
-from sprites.weapon import Weapon
 from sprites.character import Character
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
+from sprites.weapon import Weapon
 from utils.audio import play_sound
 
 BLOOD_COLOR = (163, 8, 8)
@@ -81,7 +81,6 @@ class Dog(Killable, Character):
         if self.killed():
             return
 
-        
         if self.walkable:
             return
 

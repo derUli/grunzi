@@ -25,12 +25,12 @@ from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from sprites.maincharacter import MainCharacter
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
+from utils.atmosphere.atmosphere import Atmosphere
 from utils.audio import play_sound, stop_sounds
 from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
 from utils.music_queue import MusicQueue
-from utils.atmosphere.atmosphere import Atmosphere
-from constants.headup import BOTTOM_UI_HEIGHT
+
 BACKDROP_COLOR = (36, 63, 64)
 
 THREAD_INTERVAL_HIGH = 50

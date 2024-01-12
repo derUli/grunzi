@@ -9,6 +9,7 @@ from pygame.math import Vector2
 from sprites.coin import Coin
 from sprites.sprite import Sprite
 from utils.quality import font_antialiasing_enabled, bloom_enabled, scale_method
+
 TEXT_POS = (830, 50)
 FONT_SIZE = 24
 TEXT_COLOR = (0, 0, 0)

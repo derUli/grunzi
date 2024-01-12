@@ -1,11 +1,11 @@
 """ Destroyable sprite """
 import random
 from threading import Thread
-from utils.quality import pixel_fades_enabled
 
 import pygame
 
 from sprites.sprite import Sprite
+from utils.quality import pixel_fades_enabled
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1

@@ -10,6 +10,7 @@ from sprites.wood import Wood
 from sprites.woodonwater import WoodOnWater
 from utils.quality import shader_enabled
 
+
 class Water(sprites.sprite.Sprite):
     """ Backdrop sprite """
 
@@ -67,7 +68,7 @@ class Water(sprites.sprite.Sprite):
 
     def preload(self):
         self.generate_frames()
-        
+
     def cache_id(self, angle):
         return 'water-' + str(angle)
 

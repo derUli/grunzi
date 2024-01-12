@@ -4,10 +4,10 @@ import logging
 
 import pygame
 
-from constants.headup import NPC_HEALTH_COLOR_FRIENDLY, NPC_HEALTH_HEIGHT
 from constants.graphics import SPRITE_SIZE
-from sprites.character import Character
+from constants.headup import NPC_HEALTH_COLOR_FRIENDLY, NPC_HEALTH_HEIGHT
 from sprites.blood import Blood
+from sprites.character import Character
 from utils.atmosphere import ATMOSPHERE_FOG
 
 HORSE_FOG = 255

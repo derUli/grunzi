@@ -1,8 +1,10 @@
 import time
+
 import pygame
-from utils.quality import daynightcycle_enabled, bloom_enabled
-from utils.atmosphere.globaleffect import GlobalEffect
 from PygameShader.shader import shader_bloom_fast1
+
+from utils.atmosphere.globaleffect import GlobalEffect
+from utils.quality import daynightcycle_enabled, bloom_enabled
 
 UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
 DARKEST_DAYTIME = 240

@@ -1,8 +1,9 @@
 """ Microwave which can be destroyed with dynamite """
-from sprites.sprite import Sprite
 import os
-from utils.animation import Animation
+
 from constants.graphics import SPRITE_SIZE
+from sprites.sprite import Sprite
+from utils.animation import Animation
 
 
 class Microwave(Sprite):

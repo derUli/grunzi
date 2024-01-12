@@ -1,5 +1,3 @@
-
-
 class GlobalEffect:
 
     def __init__(self):

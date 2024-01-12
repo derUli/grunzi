@@ -1,11 +1,10 @@
-
 import pygame
 import pygame_menu
 
 import utils.savegame
-from components.menucomponent import MenuComponent
 from components.intro import Intro
 from components.maingame import MainGame
+from components.menucomponent import MenuComponent
 from components.settings.settings import Settings
 from utils.menu import make_menu
 
