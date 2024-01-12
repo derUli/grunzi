@@ -31,3 +31,6 @@ class Fire(sprites.sprite.Sprite):
     def handle_interact(self, element):
         if element and element.state:
             element.state.hurt(15)
+
+    def preload(self):
+        self.animation.reload_async()

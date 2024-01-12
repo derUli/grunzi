@@ -79,8 +79,8 @@ class Sprite:
             logging.error(' '.join(['File', file, 'not found']))
             return
 
-    def init_state(self):
-        self.state = None
+    def preload(self):
+        pass
 
     def draw(self, screen, x, y):
 

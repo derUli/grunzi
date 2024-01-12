@@ -173,7 +173,7 @@ class Level:
                         if hasattr(element, 'animation'):
                             animation = element.animation
                             # Wait for animation frame loading
-                            animation.reload_async()
+                            animation.reload()
                             # wait for animation loaded
                             while not animation.fully_loaded():
                                 continue
