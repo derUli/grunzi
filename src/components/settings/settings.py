@@ -6,9 +6,9 @@ import pygame
 
 from components.menucomponent import MenuComponent
 from components.controls import Controls
-from components.settings.settings_audio import SettingsAudio
-from components.settings.settings_video import SettingsVideo
-from components.settings.settings_game import SettingsGame
+from components.settings.audio import SettingsAudio
+from components.settings.video import SettingsVideo
+from components.settings.game import SettingsGame
 from utils.menu import make_menu
 
 
