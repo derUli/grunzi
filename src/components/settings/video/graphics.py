@@ -1,9 +1,7 @@
-import pygame
 
 from components.menucomponent import SettingsComponent
 from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.menu import make_menu, get_longest_option
-from utils.render_cache import store_clear
 
 
 MIN_SCREEN_RESOLUTION = (800, 600)

@@ -1,0 +1,3 @@
+class Weapon:
+    """ Weapon """
+    pass

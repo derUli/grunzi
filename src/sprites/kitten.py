@@ -12,6 +12,7 @@ from sprites.chainsaw import Chainsaw
 from sprites.character import Character
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
+from sprites.weapon import Weapon
 from utils.audio import play_sound
 from utils.quality import pixel_fades_enabled
 
@@ -118,8 +119,11 @@ class Kitten(Killable, Character):
         if self.killed():
             return
 
+        if self.walkable:
+            return
+
         # Chicken is killed by chainsaw
-        if isinstance(element.state.inventory, Chainsaw) and not self.walkable:
+        if isinstance(element.state.inventory, Chainsaw):
             if element.state.inventory.attributes['fuel'] <= 0:
                 return
 
@@ -146,6 +150,9 @@ class Kitten(Killable, Character):
                     RUMBLE_CHAINSAW_HIGH_FREQUENCY,
                     RUMBLE_CHAINSAW_DURATION
                 )
+
+        elif isinstance(element.state.inventory, Weapon):
+            self.kill()
 
     def ai(self, level):
         if time.time() < self.last_movement + self.walk_speed:

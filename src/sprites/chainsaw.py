@@ -6,6 +6,8 @@ from constants.direction import DIRECTION_UP, DIRECTION_DOWN
 from sprites.fuel import Fuel
 from sprites.inlinesprite import InlineSprite
 from sprites.takeable import Takeable
+from sprites.weapon import Weapon
+
 from utils.audio import play_sound
 
 SHAKE_Y_FROM = -2
@@ -14,7 +16,7 @@ SHAKE_Y_TO = 2
 FUEL_USAGE = 0.04
 
 
-class Chainsaw(Takeable, InlineSprite):
+class Chainsaw(Takeable, InlineSprite, Weapon):
     """ Chainsaw sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='chainsaw.png'):

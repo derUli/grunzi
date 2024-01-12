@@ -10,6 +10,7 @@ import pygame
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN
 from sprites.chainsaw import Chainsaw
 from sprites.character import Character
+from sprites.weapon import Weapon
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from utils.audio import play_sound
@@ -110,8 +111,11 @@ class Sheep(Killable, Character):
         if self.killed():
             return
 
+        if self.walkable:
+            return
+
         # Chicken is killed by chainsaw
-        if isinstance(element.state.inventory, Chainsaw) and not self.walkable:
+        if isinstance(element.state.inventory, Chainsaw):
             if element.state.inventory.attributes['fuel'] <= 0:
                 return
 
@@ -136,6 +140,8 @@ class Sheep(Killable, Character):
                     RUMBLE_CHAINSAW_HIGH_FREQUENCY,
                     RUMBLE_CHAINSAW_DURATION
                 )
+        elif isinstance(element.state.inventory, Weapon):
+            self.kill()
         else:
             element.play_sound(PIG_SOUND_NOTHING)
 

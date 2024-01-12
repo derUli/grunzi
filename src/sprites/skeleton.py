@@ -9,6 +9,7 @@ from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
 from constants.headup import NPC_HEALTH_COLOR_ENEMY, NPC_HEALTH_HEIGHT
 from constants.graphics import SPRITE_SIZE
 from sprites.chainsaw import Chainsaw
+from sprites.sword import Sword
 from sprites.character import Character
 from sprites.killable import Killable
 from constants.game import MAIN_CHARACTER_ID
@@ -16,6 +17,7 @@ from constants.game import MAIN_CHARACTER_ID
 BLOOD_COLOR = (163, 8, 8)
 CHICKEN_SOUND_FADEOUT = 100
 CHAINSAW_DAMAGE = 2
+SWORD_DAMAGE = 5
 HURT_DAMAGE = 10
 
 
@@ -77,13 +79,16 @@ class Skeleton(Killable, Character):
 
             self.attributes['health'] -= CHAINSAW_DAMAGE
 
-            if self.attributes['health'] <= 0:
-                self.attributes['health'] = 0
-
-                logging.debug('Skeleton killed by chainsaw')
-                self.kill()
-
             element.state.inventory.play_sound()
+
+        elif isinstance(element.state.inventory, Sword):
+            self.attributes['health'] -= SWORD_DAMAGE
+
+        if self.attributes['health'] <= 0:
+            self.attributes['health'] = 0
+
+            logging.debug('Skeleton killed')
+            self.kill()
 
     def ai(self, level):
         if time.time() - self.last_movement < self.walk_speed:

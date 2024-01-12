@@ -1,7 +1,6 @@
 import pygame
 
 from components.menucomponent import SettingsComponent
-from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.menu import make_menu, get_longest_option
 from utils.render_cache import store_clear
 
@@ -51,7 +50,6 @@ class SettingsScreen(SettingsComponent):
             items.append((label, value))
 
         return items
-
 
     def get_limit_fps(self):
         items = [

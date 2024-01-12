@@ -1,12 +1,9 @@
-import pygame
 
 from components.menucomponent import SettingsComponent
 from components.settings.video.screen import SettingsScreen
 from components.settings.video.graphics import SettingsGraphics
 
-from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
-from utils.menu import make_menu, get_longest_option
-from utils.render_cache import store_clear
+from utils.menu import make_menu
 
 
 MIN_SCREEN_RESOLUTION = (800, 600)
@@ -24,7 +21,6 @@ class SettingsVideo(SettingsComponent):
 
         self.menu = menu
         menu.mainloop(screen, self.draw_background)
-
 
     def handle_screen(self):
         component = self.handle_change_component(SettingsScreen)
