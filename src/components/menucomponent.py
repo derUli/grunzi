@@ -75,9 +75,6 @@ class SettingsComponent(MenuComponent):
             gamepad
         )
 
-        # Some video settings need a restart of the game after change
-        self.needs_restart = False
-
     def handle_back(self):
         """ Go back to settings menu """
         component = self.handle_change_component(self.old_component)

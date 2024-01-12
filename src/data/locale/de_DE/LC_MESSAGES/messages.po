@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-11 22:40+0100\n"
+"POT-Creation-Date: 2024-01-12 01:53+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,66 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:109 components/menu.py:52 grunzi.py:30
+#: bootstrap/gamecontainer.py:109 components/menu.py:48 grunzi.py:30
 msgid "Grunzi"
 msgstr ""
 
 #: grunzi.py:31
 msgid "Piggy adventure game"
 msgstr ""
-
-#: components/controls.py:55 components/controls.py:67
-msgid "Walk"
-msgstr "Gehen"
-
-#: components/controls.py:56 components/controls.py:68
-msgid "Use item"
-msgstr "Gegenstand benutzen"
-
-#: components/controls.py:57 components/controls.py:69
-msgid "Drop item"
-msgstr "Gegenstand ablegen"
-
-#: components/controls.py:58 components/controls.py:70
-msgid "Grunt"
-msgstr "Grunzen"
-
-#: components/controls.py:59 components/controls.py:71
-msgid "Run"
-msgstr "Rennen"
-
-#: components/controls.py:60 components/controls.py:72
-#: components/pausable_component.py:24
-msgid "Pause"
-msgstr ""
-
-#: components/controls.py:61
-msgid "Make Screenshot"
-msgstr "Screenshot erstellen"
-
-#: components/controls.py:102 components/settings.py:89
-msgid "Controls"
-msgstr "Steuerung"
-
-#: components/controls.py:106
-msgid "Keyboard"
-msgstr "Tastatur"
-
-#: components/controls.py:108
-msgid "Controller"
-msgstr "Controller"
-
-#: components/controls.py:169
-msgid "Controller: "
-msgstr "Controller: "
-
-#: components/controls.py:176
-msgid "Unsupported"
-msgstr "Nicht unterstützt"
-
-#: components/controls.py:178
-msgid "No Controller"
-msgstr "Kein Controller"
 
 #: components/gameover.py:55
 msgid "Game Over"
@@ -88,7 +35,7 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/gameover.py:60 components/pausable_component.py:30
-#: components/settings.py:90
+#: components/settings/settings.py:82
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
@@ -112,21 +59,26 @@ msgstr "Level gespeichert."
 msgid "Level dumped."
 msgstr ""
 
-#: components/menu.py:53
+#: components/menu.py:49
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:56 components/pausable_component.py:27
+#: components/menu.py:52 components/pausable_component.py:27
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:59 components/settings.py:84
+#: components/menu.py:55 components/settings/settings.py:76
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/menu.py:61
+#: components/menu.py:57
 msgid "Quit"
 msgstr "Beenden"
+
+#: components/pausable_component.py:24 components/settings/controls.py:60
+#: components/settings/controls.py:72
+msgid "Pause"
+msgstr ""
 
 #: components/pausable_component.py:29
 msgid "Save Game"
@@ -140,90 +92,151 @@ msgstr ""
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
-#: components/settings.py:86 components/settings_video.py:84
-msgid "Video"
-msgstr ""
-
-#: components/settings.py:87 components/settings_audio.py:44
-msgid "Audio"
-msgstr ""
-
-#: components/settings.py:88 components/settings_game.py:21
-msgid "Game"
-msgstr "Spiel"
-
-#: components/settings_audio.py:47
-msgid "Music"
-msgstr "Musik"
-
-#: components/settings_audio.py:56
-msgid "Sound Effects"
-msgstr "Soundeffekte"
-
-#: components/settings_audio.py:64 components/settings_game.py:32
-#: components/settings_video.py:145
-msgid "Back"
-msgstr "Zurück"
-
-#: components/settings_game.py:23
-msgid "No"
-msgstr "Nein"
-
-#: components/settings_game.py:23
-msgid "Yes"
-msgstr "Ja"
-
-#: components/settings_game.py:26
-msgid "Skip Intro"
-msgstr "Intro überspringen"
-
-#: components/settings_video.py:57 components/settings_video.py:86
-msgid "Off"
-msgstr "Aus"
-
-#: components/settings_video.py:58
-msgid "Medium"
-msgstr "Mittel"
-
-#: components/settings_video.py:59
-msgid "High"
-msgstr "Hoch"
-
-#: components/settings_video.py:86
-msgid "On"
-msgstr "An"
-
-#: components/settings_video.py:89
-msgid "Fullscreen"
-msgstr "Vollbild"
-
-#: components/settings_video.py:96
-msgid "V-Sync"
-msgstr "Vertikale Synchronisation"
-
-#: components/settings_video.py:103
-msgid "Screen Resolution"
-msgstr "Bildschirmauflösung"
-
-#: components/settings_video.py:114
-msgid "Blood"
-msgstr "Blut"
-
-#: components/settings_video.py:125
-msgid "Fog"
-msgstr "Nebel"
-
-#: components/settings_video.py:132
-msgid "Bloom"
-msgstr "Bloom"
-
-#: components/settings_video.py:139
-msgid "Smooth Scale"
-msgstr "Weiche Skalierung"
-
 #: components/tobecontinued.py:44
 msgid "To be continued"
 msgstr "Wird fortgesetzt"
+
+#: components/settings/audio.py:41 components/settings/settings.py:79
+msgid "Audio"
+msgstr ""
+
+#: components/settings/audio.py:44
+msgid "Music"
+msgstr "Musik"
+
+#: components/settings/audio.py:53
+msgid "Sound Effects"
+msgstr "Soundeffekte"
+
+#: components/settings/audio.py:61 components/settings/game.py:28
+#: components/settings/video/graphics.py:79
+#: components/settings/video/screen.py:85 components/settings/video/video.py:23
+msgid "Back"
+msgstr "Zurück"
+
+#: components/settings/controls.py:55 components/settings/controls.py:67
+msgid "Walk"
+msgstr "Gehen"
+
+#: components/settings/controls.py:56 components/settings/controls.py:68
+msgid "Use item"
+msgstr "Gegenstand benutzen"
+
+#: components/settings/controls.py:57 components/settings/controls.py:69
+msgid "Drop item"
+msgstr "Gegenstand ablegen"
+
+#: components/settings/controls.py:58 components/settings/controls.py:70
+msgid "Grunt"
+msgstr "Grunzen"
+
+#: components/settings/controls.py:59 components/settings/controls.py:71
+msgid "Run"
+msgstr "Rennen"
+
+#: components/settings/controls.py:61
+msgid "Make Screenshot"
+msgstr "Screenshot erstellen"
+
+#: components/settings/controls.py:102 components/settings/settings.py:81
+msgid "Controls"
+msgstr "Steuerung"
+
+#: components/settings/controls.py:106
+msgid "Keyboard"
+msgstr "Tastatur"
+
+#: components/settings/controls.py:108
+msgid "Controller"
+msgstr "Controller"
+
+#: components/settings/controls.py:169
+msgid "Controller: "
+msgstr "Controller: "
+
+#: components/settings/controls.py:176
+msgid "Unsupported"
+msgstr "Nicht unterstützt"
+
+#: components/settings/controls.py:178
+msgid "No Controller"
+msgstr "Kein Controller"
+
+#: components/settings/game.py:17 components/settings/settings.py:80
+msgid "Game"
+msgstr "Spiel"
+
+#: components/settings/game.py:19
+msgid "No"
+msgstr "Nein"
+
+#: components/settings/game.py:19
+msgid "Yes"
+msgstr "Ja"
+
+#: components/settings/game.py:22
+msgid "Skip Intro"
+msgstr "Intro überspringen"
+
+#: components/settings/settings.py:78 components/settings/video/video.py:18
+msgid "Video"
+msgstr ""
+
+#: components/settings/video/graphics.py:16
+#: components/settings/video/graphics.py:45
+#: components/settings/video/screen.py:58
+msgid "Off"
+msgstr "Aus"
+
+#: components/settings/video/graphics.py:17
+msgid "Medium"
+msgstr "Mittel"
+
+#: components/settings/video/graphics.py:18
+msgid "High"
+msgstr "Hoch"
+
+#: components/settings/video/graphics.py:43
+#: components/settings/video/video.py:21
+msgid "Graphics"
+msgstr "Grafik"
+
+#: components/settings/video/graphics.py:45
+#: components/settings/video/screen.py:58
+msgid "On"
+msgstr "An"
+
+#: components/settings/video/graphics.py:48
+msgid "Blood"
+msgstr "Blut"
+
+#: components/settings/video/graphics.py:59
+msgid "Fog"
+msgstr "Nebel"
+
+#: components/settings/video/graphics.py:66
+msgid "Bloom"
+msgstr "Bloom"
+
+#: components/settings/video/graphics.py:73
+msgid "Smooth Scale"
+msgstr "Weiche Skalierung"
+
+#: components/settings/video/screen.py:56 components/settings/video/video.py:20
+msgid "Screen"
+msgstr "Bildschirm"
+
+#: components/settings/video/screen.py:61
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: components/settings/video/screen.py:68
+msgid "V-Sync"
+msgstr "Vertikale Synchronisation"
+
+#: components/settings/video/screen.py:75
+msgid "Screen Resolution"
+msgstr "Bildschirmauflösung"
 
 #: sprites/chainsaw.py:37
 msgid "The petrol is empty."

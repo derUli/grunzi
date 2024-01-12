@@ -24,11 +24,9 @@ class Settings(MenuComponent):
             gamepad
         )
 
-        self.needs_restart = False
-
     def handle_back(self):
         """ Go back to main menu """
-        if self.needs_restart:
+        if self.settings_state.needs_restart:
             self.restart_app()
             return
         component = self.handle_change_component(None)

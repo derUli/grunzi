@@ -15,8 +15,8 @@ class SettingsScreen(SettingsComponent):
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.screen_resolution = value
-        self.old_component.needs_restart = True
         self.settings_state.apply_and_save()
+        self.settings_state.needs_restart = True
         store_clear()
 
     def handle_toggle_fullscreen(self, value):
@@ -28,7 +28,7 @@ class SettingsScreen(SettingsComponent):
         """ Handle toggle VSync """
         self.settings_state.vsync = value
         self.settings_state.apply_and_save()
-        self.old_component.needs_restart = True
+        self.settings_state.needs_restart = True
 
     def get_screen_resolution_items(self):
         """ Get screen resolution items """

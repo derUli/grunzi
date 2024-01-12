@@ -47,6 +47,7 @@ class SettingsState:
 
         # Event handler
         self.handle_settings_change = handle_settings_change
+        self.needs_restart = False
 
     def apply_and_save(self):
         """ Apply and save """
