@@ -130166,8 +130166,16 @@
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
 },
-0,
-0,
+{
+"sprite_class": "sprites.apple.Apple",
+"sprite_file": "apple.png",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.apple.Apple",
+"sprite_file": "apple.png",
+"walkable": 1
+},
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -151690,7 +151698,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
@@ -162829,16 +162841,8 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.apple.Apple",
-"sprite_file": "apple.png",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.apple.Apple",
-"sprite_file": "apple.png",
-"walkable": 1
-},
+0,
+0,
 0,
 0,
 0,
@@ -167732,7 +167736,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.dynamite.Dynamite",
+"sprite_file": "dynamite.png",
+"walkable": 1
+},
 0,
 0,
 0,
