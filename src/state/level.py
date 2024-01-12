@@ -78,6 +78,9 @@ class Level:
                         if mainchar_added:
                             sprite = None
                         mainchar_added = True
+                    elif sprite:
+                        sprite.preload()
+                        
                     row.append(sprite)
 
                 layer.append(row)

@@ -11,7 +11,7 @@ from constants.game import MONOTYPE_FONT, DEBUG_TILE_FONT_SIZE
 from constants.graphics import SPRITE_SIZE
 from utils.reflections import fullname, get_class
 from utils.string import label_value
-
+from threading import Thread
 
 def from_dict(x, sprites_dir, image_cache):
     if not x:
@@ -80,7 +80,13 @@ class Sprite:
             return
 
     def preload(self):
+        surface = pygame.display.get_surface()
+        self.draw(surface, 0, 0)
         pass
+
+    def preload_async(self):
+        thread = Thread(target=self.preload)
+        thread.start()
 
     def draw(self, screen, x, y):
 

@@ -65,6 +65,9 @@ class Water(sprites.sprite.Sprite):
 
             angle += 5
 
+    def preload(self):
+        self.generate_frames()
+        
     def cache_id(self, angle):
         return 'water-' + str(angle)
 
