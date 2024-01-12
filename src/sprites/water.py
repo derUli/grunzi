@@ -10,7 +10,6 @@ from sprites.wood import Wood
 from sprites.woodonwater import WoodOnWater
 from utils.quality import shader_enabled
 
-
 class Water(sprites.sprite.Sprite):
     """ Backdrop sprite """
 
