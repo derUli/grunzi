@@ -7,7 +7,6 @@
 * [ ] Autosave (?)
 * [ ] Sprachausgabe (?)
 * [ ] Neue Waffe hinzugefügt: Schwert
-* [ ] Video Einstellungen aufteilen in "Bildschirm" und "Grafik" als Unterpunkte von "Video"
 * [ ] Tretmine hinzugefügt
 
 ## Alpha 004
