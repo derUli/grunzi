@@ -8,7 +8,7 @@ from random import randint
 
 
 LANDMINE_HURT_MIN = 10
-LANDMINE_HURT_MAX = 80
+LANDMINE_HURT_MAX = 60
 
 
 class LandMine(Sprite):

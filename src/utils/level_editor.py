@@ -1,4 +1,5 @@
 from sprites.apple import Apple
+from sprites.burger import Burger
 from sprites.backdrop import Backdrop
 from sprites.chainsaw import Chainsaw
 from sprites.chicken import Chicken
@@ -206,6 +207,10 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache
         ),
         Apple(
+            sprites_dir,
+            image_cache
+        ),
+        Burger(
             sprites_dir,
             image_cache
         ),
