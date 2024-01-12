@@ -6,7 +6,7 @@ import utils.savegame
 from components.menucomponent import MenuComponent
 from components.intro import Intro
 from components.maingame import MainGame
-from components.settings import Settings
+from components.settings.settings import Settings
 from utils.menu import make_menu
 
 

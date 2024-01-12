@@ -68,11 +68,11 @@ class SettingsComponent(MenuComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         super().__init__(
-                data_dir,
-                handle_change_component,
-                settings_state,
-                enable_edit_mode,
-                gamepad
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad
         )
 
         # Some video settings need a restart of the game after change
