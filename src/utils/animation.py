@@ -39,23 +39,29 @@ class Animation:
                 self.files.append(fullpath)
 
     def load(self):
+        self.load_async()
+
+    def load_async(self):
         self.loaded = True
         """ Reload frames """
         logging.debug('Async reload animation started')
-        thread = Thread(target=self.load_async)
+        thread = Thread(target=self.load_sync)
         thread.start()
         logging.debug('Async reload animation finished')
 
-    def load_async(self):
+    def load_sync(self):
         """ Load all animation files """
         for file in self.files:
             self.frames += [self.load_frame(file)]
 
     def reload(self):
+        self.reload_async()
+        
+    def reload_async(self):
         """ Reload frames """
         self.loaded = True
         logging.debug('Async reload animation started')
-        thread = Thread(target=self.reload_async)
+        thread = Thread(target=self.reload_sync)
         thread.start()
         logging.debug('Async reload animation finished')
 
