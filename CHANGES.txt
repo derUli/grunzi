@@ -12,6 +12,8 @@
 ## Alpha 004
 
 * Puzzle mit Sprengstoff hinzugefügt
+* Tretminen hinzugefügt
+* Schwert hinzugefügt
 * Tag-Nacht-Zyklus
 * Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
 * Grafik-Optionen sind jetzt feiner einstellbar
