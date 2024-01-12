@@ -12,7 +12,7 @@ from components.settings.game import SettingsGame
 from utils.menu import make_menu
 
 
-class SettingsControls(MenuComponent):
+class Settings(MenuComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
