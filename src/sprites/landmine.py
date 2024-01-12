@@ -21,6 +21,11 @@ class LandMine(Sprite):
 
         animation_dir = os.path.join(sprite_dir, 'animations', 'explosion')
 
+        # Damage can be statically defined
+        self.attributes = {
+            'damage': None 
+        }
+
         self.explosion = Animation(
             animation_dir,
             refresh_interval=0.01,
@@ -28,7 +33,6 @@ class LandMine(Sprite):
             size=SPRITE_SIZE,
             loop=False
         )
-
 
         self.exploded = False
 
@@ -55,5 +59,11 @@ class LandMine(Sprite):
             return
 
         self.exploded = True
-        damage = randint(LANDMINE_HURT_MIN, LANDMINE_HURT_MAX)
+
+        damage = self.attributes['damage']
+
+        # If damage is not statically defined randomize damage
+        if not damage:
+            damage = randint(LANDMINE_HURT_MIN, LANDMINE_HURT_MAX)
+        
         element.state.hurt(damage)
