@@ -5,14 +5,14 @@ import sys
 import pygame
 
 from components.menucomponent import MenuComponent
-from components.controls import Controls
+from components.settings.controls import SettingsControls
 from components.settings.audio import SettingsAudio
 from components.settings.video import SettingsVideo
 from components.settings.game import SettingsGame
 from utils.menu import make_menu
 
 
-class Settings(MenuComponent):
+class SettingsControls(MenuComponent):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         """ Constructor """
@@ -69,7 +69,7 @@ class Settings(MenuComponent):
 
     def handle_controls(self):
         """ Handle open settings menu  """
-        component = self.handle_change_component(Controls)
+        component = self.handle_change_component(SettingsControls)
         component.old_component = self
 
         self.menu.disable()
