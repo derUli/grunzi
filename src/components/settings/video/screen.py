@@ -52,6 +52,37 @@ class SettingsScreen(SettingsComponent):
 
         return items
 
+
+    def get_limit_fps(self):
+        items = [
+            (_('Uncapped'), 0)
+        ]
+
+        framerates = [
+            144,
+            120,
+            60,
+            30
+        ]
+
+        for fps in framerates:
+            items.append(
+                (
+                    ' '.join([str(fps), 'FPS']),
+                    fps
+                )
+            )
+
+        return items
+
+    def handle_change_limit_fps(self, selection, selected_index):
+        """ Handle change limit fps """
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.limit_fps = value
+        self.menu.disable()
+        self.settings_state.apply_and_save()
+
     def draw_menu(self, screen):
         menu = make_menu(_('Screen'), self.settings_state.limit_fps)
 
@@ -80,6 +111,17 @@ class SettingsScreen(SettingsComponent):
             onchange=self.handle_change_screen_resolution,
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_screen_resolution_items()),
+        )
+
+        menu.add.dropselect(
+            title=_('Framerate Cap'),
+            default=self.get_selected_index(
+                self.get_limit_fps(),
+                self.settings_state.limit_fps),
+            items=self.get_limit_fps(),
+            onchange=self.handle_change_limit_fps,
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_limit_fps()),
         )
 
         menu.add.button(_('Back'), self.handle_back)

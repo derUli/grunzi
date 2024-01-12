@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-12 01:53+0100\n"
+"POT-Creation-Date: 2024-01-12 10:20+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -110,7 +110,8 @@ msgstr "Soundeffekte"
 
 #: components/settings/audio.py:61 components/settings/game.py:28
 #: components/settings/video/graphics.py:79
-#: components/settings/video/screen.py:85 components/settings/video/video.py:23
+#: components/settings/video/screen.py:126
+#: components/settings/video/video.py:23
 msgid "Back"
 msgstr "Zurück"
 
@@ -184,7 +185,7 @@ msgstr ""
 
 #: components/settings/video/graphics.py:16
 #: components/settings/video/graphics.py:45
-#: components/settings/video/screen.py:58
+#: components/settings/video/screen.py:88
 msgid "Off"
 msgstr "Aus"
 
@@ -202,7 +203,7 @@ msgid "Graphics"
 msgstr "Grafik"
 
 #: components/settings/video/graphics.py:45
-#: components/settings/video/screen.py:58
+#: components/settings/video/screen.py:88
 msgid "On"
 msgstr "An"
 
@@ -222,21 +223,29 @@ msgstr "Bloom"
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
-#: components/settings/video/screen.py:56 components/settings/video/video.py:20
+#: components/settings/video/screen.py:58
+msgid "Uncapped"
+msgstr "Unbegrenzt"
+
+#: components/settings/video/screen.py:86 components/settings/video/video.py:20
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: components/settings/video/screen.py:61
+#: components/settings/video/screen.py:91
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings/video/screen.py:68
+#: components/settings/video/screen.py:98
 msgid "V-Sync"
 msgstr "Vertikale Synchronisation"
 
-#: components/settings/video/screen.py:75
+#: components/settings/video/screen.py:105
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
+
+#: components/settings/video/screen.py:116
+msgid "Framerate Cap"
+msgstr "Maximale Framerate"
 
 #: sprites/chainsaw.py:37
 msgid "The petrol is empty."

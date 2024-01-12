@@ -1,6 +1,7 @@
 import pygame_menu
 
 from constants.headup import BOTTOM_UI_BACKGROUND, PIGGY_PINK
+from utils.quality import font_antialiasing_enabled
 
 THEME_PIG = pygame_menu.Theme(
     background_color=PIGGY_PINK,
@@ -14,7 +15,9 @@ THEME_PIG = pygame_menu.Theme(
     title_background_color=BOTTOM_UI_BACKGROUND,
     title_font_color=(228, 230, 246),
     title_font_size=26,
-    title_font_shadow=True,
+    title_font_shadow=False,
+    title_font_antialias=font_antialiasing_enabled(),
+    widget_font_antialias=font_antialiasing_enabled(),
     widget_font_color=BOTTOM_UI_BACKGROUND,
     widget_font_size=20,
 )
