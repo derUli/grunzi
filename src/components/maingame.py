@@ -59,6 +59,8 @@ class MainGame(PausableComponent, LoadingScreen):
         self.disable_ai = False
         self.async_ai_running = None
         self.is_level_exit = False
+        self.fade_on_mount = True
+        self.fade_on_unmount = True
 
         self.atmosphere = Atmosphere(self.sprites_dir, self.image_cache)
         self.music_queue = MusicQueue()
@@ -119,6 +121,7 @@ class MainGame(PausableComponent, LoadingScreen):
         return True
 
     def mount(self):
+        super().mount()
         """ On mount hide mouse pointer and start music """
         pygame.mouse.set_visible(0)
         pygame.mixer.music.stop()
@@ -134,9 +137,11 @@ class MainGame(PausableComponent, LoadingScreen):
     def unmount(self):
         """ On unmount show mouse cursor and stop music """
         self.async_ai_running = False
-        pygame.mouse.set_visible(1)
+        pygame.mouse.set_visible(True)
         self.music_queue.stop()
         stop_sounds()
+
+        super().unmount()
 
     def draw(self, screen):
         """ Draw screen """

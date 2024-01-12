@@ -5,7 +5,7 @@ from components.component import Component
 FADE_IN = 1
 FADE_OUT = 2
 
-FADE_SPEED = 5
+FADE_SPEED = 1
 
 
 class FadeableComponent(Component):

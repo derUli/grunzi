@@ -23,7 +23,7 @@ class ToBeContinued(FadeableComponent):
             enable_edit_mode,
             gamepad)
         self.menu = None
-
+        self.fade_on_unmount = True
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', MONOTYPE_FONT),
             LARGE_FONT_SIZE)

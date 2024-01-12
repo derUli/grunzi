@@ -42,6 +42,7 @@ class SettingsControls(FadeableComponent):
         self.old_component = None
         self.data_dir = data_dir
         self.backdrop = None
+        self.fade_on_unmount = True
 
         fontfile = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
         self.font = pygame.font.Font(
@@ -75,10 +76,6 @@ class SettingsControls(FadeableComponent):
     def mount(self):
         """ Fade in on mount """
         self.fadein()
-
-    def unmount(self):
-        """ Do nothing on unmount """
-        return
 
     def draw(self, screen):
         """ Update screen """
