@@ -18,6 +18,7 @@ from sprites.wall import Wall
 from sprites.water import Water
 from sprites.wood import Wood
 from sprites.blood import Blood
+from sprites.landmine import LandMine
 from utils.image import ImageCache
 
 
@@ -234,6 +235,10 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache
         ),
         LevelExit(
+            sprites_dir,
+            image_cache
+        ),
+        LandMine(
             sprites_dir,
             image_cache
         )

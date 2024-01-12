@@ -11,8 +11,8 @@ import signal
 import pygame
 from GPUtil.GPUtil import getGPUs
 from pygame.locals import QUIT
-
-import components.menu
+from components.mainmenu import MainMenu
+from components.mainmenu import MainMenu
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.audio import play_sound, get_devices
@@ -40,7 +40,7 @@ class GameContainer:
         self.disable_ai = disable_ai
         self.__main__ = None
 
-    def start(self, component=components.menu.Menu):
+    def start(self, component=MainMenu):
         """ Start game """
         version_file = os.path.join(self.root_dir, 'LICENSE')
 
@@ -205,7 +205,7 @@ class GameContainer:
     def change_component(self, component):
         """ Change component """
         if not component:
-            component = components.menu.Menu
+            component = MainMenu
 
         if self.current_component:
             self.current_component.unmount()

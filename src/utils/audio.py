@@ -42,6 +42,7 @@ def unpause_sounds() -> None:
 
 
 def play_music(file, repeat=-1) -> None:
+    logging.debug('Play music ' + file)
     pygame.mixer.music.load(file)
     pygame.mixer.music.play(repeat)
 

@@ -90,12 +90,15 @@ class Component(object):
         self.screen = screen
 
     def mount(self):
+        """ Mount event """
         return
 
     def ai(self):
+        """ AI event """
         return
 
     def play_music(self, file, repeat=-1):
+        """ Play music """
         file = os.path.join(self.data_dir, 'music', file)
         utils.audio.play_music(file, repeat)
 

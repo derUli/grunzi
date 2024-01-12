@@ -80,7 +80,6 @@ class SettingsScreen(SettingsComponent):
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.limit_fps = value
-        self.menu.disable()
         self.settings_state.apply_and_save()
 
     def draw_menu(self, screen):

@@ -1,7 +1,9 @@
+""" Task display for pause menu """
 from typing import Union
 
 
 def get_task(name: Union[str, None] = None) -> Union[str, None]:
+    """ Get the current task title """
     task = _('Keine Aufgabe')
 
     tasks = {
