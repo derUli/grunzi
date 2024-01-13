@@ -15,7 +15,6 @@ SOUND_VOLUME = 1.0
 
 CHANNELS = []
 
-
 def play_sound(file: str) -> pygame.mixer.Channel:
     """
     Plays a sound file once
