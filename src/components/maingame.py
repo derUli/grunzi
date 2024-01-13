@@ -31,11 +31,7 @@ from utils.camera import Camera
 from utils.level_editor import get_editor_blocks
 from utils.music_queue import MusicQueue
 
-BACKDROP_COLOR = (36, 63, 64)
-
-THREAD_INTERVAL_HIGH = 50
-THREAD_INTERVAL_LOW = 250
-
+THREAD_WAIT = 25
 
 class MainGame(PausableComponent, LoadingScreen):
 
@@ -121,9 +117,10 @@ class MainGame(PausableComponent, LoadingScreen):
         return True
 
     def mount(self):
-        super().mount()
         """ On mount hide mouse pointer and start music """
-        pygame.mouse.set_visible(0)
+
+        super().mount()
+        pygame.mouse.set_visible(False)
         pygame.mixer.music.stop()
 
         self.atmosphere.start()
@@ -307,7 +304,7 @@ class MainGame(PausableComponent, LoadingScreen):
     def async_ai(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
-            pygame.time.wait(THREAD_INTERVAL_HIGH)
+            pygame.time.wait(THREAD_WAIT)
             self.handle_interactions()
             self.level.update_sprites()
 
