@@ -67,7 +67,7 @@ class Horse(Character):
 
     def handle_interact(self, element):
         if element and element.state:
-            if element.state.display_text.rendered_text:
+            if element.state.display_text.is_visible():
                 return
 
             element.state.say(self.next_sentence())

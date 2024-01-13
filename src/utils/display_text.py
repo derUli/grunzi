@@ -18,6 +18,7 @@ class DisplayText:
         self.font = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
         self.rendered_text = None
         self.show_end = 0
+        self.handle_text_shown = None
 
     def draw(self, screen: pygame.surface.Surface, pos: tuple):
         if not self.rendered_text:
@@ -25,12 +26,17 @@ class DisplayText:
 
         if time.time() > self.show_end:
             self.rendered_text = None
+
+            if self.handle_text_shown:
+                self.handle_text_shown()
+                self.handle_text_shown = None
             return
 
         screen.blit(self.rendered_text, pos)
 
-    def show_text(self, what: str, fit_width: int = 450) -> None:
+    def show_text(self, what: str, fit_width: int = 450, handle_text_shown = None) -> None:
         logging.info(what)
+        self.handle_text_shown = handle_text_shown
         original_what = what
 
         font_size = TEXT_FONT_SIZE
@@ -70,3 +76,6 @@ class DisplayText:
             show_time = TIME_MIN
 
         self.show_end = time.time() + show_time
+
+    def is_visible(self):
+        return self.rendered_text is not None

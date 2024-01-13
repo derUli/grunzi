@@ -173,7 +173,7 @@ class PlayerState:
                 )
             )
 
-        if self.display_text.rendered_text:
+        if self.display_text.is_visible():
             data['rendered_text'] = hash(
                 pygame.image.tostring(
                     self.display_text.rendered_text,
@@ -323,7 +323,7 @@ class PlayerState:
     def draw_text(self, screen):
         """ Draw ui background """
 
-        if not self.display_text.rendered_text:
+        if not self.display_text.is_visible():
             return
 
         w, h = self.display_text.rendered_text.get_size()
