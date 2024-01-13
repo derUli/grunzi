@@ -14,6 +14,7 @@ HORSE_FOG = 255
 
 TASK_ID = 'horse'
 
+
 class Horse(Character):
     """ Chicken sprite class """
 

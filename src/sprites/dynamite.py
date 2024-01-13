@@ -20,6 +20,7 @@ DAMAGE_ZONE = 2
 
 TASK_ID = 'blast'
 
+
 class Dynamite(Takeable):
     """ Wall sprite class """
 
@@ -55,7 +56,6 @@ class Dynamite(Takeable):
             os.path.join(data_dir, 'fonts', MONOTYPE_FONT),
             6
         )
-
 
     def start_counter(self):
         self.last_second = 0
@@ -164,8 +164,6 @@ class Dynamite(Takeable):
                 'explosion.ogg'
             )
         )
-
-
 
     def update_state(self, state):
         if self.exploded and state.task == TASK_ID:

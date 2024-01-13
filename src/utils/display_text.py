@@ -34,7 +34,7 @@ class DisplayText:
 
         screen.blit(self.rendered_text, pos)
 
-    def show_text(self, what: str, fit_width: int = 450, handle_text_shown = None) -> None:
+    def show_text(self, what: str, fit_width: int = 450, handle_text_shown=None) -> None:
         logging.info(what)
         self.handle_text_shown = handle_text_shown
         original_what = what

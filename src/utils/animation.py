@@ -12,6 +12,7 @@ from utils.string import natural_keys
 TRANSPARENT_IMAGES = ['.png', '.gif']
 IMAGE_EXTENSIONS = ['.jpg', '.bmp'] + TRANSPARENT_IMAGES
 
+
 class Animation:
 
     def __init__(self, animation_dir, refresh_interval=0.1,
