@@ -17,7 +17,7 @@ from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.audio import play_sound, get_devices
 from utils.helper import get_version
-from utils.screenshot import make_screenshot
+from utils.screenshot import make_screenshot, SCREENSHOT_DIR
 from utils.string import label_value
 
 
@@ -178,7 +178,7 @@ class GameContainer:
 
     def screenshot(self):
         """ Save a screenshot  """
-        make_screenshot(self.screen)
+        make_screenshot(self.screen, SCREENSHOT_DIR)
         camera_sound = os.path.join(
             self.data_dir,
             'sounds',

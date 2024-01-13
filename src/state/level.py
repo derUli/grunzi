@@ -11,7 +11,7 @@ import sprites.sprite
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
 from constants.game import MAIN_CHARACTER_ID
 from sprites.levelexit import LevelExit
-from utils.screenshot import make_dump
+from utils.screenshot import make_screenshot, DUMP_DIR
 
 LAYER_GROUND = 0
 LAYER_STATIC_OBJECTS = 1
@@ -183,12 +183,11 @@ class Level:
 
                         element.draw(surface, x, y)
 
-        make_dump(surface)
+        make_screenshot(surface, DUMP_DIR)
 
         end_time = time.time()
 
-        logging.debug('Map dumped in ' +
-                      str(end_time - start_time) + ' seconds')
+        logging.debug(f'Map dumped in {str(end_time - start_time)} seconds')
 
     def total_blocks(self, leveldata):
         """ Calculate total blocks count for progress bar"""
