@@ -41,8 +41,8 @@ class AudioTest(unittest.TestCase):
         self.assertFalse(pygame.mixer.music.get_busy())
 
     def test_get_devices(self):
-        self.assertGreaterEqual( len(get_devices()), 1)
+        self.assertGreaterEqual(len(get_devices()), 1)
 
         for device in get_devices():
-            self.assertIs(str, device)
+            self.assertIs(str, type(device))
 

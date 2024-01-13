@@ -93,8 +93,10 @@ def get_devices(capture_devices: bool = False) -> list:
     @return: List of audio devices
     """
     pygame.init()
-    if not sdl2_audio:
-        return []
-    devices = list(sdl2_audio.get_audio_device_names(capture_devices))
+
+    devices = []
+
+    if sdl2_audio:
+        devices = list(sdl2_audio.get_audio_device_names(capture_devices))
 
     return devices
