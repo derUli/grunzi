@@ -16,8 +16,7 @@
 * Schwert hinzugefügt
 * Tag-Nacht-Zyklus hinzugefügt
 * Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
-* Option "Intro überspringen" hinzugefügt
-* Grafik-Optionen sind jetzt feiner einstellbar
+* Intro entfernt
 * Maussteuerung entfernt
 * Fehler im Handling der Tastatur-Events korrigiert
 * Wenn man das Spiel pausiert, werden jetzt auch die Soundeffekte gestoppt

@@ -7,7 +7,6 @@ import pygame
 from components.menucomponent import MenuComponent
 from components.settings.audio import SettingsAudio
 from components.settings.controls import SettingsControls
-from components.settings.game import SettingsGame
 from components.settings.video.video import SettingsVideo
 from utils.menu import make_menu
 
@@ -59,12 +58,6 @@ class Settings(MenuComponent):
         component.old_component = self
         self.menu.disable()
 
-    def handle_game(self):
-        component = self.handle_change_component(SettingsGame)
-        component.video = self.video
-        component.old_component = self
-        self.menu.disable()
-
     def handle_controls(self):
         """ Handle open settings menu  """
         component = self.handle_change_component(SettingsControls)
@@ -77,7 +70,6 @@ class Settings(MenuComponent):
 
         menu.add.button(_('Video'), self.handle_video)
         menu.add.button(_('Audio'), self.handle_audio)
-        menu.add.button(_('Game'), self.handle_game)
         menu.add.button(_('Controls'), self.handle_controls)
         menu.add.button(_('Back To Main Menu'), self.handle_back)
 

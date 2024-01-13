@@ -2,7 +2,6 @@ import pygame
 
 from components.menucomponent import SettingsComponent
 from utils.menu import make_menu, get_longest_option
-from utils.render_cache import store_clear
 
 MIN_SCREEN_RESOLUTION = (800, 600)
 
@@ -15,7 +14,6 @@ class SettingsScreen(SettingsComponent):
         self.settings_state.screen_resolution = value
         self.settings_state.apply_and_save()
         self.settings_state.needs_restart = True
-        store_clear()
 
     def handle_toggle_fullscreen(self, value):
         """ Handle toggle fullscreen """

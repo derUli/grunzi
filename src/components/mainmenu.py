@@ -2,7 +2,6 @@ import pygame
 import pygame_menu
 
 import utils.savegame
-from components.intro import Intro
 from components.maingame import MainGame
 from components.menucomponent import MenuComponent
 from components.settings.settings import Settings
@@ -26,9 +25,11 @@ class MainMenu(MenuComponent):
             self.play_music('menu.ogg')
 
     def handle_new_game(self):
-        self.handle_change_component(Intro)
+        component = self.handle_change_component(MainGame)
         if self.menu:
             self.menu.disable()
+
+        component.new_game()
 
     def handle_continue_game(self):
         component = self.handle_change_component(MainGame)

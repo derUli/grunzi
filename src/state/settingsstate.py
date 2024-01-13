@@ -17,16 +17,12 @@ SETTINGS_DEFAULT_BLOOD = QUALITY_MEDIUM
 SETTINGS_DEFAULT_BLOOM = False
 SETTINGS_DEFAULT_FOG = True
 SETTINGS_DEFAULT_SMOOTHSCALE = True
-SETTINGS_DEFAULT_SKIP_INTRO = True
 SETTINGS_DEFAULT_VOLUME = 1.0
 
 
 class SettingsState:
     def __init__(self, handle_settings_change):
         """ Constructor """
-
-        # Game settings
-        self.skip_intro = SETTINGS_DEFAULT_SKIP_INTRO
 
         # Screen settings
         self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
@@ -114,8 +110,7 @@ class SettingsState:
             'blood': self.blood,
             'bloom': self.bloom,
             'fog': self.fog,
-            'smoothscale': self.smoothscale,
-            'skip_intro': self.skip_intro
+            'smoothscale': self.smoothscale
         }
 
     def to_json(self):
@@ -155,6 +150,3 @@ class SettingsState:
 
         if 'smoothscale' in settings:
             self.smoothscale = bool(settings['smoothscale'])
-
-        if 'skip_intro' in settings:
-            self.skip_intro = bool(settings['skip_intro'])
