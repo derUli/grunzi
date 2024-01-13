@@ -58,8 +58,8 @@ class CodeCheck(Sprite):
 
     def update_state(self, state):
         if self.code_valid:
-            if state.task.get_task_id() == TASK_ID:
-                state.task.set_task_id(NEXT_TASK_ID)
+            if state.task.get_id() == TASK_ID:
+                state.task.set_id(NEXT_TASK_ID)
             return
 
-        state.task.set_task_id(TASK_ID)
+        state.task.set_id(TASK_ID)

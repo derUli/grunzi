@@ -30,7 +30,7 @@ class State:
             'health': self.player_state.health,
             'inventory': inventory,
             'level': self.level,
-            'task': self.task.get_task_id()
+            'task': self.task.get_id()
         }
 
         if self.atmosphere:
@@ -55,7 +55,7 @@ class State:
             self.level = savegame['level']
 
         if 'task' in savegame and savegame['task']:
-            self.task.set_task_id(savegame['task'])
+            self.task.set_id(savegame['task'])
 
         if 'inventory' in savegame and savegame['inventory']:
             inventory = savegame['inventory']

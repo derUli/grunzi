@@ -131,5 +131,5 @@ class Horse(Character):
 
     def update_state(self, state):
         if self.task:
-            state.task.set_task_id(self.task)
+            state.task.set_id(self.task)
             self.task = None

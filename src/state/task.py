@@ -6,10 +6,10 @@ class Task:
     def __init__(self, task_id: Union[str, None]):
         self._task_id = task_id
 
-    def get_task_id(self):
+    def get_id(self):
         return self._task_id
 
-    def set_task_id(self, task_id: Union[str, None]):
+    def set_id(self, task_id: Union[str, None]):
         self._task_id = task_id
 
     def get_display_text(self):
