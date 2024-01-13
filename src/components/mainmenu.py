@@ -2,6 +2,7 @@ import pygame
 import pygame_menu
 
 import utils.savegame
+from components.loadgame import LoadGameComponent
 from components.maingame import MainGame
 from components.menucomponent import MenuComponent
 from components.settings.settings import Settings
@@ -31,11 +32,13 @@ class MainMenu(MenuComponent):
 
         component.new_game()
 
-    def handle_continue_game(self):
-        component = self.handle_change_component(MainGame)
+    def handle_load_game(self):
+        component = self.handle_change_component(LoadGameComponent)
+
+        component.video = self.video
         if self.menu:
             self.menu.disable()
-        component.load_savegame()
+
 
     def handle_settings(self):
         """ Handle open settings menu  """
@@ -47,10 +50,9 @@ class MainMenu(MenuComponent):
         """ Draw main menu """
         menu = make_menu(_('Grunzi'), self.settings_state.limit_fps)
         menu.add.button(_('New Game'), self.handle_new_game)
-        if utils.savegame.has_savegame(utils.savegame.SAVEGAME_DEFAULT):
-            menu.add.button(
-                _('Continue'),
-                self.handle_continue_game)  # Continue game
+
+        if utils.savegame.has_savegames():
+            menu.add.button(_('Load'), self.handle_load_game)  # Continue game
 
         menu.add.button(_('Settings'), self.handle_settings)
 

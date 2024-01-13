@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-13 19:41+0100\n"
+"POT-Creation-Date: 2024-01-13 23:24+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:109 components/mainmenu.py:48 grunzi.py:30
+#: bootstrap/gamecontainer.py:109 components/mainmenu.py:57 grunzi.py:30
 msgid "Grunzi"
 msgstr ""
 
@@ -26,65 +26,85 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/gameover.py:55
+#: components/gameover.py:56
 msgid "Game Over"
 msgstr "Du bist Schinken!"
 
-#: components/gameover.py:58
+#: components/gameover.py:59 components/loadgame.py:14
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/gameover.py:60 components/pausable_component.py:29
+#: components/gameover.py:61 components/pausable_component.py:48
 #: components/settings/settings.py:74
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
+
+#: components/loadgame.py:17
+msgid "Manual save"
+msgstr "Manueller Spielstand"
+
+#: components/loadgame.py:20
+msgid "Autosave"
+msgstr "Auto-Speicher"
+
+#: components/loadgame.py:22 components/settings/audio.py:61
+#: components/settings/video/graphics.py:75
+#: components/settings/video/screen.py:121
+#: components/settings/video/video.py:17
+msgid "Back"
+msgstr "Zurück"
 
 #: components/loading_screen.py:21
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:380
+#: components/maingame.py:365
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/maingame.py:513
+#: components/maingame.py:494
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:516
+#: components/maingame.py:497
 msgid "Level dumped."
 msgstr ""
 
-#: components/mainmenu.py:49
+#: components/mainmenu.py:58
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/mainmenu.py:52 components/pausable_component.py:26
+#: components/mainmenu.py:60 components/pausable_component.py:45
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/mainmenu.py:55 components/settings/settings.py:69
+#: components/mainmenu.py:63
+#, fuzzy
+msgid "Load"
+msgstr "Laden"
+
+#: components/mainmenu.py:65 components/settings/settings.py:69
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/mainmenu.py:57
+#: components/mainmenu.py:67
 msgid "Quit"
 msgstr "Beenden"
 
-#: components/pausable_component.py:23 components/settings/controls.py:61
-#: components/settings/controls.py:73
+#: components/pausable_component.py:42 components/settings/controls.py:62
+#: components/settings/controls.py:74
 msgid "Pause"
 msgstr ""
 
-#: components/pausable_component.py:28
+#: components/pausable_component.py:47
 msgid "Save Game"
 msgstr "Spiel speichern"
 
-#: components/pausable_component.py:50
+#: components/pausable_component.py:69
 msgid "Aufgabe"
 msgstr ""
 
-#: components/pausable_component.py:70
+#: components/pausable_component.py:94
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
@@ -104,57 +124,51 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings/audio.py:61 components/settings/video/graphics.py:75
-#: components/settings/video/screen.py:121
-#: components/settings/video/video.py:17
-msgid "Back"
-msgstr "Zurück"
-
-#: components/settings/controls.py:56 components/settings/controls.py:68
+#: components/settings/controls.py:57 components/settings/controls.py:69
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/settings/controls.py:57 components/settings/controls.py:69
+#: components/settings/controls.py:58 components/settings/controls.py:70
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/settings/controls.py:58 components/settings/controls.py:70
+#: components/settings/controls.py:59 components/settings/controls.py:71
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/settings/controls.py:59 components/settings/controls.py:71
+#: components/settings/controls.py:60 components/settings/controls.py:72
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/settings/controls.py:60 components/settings/controls.py:72
+#: components/settings/controls.py:61 components/settings/controls.py:73
 msgid "Run"
 msgstr "Rennen"
 
-#: components/settings/controls.py:62
+#: components/settings/controls.py:63
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/settings/controls.py:99 components/settings/settings.py:73
+#: components/settings/controls.py:100 components/settings/settings.py:73
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/settings/controls.py:103
+#: components/settings/controls.py:104
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/settings/controls.py:105
+#: components/settings/controls.py:106
 msgid "Controller"
 msgstr "Controller"
 
-#: components/settings/controls.py:166
+#: components/settings/controls.py:167
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/settings/controls.py:173
+#: components/settings/controls.py:174
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/settings/controls.py:175
+#: components/settings/controls.py:176
 msgid "No Controller"
 msgstr "Kein Controller"
 
@@ -326,4 +340,10 @@ msgstr "Gib dem Pferd Blut"
 #: state/task.py:35
 msgid "Blast your way free"
 msgstr "Sprenge dir den Weg frei"
+
+#~ msgid "Savegame"
+#~ msgstr "Spiel speichern"
+
+#~ msgid "Load Savegame"
+#~ msgstr "Spiel laden"
 

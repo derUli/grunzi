@@ -35,6 +35,17 @@ def has_savegame(name: str) -> bool:
 
     return os.path.exists(state_file)
 
+def has_savegames() -> bool:
+    savegames = [
+        SAVEGAME_DEFAULT,
+        SAVEGAME_AUTOSAVE
+    ]
+
+    for sav in savegames:
+        if has_savegame(sav):
+            return True
+
+    return False
 
 def save_game(name: str, state, diff_list=None) -> None:
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
