@@ -337,3 +337,7 @@ class Level:
             return self.layers[z][y][x]
         except IndexError:
             return None
+
+    def update_camera(self, camera):
+        z, y, x = self.search_by_id(constants.game.MAIN_CHARACTER_ID)
+        camera.update(x, y)

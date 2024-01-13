@@ -95,7 +95,7 @@ class MainGame(PausableComponent, LoadingScreen):
 
         z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state
-        self.update_camera()
+        self.level.update_camera(self.camera)
 
     def load_level(self, level_file, show_loading_screen=True):
         """ Load level from JSON file """
@@ -113,7 +113,7 @@ class MainGame(PausableComponent, LoadingScreen):
         z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
         self.level.layers[z][y][x].state = self.state.player_state
 
-        self.update_camera()
+        self.level.update_camera(self.camera)
 
         self.music_queue.shuffle()
         self.music_queue.play()
@@ -264,8 +264,7 @@ class MainGame(PausableComponent, LoadingScreen):
     def ai(self):
         if not self.async_ai_running:
             thread_fns = [
-                self.async_low_prio,
-                self.async_high_prio
+                self.async_ai
             ]
 
             for fn in thread_fns:
@@ -290,13 +289,6 @@ class MainGame(PausableComponent, LoadingScreen):
             self.moving = None
             component = self.handle_change_component(GameOver)
             component.state = self.state
-            return
-
-    def async_low_prio(self):
-        self.async_ai_running = True
-        while self.async_ai_running and not self.do_quit:
-            pygame.time.wait(THREAD_INTERVAL_LOW)
-            self.check_for_updates()
 
     def check_for_updates(self):
         z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
@@ -312,7 +304,7 @@ class MainGame(PausableComponent, LoadingScreen):
             # If the level file was changes do a reload
             self.load_level(self.level.level_file, False)
 
-    def async_high_prio(self):
+    def async_ai(self):
         self.async_ai_running = True
         while self.async_ai_running and not self.do_quit:
             pygame.time.wait(THREAD_INTERVAL_HIGH)
@@ -354,7 +346,6 @@ class MainGame(PausableComponent, LoadingScreen):
 
         self.state.player_state.inventory.purge = False
         self.level.layers[LAYER_ITEMS][y][x] = self.state.player_state.inventory
-
         self.state.player_state.inventory = None
 
     def grunt(self):
@@ -378,10 +369,6 @@ class MainGame(PausableComponent, LoadingScreen):
         play_sound(file)
 
         self.state.player_state.say(_('Grunt!'))
-
-    def update_camera(self):
-        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
-        self.camera.update(x, y)
 
     def handle_event(self, event):
         """ Handle events """
@@ -626,4 +613,4 @@ class MainGame(PausableComponent, LoadingScreen):
             self.level.layers[z][next_y][next_x] = character
             self.level.layers[z][y][x] = None
 
-            self.update_camera()
+            self.level.update_camera(self.camera)
