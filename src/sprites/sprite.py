@@ -173,3 +173,7 @@ class Sprite:
 
     def update_state(self, state):
         pass
+
+class AsyncAI:
+    def async_ai(self, level):
+        logging.error('Async AI not implemented')

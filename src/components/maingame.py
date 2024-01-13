@@ -302,6 +302,7 @@ class MainGame(PausableComponent, LoadingScreen):
             self.handle_interactions()
             self.level.update_sprites()
             self.check_for_updates()
+            self.level.async_ai()
 
     def handle_interactions(self):
         if self.state.player_state.use_item:

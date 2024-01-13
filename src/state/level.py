@@ -341,3 +341,13 @@ class Level:
     def update_camera(self, camera):
         z, y, x = self.search_by_id(constants.game.MAIN_CHARACTER_ID)
         camera.update(x, y)
+
+    def async_ai(self):
+        for z in self.layers:
+            for y in z:
+                if not any(y):
+                    continue
+
+                for x in y:
+                    if isinstance(x, sprites.sprite.AsyncAI):
+                        x.async_ai(self)
