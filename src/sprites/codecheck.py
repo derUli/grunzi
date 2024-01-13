@@ -4,6 +4,7 @@ from sprites.sprite import Sprite
 from state.level import LAYER_ITEMS, LAYER_STATIC_OBJECTS
 
 TASK_ID = 'find_code'
+NEXT_TASK_ID = 'blast'
 
 class CodeCheck(Sprite):
     """ Wall sprite class """
@@ -57,7 +58,7 @@ class CodeCheck(Sprite):
     def update_state(self, state):
         if self.code_valid:
             if state.task == TASK_ID:
-                state.update_task(None)
+                state.update_task(NEXT_TASK_ID)
             return
             
         state.update_task(TASK_ID)
