@@ -148,7 +148,7 @@ class Dynamite(Takeable):
                 '..',
                 '..',
                 'sounds',
-                'common',
+                'dynamite',
                 'countdown.ogg'
             )
         )
@@ -160,7 +160,7 @@ class Dynamite(Takeable):
                 '..',
                 '..',
                 'sounds',
-                'common',
+                'dynamite',
                 'explosion.ogg'
             )
         )
