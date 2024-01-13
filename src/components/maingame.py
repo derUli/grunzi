@@ -61,10 +61,6 @@ class MainGame(PausableComponent, LoadingScreen):
         self.atmosphere = Atmosphere(self.sprites_dir, self.image_cache)
         self.music_queue = MusicQueue()
 
-        self.monotype_font = pygame.font.Font(
-            os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
-            constants.game.DEBUG_OUTPUT_FONT_SIZE)
-
         background_file = os.path.join(
             self.sprites_dir, 'backdrops', 'landscape.jpg'
         )
@@ -609,5 +605,4 @@ class MainGame(PausableComponent, LoadingScreen):
         if walkable:
             self.level.layers[z][next_y][next_x] = character
             self.level.layers[z][y][x] = None
-
             self.level.update_camera(self.camera)

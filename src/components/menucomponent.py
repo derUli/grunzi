@@ -47,6 +47,8 @@ class MenuComponent(Component):
 
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
 
+    def draw_menu(self, screen):
+        pass
     def draw(self, screen):
         """ Draw """
         self.draw_menu(self.screen)
