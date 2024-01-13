@@ -77,3 +77,6 @@ class State:
         """ To dictionary """
         savegame = json.loads(data)
         self.from_dict(savegame)
+
+    def update_task(self, task):
+        self.task = task

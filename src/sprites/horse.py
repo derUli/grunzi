@@ -130,5 +130,5 @@ class Horse(Character):
 
     def update_state(self, state):
         if self.task:
-            state.task = self.task
+            state.update_task(self.task)
             self.task = None
