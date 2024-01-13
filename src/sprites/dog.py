@@ -13,7 +13,6 @@ from sprites.chainsaw import Chainsaw
 from sprites.character import Character
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
-from sprites.sprite import AsyncAI
 from sprites.weapon import Weapon
 from utils.audio import play_sound
 
@@ -22,7 +21,7 @@ SOUND_FADEOUT = 100
 HURT_DAMAGE = 5
 
 
-class Dog(Killable, Character, AsyncAI):
+class Dog(Killable, Character):
     """ Dog sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='dog.png'):
@@ -105,7 +104,7 @@ class Dog(Killable, Character, AsyncAI):
         else:
             element.play_sound(PIG_SOUND_NOTHING)
 
-    def async_ai(self, level):
+    def ai(self, level):
         print()
         if time.time() - self.last_movement < self.walk_speed:
             return
