@@ -7,7 +7,6 @@
 * [ ] Autosave (?)
 * [ ] Sprachausgabe (?)
 * [ ] Neue Waffe hinzugefügt: Schwert
-* [ ] Tretmine hinzugefügt
 
 ## Alpha 004
 
