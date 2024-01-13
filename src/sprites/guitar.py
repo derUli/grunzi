@@ -17,7 +17,7 @@ class Guitar(Sprite):
     def handle_interact(self, element):
         """ Play sound on interaction """
         sound_file = os.path.abspath(
-            os.path.join(self.sprite_dir, '..', '..', 'sounds', 'guitar.ogg')
+            os.path.join(self.sprite_dir, '..', '..', 'sounds', 'guitar', 'guitar.ogg')
         )
 
         if self.sound and self.sound.get_busy():
