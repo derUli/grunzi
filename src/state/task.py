@@ -1,9 +1,9 @@
-""" Current task """
-
 from typing import Union
 
 
 class Task:
+    """ Current task"""
+
     def __init__(self, task_id: Union[str, None]):
         """
         @param task_id: Identifier of the task
