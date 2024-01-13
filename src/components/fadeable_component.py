@@ -49,7 +49,3 @@ class FadeableComponent(Component):
     def mount(self):
         """ Fadein on Mount """
         self.fadein()
-
-    def unmount(self):
-        """ Fadeout music on unmount """
-        pygame.mixer.music.fadeout(1000)

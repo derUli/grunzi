@@ -208,3 +208,7 @@ class SettingsControls(FadeableComponent):
         else:
             #  Back to settings menu
             self.handle_change_component(self.old_component)
+
+
+    def unmount(self):
+        pass
