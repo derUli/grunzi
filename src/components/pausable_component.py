@@ -8,7 +8,6 @@ from constants.headup import UI_MARGIN
 from utils.audio import pause_sounds, unpause_sounds, stop_sounds
 from utils.menu import make_menu
 from utils.string import label_value
-from utils.tasks import get_task
 
 MAX_BLUR_ITERATIONS = 20
 TEXT_COLOR = (255, 255, 255)
@@ -47,8 +46,8 @@ class PausableComponent:
             blur(self.last_screen, 1)
             self.blur_iteration += 1
 
-        task = get_task(self.state.task)
-        text = label_value(_('Aufgabe'), task)
+        task_text = self.state.task.get_display_text()
+        text = label_value(_('Aufgabe'), task_text)
         """ Render a text """
         rendered_text = self.monotype_font.render(
             text,

@@ -4,7 +4,7 @@ import os
 from state.playerstate import PlayerState
 from utils.image import ImageCache
 from utils.reflections import get_class
-
+from state.task import Task
 
 class State:
     def __init__(self, data_dir=None, gamepad=None):
@@ -17,7 +17,7 @@ class State:
         self.edit_mode = False
         self.show_only_layer = None
         self.atmosphere = None
-        self.task = None
+        self.task = Task(None)
 
     def to_dict(self):
         """ To dictionary """
@@ -30,7 +30,7 @@ class State:
             'health': self.player_state.health,
             'inventory': inventory,
             'level': self.level,
-            'task': self.task
+            'task': self.task.get_task_id()
         }
 
         if self.atmosphere:
@@ -55,7 +55,7 @@ class State:
             self.level = savegame['level']
 
         if 'task' in savegame and savegame['task']:
-            self.task = savegame['task']
+            self.task.set_task_id(savegame['task'])
 
         if 'inventory' in savegame and savegame['inventory']:
             inventory = savegame['inventory']

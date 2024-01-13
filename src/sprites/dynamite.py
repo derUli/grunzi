@@ -166,5 +166,5 @@ class Dynamite(Takeable):
         )
 
     def update_state(self, state):
-        if self.exploded and state.task == TASK_ID:
-            state.update_task(None)
+        if self.exploded and state.task.get_task_id() == TASK_ID:
+            state.task.set_task_id(None)
