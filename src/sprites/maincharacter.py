@@ -4,7 +4,6 @@ import os
 import pygame
 
 import constants.game
-from components.fadeable_component import FadeableComponent
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_DOWN, DIRECTION_UP
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
@@ -13,7 +12,7 @@ from utils.audio import play_sound
 PIG_SOUND_NOTHING = 'nothing.ogg'
 
 
-class MainCharacter(Character, FadeableComponent):
+class MainCharacter(Character):
     """ Main character sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='pig.png'):
