@@ -5,12 +5,13 @@ import pygame
 
 import utils.quality
 from components.fadeable_component import FadeableComponent
+from components.filmgrain import FilmGrain
 from constants import gamepad
 from constants import keyboard
 from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
 
 
-class ToBeContinued(FadeableComponent):
+class ToBeContinued(FadeableComponent, FilmGrain):
     """ To be continued Screen """
 
     def __init__(self, data_dir, handle_change_component,
@@ -53,7 +54,7 @@ class ToBeContinued(FadeableComponent):
 
         screen.blit(rendered_text, (pos_x, pos_y))
 
-        self.draw_film_grain(screen)
+        self.draw_filmgrain(screen)
 
         if self.do_fade:
             self.screen.blit(screen, (0, 0))

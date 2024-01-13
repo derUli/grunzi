@@ -5,6 +5,7 @@ import pygame
 
 import utils.quality
 from components.fadeable_component import FadeableComponent
+from components.filmgrain import FilmGrain
 from constants import gamepad
 from constants import keyboard
 from constants.game import MONOTYPE_FONT
@@ -24,7 +25,7 @@ SUPPORTED_CONTROLLERS = [
 ]
 
 
-class SettingsControls(FadeableComponent):
+class SettingsControls(FadeableComponent, FilmGrain):
     """ Controls screen """
 
     def __init__(self, data_dir, handle_change_component,
@@ -185,7 +186,7 @@ class SettingsControls(FadeableComponent):
         if self.current_page == PAGE_CONTROLLER:
             surface.blit(control_text, (x, y))
 
-        self.draw_film_grain(surface)
+        self.draw_filmgrain(surface)
 
         if self.do_fade:
             screen.blit(surface, (0, 0))

@@ -303,6 +303,7 @@ class MainGame(PausableComponent, LoadingScreen):
             pygame.time.wait(THREAD_WAIT)
             self.handle_interactions()
             self.level.update_sprites()
+            self.check_for_updates()
 
     def handle_interactions(self):
         if self.state.player_state.use_item:

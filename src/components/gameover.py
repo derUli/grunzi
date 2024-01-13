@@ -7,10 +7,11 @@ import utils.image
 import utils.quality
 import utils.savegame
 from components.component import Component
+from components.filmgrain import FilmGrain
 from utils.menu import make_menu
 
 
-class GameOver(Component):
+class GameOver(FilmGrain):
     """ Gamve Over Screen """
 
     def __init__(self, data_dir, handle_change_component,
@@ -42,7 +43,7 @@ class GameOver(Component):
         """ Draw backdrop """
         self.screen.blit(self.backdrop, (0, 0))
 
-        self.draw_film_grain(self.screen)
+        self.draw_filmgrain(self.screen)
 
     def draw(self, screen):
         """ Draw GameOver screen """

@@ -31,21 +31,6 @@ class Component(object):
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
 
-        animation_dir = os.path.join(
-            data_dir,
-            'images',
-            'sprites',
-            'animations',
-            'film_grain'
-        )
-
-        self.film_grain = Animation(
-            animation_dir,
-            refresh_interval=0.13,
-            start_frame=0,
-            size=self.settings_state.screen_resolution
-        )
-
     # Create Text
     def render_text(self, what, color, where):
         """ Render a text """
@@ -120,12 +105,3 @@ class Component(object):
             self.screen.blit(screen, (0, 0))
             pygame.display.flip()
             pygame.event.pump()
-
-    def draw_film_grain(self, screen):
-        """ Draw film grain """
-        if not utils.quality.filmgrain_enabled():
-            return
-
-        grain = self.film_grain.get_frame()
-        grain.set_alpha(80)
-        screen.blit(grain, (0, 0))
