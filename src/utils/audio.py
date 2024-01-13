@@ -46,6 +46,9 @@ def stop_sounds() -> None:
 
 
 def pause_sounds() -> None:
+    """
+    Pause all sounds
+    """
     for channel in CHANNELS:
         if channel and channel.get_busy():
             channel.pause()
@@ -54,6 +57,9 @@ def pause_sounds() -> None:
 
 
 def unpause_sounds() -> None:
+    """
+    Unpause all songs
+    """
     for channel in CHANNELS:
         if channel and channel.get_busy():
             channel.unpause()
@@ -61,19 +67,31 @@ def unpause_sounds() -> None:
     logging.debug('All sounds continued')
 
 
-def play_music(file, repeat=-1) -> None:
-    logging.debug('Play music ' + file)
+def play_music(file: str, repeat: int = -1) -> None:
+    """
+    Plays a music file
+    @param file: The music file to play
+    @param repeat: The number of repeat
+    """
     pygame.mixer.music.load(file)
     pygame.mixer.music.play(repeat)
 
-    logging.debug('Play Music ' + file + ' ' + str(repeat) + ' times')
+    logging.debug(f'Play Music {file} {str(repeat)} times')
 
 
 def stop_music() -> None:
+    """
+    Stops the music
+    """
     pygame.mixer.music.stop()
 
 
 def get_devices(capture_devices: bool = False) -> list:
+    """
+    Gets all audio output devices
+    @param capture_devices: If capture devices should be also returned
+    @return: List of audio devices
+    """
     pygame.init()
     if not sdl2_audio:
         return []
