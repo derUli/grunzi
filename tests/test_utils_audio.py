@@ -3,7 +3,7 @@ import unittest
 
 import pygame
 
-from utils.audio import play_sound, play_music, stop_music
+from utils.audio import play_sound, play_music, stop_music, get_devices
 
 
 class AudioTest(unittest.TestCase):
@@ -39,3 +39,10 @@ class AudioTest(unittest.TestCase):
         self.assertTrue(pygame.mixer.music.get_busy())
         stop_music()
         self.assertFalse(pygame.mixer.music.get_busy())
+
+    def test_get_devices(self):
+        self.assertGreaterEqual( len(get_devices()), 1)
+
+        for device in get_devices():
+            self.assertIs(str, device)
+

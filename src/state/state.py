@@ -2,9 +2,10 @@ import json
 import os
 
 from state.playerstate import PlayerState
+from state.task import Task
 from utils.image import ImageCache
 from utils.reflections import get_class
-from state.task import Task
+
 
 class State:
     def __init__(self, data_dir=None, gamepad=None):

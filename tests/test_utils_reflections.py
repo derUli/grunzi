@@ -17,3 +17,4 @@ class ReflectionsTest(unittest.TestCase):
 
     def test_fullname(self):
         self.assertEqual('pygame.time.Clock', fullname(clock_type()))
+        self.assertEqual('builtin_function_or_method', fullname(print))
