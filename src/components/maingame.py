@@ -286,16 +286,14 @@ class MainGame(PausableComponent, LoadingScreen):
     def check_for_updates(self):
         z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
 
-        # Check if standing on level exit
-        if not self.state.edit_mode and self.level.is_levelexit(x, y):
-            # Show "To be continued"
-            self.is_level_exit = True
-            return
-
         # Check for level file changes
         if self.state.edit_mode and self.level.check_for_changes():
             # If the level file was changes do a reload
             self.load_level(self.level.level_file, False)
+            return
+
+        self.is_level_exit = not self.state.edit_mode and self.level.is_levelexit(x, y)
+
 
     def async_ai(self):
         self.async_ai_running = True
