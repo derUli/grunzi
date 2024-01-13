@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-13 13:34+0100\n"
+"POT-Creation-Date: 2024-01-13 14:05+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -340,12 +340,17 @@ msgid "Keine Aufgabe"
 msgstr ""
 
 #: utils/tasks.py:10
-msgid "Suche Blut für das Pferd"
-msgstr ""
-
-#: utils/tasks.py:11
 msgid "Find the code to deactivate the laser"
 msgstr "Finde den Code um den Laser zu deaktivieren"
+
+#: utils/tasks.py:11
+#, fuzzy
+msgid "Give the horse blood"
+msgstr "Gib dem Pferd Blut"
+
+#: utils/tasks.py:12
+msgid "Blast your way free"
+msgstr "Sprenge dir den Weg frei"
 
 #~ msgid "Very Low"
 #~ msgstr "Sehr Niedrig"
