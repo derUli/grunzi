@@ -78,11 +78,10 @@ class MainGame(PausableComponent, LoadingScreen):
         self.load_level(level_file)
         self.state.atmosphere = self.atmosphere
 
-    def load_savegame(self):
+    def load_savegame(self, savegame: str = utils.savegame.SAVEGAME_DEFAULT):
         """ Load savegame """
         self.new_game()
-        savegame = utils.savegame.load_game(
-            utils.savegame.DEFAULT_SAVE, self.state)
+        savegame = utils.savegame.load_game(savegame, self.state)
         self.level.apply_diff(savegame)
 
         z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
@@ -303,6 +302,8 @@ class MainGame(PausableComponent, LoadingScreen):
             self.level.update_sprites()
             self.check_for_updates()
             self.level.async_ai()
+            if self.should_autosave():
+                self.autosave()
 
     def handle_interactions(self):
         if self.state.player_state.use_item:

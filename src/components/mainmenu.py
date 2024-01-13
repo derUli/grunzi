@@ -47,7 +47,7 @@ class MainMenu(MenuComponent):
         """ Draw main menu """
         menu = make_menu(_('Grunzi'), self.settings_state.limit_fps)
         menu.add.button(_('New Game'), self.handle_new_game)
-        if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
+        if utils.savegame.has_savegame(utils.savegame.SAVEGAME_DEFAULT):
             menu.add.button(
                 _('Continue'),
                 self.handle_continue_game)  # Continue game

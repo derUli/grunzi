@@ -4,8 +4,8 @@ import time
 
 from utils.path import get_userdata_path
 
-DEFAULT_SAVE = 'default'
-
+SAVEGAME_DEFAULT = 'default'
+SAVEGAME_AUTOSAVE = 'autosave'
 
 def load_game(name, state):
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)

@@ -55,7 +55,7 @@ class GameOver(FilmGrain):
 
         menu = make_menu(_('Game Over'), self.settings_state.limit_fps)
 
-        if utils.savegame.has_savegame(utils.savegame.DEFAULT_SAVE):
+        if utils.savegame.has_savegame(utils.savegame.SAVEGAME_DEFAULT):
             menu.add.button(_('Load Game'),
                             self.handle_load_game)  # Load save game
         menu.add.button(_('Back To Main Menu'),

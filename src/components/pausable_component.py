@@ -1,19 +1,38 @@
+import logging
+
 import pygame
 from PygameShader.shader import blur
 
 import utils.savegame
+from components.component import Component
 from constants import gamepad
 from constants import keyboard
 from constants.headup import UI_MARGIN
 from utils.audio import pause_sounds, unpause_sounds, stop_sounds
 from utils.menu import make_menu
 from utils.string import label_value
+import time
 
 MAX_BLUR_ITERATIONS = 20
 TEXT_COLOR = (255, 255, 255)
 
+AUTOSAVE_INTERVAL = 5 * 60
 
-class PausableComponent:
+class PausableComponent(Component):
+    def __init__(self, data_dir, handle_change_component,
+                 settings_state, enable_edit_mode=False, gamepad=None):
+        super().__init__(
+            data_dir,
+            handle_change_component,
+            settings_state,
+            enable_edit_mode,
+            gamepad
+        )
+
+        self.next_autosave = 0
+        self.update_next_autosave()
+
+
     def pause_menu(self):
         self.pressed_keys = []
         pause_sounds()
@@ -61,18 +80,35 @@ class PausableComponent:
 
         self.screen.blit(rendered_text, (x, y))
 
-    def handle_save_game(self):
+    def handle_save_game(self, savegame_name: str = utils.savegame.SAVEGAME_DEFAULT):
         self.state.atmosphere = self.atmosphere
         utils.savegame.save_game(
-            utils.savegame.DEFAULT_SAVE,
+            savegame_name,
             self.state,
             self.level.to_diff_list())
+
+        if savegame_name == utils.savegame.SAVEGAME_AUTOSAVE:
+            self.update_next_autosave()
+            return
+
         self.state.player_state.say(_('Game saved.'))
         self.handle_continue_game()
 
+
+    def update_next_autosave(self):
+        self.next_autosave = time.time() + AUTOSAVE_INTERVAL
+
+    def should_autosave(self):
+        return time.time() > self.next_autosave
+
+    def autosave(self):
+        self.handle_save_game(utils.savegame.SAVEGAME_AUTOSAVE)
+        self.update_next_autosave()
+        logging.debug('Autosave')
+
     def back_to_main_menu(self):
         self.menu.disable()
-        pygame.mouse.set_visible(1)
+        pygame.mouse.set_visible(True)
         stop_sounds()
         self.handle_change_component(None)
 
