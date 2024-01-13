@@ -78,7 +78,7 @@ class SettingsState:
 
         # Music volume
         pygame.mixer.music.set_volume(self.music_volume)
-        utils.audio.sound_volume = self.sound_volume
+        utils.audio.SOUND_VOLUME = self.sound_volume
 
         utils.quality.settings_state = self
 
