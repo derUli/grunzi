@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-12 10:20+0100\n"
+"POT-Creation-Date: 2024-01-13 13:34+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:109 components/menu.py:48 grunzi.py:30
+#: bootstrap/gamecontainer.py:109 components/mainmenu.py:47 grunzi.py:30
 msgid "Grunzi"
 msgstr ""
 
@@ -47,36 +47,36 @@ msgstr "Sequenz vorrendern..."
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/maingame.py:375
+#: components/maingame.py:380
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/maingame.py:508
+#: components/maingame.py:513
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/maingame.py:511
+#: components/maingame.py:516
 msgid "Level dumped."
 msgstr ""
 
-#: components/menu.py:49
+#: components/mainmenu.py:48
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu.py:52 components/pausable_component.py:27
+#: components/mainmenu.py:51 components/pausable_component.py:27
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu.py:55 components/settings/settings.py:76
+#: components/mainmenu.py:54 components/settings/settings.py:76
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/menu.py:57
+#: components/mainmenu.py:56
 msgid "Quit"
 msgstr "Beenden"
 
-#: components/pausable_component.py:24 components/settings/controls.py:60
-#: components/settings/controls.py:72
+#: components/pausable_component.py:24 components/settings/controls.py:61
+#: components/settings/controls.py:73
 msgid "Pause"
 msgstr ""
 
@@ -108,150 +108,150 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings/audio.py:61 components/settings/game.py:28
-#: components/settings/video/graphics.py:79
-#: components/settings/video/screen.py:126
-#: components/settings/video/video.py:23
+#: components/settings/audio.py:61 components/settings/game.py:26
+#: components/settings/video/graphics.py:75
+#: components/settings/video/screen.py:123
+#: components/settings/video/video.py:17
 msgid "Back"
 msgstr "Zurück"
 
-#: components/settings/controls.py:55 components/settings/controls.py:67
+#: components/settings/controls.py:56 components/settings/controls.py:68
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/settings/controls.py:56 components/settings/controls.py:68
+#: components/settings/controls.py:57 components/settings/controls.py:69
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/settings/controls.py:57 components/settings/controls.py:69
+#: components/settings/controls.py:58 components/settings/controls.py:70
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/settings/controls.py:58 components/settings/controls.py:70
+#: components/settings/controls.py:59 components/settings/controls.py:71
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/settings/controls.py:59 components/settings/controls.py:71
+#: components/settings/controls.py:60 components/settings/controls.py:72
 msgid "Run"
 msgstr "Rennen"
 
-#: components/settings/controls.py:61
+#: components/settings/controls.py:62
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/settings/controls.py:102 components/settings/settings.py:81
+#: components/settings/controls.py:99 components/settings/settings.py:81
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/settings/controls.py:106
+#: components/settings/controls.py:103
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/settings/controls.py:108
+#: components/settings/controls.py:105
 msgid "Controller"
 msgstr "Controller"
 
-#: components/settings/controls.py:169
+#: components/settings/controls.py:166
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/settings/controls.py:176
+#: components/settings/controls.py:173
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/settings/controls.py:178
+#: components/settings/controls.py:175
 msgid "No Controller"
 msgstr "Kein Controller"
 
-#: components/settings/game.py:17 components/settings/settings.py:80
+#: components/settings/game.py:15 components/settings/settings.py:80
 msgid "Game"
 msgstr "Spiel"
 
-#: components/settings/game.py:19
+#: components/settings/game.py:17
 msgid "No"
 msgstr "Nein"
 
-#: components/settings/game.py:19
+#: components/settings/game.py:17
 msgid "Yes"
 msgstr "Ja"
 
-#: components/settings/game.py:22
+#: components/settings/game.py:20
 msgid "Skip Intro"
 msgstr "Intro überspringen"
 
-#: components/settings/settings.py:78 components/settings/video/video.py:18
+#: components/settings/settings.py:78 components/settings/video/video.py:12
 msgid "Video"
 msgstr ""
 
-#: components/settings/video/graphics.py:16
-#: components/settings/video/graphics.py:45
-#: components/settings/video/screen.py:88
+#: components/settings/video/graphics.py:12
+#: components/settings/video/graphics.py:41
+#: components/settings/video/screen.py:85
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings/video/graphics.py:17
+#: components/settings/video/graphics.py:13
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings/video/graphics.py:18
+#: components/settings/video/graphics.py:14
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings/video/graphics.py:43
-#: components/settings/video/video.py:21
+#: components/settings/video/graphics.py:39
+#: components/settings/video/video.py:15
 msgid "Graphics"
 msgstr "Grafik"
 
-#: components/settings/video/graphics.py:45
-#: components/settings/video/screen.py:88
+#: components/settings/video/graphics.py:41
+#: components/settings/video/screen.py:85
 msgid "On"
 msgstr "An"
 
-#: components/settings/video/graphics.py:48
+#: components/settings/video/graphics.py:44
 msgid "Blood"
 msgstr "Blut"
 
-#: components/settings/video/graphics.py:59
+#: components/settings/video/graphics.py:55
 msgid "Fog"
 msgstr "Nebel"
 
-#: components/settings/video/graphics.py:66
+#: components/settings/video/graphics.py:62
 msgid "Bloom"
 msgstr "Bloom"
 
-#: components/settings/video/graphics.py:73
+#: components/settings/video/graphics.py:69
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
-#: components/settings/video/screen.py:58
+#: components/settings/video/screen.py:55
 msgid "Uncapped"
 msgstr "Unbegrenzt"
 
-#: components/settings/video/screen.py:86 components/settings/video/video.py:20
+#: components/settings/video/screen.py:83 components/settings/video/video.py:14
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: components/settings/video/screen.py:91
+#: components/settings/video/screen.py:88
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings/video/screen.py:98
+#: components/settings/video/screen.py:95
 msgid "V-Sync"
 msgstr "Vertikale Synchronisation"
 
-#: components/settings/video/screen.py:105
+#: components/settings/video/screen.py:102
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings/video/screen.py:116
+#: components/settings/video/screen.py:113
 msgid "Framerate Cap"
 msgstr "Maximale Framerate"
 
-#: sprites/chainsaw.py:37
+#: sprites/chainsaw.py:38
 msgid "The petrol is empty."
 msgstr "Das Benzin ist leer."
 
-#: sprites/chainsaw.py:95
+#: sprites/chainsaw.py:96
 msgid "The chainsaw was recharged."
 msgstr "Die Kettensäge wurde aufgefüllt."
 
@@ -263,47 +263,47 @@ msgstr "Die Tür ist abgeschlossen. Ich brauche einen Schlüssel."
 msgid "The door is now open."
 msgstr "Die Tür ist jetzt offen."
 
-#: sprites/dynamite.py:126
+#: sprites/dynamite.py:128
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
-#: sprites/horse.py:31
+#: sprites/horse.py:32
 msgid "Infinity bloodless!"
 msgstr "Unendlich blutleer!"
 
-#: sprites/horse.py:32
+#: sprites/horse.py:33
 msgid "I don't have a single drop of blood left."
 msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
 
-#: sprites/horse.py:33
+#: sprites/horse.py:34
 msgid "Please give me some blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:34
+#: sprites/horse.py:35
 msgid "I am infinitely thirsty for blood."
 msgstr "Ich bin unendlich durstig nach Blut!"
 
-#: sprites/horse.py:107
+#: sprites/horse.py:108
 msgid "Now I have a bit more blood."
 msgstr "Jetzt habe ich ein wenig mehr Blut."
 
-#: sprites/horse.py:108
+#: sprites/horse.py:109
 msgid "I still haven't enough blood."
 msgstr "Ich habe immer noch nicht genug Blut."
 
-#: sprites/horse.py:109
+#: sprites/horse.py:110
 msgid "Yummy blood!"
 msgstr "Leckeres Blut!"
 
-#: sprites/horse.py:110
+#: sprites/horse.py:111
 msgid "Give me more blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:111
+#: sprites/horse.py:112
 msgid "Tasty blood!"
 msgstr "Köstliches Blood!"
 
-#: sprites/horse.py:112
+#: sprites/horse.py:113
 msgid "I need more blood!"
 msgstr "Ich brauche mehr Blut!"
 
@@ -311,27 +311,23 @@ msgstr "Ich brauche mehr Blut!"
 msgid "There is a keyhole in the wall."
 msgstr "Da ist ein Schlüsselloch in der Mauer."
 
-#: sprites/raccoon.py:33
-msgid "Henlo Fren!"
-msgstr ""
-
-#: sprites/telescope.py:124
+#: sprites/telescope.py:125
 msgid "[Insert Coin]"
 msgstr "[Münze einwerfen]"
 
-#: sprites/telescope.py:130
+#: sprites/telescope.py:131
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
-#: state/level.py:136
+#: state/level.py:139
 msgid "Saving level..."
 msgstr "Speichere Level..."
 
-#: state/level.py:153
+#: state/level.py:156
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
-#: state/playerstate.py:92
+#: state/playerstate.py:93
 msgid "Ouch!"
 msgstr "Autsch!"
 
@@ -339,13 +335,17 @@ msgstr "Autsch!"
 msgid "Generating cache..."
 msgstr "Generiere Cache..."
 
-#: utils/tasks.py:5
+#: utils/tasks.py:7
 msgid "Keine Aufgabe"
 msgstr ""
 
-#: utils/tasks.py:8
+#: utils/tasks.py:10
 msgid "Suche Blut für das Pferd"
 msgstr ""
+
+#: utils/tasks.py:11
+msgid "Find the code to deactivate the laser"
+msgstr "Finde den Code um den Laser zu deaktivieren"
 
 #~ msgid "Very Low"
 #~ msgstr "Sehr Niedrig"
@@ -409,4 +409,7 @@ msgstr ""
 
 #~ msgid "Mouse"
 #~ msgstr "Maus"
+
+#~ msgid "Henlo Fren!"
+#~ msgstr ""
 

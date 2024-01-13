@@ -3,6 +3,7 @@ from sprites.codenumber import CodeNumber
 from sprites.sprite import Sprite
 from state.level import LAYER_ITEMS, LAYER_STATIC_OBJECTS
 
+TASK_ID = 'find_code'
 
 class CodeCheck(Sprite):
     """ Wall sprite class """
@@ -52,3 +53,11 @@ class CodeCheck(Sprite):
                 if not level.layers[z][y][x]:
                     continue
                 level.layers[z][y][x].start_fade()
+
+    def update_state(self, state):
+        if self.code_valid:
+            if state.task == TASK_ID:
+                state.task = None
+            return
+            
+        state.task = TASK_ID

@@ -14,10 +14,10 @@
 * Puzzle mit Sprengstoff hinzugefügt
 * Tretminen hinzugefügt
 * Schwert hinzugefügt
-* Tag-Nacht-Zyklus
+* Tag-Nacht-Zyklus hinzugefügt
 * Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
-* Grafik-Optionen sind jetzt feiner einstellbar
 * Option "Intro überspringen" hinzugefügt
+* Grafik-Optionen sind jetzt feiner einstellbar
 * Maussteuerung entfernt
 * Fehler im Handling der Tastatur-Events korrigiert
 * Wenn man das Spiel pausiert, werden jetzt auch die Soundeffekte gestoppt

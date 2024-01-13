@@ -7,7 +7,8 @@ def get_task(name: Union[str, None] = None) -> Union[str, None]:
     task = _('Keine Aufgabe')
 
     tasks = {
-        "horse": _('Suche Blut für das Pferd')
+        "horse": _('Suche Blut für das Pferd'),
+        'find_code': _('Find the code to deactivate the laser')
     }
 
     if name in tasks:

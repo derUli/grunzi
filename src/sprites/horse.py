@@ -12,6 +12,7 @@ from utils.atmosphere import ATMOSPHERE_FOG
 
 HORSE_FOG = 255
 
+TASK_ID = 'horse'
 
 class Horse(Character):
     """ Chicken sprite class """
@@ -72,7 +73,7 @@ class Horse(Character):
 
             element.state.say(self.next_sentence())
 
-            self.task = 'horse'
+            self.task = TASK_ID
 
     def ai(self, level):
         part = 0.5
