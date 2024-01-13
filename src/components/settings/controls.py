@@ -5,7 +5,7 @@ import pygame
 
 import utils.quality
 from components.fadeable_component import FadeableComponent
-from components.filmgrain import FilmGrain
+from components.mixins.filmgrain import FilmGrain
 from constants import gamepad
 from constants import keyboard
 from constants.game import MONOTYPE_FONT

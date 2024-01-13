@@ -7,7 +7,7 @@ import utils.image
 import utils.quality
 import utils.savegame
 from components.component import Component
-from components.filmgrain import FilmGrain
+from components.mixins.filmgrain import FilmGrain
 from utils.menu import make_menu
 
 
