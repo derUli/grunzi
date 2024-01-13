@@ -23,7 +23,7 @@ def play_sound(file: str) -> pygame.mixer.Channel:
     @param file: The sound file to play
     @return: The channel
     """
-    logging.debug('Play sound ' + file)
+    logging.debug(f'Play sound {file}')
     sound = pygame.mixer.Sound(file)
     sound.set_volume(SOUND_VOLUME)
 
