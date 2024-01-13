@@ -36,7 +36,8 @@ class Component(object):
             'images',
             'sprites',
             'animations',
-            'film_grain')
+            'film_grain'
+        )
 
         self.film_grain = Animation(
             animation_dir,
@@ -86,8 +87,11 @@ class Component(object):
         """ Handle an event """
         return
 
-    def set_screen(self, screen):
-        """ Set screen """
+    def set_screen(self, screen: pygame.surface.Surface) -> None:
+        """
+        Set screen
+        @param screen: screen surface
+        """
         self.screen = screen
 
     def mount(self):
