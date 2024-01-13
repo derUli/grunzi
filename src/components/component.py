@@ -119,7 +119,7 @@ class Component(object):
 
     def draw_film_grain(self, screen):
         """ Draw film grain """
-        if not utils.quality.film_grain():
+        if not utils.quality.filmgrain_enabled():
             return
 
         grain = self.film_grain.get_frame()

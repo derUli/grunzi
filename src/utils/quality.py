@@ -25,7 +25,7 @@ def shader_enabled() -> bool:
     return True
 
 
-def film_grain() -> bool:
+def filmgrain_enabled() -> bool:
     """ Check filmgrain enabled """
     return True
 
