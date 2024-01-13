@@ -45,6 +45,4 @@ def get_longest_option(options: list) -> str:
         if len(text) > len(longest):
             longest = text
 
-    longest += '-'
-
     return longest
