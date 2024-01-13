@@ -42,11 +42,15 @@ def stop_sounds() -> None:
 
     CHANNELS.clear()
 
+    logging.debug('All sounds stopped')
+
 
 def pause_sounds() -> None:
     for channel in CHANNELS:
         if channel and channel.get_busy():
             channel.pause()
+
+    logging.debug('All sounds paused')
 
 
 def unpause_sounds() -> None:
@@ -54,11 +58,15 @@ def unpause_sounds() -> None:
         if channel and channel.get_busy():
             channel.unpause()
 
+    logging.debug('All sounds continued')
+
 
 def play_music(file, repeat=-1) -> None:
     logging.debug('Play music ' + file)
     pygame.mixer.music.load(file)
     pygame.mixer.music.play(repeat)
+
+    logging.debug('Play Music ' + file + ' ' + str(repeat) + ' times')
 
 
 def stop_music() -> None:
