@@ -86073,57 +86073,57 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -86823,7 +86823,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -86833,12 +86833,17 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -86848,12 +86853,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -86863,7 +86863,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -86873,7 +86873,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -87573,7 +87573,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -87583,7 +87583,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -87593,7 +87593,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -87603,12 +87603,17 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "gras1.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -87618,12 +87623,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -88323,57 +88323,57 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -89073,7 +89073,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -89098,7 +89098,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -89123,7 +89123,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -89823,57 +89823,57 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -90583,7 +90583,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -90622,8 +90622,9 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "basket.png"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "highway1.jpg",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -91332,7 +91333,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "highway1.jpg",
 "walkable": 1
 },
 {
@@ -143373,50 +143374,17 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -143620,50 +143588,32 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -143871,50 +143821,32 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -144130,50 +144062,17 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -144377,6 +144276,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -144393,6 +144293,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -144409,18 +144310,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -144656,50 +144546,17 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -144927,6 +144784,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -144955,14 +144813,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -145174,10 +145025,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -169796,11 +169644,23 @@
 0,
 0,
 0,
+{
+"sprite_class": "sprites.fuel.Fuel",
+"sprite_file": "fuel.png",
+"walkable": 1
+},
 0,
+{
+"sprite_class": "sprites.blood.Blood",
+"sprite_file": "blood.png",
+"walkable": 1
+},
 0,
-0,
-0,
-0,
+{
+"sprite_class": "sprites.burger.Burger",
+"sprite_file": "burger.png",
+"walkable": 1
+},
 0,
 0,
 0,
