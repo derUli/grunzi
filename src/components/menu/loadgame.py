@@ -1,5 +1,5 @@
 import utils.savegame
-from components.game.maingame import MainGame
+import components.game.maingame as maingame
 from components.menu.menucomponent import MenuComponent
 from utils.menu import make_menu
 
@@ -23,7 +23,7 @@ class LoadGameComponent(MenuComponent):
         menu.mainloop(screen, self.draw_background)
 
     def load(self, name):
-        component = self.handle_change_component(MainGame)
+        component = self.handle_change_component(maingame.MainGame)
         if self.menu:
             self.menu.disable()
         component.load_savegame(name)
