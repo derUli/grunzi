@@ -55,7 +55,6 @@ class MainGame(PausableComponent, LoadingScreen):
         self.disable_ai = False
         self.async_ai_running = None
         self.is_level_exit = False
-        self.fade_on_mount = True
         self.fade_on_unmount = True
 
         self.atmosphere = Atmosphere(self.sprites_dir, self.image_cache)
@@ -65,12 +64,7 @@ class MainGame(PausableComponent, LoadingScreen):
             self.sprites_dir, 'backdrops', 'landscape.jpg'
         )
 
-        self.backdrop = pygame.image.load(background_file).convert()
-
-        self.backdrop = utils.quality.scale_method()(
-            self.backdrop,
-            self.settings_state.screen_resolution
-        )
+        self.backdrop = self.image_cache.load_image(background_file, self.settings_state.screen_resolution)
 
     def new_game(self):
         """ Load level """
@@ -292,7 +286,6 @@ class MainGame(PausableComponent, LoadingScreen):
             return
 
         self.is_level_exit = not self.state.edit_mode and self.level.is_levelexit(x, y)
-
 
     def async_ai(self):
         self.async_ai_running = True
