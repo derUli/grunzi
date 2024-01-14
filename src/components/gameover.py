@@ -6,7 +6,7 @@ import pygame
 import utils.image
 import utils.quality
 import utils.savegame
-from components.component import Component
+import components.loadgame
 from components.mixins.filmgrain import FilmGrain
 from utils.menu import make_menu
 
@@ -28,6 +28,7 @@ class GameOver(FilmGrain):
         file = os.path.join(data_dir, 'images', 'ui', 'gameover.jpg')
 
         self.backdrop = self.image_cache.load_image(file)
+
 
     def mount(self):
         """ Play game over music once """
@@ -55,7 +56,7 @@ class GameOver(FilmGrain):
 
         menu = make_menu(_('Game Over'), self.settings_state.limit_fps)
 
-        if utils.savegame.has_savegame(utils.savegame.SAVEGAME_DEFAULT):
+        if utils.savegame.has_savegames():
             menu.add.button(_('Load Game'),
                             self.handle_load_game)  # Load save game
         menu.add.button(_('Back To Main Menu'),
@@ -67,8 +68,7 @@ class GameOver(FilmGrain):
     def handle_load_game(self):
         """ On click 'Load Game' """
         self.menu.disable()
-        component = self.handle_change_component(None)
-        component.handle_continue_game()
+        self.handle_change_component(components.loadgame.LoadGameComponent)
 
     def handle_back_to_main_menu(self):
         """ On click 'Back To Main Menu' """
