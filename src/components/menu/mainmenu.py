@@ -6,6 +6,7 @@ from components.game.maingame import MainGame
 from components.menu.loadgame import LoadGameComponent
 from components.menu.menucomponent import MenuComponent
 from components.settings.settings import Settings
+from utils.savegame import get_latest_savegame
 from utils.menu import make_menu
 
 
@@ -39,6 +40,14 @@ class MainMenu(MenuComponent):
         if self.menu:
             self.menu.disable()
 
+    def handle_continue(self):
+
+        if self.menu:
+            self.menu.disable()
+
+        component = self.handle_change_component(MainGame)
+        component.load_savegame(get_latest_savegame())
+
     def handle_settings(self):
         """ Handle open settings menu  """
         component = self.handle_change_component(Settings)
@@ -48,6 +57,10 @@ class MainMenu(MenuComponent):
     def draw_menu(self, screen):
         """ Draw main menu """
         menu = make_menu(_('Grunzi'), self.settings_state.limit_fps)
+
+        if get_latest_savegame():
+            menu.add.button(_('Continue'), self.handle_continue)
+
         menu.add.button(_('New Game'), self.handle_new_game)
 
         if utils.savegame.has_savegames():

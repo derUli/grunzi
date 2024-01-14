@@ -44,7 +44,8 @@ class MainGame(PausableComponent, LoadingScreen):
             handle_change_component,
             settings_state,
             enable_edit_mode,
-            gamepad)
+            gamepad
+        )
 
         self.state = state.state.State(self.data_dir, self.gamepad)
         self.sprites_dir = os.path.join(self.data_dir, 'images', 'sprites')

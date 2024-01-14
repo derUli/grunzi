@@ -13,14 +13,18 @@ SAVEGAMES = [
     SAVEGAME_AUTOSAVE
 ]
 
+
 def build_savegame_directory_path(name: str) -> str:
     return os.path.join(get_userdata_path(), 'savegames', name)
+
 
 def build_savegame_state_path(name: str) -> str:
     return os.path.join(build_savegame_directory_path(name), 'state.json')
 
+
 def build_savegame_level_path(name: str) -> str:
     return os.path.join(build_savegame_directory_path(name), 'level.json')
+
 
 def get_savegames() -> list:
     savegames = []
@@ -32,12 +36,14 @@ def get_savegames() -> list:
 
     return savegames
 
+
 def get_latest_savegame() -> Union[str, None]:
     savegames = get_savegames()
     if len(savegames) == 0:
         return None
 
-    return savegames[0]
+    return os.path.basename(os.path.dirname(savegames[0]))
+
 
 def load_game(name, state):
     print(get_savegames())
@@ -49,7 +55,6 @@ def load_game(name, state):
 
     with open(state_file, 'r') as f:
         state.from_json(f.read())
-
 
     if not os.path.exists(savegame_file):
         return None
