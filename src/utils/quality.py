@@ -42,7 +42,7 @@ def fog_enabled() -> bool:
 
 def pixel_fades_enabled() -> bool:
     """ Check fixel fades enabled """
-    return shader_enabled()
+    return False
 
 
 def bloom_enabled() -> bool:

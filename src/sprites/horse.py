@@ -134,7 +134,6 @@ class Horse(Character, Fadeable):
         fog.update(HORSE_FOG)
 
     def finish_task(self):
-        print('Do purge')
         self.replace_with = LevelExit(self.sprite_dir, self.cache)
 
     def update_state(self, state):

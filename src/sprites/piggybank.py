@@ -31,13 +31,7 @@ class PiggyBank(Fadeable, Wall):
         if isinstance(element.state.inventory, Hammer):
             logging.debug('Piggy bank destroyed with hammer')
 
-            if pixel_fades_enabled():
-                if not self.fadeout:
-                    self.start_fade()
-            else:
-                self.purge = True
-                self.walkable = True
-
+            self.start_fade()
             self.play_sound()
 
             # Rumble on gamepad if we have one
