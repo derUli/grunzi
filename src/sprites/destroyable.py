@@ -35,12 +35,7 @@ class Destroyable(Fadeable, Wall):
             if element.state.inventory.attributes['fuel'] <= 0:
                 return
 
-            if pixel_fades_enabled():
-                if not self.fadeout:
-                    self.start_fade()
-            else:
-                self.purge = True
-                self.walkable = True
+            self.start_fade()
 
             logging.debug('Destroyable sprite destroyed with chainsaw')
 
