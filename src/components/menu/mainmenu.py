@@ -2,8 +2,8 @@ import pygame
 import pygame_menu
 
 import utils.savegame
-from components.menu.loadgame import LoadGameComponent
 from components.game.maingame import MainGame
+from components.menu.loadgame import LoadGameComponent
 from components.menu.menucomponent import MenuComponent
 from components.settings.settings import Settings
 from utils.menu import make_menu
@@ -38,7 +38,6 @@ class MainMenu(MenuComponent):
         component.video = self.video
         if self.menu:
             self.menu.disable()
-
 
     def handle_settings(self):
         """ Handle open settings menu  """

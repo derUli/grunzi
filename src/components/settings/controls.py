@@ -72,7 +72,6 @@ class SettingsControls(FilmGrain):
             (_('Pause'), '360_Start.png'),
         ]
 
-
     def draw(self, screen):
         """ Update screen """
         if not self.backdrop:
@@ -193,7 +192,6 @@ class SettingsControls(FilmGrain):
         else:
             #  Back to settings menu
             self.handle_change_component(self.old_component)
-
 
     def unmount(self):
         pass

@@ -6,7 +6,6 @@ from sprites.fadeable import Fadeable
 from sprites.hammer import Hammer
 from sprites.wall import Wall
 from utils.audio import play_sound
-from utils.quality import pixel_fades_enabled
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1

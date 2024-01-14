@@ -9,6 +9,7 @@ from utils.path import get_userdata_path
 SCREENSHOT_DIR = 'screenshots'
 DUMP_DIR = 'dumps'
 
+
 def make_screenshot(screen: pygame.surface.Surface, target: str = SCREENSHOT_DIR) -> str:
     """ Save a screenshot """
     screenshot_dir = os.path.join(get_userdata_path(), target)

@@ -7,6 +7,7 @@ from utils.path import get_userdata_path
 SAVEGAME_DEFAULT = 'default'
 SAVEGAME_AUTOSAVE = 'autosave'
 
+
 def load_game(name, state):
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)
     state_file = os.path.join(save_dir, 'state.json')
@@ -35,6 +36,7 @@ def has_savegame(name: str) -> bool:
 
     return os.path.exists(state_file)
 
+
 def has_savegames() -> bool:
     savegames = [
         SAVEGAME_DEFAULT,
@@ -46,6 +48,7 @@ def has_savegames() -> bool:
             return True
 
     return False
+
 
 def save_game(name: str, state, diff_list=None) -> None:
     save_dir = os.path.join(get_userdata_path(), 'savegames', name)

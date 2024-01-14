@@ -4,7 +4,8 @@ from sprites.food import Food
 
 NUTRITIONAL_VALUE = 60
 
-class Burger (Food):
+
+class Burger(Food):
     """ burger sprite class """
 
     def __init__(self, sprite_dir, cache, sprite=None):

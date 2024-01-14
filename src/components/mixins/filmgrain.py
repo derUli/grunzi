@@ -1,7 +1,9 @@
-from components.component import Component
 import os
+
+from components.component import Component
 from utils.animation import Animation
 from utils.quality import filmgrain_enabled
+
 
 class FilmGrain(Component):
 

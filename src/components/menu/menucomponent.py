@@ -49,6 +49,7 @@ class MenuComponent(Component):
 
     def draw_menu(self, screen):
         pass
+
     def draw(self, screen):
         """ Draw """
         self.draw_menu(self.screen)

@@ -16,11 +16,11 @@ import utils.quality
 import utils.savegame
 from components.game.gameover import GameOver
 from components.game.loading_screen import LoadingScreen
-from mixins.pausable_component import PausableComponent
 from constants import direction
 from constants import gamepad
 from constants import keyboard
 from constants.headup import BOTTOM_UI_HEIGHT
+from mixins.pausable_component import PausableComponent
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
 from sprites.maincharacter import MainCharacter
@@ -32,6 +32,7 @@ from utils.level_editor import get_editor_blocks
 from utils.music_queue import MusicQueue
 
 THREAD_WAIT = 25
+
 
 class MainGame(PausableComponent, LoadingScreen):
 

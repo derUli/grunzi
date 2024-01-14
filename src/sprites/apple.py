@@ -4,6 +4,7 @@ from sprites.food import Food
 
 NUTRITIONAL_VALUE = 30
 
+
 class Apple(Food):
     """ Apple sprite class """
 

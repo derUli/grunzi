@@ -3,10 +3,10 @@ import os
 
 import pygame
 
+import components.menu.loadgame
 import utils.image
 import utils.quality
 import utils.savegame
-import components.menu.loadgame
 from components.mixins.filmgrain import FilmGrain
 from utils.menu import make_menu
 
@@ -34,7 +34,6 @@ class GameOver(FilmGrain):
             ),
             self.settings_state.screen_resolution
         )
-
 
     def mount(self):
         """ Play game over music once """

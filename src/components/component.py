@@ -9,6 +9,7 @@ import utils.image
 import utils.quality
 from constants.headup import UI_MARGIN
 
+
 class Component(object):
 
     def __init__(self, data_dir, handle_change_component,
@@ -92,4 +93,3 @@ class Component(object):
         """ Play music """
         file = os.path.join(self.data_dir, 'music', file)
         utils.audio.play_music(file, repeat)
-

@@ -1,4 +1,5 @@
 import logging
+import time
 
 import pygame
 from PygameShader.shader import blur
@@ -11,12 +12,12 @@ from constants.headup import UI_MARGIN
 from utils.audio import pause_sounds, unpause_sounds, stop_sounds
 from utils.menu import make_menu
 from utils.string import label_value
-import time
 
 MAX_BLUR_ITERATIONS = 20
 TEXT_COLOR = (255, 255, 255)
 
 AUTOSAVE_INTERVAL = 5 * 60
+
 
 class PausableComponent(Component):
     def __init__(self, data_dir, handle_change_component,
@@ -31,7 +32,6 @@ class PausableComponent(Component):
 
         self.next_autosave = 0
         self.update_next_autosave()
-
 
     def pause_menu(self):
         self.pressed_keys = []
@@ -93,7 +93,6 @@ class PausableComponent(Component):
 
         self.state.player_state.say(_('Game saved.'))
         self.handle_continue_game()
-
 
     def update_next_autosave(self):
         self.next_autosave = time.time() + AUTOSAVE_INTERVAL

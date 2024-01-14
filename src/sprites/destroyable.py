@@ -4,7 +4,6 @@ import logging
 from sprites.chainsaw import Chainsaw
 from sprites.fadeable import Fadeable
 from sprites.wall import Wall
-from utils.quality import pixel_fades_enabled
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
