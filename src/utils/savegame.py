@@ -1,12 +1,17 @@
 import json
 import os
 import time
+from typing import Union
 
 from utils.path import get_userdata_path
 
 SAVEGAME_DEFAULT = 'default'
 SAVEGAME_AUTOSAVE = 'autosave'
 
+SAVEGAMES = [
+    SAVEGAME_DEFAULT,
+    SAVEGAME_AUTOSAVE
+]
 
 def build_savegame_directory_path(name: str) -> str:
     return os.path.join(get_userdata_path(), 'savegames', name)
@@ -17,7 +22,25 @@ def build_savegame_state_path(name: str) -> str:
 def build_savegame_level_path(name: str) -> str:
     return os.path.join(build_savegame_directory_path(name), 'level.json')
 
+def get_savegames() -> list:
+    savegames = []
+    for name in SAVEGAMES:
+        if has_savegame(name):
+            savegames.append(build_savegame_state_path(name))
+
+    savegames.sort(key=lambda f: os.path.getmtime(f), reverse=True)
+
+    return savegames
+
+def get_latest_savegame() -> Union[str, None]:
+    savegames = get_savegames()
+    if len(savegames) == 0:
+        return None
+
+    return savegames[0]
+
 def load_game(name, state):
+    print(get_savegames())
     state_file = build_savegame_state_path(name)
     savegame_file = build_savegame_level_path(name)
 
@@ -43,12 +66,7 @@ def has_savegame(name: str) -> bool:
 
 
 def has_savegames() -> bool:
-    savegames = [
-        SAVEGAME_DEFAULT,
-        SAVEGAME_AUTOSAVE
-    ]
-
-    for sav in savegames:
+    for sav in SAVEGAMES:
         if has_savegame(sav):
             return True
 
