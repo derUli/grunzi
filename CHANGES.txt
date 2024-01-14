@@ -1,10 +1,10 @@
 # Changelog
 
-## Alpha 006 (Not yet released)
+## Alpha XXX (Not yet released)
 
-* [ ] Quest mit blutleerem Pferd hinzufügt
-* [ ] Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
-* [ ] Sprachausgabe (?)
+* Quest mit blutleerem Pferd hinzufügt
+* Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
+* Sprachausgabe (?)
 
 ## Alpha 005
 
