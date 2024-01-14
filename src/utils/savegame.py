@@ -14,9 +14,12 @@ def build_savegame_directory_path(name: str) -> str:
 def build_savegame_state_path(name: str) -> str:
     return os.path.join(build_savegame_directory_path(name), 'state.json')
 
+def build_savegame_level_path(name: str) -> str:
+    return os.path.join(build_savegame_directory_path(name), 'level.json')
+
 def load_game(name, state):
-    save_dir = build_savegame_directory_path(name)
-    state_file = os.path.join(save_dir, 'state.json')
+    state_file = build_savegame_state_path(name)
+    savegame_file = build_savegame_level_path(name)
 
     if not os.path.exists(state_file):
         return None
@@ -24,12 +27,11 @@ def load_game(name, state):
     with open(state_file, 'r') as f:
         state.from_json(f.read())
 
-    savegame = os.path.join(save_dir, 'level.json')
 
-    if not os.path.exists(savegame):
+    if not os.path.exists(savegame_file):
         return None
 
-    with open(savegame, 'r') as f:
+    with open(savegame_file, 'r') as f:
         return json.loads(f.read())
 
     return None
