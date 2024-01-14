@@ -40,7 +40,7 @@ def fog_enabled() -> bool:
     return settings_state and settings_state.fog
 
 def snow_enabled() -> bool:
-    return False
+    return True
 
 def pixel_fades_enabled() -> bool:
     """ Check fixel fades enabled """
