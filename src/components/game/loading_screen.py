@@ -13,7 +13,7 @@ LOADING_BAR_COLOR = PIGGY_PINK
 class LoadingScreen(Component):
     """ Loading screen component """
 
-    def loading_screen(self, val=None, loading_text=None):
+    def loading_screen(self, percentage=None, loading_text=None):
         """
         :param int percentage Loading percentage
         :param string Loading Text
@@ -25,11 +25,11 @@ class LoadingScreen(Component):
             loading_text = _('Loading...')
 
         # Show percentage if given
-        if val is not None:
-            percentage = str(int(val)) + "%"
-            percentage = percentage.rjust(4, ' ')
+        if percentage is not None:
+            percentage_text = str(int(percentage)) + "%"
+            percentage_text = percentage_text.rjust(4, ' ')
 
-            loading_text = ' '.join([loading_text, str(percentage)])
+            loading_text = ' '.join([loading_text, str(percentage_text)])
 
         # Render loading text
         rendered_text = self.monotype_font.render(
@@ -65,7 +65,10 @@ class LoadingScreen(Component):
         pos_x = 0
         pos_y = self.screen.get_height() - h
 
-        current_width = onepercent_width * val
+        if not percentage:
+            percentage = 0
+
+        current_width = onepercent_width * percentage
 
         if current_width > 0:
             surf = pygame.surface.Surface((current_width, h))
