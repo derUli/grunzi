@@ -79,7 +79,8 @@ class Horse(Character):
     def ai(self, level):
         part = 0.5
 
-        if round(self.attributes['given_blood']) <= 0:
+        if self.attributes['given_blood'] <= 0:
+            self.attributes['given_blood'] = 0
             return
 
         self.attributes['blood'] += part
