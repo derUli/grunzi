@@ -98,9 +98,9 @@ class PlayerState:
                 RUMBLE_HIGH_FREQUENCY,
                 RUMBLE_DURATION_PAIN)
 
-    def say(self, text):
+    def say(self, text, handle_text_shown=None):
         """ Display text in bottom UI """
-        self.display_text.show_text(text)
+        self.display_text.show_text(text, handle_text_shown=handle_text_shown)
 
     def toggle_item(self):
         """ Toggle use item """

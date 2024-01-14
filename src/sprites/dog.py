@@ -105,7 +105,6 @@ class Dog(Killable, Character):
             element.play_sound(PIG_SOUND_NOTHING)
 
     def ai(self, level):
-        print()
         if time.time() - self.last_movement < self.walk_speed:
             return
 

@@ -8,6 +8,8 @@ from constants.graphics import SPRITE_SIZE
 from constants.headup import NPC_HEALTH_COLOR_FRIENDLY, NPC_HEALTH_HEIGHT
 from sprites.blood import Blood
 from sprites.character import Character
+from sprites.fadeable import Fadeable
+from sprites.levelexit import LevelExit
 from utils.atmosphere import ATMOSPHERE_FOG
 
 HORSE_FOG = 255
@@ -15,7 +17,7 @@ HORSE_FOG = 255
 TASK_ID = 'horse'
 
 
-class Horse(Character):
+class Horse(Character, Fadeable):
     """ Chicken sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='horse.png'):
@@ -24,7 +26,8 @@ class Horse(Character):
         self.sentence = -1
         self.attributes = {
             'blood': 0,
-            'given_blood': 0
+            'given_blood': 0,
+            'full_of_blood': False
         }
 
         self.task = None
@@ -130,7 +133,17 @@ class Horse(Character):
 
         fog.update(HORSE_FOG)
 
+    def finish_task(self):
+        print('Do purge')
+        self.replace_with = LevelExit(self.sprite_dir, self.cache)
+
     def update_state(self, state):
+        full_of_blood = 'full_of_blood' in self.attributes and self.attributes['full_of_blood']
+        if self.attributes['blood'] >= 100 and not full_of_blood:
+            self.attributes['full_of_blood'] = True
+            state.task.set_id(None)
+            state.player_state.say(_('Now I am full of blood.'), handle_text_shown=self.finish_task)
+
         if self.task:
             state.task.set_id(self.task)
             self.task = None
