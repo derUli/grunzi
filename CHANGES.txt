@@ -1,11 +1,15 @@
 # Changelog
 
-## Alpha 005 (Not yet released)
+## Alpha 006 (Not yet released)
 
 * [ ] Quest mit blutleerem Pferd hinzufügt
 * [ ] Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
 * [ ] Autosave (?)
 * [ ] Sprachausgabe (?)
+
+## Alpha 005
+
+* Autosave
 
 ## Alpha 004
 
