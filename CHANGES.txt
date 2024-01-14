@@ -14,7 +14,7 @@
 * Schwert hinzugefügt
 * Tag-Nacht-Zyklus hinzugefügt
 * Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
-* Grafik-Einstellungen feiner einstellbar.
+* Grafik-Einstellungen feiner einstellbar
 * Intro entfernt
 * Maussteuerung entfernt
 * Fehler im Handling der Tastatur-Events korrigiert
