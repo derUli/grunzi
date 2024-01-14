@@ -25,7 +25,6 @@ class Component(object):
         self.do_quit = False
         self.__main__ = None
         self.pressed_keys = []
-        self.fade_on_unmount = False
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
@@ -83,6 +82,10 @@ class Component(object):
         """ Mount event """
         pass
 
+    def unmount(self):
+        """ Unmount event """
+        return
+
     def ai(self):
         """ AI event """
         return
@@ -92,16 +95,3 @@ class Component(object):
         file = os.path.join(self.data_dir, 'music', file)
         utils.audio.play_music(file, repeat)
 
-    def unmount(self):
-        """ On unmount """
-        if not self.fade_on_unmount:
-            return
-
-        screen = self.screen.copy().convert_alpha()
-
-        for i in reversed(range(255)):
-            screen.set_alpha(i)
-            self.screen.fill((0, 0, 0))
-            self.screen.blit(screen, (0, 0))
-            pygame.display.flip()
-            pygame.event.pump()

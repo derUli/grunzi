@@ -4,14 +4,13 @@ import os
 import pygame
 
 import utils.quality
-from components.fadeable_component import FadeableComponent
 from components.mixins.filmgrain import FilmGrain
 from constants import gamepad
 from constants import keyboard
 from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
 
 
-class ToBeContinued(FadeableComponent, FilmGrain):
+class ToBeContinued(FilmGrain):
     """ To be continued Screen """
 
     def __init__(self, data_dir, handle_change_component,
@@ -23,20 +22,12 @@ class ToBeContinued(FadeableComponent, FilmGrain):
             settings_state,
             enable_edit_mode,
             gamepad)
-        self.fade_on_unmount = True
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', MONOTYPE_FONT),
             LARGE_FONT_SIZE)
 
-    def mount(self):
-        """ Fade in on mount """
-        self.fadein()
-
     def draw(self, screen):
         """ Update screen """
-        if self.do_fade:
-            screen = screen.copy().convert_alpha()
-            screen.set_alpha(self.alpha)
 
         screen.fill((0, 0, 0))
 
@@ -55,11 +46,6 @@ class ToBeContinued(FadeableComponent, FilmGrain):
         screen.blit(rendered_text, (pos_x, pos_y))
 
         self.draw_filmgrain(screen)
-
-        if self.do_fade:
-            self.screen.blit(screen, (0, 0))
-
-            self.fade()
 
     def handle_event(self, event):
         """ Handle events """

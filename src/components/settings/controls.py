@@ -4,7 +4,6 @@ import os
 import pygame
 
 import utils.quality
-from components.fadeable_component import FadeableComponent
 from components.mixins.filmgrain import FilmGrain
 from constants import gamepad
 from constants import keyboard
@@ -25,7 +24,7 @@ SUPPORTED_CONTROLLERS = [
 ]
 
 
-class SettingsControls(FadeableComponent, FilmGrain):
+class SettingsControls(FilmGrain):
     """ Controls screen """
 
     def __init__(self, data_dir, handle_change_component,
@@ -43,7 +42,6 @@ class SettingsControls(FadeableComponent, FilmGrain):
         self.old_component = None
         self.data_dir = data_dir
         self.backdrop = None
-        self.fade_on_unmount = True
 
         fontfile = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
         self.font = pygame.font.Font(
@@ -74,9 +72,6 @@ class SettingsControls(FadeableComponent, FilmGrain):
             (_('Pause'), '360_Start.png'),
         ]
 
-    def mount(self):
-        """ Fade in on mount """
-        self.fadein()
 
     def draw(self, screen):
         """ Update screen """
@@ -89,13 +84,7 @@ class SettingsControls(FadeableComponent, FilmGrain):
             self.backdrop = self.image_cache.load_image(
                 file, screen.get_size())
 
-        if self.do_fade:
-            surface = screen.copy().convert_alpha()
-            surface.set_alpha(self.alpha)
-        else:
-            surface = screen
-
-        surface.blit(self.backdrop, (0, 0))
+        self.screen.blit(self.backdrop, (0, 0))
 
         headline = _('Controls')
 
@@ -115,7 +104,7 @@ class SettingsControls(FadeableComponent, FilmGrain):
 
         x = HORIZONTAL_MARGIN
         y = HORIZONTAL_MARGIN
-        surface.blit(controls_text, (x, y))
+        self.screen.blit(controls_text, (x, y))
 
         y += controls_text.get_height()
         y += LINE_LARGE_MARGIN
@@ -136,7 +125,7 @@ class SettingsControls(FadeableComponent, FilmGrain):
                 pygame.Color(TEXT_COLOR)
             )
 
-            surface.blit(control_text, (x, y))
+            self.screen.blit(control_text, (x, y))
 
             if not image_file:
                 y += controls_text.get_height()
@@ -155,11 +144,11 @@ class SettingsControls(FadeableComponent, FilmGrain):
             )
 
             pos_image = (
-                surface.get_width() - HORIZONTAL_MARGIN - image.get_width(),
+                self.screen.get_width() - HORIZONTAL_MARGIN - image.get_width(),
                 y
             )
 
-            surface.blit(image, pos_image)
+            self.screen.blit(image, pos_image)
 
             y += controls_text.get_height()
             y += LINE_SMALL_MARGIN
@@ -184,14 +173,9 @@ class SettingsControls(FadeableComponent, FilmGrain):
         y = screen.get_height() - controls_text.get_height() - HORIZONTAL_MARGIN
 
         if self.current_page == PAGE_CONTROLLER:
-            surface.blit(control_text, (x, y))
+            self.screen.blit(control_text, (x, y))
 
-        self.draw_filmgrain(surface)
-
-        if self.do_fade:
-            screen.blit(surface, (0, 0))
-
-        self.fade()
+        self.draw_filmgrain(self.screen)
 
     def handle_event(self, event):
         """ Handle events """

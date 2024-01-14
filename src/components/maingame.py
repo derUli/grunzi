@@ -55,7 +55,6 @@ class MainGame(PausableComponent, LoadingScreen):
         self.disable_ai = False
         self.async_ai_running = None
         self.is_level_exit = False
-        self.fade_on_unmount = True
 
         self.atmosphere = Atmosphere(self.sprites_dir, self.image_cache)
         self.music_queue = MusicQueue()
