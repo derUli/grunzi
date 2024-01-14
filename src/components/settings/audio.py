@@ -1,7 +1,7 @@
 import os
 
 import utils.audio
-from components.menucomponent import SettingsComponent
+from components.menu.menucomponent import SettingsComponent
 from utils.helper import get_version
 from utils.menu import make_menu
 

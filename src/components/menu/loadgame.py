@@ -1,6 +1,6 @@
 import utils.savegame
-from components.maingame import MainGame
-from components.menucomponent import MenuComponent
+from components.game.maingame import MainGame
+from components.menu.menucomponent import MenuComponent
 from utils.menu import make_menu
 
 MIN_SCREEN_RESOLUTION = (800, 600)

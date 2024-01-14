@@ -2,9 +2,9 @@ import pygame
 import pygame_menu
 
 import utils.savegame
-from components.loadgame import LoadGameComponent
-from components.maingame import MainGame
-from components.menucomponent import MenuComponent
+from components.menu.loadgame import LoadGameComponent
+from components.game.maingame import MainGame
+from components.menu.menucomponent import MenuComponent
 from components.settings.settings import Settings
 from utils.menu import make_menu
 

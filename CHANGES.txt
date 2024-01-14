@@ -4,13 +4,11 @@
 
 * [ ] Quest mit blutleerem Pferd hinzufügt
 * [ ] Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
-* [ ] Autosave (?)
 * [ ] Sprachausgabe (?)
 
 ## Alpha 005
 
-* Autosave
-* Neuer Ladebildschirm
+
 
 ## Alpha 004
 
@@ -19,7 +17,9 @@
 * Schwert hinzugefügt
 * Tag-Nacht-Zyklus hinzugefügt
 * Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
-* Grafik-Einstellungen feiner einstellbar.
+* Autosave
+* Neuer Ladebildschirm
+* Grafik-Einstellungen feiner einstellbar
 * Intro entfernt
 * Maussteuerung entfernt
 * Fehler im Handling der Tastatur-Events korrigiert

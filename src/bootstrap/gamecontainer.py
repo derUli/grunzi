@@ -12,7 +12,7 @@ import pygame
 from GPUtil.GPUtil import getGPUs
 from pygame.locals import QUIT
 
-from components.mainmenu import MainMenu
+from components.menu.mainmenu import MainMenu
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.audio import play_sound, get_devices

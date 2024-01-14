@@ -4,7 +4,7 @@ import sys
 
 import pygame
 
-from components.menucomponent import MenuComponent
+from components.menu.menucomponent import MenuComponent
 from components.settings.audio import SettingsAudio
 from components.settings.controls import SettingsControls
 from components.settings.video.video import SettingsVideo
