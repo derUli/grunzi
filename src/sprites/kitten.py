@@ -134,12 +134,7 @@ class Kitten(Killable, Character):
 
             logging.debug('Kitten killed by chainsaw')
 
-            if pixel_fades_enabled():
-                if not self.fadeout:
-                    self.start_fade()
-            else:
-                self.purge = True
-                self.walkable = True
+            self.start_fade()
 
             element.state.inventory.play_sound()
 
