@@ -98,7 +98,7 @@ class Animation:
 
     def empty_surface(self):
         """ Returns an empty surface """
-        return pygame.surface.Surface(SPRITE_SIZE).convert_alpha()
+        return pygame.surface.Surface(SPRITE_SIZE, pygame.SRCALPHA)
 
     def get_frame(self):
         """ Get current frame """

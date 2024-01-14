@@ -251,6 +251,8 @@ class MainGame(PausableComponent, LoadingScreen):
         # Draw head up display
         self.state.player_state.draw(screen)
 
+        self.draw_progress_indicator(screen)
+
     def ai(self):
         if not self.async_ai_running:
             thread_fns = [

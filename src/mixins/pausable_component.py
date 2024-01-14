@@ -6,6 +6,7 @@ from PygameShader.shader import blur
 
 import utils.savegame
 from components.component import Component
+from components.mixins.loadingindicator import LoadingIndicator
 from constants import gamepad
 from constants import keyboard
 from constants.headup import UI_MARGIN
@@ -19,7 +20,7 @@ TEXT_COLOR = (255, 255, 255)
 AUTOSAVE_INTERVAL = 5 * 60
 
 
-class PausableComponent(Component):
+class PausableComponent(LoadingIndicator):
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
         super().__init__(
@@ -81,6 +82,7 @@ class PausableComponent(Component):
         self.screen.blit(rendered_text, (x, y))
 
     def handle_save_game(self, savegame_name: str = utils.savegame.SAVEGAME_DEFAULT):
+
         self.state.atmosphere = self.atmosphere
         utils.savegame.save_game(
             savegame_name,
@@ -101,9 +103,11 @@ class PausableComponent(Component):
         return time.time() > self.next_autosave
 
     def autosave(self):
+        self.change_progress_indicator(True)
         self.handle_save_game(utils.savegame.SAVEGAME_AUTOSAVE)
         self.update_next_autosave()
         logging.debug('Autosave')
+        self.change_progress_indicator(False)
 
     def back_to_main_menu(self):
         self.menu.disable()

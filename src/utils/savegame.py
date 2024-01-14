@@ -46,7 +46,6 @@ def get_latest_savegame() -> Union[str, None]:
 
 
 def load_game(name, state):
-    print(get_savegames())
     state_file = build_savegame_state_path(name)
     savegame_file = build_savegame_level_path(name)
 
