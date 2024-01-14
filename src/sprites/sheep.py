@@ -119,12 +119,7 @@ class Sheep(Killable, Character):
             if element.state.inventory.attributes['fuel'] <= 0:
                 return
 
-            if pixel_fades_enabled():
-                if not self.fadeout:
-                    self.start_fade()
-            else:
-                self.purge = True
-                self.walkable = True
+            self.start_fade()
 
             if self.sound and self.sound.get_busy():
                 self.sound.fadeout(SOUND_FADEOUT)
