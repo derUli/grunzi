@@ -10,6 +10,7 @@
 ## Alpha 005
 
 * Autosave
+* Neuer Ladebildschirm
 
 ## Alpha 004
 
