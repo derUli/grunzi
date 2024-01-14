@@ -8,7 +8,6 @@ from constants.headup import BOTTOM_UI_BACKGROUND, UI_MARGIN, PIGGY_PINK
 from utils.quality import font_antialiasing_enabled
 
 LOADING_BAR_COLOR = PIGGY_PINK
-LOADING_TEXT_COLOR = (255, 232, 238)
 
 
 class LoadingScreen(Component):
@@ -36,7 +35,7 @@ class LoadingScreen(Component):
         rendered_text = self.monotype_font.render(
             loading_text,
             font_antialiasing_enabled(),
-            LOADING_TEXT_COLOR
+            LOADING_BAR_COLOR
         )
 
         backdrop = self.image_cache.load_image(
