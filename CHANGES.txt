@@ -8,7 +8,8 @@
 
 ## Alpha 005
 
-
+* Autosave
+* Neuer Ladebildschirm
 
 ## Alpha 004
 
@@ -17,8 +18,6 @@
 * Schwert hinzugefügt
 * Tag-Nacht-Zyklus hinzugefügt
 * Aktuelle Aufgabe wird jetzt angezeigt im Pausenmenü
-* Autosave
-* Neuer Ladebildschirm
 * Grafik-Einstellungen feiner einstellbar
 * Intro entfernt
 * Maussteuerung entfernt
