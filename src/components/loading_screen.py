@@ -4,10 +4,10 @@ import os
 import pygame
 
 from components.component import Component
-from constants.headup import BOTTOM_UI_BACKGROUND, UI_MARGIN
+from constants.headup import BOTTOM_UI_BACKGROUND, UI_MARGIN, PIGGY_PINK
 from utils.quality import font_antialiasing_enabled
 
-LOADING_BAR_COLOR = (255, 255, 255)
+LOADING_BAR_COLOR = PIGGY_PINK
 LOADING_TEXT_COLOR = (255, 232, 238)
 
 
@@ -85,4 +85,4 @@ class LoadingScreen(Component):
 
         # Pump event queue and flip display to keep the application alive
         pygame.event.pump()
-        pygame.display.update()
+        pygame.display.flip()
