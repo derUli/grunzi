@@ -8,8 +8,14 @@ SAVEGAME_DEFAULT = 'default'
 SAVEGAME_AUTOSAVE = 'autosave'
 
 
+def build_savegame_directory_path(name: str) -> str:
+    return os.path.join(get_userdata_path(), 'savegames', name)
+
+def build_savegame_state_path(name: str) -> str:
+    return os.path.join(build_savegame_directory_path(name), 'state.json')
+
 def load_game(name, state):
-    save_dir = os.path.join(get_userdata_path(), 'savegames', name)
+    save_dir = build_savegame_directory_path(name)
     state_file = os.path.join(save_dir, 'state.json')
 
     if not os.path.exists(state_file):
@@ -31,10 +37,7 @@ def load_game(name, state):
 
 def has_savegame(name: str) -> bool:
     """ Check if a savegame exists """
-    save_dir = os.path.join(get_userdata_path(), 'savegames', name)
-    state_file = os.path.join(save_dir, 'state.json')
-
-    return os.path.exists(state_file)
+    return os.path.exists(build_savegame_state_path(name))
 
 
 def has_savegames() -> bool:
@@ -51,7 +54,7 @@ def has_savegames() -> bool:
 
 
 def save_game(name: str, state, diff_list=None) -> None:
-    save_dir = os.path.join(get_userdata_path(), 'savegames', name)
+    save_dir = build_savegame_directory_path(name)
 
     if not diff_list:
         return
