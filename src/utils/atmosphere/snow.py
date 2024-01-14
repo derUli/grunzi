@@ -1,16 +1,21 @@
-import random
 import os
+import random
+
 import pygame
+from PygameShader.shader import brightness
 
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.quality import snow_enabled
-from PygameShader.shader import greyscale, brightness
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
 
 SNOW_COLOR = (255, 255, 255, 0)
 SNOW_AMOUNT = 500
 SNOW_SPEED = 0.5
 SNOW_TEXT = '*'
-SNOW_IMAGE_SIZE = (6, 6)
+SNOW_TEXT_SIZE = 24
+
+SNOW_IMAGE_SIZE = (7, 7)
+
 
 class Snow(GlobalEffect):
 
@@ -27,27 +32,40 @@ class Snow(GlobalEffect):
         self.enabled = snow_enabled()
 
     def init_snow(self, size):
-        surface = None
-        font = pygame.font.SysFont(None, 24)
-        #surface = font.render(SNOW_TEXT, True, SNOW_COLOR)
 
         w, h = size
         for i in range(SNOW_AMOUNT):
             x = random.randrange(0, w)
             y = random.randrange(0, h)
-            surface = self.random_image()
+            surface = self.make_surface()
             self.snowFall.append([x, y, surface])
 
         self.initialized = True
 
+    def make_surface(self):
+        quality = QUALITY_LOW  # TODO make it a setting
+        surface = None
+
+        if quality >= QUALITY_HIGH:
+            surface = self.random_image()
+        elif quality >= QUALITY_MEDIUM:
+            font = pygame.font.SysFont(None, SNOW_TEXT_SIZE)
+            surface = font.render(SNOW_TEXT, True, SNOW_COLOR)
+            surface = surface
+
+        return surface
 
     def random_image(self):
         number = random.randint(1, 6)
         path = os.path.join(self.sprites_dir, 'snow', 'snow' + str(number) + '.png')
-        image = self.image_cache.load_image(path, SNOW_IMAGE_SIZE).copy()
-        # greyscale(image)
-        brightness(image, random.random())
-        return image
+        image = self.image_cache.load_image(path, SNOW_IMAGE_SIZE)
+
+        surface = pygame.surface.Surface(image.get_size(), pygame.SRCALPHA | pygame.RLEACCEL)
+        surface.blit(image, (0, 0))
+
+        brightness(surface, random.random())
+        surface = surface.convert_alpha()
+        return surface
 
     def draw(self, screen):
         if not self.enabled:

@@ -1,5 +1,6 @@
 """ Settings quality """
 
 QUALITY_OFF = 0
+QUALITY_LOW = 2
 QUALITY_MEDIUM = 3
 QUALITY_HIGH = 4
