@@ -66,9 +66,4 @@ class Keyhole(Fadeable):
             return
 
     def open_door(self):
-        if pixel_fades_enabled():
-            if not self.fadeout:
-                self.start_fade()
-        else:
-            self.purge = True
-            self.walkable = True
+        self.start_fade()

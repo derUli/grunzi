@@ -37,7 +37,7 @@ class Fadeable(Sprite):
         self.purge = True
 
     def remove_pixels(self):
-        bulk = 10
+        bulk = 20
         while self.fadeout:
             pygame.time.wait(1)
             for i in range(bulk):
