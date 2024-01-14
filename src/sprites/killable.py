@@ -22,14 +22,16 @@ class Killable(Sprite):
         self.fadeout = False
 
     def kill(self):
-        if pixel_fades_enabled():
-            if not self.fadeout:
-                self.start_fade()
-        else:
-            self.walkable = True
-            self.purge = True
+        self.start_fade()
 
     def start_fade(self):
+        if not pixel_fades_enabled():
+            self.purge = True
+            return
+
+        if self.fadeout:
+            return
+
         self.fadeout = True
         self.sprite = self.sprite.copy().convert_alpha()
         self.persistent_pixels = self.count_persistent_pixels()

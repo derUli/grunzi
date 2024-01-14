@@ -127,12 +127,10 @@ class Chicken(Killable, Character):
             if self.sound and self.sound.get_busy():
                 self.sound.fadeout(CHICKEN_SOUND_FADEOUT)
 
-            if pixel_fades_enabled():
-                if not self.fadeout:
-                    self.start_fade()
-            else:
-                self.replace_with = Feather(self.sprite_dir, self.cache)
-                self.walkable = True
+            self.start_fade()
+
+            if not pixel_fades_enabled():
+                self.stop_fade()
 
             logging.debug('Chicken killed by chainsaw')
 
