@@ -25,9 +25,15 @@ class GameOver(FilmGrain):
             gamepad)
         self.menu = None
 
-        file = os.path.join(data_dir, 'images', 'ui', 'gameover.jpg')
-
-        self.backdrop = self.image_cache.load_image(file)
+        self.backdrop = self.image_cache.load_image(
+            os.path.join(
+                data_dir,
+                'images',
+                'ui',
+                'gameover.jpg'
+            ),
+            self.settings_state.screen_resolution
+        )
 
 
     def mount(self):
@@ -48,11 +54,6 @@ class GameOver(FilmGrain):
 
     def draw(self, screen):
         """ Draw GameOver screen """
-
-        scale_fn = utils.quality.scale_method()
-
-        if self.backdrop.get_size() != screen.get_size():
-            self.backdrop = scale_fn(self.backdrop, screen.get_size())
 
         menu = make_menu(_('Game Over'), self.settings_state.limit_fps)
 

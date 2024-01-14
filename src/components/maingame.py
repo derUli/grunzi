@@ -59,11 +59,14 @@ class MainGame(PausableComponent, LoadingScreen):
         self.atmosphere = Atmosphere(self.sprites_dir, self.image_cache)
         self.music_queue = MusicQueue()
 
-        background_file = os.path.join(
-            self.sprites_dir, 'backdrops', 'landscape.jpg'
+        self.backdrop = self.image_cache.load_image(
+            os.path.join(
+                self.sprites_dir,
+                'backdrops',
+                'landscape.jpg'
+            ),
+            self.settings_state.screen_resolution
         )
-
-        self.backdrop = self.image_cache.load_image(background_file, self.settings_state.screen_resolution)
 
     def new_game(self):
         """ Load level """
