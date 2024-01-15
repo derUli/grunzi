@@ -2,7 +2,7 @@ import logging
 import os.path
 import time
 from typing import Union
-
+from PygameShader import bilinear
 import pygame
 
 from constants.graphics import ALPHA_IMAGE_FORMATS
@@ -51,6 +51,14 @@ class ImageCache:
                     image = image.convert_alpha()
                 else:
                     image = image.convert()
+
+                is_smoothscale = scale_fn == pygame.transform.smoothscale
+                is_scaledown = scale and scale < image.get_size()
+
+                # bilinear is much faster than smoothscale for scaling down
+                # But it is slower for scaling up and has no alpha support
+                if is_smoothscale and is_scaledown and not is_alpha:
+                    scale_fn = bilinear
 
                 if scale and image.get_size() != scale:
                     image = scale_fn(image, scale)

@@ -15,8 +15,6 @@ from utils.display_text import DisplayText
 
 FULL_HEALTH = 100
 INVENTORY_PADDING = 10
-FLASH_COLOR_HURT = (255, 0, 0,)
-FLASH_COLOR_HEAL = (255, 255, 255)
 RUMBLE_DURATION_PAIN = 200
 RUMBLE_LOW_FREQUENCY = 1
 RUMBLE_HIGH_FREQUENCY = 1
@@ -28,9 +26,6 @@ class PlayerState:
         self.health = FULL_HEALTH
         self.show_detailed = None
         self.inventory = None
-        self.flashing = None
-        self.flash_start = 0
-        self.flash_duration = 0.05
         self.gamepad = gamepad
         self.rendered_ui = (None, None)
         self.use_item = False
@@ -71,18 +66,11 @@ class PlayerState:
         """ Full heal the piggy """
         self.health = FULL_HEALTH
         self.update_health()
-        self.flash(FLASH_COLOR_HEAL)
 
     def partial_heal(self, health):
         """ Partial heal the piggy """
         self.health += health
         self.update_health()
-        self.flash(FLASH_COLOR_HEAL)
-
-    def flash(self, color=FLASH_COLOR_HURT):
-        """ Flashing effect in color """
-        self.flashing = color
-        self.flash_start = time.time()
 
     def hurt(self, health):
         """ Hurt piggy """
@@ -190,7 +178,6 @@ class PlayerState:
     def draw(self, screen):
         """ Draw player state UI """
         self.draw_blood(screen)
-        self.draw_flash(screen)
 
         id_string, surf = self.rendered_ui
         y = screen.get_height() - BOTTOM_UI_HEIGHT
@@ -243,21 +230,19 @@ class PlayerState:
         if (percentage <= 0):
             return
 
+        x, y = 0, 0
+        w, h = screen.get_size()
+        rect = (x, y, w, h)
+
+        h -= BOTTOM_UI_HEIGHT
+
         # Low quality blood
         if not utils.quality.blood_enabled_high():
             self.blood_surface.set_alpha(255 / 100 * (percentage * 100))
-            screen.blit(self.blood_surface, (0, 0))
+            screen.blit(self.blood_surface, (0, 0), rect)
             return
 
         blood(screen, self.blood_mask, percentage)
-
-    def draw_flash(self, screen):
-        """ Draw flash effect """
-        if self.flashing:
-            screen.fill(self.flashing)
-
-        if time.time() - self.flash_start > self.flash_duration:
-            self.flashing = None
 
     def take_item(self, item):
         """ Put item into inventory """
