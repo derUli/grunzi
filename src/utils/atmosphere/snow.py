@@ -12,7 +12,7 @@ from utils.quality import snow_enabled, snow_quality
 
 SNOW_COLOR = (255, 255, 255, 0)
 SNOW_AMOUNT = 500
-SNOW_SPEED = 0.5
+SNOW_SPEED = 1
 SNOW_TEXT = '*'
 SNOW_TEXT_SIZE = 24
 
@@ -30,13 +30,12 @@ CHRISTMAS_DAYS = [
     '26.12'
 ]
 
-
 def is_christmas() -> bool:
     """
     Check for Christmas
     @return: Is it Christmas?
     """
-    return date.today().strftime('%d.%Y') in CHRISTMAS_DAYS[0]
+    return date.today().strftime('%d.%m') in CHRISTMAS_DAYS
 
 
 class Snow(GlobalEffect):
