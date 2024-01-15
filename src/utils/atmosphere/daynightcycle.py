@@ -50,7 +50,7 @@ class DayNightCycle(GlobalEffect):
     def init_surface(self, screen):
         w, h = screen.get_size()
         self.surface = pygame.surface.Surface(
-            (w, h), pygame.SRCALPHA | pygame.RLEACCEL).convert_alpha()
+            (w, h), pygame.SRCALPHA)
 
         self.surface.fill((0, 0, 0))
 
@@ -66,7 +66,6 @@ class DayNightCycle(GlobalEffect):
         if time.time() - self.daytime_updated >= UPDATE_DATETIME_INTERVAL:
             self.daytime_updated = time.time()
             self.daytime += self.modifier
-            self.surface.set_alpha(self.daytime)
 
             if self.daytime >= DARKEST_DAYTIME:
                 self.modifier = MODIFIER_LIGHT

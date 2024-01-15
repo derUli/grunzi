@@ -59,7 +59,7 @@ class DisplayText:
                 text,
                 font_antialiasing_enabled(),
                 TEXT_COLOR
-            ).convert_alpha()
+            )
 
             actual_width = rendered_text.get_width()
 
