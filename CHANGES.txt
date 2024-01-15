@@ -10,6 +10,7 @@
 
 * Autosave
 * Neuer Ladebildschirm
+* Schnee-Effekt
 
 ## Alpha 004
 

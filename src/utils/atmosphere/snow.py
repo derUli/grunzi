@@ -1,11 +1,14 @@
 import os
 import random
 import time
+from datetime import date
+
 import pygame
 from PygameShader.shader import brightness, greyscale
+
+from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.quality import snow_enabled, snow_quality
-from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 
 SNOW_COLOR = (255, 255, 255, 0)
 SNOW_AMOUNT = 500
@@ -14,6 +17,26 @@ SNOW_TEXT = '*'
 SNOW_TEXT_SIZE = 24
 
 SNOW_IMAGE_SIZE = (6, 6)
+
+# Let it snow on christmas holidays
+CHRISTMAS_DAYS = [
+    # Nicholastag
+    '06.12',
+    # Christmas Eve
+    '24.12',
+    # First day of Christmas
+    '25.12',
+    # Second day of Christmas
+    '26.12'
+]
+
+
+def is_christmas() -> bool:
+    """
+    Check for Christmas
+    @return: Is it Christmas?
+    """
+    return date.today().strftime('%d.%Y') in CHRISTMAS_DAYS[0]
 
 
 class Snow(GlobalEffect):
@@ -39,15 +62,21 @@ class Snow(GlobalEffect):
             self.target_count = args['snow_target_count']
             self.prefill = True
 
+        if is_christmas():
+            if self.target_count == 0:
+                self.target_count = random.randint(100, 500)
+        else:
+            self.target_count = 0
+
     def add_snowflake(self, size):
         start_date = time.time()
         w, h = size
         x = random.randrange(0, w)
         y = random.randrange(0, h)
-        
+
         surface = self.make_surface()
         self.snow_fall.append([x, y, surface])
-        
+
         self.avg.append(time.time() - start_date)
 
     def make_surface(self):
@@ -83,12 +112,12 @@ class Snow(GlobalEffect):
 
         size = screen.get_size()
         w, h = size
-        
+
         if self.prefill and len(self.snow_fall) != self.target_count:
-            
+
             for i in range(self.target_count):
                 self.add_snowflake(size)
-            
+
             self.prefill = False
 
         if len(self.snow_fall) < self.target_count:
@@ -103,7 +132,7 @@ class Snow(GlobalEffect):
                 pygame.draw.circle(screen, SNOW_COLOR, self.snow_fall[i][:2], 2)
 
             self.snow_fall[i][1] += SNOW_SPEED
-            
+
             if self.snow_fall[i][1] > h:
                 if len(self.snow_fall) > self.target_count:
                     self.snow_fall[i] = None
