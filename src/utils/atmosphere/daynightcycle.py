@@ -75,7 +75,7 @@ class DayNightCycle(GlobalEffect):
 
         if self.daytime > 0:
             self.surface.set_alpha(self.daytime)
-            screen.blit((self.surface), (0, 0))
+            screen.blit(self.surface, (0, 0))
 
         if not bloom_enabled():
             return
