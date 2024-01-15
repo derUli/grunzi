@@ -152,6 +152,7 @@ class MainGame(PausableComponent, LoadingScreen):
         from_x = 0
         from_y = 0
 
+
         for z in range(0, len(filtered_layers)):
             from_y = self.camera.y - math.ceil(tolerance_y / 2)
             to_y = self.camera.y + tolerance_y
@@ -301,6 +302,7 @@ class MainGame(PausableComponent, LoadingScreen):
             self.level.update_sprites()
             self.check_for_updates()
             self.level.async_ai()
+
             if self.should_autosave():
                 self.autosave()
 

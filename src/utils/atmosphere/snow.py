@@ -3,10 +3,9 @@ import random
 import time
 import pygame
 from PygameShader.shader import brightness, greyscale
-import numpy
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.quality import snow_enabled, snow_quality
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
+from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 
 SNOW_COLOR = (255, 255, 255, 0)
 SNOW_AMOUNT = 500
@@ -20,9 +19,8 @@ SNOW_IMAGE_SIZE = (6, 6)
 class Snow(GlobalEffect):
 
     def __init__(self):
-        self.enabled = False
-        self.snowFall = []
-        self.sprites_dir = None
+        super().__init__()
+        self.snow_fall = []
         self.target_count = 0
         self.prefill = False
         self.avg = []
@@ -30,7 +28,7 @@ class Snow(GlobalEffect):
     def start(self, args={}, sprites_dir=None, image_cache=None):
         super().start(args, sprites_dir, image_cache)
 
-        self.snowFall = []
+        self.snow_fall = []
         self.enabled = snow_enabled()
 
         self.target_count = 0
@@ -48,7 +46,7 @@ class Snow(GlobalEffect):
         y = random.randrange(0, h)
         
         surface = self.make_surface()
-        self.snowFall.append([x, y, surface])
+        self.snow_fall.append([x, y, surface])
         
         self.avg.append(time.time() - start_date)
 
@@ -86,38 +84,38 @@ class Snow(GlobalEffect):
         size = screen.get_size()
         w, h = size
         
-        if self.prefill and len(self.snowFall) != self.target_count:
+        if self.prefill and len(self.snow_fall) != self.target_count:
             
             for i in range(self.target_count):
                 self.add_snowflake(size)
             
             self.prefill = False
 
-        if len(self.snowFall) < self.target_count:
+        if len(self.snow_fall) < self.target_count:
             self.add_snowflake(size)
 
-        for i in range(len(self.snowFall)):
-            surface = self.snowFall[i][2]
+        for i in range(len(self.snow_fall)):
+            surface = self.snow_fall[i][2]
 
             if surface:
-                screen.blit(surface, self.snowFall[i][:2])
+                screen.blit(surface, self.snow_fall[i][:2])
             else:
-                pygame.draw.circle(screen, SNOW_COLOR, self.snowFall[i][:2], 2)
+                pygame.draw.circle(screen, SNOW_COLOR, self.snow_fall[i][:2], 2)
 
-            self.snowFall[i][1] += SNOW_SPEED
+            self.snow_fall[i][1] += SNOW_SPEED
             
-            if self.snowFall[i][1] > h:
-                if len(self.snowFall) > self.target_count:
-                    self.snowFall[i] = None
+            if self.snow_fall[i][1] > h:
+                if len(self.snow_fall) > self.target_count:
+                    self.snow_fall[i] = None
                     continue
 
                 y = random.randrange(-50, -10)
-                self.snowFall[i][1] = y
+                self.snow_fall[i][1] = y
 
                 x = random.randrange(0, w)
-                self.snowFall[i][0] = x
+                self.snow_fall[i][0] = x
 
-        self.snowFall = list(filter(lambda item: item is not None, self.snowFall))
+        self.snow_fall = list(filter(lambda item: item is not None, self.snow_fall))
 
     def to_dict(self):
         return {

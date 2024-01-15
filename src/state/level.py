@@ -239,9 +239,11 @@ class Level:
         return False
 
     def search_by_id(self, id):
+
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):
             for y in range(0, len(self.layers[z])):
+
                 if not any(self.layers[z][y]):
                     continue
                 for x in range(0, len(self.layers[z][y])):
@@ -249,7 +251,7 @@ class Level:
                     if element and element.id == id:
                         return (z, y, x)
 
-        return (0, 0, 0)
+        return None
 
     def search_sprite(self, sprite):
         """ Search character by id """
@@ -263,7 +265,7 @@ class Level:
                 except ValueError:
                     continue
 
-        return (0, 0, 0)
+        return None
 
     def move_sprite(self, sprite, target_pos):
         """ Move a sprite to target pos """

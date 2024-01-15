@@ -87,4 +87,4 @@ class LoadingScreen(Component):
 
         # Pump event queue and flip display to keep the application alive
         pygame.event.pump()
-        pygame.display.flip()
+        pygame.display.update()
