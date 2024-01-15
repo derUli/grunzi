@@ -33,7 +33,7 @@ class Component(object):
 
         self.regular_font = pygame.font.Font(
             self.regular_font_file,
-            constants.game.DEBUG_OUTPUT_FONT_SIZE
+            constants.game.TEXT_FONT_SIZE
         )
 
     # Create Text
