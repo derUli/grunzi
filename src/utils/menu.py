@@ -16,8 +16,8 @@ THEME_PIG = pygame_menu.Theme(
     title_font_color=(228, 230, 246),
     title_font_size=26,
     title_font_shadow=False,
-    title_font_antialias=font_antialiasing_enabled(),
-    widget_font_antialias=font_antialiasing_enabled(),
+    title_font_antialias=True,
+    widget_font_antialias=True,
     widget_font_color=BOTTOM_UI_BACKGROUND,
     widget_font_size=20,
 )
