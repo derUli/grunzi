@@ -116611,11 +116611,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower4.png",
-"walkable": 1
-},
+0,
 0,
 0,
 {
@@ -116866,7 +116862,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "conestoga_wagon.png"
+},
 0,
 {
 "sprite_class": "sprites.wall.Wall",
