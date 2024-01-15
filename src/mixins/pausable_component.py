@@ -5,7 +5,6 @@ import pygame
 from PygameShader.shader import blur
 
 import utils.savegame
-from components.component import Component
 from components.mixins.loadingindicator import LoadingIndicator
 from constants import gamepad
 from constants import keyboard

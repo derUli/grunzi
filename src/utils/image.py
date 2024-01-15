@@ -2,8 +2,9 @@ import logging
 import os.path
 import time
 from typing import Union
-from PygameShader import bilinear
+
 import pygame
+from PygameShader import bilinear
 
 from constants.graphics import ALPHA_IMAGE_FORMATS
 from utils.quality import scale_method
