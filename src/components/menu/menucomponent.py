@@ -1,9 +1,13 @@
 import os
 
+import pygame
+
+import utils.menu as menu
 from components.component import Component
 from constants.headup import PIGGY_PINK
 from utils.animation import Animation
 from utils.helper import get_version
+from utils.quality import font_antialiasing_enabled
 
 
 class MenuComponent(Component):
@@ -38,6 +42,7 @@ class MenuComponent(Component):
 
         version_file = os.path.join(self.data_dir, '..', 'VERSION')
         self.version_number = get_version(version_file)
+        self.apply_menu_fonts()
 
     def draw_background(self):
         """ Draw video background """
@@ -66,6 +71,21 @@ class MenuComponent(Component):
             i += 1
 
         return i
+
+    def apply_menu_fonts(self):
+        # Apply font to menus
+        menu.THEME_PIG.title_font = pygame.font.Font(
+            self.regular_font_file,
+            menu.THEME_PIG.title_font_size
+        )
+
+        menu.THEME_PIG.widget_font = pygame.font.Font(
+            self.regular_font_file,
+            menu.THEME_PIG.widget_font_size
+        )
+
+        menu.THEME_PIG.title_font_antialias = font_antialiasing_enabled()
+        menu.THEME_PIG.widget_font_antialias = font_antialiasing_enabled()
 
 
 class SettingsComponent(MenuComponent):

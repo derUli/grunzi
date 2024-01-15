@@ -4,7 +4,7 @@ import time
 
 import pygame
 
-from constants.game import TEXT_FONT_SIZE, MONOTYPE_FONT
+from constants.game import TEXT_FONT_SIZE, REGULAR_FONT
 from utils.quality import font_antialiasing_enabled
 
 TEXT_COLOR = (255, 255, 255)
@@ -15,7 +15,7 @@ MIN_FONT_SIZE = 12
 
 class DisplayText:
     def __init__(self, data_dir: str):
-        self.font = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
+        self.font = os.path.join(data_dir, 'fonts', REGULAR_FONT)
         self.rendered_text = None
         self.show_end = 0
         self.handle_text_shown = None

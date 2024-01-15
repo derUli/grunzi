@@ -37,6 +37,7 @@ def make_menu(title: str, limit_fps: int = 0) -> pygame_menu.Menu:
     )
 
 
+
 def get_longest_option(options: list) -> str:
     """ Get the longest option """
     longest = ''

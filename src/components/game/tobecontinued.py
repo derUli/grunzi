@@ -7,7 +7,7 @@ import utils.quality
 from components.mixins.filmgrain import FilmGrain
 from constants import gamepad
 from constants import keyboard
-from constants.game import MONOTYPE_FONT, LARGE_FONT_SIZE
+from constants.game import REGULAR_FONT, LARGE_FONT_SIZE
 
 
 class ToBeContinued(FilmGrain):
@@ -22,8 +22,8 @@ class ToBeContinued(FilmGrain):
             settings_state,
             enable_edit_mode,
             gamepad)
-        self.monotype_font = pygame.font.Font(
-            os.path.join(data_dir, 'fonts', MONOTYPE_FONT),
+        self.regular_font = pygame.font.Font(
+            os.path.join(data_dir, 'fonts', REGULAR_FONT),
             LARGE_FONT_SIZE)
 
     def draw(self, screen):
@@ -31,7 +31,7 @@ class ToBeContinued(FilmGrain):
 
         screen.fill((0, 0, 0))
 
-        rendered_text = self.monotype_font.render(
+        rendered_text = self.regular_font.render(
             _('To be continued'),
             utils.quality.font_antialiasing_enabled(),
             (255, 255, 255)

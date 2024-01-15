@@ -68,7 +68,7 @@ class PausableComponent(LoadingIndicator):
         task_text = self.state.task.get_display_text()
         text = label_value(_('Aufgabe'), task_text)
         """ Render a text """
-        rendered_text = self.monotype_font.render(
+        rendered_text = self.regular_font.render(
             text,
             utils.quality.font_antialiasing_enabled(),
             TEXT_COLOR

@@ -1,7 +1,7 @@
 import os
 
 import pygame
-
+import utils.menu as menu
 import constants.game
 import constants.headup
 import utils.audio
@@ -29,10 +29,17 @@ class Component(object):
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
             constants.game.DEBUG_OUTPUT_FONT_SIZE)
 
+        self.regular_font_file = os.path.join(data_dir, 'fonts', constants.game.REGULAR_FONT)
+
+        self.regular_font = pygame.font.Font(
+            self.regular_font_file,
+            constants.game.DEBUG_OUTPUT_FONT_SIZE
+        )
+
     # Create Text
     def render_text(self, what, color, where):
         """ Render a text """
-        text = self.monotype_font.render(
+        text = self.regular_font.render(
             what,
             utils.quality.font_antialiasing_enabled(),
             pygame.Color(color)
@@ -42,7 +49,7 @@ class Component(object):
 
     def draw_notification(self, what, color, screen):
         """ Draw notification text in the bottom right of the screen"""
-        text = self.monotype_font.render(
+        text = self.regular_font.render(
             what,
             utils.quality.font_antialiasing_enabled(),
             pygame.Color(color)

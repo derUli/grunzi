@@ -7,7 +7,7 @@ import utils.quality
 from components.mixins.filmgrain import FilmGrain
 from constants import gamepad
 from constants import keyboard
-from constants.game import MONOTYPE_FONT
+from constants.game import REGULAR_FONT
 
 PAGE_KEYBOARD = 0
 PAGE_CONTROLLER = 1
@@ -43,7 +43,7 @@ class SettingsControls(FilmGrain):
         self.data_dir = data_dir
         self.backdrop = None
 
-        fontfile = os.path.join(data_dir, 'fonts', MONOTYPE_FONT)
+        fontfile = os.path.join(data_dir, 'fonts', REGULAR_FONT)
         self.font = pygame.font.Font(
             fontfile,
             FONT_SIZE

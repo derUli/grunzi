@@ -8,7 +8,7 @@ import pygame
 
 import constants.graphics
 import utils.quality
-from constants.game import MONOTYPE_FONT, DEBUG_TILE_FONT_SIZE
+from constants.game import REGULAR_FONT, DEBUG_TILE_FONT_SIZE
 from constants.graphics import SPRITE_SIZE
 from utils.reflections import fullname, get_class
 from utils.string import label_value
@@ -64,7 +64,7 @@ class Sprite:
         self.cache = cache
         self.debug = False
         self.debug_font_file = os.path.join(
-            self.sprite_dir, '..', '..', 'fonts', MONOTYPE_FONT)
+            self.sprite_dir, '..', '..', 'fonts', REGULAR_FONT)
         self.debug_font = None
         self.attributes = {}
         self.player_state = None
