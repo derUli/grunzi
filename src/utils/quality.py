@@ -2,7 +2,7 @@ from typing import Callable
 
 import pygame
 
-from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
 
 settings_state = None
 
@@ -40,7 +40,10 @@ def fog_enabled() -> bool:
     return settings_state and settings_state.fog
 
 def snow_enabled() -> bool:
-    return True
+    return settings_state and settings_state.snow >= QUALITY_LOW
+
+def snow_quality():
+    return settings_state.snow
 
 def pixel_fades_enabled() -> bool:
     """ Check fixel fades enabled """

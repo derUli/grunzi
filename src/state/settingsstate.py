@@ -14,6 +14,7 @@ SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_BLOOD = QUALITY_MEDIUM
+SETTINGS_DEFAULT_SNOW = QUALITY_MEDIUM
 SETTINGS_DEFAULT_BLOOM = False
 SETTINGS_DEFAULT_FOG = True
 SETTINGS_DEFAULT_SMOOTHSCALE = True
@@ -40,6 +41,7 @@ class SettingsState:
         self.bloom = SETTINGS_DEFAULT_BLOOM
         self.fog = SETTINGS_DEFAULT_FOG
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
+        self.snow = SETTINGS_DEFAULT_SNOW
 
         # Event handler
         self.handle_settings_change = handle_settings_change
@@ -110,7 +112,9 @@ class SettingsState:
             'blood': self.blood,
             'bloom': self.bloom,
             'fog': self.fog,
-            'smoothscale': self.smoothscale
+            'snow': self.snow,
+            'smoothscale': self.smoothscale,
+            
         }
 
     def to_json(self):
@@ -121,32 +125,35 @@ class SettingsState:
         """ From dictionary """
 
         if 'fullscreen' in settings:
-            self.fullscreen = settings['fullscreen']
-            self.old_fullscreen = settings['fullscreen']
+            self.fullscreen = bool(settings['fullscreen'])
+            self.old_fullscreen = bool(settings['fullscreen'])
 
         if 'sound_volume' in settings:
-            self.sound_volume = settings['sound_volume']
+            self.sound_volume = float(settings['sound_volume'])
 
         if 'music_volume' in settings:
-            self.music_volume = settings['music_volume']
+            self.music_volume = float(settings['music_volume'])
 
         if 'vsync' in settings:
-            self.vsync = settings['vsync']
+            self.vsync = bool(settings['vsync'])
 
         if 'limit_fps' in settings:
-            self.limit_fps = settings['limit_fps']
+            self.limit_fps = int(settings['limit_fps'])
 
         if 'screen_resolution' in settings:
             self.screen_resolution = tuple(settings['screen_resolution'])
 
         if 'blood' in settings:
-            self.blood = settings['blood']
+            self.blood = int(settings['blood'])
 
         if 'bloom' in settings:
             self.bloom = bool(settings['bloom'])
 
         if 'fog' in settings:
             self.fog = bool(settings['fog'])
+
+        if 'snow' in settings:
+            self.snow = int(settings['snow'])
 
         if 'smoothscale' in settings:
             self.smoothscale = bool(settings['smoothscale'])

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-13 23:24+0100\n"
+"POT-Creation-Date: 2024-01-15 12:57+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:109 components/mainmenu.py:57 grunzi.py:30
+#: bootstrap/gamecontainer.py:109 components/menu/mainmenu.py:59 grunzi.py:30
 msgid "Grunzi"
 msgstr ""
 
@@ -26,91 +26,74 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/gameover.py:56
+#: components/game/gameover.py:57
 msgid "Game Over"
 msgstr "Du bist Schinken!"
 
-#: components/gameover.py:59 components/loadgame.py:14
+#: components/game/gameover.py:60 components/menu/loadgame.py:12
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/gameover.py:61 components/pausable_component.py:48
-#: components/settings/settings.py:74
+#: components/game/gameover.py:62 components/settings/settings.py:74
+#: mixins/pausable_component.py:49
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: components/loadgame.py:17
+#: components/game/loading_screen.py:25
+msgid "Loading..."
+msgstr "Wird geladen..."
+
+#: components/game/maingame.py:364
+msgid "Grunt!"
+msgstr "Grunz"
+
+#: components/game/maingame.py:493
+msgid "Level saved."
+msgstr "Level gespeichert."
+
+#: components/game/maingame.py:496
+msgid "Level dumped."
+msgstr ""
+
+#: components/game/tobecontinued.py:35
+msgid "To be continued"
+msgstr "Wird fortgesetzt"
+
+#: components/menu/loadgame.py:15
 msgid "Manual save"
 msgstr "Manueller Spielstand"
 
-#: components/loadgame.py:20
+#: components/menu/loadgame.py:18
 msgid "Autosave"
 msgstr "Auto-Speicher"
 
-#: components/loadgame.py:22 components/settings/audio.py:61
-#: components/settings/video/graphics.py:75
+#: components/menu/loadgame.py:20 components/settings/audio.py:61
+#: components/settings/video/graphics.py:101
 #: components/settings/video/screen.py:121
 #: components/settings/video/video.py:17
 msgid "Back"
 msgstr "Zurück"
 
-#: components/loading_screen.py:21
-msgid "Loading..."
-msgstr "Wird geladen..."
-
-#: components/maingame.py:365
-msgid "Grunt!"
-msgstr "Grunz"
-
-#: components/maingame.py:494
-msgid "Level saved."
-msgstr "Level gespeichert."
-
-#: components/maingame.py:497
-msgid "Level dumped."
-msgstr ""
-
-#: components/mainmenu.py:58
-msgid "New Game"
-msgstr "Neues Spiel"
-
-#: components/mainmenu.py:60 components/pausable_component.py:45
+#: components/menu/mainmenu.py:62 mixins/pausable_component.py:46
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/mainmenu.py:63
+#: components/menu/mainmenu.py:64
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: components/menu/mainmenu.py:67
 #, fuzzy
 msgid "Load"
 msgstr "Laden"
 
-#: components/mainmenu.py:65 components/settings/settings.py:69
+#: components/menu/mainmenu.py:69 components/settings/settings.py:69
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/mainmenu.py:67
+#: components/menu/mainmenu.py:71
 msgid "Quit"
 msgstr "Beenden"
-
-#: components/pausable_component.py:42 components/settings/controls.py:62
-#: components/settings/controls.py:74
-msgid "Pause"
-msgstr ""
-
-#: components/pausable_component.py:47
-msgid "Save Game"
-msgstr "Spiel speichern"
-
-#: components/pausable_component.py:69
-msgid "Aufgabe"
-msgstr ""
-
-#: components/pausable_component.py:94
-msgid "Game saved."
-msgstr "Spiel gespeichert."
-
-#: components/tobecontinued.py:44
-msgid "To be continued"
-msgstr "Wird fortgesetzt"
 
 #: components/settings/audio.py:41 components/settings/settings.py:72
 msgid "Audio"
@@ -124,51 +107,56 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings/controls.py:57 components/settings/controls.py:69
+#: components/settings/controls.py:55 components/settings/controls.py:67
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/settings/controls.py:58 components/settings/controls.py:70
+#: components/settings/controls.py:56 components/settings/controls.py:68
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/settings/controls.py:59 components/settings/controls.py:71
+#: components/settings/controls.py:57 components/settings/controls.py:69
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/settings/controls.py:60 components/settings/controls.py:72
+#: components/settings/controls.py:58 components/settings/controls.py:70
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/settings/controls.py:61 components/settings/controls.py:73
+#: components/settings/controls.py:59 components/settings/controls.py:71
 msgid "Run"
 msgstr "Rennen"
 
-#: components/settings/controls.py:63
+#: components/settings/controls.py:60 components/settings/controls.py:72
+#: mixins/pausable_component.py:43
+msgid "Pause"
+msgstr ""
+
+#: components/settings/controls.py:61
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/settings/controls.py:100 components/settings/settings.py:73
+#: components/settings/controls.py:88 components/settings/settings.py:73
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/settings/controls.py:104
+#: components/settings/controls.py:92
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/settings/controls.py:106
+#: components/settings/controls.py:94
 msgid "Controller"
 msgstr "Controller"
 
-#: components/settings/controls.py:167
+#: components/settings/controls.py:155
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/settings/controls.py:174
+#: components/settings/controls.py:162
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/settings/controls.py:176
+#: components/settings/controls.py:164
 msgid "No Controller"
 msgstr "Kein Controller"
 
@@ -177,42 +165,53 @@ msgid "Video"
 msgstr ""
 
 #: components/settings/video/graphics.py:12
-#: components/settings/video/graphics.py:41
+#: components/settings/video/graphics.py:25
+#: components/settings/video/graphics.py:55
 #: components/settings/video/screen.py:83
 msgid "Off"
 msgstr "Aus"
 
 #: components/settings/video/graphics.py:13
+#: components/settings/video/graphics.py:27
 msgid "Medium"
 msgstr "Mittel"
 
 #: components/settings/video/graphics.py:14
+#: components/settings/video/graphics.py:28
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings/video/graphics.py:39
+#: components/settings/video/graphics.py:26
+msgid "Low"
+msgstr "Niedrig"
+
+#: components/settings/video/graphics.py:53
 #: components/settings/video/video.py:15
 msgid "Graphics"
 msgstr "Grafik"
 
-#: components/settings/video/graphics.py:41
+#: components/settings/video/graphics.py:55
 #: components/settings/video/screen.py:83
 msgid "On"
 msgstr "An"
 
-#: components/settings/video/graphics.py:44
+#: components/settings/video/graphics.py:58
 msgid "Blood"
 msgstr "Blut"
 
-#: components/settings/video/graphics.py:55
+#: components/settings/video/graphics.py:69
+msgid "Snow"
+msgstr "Schnee"
+
+#: components/settings/video/graphics.py:81
 msgid "Fog"
 msgstr "Nebel"
 
-#: components/settings/video/graphics.py:62
+#: components/settings/video/graphics.py:88
 msgid "Bloom"
 msgstr "Bloom"
 
-#: components/settings/video/graphics.py:69
+#: components/settings/video/graphics.py:95
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
@@ -240,6 +239,18 @@ msgstr "Bildschirmauflösung"
 msgid "Framerate Cap"
 msgstr "Maximale Framerate"
 
+#: mixins/pausable_component.py:48
+msgid "Save Game"
+msgstr "Spiel speichern"
+
+#: mixins/pausable_component.py:70
+msgid "Aufgabe"
+msgstr ""
+
+#: mixins/pausable_component.py:96
+msgid "Game saved."
+msgstr "Spiel gespeichert."
+
 #: sprites/chainsaw.py:38
 msgid "The petrol is empty."
 msgstr "Das Benzin ist leer."
@@ -260,47 +271,52 @@ msgstr "Die Tür ist jetzt offen."
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
-#: sprites/horse.py:33
+#: sprites/horse.py:36
 msgid "Infinity bloodless!"
 msgstr "Unendlich blutleer!"
 
-#: sprites/horse.py:34
+#: sprites/horse.py:37
 msgid "I don't have a single drop of blood left."
 msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
 
-#: sprites/horse.py:35
+#: sprites/horse.py:38
 msgid "Please give me some blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:36
+#: sprites/horse.py:39
 msgid "I am infinitely thirsty for blood."
 msgstr "Ich bin unendlich durstig nach Blut!"
 
-#: sprites/horse.py:109
+#: sprites/horse.py:113
 msgid "Now I have a bit more blood."
 msgstr "Jetzt habe ich ein wenig mehr Blut."
 
-#: sprites/horse.py:110
+#: sprites/horse.py:114
 msgid "I still haven't enough blood."
 msgstr "Ich habe immer noch nicht genug Blut."
 
-#: sprites/horse.py:111
+#: sprites/horse.py:115
 msgid "Yummy blood!"
 msgstr "Leckeres Blut!"
 
-#: sprites/horse.py:112
+#: sprites/horse.py:116
 msgid "Give me more blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:113
+#: sprites/horse.py:117
 msgid "Tasty blood!"
 msgstr "Köstliches Blood!"
 
-#: sprites/horse.py:114
+#: sprites/horse.py:118
 msgid "I need more blood!"
 msgstr "Ich brauche mehr Blut!"
 
-#: sprites/keyhole.py:47
+#: sprites/horse.py:144
+#, fuzzy
+msgid "Now I am full of blood."
+msgstr "Jetzt habe ich ein wenig mehr Blut."
+
+#: sprites/keyhole.py:46
 msgid "There is a keyhole in the wall."
 msgstr "Da ist ein Schlüsselloch in der Mauer."
 

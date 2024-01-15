@@ -1,5 +1,5 @@
 from components.menu.menucomponent import SettingsComponent
-from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
+from constants.quality import QUALITY_OFF, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.menu import make_menu, get_longest_option
 
 MIN_SCREEN_RESOLUTION = (800, 600)
@@ -18,6 +18,20 @@ class SettingsGraphics(SettingsComponent):
         selected_item, index = selection
         text, value = selected_item
         self.settings_state.blood = value
+        self.settings_state.apply_and_save()
+
+    def get_snow_items(self):
+        return [
+            (_('Off'), QUALITY_OFF),
+            (_('Low'), QUALITY_LOW),
+            (_('Medium'), QUALITY_MEDIUM),
+            (_('High'), QUALITY_HIGH),
+        ]
+
+    def handle_change_snow(self, selection, selected_index):
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.snow = value
         self.settings_state.apply_and_save()
 
     def handle_toggle_bloom(self, value):
@@ -50,6 +64,18 @@ class SettingsGraphics(SettingsComponent):
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_blood_items()),
         )
+
+        menu.add.dropselect(
+            title=_('Snow'),
+            default=self.get_selected_index(
+                self.get_snow_items(),
+                self.settings_state.snow),
+            items=self.get_snow_items(),
+            onchange=self.handle_change_snow,
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_snow_items()),
+        )
+
 
         menu.add.toggle_switch(
             _('Fog'),
