@@ -114058,11 +114058,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -114300,11 +114296,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -114609,17 +114601,9 @@
 "sprite_file": "truck3.png"
 },
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower5.png",
-"walkable": 1
-},
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
+0,
+0,
 0,
 0,
 0,
@@ -114908,18 +114892,10 @@
 "sprite_class": "sprites.chicken.Chicken",
 "sprite_file": "chicken.png"
 },
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower5.png",
-"walkable": 1
-},
+0,
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -115653,11 +115629,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -118236,11 +118208,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower1.png",
-"walkable": 1
-},
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -119339,11 +119307,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower5.png",
-"walkable": 1
-},
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -119875,11 +119839,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower5.png",
-"walkable": 1
-},
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -121694,7 +121654,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "conestoga_wagon.png"
+},
 0,
 {
 "sprite_class": "sprites.wall.Wall",
@@ -122489,7 +122452,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "conestoga_wagon.png"
+},
 0,
 {
 "sprite_class": "sprites.wall.Wall",
@@ -168046,7 +168012,7 @@
 0,
 {
 "sprite_class": "sprites.codecheck.CodeCheck",
-"sprite_file": "placeholder.jpg"
+"sprite_file": "placeholder.png"
 },
 0,
 0,
