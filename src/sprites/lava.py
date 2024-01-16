@@ -11,7 +11,6 @@ from utils.quality import shader_enabled
 
 class Lava(sprites.sprite.Sprite):
     """ Backdrop sprite """
-
     def __init__(self, sprite_dir, cache, sprite='lava.jpg'):
         """ Constructor """
         super().__init__(sprite_dir, cache, sprite)

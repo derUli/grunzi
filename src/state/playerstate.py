@@ -313,6 +313,7 @@ class PlayerState:
         w, h = self.display_text.rendered_text.get_size()
 
         x = (screen.get_width() / 2) - (w / 2)
-        y = screen.get_height() - (BOTTOM_UI_HEIGHT / 2) - (h / 2) - UI_MARGIN
+        y = screen.get_height() - (BOTTOM_UI_HEIGHT / 2) - (h / 2)
+        y -= UI_MARGIN / 2
 
         self.display_text.draw(screen, (x, y))
