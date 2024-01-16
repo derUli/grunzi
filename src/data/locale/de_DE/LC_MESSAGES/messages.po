@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-15 12:57+0100\n"
+"POT-Creation-Date: 2024-01-16 01:12+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -35,7 +35,7 @@ msgid "Load Game"
 msgstr "Spiel laden"
 
 #: components/game/gameover.py:62 components/settings/settings.py:74
-#: mixins/pausable_component.py:49
+#: mixins/pausable_component.py:48
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
 
@@ -43,15 +43,15 @@ msgstr "Zurück zum Hauptmenü"
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/game/maingame.py:364
+#: components/game/maingame.py:366
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/game/maingame.py:493
+#: components/game/maingame.py:495
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/game/maingame.py:496
+#: components/game/maingame.py:498
 msgid "Level dumped."
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr "Auto-Speicher"
 msgid "Back"
 msgstr "Zurück"
 
-#: components/menu/mainmenu.py:62 mixins/pausable_component.py:46
+#: components/menu/mainmenu.py:62 mixins/pausable_component.py:45
 msgid "Continue"
 msgstr "Fortsetzen"
 
@@ -83,7 +83,6 @@ msgid "New Game"
 msgstr "Neues Spiel"
 
 #: components/menu/mainmenu.py:67
-#, fuzzy
 msgid "Load"
 msgstr "Laden"
 
@@ -128,7 +127,7 @@ msgid "Run"
 msgstr "Rennen"
 
 #: components/settings/controls.py:60 components/settings/controls.py:72
-#: mixins/pausable_component.py:43
+#: mixins/pausable_component.py:42
 msgid "Pause"
 msgstr ""
 
@@ -239,15 +238,15 @@ msgstr "Bildschirmauflösung"
 msgid "Framerate Cap"
 msgstr "Maximale Framerate"
 
-#: mixins/pausable_component.py:48
+#: mixins/pausable_component.py:47
 msgid "Save Game"
 msgstr "Spiel speichern"
 
-#: mixins/pausable_component.py:70
+#: mixins/pausable_component.py:69
 msgid "Aufgabe"
 msgstr ""
 
-#: mixins/pausable_component.py:96
+#: mixins/pausable_component.py:95
 msgid "Game saved."
 msgstr "Spiel gespeichert."
 
@@ -312,9 +311,8 @@ msgid "I need more blood!"
 msgstr "Ich brauche mehr Blut!"
 
 #: sprites/horse.py:144
-#, fuzzy
 msgid "Now I am full of blood."
-msgstr "Jetzt habe ich ein wenig mehr Blut."
+msgstr "Jetzt bin ich wieder blutvoll. :)"
 
 #: sprites/keyhole.py:46
 msgid "There is a keyhole in the wall."
@@ -336,7 +334,7 @@ msgstr "Speichere Level..."
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
-#: state/playerstate.py:93
+#: state/playerstate.py:80
 msgid "Ouch!"
 msgstr "Autsch!"
 
@@ -349,7 +347,6 @@ msgid "Find the code to deactivate the laser"
 msgstr "Finde den Code um den Laser zu deaktivieren"
 
 #: state/task.py:34
-#, fuzzy
 msgid "Give the horse blood"
 msgstr "Gib dem Pferd Blut"
 
