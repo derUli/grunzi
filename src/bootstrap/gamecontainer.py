@@ -33,7 +33,7 @@ class GameContainer:
         self.running = True
         self.clock = pygame.time.Clock()
         self.current_component = None
-        self.settings_state = SettingsState(self.handle_settings_change)
+        self.settings_state = SettingsState()
         self.enable_edit_mode = enable_edit_mode
         self.gamepad = None
         self.disable_controller = disable_controller
@@ -91,10 +91,6 @@ class GameContainer:
         signal.signal(signal.SIGTERM, self.quit)
 
         self.mainloop()
-
-    def handle_settings_change(self):
-        """ Apply settings on change """
-        self.settings_state.apply()
 
     def init_screen(self):
         """ Init the screen """

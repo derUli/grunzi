@@ -7,7 +7,7 @@ from state.settingsstate import SettingsState
 
 class QualityTest(unittest.TestCase):
     def setUp(self):
-        quality.settings_state = SettingsState(None)
+        quality.settings_state = SettingsState()
 
     def test_scale_method(self):
         quality.settings_state.smoothscale = True

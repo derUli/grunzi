@@ -22,7 +22,7 @@ SETTINGS_DEFAULT_VOLUME = 1.0
 
 
 class SettingsState:
-    def __init__(self, handle_settings_change):
+    def __init__(self):
         """ Constructor """
 
         # Screen settings
@@ -43,8 +43,7 @@ class SettingsState:
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
         self.snow = SETTINGS_DEFAULT_SNOW
 
-        # Event handler
-        self.handle_settings_change = handle_settings_change
+        # Needs restart
         self.needs_restart = False
 
     def apply_and_save(self):
