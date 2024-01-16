@@ -33,8 +33,9 @@ def get_version(file: str) -> str:
 
 
 def enable_high_dpi() -> bool:
-    """ Add support for high DPI on windows """
-
+    """
+    Add support for high DPI on windows
+    """
     # Abort if not windows
     if not is_windows():
         return False

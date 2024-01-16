@@ -2,7 +2,7 @@
 
 
 class Camera:
-    """Used to store top positions of screen """
+    """ Used to store top positions of screen """
 
     def __init__(self, x=0, y=0):
         """Constructor"""

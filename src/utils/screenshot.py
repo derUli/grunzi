@@ -11,7 +11,11 @@ DUMP_DIR = 'dumps'
 
 
 def make_screenshot(screen: pygame.surface.Surface, target: str = SCREENSHOT_DIR) -> str:
-    """ Save a screenshot """
+    """ Save screenshot to target directory
+    @param screen: The surface
+    @param target: The target directory
+    @return: filename of the screenshot
+    """
     screenshot_dir = os.path.join(get_userdata_path(), target)
 
     if not os.path.exists(screenshot_dir):
