@@ -205,10 +205,12 @@ class Level:
     def update_sprites(self):
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):
+
+            if z in SKIP_LAYERS:
+                continue
+
             for y in range(0, len(self.layers[z])):
                 if not any(self.layers[z][y]):
-                    continue
-                if y in SKIP_LAYERS:
                     continue
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
@@ -332,12 +334,11 @@ class Level:
     def search_by_id(self, sprite_id):
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):
+            if z in SKIP_LAYERS:
+                continue
             for y in range(0, len(self.layers[z])):
 
                 if not any(self.layers[z][y]):
-                    continue
-
-                if y in SKIP_LAYERS:
                     continue
 
                 for x in range(0, len(self.layers[z][y])):
@@ -350,12 +351,14 @@ class Level:
     def search_sprite(self, sprite):
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):
+
+            if z in SKIP_LAYERS:
+                continue
+
             for y in range(0, len(self.layers[z])):
                 if not any(self.layers[z][y]):
                     continue
 
-                if y in SKIP_LAYERS:
-                    continue
                 try:
                     x = self.layers[z][y].index(sprite)
                     return z, y, x
