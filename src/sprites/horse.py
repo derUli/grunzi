@@ -157,8 +157,6 @@ class Horse(Character, Fadeable):
             self.attributes['full_of_blood'] = True
             state.task.set_id(None)
 
-            play_sound(self.horse_sound)
-
             state.player_state.say(_('Now I am full of blood.'), handle_text_shown=self.finish_task)
 
         if self.task:
