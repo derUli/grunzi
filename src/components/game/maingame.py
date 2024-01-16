@@ -309,13 +309,13 @@ class MainGame(PausableComponent, LoadingScreen):
     def handle_interactions(self):
         if self.state.player_state.use_item:
             z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
-            character = self.level.get_sprite((z, y, x))
+            character = self.level.get_sprite_at((z, y, x))
 
             for z in reversed(range(0, len(self.level.layers))):
                 if isinstance(self.state.player_state.inventory, InlineSprite):
                     i_x, i_y = self.level.calculate_next_pos(
                         (x, y), character.direction)
-                    i_element = self.level.get_sprite((z, i_y, i_x))
+                    i_element = self.level.get_sprite_at((z, i_y, i_x))
                     if i_element:
                         i_element.handle_interact_item(character)
 
@@ -596,7 +596,7 @@ class MainGame(PausableComponent, LoadingScreen):
         walkable = self.level.is_walkable(next_x, next_y)
 
         for layer in range(0, layer_count):
-            element = self.level.get_sprite((layer, next_y, next_x))
+            element = self.level.get_sprite_at((layer, next_y, next_x))
 
             if element:
                 element.handle_interact(character)

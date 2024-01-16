@@ -331,7 +331,7 @@ class Level:
 
         return (x, y)
 
-    def get_sprite(self, pos):
+    def get_sprite_at(self, pos):
         """ Get sprite at """
         z, y, x = pos
 
