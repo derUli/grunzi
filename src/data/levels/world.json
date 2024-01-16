@@ -114309,13 +114309,13 @@
 },
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
@@ -114905,13 +114905,13 @@
 },
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
@@ -115412,13 +115412,13 @@
 },
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
@@ -115926,13 +115926,13 @@
 },
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
@@ -116385,13 +116385,13 @@
 },
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
@@ -116848,13 +116848,13 @@
 },
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
 0,
 {
-"sprite_class": "sprites.wall.Wall",
+"sprite_class": "sprites.destroyable.Destroyable",
 "sprite_file": "tree2.png"
 },
 0,
