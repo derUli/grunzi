@@ -9,13 +9,15 @@ import sprites.sprite
 from utils.quality import shader_enabled
 
 
+LAVA_SPEED = 2
+
 class Lava(sprites.sprite.Sprite):
     """ Backdrop sprite """
     def __init__(self, sprite_dir, cache, sprite='lava.jpg'):
         """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
 
-        self.walkable = True
+        self.walkable = False
         self.player_state = None
         self.original_sprite = self.sprite.copy().convert()
 
@@ -45,7 +47,7 @@ class Lava(sprites.sprite.Sprite):
         if time.time() - self.last_update < self.update_interval:
             return
 
-        next_angle = self.angle + 2
+        next_angle = self.angle + LAVA_SPEED
         next_angle = next_angle % 360
 
         if self.cache.get_processed_image(self.cache_id(next_angle)):
@@ -61,7 +63,7 @@ class Lava(sprites.sprite.Sprite):
                 self.cache.add_processed_image(
                     self.cache_id(angle), self.next_frame(angle))
 
-            angle += 2
+            angle += LAVA_SPEED
 
     def preload(self):
         self.generate_frames()
