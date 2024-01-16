@@ -213,9 +213,6 @@ class MainGame(PausableComponent, LoadingScreen):
 
                         col.draw(virtual_screen, x, y)
 
-                        if isinstance(col, MainCharacter):
-                            pass
-
                         if self.state.edit_mode and isinstance(col, Character):
                             col.draw_debug(
                                 virtual_screen,
