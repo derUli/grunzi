@@ -188,6 +188,16 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache,
             'nymphaea2.png'
         ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'nymphaea3.png'
+        ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'nymphaea4.png'
+        ),
         Wall(
             sprites_dir,
             image_cache

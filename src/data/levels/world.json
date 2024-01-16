@@ -19401,9 +19401,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -20091,9 +20090,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -20146,14 +20144,12 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -20901,9 +20897,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -21591,9 +21586,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -21651,9 +21645,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -22341,9 +22334,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -22401,9 +22393,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -23091,9 +23082,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -23151,9 +23141,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -23841,9 +23830,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -23901,9 +23889,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -24591,9 +24578,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -24651,9 +24637,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -25341,34 +25326,12 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -25377,8 +25340,25 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "gras2.jpg",
 "walkable": 1
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras2.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -25386,9 +25366,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -25396,14 +25375,12 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -26091,9 +26068,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -26146,14 +26122,12 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -26901,9 +26875,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -27591,9 +27564,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -27651,9 +27623,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -28401,9 +28372,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62028,9 +61998,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62038,34 +62007,16 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62073,9 +62024,24 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62083,14 +62049,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62778,9 +62738,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62788,24 +62747,16 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62813,14 +62764,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62828,9 +62773,16 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -62838,9 +62790,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -63528,9 +63479,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -63538,9 +63488,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -63548,39 +63497,16 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -63588,9 +63514,24 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -65778,9 +65719,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -65788,14 +65728,34 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "gras3.jpg",
 "walkable": 1
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "gras3.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -65803,24 +65763,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -65828,19 +65772,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -66528,9 +66461,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -66588,9 +66520,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -67278,29 +67209,16 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -67308,14 +67226,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -67323,9 +67235,12 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -67333,14 +67248,21 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "gras3.jpg",
 "walkable": 1
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -68028,9 +67950,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -68088,9 +68009,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -68777,9 +68697,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -68837,9 +68756,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -69527,9 +69445,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -69587,9 +69504,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -70277,9 +70193,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -70337,9 +70252,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -71027,9 +70941,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -71087,9 +71000,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -71777,9 +71689,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -71837,9 +71748,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -72528,9 +72438,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -72588,9 +72497,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -73278,9 +73186,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -73338,9 +73245,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -74028,9 +73934,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -74088,9 +73993,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -74770,9 +74674,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -74830,9 +74733,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -75518,9 +75420,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -75578,9 +75479,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -76266,9 +76166,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -76326,9 +76225,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -77014,9 +76912,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -77074,9 +76971,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -77762,9 +77658,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -77822,9 +77717,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -78508,9 +78402,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -78568,9 +78461,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -79258,9 +79150,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -79318,9 +79209,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -80818,9 +80708,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -81508,9 +81397,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -81518,14 +81406,16 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
+},
+{
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -81533,44 +81423,32 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
-},
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -82318,9 +82196,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -83008,59 +82885,48 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -83068,9 +82934,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -83818,9 +83683,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -118167,8 +118031,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -118215,8 +118080,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -118722,8 +118588,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -118770,8 +118637,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -119254,8 +119122,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -119302,8 +119171,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -119537,10 +119407,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -119790,8 +119657,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -119838,8 +119706,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -120311,8 +120180,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -120359,8 +120229,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -120831,8 +120702,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -120879,8 +120751,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea3.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -133790,56 +133663,56 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -134140,10 +134013,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -134408,56 +134278,56 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -135289,9 +135159,15 @@
 "sprite_file": "water.jpg"
 },
 {
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
+},
+{
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -135329,16 +135205,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -135882,8 +135751,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -135930,8 +135800,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -136599,8 +136470,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -136647,8 +136519,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -137198,8 +137071,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -137246,8 +137120,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -137788,8 +137663,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -137836,8 +137712,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -138157,10 +138034,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -138373,8 +138247,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -138421,8 +138296,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -138895,8 +138771,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -138943,8 +138820,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -139401,8 +139279,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -139449,8 +139328,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -139933,8 +139813,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -139981,8 +139862,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -140423,8 +140305,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -140471,8 +140354,9 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "nymphaea4.png",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -140964,10 +140848,7 @@
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
+0,
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
@@ -141172,56 +141053,53 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
+0,
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
-},
-{
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
@@ -141670,56 +141548,56 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "tropical.png"
 },
 {
 "sprite_class": "sprites.water.Water",
