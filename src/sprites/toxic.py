@@ -30,8 +30,8 @@ class Toxic(Sprite):
         w, h = SPRITE_SIZE
 
         while len(self.particles) < PARTICLE_COUNT:
-            x = random.randint(1, w - 1)
-            y = random.randint(1, h - 1)
+            x = random.randint(PARTICLE_RADIUS, w - PARTICLE_RADIUS)
+            y = random.randint(PARTICLE_RADIUS, h - PARTICLE_RADIUS)
 
             particle = [x, y]
 
@@ -60,7 +60,7 @@ class Toxic(Sprite):
             particle[1] -= PARTICLES_SPEED
 
             if particle[1] <= rect.h:
-                particle[0] = random.randint(1, w - 1)
+                particle[0] = random.randint(PARTICLE_RADIUS, w - PARTICLE_RADIUS)
                 particle[1] = h - 1
                 self.particles[i] = particle
 
