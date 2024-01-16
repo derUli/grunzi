@@ -19,6 +19,9 @@ LAYER_ITEMS = 2
 LAYER_OTHER_CHARS = 3
 LAYER_MAINCHAR = 4
 
+SKIP_LAYERS = [
+    LAYER_GROUND
+]
 
 class Level:
     """ Level class """
@@ -122,6 +125,7 @@ class Level:
             for y in range(len(update_list[z])):
                 if not any(update_list[z][y]):
                     continue
+
                 for x in range(len(update_list[z][y])):
                     new_value = update_list[z][y][x]
 
@@ -205,6 +209,8 @@ class Level:
         for z in reversed(range(0, len(self.layers))):
             for y in range(0, len(self.layers[z])):
                 if not any(self.layers[z][y]):
+                    continue
+                if y in SKIP_LAYERS:
                     continue
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
@@ -326,12 +332,14 @@ class Level:
         return self.search_by_id(MAIN_CHARACTER_ID)
 
     def search_by_id(self, sprite_id):
-
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):
             for y in range(0, len(self.layers[z])):
 
                 if not any(self.layers[z][y]):
+                    continue
+
+                if y in SKIP_LAYERS:
                     continue
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
@@ -346,9 +354,12 @@ class Level:
             for y in range(0, len(self.layers[z])):
                 if not any(self.layers[z][y]):
                     continue
+
+                if y in SKIP_LAYERS:
+                    continue
                 try:
                     x = self.layers[z][y].index(sprite)
-                    return (z, y, x)
+                    return z, y, x
                 except ValueError:
                     continue
 
@@ -357,13 +368,3 @@ class Level:
     def update_camera(self, camera):
         z, y, x = self.search_by_id(constants.game.MAIN_CHARACTER_ID)
         camera.update(x, y)
-
-    def async_ai(self):
-        for z in self.layers:
-            for y in z:
-                if not any(y):
-                    continue
-
-                for x in y:
-                    if isinstance(x, sprites.sprite.AsyncAI):
-                        x.async_ai(self)
