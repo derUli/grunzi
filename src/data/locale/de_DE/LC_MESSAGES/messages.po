@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-16 01:12+0100\n"
+"POT-Creation-Date: 2024-01-16 19:00+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:109 components/menu/mainmenu.py:59 grunzi.py:30
+#: bootstrap/gamecontainer.py:105 components/menu/mainmenu.py:59 grunzi.py:30
 msgid "Grunzi"
 msgstr ""
 
@@ -43,15 +43,15 @@ msgstr "Zurück zum Hauptmenü"
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: components/game/maingame.py:366
+#: components/game/maingame.py:358
 msgid "Grunt!"
 msgstr "Grunz"
 
-#: components/game/maingame.py:495
+#: components/game/maingame.py:487
 msgid "Level saved."
 msgstr "Level gespeichert."
 
-#: components/game/maingame.py:498
+#: components/game/maingame.py:490
 msgid "Level dumped."
 msgstr ""
 
@@ -270,47 +270,47 @@ msgstr "Die Tür ist jetzt offen."
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
-#: sprites/horse.py:36
+#: sprites/horse.py:38
 msgid "Infinity bloodless!"
 msgstr "Unendlich blutleer!"
 
-#: sprites/horse.py:37
+#: sprites/horse.py:39
 msgid "I don't have a single drop of blood left."
 msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
 
-#: sprites/horse.py:38
+#: sprites/horse.py:40
 msgid "Please give me some blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:39
+#: sprites/horse.py:41
 msgid "I am infinitely thirsty for blood."
 msgstr "Ich bin unendlich durstig nach Blut!"
 
-#: sprites/horse.py:113
+#: sprites/horse.py:126
 msgid "Now I have a bit more blood."
 msgstr "Jetzt habe ich ein wenig mehr Blut."
 
-#: sprites/horse.py:114
+#: sprites/horse.py:127
 msgid "I still haven't enough blood."
 msgstr "Ich habe immer noch nicht genug Blut."
 
-#: sprites/horse.py:115
+#: sprites/horse.py:128
 msgid "Yummy blood!"
 msgstr "Leckeres Blut!"
 
-#: sprites/horse.py:116
+#: sprites/horse.py:129
 msgid "Give me more blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:117
+#: sprites/horse.py:130
 msgid "Tasty blood!"
 msgstr "Köstliches Blood!"
 
-#: sprites/horse.py:118
+#: sprites/horse.py:131
 msgid "I need more blood!"
 msgstr "Ich brauche mehr Blut!"
 
-#: sprites/horse.py:144
+#: sprites/horse.py:160
 msgid "Now I am full of blood."
 msgstr "Jetzt bin ich wieder blutvoll. :)"
 
@@ -326,11 +326,15 @@ msgstr "[Münze einwerfen]"
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
-#: state/level.py:139
+#: sprites/wildpig.py:14
+msgid "I am very wild."
+msgstr "Ich bin sehr wild."
+
+#: state/level.py:141
 msgid "Saving level..."
 msgstr "Speichere Level..."
 
-#: state/level.py:156
+#: state/level.py:158
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 

@@ -72338,12 +72338,13 @@
 ],
 [
 {
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "mud.jpg",
+"walkable": 1
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "gras2.jpg",
 "walkable": 1
 },
 {
@@ -129549,11 +129550,7 @@
 ],
 [
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower3.png",
-"walkable": 1
-},
+0,
 0,
 0,
 0,
@@ -138614,7 +138611,10 @@
 0
 ],
 [
-0,
+{
+"sprite_class": "sprites.wildpig.Wildpig",
+"sprite_file": "wildpig.png"
+},
 0,
 0,
 0,
