@@ -8,6 +8,8 @@
 
 ## Alpha 005
 
+* Aufgabe mit blutleeren Pferd hinzugefügt
+* Weitere NPC-Tiere hinzugefügt
 * Autosave
 * Neuer Ladebildschirm
 * Schnee-Effekt
