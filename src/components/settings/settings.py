@@ -34,7 +34,7 @@ class Settings(MenuComponent):
 
     def restart_app(self):
         """ Restart game """
-        pygame.mixer.music.stop()
+        pygame.quit()
         logging.debug('Restart application to apply settings')
 
         command = [sys.executable] + sys.argv
