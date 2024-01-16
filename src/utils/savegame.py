@@ -70,6 +70,9 @@ def has_savegame(name: str) -> bool:
 
 
 def has_savegames() -> bool:
+    """
+    Check if there are savegames
+    """
     for sav in SAVEGAMES:
         if has_savegame(sav):
             return True
