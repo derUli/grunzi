@@ -82,8 +82,7 @@ class MainGame(PausableComponent, LoadingScreen):
         savegame = utils.savegame.load_game(savegame, self.state)
         self.level.apply_diff(savegame)
 
-        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
-        self.level.layers[z][y][x].state = self.state.player_state
+        self.level.get_mainchar().state = self.state.player_state
         self.level.update_camera(self.camera)
 
     def load_level(self, level_file, show_loading_screen=True):
@@ -99,9 +98,7 @@ class MainGame(PausableComponent, LoadingScreen):
             logging.error('Invalid level JSON')
             return False
 
-        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
-        self.level.layers[z][y][x].state = self.state.player_state
-
+        self.level.get_mainchar().state = self.state.player_state
         self.level.update_camera(self.camera)
 
         self.music_queue.shuffle()
@@ -284,7 +281,7 @@ class MainGame(PausableComponent, LoadingScreen):
             component.state = self.state
 
     def check_for_updates(self):
-        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_mainchar()
 
         # Check for level file changes
         if self.state.edit_mode and self.level.check_for_changes():
@@ -308,19 +305,19 @@ class MainGame(PausableComponent, LoadingScreen):
 
     def handle_interactions(self):
         if self.state.player_state.use_item:
-            z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
-            character = self.level.get_sprite_at((z, y, x))
+            z, y, x = self.level.search_mainchar()
+            character = self.level.get_at((z, y, x))
 
             for z in reversed(range(0, len(self.level.layers))):
                 if isinstance(self.state.player_state.inventory, InlineSprite):
                     i_x, i_y = self.level.calculate_next_pos(
                         (x, y), character.direction)
-                    i_element = self.level.get_sprite_at((z, i_y, i_x))
+                    i_element = self.level.get_at((z, i_y, i_x))
                     if i_element:
                         i_element.handle_interact_item(character)
 
     def drop_item(self):
-        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_mainchar()
 
         beep_sound = os.path.join(
             self.data_dir,
@@ -506,7 +503,7 @@ class MainGame(PausableComponent, LoadingScreen):
 
     def make_field(self, z, clear=False):
         """ Make field in edit mode """
-        _z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
+        _z, y, x = self.level.search_mainchar()
 
         if z >= len(self.level.layers):
             return
@@ -540,7 +537,7 @@ class MainGame(PausableComponent, LoadingScreen):
 
     def move_main_character(self, dir, running=None):
         """ Move main character one field in direction """
-        z, y, x = self.level.search_by_id(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.level.search_mainchar()
         character = self.level.layers[z][y][x]
 
         if dir is None:
@@ -596,7 +593,7 @@ class MainGame(PausableComponent, LoadingScreen):
         walkable = self.level.is_walkable(next_x, next_y)
 
         for layer in range(0, layer_count):
-            element = self.level.get_sprite_at((layer, next_y, next_x))
+            element = self.level.get_at((layer, next_y, next_x))
 
             if element:
                 element.handle_interact(character)

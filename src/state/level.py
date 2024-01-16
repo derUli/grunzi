@@ -238,35 +238,6 @@ class Level:
 
         return False
 
-    def search_by_id(self, id):
-
-        """ Search character by id """
-        for z in reversed(range(0, len(self.layers))):
-            for y in range(0, len(self.layers[z])):
-
-                if not any(self.layers[z][y]):
-                    continue
-                for x in range(0, len(self.layers[z][y])):
-                    element = self.layers[z][y][x]
-                    if element and element.id == id:
-                        return (z, y, x)
-
-        return None
-
-    def search_sprite(self, sprite):
-        """ Search character by id """
-        for z in reversed(range(0, len(self.layers))):
-            for y in range(0, len(self.layers[z])):
-                if not any(self.layers[z][y]):
-                    continue
-                try:
-                    x = self.layers[z][y].index(sprite)
-                    return (z, y, x)
-                except ValueError:
-                    continue
-
-        return None
-
     def move_sprite(self, sprite, target_pos):
         """ Move a sprite to target pos """
         old_z, old_y, old_x = self.search_sprite(sprite)
@@ -331,7 +302,7 @@ class Level:
 
         return (x, y)
 
-    def get_sprite_at(self, pos):
+    def get_at(self, pos):
         """ Get sprite at """
         z, y, x = pos
 
@@ -339,6 +310,49 @@ class Level:
             return self.layers[z][y][x]
         except IndexError:
             return None
+
+    def get_by_id(self, sprite_id):
+        pos = self.search_by_id(sprite_id)
+
+        if pos:
+            return self.get_at(pos)
+
+        return None
+
+    def get_mainchar(self):
+        return self.get_by_id(MAIN_CHARACTER_ID)
+
+    def search_mainchar(self):
+        return self.search_by_id(MAIN_CHARACTER_ID)
+
+    def search_by_id(self, sprite_id):
+
+        """ Search character by id """
+        for z in reversed(range(0, len(self.layers))):
+            for y in range(0, len(self.layers[z])):
+
+                if not any(self.layers[z][y]):
+                    continue
+                for x in range(0, len(self.layers[z][y])):
+                    element = self.layers[z][y][x]
+                    if element and element.id == sprite_id:
+                        return z, y, x
+
+        return None
+
+    def search_sprite(self, sprite):
+        """ Search character by id """
+        for z in reversed(range(0, len(self.layers))):
+            for y in range(0, len(self.layers[z])):
+                if not any(self.layers[z][y]):
+                    continue
+                try:
+                    x = self.layers[z][y].index(sprite)
+                    return (z, y, x)
+                except ValueError:
+                    continue
+
+        return None
 
     def update_camera(self, camera):
         z, y, x = self.search_by_id(constants.game.MAIN_CHARACTER_ID)
