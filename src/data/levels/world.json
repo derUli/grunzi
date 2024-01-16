@@ -38076,9 +38076,8 @@
 "walkable": 1
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras2.jpg",
-"walkable": 1
+"sprite_class": "sprites.water.Water",
+"sprite_file": "water.jpg"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -124343,8 +124342,8 @@
 "sprite_file": "water.jpg"
 },
 {
-"sprite_class": "sprites.water.Water",
-"sprite_file": "water.jpg"
+"sprite_class": "sprites.frog.Frog",
+"sprite_file": "frog.png"
 },
 {
 "sprite_class": "sprites.water.Water",
