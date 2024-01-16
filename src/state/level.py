@@ -23,6 +23,7 @@ SKIP_LAYERS = [
     LAYER_GROUND
 ]
 
+
 class Level:
     """ Level class """
 
@@ -341,6 +342,7 @@ class Level:
 
                 if y in SKIP_LAYERS:
                     continue
+
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
                     if element and element.id == sprite_id:
@@ -366,5 +368,5 @@ class Level:
         return None
 
     def update_camera(self, camera):
-        z, y, x = self.search_by_id(constants.game.MAIN_CHARACTER_ID)
+        z, y, x = self.search_mainchar()
         camera.update(x, y)

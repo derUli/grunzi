@@ -27,8 +27,7 @@ class CodeCheck(Sprite):
     def ai(self, level):
         """ Generate number code, Check number code """
         if not self.code:
-            z, y, x = level.search_by_id('telescope')
-            telescope = level.layers[z][y][x]
+            telescope = level.get_by_id('telescope')
             self.code = telescope.attributes['code']
 
             self.z, self.y, self.x = level.search_sprite(self)

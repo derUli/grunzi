@@ -101,7 +101,7 @@ class Dynamite(Takeable):
     def ai(self, level):
         z, y, x = level.search_sprite(self)
 
-        mc_z, mc_y, mc_x = level.search_by_id(MAIN_CHARACTER_ID)
+        mc_z, mc_y, mc_x = level.search_mainchar()
         mainchar = level.layers[mc_z][mc_y][mc_x]
 
         if self.exploded:
