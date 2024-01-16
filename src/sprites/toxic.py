@@ -38,7 +38,6 @@ class Toxic(Sprite):
             self.particles.append(particle)
 
     def draw(self, screen, x, y):
-
         """ draw sprite """
 
         if not shader_enabled():
