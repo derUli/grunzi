@@ -15,7 +15,7 @@ class Lava(sprites.sprite.Sprite):
         """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
 
-        self.walkable = False
+        self.walkable = True
         self.player_state = None
         self.original_sprite = self.sprite.copy().convert()
 

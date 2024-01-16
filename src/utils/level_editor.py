@@ -88,6 +88,16 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache,
             'snow.jpg'
         ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'grid1.png'
+        ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'grid2.png'
+        ),
         Wall(
             sprites_dir,
             image_cache,
