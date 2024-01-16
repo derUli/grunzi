@@ -67,6 +67,16 @@ def unpause_sounds() -> None:
     logging.debug('All sounds continued')
 
 
+def sounds_busy() -> bool:
+    """
+    Unpause all songs
+    """
+    for channel in CHANNELS:
+        if channel and channel.get_busy():
+            return True
+        
+    return False
+
 def play_music(file: str, repeat: int = -1) -> None:
     """
     Plays a music file

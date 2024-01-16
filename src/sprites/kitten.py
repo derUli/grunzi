@@ -13,7 +13,7 @@ from sprites.character import Character
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from sprites.weapon import Weapon
-from utils.audio import play_sound
+from utils.audio import play_sound, sounds_busy
 
 RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
@@ -71,7 +71,7 @@ class Kitten(Killable, Character):
         return direction
 
     def play_sound(self):
-        if self.sound and self.sound.get_busy():
+        if sounds_busy():
             return
 
         if not self.next_mew:

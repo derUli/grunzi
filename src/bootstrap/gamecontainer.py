@@ -189,7 +189,7 @@ class GameContainer:
         self.current_component.draw(self.screen)
 
         self.tick()
-        pygame.display.update()
+        pygame.display.flip()
 
     def ai(self):
         if self.current_component:

@@ -14,7 +14,7 @@ from sprites.feather import Feather
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from sprites.weapon import Weapon
-from utils.audio import play_sound
+from utils.audio import play_sound, sounds_busy
 from utils.quality import pixel_fades_enabled
 
 RUMBLE_CHAINSAW_DURATION = 300
@@ -79,7 +79,7 @@ class Chicken(Killable, Character):
         return self.next_direction_change
 
     def play_sound(self):
-        if self.sound and self.sound.get_busy():
+        if sounds_busy():
             return
 
         sound_dir = os.path.abspath(
