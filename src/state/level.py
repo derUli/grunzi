@@ -72,11 +72,8 @@ class Level:
                         if progress_callback:
                             progress_callback(loaded_percent)
 
-                    if not x:
-                        next
 
-                    sprite = sprites.sprite.from_dict(
-                        x, self.sprites_dir, self.image_cache)
+                    sprite = sprites.sprite.from_dict(x, self.sprites_dir, self.image_cache)
 
                     if sprite and sprite.id == MAIN_CHARACTER_ID:
                         if mainchar_added:
