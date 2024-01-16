@@ -11,6 +11,8 @@ from sprites.character import Character
 from sprites.fadeable import Fadeable
 from sprites.levelexit import LevelExit
 from utils.atmosphere import ATMOSPHERE_FOG
+import os
+from utils.audio import play_sound
 
 HORSE_FOG = 255
 
@@ -38,6 +40,16 @@ class Horse(Character, Fadeable):
             _('Please give me some blood!'),
             _('I am infinitely thirsty for blood.')
         ]
+
+        self.horse_sound = os.path.abspath(
+            os.path.join(
+                sprite_dir,
+                '..',
+                '..',
+                'sounds',
+                'horse',
+                'horse.ogg')
+        )
 
     def draw(self, screen, x, y):
         super().draw(screen, x, y)
@@ -75,6 +87,7 @@ class Horse(Character, Fadeable):
             if element.state.display_text.is_visible():
                 return
 
+            play_sound(self.horse_sound)
             element.state.say(self.next_sentence())
 
             self.task = TASK_ID
@@ -119,6 +132,8 @@ class Horse(Character, Fadeable):
             ]
             self.sentence = -1
 
+            play_sound(self.horse_sound)
+
             element.state.say(self.next_sentence())
 
     def update_atmosphere(self, atmosphere):
@@ -141,6 +156,9 @@ class Horse(Character, Fadeable):
         if self.attributes['blood'] >= 100 and not full_of_blood:
             self.attributes['full_of_blood'] = True
             state.task.set_id(None)
+
+            play_sound(self.horse_sound)
+
             state.player_state.say(_('Now I am full of blood.'), handle_text_shown=self.finish_task)
 
         if self.task:
