@@ -13,6 +13,7 @@ from sprites.fuel import Fuel
 from sprites.hammer import Hammer
 from sprites.kitten import Kitten
 from sprites.landmine import LandMine
+from sprites.lava import Lava
 from sprites.levelexit import LevelExit
 from sprites.piggybank import PiggyBank
 from sprites.sheep import Sheep
@@ -182,6 +183,10 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache
         ),
         Water(
+            sprites_dir,
+            image_cache
+        ),
+        Lava(
             sprites_dir,
             image_cache
         ),
