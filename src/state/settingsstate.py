@@ -21,12 +21,25 @@ SETTINGS_DEFAULT_SMOOTHSCALE = True
 SETTINGS_DEFAULT_VOLUME = 1.0
 
 
+
+def get_default_screen_resolution():
+    """ Try to detect native screen resolution """
+    desktop_sizes = pygame.display.get_desktop_sizes()
+
+    if any(desktop_sizes):
+        return desktop_sizes[0]
+
+    # If the screen resolution could not be detected use 720P as default
+    return SETTINGS_DEFAULT_SCREEN_RESOLUTION
+
 class SettingsState:
     def __init__(self):
         """ Constructor """
 
         # Screen settings
-        self.screen_resolution = SETTINGS_DEFAULT_SCREEN_RESOLUTION
+        self.screen_resolution = get_default_screen_resolution()
+
+
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.vsync = SETTINGS_DEFAULT_VSYNC

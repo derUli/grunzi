@@ -33,7 +33,7 @@ class GameContainer:
         self.running = True
         self.clock = pygame.time.Clock()
         self.current_component = None
-        self.settings_state = SettingsState()
+        self.settings_state = None
         self.enable_edit_mode = enable_edit_mode
         self.gamepad = None
         self.disable_controller = disable_controller
@@ -66,8 +66,9 @@ class GameContainer:
 
         pygame.mixer.pre_init(
             44100, 16, 2, 4096)  # For better and faster audio
-
         pygame.init()
+
+        self.settings_state = SettingsState()
 
         audio_devices = get_devices()
 
