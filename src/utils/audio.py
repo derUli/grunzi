@@ -96,6 +96,9 @@ def get_devices(capture_devices: bool = False) -> list:
     devices = []
 
     if sdl2_audio:
-        devices = list(sdl2_audio.get_audio_device_names(capture_devices))
+        try:
+            devices = list(sdl2_audio.get_audio_device_names(capture_devices))
+        except pygame._sdl2.sdl2.error as e:
+            logging.error(e)
 
     return devices
