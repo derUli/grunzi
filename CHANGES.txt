@@ -2,7 +2,6 @@
 
 ## Alpha XXX (Not yet released)
 
-* Quest mit blutleerem Pferd hinzufügt
 * Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
 * Sprachausgabe (?)
 
@@ -16,7 +15,7 @@
 
 ## Alpha 004
 
-* Puzzle mit Sprengstoff hinzugefügt
+* Aufgabe mit Sprengstoff hinzugefügt
 * Tretminen hinzugefügt
 * Schwert hinzugefügt
 * Tag-Nacht-Zyklus hinzugefügt
@@ -30,13 +29,13 @@
 ## Alpha 003
 
 * Intro
-* Puzzle mit Zahlencode hinzugefügt
+* Aufgabe mit Zahlencode hinzugefügt
 * Hunde KI verbessert
 * Dekoration hinzugefügt
 
 ## Alpha 002
 
-* Puzzle mit Holzbrettern hinzugefügt
+* Aufgabe mit Holzbrettern hinzugefügt
 * Mehr Musik-Tracks
 * Spielstände jetzt aufwärtskompatibel
 * Experimentelle Maussteuerung
