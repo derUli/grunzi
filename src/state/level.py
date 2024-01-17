@@ -205,10 +205,6 @@ class Level:
     def update_sprites(self):
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):
-
-            if z in SKIP_LAYERS:
-                continue
-
             for y in range(0, len(self.layers[z])):
                 if not any(self.layers[z][y]):
                     continue

@@ -15,6 +15,8 @@ from GPUtil.GPUtil import getGPUs
 from pygame.locals import QUIT
 
 from components.menu.mainmenu import MainMenu
+
+from components.menu.intro import Intro
 from constants.keyboard import K_SCREENSHOT, K_SHOW_FPS
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
@@ -44,7 +46,7 @@ class GameContainer:
         self.fps_counter = []
         self.__main__ = None
 
-    def start(self, component=MainMenu):
+    def start(self, component=Intro):
         """ Start game """
         version_file = os.path.join(self.root_dir, 'LICENSE')
 
