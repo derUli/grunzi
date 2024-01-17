@@ -12,6 +12,7 @@
 * Autosave
 * Neuer Ladebildschirm
 * Schnee-Effekt
+* Es wird nun beim ersten Start die Bildschirmauflösung des Systems übernommen
 
 ## Alpha 004
 
