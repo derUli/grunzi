@@ -137340,7 +137340,11 @@
 "sprite_file": "sand.jpg",
 "walkable": 1
 },
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "sand.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
