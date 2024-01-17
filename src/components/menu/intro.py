@@ -65,7 +65,7 @@ class Intro(MenuComponent):
         if self.phase == PHASE_FADEIN:
             self.alpha += FADE_SPEED
 
-            if self.alpha >= 255:
+            if self.alpha > 255:
                 self.alpha = 255
                 self.phase = PHASE_WAIT
                 self.wait_for = time.time() + WAIT
@@ -86,7 +86,7 @@ class Intro(MenuComponent):
         elif self.phase == PHASE_FADEOUT:
             self.alpha -= FADE_SPEED
 
-            if self.alpha <= 0:
+            if self.alpha < 0:
                 self.alpha = 0
 
                 self.handle_change_component(MainMenu)

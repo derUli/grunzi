@@ -28,6 +28,9 @@ class MainCharacter(Character):
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pig')
         )
 
+        self.walk_speed = 0.099
+        self.sprint_speed = self.walk_speed * 0.7
+
     def draw(self, screen, x, y):
         """ Draw main character """
         drawn = super().draw(screen, x, y)
