@@ -28,8 +28,8 @@ class MainCharacter(Character):
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pig')
         )
 
-        self.walk_speed = 0.099
-        self.sprint_speed = self.walk_speed * 0.7
+        self.walk_speed = 0.095
+        self.sprint_speed = self.walk_speed * 0.8
 
     def draw(self, screen, x, y):
         """ Draw main character """
