@@ -1,7 +1,7 @@
 import os
+import sys
 
 import pygame
-import utils.menu as menu
 import constants.game
 import constants.headup
 import utils.audio
@@ -24,6 +24,7 @@ class Component(object):
         self.do_quit = False
         self.__main__ = None
         self.pressed_keys = []
+        self.quit_handler = sys.exit
 
         self.monotype_font = pygame.font.Font(
             os.path.join(data_dir, 'fonts', constants.game.MONOTYPE_FONT),
@@ -83,6 +84,9 @@ class Component(object):
         @param screen: screen surface
         """
         self.screen = screen
+
+    def set_quit_handler(self, quit_handler) -> None:
+        self.quit_handler = quit_handler
 
     def mount(self):
         """ Mount event """

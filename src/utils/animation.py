@@ -50,7 +50,11 @@ class Animation:
     def load_sync(self):
         """ Load all animation files """
         for file in self.files:
-            self.frames += [self.load_frame(file)]
+            try:
+                self.frames += [self.load_frame(file)]
+            except pygame.error as e:
+                logging.error(e)
+                return
 
     def reload(self):
         self.reload_async()

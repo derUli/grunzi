@@ -7,6 +7,8 @@ import logging
 import os
 import platform
 import signal
+import sys
+
 import numpy
 import pygame
 from GPUtil.GPUtil import getGPUs
@@ -177,8 +179,13 @@ class GameContainer:
         self.current_component.do_quit = True
         self.running = False
         self.output_fps()
+        pygame.quit()
+        sys.exit()
 
     def output_fps(self):
+        if not any(self.fps_counter):
+            return
+
         logging.info(label_value('Avg framerate', numpy.average(self.fps_counter)))
         logging.info(label_value('Min framerate', numpy.min(self.fps_counter)))
         logging.info(label_value('Max framerate', numpy.max(self.fps_counter)))
@@ -239,6 +246,7 @@ class GameContainer:
 
         self.current_component.image_cache.clear()
         self.current_component.set_screen(self.screen)
+        self.current_component.set_quit_handler(self.quit)
         self.current_component.disable_ai = self.disable_ai
         self.current_component.mount()
 

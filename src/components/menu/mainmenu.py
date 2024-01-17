@@ -20,7 +20,8 @@ class MainMenu(MenuComponent):
             handle_change_component,
             settings_state,
             enable_edit_mode,
-            gamepad)
+            gamepad
+        )
 
     def mount(self):
         if not pygame.mixer.music.get_busy():
@@ -68,7 +69,7 @@ class MainMenu(MenuComponent):
 
         menu.add.button(_('Settings'), self.handle_settings)
 
-        menu.add.button(_('Quit'), pygame_menu.events.EXIT)
+        menu.add.button(_('Quit'), self.quit_handler)
 
         self.menu = menu
         menu.mainloop(screen, self.draw_background)
