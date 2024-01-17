@@ -24,7 +24,11 @@ SETTINGS_DEFAULT_VOLUME = 1.0
 
 def get_default_screen_resolution() -> tuple:
     """ Try to detect native screen resolution """
-    desktop_sizes = pygame.display.get_desktop_sizes()
+    try:
+        desktop_sizes = pygame.display.get_desktop_sizes()
+    except pygame.error as e:
+        logging.error(e)
+        desktop_sizes = []
 
     if any(desktop_sizes):
         return desktop_sizes[0]

@@ -7,12 +7,13 @@ import logging
 import os
 import platform
 import signal
-
+import numpy
 import pygame
 from GPUtil.GPUtil import getGPUs
 from pygame.locals import QUIT
 
 from components.menu.mainmenu import MainMenu
+from constants.keyboard import K_SCREENSHOT, K_SHOW_FPS
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller
 from utils.audio import play_sound, get_devices
@@ -38,6 +39,7 @@ class GameContainer:
         self.gamepad = None
         self.disable_controller = disable_controller
         self.disable_ai = disable_ai
+        self.fps_counter = []
         self.__main__ = None
 
     def start(self, component=MainMenu):
@@ -159,8 +161,10 @@ class GameContainer:
                 self.quit()
                 return
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_F12:
+                if event.key == K_SCREENSHOT:
                     self.screenshot()
+                if event.key == K_SHOW_FPS:
+                    self.output_fps()
                 if event.mod & pygame.KMOD_ALT and event.key in [
                     pygame.K_RETURN, pygame.K_KP_ENTER
                 ]:
@@ -172,6 +176,12 @@ class GameContainer:
         """ Quit game """
         self.current_component.do_quit = True
         self.running = False
+        self.output_fps()
+
+    def output_fps(self):
+        logging.info(label_value('Avg framerate', numpy.average(self.fps_counter)))
+        logging.info(label_value('Min framerate', numpy.min(self.fps_counter)))
+        logging.info(label_value('Max framerate', numpy.max(self.fps_counter)))
 
     def screenshot(self):
         """ Save a screenshot  """
@@ -198,6 +208,9 @@ class GameContainer:
 
     def tick(self):
         self.clock.tick(self.settings_state.limit_fps)
+        fps = self.clock.get_fps()
+        if fps > 0:
+            self.fps_counter.append(self.clock.get_fps())
 
     def change_component(self, component):
         """ Change component """
