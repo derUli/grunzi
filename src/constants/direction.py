@@ -1,4 +1,5 @@
 """ Direction constants """
+from typing import Union
 
 from constants import keyboard
 
@@ -8,13 +9,19 @@ DIRECTION_UP = 3
 DIRECTION_DOWN = 4
 
 
-def key_to_direction(key: int) -> int:
-    """ Map keycode to movement direction """
+def key_to_direction(key: int) -> Union[int, None]:
+    """
+    Map key code to movement direction
+    @param key: key code
+    @return: direction
+    """
     if key in keyboard.K_UP:
         return DIRECTION_UP
-    elif key in keyboard.K_DOWN:
+    if key in keyboard.K_DOWN:
         return DIRECTION_DOWN
-    elif key in keyboard.K_LEFT:
+    if key in keyboard.K_LEFT:
         return DIRECTION_LEFT
-    elif key in keyboard.K_RIGHT:
+    if key in keyboard.K_RIGHT:
         return DIRECTION_RIGHT
+
+    return None
