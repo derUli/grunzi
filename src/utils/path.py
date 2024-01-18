@@ -17,7 +17,8 @@ def get_userdata_path() -> str:
             homedir,
             'Documents',
             'My Games',
-            GAMEDIR_NAME_WINDOWS)
+            GAMEDIR_NAME_WINDOWS
+        )
     else:
         homedir = os.path.join(homedir, GAMEDIR_NAME_LINUX)
 
