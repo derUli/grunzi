@@ -27,7 +27,7 @@ from utils.image import ImageCache
 
 
 def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
-    """ Returns the items for the ingame block editor """
+    """ Returns the items for the in-game block editor """
     return [
         Backdrop(
             sprites_dir,
