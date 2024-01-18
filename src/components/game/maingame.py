@@ -6,6 +6,7 @@ import random
 import time
 from threading import Thread
 
+import numpy
 import pygame
 
 import components.game.tobecontinued
@@ -73,6 +74,7 @@ class MainGame(PausableComponent, LoadingScreen):
     def new_game(self):
         """ Load level """
         level_file = os.path.join(self.data_dir, 'levels', 'world.json')
+
         self.load_level(level_file)
         self.state.atmosphere = self.atmosphere
 

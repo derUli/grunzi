@@ -1,7 +1,7 @@
 import json
+import orjson
 import logging
 import os
-
 import pygame
 
 import utils.audio
@@ -102,7 +102,7 @@ class SettingsState:
 
     def from_json(self, jsons):
         """ Load from json """
-        return json.loads(jsons)
+        return orjson.loads(jsons)
 
     def load(self):
         """ Load from file """

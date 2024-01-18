@@ -1,5 +1,6 @@
 """ Level """
 import json
+import orjson
 import logging
 import os
 import time
@@ -44,7 +45,7 @@ class Level:
         self.level_file_last_changed = os.path.getmtime(self.level_file)
 
         with open(self.level_file, 'r') as f:
-            leveldata = json.loads(f.read())
+            leveldata = orjson.loads(f.read())
 
         if progress_callback:
             progress_callback(0)

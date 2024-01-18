@@ -1,5 +1,6 @@
 """ Savegame handling """
 import json
+import orjson
 import os
 import time
 from typing import Union
@@ -75,7 +76,7 @@ def load_game(name, state):
         return None
 
     with open(savegame_file, 'r') as f:
-        return json.loads(f.read())
+        return orjson.loads(f.read())
 
     return None
 

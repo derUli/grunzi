@@ -1,6 +1,6 @@
 import json
 import os
-
+import orjson
 from state.playerstate import PlayerState
 from state.task import Task
 from utils.image import ImageCache
@@ -76,7 +76,7 @@ class State:
 
     def from_json(self, data):
         """ To dictionary """
-        savegame = json.loads(data)
+        savegame = orjson.loads(data)
         self.from_dict(savegame)
 
     def update_task(self, task):
