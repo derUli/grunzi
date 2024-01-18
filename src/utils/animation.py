@@ -36,16 +36,25 @@ class Animation:
                 fullpath = os.path.join(animation_dir, file)
                 self.files.append(fullpath)
 
-    def load(self):
-        self.load_async()
-
     def load_async(self):
+        """ Load animation filles async """
         self.loaded = True
-        """ Reload frames """
         logging.debug('Async reload animation started')
         thread = Thread(target=self.load_sync)
         thread.start()
         logging.debug('Async reload animation finished')
+
+    def reload_sync(self):
+        frames = []
+        """ Load all animation files """
+        for file in self.files:
+            try:
+                frames += [self.load_frame(file)]
+            except pygame.error as e:
+                logging.error(e)
+                return
+
+        self.frames = frames
 
     def load_sync(self):
         """ Load all animation files """
@@ -107,7 +116,7 @@ class Animation:
     def get_frame(self):
         """ Get current frame """
         if not self.loaded:
-            self.load()
+            self.load_async()
             return self.empty_surface()
 
         try:
