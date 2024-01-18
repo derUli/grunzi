@@ -45,8 +45,8 @@ class Animation:
         logging.debug('Async reload animation finished')
 
     def reload_sync(self):
-        frames = []
         """ Load all animation files """
+        frames = []
         for file in self.files:
             try:
                 frames += [self.load_frame(file)]
@@ -79,14 +79,6 @@ class Animation:
     def fully_loaded(self):
         """ Check if animation is fully loaded """
         return len(self.frames) == len(self.files)
-
-    def reload_async(self):
-        """ Reload frame """
-        frames = []
-        for file in self.files:
-            frames += [self.load_frame(file)]
-
-        self.frames = frames
 
     def load_frame(self, file):
         """" Load images """
