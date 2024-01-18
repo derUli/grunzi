@@ -1,3 +1,4 @@
+""" Savegame handling """
 import json
 import os
 import time
@@ -15,6 +16,11 @@ SAVEGAMES = [
 
 
 def build_savegame_directory_path(name: str) -> str:
+    """
+    Build path for savegame
+    @param name: savegame name
+    @return:
+    """
     return os.path.join(get_userdata_path(), 'savegames', name)
 
 

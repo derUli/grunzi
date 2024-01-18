@@ -1,6 +1,6 @@
-from utils import xbox_360_controller
-
 """ KEYBOARD_MAPPINGS """
+
+from utils import xbox_360_controller
 
 K_DROP_ITEM = xbox_360_controller.Y
 

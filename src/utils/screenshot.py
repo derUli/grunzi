@@ -1,3 +1,4 @@
+""" Screenshot utils """
 import logging
 import os
 import time
