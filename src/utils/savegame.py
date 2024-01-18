@@ -90,11 +90,12 @@ def has_savegames() -> bool:
     """
     Check if there are savegames
     """
+    check = False
     for sav in SAVEGAMES:
         if has_savegame(sav):
-            return True
+            check = True
 
-    return False
+    return check
 
 
 def save_game(name: str, state, diff_list=None) -> None:

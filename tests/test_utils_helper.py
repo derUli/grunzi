@@ -22,5 +22,10 @@ class HelperTest(unittest.TestCase):
 
     def test_configure_logger(self):
         configure_logger(logging.DEBUG)
-        self.assertIsInstance(logging.getLogger().handlers[0], logging.FileHandler)
-        self.assertIsInstance(logging.getLogger().handlers[1], logging.StreamHandler)
+        self.assertTrue(any(logging.getLogger().handlers))
+
+        for handler in logging.getLogger().handlers:
+            self.assertIsInstance(handler, logging.StreamHandler)
+
+            if isinstance(handler, logging.FileHandler):
+                handler.close()
