@@ -17,18 +17,28 @@ SAVEGAMES = [
 
 def build_savegame_directory_path(name: str) -> str:
     """
-    Build path for savegame
+    Build path for savegame directory
     @param name: savegame name
-    @return:
+    @return: savegame directory path
     """
     return os.path.join(get_userdata_path(), 'savegames', name)
 
 
 def build_savegame_state_path(name: str) -> str:
+    """
+    Build path for savegame state file
+    @param name: savegame name
+    @return: savegame state file
+    """
     return os.path.join(build_savegame_directory_path(name), 'state.json')
 
 
 def build_savegame_level_path(name: str) -> str:
+    """
+    Build path for savegame level file
+    @param name: savegame name
+    @return: savegame level file
+    """
     return os.path.join(build_savegame_directory_path(name), 'level.json')
 
 
