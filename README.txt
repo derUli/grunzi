@@ -62,13 +62,33 @@ START: Menü aufrufen
 ### Bildschirm
 
 Hier kann die Bildschirmauflösung geändert, so wie V-Sync und der Vollbildmodus ein und ausgeschaltet werden.
-Nach einer Änderung der Einstellungen wird das Spiel automatisch neugestartet, um die Änderungen zu übernehmen.
+Nach einer Änderung der Einstellungen wird das Spiel automatisch neu gestartet, um die Änderungen zu übernehmen.
 
 ## Grafik
 
-Hier kann man die Grafikdetails einstellen.
+Hier kann man die Qualität der Grafikdetails einstellen.
 
-TODO: Einzelne Attribute erklären
+**Blut**
+Wenn Grunzi verletzt ist, wird der Monitor blutig eingefärbt.
+**Auswirkung auf die Performance:** Mittel
+
+**Schnee**
+Hier kann der Detailgrad des Schnees eingestellt werden.
+**Auswirkung auf die Performance:** Niedrig
+
+**Nebel**
+Hier kann der Nebel ein- und ausgeschaltet werden.
+**Auswirkung auf die Performance:** Mittel
+
+**Bloom**
+Hier kann der Bloom-Effekt ein- und ausgeschaltet werden.
+**Auswirkung auf die Performance:** Hoch
+
+**Weiche Skalierung**
+Verwende für die Skalierung der Grafiken einen Algorithmus mit Kantenglättung.
+
+**Auswirkung auf die Performance:** Niedrig
+
 
 ## Audio
 

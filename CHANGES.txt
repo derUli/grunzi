@@ -7,7 +7,7 @@
 
 ## Alpha 005
 
-* Aufgabe mit blutleeren Pferd hinzugefügt
+* Aufgabe mit blutleerem Pferd hinzugefügt
 * Weitere NPC-Tiere hinzugefügt
 * Autosave
 * Neuer Ladebildschirm
