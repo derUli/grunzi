@@ -11,15 +11,14 @@ def is_windows() -> bool:
 def get_userdata_path() -> str:
     """ Get savegame dir """
     homedir = os.path.expanduser('~')
+    userdata_dir = os.path.join(homedir, GAMEDIR_NAME_LINUX)
 
     if is_windows():
-        homedir = os.path.join(
+        userdata_dir = os.path.join(
             homedir,
             'Documents',
             'My Games',
             GAMEDIR_NAME_WINDOWS
         )
-    else:
-        homedir = os.path.join(homedir, GAMEDIR_NAME_LINUX)
 
-    return homedir
+    return userdata_dir
