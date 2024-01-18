@@ -1,7 +1,6 @@
 import pygame_menu
 
 from constants.headup import BOTTOM_UI_BACKGROUND, PIGGY_PINK
-from utils.quality import font_antialiasing_enabled
 
 THEME_PIG = pygame_menu.Theme(
     background_color=PIGGY_PINK,
@@ -35,7 +34,6 @@ def make_menu(title: str, limit_fps: int = 0) -> pygame_menu.Menu:
         theme=THEME_PIG,
         title=title
     )
-
 
 
 def get_longest_option(options: list) -> str:

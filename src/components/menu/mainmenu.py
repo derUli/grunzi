@@ -1,13 +1,12 @@
 import pygame
-import pygame_menu
 
 import utils.savegame
 from components.game.maingame import MainGame
 from components.menu.loadgame import LoadGameComponent
 from components.menu.menucomponent import MenuComponent
 from components.settings.settings import Settings
-from utils.savegame import get_latest_savegame
 from utils.menu import make_menu
+from utils.savegame import get_latest_savegame
 
 
 class MainMenu(MenuComponent):

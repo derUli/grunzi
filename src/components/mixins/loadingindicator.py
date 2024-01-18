@@ -3,7 +3,6 @@ import os
 from components.component import Component
 from constants.headup import UI_MARGIN
 from utils.animation import Animation
-from utils.quality import filmgrain_enabled
 
 
 class LoadingIndicator(Component):
@@ -39,14 +38,12 @@ class LoadingIndicator(Component):
         if not self.show_progress:
             return
 
-
         progress = self.progress_indicator.get_frame()
 
         w, h = progress.get_size()
         x = screen.get_width() - UI_MARGIN - h
         y = UI_MARGIN
         screen.blit(progress, (x, y))
-
 
     def change_progress_indicator(self, show_progress: bool):
         self.show_progress = show_progress

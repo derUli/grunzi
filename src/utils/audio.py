@@ -74,8 +74,9 @@ def sounds_busy() -> bool:
     for channel in CHANNELS:
         if channel and channel.get_busy():
             return True
-        
+
     return False
+
 
 def play_music(file: str, repeat: int = -1) -> None:
     """

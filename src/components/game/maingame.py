@@ -6,7 +6,6 @@ import random
 import time
 from threading import Thread
 
-import numpy
 import pygame
 
 import components.game.tobecontinued
@@ -24,7 +23,6 @@ from constants.headup import BOTTOM_UI_HEIGHT
 from mixins.pausable_component import PausableComponent
 from sprites.character import Character
 from sprites.inlinesprite import InlineSprite
-from sprites.maincharacter import MainCharacter
 from state.level import Level, LAYER_MAINCHAR, LAYER_ITEMS
 from utils.atmosphere.atmosphere import Atmosphere
 from utils.audio import play_sound, stop_sounds

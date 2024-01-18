@@ -14,6 +14,7 @@ PARTICLE_RADIUS = 2
 PARTICLES_SPEED = 0.5
 HURT_DAMAGE = 10
 
+
 class Toxic(Sprite):
     """ Toxic sprite """
 

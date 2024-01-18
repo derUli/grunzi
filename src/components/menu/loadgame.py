@@ -1,5 +1,5 @@
-import utils.savegame
 import components.game.maingame as maingame
+import utils.savegame
 from components.menu.menucomponent import MenuComponent
 from utils.menu import make_menu
 

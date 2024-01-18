@@ -1,9 +1,9 @@
 """ Savegame handling """
-import json
-import orjson
 import os
 import time
 from typing import Union
+
+import orjson
 
 from utils.path import get_userdata_path
 
@@ -122,4 +122,4 @@ def save_game(name: str, state, diff_list=None) -> None:
     ]
     for level_file in level_files:
         with open(level_file, 'w') as f:
-            f.write(json.dumps(diff_list))
+            f.write(orjson.dumps(diff_list).decode())

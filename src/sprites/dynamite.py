@@ -4,7 +4,7 @@ import os
 import pygame
 from stopwatch import Stopwatch
 
-from constants.game import REGULAR_FONT, MAIN_CHARACTER_ID, MONOTYPE_FONT
+from constants.game import MONOTYPE_FONT
 from constants.graphics import SPRITE_SIZE
 from sprites.takeable import Takeable
 from utils.animation import Animation

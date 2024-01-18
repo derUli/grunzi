@@ -1,6 +1,7 @@
 """ Main character sprite """
 
 import logging
+import os
 
 import pygame
 
@@ -11,7 +12,6 @@ from sprites.character import Character
 from sprites.fadeable import Fadeable
 from sprites.levelexit import LevelExit
 from utils.atmosphere import ATMOSPHERE_FOG
-import os
 from utils.audio import play_sound
 
 HORSE_FOG = 255

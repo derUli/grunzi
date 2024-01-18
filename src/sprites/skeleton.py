@@ -6,7 +6,6 @@ import time
 import pygame
 
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
-from constants.game import MAIN_CHARACTER_ID
 from constants.graphics import SPRITE_SIZE
 from constants.headup import NPC_HEALTH_COLOR_ENEMY, NPC_HEALTH_HEIGHT
 from sprites.chainsaw import Chainsaw

@@ -14,9 +14,8 @@ import pygame
 from GPUtil.GPUtil import getGPUs
 from pygame.locals import QUIT
 
-from components.menu.mainmenu import MainMenu
-
 from components.menu.intro import Intro
+from components.menu.mainmenu import MainMenu
 from constants.keyboard import K_SCREENSHOT, K_SHOW_FPS
 from state.settingsstate import SettingsState
 from utils import xbox_360_controller

@@ -76,7 +76,6 @@ class SettingsGraphics(SettingsComponent):
             placeholder=get_longest_option(self.get_snow_items()),
         )
 
-
         menu.add.toggle_switch(
             _('Fog'),
             self.settings_state.fog,

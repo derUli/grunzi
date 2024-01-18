@@ -1,10 +1,10 @@
 """ Level """
 import json
-import orjson
 import logging
 import os
 import time
 
+import orjson
 import pygame
 
 import constants.graphics
@@ -72,7 +72,6 @@ class Level:
 
                         if progress_callback:
                             progress_callback(loaded_percent)
-
 
                     sprite = sprites.sprite.from_dict(x, self.sprites_dir, self.image_cache)
 

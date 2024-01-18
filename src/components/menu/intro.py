@@ -5,7 +5,6 @@ import time
 
 from components.menu.mainmenu import MainMenu
 from components.menu.menucomponent import MenuComponent
-from components.mixins.filmgrain import FilmGrain
 from constants.headup import PIGGY_PINK
 from utils.audio import play_sound
 
@@ -19,6 +18,7 @@ PHASE_WAIT = 2
 PHASE_FADEOUT = 3
 FADE_SPEED = 1
 WAIT = 3
+
 
 class Intro(MenuComponent):
     """ Controls screen """
@@ -37,7 +37,6 @@ class Intro(MenuComponent):
         self.alpha = 0
         self.phase = PHASE_FADEIN
         self.wait_for = None
-
 
     def draw(self, screen):
         """ Update screen """

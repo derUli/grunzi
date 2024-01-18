@@ -30,6 +30,7 @@ CHRISTMAS_DAYS = [
     '26.12'
 ]
 
+
 def is_christmas() -> bool:
     """
     Check for Christmas

@@ -1,7 +1,7 @@
-import json
-import orjson
 import logging
 import os
+
+import orjson
 import pygame
 
 import utils.audio
@@ -21,7 +21,6 @@ SETTINGS_DEFAULT_SMOOTHSCALE = True
 SETTINGS_DEFAULT_VOLUME = 1.0
 
 
-
 def get_default_screen_resolution() -> tuple:
     """ Try to detect native screen resolution """
     try:
@@ -36,13 +35,13 @@ def get_default_screen_resolution() -> tuple:
     # If the screen resolution could not be detected use 720P as default
     return SETTINGS_DEFAULT_SCREEN_RESOLUTION
 
+
 class SettingsState:
     def __init__(self):
         """ Constructor """
 
         # Screen settings
         self.screen_resolution = get_default_screen_resolution()
-
 
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
@@ -130,12 +129,12 @@ class SettingsState:
             'fog': self.fog,
             'snow': self.snow,
             'smoothscale': self.smoothscale,
-            
+
         }
 
     def to_json(self):
         """ To JSON """
-        return json.dumps(self.to_dict())
+        return orjson.dumps(self.to_dict()).decode()
 
     def from_dict(self, settings):
         """ From dictionary """
