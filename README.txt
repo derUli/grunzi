@@ -57,5 +57,23 @@ START: Menü aufrufen
 
 # Einstellungen
 
-Das Spiel startet beim ersten Start in der Auflösung 1280x720 (720P) bei hoher Grafikqualität.
-Dies kann in den Grafikeinstellungen geändert werden.
+## Video
+
+### Bildschirm
+
+Hier kann die Bildschirmauflösung geändert, so wie V-Sync und der Vollbildmodus ein und ausgeschaltet werden.
+Nach einer Änderung der Einstellungen wird das Spiel automatisch neugestartet, um die Änderungen zu übernehmen.
+
+## Grafik
+
+Hier kann man die Grafikdetails einstellen.
+
+TODO: Einzelne Attribute erklären
+
+## Audio
+
+Hier kann die Lautstärke für Musik und Soundeffekte eingestellt werden.
+
+## Steuerung
+
+Hier wird die Steuerung für Tastatur und Controller angezeigt.
