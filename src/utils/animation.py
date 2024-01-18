@@ -66,6 +66,7 @@ class Animation:
                 return
 
     def reload(self):
+        """ Reload frames """
         self.reload_async()
 
     def reload_async(self):
