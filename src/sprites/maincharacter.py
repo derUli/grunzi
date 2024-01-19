@@ -29,7 +29,7 @@ class MainCharacter(Character):
         )
 
         self.walk_speed = 0.08
-        self.sprint_speed = self.walk_speed * 0.8
+        self.sprint_speed = self.walk_speed * 0.7
 
     def draw(self, screen, x, y):
         """ Draw main character """
