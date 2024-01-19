@@ -18,11 +18,11 @@ MODIFIER_LIGHT = -1
 class DayNightCycle(GlobalEffect):
 
     def __init__(self):
+        super().__init__()
         self.daytime = 0
         self.daytime_updated = time.time()
         self.modifier = MODIFIER_DARK
         self.surfaces = None
-        self.enabled = False
 
     def start(self, args={}, sprites_dir=None, image_cache=None):
         super().start(args, sprites_dir, image_cache)

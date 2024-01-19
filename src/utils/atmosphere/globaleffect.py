@@ -4,6 +4,7 @@ class GlobalEffect:
         self.sprites_dir = None
         self.image_cache = None
         self.id = None
+        self.enabled = False
 
     def start(self, args={}, sprites_dir=None, image_cache=None):
         self.sprites_dir = sprites_dir
