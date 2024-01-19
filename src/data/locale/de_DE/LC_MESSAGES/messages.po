@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-16 19:46+0100\n"
+"POT-Creation-Date: 2024-01-19 01:14+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:105 components/menu/mainmenu.py:59 grunzi.py:30
+#: bootstrap/gamecontainer.py:111 components/menu/mainmenu.py:59 grunzi.py:30
 msgid "Grunzi"
 msgstr ""
 
@@ -68,7 +68,7 @@ msgid "Autosave"
 msgstr "Auto-Speicher"
 
 #: components/menu/loadgame.py:20 components/settings/audio.py:61
-#: components/settings/video/graphics.py:101
+#: components/settings/video/graphics.py:100
 #: components/settings/video/screen.py:121
 #: components/settings/video/video.py:17
 msgid "Back"
@@ -202,15 +202,15 @@ msgstr "Blut"
 msgid "Snow"
 msgstr "Schnee"
 
-#: components/settings/video/graphics.py:81
+#: components/settings/video/graphics.py:80
 msgid "Fog"
 msgstr "Nebel"
 
-#: components/settings/video/graphics.py:88
+#: components/settings/video/graphics.py:87
 msgid "Bloom"
 msgstr "Bloom"
 
-#: components/settings/video/graphics.py:95
+#: components/settings/video/graphics.py:94
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
@@ -329,6 +329,10 @@ msgstr "Maus bewegen zum Umschauen"
 #: sprites/wildpig.py:14
 msgid "I am very wild."
 msgstr "Ich bin sehr wild."
+
+#: sprites/wildpig.py:15
+msgid "Can I haz pizza?"
+msgstr "Ich will Pizzer!"
 
 #: state/level.py:141
 msgid "Saving level..."
