@@ -112,7 +112,11 @@ class Dog(Killable, Character):
 
         mainchar_z, mainchar_y, mainchar_x = level.search_by_id(
             MAIN_CHARACTER_ID)
-        dog_z, dog_y, dog_x = level.search_sprite(self)
+        pos = level.search_sprite(self)
+
+        if not pos:
+            return
+        dog_z, dog_y, dog_x = pos
 
         new_y = dog_y
         new_x = dog_x

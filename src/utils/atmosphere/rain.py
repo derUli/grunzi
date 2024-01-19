@@ -3,10 +3,11 @@ import random
 import time
 
 import pygame
-from PygameShader.shader import brightness, greyscale
 
+import utils.audio
 from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 from utils.atmosphere.globaleffect import GlobalEffect
+from utils.audio import play_sound
 
 RAIN_COLOR = (69, 82, 92)
 RAIN_AMOUNT = 500
@@ -24,22 +25,29 @@ class Rain(GlobalEffect):
         self.target_count = 0
         self.prefill = False
         self.avg = []
+        self.sound = None
+        self.sound_file = None
 
     def start(self, args={}, sprites_dir=None, image_cache=None):
         super().start(args, sprites_dir, image_cache)
 
         self.rain_fall = []
-        self.enabled = True
+        self.enabled = False
 
         self.target_count = 0
         self.prefill = False
         self.font_surface = None
+        self.sound = None
 
         if 'rain_target_count' in args:
             self.target_count = args['rain_target_count']
             self.prefill = True
 
-        self.target_count = random.randint(100, 500)
+        self.prefill = False
+        self.target_count = 8000
+
+        self.sound = None
+        self.sound_file = os.path.join(self.sprites_dir, '..', '..', 'sounds', 'weather', 'rain.ogg')
 
 
     def add_raindrop(self, size):
@@ -54,12 +62,10 @@ class Rain(GlobalEffect):
         self.avg.append(time.time() - start_date)
 
     def make_surface(self):
-        quality = QUALITY_MEDIUM
+        quality = QUALITY_HIGH
         surface = None
 
-        if quality >= QUALITY_HIGH:
-            surface = self.random_image()
-        elif quality >= QUALITY_MEDIUM:
+        if quality >= QUALITY_MEDIUM:
             if not self.font_surface:
                 font = pygame.font.SysFont(None, RAIN_TEXT_SIZE)
                 surface = font.render(RAIN_TEXT, True, RAIN_COLOR)
@@ -69,16 +75,6 @@ class Rain(GlobalEffect):
 
         return surface
 
-    def random_image(self):
-        number = random.randint(1, 6)
-        path = os.path.join(self.sprites_dir, 'rain', 'rain' + str(number) + '.png')
-        image = self.image_cache.load_image(path, RAIN_IMAGE_SIZE)
-
-        surface = pygame.surface.Surface(image.get_size(), pygame.SRCALPHA | pygame.RLEACCEL)
-        surface.blit(image, (0, 0))
-        greyscale(surface)
-        brightness(surface, random.random())
-        return surface
 
     def draw(self, screen):
         if not self.enabled:
@@ -96,6 +92,32 @@ class Rain(GlobalEffect):
 
         if len(self.rain_fall) < self.target_count:
             self.add_raindrop(size)
+
+        if any(self.rain_fall):
+            if not self.sound:
+                self.sound = play_sound(self.sound_file, -1)
+
+            self.sound.unpause()
+
+        elif self.sound and self.sound.get_busy():
+            self.sound.pause()
+
+
+
+        one_drop_volume = 0.005
+
+        volume = len(self.rain_fall) * one_drop_volume
+
+        if volume > 1:
+            volume = 1
+
+        volume = volume * utils.audio.SOUND_VOLUME
+
+        print(len(self.rain_fall))
+
+        if self.sound:
+            self.sound.set_volume(volume)
+
 
         for i in range(len(self.rain_fall)):
             surface = self.rain_fall[i][2]

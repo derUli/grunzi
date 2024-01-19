@@ -96,7 +96,10 @@ class Skeleton(Killable, Character):
         self.last_movement = time.time()
 
         mainchar_z, mainchar_y, mainchar_x = level.search_mainchar()
-        me_z, me_y, me_x = level.search_sprite(self)
+        pos = level.search_sprite(self)
+        if not pos:
+            return
+        me_z, me_y, me_x = pos
 
         new_y = me_y
         new_x = me_x
