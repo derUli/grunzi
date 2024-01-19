@@ -26,24 +26,27 @@ class Achievements(FilmGrain):
             os.path.join(data_dir, 'fonts', REGULAR_FONT),
             LARGE_FONT_SIZE)
 
+        self.rendered_text = None
+
     def draw(self, screen):
         """ Update screen """
 
         screen.fill((0, 0, 0))
 
-        rendered_text = self.regular_font.render(
-            _('Coming Soon'),
-            utils.quality.font_antialiasing_enabled(),
-            (255, 255, 255)
-        )
+        if not self.rendered_text:
+            self.rendered_text = self.regular_font.render(
+                _('Coming Soon'),
+                utils.quality.font_antialiasing_enabled(),
+                (255, 255, 255)
+            )
 
         pos_x, pos_y = self.screen.get_size()
         pos_x = pos_x / 2
         pos_y = pos_x / 2
-        pos_x -= rendered_text.get_width() / 2
-        pos_y -= rendered_text.get_height() / 2
+        pos_x -= self.rendered_text.get_width() / 2
+        pos_y -= self.rendered_text.get_height() / 2
 
-        screen.blit(rendered_text, (pos_x, pos_y))
+        screen.blit(self.rendered_text, (pos_x, pos_y))
 
         self.draw_filmgrain(screen)
 

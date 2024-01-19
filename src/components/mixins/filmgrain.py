@@ -4,6 +4,7 @@ from components.component import Component
 from utils.animation import Animation
 from utils.quality import filmgrain_enabled
 
+FILMGRAIN_ALPHA = 80
 
 class FilmGrain(Component):
 
@@ -38,5 +39,5 @@ class FilmGrain(Component):
             return
 
         grain = self.filmgrain.get_frame()
-        grain.set_alpha(80)
+        grain.set_alpha(FILMGRAIN_ALPHA)
         screen.blit(grain, (0, 0))
