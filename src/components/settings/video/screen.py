@@ -2,9 +2,17 @@ import pygame
 
 from components.menu.menucomponent import SettingsComponent
 from utils.menu import make_menu, get_longest_option
+import math
 
-MIN_SCREEN_RESOLUTION = (800, 600)
+def calculate_aspect(size: tuple) -> str:
+    w, h = size
+    r = math.gcd(w, h)
+    x = int(w / r)
+    y = int(h / r)
+    return f"{x}:{y}"
 
+def is_widescreen(size: tuple) -> bool:
+    return calculate_aspect(size) == '16:9'
 
 class SettingsScreen(SettingsComponent):
     def handle_change_screen_resolution(self, selection, selected_index):
@@ -29,6 +37,7 @@ class SettingsScreen(SettingsComponent):
     def get_screen_resolution_items(self):
         """ Get screen resolution items """
         modes = pygame.display.list_modes()
+        modes = list(filter(lambda item: is_widescreen(item), modes))
 
         # If the current screen resolution is not in supported modes add it
         if self.settings_state.screen_resolution not in modes:
@@ -38,10 +47,6 @@ class SettingsScreen(SettingsComponent):
 
         items = []
         for x, y in modes:
-            # Screen resolutions lower than this would crash
-            if (x, y) < MIN_SCREEN_RESOLUTION:
-                continue
-
             label = (str(x) + 'x' + str(y))
             value = (x, y)
             items.append((label, value))
