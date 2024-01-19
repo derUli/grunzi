@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-19 01:37+0100\n"
+"POT-Creation-Date: 2024-01-19 16:39+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/game/achievements.py:35
+#: components/game/achievements.py:38
 msgid "Coming Soon"
 msgstr "Kommt bald"
 
@@ -334,6 +334,10 @@ msgstr "[Münze einwerfen]"
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
+#: sprites/tv.py:35
+msgid "My favorite movie."
+msgstr "Mein Lieblingsfilm."
+
 #: sprites/wildpig.py:14
 msgid "I am very wild."
 msgstr "Ich bin sehr wild."
@@ -375,4 +379,7 @@ msgstr "Sprenge dir den Weg frei"
 
 #~ msgid "Load Savegame"
 #~ msgstr "Spiel laden"
+
+#~ msgid "My favorite movie!"
+#~ msgstr ""
 

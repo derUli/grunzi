@@ -21,12 +21,15 @@ class TV(sprites.sprite.Sprite):
         self.walkable = False
 
     def draw(self, screen, x, y):
+        """ Draw current frame of fire animation """
         super().draw(screen, x, y)
 
         x, y = self.calculate_pos(x, y)
-        """ Draw current frame of fire animation """
         frame = self.animation.get_frame()
 
         x += 4
         y += 13
         screen.blit(frame, (x, y))
+
+    def handle_interact(self, element):
+        element.state.say(_('My favorite movie.'))
