@@ -112250,9 +112250,8 @@
 0,
 0,
 {
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "flower2.png",
-"walkable": 1
+"sprite_class": "sprites.devilwoman.DevilWoman",
+"sprite_file": "devilwoman.png"
 },
 0,
 0,

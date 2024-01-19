@@ -31,7 +31,6 @@ class Dog(Killable, Character):
         self.direction = DIRECTION_RIGHT
         self.image_direction = self.direction
         self.sound = None
-        self.next_direction_change = None
         # Time until next move
         self.walk_speed = 0.5
 

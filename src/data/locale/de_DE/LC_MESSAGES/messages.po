@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-19 22:59+0100\n"
+"POT-Creation-Date: 2024-01-19 23:24+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -265,6 +265,10 @@ msgstr "Das Benzin ist leer."
 #: sprites/chainsaw.py:96
 msgid "The chainsaw was recharged."
 msgstr "Die Kettensäge wurde aufgefüllt."
+
+#: sprites/devilwoman.py:61
+msgid "Heavy Metal, dude!"
+msgstr "Meddl Leude!"
 
 #: sprites/door.py:44
 msgid "The door is closed. I need a key."

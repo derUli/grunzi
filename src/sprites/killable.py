@@ -11,6 +11,8 @@ RUMBLE_CHAINSAW_DURATION = 300
 RUMBLE_CHAINSAW_HIGH_FREQUENCY = 1
 RUMBLE_CHAINSAW_LOW_FREQUENCY = 0
 
+DEFAULT_BULK_SIZE = 10
+
 
 class Killable(Sprite):
     """ Fence sprite class """
@@ -20,6 +22,7 @@ class Killable(Sprite):
         super().__init__(sprite_dir, cache, sprite)
         self.persistent_pixels = 0
         self.fadeout = False
+        self.bulk_size = DEFAULT_BULK_SIZE
 
     def kill(self):
         self.start_fade()
@@ -44,7 +47,7 @@ class Killable(Sprite):
         self.purge = True
 
     def remove_pixels(self):
-        bulk = 10
+        bulk = self.bulk_size
         while self.fadeout:
             pygame.time.wait(1)
             for i in range(bulk):
