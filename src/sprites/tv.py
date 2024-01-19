@@ -4,6 +4,7 @@ import os
 import sprites.sprite
 from sprites.remote import Remote
 from utils.animation import Animation
+from utils.audio import play_sound
 
 
 class TV(sprites.sprite.Sprite):
@@ -18,7 +19,7 @@ class TV(sprites.sprite.Sprite):
         self.animation = Animation(
             sprite_dir,
             refresh_interval=0.04,
-            size=(56, 31))
+            size=(57, 31))
         self.walkable = False
         self.enabled = False
 
@@ -44,8 +45,21 @@ class TV(sprites.sprite.Sprite):
         if isinstance(element.state.inventory, Remote):
             self.enabled = not self.enabled
             element.state.use_item = None
-
+            self.play_sound()
             if self.enabled:
                 element.state.say(_('The TV is on.'))
             else:
                 element.state.say(_('The TV is off.'))
+
+
+    def play_sound(self):
+        play_sound(
+            os.path.join(
+                self.sprite_dir,
+                '..',
+                '..',
+                'sounds',
+                'tv',
+                'zap.ogg'
+            )
+        )
