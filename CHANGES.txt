@@ -2,6 +2,7 @@
 
 ## Alpha XXX (Not yet released)
 
+* Aufgabe mit Wildschwein und Pizza hinzugefügt
 * Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
 * Sprachausgabe (?)
 
