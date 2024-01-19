@@ -9,8 +9,9 @@ from constants.graphics import SPRITE_SIZE
 from constants.headup import NPC_HEALTH_COLOR_FRIENDLY, NPC_HEALTH_HEIGHT
 from sprites.blood import Blood
 from sprites.character import Character
+from PygameShader.shader import horizontal_glitch
+
 from sprites.fadeable import Fadeable
-from sprites.levelexit import LevelExit
 from utils.atmosphere import ATMOSPHERE_FOG, ATMOSPHERE_SNOW, ATMOSPHERE_RAIN
 from utils.audio import play_sound
 
@@ -33,6 +34,7 @@ class Horse(Character, Fadeable):
         }
 
         self.task = None
+        self.fade_frame = None
 
         self.sentences = [
             _('Infinity bloodless!'),
@@ -54,7 +56,16 @@ class Horse(Character, Fadeable):
     def draw(self, screen, x, y):
         super().draw(screen, x, y)
 
-        pos = self.calculate_pos(x, y)
+        x, y = self.calculate_pos(x, y)
+        if self.fade_frame is not None:
+            self.fade_frame += 1
+
+            horizontal_glitch(screen, 0.5, 0.08, self.fade_frame)
+
+            if self.fade_frame > 127:
+                self.purge = True
+
+        pos = (x, y)
 
         self.draw_health(screen, pos)
 
@@ -102,7 +113,7 @@ class Horse(Character, Fadeable):
         self.attributes['blood'] += part
         self.attributes['given_blood'] -= part
 
-        if self.attributes['blood'] > 100:
+        if self.attributes['blood'] >= 100:
             self.attributes['blood'] = 100
             self.attributes['given_blood'] = 0
 
@@ -141,7 +152,6 @@ class Horse(Character, Fadeable):
 
         if not fog:
             return
-
         if self.attributes['blood'] >= 100:
             fog.update(0)
 
@@ -160,7 +170,8 @@ class Horse(Character, Fadeable):
         fog.update(HORSE_FOG)
 
     def finish_task(self):
-        self.replace_with = LevelExit(self.sprite_dir, self.cache)
+        if self.fade_frame is None:
+            self.fade_frame = 0
 
     def update_state(self, state):
         full_of_blood = 'full_of_blood' in self.attributes and self.attributes['full_of_blood']
