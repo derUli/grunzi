@@ -1,5 +1,6 @@
 from utils.atmosphere.daynightcycle import DayNightCycle
 from utils.atmosphere.fog import Fog
+from utils.atmosphere.rain import Rain
 from utils.atmosphere.snow import Snow
 
 
@@ -19,6 +20,7 @@ class Atmosphere:
     def reset(self):
         self.layers = [
             Fog(),
+            Rain(),
             Snow(),
             DayNightCycle()
         ]
