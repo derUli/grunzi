@@ -9,7 +9,7 @@ from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 from utils.atmosphere import ATMOSPHERE_RAIN, snow
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.audio import play_sound
-from utils.quality import snow_enabled
+from utils.quality import weather_enabled
 
 RAIN_COLOR = (69, 82, 92)
 RAIN_AMOUNT = 500
@@ -35,7 +35,7 @@ class Rain(GlobalEffect):
         super().start(args, sprites_dir, image_cache)
 
         self.rain_fall = []
-        self.enabled = snow_enabled()
+        self.enabled = weather_enabled()
 
         self.target_count = 0
         self.prefill = False
@@ -112,9 +112,6 @@ class Rain(GlobalEffect):
             volume = 1
 
         volume = volume * utils.audio.SOUND_VOLUME
-
-        print(len(self.rain_fall))
-
         if self.sound:
             self.sound.set_volume(volume)
 

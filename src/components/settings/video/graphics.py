@@ -20,7 +20,7 @@ class SettingsGraphics(SettingsComponent):
         self.settings_state.blood = value
         self.settings_state.apply_and_save()
 
-    def get_snow_items(self):
+    def get_weather_items(self):
         return [
             (_('Off'), QUALITY_OFF),
             (_('Low'), QUALITY_LOW),
@@ -28,10 +28,10 @@ class SettingsGraphics(SettingsComponent):
             (_('High'), QUALITY_HIGH),
         ]
 
-    def handle_change_snow(self, selection, selected_index):
+    def handle_change_weather(self, selection, selected_index):
         selected_item, index = selection
         text, value = selected_item
-        self.settings_state.snow = value
+        self.settings_state.weather = value
         self.settings_state.apply_and_save()
 
     def handle_toggle_bloom(self, value):
@@ -66,14 +66,14 @@ class SettingsGraphics(SettingsComponent):
         )
 
         menu.add.dropselect(
-            title=_('Snow'),
+            title=_('Weather'),
             default=self.get_selected_index(
-                self.get_snow_items(),
-                self.settings_state.snow),
-            items=self.get_snow_items(),
-            onchange=self.handle_change_snow,
+                self.get_weather_items(),
+                self.settings_state.weather),
+            items=self.get_weather_items(),
+            onchange=self.handle_change_weather,
             placeholder_add_to_selection_box=False,
-            placeholder=get_longest_option(self.get_snow_items()),
+            placeholder=get_longest_option(self.get_weather_items()),
         )
 
         menu.add.toggle_switch(

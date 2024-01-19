@@ -14,7 +14,7 @@ SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_BLOOD = QUALITY_MEDIUM
-SETTINGS_DEFAULT_SNOW = QUALITY_MEDIUM
+SETTINGS_DEFAULT_weather = QUALITY_MEDIUM
 SETTINGS_DEFAULT_BLOOM = False
 SETTINGS_DEFAULT_FOG = True
 SETTINGS_DEFAULT_SMOOTHSCALE = True
@@ -57,7 +57,7 @@ class SettingsState:
         self.bloom = SETTINGS_DEFAULT_BLOOM
         self.fog = SETTINGS_DEFAULT_FOG
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
-        self.snow = SETTINGS_DEFAULT_SNOW
+        self.weather = SETTINGS_DEFAULT_weather
 
         # Needs restart
         self.needs_restart = False
@@ -127,7 +127,7 @@ class SettingsState:
             'blood': self.blood,
             'bloom': self.bloom,
             'fog': self.fog,
-            'snow': self.snow,
+            'weather': self.weather,
             'smoothscale': self.smoothscale,
 
         }
@@ -167,8 +167,8 @@ class SettingsState:
         if 'fog' in settings:
             self.fog = bool(settings['fog'])
 
-        if 'snow' in settings:
-            self.snow = int(settings['snow'])
+        if 'weather' in settings:
+            self.weather = int(settings['weather'])
 
         if 'smoothscale' in settings:
             self.smoothscale = bool(settings['smoothscale'])

@@ -1,7 +1,6 @@
 import os
 import random
 import time
-from datetime import date
 
 import pygame
 from PygameShader.shader import brightness, greyscale
@@ -9,35 +8,14 @@ from PygameShader.shader import brightness, greyscale
 from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 from utils.atmosphere import ATMOSPHERE_SNOW
 from utils.atmosphere.globaleffect import GlobalEffect
-from utils.quality import snow_enabled, snow_quality
+from utils.quality import weather_enabled, weather_quality
 
 SNOW_COLOR = (255, 255, 255, 0)
 SNOW_AMOUNT = 500
 SNOW_SPEED = 1
 SNOW_TEXT = '*'
 SNOW_TEXT_SIZE = 24
-
 SNOW_IMAGE_SIZE = (6, 6)
-
-# Let it snow on christmas holidays
-CHRISTMAS_DAYS = [
-    # Nicholastag
-    '06.12',
-    # Christmas Eve
-    '24.12',
-    # First day of Christmas
-    '25.12',
-    # Second day of Christmas
-    '26.12'
-]
-
-
-def is_christmas() -> bool:
-    """
-    Check for Christmas
-    @return: Is it Christmas?
-    """
-    return date.today().strftime('%d.%m') in CHRISTMAS_DAYS
 
 
 class Snow(GlobalEffect):
@@ -54,7 +32,7 @@ class Snow(GlobalEffect):
         super().start(args, sprites_dir, image_cache)
 
         self.snow_fall = []
-        self.enabled = snow_enabled()
+        self.enabled = weather_enabled()
 
         self.target_count = 0
         self.prefill = False
@@ -63,12 +41,6 @@ class Snow(GlobalEffect):
         if 'snow_target_count' in args:
             self.target_count = args['snow_target_count']
             self.prefill = True
-
-        if is_christmas():
-            if self.target_count == 0:
-                self.target_count = random.randint(100, 500)
-        else:
-            self.target_count = 0
 
     def add_snowflake(self, size):
         start_date = time.time()
@@ -82,7 +54,7 @@ class Snow(GlobalEffect):
         self.avg.append(time.time() - start_date)
 
     def make_surface(self):
-        quality = snow_quality()
+        quality = weather_quality()
         surface = None
 
         if quality >= QUALITY_HIGH:

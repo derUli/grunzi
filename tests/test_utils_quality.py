@@ -58,11 +58,11 @@ class QualityTest(unittest.TestCase):
         self.assertTrue(quality.blood_enabled())
         self.assertTrue(quality.blood_enabled_high())
 
-    def test_snow_enabled(self):
+    def test_weather_enabled(self):
         quality.settings_state.snow = constants.quality.QUALITY_MEDIUM
-        self.assertTrue(quality.snow_enabled())
+        self.assertTrue(quality.weather_enabled())
 
 
-    def test_snow_enabled_high(self):
+    def test_weather_enabled_high(self):
         quality.settings_state.snow = constants.quality.QUALITY_HIGH
-        self.assertEqual(constants.quality.QUALITY_HIGH, quality.snow_quality())
+        self.assertEqual(constants.quality.QUALITY_HIGH, quality.weather_quality())

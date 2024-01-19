@@ -24,7 +24,6 @@ class LevelEditorTest(unittest.TestCase):
         sprites_dir = os.path.abspath(
             os.path.join(os.path.dirname(__file__), '..', 'src', 'data', 'images', 'sprites')
         )
-        print(sprites_dir)
         cache = ImageCache()
         blocks = get_editor_blocks(sprites_dir, cache)
 

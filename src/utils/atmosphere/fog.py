@@ -23,7 +23,6 @@ FOG_MOVE_SPEED = 1 / 10
 class Fog(GlobalEffect):
 
     def __init__(self):
-        self.enabled = False
         self.fog = []
         self.alpha = 0
         self.target_alpha = 0

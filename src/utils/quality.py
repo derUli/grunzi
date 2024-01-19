@@ -40,14 +40,14 @@ def fog_enabled() -> bool:
     return settings_state and settings_state.fog
 
 
-def snow_enabled() -> bool:
+def weather_enabled() -> bool:
     """ Check snow is enabled """
-    return settings_state and settings_state.snow >= QUALITY_LOW
+    return settings_state and settings_state.weather >= QUALITY_LOW
 
 
-def snow_quality():
+def weather_quality():
     """ Get snow quality """
-    return settings_state.snow
+    return settings_state.weather
 
 
 def pixel_fades_enabled() -> bool:
