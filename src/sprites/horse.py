@@ -11,7 +11,7 @@ from sprites.blood import Blood
 from sprites.character import Character
 from sprites.fadeable import Fadeable
 from sprites.levelexit import LevelExit
-from utils.atmosphere import ATMOSPHERE_FOG
+from utils.atmosphere import ATMOSPHERE_FOG, ATMOSPHERE_SNOW, ATMOSPHERE_RAIN
 from utils.audio import play_sound
 
 HORSE_FOG = 255
@@ -144,7 +144,18 @@ class Horse(Character, Fadeable):
 
         if self.attributes['blood'] >= 100:
             fog.update(0)
+
+            snow = atmosphere.get_layer_by_id(ATMOSPHERE_SNOW)
+            if snow and snow.is_running():
+                snow.stop()
+
+            rain = atmosphere.get_layer_by_id(ATMOSPHERE_RAIN)
+
+            if rain:
+                rain.set_value(500)
+
             return
+
 
         fog.update(HORSE_FOG)
 

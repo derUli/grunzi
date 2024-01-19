@@ -7,6 +7,7 @@ import pygame
 from PygameShader.shader import brightness, greyscale
 
 from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
+from utils.atmosphere import ATMOSPHERE_SNOW
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.quality import snow_enabled, snow_quality
 
@@ -47,6 +48,7 @@ class Snow(GlobalEffect):
         self.target_count = 0
         self.prefill = False
         self.avg = []
+        self.id = ATMOSPHERE_SNOW
 
     def start(self, args={}, sprites_dir=None, image_cache=None):
         super().start(args, sprites_dir, image_cache)
@@ -150,3 +152,12 @@ class Snow(GlobalEffect):
         return {
             'snow_target_count': self.target_count
         }
+
+    def set_value(self, target_count):
+        self.target_count = target_count
+
+    def is_running(self):
+        self.target_count > 0
+
+    def stop(self):
+        self.set_value(target_count=0)

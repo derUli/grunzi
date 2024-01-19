@@ -6,8 +6,10 @@ import pygame
 
 import utils.audio
 from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
+from utils.atmosphere import ATMOSPHERE_RAIN, snow
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.audio import play_sound
+from utils.quality import snow_enabled
 
 RAIN_COLOR = (69, 82, 92)
 RAIN_AMOUNT = 500
@@ -27,12 +29,13 @@ class Rain(GlobalEffect):
         self.avg = []
         self.sound = None
         self.sound_file = None
+        self.id = ATMOSPHERE_RAIN
 
     def start(self, args={}, sprites_dir=None, image_cache=None):
         super().start(args, sprites_dir, image_cache)
 
         self.rain_fall = []
-        self.enabled = False
+        self.enabled = snow_enabled()
 
         self.target_count = 0
         self.prefill = False
@@ -42,9 +45,6 @@ class Rain(GlobalEffect):
         if 'rain_target_count' in args:
             self.target_count = args['rain_target_count']
             self.prefill = True
-
-        self.prefill = False
-        self.target_count = 8000
 
         self.sound = None
         self.sound_file = os.path.join(self.sprites_dir, '..', '..', 'sounds', 'weather', 'rain.ogg')
@@ -141,6 +141,9 @@ class Rain(GlobalEffect):
                 self.rain_fall[i][0] = x
 
         self.rain_fall = list(filter(lambda item: item is not None, self.rain_fall))
+
+    def set_value(self, target_count):
+        self.target_count = target_count
 
     def to_dict(self):
         return {
