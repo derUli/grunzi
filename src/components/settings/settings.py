@@ -39,6 +39,9 @@ class Settings(MenuComponent):
 
         command = [sys.executable] + sys.argv
 
+        if not '--skip-intro' in sys.argv:
+            command += ['-i']
+
         # If we are running from Exe
         if getattr(sys, "frozen", False):
             command = sys.argv

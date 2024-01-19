@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 
+""" Grunzi Game Launcher """
+
 import os
 
-""" Grunzi Game Launcher """
+from components.menu.intro import Intro
+from components.menu.mainmenu import MainMenu
+
 from bootstrap.gamecontainer import GameContainer
 import argparse
 import gettext
@@ -59,6 +63,15 @@ def parse_args():
         help='Disable controller support'
     )
 
+
+
+    parser.add_argument(
+        '-i',
+        '--skip-intro',
+        action='store_true',
+        help='Skip intro'
+    )
+
     return parser.parse_args()
 
 
@@ -86,4 +99,10 @@ game = GameContainer(
 )
 
 game.__main__ = os.path.abspath(__main__)
-game.start()
+
+component = Intro
+
+if args.skip_intro:
+    component = MainMenu
+
+game.start(component)

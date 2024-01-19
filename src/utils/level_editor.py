@@ -9,6 +9,7 @@ from sprites.destroyable import Destroyable
 from sprites.dog import Dog
 from sprites.duck import Duck
 from sprites.fence import Fence
+from sprites.fly import Fly
 from sprites.frog import Frog
 from sprites.fuel import Fuel
 from sprites.hammer import Hammer
@@ -298,6 +299,10 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache
         ),
         TV(
+            sprites_dir,
+            image_cache
+        ),
+        Fly(
             sprites_dir,
             image_cache
         )
