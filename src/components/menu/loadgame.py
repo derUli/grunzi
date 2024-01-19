@@ -37,7 +37,7 @@ class LoadGameComponent(MenuComponent):
     def handle_back_to_main_menu(self):
         """ On click 'Back To Main Menu' """
         component = self.handle_change_component(None)
-        component.video = self.video
+        component.x = self.x
 
         if self.menu:
             self.menu.disable()

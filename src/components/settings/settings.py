@@ -29,7 +29,7 @@ class Settings(MenuComponent):
             self.restart_app()
             return
         component = self.handle_change_component(None)
-        component.video = self.video
+        component.x = self.x
         self.menu.disable()
 
     def restart_app(self):
@@ -48,13 +48,13 @@ class Settings(MenuComponent):
 
     def handle_video(self):
         component = self.handle_change_component(SettingsVideo)
-        component.video = self.video
+        component.x = self.x
         component.old_component = self
         self.menu.disable()
 
     def handle_audio(self):
         component = self.handle_change_component(SettingsAudio)
-        component.video = self.video
+        component.x = self.x
         component.old_component = self
         self.menu.disable()
 

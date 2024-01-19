@@ -21,12 +21,12 @@ class SettingsVideo(SettingsComponent):
 
     def handle_screen(self):
         component = self.handle_change_component(SettingsScreen)
-        component.video = self.video
+        component.x = self.x
         component.old_component = self
         self.menu.disable()
 
     def handle_graphics(self):
         component = self.handle_change_component(SettingsGraphics)
-        component.video = self.video
+        component.x = self.x
         component.old_component = self
         self.menu.disable()

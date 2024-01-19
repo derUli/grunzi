@@ -36,8 +36,8 @@ class MainMenu(MenuComponent):
 
     def handle_load_game(self):
         component = self.handle_change_component(LoadGameComponent)
+        component.x = self.x
 
-        component.video = self.video
         if self.menu:
             self.menu.disable()
 
@@ -52,7 +52,7 @@ class MainMenu(MenuComponent):
     def handle_settings(self):
         """ Handle open settings menu  """
         component = self.handle_change_component(Settings)
-        component.video = self.video
+        component.x = self.x
         self.menu.disable()
 
     def handle_achievements(self):

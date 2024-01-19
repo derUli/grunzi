@@ -1,11 +1,11 @@
 import os
 
 import pygame
+from PygameShader import scroll24
 
 import utils.menu as menu
 from components.component import Component
 from constants.headup import PIGGY_PINK
-from utils.animation import Animation
 from utils.helper import get_version
 from utils.quality import font_antialiasing_enabled
 
@@ -22,35 +22,24 @@ class MenuComponent(Component):
             gamepad
         )
 
-        video_path = os.path.join(
-            data_dir,
-            'images',
-            'sprites',
-            'animations',
-            'dancing_pig'
+        self.backdrop = self.image_cache.load_image(
+            os.path.join(self.data_dir, 'images', 'sprites', 'backdrops', 'menu.jpg'),
+            settings_state.screen_resolution
         )
-
-        # 25 Frames by second
-        self.video = Animation(
-            video_path,
-            refresh_interval=1 / 25,
-            size=self.settings_state.screen_resolution
-        )
-
         self.menu = None
         self.old_component = None
 
         version_file = os.path.join(self.data_dir, '..', 'VERSION')
         self.version_number = get_version(version_file)
         self.apply_menu_fonts()
+        self.x = 0
 
     def draw_background(self):
         """ Draw video background """
-        video_frame = self.video.get_frame()
-        if video_frame:
-            self.screen.blit(video_frame, (0, 0))
-
+        backdrop = scroll24(self.backdrop, self.x, 0)
+        self.screen.blit(backdrop, (0, 0))
         self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
+        self.x += 1
 
     def draw_menu(self, screen):
         pass
@@ -102,5 +91,5 @@ class SettingsComponent(MenuComponent):
     def handle_back(self):
         """ Go back to settings menu """
         component = self.handle_change_component(self.old_component)
-        component.video = self.video
+        component.x = self.x
         self.menu.disable()
