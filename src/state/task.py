@@ -27,7 +27,7 @@ class Task:
         """
         @return: Display text for the current task
         """
-        task = _('Keine Aufgabe')
+        task = _('No Task')
 
         tasks = {
             'find_code': _('Find the code to deactivate the laser'),

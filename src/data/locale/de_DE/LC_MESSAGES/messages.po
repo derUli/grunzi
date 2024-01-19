@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-19 16:52+0100\n"
+"POT-Creation-Date: 2024-01-19 22:59+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:111 components/menu/mainmenu.py:65 grunzi.py:30
+#: bootstrap/gamecontainer.py:111 components/menu/mainmenu.py:65 grunzi.py:34
 msgid "Grunzi"
 msgstr ""
 
-#: grunzi.py:31
+#: grunzi.py:35
 msgid "Piggy adventure game"
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr "Du bist Schinken!"
 msgid "Load Game"
 msgstr "Spiel laden"
 
-#: components/game/gameover.py:62 components/settings/settings.py:74
+#: components/game/gameover.py:62 components/settings/settings.py:77
 #: mixins/pausable_component.py:48
 msgid "Back To Main Menu"
 msgstr "Zurück zum Hauptmenü"
@@ -73,7 +73,7 @@ msgstr "Auto-Speicher"
 
 #: components/menu/loadgame.py:20 components/settings/audio.py:61
 #: components/settings/video/graphics.py:100
-#: components/settings/video/screen.py:121
+#: components/settings/video/screen.py:126
 #: components/settings/video/video.py:17
 msgid "Back"
 msgstr "Zurück"
@@ -94,7 +94,7 @@ msgstr "Laden"
 msgid "Achievements"
 msgstr "Errungenschaften"
 
-#: components/menu/mainmenu.py:78 components/settings/settings.py:69
+#: components/menu/mainmenu.py:78 components/settings/settings.py:72
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -102,7 +102,7 @@ msgstr "Einstellungen"
 msgid "Quit"
 msgstr "Beenden"
 
-#: components/settings/audio.py:41 components/settings/settings.py:72
+#: components/settings/audio.py:41 components/settings/settings.py:75
 msgid "Audio"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/settings/controls.py:88 components/settings/settings.py:73
+#: components/settings/controls.py:88 components/settings/settings.py:76
 msgid "Controls"
 msgstr "Steuerung"
 
@@ -167,14 +167,14 @@ msgstr "Nicht unterstützt"
 msgid "No Controller"
 msgstr "Kein Controller"
 
-#: components/settings/settings.py:71 components/settings/video/video.py:12
+#: components/settings/settings.py:74 components/settings/video/video.py:12
 msgid "Video"
 msgstr ""
 
 #: components/settings/video/graphics.py:12
 #: components/settings/video/graphics.py:25
 #: components/settings/video/graphics.py:55
-#: components/settings/video/screen.py:83
+#: components/settings/video/screen.py:88
 msgid "Off"
 msgstr "Aus"
 
@@ -198,7 +198,7 @@ msgid "Graphics"
 msgstr "Grafik"
 
 #: components/settings/video/graphics.py:55
-#: components/settings/video/screen.py:83
+#: components/settings/video/screen.py:88
 msgid "On"
 msgstr "An"
 
@@ -207,8 +207,8 @@ msgid "Blood"
 msgstr "Blut"
 
 #: components/settings/video/graphics.py:69
-msgid "Snow"
-msgstr "Schnee"
+msgid "Weather"
+msgstr ""
 
 #: components/settings/video/graphics.py:80
 msgid "Fog"
@@ -222,27 +222,27 @@ msgstr "Bloom"
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
-#: components/settings/video/screen.py:53
+#: components/settings/video/screen.py:58
 msgid "Uncapped"
 msgstr "Unbegrenzt"
 
-#: components/settings/video/screen.py:81 components/settings/video/video.py:14
+#: components/settings/video/screen.py:86 components/settings/video/video.py:14
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: components/settings/video/screen.py:86
+#: components/settings/video/screen.py:91
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings/video/screen.py:93
+#: components/settings/video/screen.py:98
 msgid "V-Sync"
 msgstr "Vertikale Synchronisation"
 
-#: components/settings/video/screen.py:100
+#: components/settings/video/screen.py:105
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings/video/screen.py:111
+#: components/settings/video/screen.py:116
 msgid "Framerate Cap"
 msgstr "Maximale Framerate"
 
@@ -278,47 +278,47 @@ msgstr "Die Tür ist jetzt offen."
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
-#: sprites/horse.py:38
+#: sprites/horse.py:40
 msgid "Infinity bloodless!"
 msgstr "Unendlich blutleer!"
 
-#: sprites/horse.py:39
+#: sprites/horse.py:41
 msgid "I don't have a single drop of blood left."
 msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
 
-#: sprites/horse.py:40
+#: sprites/horse.py:42
 msgid "Please give me some blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:41
+#: sprites/horse.py:43
 msgid "I am infinitely thirsty for blood."
 msgstr "Ich bin unendlich durstig nach Blut!"
 
-#: sprites/horse.py:126
+#: sprites/horse.py:137
 msgid "Now I have a bit more blood."
 msgstr "Jetzt habe ich ein wenig mehr Blut."
 
-#: sprites/horse.py:127
+#: sprites/horse.py:138
 msgid "I still haven't enough blood."
 msgstr "Ich habe immer noch nicht genug Blut."
 
-#: sprites/horse.py:128
+#: sprites/horse.py:139
 msgid "Yummy blood!"
 msgstr "Leckeres Blut!"
 
-#: sprites/horse.py:129
+#: sprites/horse.py:140
 msgid "Give me more blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:130
+#: sprites/horse.py:141
 msgid "Tasty blood!"
 msgstr "Köstliches Blood!"
 
-#: sprites/horse.py:131
+#: sprites/horse.py:142
 msgid "I need more blood!"
 msgstr "Ich brauche mehr Blut!"
 
-#: sprites/horse.py:160
+#: sprites/horse.py:182
 msgid "Now I am full of blood."
 msgstr "Jetzt bin ich wieder blutvoll. :)"
 
@@ -334,15 +334,15 @@ msgstr "[Münze einwerfen]"
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
-#: sprites/tv.py:40
+#: sprites/tv.py:43
 msgid "My favorite movie."
 msgstr "Mein Lieblingsfilm."
 
-#: sprites/tv.py:42 sprites/tv.py:51
+#: sprites/tv.py:45 sprites/tv.py:55
 msgid "The TV is off."
 msgstr "Der Fernseher ist aus."
 
-#: sprites/tv.py:49
+#: sprites/tv.py:53
 msgid "The TV is on."
 msgstr "Der Fernseher ist an."
 
@@ -353,6 +353,18 @@ msgstr "Ich bin sehr wild."
 #: sprites/wildpig.py:15
 msgid "Can I haz pizza?"
 msgstr "Ich will Pizzer!"
+
+#: sprites/wildpig.py:16
+msgid "I have not consumed a pink elephant."
+msgstr "Ich habe keinen rosa Elefanten konsumiert."
+
+#: sprites/wildpig.py:17
+msgid "I deny the climate."
+msgstr "Ich leugne das Klima."
+
+#: sprites/wildpig.py:18
+msgid "Do you have pizza?"
+msgstr "Hast du Pizzer?"
 
 #: state/level.py:141
 msgid "Saving level..."
@@ -367,8 +379,8 @@ msgid "Ouch!"
 msgstr "Autsch!"
 
 #: state/task.py:30
-msgid "Keine Aufgabe"
-msgstr ""
+msgid "No Task"
+msgstr "Keine Aufgabe"
 
 #: state/task.py:33
 msgid "Find the code to deactivate the laser"
@@ -389,5 +401,14 @@ msgstr "Sprenge dir den Weg frei"
 #~ msgstr "Spiel laden"
 
 #~ msgid "My favorite movie!"
+#~ msgstr ""
+
+#~ msgid "Snow"
+#~ msgstr "Schnee"
+
+#~ msgid "Keine Aufgabe"
+#~ msgstr ""
+
+#~ msgid "No Task"
 #~ msgstr ""
 

@@ -12,7 +12,10 @@ class Wildpig(Character):
         self.sentence = 0
         self.sentences = [
             _('I am very wild.'),
-            _('Can I haz pizza?')
+            _('Can I haz pizza?'),
+            _('I have not consumed a pink elephant.'),
+            _('I deny the climate.'),
+            _('Do you have pizza?')
         ]
 
     def handle_interact(self, element):
@@ -24,5 +27,7 @@ class Wildpig(Character):
 
         if self.sentence < len(self.sentences) - 1:
             self.sentence += 1
+        else:
+            self.sentence = 0
 
 
