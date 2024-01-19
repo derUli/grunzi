@@ -21,12 +21,14 @@ class TV(sprites.sprite.Sprite):
             refresh_interval=0.04,
             size=(57, 31))
         self.walkable = False
-        self.enabled = False
+        self.attributes = {
+            'enabled': False
+        }
 
     def draw(self, screen, x, y):
         """ Draw current frame of fire animation """
         super().draw(screen, x, y)
-        if not self.enabled:
+        if not self.attributes['enabled']:
             return
 
         x, y = self.calculate_pos(x, y)
@@ -37,16 +39,17 @@ class TV(sprites.sprite.Sprite):
         screen.blit(frame, (x, y))
 
     def handle_interact(self, element):
-        if self.enabled:
+        if self.attributes['enabled']:
             element.state.say(_('My favorite movie.'))
         else:
             element.state.say(_('The TV is off.'))
     def handle_interact_item(self, element):
         if isinstance(element.state.inventory, Remote):
-            self.enabled = not self.enabled
+            self.attributes['enabled'] = not self.attributes['enabled']
             element.state.use_item = None
             self.play_sound()
-            if self.enabled:
+
+            if self.attributes['enabled']:
                 element.state.say(_('The TV is on.'))
             else:
                 element.state.say(_('The TV is off.'))

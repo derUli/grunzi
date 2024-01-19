@@ -151942,7 +151942,10 @@
 0,
 {
 "sprite_class": "sprites.tv.TV",
-"sprite_file": "tv.png"
+"sprite_file": "tv.png",
+"attributes": {
+"enabled": false
+}
 },
 {
 "sprite_class": "sprites.wall.Wall",
