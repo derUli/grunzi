@@ -113072,7 +113072,11 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.remote.Remote",
+"sprite_file": "remote.png",
+"walkable": 1
+},
 0,
 {
 "sprite_class": "sprites.wall.Wall",
@@ -115352,10 +115356,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chicken.Chicken",
-"sprite_file": "chicken.png"
-},
+0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
 "sprite_file": "flower5.png",
@@ -115619,7 +115620,10 @@
 "sprite_file": "flower1.png",
 "walkable": 1
 },
-0,
+{
+"sprite_class": "sprites.chicken.Chicken",
+"sprite_file": "chicken.png"
+},
 0,
 0,
 0,

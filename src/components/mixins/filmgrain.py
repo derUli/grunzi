@@ -4,7 +4,7 @@ from components.component import Component
 from utils.animation import Animation
 from utils.quality import filmgrain_enabled
 
-FILMGRAIN_ALPHA = 80
+FILMGRAIN_ALPHA = 60
 
 class FilmGrain(Component):
 

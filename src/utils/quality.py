@@ -32,7 +32,7 @@ def filmgrain_enabled() -> bool:
 
 def daynightcycle_enabled() -> bool:
     """ Check day/night Cycle enabled """
-    return True
+    return False
 
 
 def fog_enabled() -> bool:

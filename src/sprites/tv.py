@@ -1,12 +1,13 @@
-""" TV character """
+""" TV """
 import os
 
 import sprites.sprite
+from sprites.remote import Remote
 from utils.animation import Animation
 
 
 class TV(sprites.sprite.Sprite):
-    """ Fire character class """
+    """ TV class """
 
     def __init__(self, sprite_dir, cache, sprite=None):
         """ Constructor """
@@ -19,10 +20,13 @@ class TV(sprites.sprite.Sprite):
             refresh_interval=0.04,
             size=(56, 31))
         self.walkable = False
+        self.enabled = False
 
     def draw(self, screen, x, y):
         """ Draw current frame of fire animation """
         super().draw(screen, x, y)
+        if not self.enabled:
+            return
 
         x, y = self.calculate_pos(x, y)
         frame = self.animation.get_frame()
@@ -32,4 +36,16 @@ class TV(sprites.sprite.Sprite):
         screen.blit(frame, (x, y))
 
     def handle_interact(self, element):
-        element.state.say(_('My favorite movie.'))
+        if self.enabled:
+            element.state.say(_('My favorite movie.'))
+        else:
+            element.state.say(_('The TV is off.'))
+    def handle_interact_item(self, element):
+        if isinstance(element.state.inventory, Remote):
+            self.enabled = not self.enabled
+            element.state.use_item = None
+
+            if self.enabled:
+                element.state.say(_('The TV is on.'))
+            else:
+                element.state.say(_('The TV is off.'))

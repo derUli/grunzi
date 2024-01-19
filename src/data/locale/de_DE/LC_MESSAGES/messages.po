@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-19 16:39+0100\n"
+"POT-Creation-Date: 2024-01-19 16:52+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -334,9 +334,17 @@ msgstr "[Münze einwerfen]"
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
-#: sprites/tv.py:35
+#: sprites/tv.py:40
 msgid "My favorite movie."
 msgstr "Mein Lieblingsfilm."
+
+#: sprites/tv.py:42 sprites/tv.py:51
+msgid "The TV is off."
+msgstr "Der Fernseher ist aus."
+
+#: sprites/tv.py:49
+msgid "The TV is on."
+msgstr "Der Fernseher ist an."
 
 #: sprites/wildpig.py:14
 msgid "I am very wild."

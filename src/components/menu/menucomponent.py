@@ -5,7 +5,7 @@ from PygameShader import scroll24
 
 import utils.menu as menu
 from components.component import Component
-from constants.headup import PIGGY_PINK
+from constants.headup import BUILD_COLOR
 from utils.helper import get_version
 from utils.quality import font_antialiasing_enabled
 
@@ -38,7 +38,7 @@ class MenuComponent(Component):
         """ Draw video background """
         backdrop = scroll24(self.backdrop, self.x, 0)
         self.screen.blit(backdrop, (0, 0))
-        self.draw_notification(self.version_number, PIGGY_PINK, self.screen)
+        self.draw_notification(self.version_number, BUILD_COLOR, self.screen)
         self.x += 1
 
     def draw_menu(self, screen):
