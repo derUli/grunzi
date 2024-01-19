@@ -20,6 +20,7 @@ from sprites.piggybank import PiggyBank
 from sprites.sheep import Sheep
 from sprites.skeleton import Skeleton
 from sprites.sword import Sword
+from sprites.tv import TV
 from sprites.wall import Wall
 from sprites.water import Water
 from sprites.wood import Wood
@@ -293,6 +294,10 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache
         ),
         LandMine(
+            sprites_dir,
+            image_cache
+        ),
+        TV(
             sprites_dir,
             image_cache
         )

@@ -5811,7 +5811,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras3.jpg",
+"sprite_file": "pebble.jpg",
 "walkable": 1
 },
 {
@@ -6549,7 +6549,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "gras1.jpg",
+"sprite_file": "pebble.jpg",
 "walkable": 1
 },
 {
@@ -112803,7 +112803,10 @@
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
 },
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
 0,
 0,
 0,
@@ -113070,11 +113073,11 @@
 0,
 0,
 0,
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
 },
-0,
 0,
 0,
 0,
@@ -113289,10 +113292,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.wall.Wall",
-"sprite_file": "wall.jpg"
-},
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
@@ -113528,11 +113528,7 @@
 },
 0,
 0,
-{
-"sprite_class": "sprites.fuel.Fuel",
-"sprite_file": "fuel.png",
-"walkable": 1
-},
+0,
 0,
 {
 "sprite_class": "sprites.guitar.Guitar",
@@ -113805,7 +113801,10 @@
 0,
 0,
 0,
-0,
+{
+"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_file": "chair1.png"
+},
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -114098,10 +114097,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "chair1.png"
-},
+0,
 0,
 0,
 0,
@@ -114600,11 +114596,11 @@
 0,
 0,
 0,
+0,
 {
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "shoes.png"
 },
-0,
 0,
 0,
 {
@@ -151940,8 +151936,14 @@
 0,
 0,
 0,
-0,
-0,
+{
+"sprite_class": "sprites.tv.TV",
+"sprite_file": "tv.png"
+},
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "wall.jpg"
+},
 0,
 0,
 0,
@@ -152091,14 +152093,7 @@
 0,
 0,
 0,
-{
-"sprite_class": "sprites.chainsaw.Chainsaw",
-"sprite_file": "chainsaw.png",
-"walkable": 1,
-"attributes": {
-"fuel": 100
-}
-},
+0,
 0,
 0,
 0,
@@ -153024,8 +153019,19 @@
 0,
 0,
 0,
-0,
-0,
+{
+"sprite_class": "sprites.chainsaw.Chainsaw",
+"sprite_file": "chainsaw.png",
+"walkable": 1,
+"attributes": {
+"fuel": 100
+}
+},
+{
+"sprite_class": "sprites.fuel.Fuel",
+"sprite_file": "fuel.png",
+"walkable": 1
+},
 0,
 0,
 0,
