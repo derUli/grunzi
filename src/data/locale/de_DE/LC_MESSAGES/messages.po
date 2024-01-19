@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-19 01:14+0100\n"
+"POT-Creation-Date: 2024-01-19 01:37+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,13 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:111 components/menu/mainmenu.py:59 grunzi.py:30
+#: bootstrap/gamecontainer.py:111 components/menu/mainmenu.py:65 grunzi.py:30
 msgid "Grunzi"
 msgstr ""
 
 #: grunzi.py:31
 msgid "Piggy adventure game"
 msgstr ""
+
+#: components/game/achievements.py:35
+msgid "Coming Soon"
+msgstr "Kommt bald"
 
 #: components/game/gameover.py:57
 msgid "Game Over"
@@ -74,23 +78,27 @@ msgstr "Auto-Speicher"
 msgid "Back"
 msgstr "Zurück"
 
-#: components/menu/mainmenu.py:62 mixins/pausable_component.py:45
+#: components/menu/mainmenu.py:68 mixins/pausable_component.py:45
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: components/menu/mainmenu.py:64
+#: components/menu/mainmenu.py:70
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: components/menu/mainmenu.py:67
+#: components/menu/mainmenu.py:73
 msgid "Load"
 msgstr "Laden"
 
-#: components/menu/mainmenu.py:69 components/settings/settings.py:69
+#: components/menu/mainmenu.py:75
+msgid "Achievements"
+msgstr "Errungenschaften"
+
+#: components/menu/mainmenu.py:78 components/settings/settings.py:69
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/menu/mainmenu.py:71
+#: components/menu/mainmenu.py:80
 msgid "Quit"
 msgstr "Beenden"
 

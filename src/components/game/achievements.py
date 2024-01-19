@@ -1,4 +1,4 @@
-""" To be continued  Screen """
+""" Achievements Screen """
 import os
 
 import pygame
@@ -10,8 +10,8 @@ from constants import keyboard
 from constants.game import REGULAR_FONT, LARGE_FONT_SIZE
 
 
-class ToBeContinued(FilmGrain):
-    """ To be continued Screen """
+class Achievements(FilmGrain):
+    """ Achievements Screen """
 
     def __init__(self, data_dir, handle_change_component,
                  settings_state, enable_edit_mode=False, gamepad=None):
@@ -32,7 +32,7 @@ class ToBeContinued(FilmGrain):
         screen.fill((0, 0, 0))
 
         rendered_text = self.regular_font.render(
-            _('To be continued'),
+            _('Coming Soon'),
             utils.quality.font_antialiasing_enabled(),
             (255, 255, 255)
         )
