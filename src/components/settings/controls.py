@@ -40,7 +40,6 @@ class SettingsControls(FilmGrain):
 
         self.current_page = PAGE_KEYBOARD
         self.old_component = None
-        self.data_dir = data_dir
         self.backdrop = None
 
         fontfile = os.path.join(data_dir, 'fonts', REGULAR_FONT)

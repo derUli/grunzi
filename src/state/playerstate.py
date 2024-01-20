@@ -29,7 +29,6 @@ class PlayerState:
         self.rendered_ui = (None, None)
         self.use_item = False
         self.display_text = DisplayText(data_dir)
-        self.data_dir = data_dir
         self.drawn_inventory = None
         self.drawn_health = None
         self.health_pig = pygame.image.load(
