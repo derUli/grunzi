@@ -208,7 +208,7 @@ msgstr "Blut"
 
 #: components/settings/video/graphics.py:69
 msgid "Weather"
-msgstr ""
+msgstr "Wetter"
 
 #: components/settings/video/graphics.py:80
 msgid "Fog"
