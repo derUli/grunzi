@@ -21,6 +21,7 @@ RUMBLE_HIGH_FREQUENCY = 1
 
 class PlayerState:
     def __init__(self, data_dir, gamepad=None):
+        self.data_dir = data_dir
         """ Constructor """
         self.health = FULL_HEALTH
         self.show_detailed = None
