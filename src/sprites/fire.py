@@ -33,10 +33,10 @@ class Fire(sprites.sprite.Sprite):
         w, h = SPRITE_SIZE
         pos = self.calculate_pos(x, y)
 
-        smooth = True
-        bloom = True
-        fast_bloom = True
-        blur = True
+        smooth = False
+        bloom = False
+        fast_bloom = False
+        blur = False
 
         # Execute the shader fire effect
         frame = fire_effect(
@@ -54,7 +54,6 @@ class Fire(sprites.sprite.Sprite):
             high_=w,
             blur_=blur,
             smooth_=smooth,
-            surface_=self.tmp_surface,
             # No need to define a palette pre-processing,
             # the algo will create a new palette with the given
             # hsl_ values
