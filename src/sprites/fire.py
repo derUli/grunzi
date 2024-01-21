@@ -23,7 +23,7 @@ class Fire(sprites.sprite.Sprite):
 
         self.fire_palette = numpy.zeros(255, dtype=numpy.uint)
         self.fire_array = numpy.zeros((100, 100), dtype=numpy.float32)
-        self.tmp_surface = pygame.surface.Surface((100, 100))
+        self.tmp_surface = pygame.surface.Surface((100, 100), pygame.SRCALPHA)
         self.bpf = 0
         self.delta = +0.1
 
@@ -31,7 +31,10 @@ class Fire(sprites.sprite.Sprite):
         """ Draw current frame of fire animation """
 
         w, h = SPRITE_SIZE
-        pos = self.calculate_pos(x, y)
+        x, y = self.calculate_pos(x, y)
+        y += 1
+
+        pos = (x, y)
 
         smooth = False
         bloom = False
@@ -50,7 +53,7 @@ class Fire(sprites.sprite.Sprite):
             bloom_=bloom,
             fast_bloom_=fast_bloom,
             bpf_threshold_=self.bpf,
-            low_=20,
+            low_=0,
             high_=w,
             blur_=blur,
             smooth_=smooth,
@@ -61,9 +64,10 @@ class Fire(sprites.sprite.Sprite):
             hsl_=(0.2, 200, 1.8),
             brightness_=False,
             brightness_intensity_=0.065 + uniform(0.055, 0.09),
+            surface_ = self.tmp_surface
         )
 
-        screen.blit(frame, pos)
+        screen.blit(frame, pos, special_flags=pygame.BLEND_RGBA_MAX)
 
 
         self.bpf += self.delta
