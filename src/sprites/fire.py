@@ -64,7 +64,7 @@ class Fire(sprites.sprite.Sprite):
             brightness_intensity_=0.065 + uniform(0.055, 0.09),
         )
 
-        screen.blit(frame, pos, special_flags=pygame.BLEND_RGB_MAX)
+        screen.blit(frame, pos)
 
 
         self.bpf += self.delta
