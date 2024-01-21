@@ -62,11 +62,6 @@ class Fire(sprites.sprite.Sprite):
 
         pos = (x, y)
 
-        smooth = False
-        bloom = False
-        fast_bloom = False
-        blur = False
-
         # Execute the shader fire effect
         frame = fire_effect(
             w,
