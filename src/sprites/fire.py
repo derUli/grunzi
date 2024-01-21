@@ -2,6 +2,7 @@
 
 from PygameShader import fire_effect
 import pygame
+from numpy.random import uniform
 
 import sprites.sprite
 import numpy
@@ -22,19 +23,19 @@ class Fire(sprites.sprite.Sprite):
 
         self.fire_palette = numpy.zeros(255, dtype=numpy.uint)
         self.fire_array = numpy.zeros((100, 100), dtype=numpy.float32)
-
+        self.tmp_surface = pygame.surface.Surface((100, 100))
         self.bpf = 0
         self.delta = +0.1
 
     def draw(self, screen, x, y):
+        """ Draw current frame of fire animation """
 
         w, h = SPRITE_SIZE
-        """ Draw current frame of fire animation """
         pos = self.calculate_pos(x, y)
 
         smooth = False
-        bloom = False
-        fast_bloom = False
+        bloom = True
+        fast_bloom = True
         blur = False
 
         # Execute the shader fire effect
@@ -53,12 +54,14 @@ class Fire(sprites.sprite.Sprite):
             high_=w,
             blur_=blur,
             smooth_=smooth,
-            # surface_=TmpSurface,
+            surface_=self.tmp_surface,
             # No need to define a palette pre-processing,
             # the algo will create a new palette with the given
             # hsl_ values
             adjust_palette_=True,
-            hsl_=(0.2, 200, 1.8)
+            hsl_=(0.2, 200, 1.8),
+            brightness_=False,
+            brightness_intensity_=0.065 + uniform(0.055, 0.09),
         )
 
         screen.blit(frame, pos, special_flags=pygame.BLEND_RGB_MAX)
