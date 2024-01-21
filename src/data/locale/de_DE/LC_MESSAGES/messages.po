@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-19 23:24+0100\n"
+"POT-Creation-Date: 2024-01-21 00:45+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -114,56 +114,56 @@ msgstr "Musik"
 msgid "Sound Effects"
 msgstr "Soundeffekte"
 
-#: components/settings/controls.py:55 components/settings/controls.py:67
+#: components/settings/controls.py:54 components/settings/controls.py:66
 msgid "Walk"
 msgstr "Gehen"
 
-#: components/settings/controls.py:56 components/settings/controls.py:68
+#: components/settings/controls.py:55 components/settings/controls.py:67
 msgid "Use item"
 msgstr "Gegenstand benutzen"
 
-#: components/settings/controls.py:57 components/settings/controls.py:69
+#: components/settings/controls.py:56 components/settings/controls.py:68
 msgid "Drop item"
 msgstr "Gegenstand ablegen"
 
-#: components/settings/controls.py:58 components/settings/controls.py:70
+#: components/settings/controls.py:57 components/settings/controls.py:69
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: components/settings/controls.py:59 components/settings/controls.py:71
+#: components/settings/controls.py:58 components/settings/controls.py:70
 msgid "Run"
 msgstr "Rennen"
 
-#: components/settings/controls.py:60 components/settings/controls.py:72
+#: components/settings/controls.py:59 components/settings/controls.py:71
 #: mixins/pausable_component.py:42
 msgid "Pause"
 msgstr ""
 
-#: components/settings/controls.py:61
+#: components/settings/controls.py:60
 msgid "Make Screenshot"
 msgstr "Screenshot erstellen"
 
-#: components/settings/controls.py:88 components/settings/settings.py:76
+#: components/settings/controls.py:87 components/settings/settings.py:76
 msgid "Controls"
 msgstr "Steuerung"
 
-#: components/settings/controls.py:92
+#: components/settings/controls.py:91
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: components/settings/controls.py:94
+#: components/settings/controls.py:93
 msgid "Controller"
 msgstr "Controller"
 
-#: components/settings/controls.py:155
+#: components/settings/controls.py:154
 msgid "Controller: "
 msgstr "Controller: "
 
-#: components/settings/controls.py:162
+#: components/settings/controls.py:161
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
-#: components/settings/controls.py:164
+#: components/settings/controls.py:163
 msgid "No Controller"
 msgstr "Kein Controller"
 
@@ -266,7 +266,7 @@ msgstr "Das Benzin ist leer."
 msgid "The chainsaw was recharged."
 msgstr "Die Kettensäge wurde aufgefüllt."
 
-#: sprites/devilwoman.py:61
+#: sprites/devilwoman.py:67
 msgid "Heavy Metal, dude!"
 msgstr "Meddl Leude!"
 
