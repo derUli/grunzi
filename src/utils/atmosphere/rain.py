@@ -6,7 +6,7 @@ import pygame
 
 import utils.audio
 from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
-from utils.atmosphere import ATMOSPHERE_RAIN, snow
+from utils.atmosphere import ATMOSPHERE_RAIN
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.audio import play_sound
 from utils.quality import weather_enabled
@@ -18,6 +18,7 @@ RAIN_TEXT = '/'
 RAIN_TEXT_SIZE = 30
 
 RAIN_IMAGE_SIZE = (6, 6)
+
 
 class Rain(GlobalEffect):
 
@@ -49,7 +50,6 @@ class Rain(GlobalEffect):
         self.sound = None
         self.sound_file = os.path.join(self.sprites_dir, '..', '..', 'sounds', 'weather', 'rain.ogg')
 
-
     def add_raindrop(self, size):
         start_date = time.time()
         w, h = size
@@ -74,7 +74,6 @@ class Rain(GlobalEffect):
             surface = self.font_surface
 
         return surface
-
 
     def draw(self, screen):
         if not self.enabled:
@@ -102,8 +101,6 @@ class Rain(GlobalEffect):
         elif self.sound and self.sound.get_busy():
             self.sound.pause()
 
-
-
         one_drop_volume = 0.005
 
         volume = len(self.rain_fall) * one_drop_volume
@@ -114,7 +111,6 @@ class Rain(GlobalEffect):
         volume = volume * utils.audio.SOUND_VOLUME
         if self.sound:
             self.sound.set_volume(volume)
-
 
         for i in range(len(self.rain_fall)):
             surface = self.rain_fall[i][2]

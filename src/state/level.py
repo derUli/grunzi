@@ -175,7 +175,7 @@ class Level:
                             progress_callback(loaded_percent, waiting_text)
 
                     if element:
-                        if hasattr(element, 'animation'):
+                        if hasattr(element, 'animation') and element.animation:
                             animation = element.animation
                             # Wait for animation frame loading
                             animation.reload()

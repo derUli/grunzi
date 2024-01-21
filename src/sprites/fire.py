@@ -8,7 +8,6 @@ from numpy.random import uniform
 
 import sprites.sprite
 from constants.graphics import SPRITE_SIZE
-from constants.quality import QUALITY_LOW, QUALITY_MEDIUM
 from utils.animation import Animation
 from utils.quality import dynamic_fire_enabled
 
@@ -30,6 +29,7 @@ class Fire(sprites.sprite.Sprite):
         self.delta = +0.1
         self.animation = None
         self.is_dynamic = dynamic_fire_enabled()
+
     def draw(self, screen, x, y):
 
         if not self.is_dynamic:

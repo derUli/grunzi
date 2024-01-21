@@ -34,7 +34,6 @@ class SettingsGraphics(SettingsComponent):
             placeholder=get_longest_option(self.get_weather_items()),
         )
 
-
         menu.add.dropselect(
             title=_('Fire'),
             default=self.get_selected_index(
@@ -45,7 +44,6 @@ class SettingsGraphics(SettingsComponent):
             placeholder_add_to_selection_box=False,
             placeholder=get_longest_option(self.get_fire_items()),
         )
-
 
         menu.add.toggle_switch(
             _('Fog'),

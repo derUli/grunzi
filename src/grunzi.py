@@ -2,17 +2,15 @@
 
 """ Grunzi Game Launcher """
 
-import os
-
-from components.menu.intro import Intro
-from components.menu.mainmenu import MainMenu
-
-from bootstrap.gamecontainer import GameContainer
 import argparse
 import gettext
 import locale
 import logging
+import os
 
+from bootstrap.gamecontainer import GameContainer
+from components.menu.intro import Intro
+from components.menu.mainmenu import MainMenu
 from utils.helper import configure_logger, enable_high_dpi
 from utils.path import get_userdata_path
 
@@ -62,8 +60,6 @@ def parse_args():
         action='store_true',
         help='Disable controller support'
     )
-
-
 
     parser.add_argument(
         '-i',

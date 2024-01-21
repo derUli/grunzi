@@ -11,7 +11,6 @@ class Remote(Takeable, InlineSprite):
         """ Constructor """
         super().__init__(sprite_dir, cache, sprite)
 
-
     def draw_inline(self, screen, pos):
         """ draw sprite """
         screen.blit(self.sprite, pos)

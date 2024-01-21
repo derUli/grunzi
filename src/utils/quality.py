@@ -69,6 +69,7 @@ def blood_enabled_high() -> bool:
     """ Check blood (high) is enabled """
     return settings_state and settings_state.blood >= QUALITY_HIGH
 
+
 def dynamic_fire_enabled() -> bool:
     """ Check blood (high) is enabled """
     return settings_state and settings_state.fire >= QUALITY_HIGH

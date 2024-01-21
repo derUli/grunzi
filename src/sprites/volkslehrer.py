@@ -1,12 +1,8 @@
 """ volkslehrer character sprite """
 import os
 
-import pygame
-
-from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
 from sprites.character import Character
 from sprites.killable import Killable
-from sprites.weapon import Weapon
 from utils.audio import play_sound
 
 BLOOD_COLOR = (163, 8, 8)
@@ -23,7 +19,6 @@ class Volkslehrer(Killable, Character):
         self.walkable = False
         self.sound_played = False
 
-
     def draw(self, screen, x, y):
         """ Draw sprite """
 
@@ -34,7 +29,6 @@ class Volkslehrer(Killable, Character):
             self.sound_played = True
             self.play_sound()
             level.get_mainchar().state.say(_('I am openly right-wing radical.'))
-
 
     def play_sound(self):
         return play_sound(
@@ -47,4 +41,3 @@ class Volkslehrer(Killable, Character):
                 'volkslehrer.ogg'
             )
         )
-

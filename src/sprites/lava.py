@@ -12,6 +12,7 @@ LAVA_SPEED = 2
 
 DAMAGE_AMOUNT = 33
 
+
 class Lava(sprites.sprite.Sprite):
     """ Backdrop sprite """
 

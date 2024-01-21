@@ -4,13 +4,12 @@ import logging
 import os
 
 import pygame
+from PygameShader.shader import horizontal_glitch
 
 from constants.graphics import SPRITE_SIZE
 from constants.headup import NPC_HEALTH_COLOR_FRIENDLY, NPC_HEALTH_HEIGHT
 from sprites.blood import Blood
 from sprites.character import Character
-from PygameShader.shader import horizontal_glitch
-
 from sprites.fadeable import Fadeable
 from utils.atmosphere import ATMOSPHERE_FOG, ATMOSPHERE_SNOW, ATMOSPHERE_RAIN
 from utils.audio import play_sound
@@ -165,7 +164,6 @@ class Horse(Character, Fadeable):
                 rain.set_value(500)
 
             return
-
 
         fog.update(HORSE_FOG)
 

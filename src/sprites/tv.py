@@ -43,6 +43,7 @@ class TV(sprites.sprite.Sprite):
             element.state.say(_('My favorite movie.'))
         else:
             element.state.say(_('The TV is off.'))
+
     def handle_interact_item(self, element):
         if isinstance(element.state.inventory, Remote):
             self.attributes['enabled'] = not self.attributes['enabled']
@@ -53,7 +54,6 @@ class TV(sprites.sprite.Sprite):
                 element.state.say(_('The TV is on.'))
             else:
                 element.state.say(_('The TV is off.'))
-
 
     def play_sound(self):
         play_sound(

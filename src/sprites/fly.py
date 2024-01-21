@@ -1,8 +1,6 @@
 """ Toxic sprite """
 import random
 
-import pygame.draw
-
 from constants.direction import DIRECTION_DOWN
 from constants.graphics import SPRITE_SIZE
 from sprites.sprite import Sprite
@@ -12,6 +10,7 @@ PARTICLE_COUNT = 10
 PARTICLE_COLOR = (81, 231, 14, 255)
 PARTICLE_RADIUS = 2
 PARTICLES_SPEED = 0.5
+
 
 class Fly(Sprite):
     """ Toxic sprite """

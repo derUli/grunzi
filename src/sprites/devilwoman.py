@@ -26,7 +26,6 @@ class DevilWoman(Killable, Character):
         self.sounds = {}
         self.bulk_size = 5
 
-
     def draw(self, screen, x, y):
         """ Draw sprite """
 
@@ -44,7 +43,6 @@ class DevilWoman(Killable, Character):
         screen.blit(sprite, pos)
 
         return pos
-
 
     def ai(self, level):
         mainchar_z, mainchar_y, mainchar_x = level.search_mainchar()
@@ -85,7 +83,6 @@ class DevilWoman(Killable, Character):
                 self.sounds['meddl'].stop()
 
             self.sounds['scream'] = self.scream()
-
 
     def play_sound(self):
         return play_sound(

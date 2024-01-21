@@ -1,8 +1,10 @@
+import math
+
 import pygame
 
 from components.menu.menucomponent import SettingsComponent
 from utils.menu import make_menu, get_longest_option
-import math
+
 
 def calculate_aspect(size: tuple) -> str:
     w, h = size
@@ -11,8 +13,10 @@ def calculate_aspect(size: tuple) -> str:
     y = int(h / r)
     return f"{x}:{y}"
 
+
 def is_widescreen(size: tuple) -> bool:
     return calculate_aspect(size) == '16:9'
+
 
 class SettingsScreen(SettingsComponent):
     def handle_change_screen_resolution(self, selection, selected_index):

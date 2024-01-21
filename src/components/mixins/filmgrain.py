@@ -6,6 +6,7 @@ from utils.quality import filmgrain_enabled
 
 FILMGRAIN_ALPHA = 60
 
+
 class FilmGrain(Component):
 
     def __init__(self, data_dir, handle_change_component,

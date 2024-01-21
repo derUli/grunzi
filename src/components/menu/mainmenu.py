@@ -74,7 +74,6 @@ class MainMenu(MenuComponent):
 
         menu.add.button(_('Achievements'), self.handle_achievements)
 
-
         menu.add.button(_('Settings'), self.handle_settings)
 
         menu.add.button(_('Quit'), self.quit_handler)

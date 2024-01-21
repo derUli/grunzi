@@ -29,5 +29,3 @@ class Wildpig(Character):
             self.sentence += 1
         else:
             self.sentence = 0
-
-
