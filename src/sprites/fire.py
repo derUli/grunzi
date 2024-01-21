@@ -8,7 +8,7 @@ from numpy.random import uniform
 
 import sprites.sprite
 from constants.graphics import SPRITE_SIZE
-from constants.quality import QUALITY_LOW
+from constants.quality import QUALITY_LOW, QUALITY_MEDIUM
 from utils.animation import Animation
 
 
@@ -30,7 +30,7 @@ class Fire(sprites.sprite.Sprite):
         self.animation = None
 
     def draw(self, screen, x, y):
-        quality = QUALITY_LOW
+        quality = QUALITY_MEDIUM
 
         if quality == QUALITY_LOW:
             self.draw_static(screen, x, y)
@@ -39,6 +39,7 @@ class Fire(sprites.sprite.Sprite):
         self.draw_dynamic(screen, x, y)
 
     def draw_static(self, screen, x, y):
+        """ Draw current frame of static fire animation """
         if not self.animation:
             sprite_dir = os.path.join(self.sprite_dir, 'animations', 'fire')
 
@@ -48,7 +49,6 @@ class Fire(sprites.sprite.Sprite):
                 size=SPRITE_SIZE
             )
 
-        """ Draw current frame of static fire animation """
         frame = self.animation.get_frame()
         pos = self.calculate_pos(x, y)
         screen.blit(frame, pos)
