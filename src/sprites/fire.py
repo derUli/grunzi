@@ -53,7 +53,7 @@ class Fire(sprites.sprite.Sprite):
         pos = self.calculate_pos(x, y)
         screen.blit(frame, pos)
 
-    def draw_dynamic(self, screen, x, y, smooth=False, bloom=False, fast_bloom=False, blur=False):
+    def draw_dynamic(self, screen, x, y, smooth=True, bloom=True, fast_bloom=True, blur=True):
         """ Draw current frame of dynamic fire animation """
 
         w, h = SPRITE_SIZE
