@@ -1,3 +1,4 @@
+""" Menu stuff """
 import pygame_menu
 
 from constants.headup import BOTTOM_UI_BACKGROUND, PIGGY_PINK

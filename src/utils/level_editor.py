@@ -1,3 +1,5 @@
+""" Blocks for in-game level editor """
+
 from sprites.apple import Apple
 from sprites.backdrop import Backdrop
 from sprites.blood import Blood
