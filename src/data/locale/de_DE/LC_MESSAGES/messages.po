@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-21 20:32+0100\n"
+"POT-Creation-Date: 2024-01-21 20:49+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -72,7 +72,7 @@ msgid "Autosave"
 msgstr "Auto-Speicher"
 
 #: components/menu/loadgame.py:20 components/settings/audio.py:61
-#: components/settings/video/graphics.py:100
+#: components/settings/video/graphics.py:71
 #: components/settings/video/screen.py:126
 #: components/settings/video/video.py:17
 msgid "Back"
@@ -171,56 +171,62 @@ msgstr "Kein Controller"
 msgid "Video"
 msgstr ""
 
-#: components/settings/video/graphics.py:12
-#: components/settings/video/graphics.py:25
-#: components/settings/video/graphics.py:55
+#: components/settings/video/graphics.py:11
+#: components/settings/video/video.py:15
+msgid "Graphics"
+msgstr "Grafik"
+
+#: components/settings/video/graphics.py:13
+#: components/settings/video/graphics.py:78
+#: components/settings/video/graphics.py:91
 #: components/settings/video/screen.py:88
 msgid "Off"
 msgstr "Aus"
 
 #: components/settings/video/graphics.py:13
-#: components/settings/video/graphics.py:27
-msgid "Medium"
-msgstr "Mittel"
-
-#: components/settings/video/graphics.py:14
-#: components/settings/video/graphics.py:28
-msgid "High"
-msgstr "Hoch"
-
-#: components/settings/video/graphics.py:26
-msgid "Low"
-msgstr "Niedrig"
-
-#: components/settings/video/graphics.py:53
-#: components/settings/video/video.py:15
-msgid "Graphics"
-msgstr "Grafik"
-
-#: components/settings/video/graphics.py:55
 #: components/settings/video/screen.py:88
 msgid "On"
 msgstr "An"
 
-#: components/settings/video/graphics.py:58
+#: components/settings/video/graphics.py:16
 msgid "Blood"
 msgstr "Blut"
 
-#: components/settings/video/graphics.py:69
+#: components/settings/video/graphics.py:27
 msgid "Weather"
 msgstr "Wetter"
 
-#: components/settings/video/graphics.py:80
+#: components/settings/video/graphics.py:39
+msgid "Fire"
+msgstr "Feuer"
+
+#: components/settings/video/graphics.py:51
 msgid "Fog"
 msgstr "Nebel"
 
-#: components/settings/video/graphics.py:87
+#: components/settings/video/graphics.py:58
 msgid "Bloom"
 msgstr "Bloom"
 
-#: components/settings/video/graphics.py:94
+#: components/settings/video/graphics.py:65
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
+
+#: components/settings/video/graphics.py:79
+#: components/settings/video/graphics.py:93
+#: components/settings/video/graphics.py:105
+msgid "Medium"
+msgstr "Mittel"
+
+#: components/settings/video/graphics.py:80
+#: components/settings/video/graphics.py:94
+#: components/settings/video/graphics.py:106
+msgid "High"
+msgstr "Hoch"
+
+#: components/settings/video/graphics.py:92
+msgid "Low"
+msgstr "Niedrig"
 
 #: components/settings/video/screen.py:58
 msgid "Uncapped"

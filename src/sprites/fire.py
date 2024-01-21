@@ -29,10 +29,10 @@ class Fire(sprites.sprite.Sprite):
         self.bpf = 0
         self.delta = +0.1
         self.animation = None
-
+        self.is_dynamic = dynamic_fire_enabled()
     def draw(self, screen, x, y):
 
-        if not dynamic_fire_enabled():
+        if not self.is_dynamic:
             self.draw_static(screen, x, y)
             return
 
