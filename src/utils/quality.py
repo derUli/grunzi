@@ -41,12 +41,12 @@ def fog_enabled() -> bool:
 
 
 def weather_enabled() -> bool:
-    """ Check snow is enabled """
+    """ Check weather is enabled """
     return settings_state and settings_state.weather >= QUALITY_LOW
 
 
 def weather_quality():
-    """ Get snow quality """
+    """ Get weather quality """
     return settings_state.weather
 
 

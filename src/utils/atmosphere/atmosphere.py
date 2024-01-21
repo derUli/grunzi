@@ -21,7 +21,7 @@ class Atmosphere:
         self.layers = [
             Fog(),
             Rain(),
-            Snow(),
+            # Snow(),
             DayNightCycle()
         ]
 
