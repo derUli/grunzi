@@ -3,8 +3,12 @@ import pygame_menu
 
 from constants.headup import BOTTOM_UI_BACKGROUND, PIGGY_PINK
 
+r, g, b = PIGGY_PINK
+a = 240
+BACKGROUND_COLOR = (r, g, b, a)
+
 THEME_PIG = pygame_menu.Theme(
-    background_color=PIGGY_PINK,
+    background_color=BACKGROUND_COLOR,
     scrollbar_shadow=True,
     widget_cursor=None,
     scrollbar_cursor=None,
