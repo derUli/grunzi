@@ -23,17 +23,20 @@ class Fire(sprites.sprite.Sprite):
         self.fire_palette = numpy.zeros(255, dtype=numpy.uint)
         self.fire_array = numpy.zeros((100, 100), dtype=numpy.float32)
 
-        self.tmp_surface = pygame.surface.Surface((100, 100), pygame.SRCALPHA)
-
         self.bpf = 0
         self.delta = +0.1
 
     def draw(self, screen, x, y):
-        super().draw(screen, x, y)
 
         w, h = SPRITE_SIZE
         """ Draw current frame of fire animation """
         pos = self.calculate_pos(x, y)
+
+        smooth = False
+        bloom = False
+        fast_bloom = False
+        blur = False
+
         # Execute the shader fire effect
         frame = fire_effect(
             w,
@@ -43,14 +46,14 @@ class Fire(sprites.sprite.Sprite):
             self.fire_array,
             fire_intensity_= 16,
             reduce_factor_=4,
-            bloom_=True,
-            fast_bloom_=True,
+            bloom_=bloom,
+            fast_bloom_=fast_bloom,
             bpf_threshold_=self.bpf,
             low_=20,
             high_=w,
-            blur_=False,
-            smooth_=utils.quality.settings_state.smoothscale,
-            surface_=self.tmp_surface,
+            blur_=blur,
+            smooth_=smooth,
+            # surface_=TmpSurface,
             # No need to define a palette pre-processing,
             # the algo will create a new palette with the given
             # hsl_ values
