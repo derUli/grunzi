@@ -10,6 +10,7 @@ import sprites.sprite
 from constants.graphics import SPRITE_SIZE
 from constants.quality import QUALITY_LOW, QUALITY_MEDIUM
 from utils.animation import Animation
+from utils.quality import dynamic_fire_enabled
 
 
 class Fire(sprites.sprite.Sprite):
@@ -30,9 +31,8 @@ class Fire(sprites.sprite.Sprite):
         self.animation = None
 
     def draw(self, screen, x, y):
-        quality = QUALITY_MEDIUM
 
-        if quality == QUALITY_LOW:
+        if not dynamic_fire_enabled():
             self.draw_static(screen, x, y)
             return
 

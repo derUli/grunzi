@@ -6,7 +6,7 @@ import pygame
 
 import utils.audio
 import utils.quality
-from constants.quality import QUALITY_MEDIUM
+from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True
@@ -14,11 +14,12 @@ SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_BLOOD = QUALITY_MEDIUM
-SETTINGS_DEFAULT_weather = QUALITY_MEDIUM
+SETTINGS_DEFAULT_WEATHER = QUALITY_MEDIUM
 SETTINGS_DEFAULT_BLOOM = False
 SETTINGS_DEFAULT_FOG = True
 SETTINGS_DEFAULT_SMOOTHSCALE = True
 SETTINGS_DEFAULT_VOLUME = 1.0
+SETTINGS_DEFAULT_FIRE = QUALITY_HIGH
 
 
 def get_default_screen_resolution() -> tuple:
@@ -57,7 +58,8 @@ class SettingsState:
         self.bloom = SETTINGS_DEFAULT_BLOOM
         self.fog = SETTINGS_DEFAULT_FOG
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
-        self.weather = SETTINGS_DEFAULT_weather
+        self.weather = SETTINGS_DEFAULT_WEATHER
+        self.fire = SETTINGS_DEFAULT_FIRE
 
         # Needs restart
         self.needs_restart = False
@@ -128,8 +130,8 @@ class SettingsState:
             'bloom': self.bloom,
             'fog': self.fog,
             'weather': self.weather,
+            'fire': self.fire,
             'smoothscale': self.smoothscale,
-
         }
 
     def to_json(self):
@@ -169,6 +171,9 @@ class SettingsState:
 
         if 'weather' in settings:
             self.weather = int(settings['weather'])
+
+        if 'fire' in settings:
+            self.fire = int(settings['fire'])
 
         if 'smoothscale' in settings:
             self.smoothscale = bool(settings['smoothscale'])

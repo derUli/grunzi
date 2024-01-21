@@ -7,48 +7,6 @@ MIN_SCREEN_RESOLUTION = (800, 600)
 
 class SettingsGraphics(SettingsComponent):
 
-    def get_blood_items(self):
-        return [
-            (_('Off'), QUALITY_OFF),
-            (_('Medium'), QUALITY_MEDIUM),
-            (_('High'), QUALITY_HIGH),
-        ]
-
-    def handle_change_blood(self, selection, selected_index):
-        selected_item, index = selection
-        text, value = selected_item
-        self.settings_state.blood = value
-        self.settings_state.apply_and_save()
-
-    def get_weather_items(self):
-        return [
-            (_('Off'), QUALITY_OFF),
-            (_('Low'), QUALITY_LOW),
-            (_('Medium'), QUALITY_MEDIUM),
-            (_('High'), QUALITY_HIGH),
-        ]
-
-    def handle_change_weather(self, selection, selected_index):
-        selected_item, index = selection
-        text, value = selected_item
-        self.settings_state.weather = value
-        self.settings_state.apply_and_save()
-
-    def handle_toggle_bloom(self, value):
-        """ Handle toggle bloom """
-        self.settings_state.bloom = value
-        self.settings_state.apply_and_save()
-
-    def handle_toggle_smoothscale(self, value):
-        """ Handle toggle bloom """
-        self.settings_state.smoothscale = value
-        self.settings_state.apply_and_save()
-
-    def handle_toggle_fog(self, value):
-        """ Handle toggle fog """
-        self.settings_state.fog = value
-        self.settings_state.apply_and_save()
-
     def draw_menu(self, screen):
         menu = make_menu(_('Graphics'), self.settings_state.limit_fps)
 
@@ -76,6 +34,19 @@ class SettingsGraphics(SettingsComponent):
             placeholder=get_longest_option(self.get_weather_items()),
         )
 
+
+        menu.add.dropselect(
+            title=_('Fire'),
+            default=self.get_selected_index(
+                self.get_fire_items(),
+                self.settings_state.fire),
+            items=self.get_fire_items(),
+            onchange=self.handle_change_fire,
+            placeholder_add_to_selection_box=False,
+            placeholder=get_longest_option(self.get_fire_items()),
+        )
+
+
         menu.add.toggle_switch(
             _('Fog'),
             self.settings_state.fog,
@@ -101,3 +72,57 @@ class SettingsGraphics(SettingsComponent):
 
         self.menu = menu
         menu.mainloop(screen, self.draw_background)
+
+    def get_blood_items(self):
+        return [
+            (_('Off'), QUALITY_OFF),
+            (_('Medium'), QUALITY_MEDIUM),
+            (_('High'), QUALITY_HIGH),
+        ]
+
+    def handle_change_blood(self, selection, selected_index):
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.blood = value
+        self.settings_state.apply_and_save()
+
+    def get_weather_items(self):
+        return [
+            (_('Off'), QUALITY_OFF),
+            (_('Low'), QUALITY_LOW),
+            (_('Medium'), QUALITY_MEDIUM),
+            (_('High'), QUALITY_HIGH),
+        ]
+
+    def handle_change_weather(self, selection, selected_index):
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.weather = value
+        self.settings_state.apply_and_save()
+
+    def get_fire_items(self):
+        return [
+            (_('Medium'), QUALITY_MEDIUM),
+            (_('High'), QUALITY_HIGH),
+        ]
+
+    def handle_change_fire(self, selection, selected_index):
+        selected_item, index = selection
+        text, value = selected_item
+        self.settings_state.fire = value
+        self.settings_state.apply_and_save()
+
+    def handle_toggle_bloom(self, value):
+        """ Handle toggle bloom """
+        self.settings_state.bloom = value
+        self.settings_state.apply_and_save()
+
+    def handle_toggle_smoothscale(self, value):
+        """ Handle toggle bloom """
+        self.settings_state.smoothscale = value
+        self.settings_state.apply_and_save()
+
+    def handle_toggle_fog(self, value):
+        """ Handle toggle fog """
+        self.settings_state.fog = value
+        self.settings_state.apply_and_save()
