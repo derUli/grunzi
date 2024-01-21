@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-21 00:45+0100\n"
+"POT-Creation-Date: 2024-01-21 20:32+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -349,6 +349,10 @@ msgstr "Der Fernseher ist aus."
 #: sprites/tv.py:53
 msgid "The TV is on."
 msgstr "Der Fernseher ist an."
+
+#: sprites/volkslehrer.py:36
+msgid "I am openly right-wing radical."
+msgstr "Ich bin offen rechtsradikal."
 
 #: sprites/wildpig.py:14
 msgid "I am very wild."

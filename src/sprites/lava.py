@@ -10,6 +10,7 @@ from utils.quality import shader_enabled
 
 LAVA_SPEED = 2
 
+DAMAGE_AMOUNT = 33
 
 class Lava(sprites.sprite.Sprite):
     """ Backdrop sprite """
@@ -86,4 +87,4 @@ class Lava(sprites.sprite.Sprite):
 
     def handle_interact(self, element):
         if element and element.state:
-            element.state.hurt(0)
+            element.state.hurt(DAMAGE_AMOUNT)

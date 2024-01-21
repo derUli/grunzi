@@ -150676,7 +150676,7 @@
 "sprite_file": "volkslehrer1.png"
 },
 {
-"sprite_class": "sprites.backdrop.Backdrop",
+"sprite_class": "sprites.volkslehrer.Volkslehrer",
 "sprite_file": "volkslehrer2.png"
 },
 0,
