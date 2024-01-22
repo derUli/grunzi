@@ -55,6 +55,10 @@ def get_savegames() -> list:
 
 
 def get_latest_savegame() -> Union[str, None]:
+    """
+    Get latest savegame
+    @return: directory name of savegame
+    """
     savegames = get_savegames()
     if len(savegames) == 0:
         return None

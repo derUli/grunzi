@@ -188,7 +188,6 @@ class Level:
         make_screenshot(surface, DUMP_DIR)
 
         end_time = time.time()
-
         logging.debug(f'Map dumped in {str(end_time - start_time)} seconds')
 
     def total_blocks(self, leveldata):
