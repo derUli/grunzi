@@ -44,6 +44,10 @@ def build_savegame_level_path(name: str) -> str:
 
 
 def get_savegames() -> list:
+    """
+    Returns all savegames sorted by latest
+    @return: list of savegames
+    """
     savegames = []
     for name in SAVEGAMES:
         if has_savegame(name):
