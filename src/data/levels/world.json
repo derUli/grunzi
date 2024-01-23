@@ -149500,12 +149500,36 @@
 "sprite_class": "sprites.wall.Wall",
 "sprite_file": "wall.jpg"
 },
-0,
-0,
-0,
-0,
-0,
-0,
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit.jpg",
+"walkable": 1
+},
+{
+"sprite_class": "sprites.levelexit.LevelExit",
+"sprite_file": "exit.jpg",
+"walkable": 1
+},
 0,
 0,
 0,
