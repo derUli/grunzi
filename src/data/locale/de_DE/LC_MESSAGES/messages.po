@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-21 20:49+0100\n"
+"POT-Creation-Date: 2024-01-23 16:21+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:111 components/menu/mainmenu.py:65 grunzi.py:34
+#: bootstrap/gamecontainer.py:111 components/menu/mainmenu.py:65 grunzi.py:32
 msgid "Grunzi"
 msgstr ""
 
-#: grunzi.py:35
+#: grunzi.py:33
 msgid "Piggy adventure game"
 msgstr ""
 
@@ -72,8 +72,8 @@ msgid "Autosave"
 msgstr "Auto-Speicher"
 
 #: components/menu/loadgame.py:20 components/settings/audio.py:61
-#: components/settings/video/graphics.py:71
-#: components/settings/video/screen.py:126
+#: components/settings/video/graphics.py:69
+#: components/settings/video/screen.py:130
 #: components/settings/video/video.py:17
 msgid "Back"
 msgstr "Zurück"
@@ -94,11 +94,11 @@ msgstr "Laden"
 msgid "Achievements"
 msgstr "Errungenschaften"
 
-#: components/menu/mainmenu.py:78 components/settings/settings.py:72
+#: components/menu/mainmenu.py:77 components/settings/settings.py:72
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: components/menu/mainmenu.py:80
+#: components/menu/mainmenu.py:79
 msgid "Quit"
 msgstr "Beenden"
 
@@ -177,14 +177,14 @@ msgid "Graphics"
 msgstr "Grafik"
 
 #: components/settings/video/graphics.py:13
-#: components/settings/video/graphics.py:78
-#: components/settings/video/graphics.py:91
-#: components/settings/video/screen.py:88
+#: components/settings/video/graphics.py:76
+#: components/settings/video/graphics.py:89
+#: components/settings/video/screen.py:92
 msgid "Off"
 msgstr "Aus"
 
 #: components/settings/video/graphics.py:13
-#: components/settings/video/screen.py:88
+#: components/settings/video/screen.py:92
 msgid "On"
 msgstr "An"
 
@@ -196,59 +196,59 @@ msgstr "Blut"
 msgid "Weather"
 msgstr "Wetter"
 
-#: components/settings/video/graphics.py:39
+#: components/settings/video/graphics.py:38
 msgid "Fire"
 msgstr "Feuer"
 
-#: components/settings/video/graphics.py:51
+#: components/settings/video/graphics.py:49
 msgid "Fog"
 msgstr "Nebel"
 
-#: components/settings/video/graphics.py:58
+#: components/settings/video/graphics.py:56
 msgid "Bloom"
 msgstr "Bloom"
 
-#: components/settings/video/graphics.py:65
+#: components/settings/video/graphics.py:63
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
-#: components/settings/video/graphics.py:79
-#: components/settings/video/graphics.py:93
-#: components/settings/video/graphics.py:105
+#: components/settings/video/graphics.py:77
+#: components/settings/video/graphics.py:91
+#: components/settings/video/graphics.py:103
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings/video/graphics.py:80
-#: components/settings/video/graphics.py:94
-#: components/settings/video/graphics.py:106
+#: components/settings/video/graphics.py:78
+#: components/settings/video/graphics.py:92
+#: components/settings/video/graphics.py:104
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings/video/graphics.py:92
+#: components/settings/video/graphics.py:90
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings/video/screen.py:58
+#: components/settings/video/screen.py:62
 msgid "Uncapped"
 msgstr "Unbegrenzt"
 
-#: components/settings/video/screen.py:86 components/settings/video/video.py:14
+#: components/settings/video/screen.py:90 components/settings/video/video.py:14
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: components/settings/video/screen.py:91
+#: components/settings/video/screen.py:95
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings/video/screen.py:98
+#: components/settings/video/screen.py:102
 msgid "V-Sync"
 msgstr "Vertikale Synchronisation"
 
-#: components/settings/video/screen.py:105
+#: components/settings/video/screen.py:109
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings/video/screen.py:116
+#: components/settings/video/screen.py:120
 msgid "Framerate Cap"
 msgstr "Maximale Framerate"
 
@@ -272,7 +272,7 @@ msgstr "Das Benzin ist leer."
 msgid "The chainsaw was recharged."
 msgstr "Die Kettensäge wurde aufgefüllt."
 
-#: sprites/devilwoman.py:67
+#: sprites/devilwoman.py:65
 msgid "Heavy Metal, dude!"
 msgstr "Meddl Leude!"
 
@@ -328,7 +328,15 @@ msgstr "Köstliches Blood!"
 msgid "I need more blood!"
 msgstr "Ich brauche mehr Blut!"
 
-#: sprites/horse.py:182
+#: sprites/horse.py:150
+msgid "Hahaha! It tickles!"
+msgstr "Hahaha! Das kitzelt!"
+
+#: sprites/horse.py:152
+msgid "I don't need this."
+msgstr "Ich brauche das nicht."
+
+#: sprites/horse.py:185
 msgid "Now I am full of blood."
 msgstr "Jetzt bin ich wieder blutvoll. :)"
 
@@ -348,15 +356,15 @@ msgstr "Maus bewegen zum Umschauen"
 msgid "My favorite movie."
 msgstr "Mein Lieblingsfilm."
 
-#: sprites/tv.py:45 sprites/tv.py:55
+#: sprites/tv.py:45 sprites/tv.py:56
 msgid "The TV is off."
 msgstr "Der Fernseher ist aus."
 
-#: sprites/tv.py:53
+#: sprites/tv.py:54
 msgid "The TV is on."
 msgstr "Der Fernseher ist an."
 
-#: sprites/volkslehrer.py:36
+#: sprites/volkslehrer.py:31
 msgid "I am openly right-wing radical."
 msgstr "Ich bin offen rechtsradikal."
 

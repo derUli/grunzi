@@ -11,6 +11,7 @@ from constants.headup import NPC_HEALTH_COLOR_FRIENDLY, NPC_HEALTH_HEIGHT
 from sprites.blood import Blood
 from sprites.character import Character
 from sprites.fadeable import Fadeable
+from sprites.weapon import Weapon
 from utils.atmosphere import ATMOSPHERE_FOG, ATMOSPHERE_SNOW, ATMOSPHERE_RAIN
 from utils.audio import play_sound
 
@@ -145,6 +146,10 @@ class Horse(Character, Fadeable):
             play_sound(self.horse_sound)
 
             element.state.say(self.next_sentence())
+        elif isinstance(element.state.inventory, Weapon):
+            element.state.say(_('Hahaha! It tickles!'))
+        else:
+            element.state.say(_("I don't need this."))
 
     def update_atmosphere(self, atmosphere):
         fog = atmosphere.get_layer_by_id(ATMOSPHERE_FOG)
