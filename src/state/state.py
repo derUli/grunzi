@@ -81,4 +81,8 @@ class State:
         self.from_dict(savegame)
 
     def update_task(self, task):
+        """
+        Update task
+        @param task: Task name
+        """
         self.task = task
