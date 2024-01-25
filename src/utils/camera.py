@@ -19,7 +19,6 @@ class Camera:
         @param x: left
         @param y: top
         """
-
         if x < 0:
             x = 0
 
