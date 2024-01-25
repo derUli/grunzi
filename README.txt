@@ -14,12 +14,10 @@ Das Spiel kann mit einem Doppelklick auf "Grunzi.exe" gestartet werden.
 Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden Start-Parameter zu übergeben:
 
 ```
-  -e, --edit            Enable in-game map editor
-  -v, --debug           Enable debug loglevel
-  -a, --disable-ai      Disable AI
-  -d, --disable-controller
-                        Disable controller support
-  
+  -e, --edit                Enable in-game map editor
+  -v, --debug               Enable debug loglevel
+  -a, --disable-ai          Disable AI
+  -d, --disable-controller  Disable controller support
 ```
 
 Wenn der Start des Spiels mit der Fehlermeldung, dass die "VCRUNTIME140.dll" fehlt, fehlschlägt, müssen Sie das
@@ -72,9 +70,15 @@ Hier kann man die Qualität der Grafikdetails einstellen.
 Wenn Grunzi verletzt ist, wird der Monitor blutig eingefärbt.
 **Auswirkung auf die Performance:** Mittel
 
-**Schnee**
-Hier kann der Detailgrad des Schnees eingestellt werden.
+**Wetter**
+Hier kann der Detailgrad des Wetters eingestellt werden.
 **Auswirkung auf die Performance:** Niedrig
+
+**Feuer**
+Hier kann der Detailgrad des Feuers eingestellt werden.
+"Mittel" bedeutet, dass das alte statische Feuer verwendet wird.
+Bei "Hoch" wird das Feuer in Echtzeit animiert.
+**Auswirkung auf die Performance:** Hoch
 
 **Nebel**
 Hier kann der Nebel ein- und ausgeschaltet werden.

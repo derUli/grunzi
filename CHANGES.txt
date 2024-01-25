@@ -15,6 +15,7 @@
 * Autosave
 * Regen-Effekt
 * Beim ersten Start wird die Bildschirmauflösung des Systems übernommen
+* Feuer-Effekt
 
 ## Alpha 004
 
