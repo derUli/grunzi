@@ -4,11 +4,13 @@ import os
 from utils.path import get_userdata_path, is_windows
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
-file_handler = None
+if not os.path.exists(get_userdata_path()):
+    os.makedirs(get_userdata_path())
+
+file_handler = logging.FileHandler(log_file)
 
 
 def configure_logger(log_level) -> None:
-    file_handler = logging.FileHandler(log_file)
     """ Configure logger """
     logging.basicConfig(
         level=log_level,
