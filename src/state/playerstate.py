@@ -21,6 +21,11 @@ RUMBLE_HIGH_FREQUENCY = 1
 
 class PlayerState:
     def __init__(self, data_dir, gamepad=None):
+        """
+        Constructor
+        @param data_dir: data directory path
+        @param gamepad: Gamepad instance
+        """
         self.data_dir = data_dir
         """ Constructor """
         self.health = FULL_HEALTH
@@ -226,7 +231,7 @@ class PlayerState:
 
         percentage = 1.0 - (self.health / 100)
 
-        if (percentage <= 0):
+        if percentage <= 0:
             return
 
         x, y = 0, 0

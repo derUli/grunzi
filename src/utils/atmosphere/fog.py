@@ -53,6 +53,9 @@ class Fog(GlobalEffect):
         if len(self.fog) == 0:
             self.init_fog(screen.get_size())
 
+        if self.alpha == 0 and self.target_alpha == 0:
+            return
+
         if self.alpha < self.target_alpha:
             self.alpha += FOG_ALPHA_SPEED
         elif self.alpha > self.target_alpha:
