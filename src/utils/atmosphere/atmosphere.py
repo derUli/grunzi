@@ -19,9 +19,7 @@ class Atmosphere:
     def reset(self):
         self.layers = [
             Fog(),
-            Rain(),
-            # Snow(),
-            DayNightCycle()
+            Rain()
         ]
 
         for layer in self.layers:
