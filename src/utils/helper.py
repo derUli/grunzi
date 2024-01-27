@@ -4,10 +4,11 @@ import os
 from utils.path import get_userdata_path, is_windows
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
-file_handler = logging.FileHandler(log_file)
+file_handler = None
 
 
 def configure_logger(log_level) -> None:
+    file_handler = logging.FileHandler(log_file)
     """ Configure logger """
     logging.basicConfig(
         level=log_level,
