@@ -1,3 +1,4 @@
+import logging
 import os
 
 import pygame
@@ -36,7 +37,17 @@ class MenuComponent(Component):
 
     def draw_background(self):
         """ Draw video background """
-        backdrop = scroll24(self.backdrop, self.x, 0)
+        try:
+            backdrop = scroll24(self.backdrop, self.x, 0)
+        except ValueError as e:
+            logging.error(e)
+            self.x = 0
+            backdrop = scroll24(self.backdrop, self.x, 0)
+        except OverflowError as e:
+            logging.error(e)
+            self.x = 0
+            backdrop = scroll24(self.backdrop, self.x, 0)
+
         self.screen.blit(backdrop, (0, 0))
         self.draw_notification(self.version_number, BUILD_COLOR, self.screen)
         self.x += 1
