@@ -59,19 +59,6 @@ class MenuComponent(Component):
         """ Draw """
         self.draw_menu(self.screen)
 
-    def get_selected_index(self, items, selected):
-        """ Get selected index for value """
-        i = 0
-        for item in items:
-            text, value = item
-
-            if value == selected:
-                break
-
-            i += 1
-
-        return i
-
     def apply_menu_fonts(self):
         # Apply font to menus
         menu.THEME_PIG.title_font = pygame.font.Font(

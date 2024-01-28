@@ -1,5 +1,6 @@
 from components.menu.menucomponent import SettingsComponent
 from constants.quality import QUALITY_OFF, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
+from utils.helper import get_selected_index
 from utils.menu import make_menu, get_longest_option
 
 
@@ -12,7 +13,7 @@ class SettingsGraphics(SettingsComponent):
 
         menu.add.dropselect(
             title=_('Blood'),
-            default=self.get_selected_index(
+            default=get_selected_index(
                 self.get_blood_items(),
                 self.settings_state.blood),
             items=self.get_blood_items(),
@@ -23,7 +24,7 @@ class SettingsGraphics(SettingsComponent):
 
         menu.add.dropselect(
             title=_('Weather'),
-            default=self.get_selected_index(
+            default=get_selected_index(
                 self.get_weather_items(),
                 self.settings_state.weather),
             items=self.get_weather_items(),
@@ -34,7 +35,7 @@ class SettingsGraphics(SettingsComponent):
 
         menu.add.dropselect(
             title=_('Fire'),
-            default=self.get_selected_index(
+            default=get_selected_index(
                 self.get_fire_items(),
                 self.settings_state.fire),
             items=self.get_fire_items(),

@@ -1,6 +1,7 @@
 import pygame
 
 from components.menu.menucomponent import SettingsComponent
+from utils.helper import get_selected_index
 from utils.menu import make_menu, get_longest_option
 
 SCREEN_RESOLUTION_MIN = (1280, 720)
@@ -112,7 +113,7 @@ class SettingsScreen(SettingsComponent):
 
         menu.add.dropselect(
             title=_('Screen Resolution'),
-            default=self.get_selected_index(
+            default=get_selected_index(
                 self.get_screen_resolution_items(),
                 self.settings_state.screen_resolution),
             items=self.get_screen_resolution_items(),
@@ -123,7 +124,7 @@ class SettingsScreen(SettingsComponent):
 
         menu.add.dropselect(
             title=_('Framerate Cap'),
-            default=self.get_selected_index(
+            default=get_selected_index(
                 self.get_limit_fps(),
                 self.settings_state.limit_fps),
             items=self.get_limit_fps(),

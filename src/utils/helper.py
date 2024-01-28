@@ -56,3 +56,17 @@ def enable_high_dpi() -> bool:
         return False
 
     return True
+
+
+def get_selected_index(items, selected):
+    """ Get selected index for value """
+    i = 0
+    for item in items:
+        text, value = item
+
+        if value == selected:
+            break
+
+        i += 1
+
+    return i
