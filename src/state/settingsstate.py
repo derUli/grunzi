@@ -10,6 +10,7 @@ from constants.quality import QUALITY_MEDIUM
 from utils.path import get_userdata_path
 
 SETTINGS_DEFAULT_FULLSCREEN = True
+SETTINGS_DEFAULT_FULLSCREEN_BORDERLESS = True
 SETTINGS_DEFAULT_VSYNC = True
 SETTINGS_DEFAULT_SCREEN_RESOLUTION = (1280, 720)
 SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
@@ -45,6 +46,8 @@ class SettingsState:
         self.screen_resolution = get_default_screen_resolution()
 
         self.fullscreen = SETTINGS_DEFAULT_FULLSCREEN
+        self.fullscreen_borderless = SETTINGS_DEFAULT_FULLSCREEN_BORDERLESS
+
         self.old_fullscreen = SETTINGS_DEFAULT_FULLSCREEN
         self.vsync = SETTINGS_DEFAULT_VSYNC
         self.limit_fps = SETTINGS_DEFAULT_LIMIT_FPS
@@ -121,6 +124,7 @@ class SettingsState:
         """ To dict """
         return {
             'fullscreen': self.fullscreen,
+            'fullscreen_borderless': self.fullscreen_borderless,
             'sound_volume': self.sound_volume,
             'music_volume': self.music_volume,
             'vsync': self.vsync,
@@ -144,6 +148,9 @@ class SettingsState:
         if 'fullscreen' in settings:
             self.fullscreen = bool(settings['fullscreen'])
             self.old_fullscreen = bool(settings['fullscreen'])
+
+        if 'fullscreen_borderless' in settings:
+            self.fullscreen_borderless = bool(settings['fullscreen_borderless'])
 
         if 'sound_volume' in settings:
             self.sound_volume = float(settings['sound_volume'])

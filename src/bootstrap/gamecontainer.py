@@ -102,12 +102,17 @@ class GameContainer:
         """ Init the screen """
         flags = pygame.HWSURFACE | pygame.DOUBLEBUF
 
+        if self.settings_state.fullscreen_borderless:
+            flags = flags | pygame.SCALED
+
         self.screen = None
         logging.info('Init screen')
         logging.info(
             label_value(
                 'Screen resolution', str(
-                    self.settings_state.screen_resolution)))
+                    self.settings_state.screen_resolution)
+            )
+        )
         pygame.display.set_caption(_('Grunzi'))
 
         if self.settings_state.fullscreen:

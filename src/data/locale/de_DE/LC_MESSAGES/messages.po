@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-23 16:21+0100\n"
+"POT-Creation-Date: 2024-01-28 11:59+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:111 components/menu/mainmenu.py:65 grunzi.py:32
+#: bootstrap/gamecontainer.py:116 components/menu/mainmenu.py:65 grunzi.py:32
 msgid "Grunzi"
 msgstr ""
 
@@ -34,7 +34,7 @@ msgstr "Kommt bald"
 msgid "Game Over"
 msgstr "Du bist Schinken!"
 
-#: components/game/gameover.py:60 components/menu/loadgame.py:12
+#: components/game/gameover.py:60 components/menu/loadgame.py:10
 msgid "Load Game"
 msgstr "Spiel laden"
 
@@ -63,18 +63,18 @@ msgstr ""
 msgid "To be continued"
 msgstr "Wird fortgesetzt"
 
-#: components/menu/loadgame.py:15
+#: components/menu/loadgame.py:13
 msgid "Manual save"
 msgstr "Manueller Spielstand"
 
-#: components/menu/loadgame.py:18
+#: components/menu/loadgame.py:16
 msgid "Autosave"
 msgstr "Auto-Speicher"
 
-#: components/menu/loadgame.py:20 components/settings/audio.py:61
-#: components/settings/video/graphics.py:69
-#: components/settings/video/screen.py:130
-#: components/settings/video/video.py:17
+#: components/menu/loadgame.py:18 components/settings/audio.py:61
+#: components/settings/video/graphics.py:67
+#: components/settings/video/screen.py:135
+#: components/settings/video/video.py:15
 msgid "Back"
 msgstr "Zurück"
 
@@ -167,88 +167,92 @@ msgstr "Nicht unterstützt"
 msgid "No Controller"
 msgstr "Kein Controller"
 
-#: components/settings/settings.py:74 components/settings/video/video.py:12
+#: components/settings/settings.py:74 components/settings/video/video.py:10
 msgid "Video"
 msgstr ""
 
-#: components/settings/video/graphics.py:11
-#: components/settings/video/video.py:15
+#: components/settings/video/graphics.py:9
+#: components/settings/video/video.py:13
 msgid "Graphics"
 msgstr "Grafik"
 
-#: components/settings/video/graphics.py:13
-#: components/settings/video/graphics.py:76
-#: components/settings/video/graphics.py:89
-#: components/settings/video/screen.py:92
+#: components/settings/video/graphics.py:11
+#: components/settings/video/graphics.py:74
+#: components/settings/video/graphics.py:87
+#: components/settings/video/screen.py:89
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings/video/graphics.py:13
-#: components/settings/video/screen.py:92
+#: components/settings/video/graphics.py:11
+#: components/settings/video/screen.py:89
 msgid "On"
 msgstr "An"
 
-#: components/settings/video/graphics.py:16
+#: components/settings/video/graphics.py:14
 msgid "Blood"
 msgstr "Blut"
 
-#: components/settings/video/graphics.py:27
+#: components/settings/video/graphics.py:25
 msgid "Weather"
 msgstr "Wetter"
 
-#: components/settings/video/graphics.py:38
+#: components/settings/video/graphics.py:36
 msgid "Fire"
 msgstr "Feuer"
 
-#: components/settings/video/graphics.py:49
+#: components/settings/video/graphics.py:47
 msgid "Fog"
 msgstr "Nebel"
 
-#: components/settings/video/graphics.py:56
+#: components/settings/video/graphics.py:54
 msgid "Bloom"
 msgstr "Bloom"
 
-#: components/settings/video/graphics.py:63
+#: components/settings/video/graphics.py:61
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
-#: components/settings/video/graphics.py:77
-#: components/settings/video/graphics.py:91
-#: components/settings/video/graphics.py:103
+#: components/settings/video/graphics.py:75
+#: components/settings/video/graphics.py:89
+#: components/settings/video/graphics.py:101
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings/video/graphics.py:78
-#: components/settings/video/graphics.py:92
-#: components/settings/video/graphics.py:104
+#: components/settings/video/graphics.py:76
+#: components/settings/video/graphics.py:90
+#: components/settings/video/graphics.py:102
 msgid "High"
 msgstr "Hoch"
 
-#: components/settings/video/graphics.py:90
+#: components/settings/video/graphics.py:88
 msgid "Low"
 msgstr "Niedrig"
 
-#: components/settings/video/screen.py:62
+#: components/settings/video/screen.py:59
 msgid "Uncapped"
 msgstr "Unbegrenzt"
 
-#: components/settings/video/screen.py:90 components/settings/video/video.py:14
+#: components/settings/video/screen.py:87 components/settings/video/video.py:12
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: components/settings/video/screen.py:95
+#: components/settings/video/screen.py:92
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: components/settings/video/screen.py:102
+#: components/settings/video/screen.py:100
+msgid "Borderless"
+msgstr "Rahmenlos"
+
+#: components/settings/video/screen.py:107
 msgid "V-Sync"
 msgstr "Vertikale Synchronisation"
 
-#: components/settings/video/screen.py:109
+#: components/settings/video/screen.py:114
 msgid "Screen Resolution"
 msgstr "Bildschirmauflösung"
 
-#: components/settings/video/screen.py:120
+#: components/settings/video/screen.py:125
 msgid "Framerate Cap"
 msgstr "Maximale Framerate"
 
@@ -396,7 +400,7 @@ msgstr "Speichere Level..."
 msgid "Dumping level to image..."
 msgstr "Generiere Level als Grafikdatei..."
 
-#: state/playerstate.py:80
+#: state/playerstate.py:85
 msgid "Ouch!"
 msgstr "Autsch!"
 

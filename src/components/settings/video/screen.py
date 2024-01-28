@@ -19,6 +19,15 @@ class SettingsScreen(SettingsComponent):
         """ Handle toggle fullscreen """
         self.settings_state.fullscreen = value
         self.settings_state.apply_and_save()
+        self.menu.disable()
+        self.draw_menu(self.screen)
+
+    def handle_toggle_fullscreen_borderless(self, value):
+        """ Handle toggle fullscreen borderless """
+        self.settings_state.fullscreen_borderless = value
+        self.settings_state.apply_and_save()
+        self.settings_state.needs_restart = True
+
 
     def handle_toggle_vsync(self, value):
         """ Handle toggle VSync """
@@ -85,6 +94,14 @@ class SettingsScreen(SettingsComponent):
             self.handle_toggle_fullscreen,
             state_text=state_text
         )
+
+        if self.settings_state.fullscreen:
+            menu.add.toggle_switch(
+                _('Borderless'),
+                self.settings_state.fullscreen_borderless,
+                self.handle_toggle_fullscreen_borderless,
+                state_text=state_text
+            )
 
         menu.add.toggle_switch(
             _('V-Sync'),
