@@ -1,11 +1,13 @@
+import gettext
 import os
 import unittest
 
 import pygame
-
 import utils.quality
 from components.settings.video.screen import  SettingsScreen
 from state.settingsstate import SettingsState
+
+gettext.install('messages')
 
 
 class VideoScreenTest(unittest.TestCase):
@@ -32,3 +34,6 @@ class VideoScreenTest(unittest.TestCase):
 
     def test_get_screen_resolution_items(self):
         self.assertTrue(('1280x720', (1280, 720)) in self.component.get_screen_resolution_items())
+
+    def test_foo(self):
+        self.assertTrue(('60 FPS', 60) in self.component.get_screen_resolution_items())
