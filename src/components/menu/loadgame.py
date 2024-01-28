@@ -3,6 +3,7 @@ import utils.savegame
 from components.menu.menucomponent import MenuComponent
 from utils.menu import make_menu
 
+
 class LoadGameComponent(MenuComponent):
 
     def draw_menu(self, screen):

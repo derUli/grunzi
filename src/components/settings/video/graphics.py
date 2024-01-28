@@ -2,6 +2,7 @@ from components.menu.menucomponent import SettingsComponent
 from constants.quality import QUALITY_OFF, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.menu import make_menu, get_longest_option
 
+
 class SettingsGraphics(SettingsComponent):
 
     def draw_menu(self, screen):

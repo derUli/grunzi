@@ -1,12 +1,10 @@
-import math
-
 import pygame
 
 from components.menu.menucomponent import SettingsComponent
 from utils.menu import make_menu, get_longest_option
 
-
 SCREEN_RESOLUTION_MIN = (1280, 720)
+
 
 class SettingsScreen(SettingsComponent):
     def handle_change_screen_resolution(self, selection, selected_index):
