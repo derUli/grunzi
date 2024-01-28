@@ -4,13 +4,14 @@ import unittest
 
 import pygame
 import utils.quality
-from components.settings.video.screen import  SettingsScreen
+from components.settings.video.graphics import SettingsGraphics
+from constants.quality import QUALITY_HIGH
 from state.settingsstate import SettingsState
 
 gettext.install('messages')
 
 
-class VideoScreenTest(unittest.TestCase):
+class VideoGraphicsTest(unittest.TestCase):
 
     def setUp(self):
         pygame.init()
@@ -18,7 +19,7 @@ class VideoScreenTest(unittest.TestCase):
 
         utils.quality.settings_state = SettingsState()
 
-        self.component = SettingsScreen(
+        self.component = SettingsGraphics(
             os.path.join('..', 'src', 'data'),
             self.dummy,
             SettingsState()
@@ -32,8 +33,13 @@ class VideoScreenTest(unittest.TestCase):
     def dummy(self, component):
         return
 
-    def test_get_screen_resolution_items(self):
-        self.assertTrue(('1280x720', (1280, 720)) in self.component.get_screen_resolution_items())
+    def test_get_blood_items(self):
+        self.assertTrue(('High', QUALITY_HIGH) in self.component.get_blood_items())
 
-    def test_foo(self):
-        self.assertTrue(('60 FPS', 60) in self.component.get_screen_resolution_items())
+    def test_get_fire_items(self):
+        self.assertTrue(('High', QUALITY_HIGH) in self.component.get_fire_items())
+
+    def test_get_weather_items(self):
+        self.assertTrue(('High', QUALITY_HIGH) in self.component.get_weather_items())
+
+
