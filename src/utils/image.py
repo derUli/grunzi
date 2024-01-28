@@ -30,8 +30,7 @@ class ImageCache:
 
         return None
 
-    def load_image(
-            self, path: str, scale: Union[tuple, None] = None) -> Union[pygame.surface.Surface, None]:
+    def load_image(self, path: str, scale: Union[tuple, None] = None) -> Union[pygame.surface.Surface, None]:
         time.time()
         extension = os.path.splitext(path)[1]
         is_alpha = extension.lower() in ALPHA_IMAGE_FORMATS
