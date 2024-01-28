@@ -4,13 +4,14 @@ import unittest
 
 import pygame
 import utils.quality
-from components.settings.video.screen import  SettingsScreen
+from components.settings.controls import SettingsControls
+from constants.quality import QUALITY_HIGH
 from state.settingsstate import SettingsState
 
 gettext.install('messages')
 
 
-class VideoScreenTest(unittest.TestCase):
+class ControlsText(unittest.TestCase):
 
     def setUp(self):
         pygame.init()
@@ -18,7 +19,7 @@ class VideoScreenTest(unittest.TestCase):
 
         utils.quality.settings_state = SettingsState()
 
-        self.component = SettingsScreen(
+        self.component = SettingsControls(
             os.path.join('..', 'src', 'data'),
             self.dummy,
             SettingsState()
@@ -32,8 +33,8 @@ class VideoScreenTest(unittest.TestCase):
     def dummy(self, component):
         return
 
-    def test_get_screen_resolution_items(self):
-        self.assertTrue(('1280x720', (1280, 720)) in self.component.get_screen_resolution_items())
+    def test_keyboard_controls(self):
+        self.assertTrue(('Walk', 'Arrow_Keys.png') in self.component.keyboard_controls())
 
-    def test_get_limit_fps(self):
-        self.assertTrue(('60 FPS', 60) in self.component.get_limit_fps())
+    def test_controller_controls(self):
+        self.assertTrue(('Walk', '360_Dpad.png') in self.component.controller_controls())
