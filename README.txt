@@ -17,6 +17,7 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   -e, --edit                Enable in-game map editor
   -v, --debug               Enable debug loglevel
   -a, --disable-ai          Disable AI
+  -b, --disable-audio       Disable Audio
   -d, --disable-controller  Disable controller support
 ```
 

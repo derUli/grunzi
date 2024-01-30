@@ -12,7 +12,7 @@ from bootstrap.gamecontainer import GameContainer
 from components.menu.intro import Intro
 from components.menu.mainmenu import MainMenu
 from utils.helper import configure_logger, enable_high_dpi
-from utils.path import get_userdata_path
+from utils.path import get_userdata_path, is_windows
 
 __main__ = __file__
 ROOT_DIR = os.path.join(os.path.dirname(__main__))
@@ -55,6 +55,14 @@ def parse_args():
     )
 
     parser.add_argument(
+        '-b',
+        '--disable-audio',
+        action='store_true',
+        help='Disable Audio'
+    )
+
+
+    parser.add_argument(
         '-d',
         '--disable-controller',
         action='store_true',
@@ -72,6 +80,14 @@ def parse_args():
 
 
 args = parse_args()
+
+if args.disable_audio:
+    logging.info('Audio is disabled')
+    os.environ['SDL_AUDIODRIVER'] = 'disk'
+    if is_windows():
+        os.environ['SDL_DISKAUDIOFILE'] = 'NUL'
+    else:
+        os.environ['SDL_DISKAUDIOFILE'] = '/dev/null'
 
 # While still in alpha the log level is always debug
 # TODO: Remove before production release
