@@ -58,15 +58,20 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache,
             'mud.jpg'
         ),
-        Wall(
+        Destroyable(
             sprites_dir,
             image_cache,
             'tree1.png'
         ),
-        Wall(
+        Destroyable(
             sprites_dir,
             image_cache,
             'tree2.png'
+        ),
+        Destroyable(
+            sprites_dir,
+            image_cache,
+            'tree3.png'
         ),
         Wall(
             sprites_dir,
