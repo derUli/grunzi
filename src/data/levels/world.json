@@ -151162,16 +151162,7 @@
 {
 "sprite_class": "sprites.telescope.Telescope",
 "sprite_file": "telescope.png",
-"id": "telescope",
-"attributes": {
-"code": [
-1,
-2,
-3,
-4
-],
-"unlocked": false
-}
+"id": "telescope"
 },
 0,
 0,
@@ -169989,8 +169980,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -169998,8 +169988,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170007,8 +169996,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170016,8 +170004,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170025,8 +170012,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170034,8 +170020,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170043,8 +170028,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170052,8 +170036,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170061,8 +170044,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170070,8 +170052,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170079,8 +170060,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170088,8 +170068,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170097,8 +170076,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170106,8 +170084,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170115,8 +170092,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170124,8 +170100,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170133,8 +170108,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
@@ -170142,8 +170116,7 @@
 },
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -170457,8 +170430,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -170768,8 +170740,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -171079,8 +171050,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -171390,8 +171360,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -171701,8 +171670,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -172012,8 +171980,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -172323,8 +172290,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -172634,8 +172600,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -172956,8 +172921,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -173271,8 +173235,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
@@ -173619,8 +173582,7 @@
 0,
 {
 "sprite_class": "sprites.backdrop.Backdrop",
-"sprite_file": "grid1.png",
-"walkable": 1
+"sprite_file": "grid1.png"
 },
 0,
 0,
