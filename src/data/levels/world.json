@@ -111270,9 +111270,15 @@
 0,
 0,
 0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "rhodes1.png"
+},
 0,
-0,
-0,
+{
+"sprite_class": "sprites.wall.Wall",
+"sprite_file": "rhodes2.png"
+},
 0,
 {
 "sprite_class": "sprites.fence.Fence",
@@ -151156,7 +151162,16 @@
 {
 "sprite_class": "sprites.telescope.Telescope",
 "sprite_file": "telescope.png",
-"id": "telescope"
+"id": "telescope",
+"attributes": {
+"code": [
+1,
+2,
+3,
+4
+],
+"unlocked": false
+}
 },
 0,
 0,

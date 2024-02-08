@@ -148,10 +148,20 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache,
             'stool.png'
         ),
-        Backdrop(
+        Destroyable(
             sprites_dir,
             image_cache,
-            'rock.jpg'
+            'tree3.png'
+        ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'rhodes1.png'
+        ),
+        Wall(
+            sprites_dir,
+            image_cache,
+            'rhodes2.png'
         ),
         Backdrop(
             sprites_dir,
