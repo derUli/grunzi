@@ -7,6 +7,7 @@ from sprites.burger import Burger
 from sprites.chainsaw import Chainsaw
 from sprites.chicken import Chicken
 from sprites.coin import Coin
+from sprites.cow import Cow
 from sprites.destroyable import Destroyable
 from sprites.dog import Dog
 from sprites.duck import Duck
@@ -297,6 +298,10 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache
         ),
         Sheep(
+            sprites_dir,
+            image_cache
+        ),
+        Cow(
             sprites_dir,
             image_cache
         ),
