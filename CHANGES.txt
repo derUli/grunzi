@@ -13,9 +13,10 @@
 * Neuer Ladebildschirm
 * Hauptmenü überarbeitet
 * Autosave
-* Regen-Effekt
+* Regen-Shader hinzugefügt
 * Beim ersten Start wird die Bildschirmauflösung des Systems übernommen
-* Feuer-Effekt
+* Feuer-Shade
+* Kühe
 
 ## Alpha 004
 
