@@ -45,13 +45,6 @@ class SettingsGraphics(SettingsComponent):
         )
 
         menu.add.toggle_switch(
-            _('Fog'),
-            self.settings_state.fog,
-            self.handle_toggle_fog,
-            state_text=state_text
-        )
-
-        menu.add.toggle_switch(
             _('Bloom'),
             self.settings_state.bloom,
             self.handle_toggle_bloom,
@@ -117,9 +110,4 @@ class SettingsGraphics(SettingsComponent):
     def handle_toggle_smoothscale(self, value):
         """ Handle toggle bloom """
         self.settings_state.smoothscale = value
-        self.settings_state.apply_and_save()
-
-    def handle_toggle_fog(self, value):
-        """ Handle toggle fog """
-        self.settings_state.fog = value
         self.settings_state.apply_and_save()

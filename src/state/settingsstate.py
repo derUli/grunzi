@@ -17,7 +17,6 @@ SETTINGS_DEFAULT_LIMIT_FPS = 0  # Default is unlimited
 SETTINGS_DEFAULT_BLOOD = QUALITY_MEDIUM
 SETTINGS_DEFAULT_WEATHER = QUALITY_MEDIUM
 SETTINGS_DEFAULT_BLOOM = False
-SETTINGS_DEFAULT_FOG = True
 SETTINGS_DEFAULT_SMOOTHSCALE = True
 SETTINGS_DEFAULT_VOLUME = 1.0
 SETTINGS_DEFAULT_FIRE = QUALITY_MEDIUM
@@ -59,7 +58,6 @@ class SettingsState:
         # Graphics settings
         self.blood = SETTINGS_DEFAULT_BLOOD
         self.bloom = SETTINGS_DEFAULT_BLOOM
-        self.fog = SETTINGS_DEFAULT_FOG
         self.smoothscale = SETTINGS_DEFAULT_SMOOTHSCALE
         self.weather = SETTINGS_DEFAULT_WEATHER
         self.fire = SETTINGS_DEFAULT_FIRE
@@ -132,7 +130,6 @@ class SettingsState:
             'screen_resolution': self.screen_resolution,
             'blood': self.blood,
             'bloom': self.bloom,
-            'fog': self.fog,
             'weather': self.weather,
             'fire': self.fire,
             'smoothscale': self.smoothscale,
@@ -172,9 +169,6 @@ class SettingsState:
 
         if 'bloom' in settings:
             self.bloom = bool(settings['bloom'])
-
-        if 'fog' in settings:
-            self.fog = bool(settings['fog'])
 
         if 'weather' in settings:
             self.weather = int(settings['weather'])

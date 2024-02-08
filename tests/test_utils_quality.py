@@ -33,10 +33,10 @@ class QualityTest(unittest.TestCase):
         #self.assertTrue(quality.daynightcycle_enabled())
 
     def test_fog_enabled(self):
-        quality.settings_state.fog = False
+        quality.settings_state.weather = constants.quality.QUALITY_LOW
         self.assertFalse(quality.fog_enabled())
 
-        quality.settings_state.fog = True
+        quality.settings_state.fog =  constants.quality.QUALITY_HIGH
         self.assertTrue(quality.fog_enabled())
 
     def test_bloom_enabled(self):

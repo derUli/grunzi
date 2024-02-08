@@ -37,13 +37,11 @@ def daynightcycle_enabled() -> bool:
 
 def fog_enabled() -> bool:
     """ Check fog enabled """
-    return settings_state and settings_state.fog
-
+    return settings_state and weather_quality() >= QUALITY_HIGH
 
 def weather_enabled() -> bool:
     """ Check weather is enabled """
     return settings_state and settings_state.weather >= QUALITY_LOW
-
 
 def weather_quality():
     """ Get weather quality """
