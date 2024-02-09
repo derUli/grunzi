@@ -62,6 +62,7 @@ class Fog(GlobalEffect):
         self.buffer = pygame.surface.Surface(
             screen.get_size(), pygame.SRCALPHA | pygame.BLEND_ALPHA_SDL2)
 
+        sequence = []
         for fog in self.fog:
 
             w = fog['image'].get_width()
@@ -74,10 +75,11 @@ class Fog(GlobalEffect):
                 x = w
 
             if self.alpha > 0:
-                self.buffer.blit(fog['image'], (x, y))
+                sequence.append((fog['image'], (x, y)))
 
             fog['pos'] = (x, y)
 
+        self.buffer.fblits(sequence)
         self.buffer.set_alpha(int(self.alpha))
         screen.blit(self.buffer, (0, 0))
 

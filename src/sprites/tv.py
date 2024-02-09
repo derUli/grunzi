@@ -27,7 +27,8 @@ class TV(sprites.sprite.Sprite):
 
     def draw(self, screen, x, y):
         """ Draw current frame of fire animation """
-        super().draw(screen, x, y)
+        x, y = self.calculate_pos(x, y)
+        screen.blit(self.sprite, (x, y))
         if not self.attributes['enabled']:
             return
 
