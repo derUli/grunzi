@@ -24,9 +24,11 @@ class Fog(GlobalEffect):
 
     def __init__(self):
         self.fog = []
+        self.enabled = False
         self.alpha = 0
         self.target_alpha = 0
-        self.last_updated = time()
+        self.last_updated = 0
+        self.buffer = None
         self.id = ATMOSPHERE_FOG
 
     def start(self, args={}, sprites_dir=None, image_cache=None):
@@ -43,7 +45,6 @@ class Fog(GlobalEffect):
         self.fog = []
         self.alpha = 0
         self.target_alpha = 0
-
         self.buffer = None
 
     def draw(self, screen):
