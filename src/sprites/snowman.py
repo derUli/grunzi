@@ -16,4 +16,4 @@ class Snowman(Wall):
 
         self.walkable = False
 
-        super().draw(screen, x, y)
+        return super().draw(screen, x, y)

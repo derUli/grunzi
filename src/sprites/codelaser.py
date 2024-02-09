@@ -30,7 +30,7 @@ class CodeLaser(Fadeable):
         screen.blit(self.sprite, (x, y))
 
         if not shader_enabled():
-            return
+            return self.sprite, (x, y)
 
         if self.direction == DIRECTION_DOWN:
             self.offset_y += MOVE_SPEED
@@ -41,3 +41,5 @@ class CodeLaser(Fadeable):
 
             if self.offset_y < OFFSET_FROM:
                 self.direction = DIRECTION_DOWN
+
+        return self.sprite, (x, y)

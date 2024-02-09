@@ -33,7 +33,7 @@ class MainCharacter(Character):
 
     def draw(self, screen, x, y):
         """ Draw main character """
-        drawn = super().draw(screen, x, y)
+        super().draw(screen, x, y)
 
         self.draw_inventory_item(screen, x, y)
 
@@ -44,7 +44,6 @@ class MainCharacter(Character):
     def draw_inventory_item(self, screen, x, y):
         if not self.state:
             return
-        """ Draw inventory item """
         if not isinstance(self.state.inventory, InlineSprite):
             return
 

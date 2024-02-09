@@ -215,7 +215,12 @@ class MainGame(PausableComponent, LoadingScreen):
                             break
 
                         fblits_tuple = col.draw(virtual_screen, x, y)
-                        fblits_sequence.append(fblits_tuple)
+
+                        if isinstance(fblits_tuple, list):
+                            for i in fblits_tuple:
+                                fblits_sequence.append(i)
+                        elif isinstance(fblits_tuple, tuple):
+                            fblits_sequence.append(fblits_tuple)
 
                         if self.state.edit_mode and isinstance(col, Character):
                             col.draw_debug(

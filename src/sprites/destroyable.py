@@ -19,9 +19,6 @@ class Destroyable(Fadeable, Wall):
         self.persistent_pixels = 0
         self.fadeout = False
 
-    def draw(self, screen, x, y):
-        super().draw(screen, x, y)
-
     def handle_interact_item(self, element):
         # Destroy if player has the chainsaw
         if not element:

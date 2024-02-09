@@ -38,18 +38,17 @@ class LandMine(Sprite):
 
     def draw(self, screen, x, y):
         """ Draw """
-        super().draw(screen, x, y)
 
         if not self.exploded:
-            return
+            return super().draw(screen, x, y)
 
         pos = self.calculate_pos(x, y)
         frame = self.explosion.get_frame()
 
-        screen.blit(frame, pos)
-
         if not self.explosion.has_more_frames():
             self.purge = True
+
+        return frame, pos
 
     def handle_interact(self, element):
         """ Explode on enter """

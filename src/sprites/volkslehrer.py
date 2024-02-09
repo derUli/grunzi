@@ -19,11 +19,6 @@ class Volkslehrer(Killable, Character):
         self.walkable = False
         self.sound_played = False
 
-    def draw(self, screen, x, y):
-        """ Draw sprite """
-
-        super().draw(screen, x, y)
-
     def ai(self, level):
         if not self.sound_played:
             self.sound_played = True

@@ -15,9 +15,6 @@ class Takeable(Sprite):
         # For unlocking just set this on true
         self.walkable = True
 
-    def draw(self, screen, x, y):
-        super().draw(screen, x, y)
-
     def handle_interact(self, element):
         """ Set walkable on interact """
 

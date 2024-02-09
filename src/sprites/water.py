@@ -32,21 +32,17 @@ class Water(sprites.sprite.Sprite):
         pos = self.calculate_pos(x, y)
 
         if not shader_enabled():
-            super().draw(screen, x, y)
-            return
+            return super().draw(screen, x, y)
 
         if not self.loaded:
             self.generate_frames()
 
         frame = self.cache.get_processed_image(self.cache_id(self.angle))
 
-        if not frame:
-            return
-
         screen.blit(frame, pos)
 
         if time.time() - self.last_update < self.update_interval:
-            return
+            return frame, pos
 
         next_angle = self.angle + 5
         next_angle = next_angle % 360
@@ -54,6 +50,8 @@ class Water(sprites.sprite.Sprite):
         if self.cache.get_processed_image(self.cache_id(next_angle)):
             self.last_update = time.time()
             self.angle = next_angle
+
+        return frame, pos
 
     def generate_frames(self):
         self.loaded = True

@@ -161,6 +161,8 @@ class Level:
         surface = pygame.surface.Surface((total_w, total_h))
 
         for z in range(0, len(self.layers)):
+            fblits_sequence = []
+
             for y in range(0, len(self.layers[z])):
                 for x in range(0, len(self.layers[z][y])):
                     element = self.layers[z][y][x]
@@ -183,7 +185,19 @@ class Level:
                             while not animation.fully_loaded():
                                 continue
 
-                        element.draw(surface, x, y)
+                        fblits_tuple = element.draw(surface, x, y)
+
+                        if isinstance(fblits_tuple, list):
+                            for i in fblits_tuple:
+                                fblits_sequence.append(i)
+                        elif isinstance(fblits_tuple, tuple):
+                            fblits_sequence.append(fblits_tuple)
+                        else:
+                            logging.error(str(element) + " not sequenced")
+
+
+            fblits_sequence = tuple(filter(lambda item: item is not None, fblits_sequence))
+            surface.fblits(fblits_sequence)
 
         make_screenshot(surface, DUMP_DIR)
 

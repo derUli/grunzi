@@ -40,14 +40,12 @@ class Cow(Killable, Character):
         self.next_sound_time = None
 
     def draw(self, screen, x, y):
-
+        """ Draw sprite """
         if not self.next_sound_time and not sounds_busy():
             self.next_sound_time = time.time() + random.randint(10,  30)
 
             if time.time() >= self.next_sound_time:
                 self.play_sound()
-
-        """ Draw sprite """
 
         sprite = self.sprite.copy()
 
@@ -60,8 +58,7 @@ class Cow(Killable, Character):
 
         pos = self.calculate_pos(x, y)
 
-        screen.blit(sprite, pos)
-
+        return sprite, pos
 
     def random_direction(self):
         direction = random.choice([
