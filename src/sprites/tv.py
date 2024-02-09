@@ -26,18 +26,20 @@ class TV(sprites.sprite.Sprite):
         }
 
     def draw(self, screen, x, y):
+        sequence = []
         """ Draw current frame of fire animation """
-        x, y = self.calculate_pos(x, y)
-        screen.blit(self.sprite, (x, y))
+        sequence.append(super().draw(screen, x, y))
+
         if not self.attributes['enabled']:
-            return
+            return sequence
 
         x, y = self.calculate_pos(x, y)
         frame = self.animation.get_frame()
 
         x += 4
         y += 13
-        screen.blit(frame, (x, y))
+        sequence.append((frame, (x, y)))
+        return sequence
 
     def handle_interact(self, element):
         if self.attributes['enabled']:
