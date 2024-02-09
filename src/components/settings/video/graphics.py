@@ -1,5 +1,5 @@
 from components.menu.menucomponent import SettingsComponent
-from constants.quality import QUALITY_OFF, QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH
+from constants.quality import QUALITY_OFF, QUALITY_MEDIUM, QUALITY_HIGH
 from utils.helper import get_selected_index
 from utils.menu import make_menu, get_longest_option
 
@@ -78,8 +78,6 @@ class SettingsGraphics(SettingsComponent):
 
     def get_weather_items(self):
         return [
-            (_('Off'), QUALITY_OFF),
-            (_('Low'), QUALITY_LOW),
             (_('Medium'), QUALITY_MEDIUM),
             (_('High'), QUALITY_HIGH),
         ]

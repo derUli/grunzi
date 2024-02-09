@@ -5,7 +5,6 @@ import time
 import pygame
 
 import utils.audio
-from constants.quality import QUALITY_MEDIUM, QUALITY_HIGH
 from utils.atmosphere import ATMOSPHERE_RAIN
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.audio import play_sound
@@ -15,7 +14,7 @@ RAIN_COLOR = (69, 82, 92)
 RAIN_AMOUNT = 500
 RAIN_SPEED = 20
 RAIN_TEXT = '/'
-RAIN_TEXT_SIZE = 30
+RAIN_TEXT_SIZE = 24
 
 RAIN_IMAGE_SIZE = (6, 6)
 
@@ -40,7 +39,6 @@ class Rain(GlobalEffect):
 
         self.target_count = 0
         self.prefill = False
-        self.font_surface = None
         self.sound = None
 
         if 'rain_target_count' in args:
@@ -62,18 +60,8 @@ class Rain(GlobalEffect):
         self.avg.append(time.time() - start_date)
 
     def make_surface(self):
-        quality = QUALITY_HIGH
-        surface = None
-
-        if quality >= QUALITY_MEDIUM:
-            if not self.font_surface:
-                font = pygame.font.SysFont(None, RAIN_TEXT_SIZE)
-                surface = font.render(RAIN_TEXT, True, RAIN_COLOR)
-                self.font_surface = surface
-
-            surface = self.font_surface
-
-        return surface
+        font = pygame.font.SysFont(None, RAIN_TEXT_SIZE)
+        return font.render(RAIN_TEXT, True, RAIN_COLOR)
 
     def draw(self, screen):
         if not self.enabled:
@@ -115,10 +103,7 @@ class Rain(GlobalEffect):
         for i in range(len(self.rain_fall)):
             surface = self.rain_fall[i][2]
 
-            if surface:
-                screen.blit(surface, self.rain_fall[i][:2])
-            else:
-                pygame.draw.circle(screen, RAIN_COLOR, self.rain_fall[i][:2], 2)
+            screen.blit(surface, self.rain_fall[i][:2])
 
             self.rain_fall[i][1] += RAIN_SPEED
 
