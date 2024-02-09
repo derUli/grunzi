@@ -90,14 +90,14 @@ class Sprite:
         thread.start()
 
     def draw(self, screen, x, y):
+        """ draw sprite """
 
         pos = self.calculate_pos(x, y)
 
-        """ draw sprite """
         if not self.sprite:
             return None
 
-        screen.blit(self.sprite, pos)
+        return self.sprite, pos
 
     def draw_debug(self, screen, x, y, from_x, from_y):
 

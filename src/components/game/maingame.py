@@ -215,8 +215,6 @@ class MainGame(PausableComponent, LoadingScreen):
                             break
 
                         fblits_tuple = col.draw(virtual_screen, x, y)
-                        if fblits_tuple:
-                            print(col)
                         fblits_sequence.append(fblits_tuple)
 
                         if self.state.edit_mode and isinstance(col, Character):
