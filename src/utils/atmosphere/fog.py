@@ -67,8 +67,11 @@ class Fog(GlobalEffect):
             screen.blit(self.buffer, (0, 0))
             return
 
-        self.buffer = pygame.surface.Surface(
-            screen.get_size(), pygame.SRCALPHA)
+        if not self.buffer:
+            self.buffer = pygame.surface.Surface(
+                screen.get_size(), pygame.SRCALPHA)
+
+        self.buffer.fill((0, 0, 0, 0))
 
         for fog in self.fog:
 
