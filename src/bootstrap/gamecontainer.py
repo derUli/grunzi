@@ -94,7 +94,6 @@ class GameContainer:
 
         logging.info(pygame.display.Info())
 
-
         if not self.disable_controller:
             self.init_controller()
 

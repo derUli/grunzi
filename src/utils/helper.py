@@ -1,7 +1,7 @@
 import logging
 import os
 
-from utils.path import get_userdata_path, is_windows
+from utils.path import get_userdata_path
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
 if not os.path.exists(get_userdata_path()):
@@ -36,26 +36,8 @@ def get_version(file: str) -> str:
     return text.strip()
 
 
-def enable_high_dpi() -> bool:
-    """
-    Add support for high DPI on windows
-    """
-    # Abort if not windows
-    if not is_windows():
-        return False
-
-    import ctypes
-
-    try:
-        # Set DPI Process aware
-        ctypes.windll.user32.SetProcessDPIAware()
-        logging.debug('SetProcessDPIAware')
-    except AttributeError as e:
-        # Windows XP doesn't support monitor scaling, so just do nothing
-        logging.error(e)
-        return False
-
-    return True
+def enable_high_dpi():
+    os.environ['SDL_WINDOWS_DPI_AWARENESS'] = 'permonitorv2'
 
 
 def get_selected_index(items, selected):

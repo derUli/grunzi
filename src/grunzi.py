@@ -61,7 +61,6 @@ def parse_args():
         help='Disable Audio'
     )
 
-
     parser.add_argument(
         '-d',
         '--disable-controller',

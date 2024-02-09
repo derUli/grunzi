@@ -29,7 +29,6 @@ class SettingsScreen(SettingsComponent):
         self.settings_state.apply_and_save()
         self.settings_state.needs_restart = True
 
-
     def handle_toggle_vsync(self, value):
         """ Handle toggle VSync """
         self.settings_state.vsync = value

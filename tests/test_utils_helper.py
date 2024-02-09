@@ -18,7 +18,8 @@ class HelperTest(unittest.TestCase):
         self.assertEqual('1.0 Beta', get_version(file))
 
     def test_enable_high_dpi(self):
-        self.assertEqual(bool, type((enable_high_dpi())))
+        enable_high_dpi()
+        self.assertEqual('permonitorv2', os.environ['SDL_WINDOWS_DPI_AWARENESS'])
 
     def test_configure_logger(self):
         configure_logger(logging.DEBUG)

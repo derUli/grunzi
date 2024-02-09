@@ -42,7 +42,7 @@ class Cow(Killable, Character):
     def draw(self, screen, x, y):
 
         if not self.next_sound_time and not sounds_busy():
-            self.next_sound_time = time.time() + random.randint(10,  30)
+            self.next_sound_time = time.time() + random.randint(10, 30)
 
             if time.time() >= self.next_sound_time:
                 self.play_sound()
