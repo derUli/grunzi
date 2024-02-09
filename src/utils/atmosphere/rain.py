@@ -112,11 +112,13 @@ class Rain(GlobalEffect):
         if self.sound:
             self.sound.set_volume(volume)
 
+        sequence = []
+
         for i in range(len(self.rain_fall)):
             surface = self.rain_fall[i][2]
 
             if surface:
-                screen.blit(surface, self.rain_fall[i][:2])
+                sequence.append((surface, self.rain_fall[i][:2]))
             else:
                 pygame.draw.circle(screen, RAIN_COLOR, self.rain_fall[i][:2], 2)
 
@@ -132,6 +134,9 @@ class Rain(GlobalEffect):
 
                 x = random.randrange(0, w)
                 self.rain_fall[i][0] = x
+
+        if any(sequence):
+            screen.fblits(sequence)
 
         self.rain_fall = list(filter(lambda item: item is not None, self.rain_fall))
 
