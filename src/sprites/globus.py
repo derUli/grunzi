@@ -16,7 +16,6 @@ class Globus(sprites.sprite.Sprite):
         super().__init__(sprite_dir, cache, 'gras1.jpg')
         sprite_dir = os.path.join(sprite_dir, 'animations', 'globus')
 
-        w, h = constants.graphics.SPRITE_SIZE
 
         self.animation = Animation(
             sprite_dir,
@@ -28,4 +27,5 @@ class Globus(sprites.sprite.Sprite):
         """ Draw current frame of fire animation """
         frame = self.animation.get_frame()
         pos = self.calculate_pos(x, y)
-        screen.blit(frame, pos)
+
+        return frame, pos
