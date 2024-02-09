@@ -61,7 +61,8 @@ class Fog(GlobalEffect):
 
         if time() < self.last_updated + FOG_MOVE_SPEED and self.buffer:
             self.buffer.set_alpha(int(self.alpha))
-            screen.blit(self.buffer, (0, 0), special_flags=pygame.MULT)
+
+            screen.blit(self.buffer, (0, 0))
             return
 
         if not self.buffer:

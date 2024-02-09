@@ -59,6 +59,7 @@ class GameContainer:
         if not any(gpus):
             logging.info(label_value('GPU', 'Unknown'))
 
+        logging.info(label_value('RAM', str(pygame.system.get_total_ram()) + ' MB'))
         logging.info(
             label_value(
                 'Smoothscale backend',
