@@ -41,8 +41,6 @@ class MainCharacter(Character):
         if self.state and self.state.show_detailed:
             screen.blit(self.state.show_detailed, (0, 0))
 
-        return drawn
-
     def draw_inventory_item(self, screen, x, y):
         if not self.state:
             return

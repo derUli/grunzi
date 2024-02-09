@@ -77,7 +77,7 @@ class Frog(Character):
         elif self.h <= self.h_min:
             self.h = self.h_min
 
-        return screen.blit(self.sprite, (x, y), rect)
+        screen.blit(self.sprite, (x, y), rect)
 
     def ai(self, level):
         next_quack = time.time() + random.randint(0, 10)

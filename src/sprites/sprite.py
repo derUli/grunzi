@@ -97,7 +97,7 @@ class Sprite:
         if not self.sprite:
             return None
 
-        return screen.blit(self.sprite, pos)
+        screen.blit(self.sprite, pos)
 
     def draw_debug(self, screen, x, y, from_x, from_y):
 

@@ -42,8 +42,6 @@ class DevilWoman(Killable, Character):
 
         screen.blit(sprite, pos)
 
-        return pos
-
     def ai(self, level):
         mainchar_z, mainchar_y, mainchar_x = level.search_mainchar()
         pos = level.search_sprite(self)

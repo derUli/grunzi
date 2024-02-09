@@ -50,8 +50,6 @@ class Dog(Killable, Character):
 
         screen.blit(sprite, pos)
 
-        return pos
-
     def play_sound(self):
         if self.sound and self.sound.get_busy():
             return

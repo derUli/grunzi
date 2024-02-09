@@ -192,6 +192,9 @@ class MainGame(PausableComponent, LoadingScreen):
             screen.blit(self.backdrop, (0, 0, virtscreen_w, virtscreen_h))
 
         for layer in filtered_layers:
+
+            fblits_sequence = []
+
             y = 0
             x = 0
 
@@ -211,7 +214,10 @@ class MainGame(PausableComponent, LoadingScreen):
                         if pos_y > virtscreen_h:
                             break
 
-                        col.draw(virtual_screen, x, y)
+                        fblits_tuple = col.draw(virtual_screen, x, y)
+                        if fblits_tuple:
+                            print(col)
+                        fblits_sequence.append(fblits_tuple)
 
                         if self.state.edit_mode and isinstance(col, Character):
                             col.draw_debug(
@@ -232,6 +238,9 @@ class MainGame(PausableComponent, LoadingScreen):
 
                 y += 1
                 x = 0
+
+            fblits_sequence = tuple(filter(lambda item: item is not None, fblits_sequence))
+            virtual_screen.fblits(fblits_sequence)
             z += 1
 
         if not show_backdrop:

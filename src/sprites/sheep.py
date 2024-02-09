@@ -53,8 +53,6 @@ class Sheep(Killable, Character):
 
         screen.blit(sprite, pos)
 
-        return pos
-
     def random_direction(self):
         direction = random.choice([
             DIRECTION_LEFT,
