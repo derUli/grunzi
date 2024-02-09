@@ -8,13 +8,6 @@ from utils.atmosphere import ATMOSPHERE_FOG
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.quality import fog_enabled
 
-UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
-DARKEST_DAYTIME = 240
-BRIGHTEST_DAYTIME = 0
-
-DEFAULT_DAYTIME = 20
-MODIFIER_DARK = 1
-MODIFIER_LIGHT = -1
 
 FOG_ALPHA_SPEED = 0.5
 FOG_MOVE_SPEED = 1 / 10
@@ -67,7 +60,7 @@ class Fog(GlobalEffect):
             return
 
         self.buffer = pygame.surface.Surface(
-            screen.get_size(), pygame.SRCALPHA)
+            screen.get_size(), pygame.SRCALPHA | pygame.BLEND_ALPHA_SDL2)
 
         for fog in self.fog:
 
