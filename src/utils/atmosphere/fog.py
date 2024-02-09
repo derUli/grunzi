@@ -88,7 +88,7 @@ class Fog(GlobalEffect):
             fog['pos'] = (x, y)
 
         self.buffer.set_alpha(int(self.alpha))
-        screen.blit(self.buffer, (0, 0), special_flags= pygame.BLEND_ALPHA_SDL2)
+        screen.blit(self.buffer, (0, 0))
 
     def to_dict(self):
         return {
