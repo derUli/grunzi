@@ -33,10 +33,9 @@ class Fire(sprites.sprite.Sprite):
     def draw(self, screen, x, y):
 
         if not self.is_dynamic:
-            self.draw_static(screen, x, y)
-            return
+            return self.draw_static(screen, x, y)
 
-        self.draw_dynamic(screen, x, y)
+        return self.draw_dynamic(screen, x, y)
 
     def draw_static(self, screen, x, y):
         """ Draw current frame of static fire animation """
@@ -51,7 +50,7 @@ class Fire(sprites.sprite.Sprite):
 
         frame = self.animation.get_frame()
         pos = self.calculate_pos(x, y)
-        screen.blit(frame, pos)
+        return frame, pos
 
     def draw_dynamic(self, screen, x, y, smooth=True, bloom=True, fast_bloom=True, blur=True):
         """ Draw current frame of dynamic fire animation """
@@ -88,14 +87,14 @@ class Fire(sprites.sprite.Sprite):
             surface_=self.tmp_surface
         )
 
-        screen.blit(frame, pos, special_flags=pygame.BLEND_RGBA_MAX)
-
         self.bpf += self.delta
         self.bpf = max(self.bpf, 45)
         self.bpf = min(self.bpf, 0)
 
         if self.bpf == 45:
             self.delta *= -1
+
+        return frame, pos
 
     def handle_interact(self, element):
         if element and element.state:
