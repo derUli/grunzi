@@ -12,7 +12,7 @@ from sprites.blood import Blood
 from sprites.character import Character
 from sprites.fadeable import Fadeable
 from sprites.weapon import Weapon
-from utils.atmosphere import ATMOSPHERE_FOG, ATMOSPHERE_SNOW, ATMOSPHERE_RAIN
+from utils.atmosphere import ATMOSPHERE_FOG, ATMOSPHERE_RAIN
 from utils.audio import play_sound
 
 HORSE_FOG = 255
