@@ -49,6 +49,7 @@ class GameContainer:
         """ Start game """
         version_file = os.path.join(self.root_dir, 'LICENSE')
 
+        logging.info(label_value('Grunzi Version', get_version(version_file)))
         logging.info(label_value('OS', platform.platform()))
         logging.info(label_value('CPU', platform.processor()))
 
@@ -68,7 +69,6 @@ class GameContainer:
         logging.info(label_value('Python version', platform.python_version()))
         logging.info(label_value('Pygame version', pygame.version.ver))
         logging.info(label_value('SDL version', pygame.version.SDL))
-        logging.info(label_value('Grunzi Version', get_version(version_file)))
 
         pygame.mixer.pre_init(
             44100, 16, 2, 4096)  # For better and faster audio
@@ -89,6 +89,12 @@ class GameContainer:
         self.settings_state.apply()
 
         self.init_screen()
+
+        logging.info(label_value('Driver backend', pygame.display.get_driver()))
+
+        logging.info(pygame.display.Info())
+
+
         if not self.disable_controller:
             self.init_controller()
 
