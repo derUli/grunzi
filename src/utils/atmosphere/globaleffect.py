@@ -14,7 +14,7 @@ class GlobalEffect:
         pass
 
     def draw(self, screen):
-        pass
+        return []
 
     def to_dict(self):
         return {}
