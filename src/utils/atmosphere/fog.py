@@ -8,10 +8,6 @@ from utils.atmosphere import ATMOSPHERE_FOG
 from utils.atmosphere.globaleffect import GlobalEffect
 from utils.quality import fog_enabled
 
-UPDATE_DATETIME_INTERVAL = 1.1765  # Halber Tag in Spielzeit = 300 Sekunden
-DARKEST_DAYTIME = 240
-BRIGHTEST_DAYTIME = 0
-
 DEFAULT_DAYTIME = 20
 MODIFIER_DARK = 1
 MODIFIER_LIGHT = -1
@@ -48,6 +44,7 @@ class Fog(GlobalEffect):
         self.buffer = None
 
     def draw(self, screen):
+
         if not self.enabled:
             return
 
@@ -64,7 +61,7 @@ class Fog(GlobalEffect):
 
         if time() < self.last_updated + FOG_MOVE_SPEED and self.buffer:
             self.buffer.set_alpha(int(self.alpha))
-            screen.blit(self.buffer, (0, 0))
+            screen.blit(self.buffer, (0, 0), special_flags=pygame.MULT)
             return
 
         if not self.buffer:
@@ -90,7 +87,7 @@ class Fog(GlobalEffect):
             fog['pos'] = (x, y)
 
         self.buffer.set_alpha(int(self.alpha))
-        screen.blit(self.buffer, (0, 0))
+        screen.blit(self.buffer, (0, 0), special_flags= pygame.BLEND_ALPHA_SDL2)
 
     def to_dict(self):
         return {
