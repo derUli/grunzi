@@ -25,8 +25,11 @@ class Atmosphere:
             layer.reset()
 
     def draw(self, screen):
+        sequence = []
         for layer in self.layers:
-            layer.draw(screen)
+            sequence = sequence + layer.draw(screen)
+
+        screen.fblits(sequence)
 
     def to_dict(self):
         savdict = {}

@@ -41,10 +41,10 @@ class Fog(GlobalEffect):
 
     def draw(self, screen):
         if not self.enabled:
-            return
+            return []
 
         if self.alpha == 0 and self.target_alpha == 0:
-            return
+            return []
 
         if len(self.fog) == 0:
             self.init_fog(screen.get_size())
@@ -56,8 +56,7 @@ class Fog(GlobalEffect):
 
         if time() < self.last_updated + FOG_MOVE_SPEED and self.buffer:
             self.buffer.set_alpha(int(self.alpha))
-            screen.blit(self.buffer, (0, 0))
-            return
+            return [(self.buffer, (0, 0))]
 
         self.buffer = pygame.surface.Surface(
             screen.get_size(), pygame.SRCALPHA | pygame.BLEND_ALPHA_SDL2)
@@ -81,7 +80,7 @@ class Fog(GlobalEffect):
 
         self.buffer.fblits(sequence)
         self.buffer.set_alpha(int(self.alpha))
-        screen.blit(self.buffer, (0, 0))
+        return [(self.buffer, (0,0))]
 
     def to_dict(self):
         return {

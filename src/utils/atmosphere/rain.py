@@ -77,7 +77,7 @@ class Rain(GlobalEffect):
 
     def draw(self, screen):
         if not self.enabled:
-            return
+            return []
 
         size = screen.get_size()
         w, h = size
@@ -135,10 +135,9 @@ class Rain(GlobalEffect):
                 x = random.randrange(0, w)
                 self.rain_fall[i][0] = x
 
-        if any(sequence):
-            screen.fblits(sequence)
-
         self.rain_fall = list(filter(lambda item: item is not None, self.rain_fall))
+
+        return sequence
 
     def set_value(self, target_count):
         self.target_count = target_count
