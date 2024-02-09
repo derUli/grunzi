@@ -39,8 +39,6 @@ class Water(sprites.sprite.Sprite):
 
         frame = self.cache.get_processed_image(self.cache_id(self.angle))
 
-        screen.blit(frame, pos)
-
         if time.time() - self.last_update < self.update_interval:
             return frame, pos
 
