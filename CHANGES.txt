@@ -10,12 +10,12 @@
 
 * Aufgabe mit blutleerem Pferd hinzugefügt
 * Weitere NPC-Tiere hinzugefügt
-* Neuer Ladebildschirm
-* Hauptmenü überarbeitet
-* Autosave
 * Regen-Shader hinzugefügt
+* Feuer-Shader hinzugefügt
+* Hauptmenü überarbeitet
+* Neuer Ladebildschirm
+* Autosave
 * Beim ersten Start wird die Bildschirmauflösung des Systems übernommen
-* Feuer-Shade
 * Kühe
 
 ## Alpha 004
