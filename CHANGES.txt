@@ -16,7 +16,6 @@
 * Neuer Ladebildschirm
 * Autosave
 * Beim ersten Start wird die Bildschirmauflösung des Systems übernommen
-* Kühe
 
 ## Alpha 004
 
