@@ -226,6 +226,7 @@ class GameContainer:
             self.current_component.ai()
 
     def tick(self):
+        """ Clock tick """
         self.clock.tick(self.settings_state.limit_fps)
         fps = self.clock.get_fps()
         if fps > 0:
