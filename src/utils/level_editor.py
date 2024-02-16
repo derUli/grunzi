@@ -4,6 +4,7 @@ from sprites.apple import Apple
 from sprites.backdrop import Backdrop
 from sprites.blood import Blood
 from sprites.burger import Burger
+from sprites.capybara import Capybara
 from sprites.chainsaw import Chainsaw
 from sprites.chicken import Chicken
 from sprites.coin import Coin
@@ -314,6 +315,10 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache
         ),
         Frog(
+            sprites_dir,
+            image_cache
+        ),
+        Capybara(
             sprites_dir,
             image_cache
         ),
