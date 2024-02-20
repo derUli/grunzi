@@ -14,6 +14,7 @@ PHASE_SLIDE_OUT = 3
 
 TEXT_COLOR = (255, 255, 255)
 
+
 class Notification(GlobalEffect):
 
     def __init__(self):
@@ -92,4 +93,3 @@ class Notification(GlobalEffect):
         self.x = 0 - self.box.get_width()
         self.target_x = UI_MARGIN
         self.phase = PHASE_SLIDE_IN
-
