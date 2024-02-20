@@ -113,6 +113,8 @@ def get_achievements():
     }
 
 
+notification_callback = None
+
 def add_achievement(name, data_dir=None, wait_for_sound=False):
     state = AchievementsState()
     state.load()
@@ -127,8 +129,10 @@ def add_achievement(name, data_dir=None, wait_for_sound=False):
         sound = play_sound(os.path.join(data_dir, 'sounds', 'common', 'achievement.ogg'), skip_add=True)
 
         while wait_for_sound and sound.get_busy():
-            print('busy')
             pygame.time.wait(1)
+
+    if notification_callback:
+        notification_callback(state.achievements[name].get_display_text())
 
     logging.info(f'Added achievement {name}')
 

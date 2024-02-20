@@ -58,6 +58,7 @@ class MainGame(PausableComponent, LoadingScreen):
         self.is_level_exit = False
 
         self.atmosphere = Atmosphere(self.sprites_dir, self.image_cache)
+
         self.music_queue = MusicQueue()
 
         self.backdrop = self.image_cache.load_image(

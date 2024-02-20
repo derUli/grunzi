@@ -55,7 +55,7 @@ class Sprite:
         self.sprite_dir = sprite_dir
         self.id = None
         self.state = None
-
+        self.atmosphere = None
         self.mov_offset_x = 0
         self.mov_offset_y = 0
 
@@ -169,7 +169,7 @@ class Sprite:
         return
 
     def update_atmosphere(self, atmosphere):
-        pass
+        self.atmosphere = atmosphere
 
     def update_state(self, state):
         pass

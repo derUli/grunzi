@@ -1,3 +1,5 @@
+import state
+from utils.atmosphere.Notification import Notification
 from utils.atmosphere.fog import Fog
 from utils.atmosphere.rain import Rain
 
@@ -16,10 +18,14 @@ class Atmosphere:
             layer.start(args, self.sprites_dir, self.image_cache)
 
     def reset(self):
+        notification = Notification()
         self.layers = [
             Fog(),
-            Rain()
+            Rain(),
+            notification
         ]
+
+        state.achievements.notification_callback = notification.update
 
         for layer in self.layers:
             layer.reset()
