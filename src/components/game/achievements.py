@@ -75,13 +75,13 @@ class Achievements(FilmGrain):
 
             screen.blit(rendered_text, (x, y))
 
-            x = screen.get_width() - HORIZONTAL_MARGIN
-
             file = os.path.join(self.data_dir, 'images', 'ui', 'check.png')
 
             image = self.image_cache.load_image(
                 file, (rendered_text.get_height(), rendered_text.get_height())
             )
+
+            x = screen.get_width() - HORIZONTAL_MARGIN - image.get_width()
 
             if not self.state.achievements[achievement].completed:
                 image = pygame.transform.grayscale(image)
