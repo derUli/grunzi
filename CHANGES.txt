@@ -12,6 +12,7 @@
 * Weitere NPC-Tiere hinzugefügt
 * Regen-Shader hinzugefügt
 * Feuer-Shader hinzugefügt
+* Errungenschaften
 * Hauptmenü überarbeitet
 * Neuer Ladebildschirm
 * Autosave

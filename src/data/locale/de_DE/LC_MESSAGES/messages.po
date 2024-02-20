@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-20 15:19+0100\n"
+"POT-Creation-Date: 2024-02-20 16:00+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -26,9 +26,9 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/game/achievements.py:44
-msgid "Coming Soon"
-msgstr "Kommt bald"
+#: components/game/achievements.py:63
+msgid "Errungenschaften"
+msgstr ""
 
 #: components/game/gameover.py:57
 msgid "Game Over"
@@ -347,15 +347,15 @@ msgstr "[Münze einwerfen]"
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
-#: sprites/tv.py:49
+#: sprites/tv.py:48
 msgid "My favorite movie."
 msgstr "Mein Lieblingsfilm."
 
-#: sprites/tv.py:51 sprites/tv.py:62
+#: sprites/tv.py:50 sprites/tv.py:61
 msgid "The TV is off."
 msgstr "Der Fernseher ist aus."
 
-#: sprites/tv.py:60
+#: sprites/tv.py:59
 msgid "The TV is on."
 msgstr "Der Fernseher ist an."
 
@@ -400,13 +400,12 @@ msgid "Cat sawer"
 msgstr "Katzenzersäger"
 
 #: state/achievements.py:42
-#, fuzzy
 msgid "Full of blood"
 msgstr "Blutvoll"
 
 #: state/achievements.py:43
 msgid "Grilled"
-msgstr ""
+msgstr "Gegrillt"
 
 #: state/achievements.py:44
 msgid "Film Connoisseur"
@@ -463,4 +462,7 @@ msgstr "Sprenge dir den Weg frei"
 
 #~ msgid "Low"
 #~ msgstr "Niedrig"
+
+#~ msgid "Coming Soon"
+#~ msgstr "Kommt bald"
 
