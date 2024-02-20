@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-20 14:46+0100\n"
+"POT-Creation-Date: 2024-02-20 14:54+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -283,55 +283,55 @@ msgstr "Die Tür ist jetzt offen."
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
-#: sprites/horse.py:40
+#: sprites/horse.py:41
 msgid "Infinity bloodless!"
 msgstr "Unendlich blutleer!"
 
-#: sprites/horse.py:41
+#: sprites/horse.py:42
 msgid "I don't have a single drop of blood left."
 msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
 
-#: sprites/horse.py:42
+#: sprites/horse.py:43
 msgid "Please give me some blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:43
+#: sprites/horse.py:44
 msgid "I am infinitely thirsty for blood."
 msgstr "Ich bin unendlich durstig nach Blut!"
 
-#: sprites/horse.py:137
+#: sprites/horse.py:141
 msgid "Now I have a bit more blood."
 msgstr "Jetzt habe ich ein wenig mehr Blut."
 
-#: sprites/horse.py:138
+#: sprites/horse.py:142
 msgid "I still haven't enough blood."
 msgstr "Ich habe immer noch nicht genug Blut."
 
-#: sprites/horse.py:139
+#: sprites/horse.py:143
 msgid "Yummy blood!"
 msgstr "Leckeres Blut!"
 
-#: sprites/horse.py:140
+#: sprites/horse.py:144
 msgid "Give me more blood!"
 msgstr "Bitte gib mir etwas Blut!"
 
-#: sprites/horse.py:141
+#: sprites/horse.py:145
 msgid "Tasty blood!"
 msgstr "Köstliches Blood!"
 
-#: sprites/horse.py:142
+#: sprites/horse.py:146
 msgid "I need more blood!"
 msgstr "Ich brauche mehr Blut!"
 
-#: sprites/horse.py:150
+#: sprites/horse.py:154
 msgid "Hahaha! It tickles!"
 msgstr "Hahaha! Das kitzelt!"
 
-#: sprites/horse.py:152
+#: sprites/horse.py:156
 msgid "I don't need this."
 msgstr "Ich brauche das nicht."
 
-#: sprites/horse.py:185
+#: sprites/horse.py:189
 msgid "Now I am full of blood."
 msgstr "Jetzt bin ich wieder blutvoll. :)"
 
@@ -398,6 +398,11 @@ msgstr "Sprengmeister"
 #: state/achievements.py:38
 msgid "Cat sawer"
 msgstr "Katzenzersäger"
+
+#: state/achievements.py:39
+#, fuzzy
+msgid "Full of blood"
+msgstr "Blutvoll"
 
 #: state/level.py:141
 msgid "Saving level..."

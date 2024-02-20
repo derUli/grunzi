@@ -12,6 +12,7 @@ from sprites.blood import Blood
 from sprites.character import Character
 from sprites.fadeable import Fadeable
 from sprites.weapon import Weapon
+from state.achievements import add_achievement, ACHIEVEMENT_FULL_OF_BLOOD
 from utils.atmosphere import ATMOSPHERE_FOG, ATMOSPHERE_SNOW, ATMOSPHERE_RAIN
 from utils.audio import play_sound
 
@@ -63,6 +64,9 @@ class Horse(Character, Fadeable):
             horizontal_glitch(screen, 0.5, 0.08, self.fade_frame)
 
             if self.fade_frame > 127:
+
+                root_dir = os.path.join(self.sprite_dir, '..', '..')
+                add_achievement(ACHIEVEMENT_FULL_OF_BLOOD, root_dir)
                 self.purge = True
 
         pos = (x, y)

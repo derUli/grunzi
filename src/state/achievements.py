@@ -10,7 +10,7 @@ from utils.path import get_userdata_path
 ACHIEVEMENT_CODE_CRACKER = 'code_cracker'
 ACHIEVEMENT_DEMOLITION_EXPERT = 'demolition_expert'
 ACHIEVEMENT_CAT_SAWER = 'cat_sawer'
-
+ACHIEVEMENT_FULL_OF_BLOOD = 'full_of_blood'
 
 class Achievement:
     def __init__(self, achievement_id):
@@ -35,7 +35,8 @@ class Achievement:
         achievements = {
             ACHIEVEMENT_CODE_CRACKER: _('Code cracker'),
             ACHIEVEMENT_DEMOLITION_EXPERT: _('Demolition Expert'),
-            ACHIEVEMENT_CAT_SAWER: _('Cat sawer')
+            ACHIEVEMENT_CAT_SAWER: _('Cat sawer'),
+            ACHIEVEMENT_FULL_OF_BLOOD: _('Full of blood')
         }
 
         if self.achievement_id in achievements:
@@ -93,7 +94,8 @@ def get_achievements():
     return {
         ACHIEVEMENT_CODE_CRACKER: Achievement(ACHIEVEMENT_CODE_CRACKER),
         ACHIEVEMENT_DEMOLITION_EXPERT: Achievement(ACHIEVEMENT_DEMOLITION_EXPERT),
-        ACHIEVEMENT_CAT_SAWER: Achievement(ACHIEVEMENT_CAT_SAWER)
+        ACHIEVEMENT_CAT_SAWER: Achievement(ACHIEVEMENT_CAT_SAWER),
+        ACHIEVEMENT_FULL_OF_BLOOD: Achievement(ACHIEVEMENT_FULL_OF_BLOOD)
     }
 
 
