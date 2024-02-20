@@ -115,7 +115,7 @@ def get_achievements():
 
 notification_callback = None
 
-def add_achievement(name, data_dir=None, wait_for_sound=False):
+def add_achievement(name, data_dir=None, wait_for_sound=None):
     state = AchievementsState()
     state.load()
 

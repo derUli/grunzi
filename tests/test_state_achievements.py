@@ -14,6 +14,9 @@ class AchievementsStateTest(TestCase):
 
     def test_from_json(self):
         state = AchievementsState()
+        state.load()
+        state.load()
+
         self.assertFalse(state.achievements[ACHIEVEMENT_CODE_CRACKER].completed)
         state.from_json('{"code_cracker": {"completed": true}}')
 
