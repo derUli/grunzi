@@ -1,8 +1,10 @@
+import logging
 import os
 from typing import Union
 
 from orjson import orjson
 
+from utils.audio import play_sound
 from utils.path import get_userdata_path
 
 
@@ -85,3 +87,20 @@ def get_achievements():
     return {
         'code_cracker': Achievement('code_cracker')
     }
+
+def add_achievement(name, data_dir = None):
+    state = AchievementsState()
+    state.load()
+
+    if state.achievements[name].completed:
+        return False
+
+    state.achievements[name].completed = True
+    state.save()
+
+    if data_dir:
+        play_sound(os.path.join(data_dir, 'sounds', 'common', 'achievement.ogg'))
+
+    logging.info(f'Added achievement {name}')
+
+    return True

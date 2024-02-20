@@ -1,6 +1,9 @@
 """ Wall sprite """
+import os
+
 from sprites.codenumber import CodeNumber
 from sprites.sprite import Sprite
+from state.achievements import add_achievement
 from state.level import LAYER_ITEMS, LAYER_STATIC_OBJECTS
 
 TASK_ID = 'find_code'
@@ -59,6 +62,8 @@ class CodeCheck(Sprite):
         if self.code_valid:
             if state.task.get_id() == TASK_ID:
                 state.task.set_id(NEXT_TASK_ID)
+                root_dir = os.path.join(self.sprite_dir, '..', '..')
+                add_achievement('code_cracker', root_dir)
             return
 
         state.task.set_id(TASK_ID)
