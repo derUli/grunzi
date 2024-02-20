@@ -8,6 +8,7 @@ from numpy.random import uniform
 
 import sprites.sprite
 from constants.graphics import SPRITE_SIZE
+from state.achievements import ACHIEVEMENT_GRILLED, add_achievement
 from utils.animation import Animation
 from utils.quality import dynamic_fire_enabled
 
@@ -100,3 +101,9 @@ class Fire(sprites.sprite.Sprite):
     def handle_interact(self, element):
         if element and element.state:
             element.state.hurt(15)
+
+            if element.state.health <= 0:
+                data_dir = os.path.join(self.sprite_dir, '..', '..')
+                add_achievement(ACHIEVEMENT_GRILLED, data_dir, wait_for_sound=True)
+
+

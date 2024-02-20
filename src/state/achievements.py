@@ -2,6 +2,7 @@ import logging
 import os
 from typing import Union
 
+import pygame
 from orjson import orjson
 
 from utils.audio import play_sound
@@ -11,6 +12,7 @@ ACHIEVEMENT_CODE_CRACKER = 'code_cracker'
 ACHIEVEMENT_DEMOLITION_EXPERT = 'demolition_expert'
 ACHIEVEMENT_CAT_SAWER = 'cat_sawer'
 ACHIEVEMENT_FULL_OF_BLOOD = 'full_of_blood'
+ACHIEVEMENT_GRILLED = 'grilled'
 
 class Achievement:
     def __init__(self, achievement_id):
@@ -36,7 +38,8 @@ class Achievement:
             ACHIEVEMENT_CODE_CRACKER: _('Code cracker'),
             ACHIEVEMENT_DEMOLITION_EXPERT: _('Demolition Expert'),
             ACHIEVEMENT_CAT_SAWER: _('Cat sawer'),
-            ACHIEVEMENT_FULL_OF_BLOOD: _('Full of blood')
+            ACHIEVEMENT_FULL_OF_BLOOD: _('Full of blood'),
+            ACHIEVEMENT_GRILLED: _('Grilled')
         }
 
         if self.achievement_id in achievements:
@@ -95,11 +98,12 @@ def get_achievements():
         ACHIEVEMENT_CODE_CRACKER: Achievement(ACHIEVEMENT_CODE_CRACKER),
         ACHIEVEMENT_DEMOLITION_EXPERT: Achievement(ACHIEVEMENT_DEMOLITION_EXPERT),
         ACHIEVEMENT_CAT_SAWER: Achievement(ACHIEVEMENT_CAT_SAWER),
-        ACHIEVEMENT_FULL_OF_BLOOD: Achievement(ACHIEVEMENT_FULL_OF_BLOOD)
+        ACHIEVEMENT_FULL_OF_BLOOD: Achievement(ACHIEVEMENT_FULL_OF_BLOOD),
+        ACHIEVEMENT_GRILLED: Achievement(ACHIEVEMENT_GRILLED)
     }
 
 
-def add_achievement(name, data_dir=None):
+def add_achievement(name, data_dir=None, wait_for_sound = False):
     state = AchievementsState()
     state.load()
 
@@ -110,7 +114,11 @@ def add_achievement(name, data_dir=None):
     state.save()
 
     if data_dir:
-        play_sound(os.path.join(data_dir, 'sounds', 'common', 'achievement.ogg'))
+        sound = play_sound(os.path.join(data_dir, 'sounds', 'common', 'achievement.ogg'), skip_add = True)
+
+        while wait_for_sound and sound.get_busy():
+            print('busy')
+            pygame.time.wait(1)
 
     logging.info(f'Added achievement {name}')
 
