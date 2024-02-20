@@ -8,6 +8,7 @@ from pygame.math import Vector2
 
 from sprites.coin import Coin
 from sprites.sprite import Sprite
+from state.achievements import add_achievement, ACHIEVEMENT_HANS
 from utils.quality import font_antialiasing_enabled, bloom_enabled, scale_method
 
 TEXT_POS = (830, 50)
@@ -129,6 +130,9 @@ class Telescope(Sprite):
         self.player_state.show_detailed = self.draw_telescope_view(self.screen)
 
         element.state.say(_('Move mouse to look'))
+
+        root_dir = os.path.join(self.sprite_dir, '..', '..')
+        add_achievement(ACHIEVEMENT_HANS, root_dir)
 
     def handle_interact_item(self, element):
         # Activate the telescope with a coin

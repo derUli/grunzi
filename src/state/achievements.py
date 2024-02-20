@@ -15,6 +15,7 @@ ACHIEVEMENT_FULL_OF_BLOOD = 'full_of_blood'
 ACHIEVEMENT_GRILLED = 'grilled'
 ACHIEVEMENT_FILM_CONNOISSEUR = 'film_connoisseur'
 ACHIEVEMENT_CHICKEN_TIKKA_MASALA = 'Chicken_tikka_masala'
+ACHIEVEMENT_HANS = 'hans'
 
 class Achievement:
     def __init__(self, achievement_id):
@@ -43,7 +44,8 @@ class Achievement:
             ACHIEVEMENT_FULL_OF_BLOOD: _('Full of blood'),
             ACHIEVEMENT_GRILLED: _('Grilled'),
             ACHIEVEMENT_FILM_CONNOISSEUR: _('Film Connoisseur'),
-            ACHIEVEMENT_CHICKEN_TIKKA_MASALA: _('Chicken tikka masala')
+            ACHIEVEMENT_CHICKEN_TIKKA_MASALA: _('Chicken tikka masala'),
+            ACHIEVEMENT_HANS: _('Hans look into the air')
         }
 
         if self.achievement_id in achievements:
@@ -105,7 +107,8 @@ def get_achievements():
         ACHIEVEMENT_FULL_OF_BLOOD: Achievement(ACHIEVEMENT_FULL_OF_BLOOD),
         ACHIEVEMENT_GRILLED: Achievement(ACHIEVEMENT_GRILLED),
         ACHIEVEMENT_FILM_CONNOISSEUR: Achievement(ACHIEVEMENT_FILM_CONNOISSEUR),
-        ACHIEVEMENT_CHICKEN_TIKKA_MASALA: Achievement(ACHIEVEMENT_CHICKEN_TIKKA_MASALA)
+        ACHIEVEMENT_CHICKEN_TIKKA_MASALA: Achievement(ACHIEVEMENT_CHICKEN_TIKKA_MASALA),
+        ACHIEVEMENT_HANS: Achievement(ACHIEVEMENT_HANS)
     }
 
 

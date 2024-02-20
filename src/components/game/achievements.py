@@ -5,14 +5,13 @@ import pygame
 
 import utils.quality
 from components.mixins.filmgrain import FilmGrain
-from components.settings.controls import HORIZONTAL_MARGIN, FONT_SIZE, LINE_LARGE_MARGIN
 from constants import gamepad
 from constants import keyboard
 from constants.game import REGULAR_FONT, LARGE_FONT_SIZE
 from state.achievements import AchievementsState
 
 TEXT_COLOR = (255, 255, 255)
-
+HORIZONTAL_MARGIN = 90
 
 class Achievements(FilmGrain):
     """ Achievements Screen """
@@ -26,15 +25,13 @@ class Achievements(FilmGrain):
             settings_state,
             enable_edit_mode,
             gamepad)
-        self.regular_font = pygame.font.Font(
-            os.path.join(data_dir, 'fonts', REGULAR_FONT),
-            LARGE_FONT_SIZE)
 
         self.backdrop = None
         fontfile = os.path.join(data_dir, 'fonts', REGULAR_FONT)
+
         self.font = pygame.font.Font(
             fontfile,
-            FONT_SIZE
+            LARGE_FONT_SIZE
         )
 
         self.state = AchievementsState()
@@ -67,8 +64,7 @@ class Achievements(FilmGrain):
 
         screen.blit(rendered_text, (x, y))
 
-        y += rendered_text.get_height()
-        y += LINE_LARGE_MARGIN
+        y += rendered_text.get_height() * 2.0
 
         for achievement in self.state.achievements:
             rendered_text = self.font.render(
@@ -93,8 +89,7 @@ class Achievements(FilmGrain):
             screen.blit(image, (x, y))
 
             x = HORIZONTAL_MARGIN
-            y += rendered_text.get_height()
-            y += LINE_LARGE_MARGIN
+            y += rendered_text.get_height() * 1.5
 
         self.draw_filmgrain(screen)
 
