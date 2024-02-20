@@ -17,6 +17,7 @@ ACHIEVEMENT_FILM_CONNOISSEUR = 'film_connoisseur'
 ACHIEVEMENT_CHICKEN_TIKKA_MASALA = 'Chicken_tikka_masala'
 ACHIEVEMENT_HANS = 'hans'
 
+
 class Achievement:
     def __init__(self, achievement_id):
         self.achievement_id = achievement_id
@@ -112,7 +113,7 @@ def get_achievements():
     }
 
 
-def add_achievement(name, data_dir=None, wait_for_sound = False):
+def add_achievement(name, data_dir=None, wait_for_sound=False):
     state = AchievementsState()
     state.load()
 
@@ -123,7 +124,7 @@ def add_achievement(name, data_dir=None, wait_for_sound = False):
     state.save()
 
     if data_dir:
-        sound = play_sound(os.path.join(data_dir, 'sounds', 'common', 'achievement.ogg'), skip_add = True)
+        sound = play_sound(os.path.join(data_dir, 'sounds', 'common', 'achievement.ogg'), skip_add=True)
 
         while wait_for_sound and sound.get_busy():
             print('busy')

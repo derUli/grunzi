@@ -47,5 +47,6 @@ class Character(sprites.sprite.Sprite):
         if direction in [DIRECTION_LEFT, DIRECTION_RIGHT]:
             self.image_direction = direction
 
+
 class Enemy(Character):
     pass

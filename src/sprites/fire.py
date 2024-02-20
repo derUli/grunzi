@@ -105,5 +105,3 @@ class Fire(sprites.sprite.Sprite):
             if element.state.health <= 0:
                 data_dir = os.path.join(self.sprite_dir, '..', '..')
                 add_achievement(ACHIEVEMENT_GRILLED, data_dir, wait_for_sound=True)
-
-

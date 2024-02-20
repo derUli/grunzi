@@ -64,7 +64,6 @@ class Horse(Character, Fadeable):
             horizontal_glitch(screen, 0.5, 0.08, self.fade_frame)
 
             if self.fade_frame > 127:
-
                 root_dir = os.path.join(self.sprite_dir, '..', '..')
                 add_achievement(ACHIEVEMENT_FULL_OF_BLOOD, root_dir)
                 self.purge = True

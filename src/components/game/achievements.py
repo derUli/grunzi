@@ -13,6 +13,7 @@ from state.achievements import AchievementsState
 TEXT_COLOR = (255, 255, 255)
 HORIZONTAL_MARGIN = 90
 
+
 class Achievements(FilmGrain):
     """ Achievements Screen """
 
