@@ -10,7 +10,7 @@ import pygame
 from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
 from constants.game import MAIN_CHARACTER_ID
 from sprites.chainsaw import Chainsaw
-from sprites.character import Character
+from sprites.character import Enemy
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from sprites.weapon import Weapon
@@ -21,7 +21,7 @@ SOUND_FADEOUT = 100
 HURT_DAMAGE = 5
 
 
-class Dog(Killable, Character):
+class Dog(Killable, Enemy):
     """ Dog sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='dog.png'):
@@ -104,6 +104,8 @@ class Dog(Killable, Character):
             element.play_sound(PIG_SOUND_NOTHING)
 
     def ai(self, level):
+        super().ai(level)
+
         if time.time() - self.last_movement < self.walk_speed:
             return
 

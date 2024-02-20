@@ -9,7 +9,7 @@ from constants.direction import DIRECTION_LEFT, DIRECTION_RIGHT
 from constants.graphics import SPRITE_SIZE
 from constants.headup import NPC_HEALTH_COLOR_ENEMY, NPC_HEALTH_HEIGHT
 from sprites.chainsaw import Chainsaw
-from sprites.character import Character
+from sprites.character import Enemy
 from sprites.killable import Killable
 from sprites.sword import Sword
 
@@ -20,7 +20,7 @@ SWORD_DAMAGE = 5
 HURT_DAMAGE = 10
 
 
-class Skeleton(Killable, Character):
+class Skeleton(Killable, Enemy):
     """ Skeleton sprite class """
 
     def __init__(self, sprite_dir, cache, sprite='skeleton.png'):
@@ -90,6 +90,7 @@ class Skeleton(Killable, Character):
             self.kill()
 
     def ai(self, level):
+        super().ai(level)
         if time.time() - self.last_movement < self.walk_speed:
             return
 
