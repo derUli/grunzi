@@ -120,7 +120,11 @@ class Dynamite(Takeable):
                     if mainchar:
                         mainchar.state.hurt(damage_amount)
 
-            mw_z, mw_y, mw_x = level.search_by_id('microwave')
+            pos = level.search_by_id('microwave')
+            if not pos:
+                return
+
+            mw_z, mw_y, mw_x = pos
             microwave = level.layers[mw_z][mw_y][mw_x]
             if microwave:
                 microwave.explode = True
