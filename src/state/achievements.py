@@ -7,10 +7,10 @@ from orjson import orjson
 from utils.audio import play_sound
 from utils.path import get_userdata_path
 
-
 ACHIEVEMENT_CODE_CRACKER = 'code_cracker'
 ACHIEVEMENT_DEMOLITION_EXPERT = 'demolition_expert'
 ACHIEVEMENT_CAT_SAWER = 'cat_sawer'
+
 
 class Achievement:
     def __init__(self, achievement_id):
@@ -96,7 +96,8 @@ def get_achievements():
         ACHIEVEMENT_CAT_SAWER: Achievement(ACHIEVEMENT_CAT_SAWER)
     }
 
-def add_achievement(name, data_dir = None):
+
+def add_achievement(name, data_dir=None):
     state = AchievementsState()
     state.load()
 
