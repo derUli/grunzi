@@ -1,7 +1,9 @@
 import unittest
 
-from state.achievements import AchievementsState, Achievement, ACHIEVEMENT_CODE_CRACKER
 from snapshottest import TestCase
+
+from state.achievements import AchievementsState, Achievement, ACHIEVEMENT_CODE_CRACKER
+
 
 class AchievementsStateTest(TestCase):
     def test_get_achievement_path(self):
@@ -16,9 +18,11 @@ class AchievementsStateTest(TestCase):
         state.from_json('{"code_cracker": {"completed": true}}')
 
         self.assertTrue(state.achievements[ACHIEVEMENT_CODE_CRACKER].completed)
+
     def test_to_json(self):
         state = AchievementsState()
         self.assertMatchSnapshot(state.to_json(), 'achievements_json')
+
 
 class AchievementsTest(unittest.TestCase):
     def test_get_display_text(self):

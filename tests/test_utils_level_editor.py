@@ -29,4 +29,3 @@ class LevelEditorTest(unittest.TestCase):
 
         for block in blocks:
             self.assertTrue(Sprite, block)
-

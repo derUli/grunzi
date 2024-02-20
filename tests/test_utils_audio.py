@@ -45,4 +45,3 @@ class AudioTest(unittest.TestCase):
 
         for device in get_devices():
             self.assertIs(str, type(device))
-

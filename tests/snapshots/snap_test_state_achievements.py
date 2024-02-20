@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
-
 snapshots = Snapshot()
 
-snapshots['AchievementsStateTest::test_to_json achievements_json'] = '{"code_cracker":{"id":"code_cracker","completed":false}}'
+snapshots[
+    'AchievementsStateTest::test_to_json achievements_json'] = '{"code_cracker":{"id":"code_cracker","completed":false}}'

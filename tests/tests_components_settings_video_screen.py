@@ -3,8 +3,9 @@ import os
 import unittest
 
 import pygame
+
 import utils.quality
-from components.settings.video.screen import  SettingsScreen
+from components.settings.video.screen import SettingsScreen
 from state.settingsstate import SettingsState
 
 gettext.install('messages')
@@ -23,6 +24,7 @@ class VideoScreenTest(unittest.TestCase):
             self.dummy,
             SettingsState()
         )
+
     def tearDown(self):
         pygame.quit()
         self.component = None

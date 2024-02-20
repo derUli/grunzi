@@ -3,6 +3,7 @@ import os
 import unittest
 
 import pygame
+
 import utils.quality
 from components.settings.video.graphics import SettingsGraphics
 from constants.quality import QUALITY_HIGH
@@ -24,6 +25,7 @@ class VideoGraphicsTest(unittest.TestCase):
             self.dummy,
             SettingsState()
         )
+
     def tearDown(self):
         pygame.quit()
         self.component = None
@@ -41,5 +43,3 @@ class VideoGraphicsTest(unittest.TestCase):
 
     def test_get_weather_items(self):
         self.assertTrue(('High', QUALITY_HIGH) in self.component.get_weather_items())
-
-

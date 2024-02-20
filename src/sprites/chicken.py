@@ -14,6 +14,7 @@ from sprites.feather import Feather
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from sprites.weapon import Weapon
+from state.achievements import add_achievement, ACHIEVEMENT_CHICKEN_TIKKA_MASALA
 from utils.audio import play_sound, sounds_busy
 from utils.quality import pixel_fades_enabled
 
@@ -149,6 +150,12 @@ class Chicken(Killable, Character):
             element.play_sound(PIG_SOUND_NOTHING)
 
     def ai(self, level):
+        if self.purge or self.fadeout:
+            count = level.count_by_instance(Chicken)
+            if count <= 1:
+                root_dir = os.path.join(self.sprite_dir, '..', '..')
+                add_achievement(ACHIEVEMENT_CHICKEN_TIKKA_MASALA, root_dir)
+
         if time.time() < self.last_movement + self.walk_speed:
             return
 

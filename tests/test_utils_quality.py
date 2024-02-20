@@ -30,7 +30,7 @@ class QualityTest(unittest.TestCase):
         self.assertTrue(quality.filmgrain_enabled())
 
     # def test_daynightcycle_enabled(self):
-        #self.assertTrue(quality.daynightcycle_enabled())
+    # self.assertTrue(quality.daynightcycle_enabled())
 
     def test_fog_enabled(self):
         quality.settings_state.weather = constants.quality.QUALITY_LOW
@@ -61,7 +61,6 @@ class QualityTest(unittest.TestCase):
     def test_weather_enabled(self):
         quality.settings_state.weather = constants.quality.QUALITY_MEDIUM
         self.assertTrue(quality.weather_enabled())
-
 
     def test_weather_enabled_high(self):
         quality.settings_state.weather = constants.quality.QUALITY_HIGH

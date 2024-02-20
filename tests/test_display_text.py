@@ -1,7 +1,9 @@
 import os
-import unittest
-import pygame
 import time
+import unittest
+
+import pygame
+
 from utils.display_text import DisplayText
 
 
@@ -28,8 +30,6 @@ class DisplayTextTest(unittest.TestCase):
         self.display_text.show_text('Hi')
         self.display_text.draw(self.screen, (0, 0))
         self.assertTrue(self.display_text.is_visible())
-
-
 
     def test_is_visible_wait(self):
         self.display_text.show_text('Hi')

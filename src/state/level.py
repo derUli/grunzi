@@ -326,6 +326,23 @@ class Level:
     def search_mainchar(self):
         return self.search_by_id(MAIN_CHARACTER_ID)
 
+    def count_by_instance(self, instance):
+        count = 0
+
+        for z in reversed(range(0, len(self.layers))):
+            if z in SKIP_LAYERS:
+                continue
+            for y in range(0, len(self.layers[z])):
+
+                if not any(self.layers[z][y]):
+                    continue
+
+                for x in range(0, len(self.layers[z][y])):
+                    if isinstance(self.layers[z][y][x], instance):
+                        count += 1
+
+        return count
+
     def search_by_id(self, sprite_id):
         """ Search character by id """
         for z in reversed(range(0, len(self.layers))):

@@ -3,9 +3,9 @@ import os
 import unittest
 
 import pygame
+
 import utils.quality
 from components.settings.controls import SettingsControls
-from constants.quality import QUALITY_HIGH
 from state.settingsstate import SettingsState
 
 gettext.install('messages')
@@ -24,6 +24,7 @@ class ControlsText(unittest.TestCase):
             self.dummy,
             SettingsState()
         )
+
     def tearDown(self):
         pygame.quit()
         self.component = None
