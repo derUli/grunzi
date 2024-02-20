@@ -29,6 +29,7 @@ class Achievements(FilmGrain):
 
         self.rendered_text = None
 
+        self.backdrop = None
         self.state = AchievementsState()
 
     def mount(self):
@@ -37,7 +38,16 @@ class Achievements(FilmGrain):
     def draw(self, screen):
         """ Update screen """
 
-        screen.fill((0, 0, 0))
+        if not self.backdrop:
+            file = os.path.join(
+                self.data_dir,
+                'images',
+                'ui',
+                'schoolboard.jpg')
+            self.backdrop = self.image_cache.load_image(
+                file, screen.get_size())
+
+        self.screen.blit(self.backdrop, (0, 0))
 
         if not self.rendered_text:
             self.rendered_text = self.regular_font.render(
