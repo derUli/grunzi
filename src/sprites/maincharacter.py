@@ -28,7 +28,7 @@ class MainCharacter(Character):
             os.path.join(self.sprite_dir, '..', '..', 'sounds', 'pig')
         )
 
-        self.walk_speed = 0.081
+        self.walk_speed = 0.082
         self.sprint_speed = self.walk_speed * 0.7
 
     def draw(self, screen, x, y):
