@@ -13,6 +13,7 @@ ACHIEVEMENT_DEMOLITION_EXPERT = 'demolition_expert'
 ACHIEVEMENT_CAT_SAWER = 'cat_sawer'
 ACHIEVEMENT_FULL_OF_BLOOD = 'full_of_blood'
 ACHIEVEMENT_GRILLED = 'grilled'
+ACHIEVEMENT_FILM_CONNOISSEUR = 'film_connoisseur'
 
 class Achievement:
     def __init__(self, achievement_id):
@@ -39,7 +40,8 @@ class Achievement:
             ACHIEVEMENT_DEMOLITION_EXPERT: _('Demolition Expert'),
             ACHIEVEMENT_CAT_SAWER: _('Cat sawer'),
             ACHIEVEMENT_FULL_OF_BLOOD: _('Full of blood'),
-            ACHIEVEMENT_GRILLED: _('Grilled')
+            ACHIEVEMENT_GRILLED: _('Grilled'),
+            ACHIEVEMENT_FILM_CONNOISSEUR: _('Film Connoisseur')
         }
 
         if self.achievement_id in achievements:
@@ -99,7 +101,8 @@ def get_achievements():
         ACHIEVEMENT_DEMOLITION_EXPERT: Achievement(ACHIEVEMENT_DEMOLITION_EXPERT),
         ACHIEVEMENT_CAT_SAWER: Achievement(ACHIEVEMENT_CAT_SAWER),
         ACHIEVEMENT_FULL_OF_BLOOD: Achievement(ACHIEVEMENT_FULL_OF_BLOOD),
-        ACHIEVEMENT_GRILLED: Achievement(ACHIEVEMENT_GRILLED)
+        ACHIEVEMENT_GRILLED: Achievement(ACHIEVEMENT_GRILLED),
+        ACHIEVEMENT_FILM_CONNOISSEUR: Achievement(ACHIEVEMENT_FILM_CONNOISSEUR)
     }
 
 

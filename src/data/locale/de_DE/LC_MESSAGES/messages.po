@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-20 15:04+0100\n"
+"POT-Creation-Date: 2024-02-20 15:19+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -347,15 +347,15 @@ msgstr "[Münze einwerfen]"
 msgid "Move mouse to look"
 msgstr "Maus bewegen zum Umschauen"
 
-#: sprites/tv.py:43
+#: sprites/tv.py:49
 msgid "My favorite movie."
 msgstr "Mein Lieblingsfilm."
 
-#: sprites/tv.py:45 sprites/tv.py:56
+#: sprites/tv.py:51 sprites/tv.py:62
 msgid "The TV is off."
 msgstr "Der Fernseher ist aus."
 
-#: sprites/tv.py:54
+#: sprites/tv.py:60
 msgid "The TV is on."
 msgstr "Der Fernseher ist an."
 
@@ -383,30 +383,34 @@ msgstr "Ich leugne das Klima."
 msgid "Do you have pizza?"
 msgstr "Hast du Pizzer?"
 
-#: state/achievements.py:35
+#: state/achievements.py:37
 msgid "Unknown"
 msgstr ""
 
-#: state/achievements.py:37
+#: state/achievements.py:39
 msgid "Code cracker"
 msgstr "Codeknacker"
 
-#: state/achievements.py:38
+#: state/achievements.py:40
 msgid "Demolition Expert"
 msgstr "Sprengmeister"
 
-#: state/achievements.py:39
+#: state/achievements.py:41
 msgid "Cat sawer"
 msgstr "Katzenzersäger"
 
-#: state/achievements.py:40
+#: state/achievements.py:42
 #, fuzzy
 msgid "Full of blood"
 msgstr "Blutvoll"
 
-#: state/achievements.py:41
+#: state/achievements.py:43
 msgid "Grilled"
 msgstr ""
+
+#: state/achievements.py:44
+msgid "Film Connoisseur"
+msgstr "Filmkenner"
 
 #: state/level.py:141
 msgid "Saving level..."

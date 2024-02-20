@@ -3,6 +3,7 @@ import os
 
 import sprites.sprite
 from sprites.remote import Remote
+from state.achievements import add_achievement, ACHIEVEMENT_FILM_CONNOISSEUR
 from utils.animation import Animation
 from utils.audio import play_sound
 
@@ -33,6 +34,10 @@ class TV(sprites.sprite.Sprite):
 
         x, y = self.calculate_pos(x, y)
         frame = self.animation.get_frame()
+
+        if not self.animation.has_more_frames():
+            data_dir = os.path.join(self.sprite_dir, '..', '..')
+            add_achievement(ACHIEVEMENT_FILM_CONNOISSEUR, data_dir)
 
         x += 4
         y += 13
