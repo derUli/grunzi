@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-20 14:40+0100\n"
+"POT-Creation-Date: 2024-02-20 14:46+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -383,17 +383,21 @@ msgstr "Ich leugne das Klima."
 msgid "Do you have pizza?"
 msgstr "Hast du Pizzer?"
 
-#: state/achievements.py:33
+#: state/achievements.py:34
 msgid "Unknown"
 msgstr ""
 
-#: state/achievements.py:35
+#: state/achievements.py:36
 msgid "Code cracker"
 msgstr "Codeknacker"
 
-#: state/achievements.py:36
+#: state/achievements.py:37
 msgid "Demolition Expert"
 msgstr "Sprengmeister"
+
+#: state/achievements.py:38
+msgid "Cat sawer"
+msgstr "Katzenzersäger"
 
 #: state/level.py:141
 msgid "Saving level..."

@@ -13,6 +13,7 @@ from sprites.character import Character
 from sprites.killable import Killable
 from sprites.maincharacter import PIG_SOUND_NOTHING
 from sprites.weapon import Weapon
+from state.achievements import add_achievement, ACHIEVEMENT_CAT_SAWER
 from utils.audio import play_sound, sounds_busy
 
 RUMBLE_CHAINSAW_DURATION = 300
@@ -134,6 +135,9 @@ class Kitten(Killable, Character):
             logging.debug('Kitten killed by chainsaw')
 
             self.start_fade()
+
+            root_dir = os.path.join(self.sprite_dir, '..', '..')
+            add_achievement(ACHIEVEMENT_CAT_SAWER, root_dir)
 
             element.state.inventory.play_sound()
 
