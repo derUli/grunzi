@@ -8,6 +8,7 @@ from components.mixins.filmgrain import FilmGrain
 from constants import gamepad
 from constants import keyboard
 from constants.game import REGULAR_FONT, LARGE_FONT_SIZE
+from state.achievements import AchievementsState
 
 
 class Achievements(FilmGrain):
@@ -27,6 +28,11 @@ class Achievements(FilmGrain):
             LARGE_FONT_SIZE)
 
         self.rendered_text = None
+
+        self.state = AchievementsState()
+
+    def mount(self):
+        self.state.load()
 
     def draw(self, screen):
         """ Update screen """

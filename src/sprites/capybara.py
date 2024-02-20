@@ -1,11 +1,7 @@
 """ Frog character sprite """
-import os
-import random
-import time
 
-from constants.graphics import SPRITE_SIZE
 from sprites.character import Character
-from utils.audio import play_sound
+
 
 class Capybara(Character):
     """ Frog sprite class """

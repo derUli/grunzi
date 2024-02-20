@@ -23,6 +23,7 @@ SUPPORTED_CONTROLLERS = [
     'Xbox 360 Controller'
 ]
 
+
 class SettingsControls(FilmGrain):
     """ Controls screen """
 
