@@ -7,6 +7,7 @@ from stopwatch import Stopwatch
 from constants.game import MONOTYPE_FONT
 from constants.graphics import SPRITE_SIZE
 from sprites.takeable import Takeable
+from state.achievements import add_achievement, ACHIEVEMENT_DEMOLITION_EXPERT
 from utils.animation import Animation
 from utils.audio import play_sound
 from utils.quality import font_antialiasing_enabled
@@ -168,3 +169,6 @@ class Dynamite(Takeable):
     def update_state(self, state):
         if self.exploded and state.task.get_id() == TASK_ID:
             state.task.set_id(None)
+
+            root_dir = os.path.join(self.sprite_dir, '..', '..')
+            add_achievement(ACHIEVEMENT_DEMOLITION_EXPERT, root_dir)

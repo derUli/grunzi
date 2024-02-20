@@ -1,6 +1,6 @@
 import unittest
 
-from state.achievements import AchievementsState, Achievement
+from state.achievements import AchievementsState, Achievement, ACHIEVEMENT_CODE_CRACKER
 from snapshottest import TestCase
 
 class AchievementsStateTest(TestCase):
@@ -12,22 +12,22 @@ class AchievementsStateTest(TestCase):
 
     def test_from_json(self):
         state = AchievementsState()
-        self.assertFalse(state.achievements['code_cracker'].completed)
+        self.assertFalse(state.achievements[ACHIEVEMENT_CODE_CRACKER].completed)
         state.from_json('{"code_cracker": {"completed": true}}')
 
-        self.assertTrue(state.achievements['code_cracker'].completed)
+        self.assertTrue(state.achievements[ACHIEVEMENT_CODE_CRACKER].completed)
     def test_to_json(self):
         state = AchievementsState()
         self.assertMatchSnapshot(state.to_json(), 'achievements_json')
 
 class AchievementsTest(unittest.TestCase):
     def test_get_display_text(self):
-        achievement = Achievement('code_cracker')
+        achievement = Achievement(ACHIEVEMENT_CODE_CRACKER)
         self.assertEqual('Code cracker', achievement.get_display_text())
 
     def test_from_dict(self):
-        achievement = Achievement('code_cracker')
-        self.assertEqual('code_cracker', achievement.achievement_id)
+        achievement = Achievement(ACHIEVEMENT_CODE_CRACKER)
+        self.assertEqual(ACHIEVEMENT_CODE_CRACKER, achievement.achievement_id)
 
         self.assertFalse(achievement.completed)
         achievement.from_dict({'id': 'foo', 'completed': True})
@@ -35,8 +35,8 @@ class AchievementsTest(unittest.TestCase):
         self.assertEqual('foo', achievement.achievement_id)
 
     def test_to_dict(self):
-        achievement = Achievement('code_cracker')
+        achievement = Achievement(ACHIEVEMENT_CODE_CRACKER)
         dict = achievement.to_dict()
 
-        self.assertEqual('code_cracker', dict['id'])
+        self.assertEqual(ACHIEVEMENT_CODE_CRACKER, dict['id'])
         self.assertFalse(dict['completed'])

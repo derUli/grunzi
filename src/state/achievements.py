@@ -8,6 +8,9 @@ from utils.audio import play_sound
 from utils.path import get_userdata_path
 
 
+ACHIEVEMENT_CODE_CRACKER = 'code_cracker'
+ACHIEVEMENT_DEMOLITION_EXPERT = 'demolition_expert'
+
 class Achievement:
     def __init__(self, achievement_id):
         self.achievement_id = achievement_id
@@ -29,7 +32,8 @@ class Achievement:
     def get_display_text(self) -> Union[str, None]:
         text = _('Unknown')
         achievements = {
-            'code_cracker': _('Code cracker'),
+            ACHIEVEMENT_CODE_CRACKER: _('Code cracker'),
+            ACHIEVEMENT_DEMOLITION_EXPERT: _('Demolition Expert')
         }
 
         if self.achievement_id in achievements:
@@ -85,7 +89,8 @@ class AchievementsState:
 
 def get_achievements():
     return {
-        'code_cracker': Achievement('code_cracker')
+        ACHIEVEMENT_CODE_CRACKER: Achievement(ACHIEVEMENT_CODE_CRACKER),
+        ACHIEVEMENT_DEMOLITION_EXPERT: Achievement(ACHIEVEMENT_DEMOLITION_EXPERT)
     }
 
 def add_achievement(name, data_dir = None):

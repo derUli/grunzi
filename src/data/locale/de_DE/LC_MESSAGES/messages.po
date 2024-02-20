@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-28 11:59+0100\n"
+"POT-Creation-Date: 2024-02-20 14:40+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: bootstrap/gamecontainer.py:116 components/menu/mainmenu.py:65 grunzi.py:32
+#: bootstrap/gamecontainer.py:122 components/menu/mainmenu.py:65 grunzi.py:32
 msgid "Grunzi"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Piggy adventure game"
 msgstr ""
 
-#: components/game/achievements.py:38
+#: components/game/achievements.py:44
 msgid "Coming Soon"
 msgstr "Kommt bald"
 
@@ -72,7 +72,7 @@ msgid "Autosave"
 msgstr "Auto-Speicher"
 
 #: components/menu/loadgame.py:18 components/settings/audio.py:61
-#: components/settings/video/graphics.py:67
+#: components/settings/video/graphics.py:61
 #: components/settings/video/screen.py:135
 #: components/settings/video/video.py:15
 msgid "Back"
@@ -171,62 +171,53 @@ msgstr "Kein Controller"
 msgid "Video"
 msgstr ""
 
-#: components/settings/video/graphics.py:9
+#: components/settings/video/graphics.py:10
 #: components/settings/video/video.py:13
 msgid "Graphics"
 msgstr "Grafik"
 
-#: components/settings/video/graphics.py:11
-#: components/settings/video/graphics.py:74
-#: components/settings/video/graphics.py:87
+#: components/settings/video/graphics.py:12
+#: components/settings/video/graphics.py:68
 #: components/settings/video/screen.py:89
 msgid "Off"
 msgstr "Aus"
 
-#: components/settings/video/graphics.py:11
+#: components/settings/video/graphics.py:12
 #: components/settings/video/screen.py:89
 msgid "On"
 msgstr "An"
 
-#: components/settings/video/graphics.py:14
+#: components/settings/video/graphics.py:15
 msgid "Blood"
 msgstr "Blut"
 
-#: components/settings/video/graphics.py:25
+#: components/settings/video/graphics.py:26
 msgid "Weather"
 msgstr "Wetter"
 
-#: components/settings/video/graphics.py:36
+#: components/settings/video/graphics.py:37
 msgid "Fire"
 msgstr "Feuer"
 
-#: components/settings/video/graphics.py:47
-msgid "Fog"
-msgstr "Nebel"
-
-#: components/settings/video/graphics.py:54
+#: components/settings/video/graphics.py:48
 msgid "Bloom"
 msgstr "Bloom"
 
-#: components/settings/video/graphics.py:61
+#: components/settings/video/graphics.py:55
 msgid "Smooth Scale"
 msgstr "Weiche Skalierung"
 
-#: components/settings/video/graphics.py:75
-#: components/settings/video/graphics.py:89
-#: components/settings/video/graphics.py:101
+#: components/settings/video/graphics.py:69
+#: components/settings/video/graphics.py:81
+#: components/settings/video/graphics.py:93
 msgid "Medium"
 msgstr "Mittel"
 
-#: components/settings/video/graphics.py:76
-#: components/settings/video/graphics.py:90
-#: components/settings/video/graphics.py:102
+#: components/settings/video/graphics.py:70
+#: components/settings/video/graphics.py:82
+#: components/settings/video/graphics.py:94
 msgid "High"
 msgstr "Hoch"
-
-#: components/settings/video/graphics.py:88
-msgid "Low"
-msgstr "Niedrig"
 
 #: components/settings/video/screen.py:59
 msgid "Uncapped"
@@ -288,7 +279,7 @@ msgstr "Die Tür ist abgeschlossen. Ich brauche einen Schlüssel."
 msgid "The door is now open."
 msgstr "Die Tür ist jetzt offen."
 
-#: sprites/dynamite.py:130
+#: sprites/dynamite.py:131
 msgid "Allahu Akbar!"
 msgstr "Aluhut Nacktbar! Oder so."
 
@@ -392,6 +383,18 @@ msgstr "Ich leugne das Klima."
 msgid "Do you have pizza?"
 msgstr "Hast du Pizzer?"
 
+#: state/achievements.py:33
+msgid "Unknown"
+msgstr ""
+
+#: state/achievements.py:35
+msgid "Code cracker"
+msgstr "Codeknacker"
+
+#: state/achievements.py:36
+msgid "Demolition Expert"
+msgstr "Sprengmeister"
+
 #: state/level.py:141
 msgid "Saving level..."
 msgstr "Speichere Level..."
@@ -437,4 +440,10 @@ msgstr "Sprenge dir den Weg frei"
 
 #~ msgid "No Task"
 #~ msgstr ""
+
+#~ msgid "Fog"
+#~ msgstr "Nebel"
+
+#~ msgid "Low"
+#~ msgstr "Niedrig"
 
