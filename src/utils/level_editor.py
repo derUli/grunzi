@@ -65,6 +65,11 @@ def get_editor_blocks(sprites_dir: str, image_cache: ImageCache) -> list:
             image_cache,
             'mud.jpg'
         ),
+        Backdrop(
+            sprites_dir,
+            image_cache,
+            'cracking.jpg'
+        ),
         Destroyable(
             sprites_dir,
             image_cache,

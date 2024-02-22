@@ -164,7 +164,11 @@ class Chicken(Killable, Character):
 
         self.walk_speed = random.randint(1, 3)
 
-        z, y, x = level.search_sprite(self)
+        pos = level.search_sprite(self)
+        if not pos:
+            return
+
+        z, y, x = pos
 
         next_x = x
         next_y = y
