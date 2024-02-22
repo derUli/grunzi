@@ -21,6 +21,8 @@ ACHIEVEMENT_HANS = 'hans'
 
 
 class Achievement:
+    """ Achievement """
+
     def __init__(self, achievement_id):
         self.achievement_id = achievement_id
         self.completed = False
