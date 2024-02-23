@@ -1,8 +1,5 @@
 """
-Platformer Template
-
-If Python and Arcade are installed, this example can be run from the command line with:
-python -m arcade.examples.template_platformer
+Grunzi game init file
 """
 import gettext
 import locale
@@ -14,9 +11,14 @@ import pyglet
 from state.viewstate import ViewState
 from views.mainmenuview import MainMenuView
 
-SCREEN_TITLE = "Grunzi"
-
 ROOT_DIR = os.path.dirname(__file__)
+
+# Set locale
+locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
+os.environ['LANG'] = ':'.join(locale.getlocale())
+gettext.install('messages', locale_path)
+
+SCREEN_TITLE = _("Grunzi")
 
 SCREEN = pyglet.canvas.get_display().get_default_screen()
 SCREEN_WIDTH = 1280
@@ -41,12 +43,6 @@ class GameWindow(arcade.Window):
 
 
 def main():
-
-    # Set locale
-    locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
-    os.environ['LANG'] = ':'.join(locale.getlocale())
-    gettext.install('messages', locale_path)
-
     """Main function"""
     window = GameWindow()
     state = ViewState(ROOT_DIR)
