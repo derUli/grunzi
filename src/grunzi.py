@@ -145,11 +145,16 @@ class MyGame(arcade.Window):
 
         # Calculate speed based on the keys pressed
         self.player_sprite.change_x = 0
+        self.player_sprite.change_y = 0
 
         if self.left_key_down and not self.right_key_down:
             self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
         elif self.right_key_down and not self.left_key_down:
             self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
+        elif self.down_key_down and not self.up_key_down:
+            self.player_sprite.change_y = -PLAYER_MOVEMENT_SPEED
+        elif self.up_key_down and not self.down_key_down:
+            self.player_sprite.change_y = PLAYER_MOVEMENT_SPEED
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
@@ -158,6 +163,12 @@ class MyGame(arcade.Window):
             self.update_player_speed()
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = True
+            self.update_player_speed()
+        elif key == arcade.key.UP or key == arcade.key.W:
+            self.up_key_down = True
+            self.update_player_speed()
+        elif key == arcade.key.DOWN or key == arcade.key.S:
+            self.down_key_down = True
             self.update_player_speed()
 
     def on_key_release(self, key, modifiers):
@@ -168,11 +179,18 @@ class MyGame(arcade.Window):
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = False
             self.update_player_speed()
+        elif key == arcade.key.UP or key == arcade.key.W:
+            self.up_key_down = False
+            self.update_player_speed()
+        elif key == arcade.key.DOWN or key == arcade.key.S:
+            self.down_key_down = False
+            self.update_player_speed()
 
     def center_camera_to_player(self):
         # Find where player is, then calculate lower left corner from that
         screen_center_x = self.player_sprite.center_x - (self.camera_sprites.viewport_width / 2)
         screen_center_y = self.player_sprite.center_y - (self.camera_sprites.viewport_height / 2)
+
 
         # Set some limits on how far we scroll
         if screen_center_x < 0:
