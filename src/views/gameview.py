@@ -113,6 +113,8 @@ class GameView(FadingView):
         # Note, if you a want pixelated look, add pixelated=True to the parameters
         self.scene.draw()
 
+        self.draw_fading()
+
     def update_player_speed(self):
 
         # Calculate speed based on the keys pressed
@@ -133,7 +135,7 @@ class GameView(FadingView):
     def on_key_press(self, key, modifiers):
 
         if key == arcade.key.ESCAPE:
-            arcade.close_window()  # TODO: Return to main Menu
+            self.fade_quit()
 
         """Called whenever a key is pressed."""
         if key == arcade.key.LEFT or key == arcade.key.A:
@@ -189,3 +191,5 @@ class GameView(FadingView):
 
         # Position the camera
         self.center_camera_to_player()
+
+        self.update_fade()
