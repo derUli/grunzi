@@ -58,7 +58,6 @@ class GameView(FadingView):
         self.initialized = False
 
     def on_show_view(self):
-        """Set up the game here. Call this function to restart the game."""
         self.window.set_mouse_visible(False)
 
         if self.initialized:
