@@ -9,21 +9,16 @@ import os
 import arcade
 import pyglet
 
-import utils.audio
-from sprites.characters.playersprite import PlayerSprite
+from state.viewstate import ViewState
+from views.gameview import GameView
 
 SCREEN_TITLE = "Grunzi"
 
 ROOT_DIR = os.path.dirname(__file__)
-DATA_DIR = os.path.join(ROOT_DIR, 'data')
-MAP_DIR = os.path.join(DATA_DIR, 'levels')
-IMAGE_DIR = os.path.join(DATA_DIR, 'images')
-SPRITE_DIR = os.path.join(IMAGE_DIR, 'sprites')
-MUSIC_DIR = os.path.join(DATA_DIR, 'music')
 
 SCREEN = pyglet.canvas.get_display().get_default_screen()
-SCREEN_WIDTH = SCREEN.width
-SCREEN_HEIGHT = SCREEN.height
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
@@ -32,7 +27,7 @@ TILE_SCALING = 1.0
 PLAYER_MOVEMENT_SPEED = 10
 
 
-class MyGame(arcade.Window):
+class GameWindow(arcade.Window):
     """
     Main application class.
     """
@@ -40,183 +35,16 @@ class MyGame(arcade.Window):
     def __init__(self):
 
         # Call the parent class and set up the window
-        super().__init__(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, title=SCREEN_TITLE, fullscreen=False, vsync=True,
-                         style=pyglet.window.Window.WINDOW_STYLE_BORDERLESS)
-
-        # Our TileMap Object
-        self.tile_map = None
-
-        # Our Scene Object
-        self.scene = None
-
-        # Separate variable that holds the player sprite
-        self.player_sprite = None
-
-        # Our physics engine
-        self.physics_engine = None
-
-        # A Camera that can be used for scrolling the screen
-        self.camera_sprites = None
-
-        # A non-scrolling camera that can be used to draw GUI elements
-        self.camera_gui = None
-
-        # What key is pressed down?
-        self.left_key_down = False
-        self.right_key_down = False
-        self.down_key_down = False
-        self.up_key_down = False
-
-        self.music_queue = utils.audio.MusicQueue()
-
-        self.music_queue.from_directory(os.path.join(MUSIC_DIR, 'level1'))
-        self.music_queue.play()
-
-    def setup(self):
-        """Set up the game here. Call this function to restart the game."""
-
-        # Setup the Cameras
-        self.camera_sprites = arcade.Camera()
-        self.camera_gui = arcade.Camera()
-
-        # Name of map file to load
-        map_name = os.path.join(MAP_DIR, 'world.tmx')
-
-        # Layer specific options are defined based on Layer names in a dictionary
-        # Doing this will make the SpriteList for the platforms layer
-        # use spatial hashing for detection.
-        layer_options = {
-            # "Platforms": {
-            #    "use_spatial_hash": True,
-            # },
-        }
-
-        # Read in the tiled map
-        self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options)
-
-        arcade.set_background_color(arcade.color.LIGHT_BLUE)
-
-        # Initialize Scene with our TileMap, this will automatically add all layers
-        # from the map as SpriteLists in the scene in the proper order.
-        self.scene = arcade.Scene.from_tilemap(self.tile_map)
-
-        # Set the background color
-        if self.tile_map.background_color:
-            self.background_color = self.tile_map.background_color
-
-        # Set up the player, specifically placing it at these coordinates.
-        filename = os.path.join(SPRITE_DIR, 'pig.png')
-        self.player_sprite = PlayerSprite(filename)
-        self.player_sprite.center_x = 128
-        self.player_sprite.center_y = 128
-        self.scene.add_sprite("Player", self.player_sprite)
-
-        # --- Other stuff
-        # Create the 'physics engine'
-        self.physics_engine = arcade.PhysicsEngineSimple(
-            self.player_sprite, walls=self.scene["Walls"]
-        )
-
-    def on_draw(self):
-        """Render the screen."""
-
-        # Clear the screen to the background color
-        self.clear()
-
-        # Activate the game camera
-        self.camera_sprites.use()
-
-        # Draw our Scene
-        # Note, if you a want pixelated look, add pixelated=True to the parameters
-        self.scene.draw()
-
-        # Activate the GUI camera before drawing GUI elements
-        self.camera_gui.use()
-
-    def update_player_speed(self):
-
-        # Calculate speed based on the keys pressed
-        self.player_sprite.change_x = 0
-        self.player_sprite.change_y = 0
-
-        if self.left_key_down and not self.right_key_down:
-            self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
-        elif self.right_key_down and not self.left_key_down:
-            self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
-
-        if self.down_key_down and not self.up_key_down:
-            self.player_sprite.change_y = -PLAYER_MOVEMENT_SPEED
-        elif self.up_key_down and not self.down_key_down:
-            self.player_sprite.change_y = PLAYER_MOVEMENT_SPEED
-
-        self.player_sprite.update()
-
-    def on_key_press(self, key, modifiers):
-        """Called whenever a key is pressed."""
-        if key == arcade.key.LEFT or key == arcade.key.A:
-            self.left_key_down = True
-            self.update_player_speed()
-        elif key == arcade.key.RIGHT or key == arcade.key.D:
-            self.right_key_down = True
-            self.update_player_speed()
-
-        if key == arcade.key.UP or key == arcade.key.W:
-            self.up_key_down = True
-            self.update_player_speed()
-        elif key == arcade.key.DOWN or key == arcade.key.S:
-            self.down_key_down = True
-            self.update_player_speed()
-
-    def on_key_release(self, key, modifiers):
-        """Called when the user releases a key."""
-        if key == arcade.key.LEFT or key == arcade.key.A:
-            self.left_key_down = False
-            self.update_player_speed()
-        elif key == arcade.key.RIGHT or key == arcade.key.D:
-            self.right_key_down = False
-            self.update_player_speed()
-
-        if key == arcade.key.UP or key == arcade.key.W:
-            self.up_key_down = False
-            self.update_player_speed()
-        elif key == arcade.key.DOWN or key == arcade.key.S:
-            self.down_key_down = False
-            self.update_player_speed()
-
-    def center_camera_to_player(self):
-        # Find where player is, then calculate lower left corner from that
-        screen_center_x = self.player_sprite.center_x - (self.camera_sprites.viewport_width / 2)
-        screen_center_y = self.player_sprite.center_y - (self.camera_sprites.viewport_height / 2)
-
-        # Set some limits on how far we scroll
-        if screen_center_x < 0:
-            screen_center_x = 0
-        if screen_center_y < 0:
-            screen_center_y = 0
-
-        # Here's our center, move to it
-        player_centered = screen_center_x, screen_center_y
-        self.camera_sprites.move_to(player_centered)
-
-    def on_update(self, delta_time):
-        """Movement and game logic"""
-
-        # Move the player with the physics engine
-        self.physics_engine.update()
-
-        # Position the camera
-        self.center_camera_to_player()
-
-    def on_resize(self, width: int, height: int):
-        """ Resize window """
-        self.camera_sprites.resize(width, height)
-        self.camera_gui.resize(width, height)
+        super().__init__(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, title=SCREEN_TITLE, fullscreen=True, vsync=True)
 
 
 def main():
     """Main function"""
-    window = MyGame()
-    window.setup()
+    window = GameWindow()
+    state = ViewState(ROOT_DIR)
+    view = GameView(window, state)
+    view.setup()
+    window.show_view(view)
     arcade.run()
 
 
