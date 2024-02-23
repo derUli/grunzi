@@ -19,9 +19,9 @@ class MenuView(arcade.View):
 
         v_box = arcade.gui.UIBoxLayout()
 
-        newgame_button = arcade.gui.UIFlatButton(text="New Game", width=150)
+        newgame_button = arcade.gui.UIFlatButton(text=_("New Game"), width=150)
 
-        quit_button = arcade.gui.UIFlatButton(text="Quit game", width=150)
+        quit_button = arcade.gui.UIFlatButton(text=_("Quit game"), width=150)
         self.player = None
 
         @newgame_button.event("on_click")

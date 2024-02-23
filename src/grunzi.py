@@ -4,6 +4,8 @@ Platformer Template
 If Python and Arcade are installed, this example can be run from the command line with:
 python -m arcade.examples.template_platformer
 """
+import gettext
+import locale
 import os
 
 import arcade
@@ -40,6 +42,12 @@ class GameWindow(arcade.Window):
 
 
 def main():
+
+    # Set locale
+    locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
+    os.environ['LANG'] = ':'.join(locale.getlocale())
+    gettext.install('messages', locale_path)
+
     """Main function"""
     window = GameWindow()
     state = ViewState(ROOT_DIR)
