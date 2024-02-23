@@ -4,16 +4,15 @@ Platformer Template
 If Python and Arcade are installed, this example can be run from the command line with:
 python -m arcade.examples.template_platformer
 """
-import arcade
 import os
 
+import arcade
 import pyglet
 
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
 
-# --- Constants
-SCREEN_TITLE = "Platformer"
+SCREEN_TITLE = "Grunzi"
 
 ROOT_DIR = os.path.dirname(__file__)
 DATA_DIR = os.path.join(ROOT_DIR, 'data')
@@ -26,12 +25,12 @@ SCREEN = pyglet.canvas.get_display().get_default_screen()
 SCREEN_WIDTH = SCREEN.width
 SCREEN_HEIGHT = SCREEN.height
 
-
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
 
 # Movement speed of player, in pixels per frame
 PLAYER_MOVEMENT_SPEED = 10
+
 
 class MyGame(arcade.Window):
     """
@@ -41,8 +40,8 @@ class MyGame(arcade.Window):
     def __init__(self):
 
         # Call the parent class and set up the window
-        super().__init__(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, title = SCREEN_TITLE, fullscreen=False, vsync=True, style=pyglet.window.Window.WINDOW_STYLE_BORDERLESS)
-
+        super().__init__(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, title=SCREEN_TITLE, fullscreen=False, vsync=True,
+                         style=pyglet.window.Window.WINDOW_STYLE_BORDERLESS)
 
         # Our TileMap Object
         self.tile_map = None
@@ -87,9 +86,9 @@ class MyGame(arcade.Window):
         # Doing this will make the SpriteList for the platforms layer
         # use spatial hashing for detection.
         layer_options = {
-            #"Platforms": {
+            # "Platforms": {
             #    "use_spatial_hash": True,
-            #},
+            # },
         }
 
         # Read in the tiled map
@@ -116,7 +115,7 @@ class MyGame(arcade.Window):
         # Create the 'physics engine'
         self.physics_engine = arcade.PhysicsEngineSimple(
             self.player_sprite, walls=self.scene["Walls"]
-           )
+        )
 
     def on_draw(self):
         """Render the screen."""
