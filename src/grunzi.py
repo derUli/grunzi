@@ -7,6 +7,8 @@ python -m arcade.examples.template_platformer
 import arcade
 import os
 
+import pyglet
+
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
 
@@ -20,21 +22,16 @@ IMAGE_DIR = os.path.join(DATA_DIR, 'images')
 SPRITE_DIR = os.path.join(IMAGE_DIR, 'sprites')
 MUSIC_DIR = os.path.join(DATA_DIR, 'music')
 
-SCREEN_WIDTH = 1280
-SCREEN_HEIGHT = 720
+SCREEN = pyglet.canvas.get_display().get_default_screen()
+SCREEN_WIDTH = SCREEN.width
+SCREEN_HEIGHT = SCREEN.height
+
 
 # Constants used to scale our sprites from their original size
-CHARACTER_SCALING = 1
-TILE_SCALING = 0.5
-COIN_SCALING = 0.5
-SPRITE_PIXEL_SIZE = 128
-GRID_PIXEL_SIZE = SPRITE_PIXEL_SIZE * TILE_SCALING
+TILE_SCALING = 1.0
 
 # Movement speed of player, in pixels per frame
 PLAYER_MOVEMENT_SPEED = 10
-GRAVITY = 1
-PLAYER_JUMP_SPEED = 20
-
 
 class MyGame(arcade.Window):
     """
@@ -44,7 +41,7 @@ class MyGame(arcade.Window):
     def __init__(self):
 
         # Call the parent class and set up the window
-        super().__init__(title = SCREEN_TITLE, fullscreen=True, vsync=True)
+        super().__init__(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, title = SCREEN_TITLE, fullscreen=False, vsync=True, style=pyglet.window.Window.WINDOW_STYLE_BORDERLESS)
 
 
         # Our TileMap Object
