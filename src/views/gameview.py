@@ -30,7 +30,6 @@ class GameView(arcade.View):
 
         self.state = state
 
-
         # Our TileMap Object
         self.tile_map = None
 
