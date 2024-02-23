@@ -1,8 +1,7 @@
 import os
-from typing import Optional
 
 import arcade
-from arcade import Texture, load_texture, FACE_RIGHT, FACE_LEFT
+from arcade import FACE_RIGHT, FACE_LEFT
 
 STATE_DEFAULT = 'default'
 STATE_GUN = 'gun'

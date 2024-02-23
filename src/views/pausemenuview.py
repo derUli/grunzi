@@ -2,12 +2,13 @@ import os
 import arcade.gui
 
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
-from views.fadingview import FadingView
 
-class MainMenuView(FadingView):
+from views.mainmenuview import MainMenuView
+
+class PauseMenuView(arcade.View):
     """Main menu view class."""
 
-    def __init__(self, window, state):
+    def __init__(self, window, state, previous_view = None):
         super().__init__(window)
 
         self.window = window
@@ -17,10 +18,9 @@ class MainMenuView(FadingView):
 
         v_box = arcade.gui.UIBoxLayout()
 
-        newgame_button = arcade.gui.UIFlatButton(text=_("New Game"), width=200)
+        newgame_button = arcade.gui.UIFlatButton(text=_("Continue"), width=200)
 
-        quit_button = arcade.gui.UIFlatButton(text=_("Quit game"), width=200)
-        self.player = None
+        quit_button = arcade.gui.UIFlatButton(text=_("Back to main menu"), width=200)
 
         self.scene = arcade.Scene()
 
@@ -31,6 +31,7 @@ class MainMenuView(FadingView):
                 'menu.jpg'
             ),
         )
+
         self.backdrop.width = self.window.width
         self.backdrop.height = self.window.height
 
@@ -40,18 +41,16 @@ class MainMenuView(FadingView):
         # A non-scrolling camera that can be used to draw GUI elements
         self.camera_gui = None
 
+        self.previous_view = previous_view
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
             # Pass already created view because we are resuming.
-
-            self.fade_out()
-            from views.gameview import GameView
-            self.next_view = GameView(self.window, self.state)
+            self.window.show_view(self.previous_view)
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):
-            self.fade_quit()
+            self.window.show_view(MainMenuView(self.window, self.state))
 
         buttons = [
             newgame_button,
@@ -71,20 +70,14 @@ class MainMenuView(FadingView):
         self.state = state
 
     def on_hide_view(self):
-
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
-        self.player.pause()
 
     def on_show_view(self):
-
         """ This is run once when we switch to this view """
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
-
-        music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
-        self.player = music.play(loop=True)
 
         self.camera_gui = arcade.Camera()
 
@@ -98,7 +91,6 @@ class MainMenuView(FadingView):
         self.manager.enable()
 
     def on_update(self, dt):
-        self.update_fade(self.next_view)
         self.scene.update()
 
     def on_draw(self):
@@ -110,4 +102,3 @@ class MainMenuView(FadingView):
 
         self.scene.draw()
         self.manager.draw()
-        self.draw_fading()

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-23 18:15+0100\n"
+"POT-Creation-Date: 2024-02-23 21:21+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,13 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: views/menuview.py:22
+#: views/mainmenuview.py:20
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/menuview.py:24
+#: views/mainmenuview.py:22
 msgid "Quit game"
 msgstr "Beenden"
+
+#: views/pausemenuview.py:21
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: views/pausemenuview.py:23
+msgid "Back to main menu"
+msgstr "Zurück zum Hauptmenü"
 
 #~ msgid "Savegame"
 #~ msgstr "Spiel speichern"

@@ -33,7 +33,14 @@ class MusicQueue:
         random.shuffle(self.queue)
 
     def play(self):
+        if self.player:
+            self.player.play()
+            return
+
         self.next()
+
+    def pause(self):
+        self.player.pause()
 
     def next(self) -> None:
         if len(self.queue) == 0:

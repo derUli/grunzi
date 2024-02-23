@@ -11,6 +11,7 @@ import arcade
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
 from views.fadingview import FadingView
+from views.pausemenuview import PauseMenuView
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
@@ -54,8 +55,15 @@ class GameView(FadingView):
 
         self.music_queue = None
 
+        self.initialized = False
+
     def on_show_view(self):
         """Set up the game here. Call this function to restart the game."""
+        self.window.set_mouse_visible(False)
+
+        if self.initialized:
+            self.music_queue.play()
+            return
 
         # Setup the Cameras
         self.camera_sprites = arcade.Camera()
@@ -103,8 +111,17 @@ class GameView(FadingView):
         self.music_queue.from_directory(os.path.join(self.state.music_dir, 'level1'))
         self.music_queue.play()
 
+        self.initialized = True
+
+    def on_hide_view(self):
+
+        self.window.set_mouse_visible(True)
+        self.music_queue.pause()
+
     def on_draw(self):
         """Render the screen."""
+
+        self.clear()
 
         # Activate the game camera
         self.camera_sprites.use()
@@ -135,7 +152,8 @@ class GameView(FadingView):
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
         if key == arcade.key.ESCAPE:
-            self.fade_quit()
+            pause_view = PauseMenuView(self.window, self.state, self)
+            self.window.show_view(pause_view)
 
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True
