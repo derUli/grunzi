@@ -147,7 +147,8 @@ class MyGame(arcade.Window):
             self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
         elif self.right_key_down and not self.left_key_down:
             self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
-        elif self.down_key_down and not self.up_key_down:
+
+        if self.down_key_down and not self.up_key_down:
             self.player_sprite.change_y = -PLAYER_MOVEMENT_SPEED
         elif self.up_key_down and not self.down_key_down:
             self.player_sprite.change_y = PLAYER_MOVEMENT_SPEED
@@ -162,7 +163,8 @@ class MyGame(arcade.Window):
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = True
             self.update_player_speed()
-        elif key == arcade.key.UP or key == arcade.key.W:
+
+        if key == arcade.key.UP or key == arcade.key.W:
             self.up_key_down = True
             self.update_player_speed()
         elif key == arcade.key.DOWN or key == arcade.key.S:
@@ -177,7 +179,8 @@ class MyGame(arcade.Window):
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = False
             self.update_player_speed()
-        elif key == arcade.key.UP or key == arcade.key.W:
+
+        if key == arcade.key.UP or key == arcade.key.W:
             self.up_key_down = False
             self.update_player_speed()
         elif key == arcade.key.DOWN or key == arcade.key.S:
