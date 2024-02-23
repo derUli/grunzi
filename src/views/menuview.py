@@ -9,7 +9,7 @@ from views.gameview import GameView
 class MenuView(arcade.View):
     """Main menu view class."""
 
-    def __init__(self, window, state, main_view = None):
+    def __init__(self, window, state, main_view=None):
         super().__init__()
 
         self.window = window
@@ -24,13 +24,25 @@ class MenuView(arcade.View):
         quit_button = arcade.gui.UIFlatButton(text=_("Quit game"), width=150)
         self.player = None
 
+        self.backdrop = arcade.sprite.Sprite(
+            filename=os.path.join(
+                self.state.image_dir,
+                'backdrops',
+                'menu.jpg'
+            ),
+        )
+        self.backdrop.width = self.window.width
+        self.backdrop.height = self.window.height
+
+        # A non-scrolling camera that can be used to draw GUI elements
+        self.camera_gui = None
+
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
             start_time = time.time()
             # Pass already created view because we are resuming.
             view = GameView(self.window, self.state)
 
-            print(time.time() - start_time)
             self.window.show_view(view)
 
         @quit_button.event("on_click")
@@ -50,7 +62,7 @@ class MenuView(arcade.View):
                 anchor_x="center_x",
                 anchor_y="center_y",
                 child=v_box)
-            )
+        )
 
         self.state = state
 
@@ -70,6 +82,15 @@ class MenuView(arcade.View):
         music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
         self.player = music.play(loop=True)
 
+        self.camera_gui = arcade.Camera()
+
+        self.camera_gui.move_to(
+            (
+                self.backdrop.center_x - (self.camera_gui.viewport_width / 2),
+                self.backdrop.center_y - (self.camera_gui.viewport_height / 2)
+            )
+        )
+
         self.manager.enable()
 
     def on_draw(self):
@@ -77,4 +98,7 @@ class MenuView(arcade.View):
 
         # Clear the screen
         self.clear()
+        self.camera_gui.use()
+
+        self.backdrop.draw()
         self.manager.draw()

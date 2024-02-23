@@ -109,9 +109,6 @@ class GameView(arcade.View):
     def on_draw(self):
         """Render the screen."""
 
-        # Clear the screen to the background color
-        self.clear()
-
         # Activate the game camera
         self.camera_sprites.use()
 
@@ -132,7 +129,6 @@ class GameView(arcade.View):
             self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
         elif self.right_key_down and not self.left_key_down:
             self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
-
         if self.down_key_down and not self.up_key_down:
             self.player_sprite.change_y = -PLAYER_MOVEMENT_SPEED
         elif self.up_key_down and not self.down_key_down:
