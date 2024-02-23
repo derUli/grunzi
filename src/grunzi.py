@@ -44,8 +44,7 @@ class MyGame(arcade.Window):
     def __init__(self):
 
         # Call the parent class and set up the window
-        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT,
-                         SCREEN_TITLE, fullscreen=True, vsync=True)
+        super().__init__(title = SCREEN_TITLE, fullscreen=True, vsync=True)
 
 
         # Our TileMap Object
@@ -65,9 +64,6 @@ class MyGame(arcade.Window):
 
         # A non-scrolling camera that can be used to draw GUI elements
         self.camera_gui = None
-
-        # Keep track of the score
-        self.score = 0
 
         # What key is pressed down?
         self.left_key_down = False
@@ -102,6 +98,8 @@ class MyGame(arcade.Window):
         # Read in the tiled map
         self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options)
 
+        arcade.set_background_color(arcade.color.LIGHT_BLUE)
+
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tile_map)
@@ -109,9 +107,6 @@ class MyGame(arcade.Window):
         # Set the background color
         if self.tile_map.background_color:
             self.background_color = self.tile_map.background_color
-
-        # Keep track of the score
-        self.score = 0
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(SPRITE_DIR, 'pig.png')
@@ -141,14 +136,6 @@ class MyGame(arcade.Window):
 
         # Activate the GUI camera before drawing GUI elements
         self.camera_gui.use()
-
-        # Draw our score on the screen, scrolling it with the viewport
-        score_text = f"Score: {self.score}"
-        arcade.draw_text(score_text,
-                         start_x=10,
-                         start_y=10,
-                         color=arcade.csscolor.WHITE,
-                         font_size=18)
 
     def update_player_speed(self):
 
@@ -217,18 +204,6 @@ class MyGame(arcade.Window):
 
         # Move the player with the physics engine
         self.physics_engine.update()
-
-        # See if we hit any coins
-        #coin_hit_list = arcade.check_for_collision_with_list(
-        #    self.player_sprite, self.scene["Coins"]
-        #)
-
-        # Loop through each coin we hit (if any) and remove it
-        #for coin in coin_hit_list:
-        #    # Remove the coin
-        #    coin.remove_from_sprite_lists()
-        #    # Add one to the score
-        #    self.score += 1
 
         # Position the camera
         self.center_camera_to_player()

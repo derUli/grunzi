@@ -39,6 +39,9 @@ class MusicQueue:
         if len(self.queue) == 0:
             self.shuffle()
 
+        if self.player:
+            self.player.pop_handlers()
+
         self.music = arcade.load_sound(self.queue[0])
         self.player = self.music.play()
         self.queue = self.queue[1:]
