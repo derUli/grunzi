@@ -1,6 +1,7 @@
 import os
 import arcade.gui
 
+import utils.text
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from views.fadingview import FadingView
 
@@ -106,8 +107,11 @@ class MainMenuView(FadingView):
 
         # Clear the screen
         self.clear()
-        self.camera_gui.use()
 
         self.scene.draw()
         self.manager.draw()
+
+        build_version = os.path.join(self.state.root_dir, 'VERSION')
+        utils.text.draw_build_number(build_version, self.window)
         self.draw_fading()
+        self.camera_gui.use()
