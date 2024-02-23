@@ -10,6 +10,7 @@ import arcade
 
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
+from views.fadingview import FadingView
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
@@ -18,7 +19,7 @@ TILE_SCALING = 1.0
 PLAYER_MOVEMENT_SPEED = 10
 
 
-class GameView(arcade.View):
+class GameView(FadingView):
     """
     Main application class.
     """

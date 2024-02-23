@@ -1,13 +1,15 @@
 import os
 import arcade.gui
+
+from views.fadingview import FadingView
 from views.gameview import GameView
 
 
-class MenuView(arcade.View):
+class MenuView(FadingView):
     """Main menu view class."""
 
     def __init__(self, window, state, main_view=None):
-        super().__init__()
+        super().__init__(window)
 
         self.window = window
         self.manager = arcade.gui.UIManager(window)
@@ -30,20 +32,20 @@ class MenuView(arcade.View):
         )
         self.backdrop.width = self.window.width
         self.backdrop.height = self.window.height
-
+        self.next_view = None
         # A non-scrolling camera that can be used to draw GUI elements
         self.camera_gui = None
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
             # Pass already created view because we are resuming.
-            view = GameView(self.window, self.state)
 
-            self.window.show_view(view)
+            self.fade_out()
+            self.next_view = GameView(self.window, self.state)
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):
-            arcade.close_window()
+            self.fade_quit()
 
         buttons = [
             newgame_button,
@@ -89,6 +91,9 @@ class MenuView(arcade.View):
 
         self.manager.enable()
 
+    def on_update(self, dt):
+        self.update_fade(self.next_view)
+
     def on_draw(self):
         """ Render the screen. """
 
@@ -98,3 +103,4 @@ class MenuView(arcade.View):
 
         self.backdrop.draw()
         self.manager.draw()
+        self.draw_fading()
