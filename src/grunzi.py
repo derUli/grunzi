@@ -68,6 +68,8 @@ class MyGame(arcade.Window):
         # What key is pressed down?
         self.left_key_down = False
         self.right_key_down = False
+        self.down_key_down = False
+        self.up_key_down = False
 
     def setup(self):
         """Set up the game here. Call this function to restart the game."""
