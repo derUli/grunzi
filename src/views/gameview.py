@@ -133,11 +133,10 @@ class GameView(FadingView):
         self.player_sprite.update()
 
     def on_key_press(self, key, modifiers):
-
+        """Called whenever a key is pressed."""
         if key == arcade.key.ESCAPE:
             self.fade_quit()
 
-        """Called whenever a key is pressed."""
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True
             self.update_player_speed()

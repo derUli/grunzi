@@ -6,7 +6,7 @@ from views.fadingview import FadingView
 from views.gameview import GameView
 
 
-class MenuView(FadingView):
+class MainMenuView(FadingView):
     """Main menu view class."""
 
     def __init__(self, window, state, main_view=None):
