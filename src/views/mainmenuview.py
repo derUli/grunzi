@@ -9,7 +9,7 @@ from views.gameview import GameView
 class MainMenuView(FadingView):
     """Main menu view class."""
 
-    def __init__(self, window, state, main_view=None):
+    def __init__(self, window, state):
         super().__init__(window)
 
         self.window = window
@@ -69,8 +69,6 @@ class MainMenuView(FadingView):
         )
 
         self.state = state
-
-        self.main_view = main_view
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
