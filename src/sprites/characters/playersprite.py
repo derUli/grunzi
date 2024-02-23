@@ -33,8 +33,6 @@ class PlayerSprite(arcade.sprite.Sprite):
         self.face = DEFAULT_FACE
         self.texture = self.pig_textures[self.state][self.face]
 
-        self.change_x = 0
-
 
     def update_texture(self):
         self.texture = self.pig_textures[self.state][self.face]

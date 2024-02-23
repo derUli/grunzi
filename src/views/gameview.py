@@ -74,9 +74,9 @@ class GameView(FadingView):
         # Doing this will make the SpriteList for the platforms layer
         # use spatial hashing for detection.
         layer_options = {
-            # "Platforms": {
-            #    "use_spatial_hash": True,
-            # },
+            "Walls": {
+                "use_spatial_hash": True,
+            },
         }
 
         # Read in the tiled map
@@ -209,3 +209,16 @@ class GameView(FadingView):
         self.center_camera_to_player()
 
         self.update_fade()
+        self.update_moveable()
+
+    def collision_layers(self):
+        return [
+            self.scene['Walls']
+        ]
+
+    def update_moveable(self):
+        collides = arcade.check_for_collision_with_list(self.player_sprite, self.scene['Moveable'])
+        for moveable in collides:
+            while arcade.check_for_collision(self.player_sprite, moveable):
+                moveable.center_x += self.player_sprite.change_x
+                moveable.center_y += self.player_sprite.change_y
