@@ -54,12 +54,9 @@ class GameView(arcade.View):
         self.down_key_down = False
         self.up_key_down = False
 
-        self.music_queue = utils.audio.MusicQueue()
+        self.music_queue = None
 
-        self.music_queue.from_directory(os.path.join(self.state.music_dir, 'level1'))
-        self.music_queue.play()
-
-    def setup(self):
+    def on_show_view(self):
         """Set up the game here. Call this function to restart the game."""
 
         # Setup the Cameras
@@ -104,6 +101,11 @@ class GameView(arcade.View):
             self.player_sprite, walls=self.scene["Walls"]
         )
 
+        self.music_queue = utils.audio.MusicQueue()
+
+        self.music_queue.from_directory(os.path.join(self.state.music_dir, 'level1'))
+        self.music_queue.play()
+
     def on_draw(self):
         """Render the screen."""
 
@@ -141,7 +143,7 @@ class GameView(arcade.View):
     def on_key_press(self, key, modifiers):
 
         if key == arcade.key.ESCAPE:
-            arcade.close_window() # TODO: Return to main Menu
+            arcade.close_window()  # TODO: Return to main Menu
 
         """Called whenever a key is pressed."""
         if key == arcade.key.LEFT or key == arcade.key.A:

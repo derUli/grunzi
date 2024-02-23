@@ -11,6 +11,7 @@ import pyglet
 
 from state.viewstate import ViewState
 from views.gameview import GameView
+from views.menuview import MenuView
 
 SCREEN_TITLE = "Grunzi"
 
@@ -42,8 +43,7 @@ def main():
     """Main function"""
     window = GameWindow()
     state = ViewState(ROOT_DIR)
-    view = GameView(window, state)
-    view.setup()
+    view = MenuView(window, state)
     window.show_view(view)
     arcade.run()
 
