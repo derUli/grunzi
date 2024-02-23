@@ -7,6 +7,7 @@ python -m arcade.examples.template_platformer
 import arcade
 import os
 
+import utils.audio
 from sprites.characters.playersprite import PlayerSprite
 
 # --- Constants
@@ -17,6 +18,7 @@ DATA_DIR = os.path.join(ROOT_DIR, 'data')
 MAP_DIR = os.path.join(DATA_DIR, 'levels')
 IMAGE_DIR = os.path.join(DATA_DIR, 'images')
 SPRITE_DIR = os.path.join(IMAGE_DIR, 'sprites')
+MUSIC_DIR = os.path.join(DATA_DIR, 'music')
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
@@ -72,6 +74,11 @@ class MyGame(arcade.Window):
         self.right_key_down = False
         self.down_key_down = False
         self.up_key_down = False
+
+        self.music_queue = utils.audio.MusicQueue()
+
+        self.music_queue.from_directory(os.path.join(MUSIC_DIR, 'level1'))
+        self.music_queue.play()
 
     def setup(self):
         """Set up the game here. Call this function to restart the game."""
