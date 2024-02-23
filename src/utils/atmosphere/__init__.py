@@ -1,3 +1,0 @@
-ATMOSPHERE_FOG = 'fog'
-ATMOSPHERE_RAIN = 'rain'
-ATMOSPHERE_SNOW = 'snow'

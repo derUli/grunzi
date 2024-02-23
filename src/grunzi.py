@@ -1,119 +1,220 @@
-#!/usr/bin/python3
+"""
+Platformer Template
 
-""" Grunzi Game Launcher """
-
-import argparse
-import gettext
-import locale
-import logging
+If Python and Arcade are installed, this example can be run from the command line with:
+python -m arcade.examples.template_platformer
+"""
+import arcade
 import os
 
-from bootstrap.gamecontainer import GameContainer
-from components.menu.intro import Intro
-from components.menu.mainmenu import MainMenu
-from utils.helper import configure_logger, enable_high_dpi
-from utils.path import get_userdata_path, is_windows
+# --- Constants
+SCREEN_TITLE = "Platformer"
 
-__main__ = __file__
-ROOT_DIR = os.path.join(os.path.dirname(__main__))
+ROOT_DIR = os.path.dirname(__file__)
+DATA_DIR = os.path.join(ROOT_DIR, 'data')
+MAP_DIR = os.path.join(DATA_DIR, 'levels')
+IMAGE_DIR = os.path.join(DATA_DIR, 'images')
+SPRITE_DIR = os.path.join(IMAGE_DIR, 'sprites')
 
-# Set locale
-locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
-os.environ['LANG'] = ':'.join(locale.getlocale())
-gettext.install('messages', locale_path)
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
 
+# Constants used to scale our sprites from their original size
+CHARACTER_SCALING = 1
+TILE_SCALING = 0.5
+COIN_SCALING = 0.5
+SPRITE_PIXEL_SIZE = 128
+GRID_PIXEL_SIZE = SPRITE_PIXEL_SIZE * TILE_SCALING
 
-def parse_args():
-    """ Parse command line args """
-    if not os.path.exists(get_userdata_path()):
-        os.makedirs(get_userdata_path())
-
-    parser = argparse.ArgumentParser(
-        prog=_('Grunzi'),
-        description=_('Piggy adventure game')
-    )
-
-    parser.add_argument(
-        '-e',
-        '--edit',
-        action='store_true',
-        help='Enable in-game map editor'
-    )
-
-    parser.add_argument(
-        '-v',
-        '--debug',
-        action='store_true',
-        help='Enable debug loglevel'
-    )
-
-    parser.add_argument(
-        '-a',
-        '--disable-ai',
-        action='store_true',
-        help='Disable AI'
-    )
-
-    parser.add_argument(
-        '-b',
-        '--disable-audio',
-        action='store_true',
-        help='Disable Audio'
-    )
-
-    parser.add_argument(
-        '-d',
-        '--disable-controller',
-        action='store_true',
-        help='Disable controller support'
-    )
-
-    parser.add_argument(
-        '-i',
-        '--skip-intro',
-        action='store_true',
-        help='Skip intro'
-    )
-
-    return parser.parse_args()
+# Movement speed of player, in pixels per frame
+PLAYER_MOVEMENT_SPEED = 10
+GRAVITY = 1
+PLAYER_JUMP_SPEED = 20
 
 
-args = parse_args()
+class MyGame(arcade.Window):
+    """
+    Main application class.
+    """
 
-if args.disable_audio:
-    logging.info('Audio is disabled')
-    os.environ['SDL_AUDIODRIVER'] = 'disk'
-    if is_windows():
-        os.environ['SDL_DISKAUDIOFILE'] = 'NUL'
-    else:
-        os.environ['SDL_DISKAUDIOFILE'] = '/dev/null'
+    def __init__(self):
 
-# While still in alpha the log level is always debug
-# TODO: Remove before production release
-args.debug = True
+        # Call the parent class and set up the window
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT,
+                         SCREEN_TITLE, fullscreen=True, vsync=True)
 
-LOG_LEVEL = logging.INFO
 
-if args.debug:
-    LOG_LEVEL = logging.DEBUG
+        # Our TileMap Object
+        self.tile_map = None
 
-configure_logger(LOG_LEVEL)
-logging.debug(args)
+        # Our Scene Object
+        self.scene = None
 
-enable_high_dpi()
+        # Separate variable that holds the player sprite
+        self.player_sprite = None
 
-game = GameContainer(
-    ROOT_DIR,
-    enable_edit_mode=args.edit,
-    disable_controller=args.disable_controller,
-    disable_ai=args.disable_ai
-)
+        # Our physics engine
+        self.physics_engine = None
 
-game.__main__ = os.path.abspath(__main__)
+        # A Camera that can be used for scrolling the screen
+        self.camera_sprites = None
 
-component = Intro
+        # A non-scrolling camera that can be used to draw GUI elements
+        self.camera_gui = None
 
-if args.skip_intro:
-    component = MainMenu
+        # Keep track of the score
+        self.score = 0
 
-game.start(component)
+        # What key is pressed down?
+        self.left_key_down = False
+        self.right_key_down = False
+
+    def setup(self):
+        """Set up the game here. Call this function to restart the game."""
+
+        # Setup the Cameras
+        self.camera_sprites = arcade.Camera()
+        self.camera_gui = arcade.Camera()
+
+        # Name of map file to load
+        map_name = os.path.join(MAP_DIR, 'world.tmx')
+
+        # Layer specific options are defined based on Layer names in a dictionary
+        # Doing this will make the SpriteList for the platforms layer
+        # use spatial hashing for detection.
+        layer_options = {
+            #"Platforms": {
+            #    "use_spatial_hash": True,
+            #},
+        }
+
+        # Read in the tiled map
+        self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options)
+
+        # Initialize Scene with our TileMap, this will automatically add all layers
+        # from the map as SpriteLists in the scene in the proper order.
+        self.scene = arcade.Scene.from_tilemap(self.tile_map)
+
+        # Set the background color
+        if self.tile_map.background_color:
+            self.background_color = self.tile_map.background_color
+
+        # Keep track of the score
+        self.score = 0
+
+        # Set up the player, specifically placing it at these coordinates.
+        src = os.path.join(SPRITE_DIR, 'pig.png')
+        self.player_sprite = arcade.Sprite(src, scale=CHARACTER_SCALING)
+        self.player_sprite.center_x = 128
+        self.player_sprite.center_y = 128
+        self.scene.add_sprite("Player", self.player_sprite)
+
+        # --- Other stuff
+        # Create the 'physics engine'
+        self.physics_engine = arcade.PhysicsEngineSimple(
+            self.player_sprite, walls=self.scene["Walls"]
+           )
+
+    def on_draw(self):
+        """Render the screen."""
+
+        # Clear the screen to the background color
+        self.clear()
+
+        # Activate the game camera
+        self.camera_sprites.use()
+
+        # Draw our Scene
+        # Note, if you a want pixelated look, add pixelated=True to the parameters
+        self.scene.draw()
+
+        # Activate the GUI camera before drawing GUI elements
+        self.camera_gui.use()
+
+        # Draw our score on the screen, scrolling it with the viewport
+        score_text = f"Score: {self.score}"
+        arcade.draw_text(score_text,
+                         start_x=10,
+                         start_y=10,
+                         color=arcade.csscolor.WHITE,
+                         font_size=18)
+
+    def update_player_speed(self):
+
+        # Calculate speed based on the keys pressed
+        self.player_sprite.change_x = 0
+
+        if self.left_key_down and not self.right_key_down:
+            self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
+        elif self.right_key_down and not self.left_key_down:
+            self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
+
+    def on_key_press(self, key, modifiers):
+        """Called whenever a key is pressed."""
+        if key == arcade.key.LEFT or key == arcade.key.A:
+            self.left_key_down = True
+            self.update_player_speed()
+        elif key == arcade.key.RIGHT or key == arcade.key.D:
+            self.right_key_down = True
+            self.update_player_speed()
+
+    def on_key_release(self, key, modifiers):
+        """Called when the user releases a key."""
+        if key == arcade.key.LEFT or key == arcade.key.A:
+            self.left_key_down = False
+            self.update_player_speed()
+        elif key == arcade.key.RIGHT or key == arcade.key.D:
+            self.right_key_down = False
+            self.update_player_speed()
+
+    def center_camera_to_player(self):
+        # Find where player is, then calculate lower left corner from that
+        screen_center_x = self.player_sprite.center_x - (self.camera_sprites.viewport_width / 2)
+        screen_center_y = self.player_sprite.center_y - (self.camera_sprites.viewport_height / 2)
+
+        # Set some limits on how far we scroll
+        if screen_center_x < 0:
+            screen_center_x = 0
+        if screen_center_y < 0:
+            screen_center_y = 0
+
+        # Here's our center, move to it
+        player_centered = screen_center_x, screen_center_y
+        self.camera_sprites.move_to(player_centered)
+
+    def on_update(self, delta_time):
+        """Movement and game logic"""
+
+        # Move the player with the physics engine
+        self.physics_engine.update()
+
+        # See if we hit any coins
+        #coin_hit_list = arcade.check_for_collision_with_list(
+        #    self.player_sprite, self.scene["Coins"]
+        #)
+
+        # Loop through each coin we hit (if any) and remove it
+        #for coin in coin_hit_list:
+        #    # Remove the coin
+        #    coin.remove_from_sprite_lists()
+        #    # Add one to the score
+        #    self.score += 1
+
+        # Position the camera
+        self.center_camera_to_player()
+
+    def on_resize(self, width: int, height: int):
+        """ Resize window """
+        self.camera_sprites.resize(width, height)
+        self.camera_gui.resize(width, height)
+
+
+def main():
+    """Main function"""
+    window = MyGame()
+    window.setup()
+    arcade.run()
+
+
+if __name__ == "__main__":
+    main()
