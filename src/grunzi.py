@@ -7,6 +7,8 @@ python -m arcade.examples.template_platformer
 import arcade
 import os
 
+from sprites.characters.playersprite import PlayerSprite
+
 # --- Constants
 SCREEN_TITLE = "Platformer"
 
@@ -105,8 +107,8 @@ class MyGame(arcade.Window):
         self.score = 0
 
         # Set up the player, specifically placing it at these coordinates.
-        src = os.path.join(SPRITE_DIR, 'pig.png')
-        self.player_sprite = arcade.Sprite(src, scale=CHARACTER_SCALING)
+        filename = os.path.join(SPRITE_DIR, 'pig.png')
+        self.player_sprite = PlayerSprite(filename)
         self.player_sprite.center_x = 128
         self.player_sprite.center_y = 128
         self.scene.add_sprite("Player", self.player_sprite)
@@ -156,6 +158,8 @@ class MyGame(arcade.Window):
         elif self.up_key_down and not self.down_key_down:
             self.player_sprite.change_y = PLAYER_MOVEMENT_SPEED
 
+        self.player_sprite.update()
+
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
         if key == arcade.key.LEFT or key == arcade.key.A:
@@ -190,7 +194,6 @@ class MyGame(arcade.Window):
         # Find where player is, then calculate lower left corner from that
         screen_center_x = self.player_sprite.center_x - (self.camera_sprites.viewport_width / 2)
         screen_center_y = self.player_sprite.center_y - (self.camera_sprites.viewport_height / 2)
-
 
         # Set some limits on how far we scroll
         if screen_center_x < 0:
