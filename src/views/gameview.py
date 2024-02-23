@@ -45,9 +45,6 @@ class GameView(arcade.View):
         # A Camera that can be used for scrolling the screen
         self.camera_sprites = None
 
-        # A non-scrolling camera that can be used to draw GUI elements
-        self.camera_gui = None
-
         # What key is pressed down?
         self.left_key_down = False
         self.right_key_down = False
@@ -61,7 +58,6 @@ class GameView(arcade.View):
 
         # Setup the Cameras
         self.camera_sprites = arcade.Camera()
-        self.camera_gui = arcade.Camera()
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, 'world.tmx')
@@ -115,9 +111,6 @@ class GameView(arcade.View):
         # Draw our Scene
         # Note, if you a want pixelated look, add pixelated=True to the parameters
         self.scene.draw()
-
-        # Activate the GUI camera before drawing GUI elements
-        self.camera_gui.use()
 
     def update_player_speed(self):
 

@@ -1,8 +1,5 @@
 import os
-import time
-
 import arcade.gui
-
 from views.gameview import GameView
 
 
@@ -13,7 +10,7 @@ class MenuView(arcade.View):
         super().__init__()
 
         self.window = window
-        self.manager = arcade.gui.UIManager()
+        self.manager = arcade.gui.UIManager(window)
 
         self.state = state
 
@@ -39,7 +36,6 @@ class MenuView(arcade.View):
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
-            start_time = time.time()
             # Pass already created view because we are resuming.
             view = GameView(self.window, self.state)
 
