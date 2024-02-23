@@ -1,3 +1,4 @@
+import os
 import time
 
 import arcade.gui
@@ -21,6 +22,8 @@ class MenuView(arcade.View):
         newgame_button = arcade.gui.UIFlatButton(text="New Game", width=150)
 
         quit_button = arcade.gui.UIFlatButton(text="Quit game", width=150)
+
+        self.player = None
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
@@ -57,12 +60,16 @@ class MenuView(arcade.View):
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
+        self.player.pause()
 
     def on_show_view(self):
         """ This is run once when we switch to this view """
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
+
+        music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
+        self.player = music.play(loop=True)
 
         self.manager.enable()
 
