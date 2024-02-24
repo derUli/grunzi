@@ -77,11 +77,7 @@ class PauseMenuView(View):
 
     def on_show_view(self):
         """ This is run once when we switch to this view """
-
-        # Makes the background darker
-        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
-
-        self.camera_gui = arcade.Camera()
+        super().on_show_view()
 
         self.camera_gui.move_to(
             (

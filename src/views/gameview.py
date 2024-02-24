@@ -62,6 +62,8 @@ class GameView(FadingView):
         self.initialized = False
 
     def on_show_view(self):
+        super().on_show_view()
+
         self.window.set_mouse_visible(False)
 
         if self.initialized:
@@ -70,7 +72,7 @@ class GameView(FadingView):
 
         # Setup the Cameras
         self.camera_sprites = arcade.Camera()
-        self.camera_gui = arcade.Camera()
+
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, 'world.tmx')

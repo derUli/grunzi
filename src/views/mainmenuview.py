@@ -77,6 +77,7 @@ class MainMenuView(FadingView):
         self.player.pause()
 
     def on_show_view(self):
+        super().on_show_view()
         """ This is run once when we switch to this view """
 
         # Makes the background darker
