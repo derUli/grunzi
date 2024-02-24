@@ -79,6 +79,13 @@ def main():
         help=_('Window height in pixels')
     )
 
+    parser.add_argument(
+        '--map',
+        type=str,
+        default='world',
+        help=_('Name of the map')
+    )
+
     args = parser.parse_args()
 
     LOG_LEVEL = logging.INFO
@@ -90,7 +97,7 @@ def main():
     logging.debug(args)
 
     window = GameWindow(args.window, args.width, args.height, debug=args.debug)
-    state = ViewState(ROOT_DIR)
+    state = ViewState(ROOT_DIR, map_name=args.map)
     state.preload()
     icon_path = os.path.join(state.image_dir, 'ui', 'icon.ico')
     icon = pyglet.image.load(icon_path)

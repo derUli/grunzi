@@ -3,6 +3,15 @@
 Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufer und erkundest einer Welt voller Rätsel,
 Monster und friedlicher Zeitgenossen.
 Das Spiel befindet sich noch in einem sehr frühen Zustand der Entwicklung.
+
+## Systemvoraussetzungen
+
+OS: Windows 10 / 11
+RAM: 8 GB
+CPU: Intel i3
+GPU: OpenGL 3.3 kompatibel
+
+## Was ist neu?
 Der Alpha Build 006 stellt einen technologischen Neuanfang dar, welcher neue Konzepte einführt.
 
 Die Maps sind jetzt im TMX Format und können mit dem Open-Source Map-Editor Tiled bearbeitet werden.
@@ -27,6 +36,8 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --debug          Enable debug mode
   --width WIDTH    Window width in pixels
   --height HEIGHT  Window height in pixels
+  --map MAP        Name of the map
+
 ```
 
 Wenn der Start des Spiels mit der Fehlermeldung, dass die "VCRUNTIME140.dll" fehlt, fehlschlägt, müssen Sie das
@@ -46,7 +57,7 @@ ESC: Menü aufrufen
 
 ## Controller
 
-Controller werden in diesem Build leider nicht unterstützt
+Controller werden in diesem Build leider nicht unterstützt.
 
 # Einstellungen
 

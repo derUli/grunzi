@@ -6,7 +6,7 @@ import arcade
 
 
 class ViewState:
-    def __init__(self, root_dir):
+    def __init__(self, root_dir, map_name):
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
         self.map_dir = os.path.join(self.data_dir, 'levels')
@@ -19,6 +19,7 @@ class ViewState:
         self.sounds = {}
 
         self.coins = 0
+        self.map_name = map_name
 
     def preload(self):
         self.preload_sounds()

@@ -29,6 +29,7 @@ SPRITE_LIST_PLAYER = 'player'
 SPRITE_LIST_MOVEABLE = 'Moveable'
 TOTAL_COINS = 100
 
+
 class GameView(FadingView):
     """
     Main application class.
@@ -84,7 +85,7 @@ class GameView(FadingView):
         self.camera_sprites = arcade.Camera()
 
         # Name of map file to load
-        map_name = os.path.join(self.state.map_dir, 'world.tmx')
+        map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
 
         layer_options = {
             "Walls": {
@@ -93,7 +94,12 @@ class GameView(FadingView):
         }
 
         # Read in the tiled map
-        self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options)
+        try:
+            self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options)
+        except FileNotFoundError as e:
+            logging.error(e)
+            arcade.exit()
+            return
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
@@ -119,6 +125,7 @@ class GameView(FadingView):
             self.make_coin()
 
         self.initialized = True
+
     def on_hide_view(self):
 
         self.window.set_mouse_visible(True)
@@ -128,6 +135,9 @@ class GameView(FadingView):
         """Render the screen."""
 
         self.clear()
+
+        if not self.scene:
+            return
 
         # Activate the game camera
         self.camera_sprites.use()
@@ -143,7 +153,6 @@ class GameView(FadingView):
         for sprite in enemies:
             if self.window.debug:
                 sprite.draw_debug()
-
 
         self.camera_gui.use()
 
@@ -177,7 +186,6 @@ class GameView(FadingView):
             self.player_sprite.change_x = 1
 
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
-
 
     def on_key_press(self, key, modifiers):
         super().on_key_press(key, modifiers)
@@ -297,9 +305,9 @@ class GameView(FadingView):
         rand_x, rand_y = random_position(self.tile_map)
         coin = arcade.sprite.Sprite(
             filename=os.path.join(self.state.sprite_dir, 'coin.png'),
-            center_x = rand_x,
-            center_y = rand_y,
-            scale = 0.7
+            center_x=rand_x,
+            center_y=rand_y,
+            scale=0.7
         )
 
         if arcade.check_for_collision_with_list(coin, self.static_layers()):
@@ -312,7 +320,7 @@ class GameView(FadingView):
     def join_skull(self):
         rand_x, rand_y = random_position(self.tile_map)
 
-        skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x = rand_x, center_y = rand_y)
+        skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x=rand_x, center_y=rand_y)
 
         if arcade.check_for_collision_with_list(skull, self.static_layers()):
             return self.join_skull()
@@ -320,12 +328,12 @@ class GameView(FadingView):
         self.scene.add_sprite(SPRITE_LIST_ENEMIES, skull)
 
         self.physics_engine.add_sprite(skull,
-                                  friction=skull.friction,
-                                  moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-                                  collision_type="player",
-                                  max_velocity=400,
-                                  damping=skull.damping
-                                  )
+                                       friction=skull.friction,
+                                       moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+                                       collision_type="player",
+                                       max_velocity=400,
+                                       damping=skull.damping
+                                       )
 
         return
 
