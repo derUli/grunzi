@@ -19,7 +19,9 @@ from views.pausemenuview import PauseMenuView
 TILE_SCALING = 1.0
 
 # Movement speed of player, in pixels per frame
-PLAYER_MOVEMENT_SPEED = 10
+PLAYER_MOVEMENT_SPEED = 7
+
+PLAYER_SPRINT_MODIFIER = 1.5
 
 
 class GameView(FadingView):
@@ -54,7 +56,7 @@ class GameView(FadingView):
         self.right_key_down = False
         self.down_key_down = False
         self.up_key_down = False
-
+        self.shift_key_down = False
         self.music_queue = None
 
         self.initialized = False
@@ -142,14 +144,19 @@ class GameView(FadingView):
         self.player_sprite.change_x = 0
         self.player_sprite.change_y = 0
 
+        movement_speed = PLAYER_MOVEMENT_SPEED
+
+        if self.shift_key_down:
+            movement_speed *= PLAYER_SPRINT_MODIFIER
+
         if self.left_key_down and not self.right_key_down:
-            self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
+            self.player_sprite.change_x = -movement_speed
         elif self.right_key_down and not self.left_key_down:
-            self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
+            self.player_sprite.change_x = movement_speed
         if self.down_key_down and not self.up_key_down:
-            self.player_sprite.change_y = -PLAYER_MOVEMENT_SPEED
+            self.player_sprite.change_y = -movement_speed
         elif self.up_key_down and not self.down_key_down:
-            self.player_sprite.change_y = PLAYER_MOVEMENT_SPEED
+            self.player_sprite.change_y = movement_speed
 
         self.player_sprite.update()
 
@@ -158,22 +165,29 @@ class GameView(FadingView):
         if key == arcade.key.ESCAPE:
             pause_view = PauseMenuView(self.window, self.state, self)
             self.window.show_view(pause_view)
-
+        if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
+            self.shift_key_down = True
+            self.update_player_speed()
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True
             self.update_player_speed()
-        if key == arcade.key.RIGHT or key == arcade.key.D:
+        elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = True
             self.update_player_speed()
         if key == arcade.key.UP or key == arcade.key.W:
             self.up_key_down = True
             self.update_player_speed()
-        if key == arcade.key.DOWN or key == arcade.key.S:
+        elif key == arcade.key.DOWN or key == arcade.key.S:
             self.down_key_down = True
             self.update_player_speed()
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
+
+        if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
+            self.shift_key_down = False
+            self.update_player_speed()
+
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = False
             self.update_player_speed()
@@ -228,7 +242,7 @@ class GameView(FadingView):
         if not 'coin' in self.state.sounds:
             self.state.sounds['coin'] = arcade.load_sound(
                 os.path.join(self.state.sound_dir, 'common', 'pickup.ogg'),
-                streaming=True
+                streaming=False
             )
 
     def update_collectable(self):
