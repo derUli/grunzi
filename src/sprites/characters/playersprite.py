@@ -7,8 +7,8 @@ from arcade import FACE_RIGHT, FACE_LEFT
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-PLAYER_MOVE_FORCE = 1000
-PLAYER_DAMPING = 0.01
+MOVE_FORCE = 3000
+MOVE_DAMPING = 0.01
 
 class PlayerSprite(arcade.sprite.Sprite):
     def __init__(
@@ -17,8 +17,8 @@ class PlayerSprite(arcade.sprite.Sprite):
     ):
         super().__init__()
 
-        self.move_force = PLAYER_MOVE_FORCE
-        self.damping = PLAYER_DAMPING
+        self.move_force = MOVE_FORCE
+        self.damping = MOVE_DAMPING
         self.textures = arcade.load_texture_pair(filename)
 
         self.face = DEFAULT_FACE

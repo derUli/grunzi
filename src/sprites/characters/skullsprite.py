@@ -9,12 +9,11 @@ from utils.physics import DEFAULT_FRICTION
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-PLAYER_MOVE_FORCE = 500
-PLAYER_DAMPING = 0.01
+MOVE_FORCE = 200
+MOVE_DAMPING = 0.01
 
 SIGHT_DISTANCE = 500
-SIGHT_CHECK_RESOLUTION = 64
-
+SIGHT_CHECK_RESOLUTION = 40
 
 class SkullSprite(arcade.sprite.Sprite):
     def __init__(
@@ -25,8 +24,10 @@ class SkullSprite(arcade.sprite.Sprite):
     ):
         super().__init__(center_x=center_x, center_y=center_y)
 
-        self.move_force = PLAYER_MOVE_FORCE
-        self.damping = PLAYER_DAMPING
+        self.move_force = MOVE_FORCE
+        self.damping = MOVE_DAMPING
+
+        self._scale = 1
 
         dirname = os.path.join(os.path.dirname(filename))
 
@@ -37,7 +38,12 @@ class SkullSprite(arcade.sprite.Sprite):
             os.path.join(dirname, 'skull2.png')
         )
 
-        self.chasing = False
+        self.chasing = None
+
+        self.playing_field_left_boundary = 0
+        self.playing_field_right_boundary = 0
+        self.playing_field_top_boundary = 0
+        self.playing_field_bottom_boundary = 0
 
         self.friction = DEFAULT_FRICTION
         self.move_path = None
@@ -54,9 +60,16 @@ class SkullSprite(arcade.sprite.Sprite):
         self.texture = self.textures[self.face - 1]
 
     def draw_debug(self):
+        arcade.draw_lrtb_rectangle_outline(self.playing_field_left_boundary, self.playing_field_right_boundary,
+                                           self.playing_field_top_boundary, self.playing_field_bottom_boundary,
+                                           color=arcade.csscolor.RED)
+        self.update_texture()
+
         if not self.move_path:
             return
         arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
+
+
 
     def update(self, player=None, walls=None, physics_engine = None):
 
@@ -71,35 +84,34 @@ class SkullSprite(arcade.sprite.Sprite):
         if not player or not walls:
             return
 
-        grid_size = self.texture.width * 1
+        grid_size = self.texture.width * self._scale
 
-        # Calculate the playing field size. We can't generate paths outside of
-        # this.
-        playing_field_left_boundary = -grid_size * 2
-        playing_field_right_boundary = grid_size * 35
-        playing_field_top_boundary = grid_size * 17
-        playing_field_bottom_boundary = -grid_size * 2
-        self.update_texture()
+        self.playing_field_left_boundary = self.left - SIGHT_DISTANCE
+        self.playing_field_right_boundary = self.right + SIGHT_DISTANCE
+        self.playing_field_top_boundary = self.top + SIGHT_DISTANCE
+        self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
 
-        if arcade.has_line_of_sight(player.position,
-                                 self.position,
-                                 walls=walls,
-                                 check_resolution=SIGHT_CHECK_RESOLUTION,
-                                 max_distance=SIGHT_DISTANCE
-                                 ):
+        if not self.chasing and arcade.has_line_of_sight(
+          player.position,
+            self.position,
+            walls=walls,
+            check_resolution=2,
+            max_distance=SIGHT_DISTANCE
+         ):
             self.chasing = player
-        else:
-            self.chasing = None
+
+            self.update_texture()
+
 
         if self.chasing:
             astar_barrier_list = arcade.AStarBarrierList(
                 moving_sprite=self,
                 blocking_sprites=walls,
                 grid_size=grid_size,
-                left=int(playing_field_left_boundary),
-                right=playing_field_right_boundary,
-                bottom=int(playing_field_bottom_boundary),
-                top=playing_field_top_boundary
+                left=int(self.playing_field_left_boundary),
+                right=self.playing_field_right_boundary,
+                bottom=int(self.playing_field_bottom_boundary),
+                top=self.playing_field_top_boundary
             )
 
             self.move_path = arcade.astar_calculate_path(
@@ -110,7 +122,9 @@ class SkullSprite(arcade.sprite.Sprite):
             )
 
             if not self.move_path:
-                self.move_path = []
+                self.chasing = None
+                self.update_texture()
+                return
 
             for path in self.move_path:
                 x1, y1 = self.left, self.top
@@ -121,12 +135,14 @@ class SkullSprite(arcade.sprite.Sprite):
 
                 if x2 > x1:
                     force_x = self.move_force
-                elif x1 > x2:
+
+                if x1 > x2:
                     force_x = -self.move_force
 
                 if y2 > y1:
                     force_y = self.move_force
-                elif y1 > y2:
+
+                if y1 > y2:
                     force_y = -self.move_force
 
                 physics_engine.apply_force(self, (force_x, force_y))
