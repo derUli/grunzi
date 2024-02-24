@@ -56,6 +56,8 @@ class GameView(FadingView):
         self.down_key_down = False
         self.up_key_down = False
         self.shift_key_down = False
+
+        # Music queue
         self.music_queue = None
 
         self.initialized = False
@@ -135,6 +137,10 @@ class GameView(FadingView):
 
         self.camera_gui.use()
         utils.text.draw_coins(self.state.coins)
+
+        if self.window.debug:
+            utils.text.draw_debug(self.player_sprite, self.window)
+
         self.draw_fading()
 
     def update_player_speed(self):

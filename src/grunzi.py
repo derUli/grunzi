@@ -33,11 +33,12 @@ class GameWindow(arcade.Window):
     Main application class.
     """
 
-    def __init__(self, window=False, width=SCREEN_WIDTH, height=SCREEN_HEIGHT):
+    def __init__(self, window=False, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, debug=False):
 
         # Call the parent class and set up the window
         super().__init__(width=width, height=height, title=SCREEN_TITLE, fullscreen=not window, vsync=True)
 
+        self.debug = debug
 
 def main():
     """Main function"""
@@ -54,6 +55,14 @@ def main():
         default=False,
         help=_('Run in windowed mode')
     )
+
+    parser.add_argument(
+        '--debug',
+        action='store_true',
+        default=False,
+        help=_('Enable debug mode')
+    )
+
     parser.add_argument(
         '--width',
         type=int,
@@ -66,9 +75,10 @@ def main():
         default=SCREEN_HEIGHT,
         help=_('Window height in pixels')
     )
+
     args = parser.parse_args()
 
-    window = GameWindow(args.window, args.width, args.height)
+    window = GameWindow(args.window, args.width, args.height, debug=args.debug)
     state = ViewState(ROOT_DIR)
     state.preload_sounds()
     icon_path = os.path.join(state.image_dir, 'ui', 'icon.ico')

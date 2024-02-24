@@ -43,3 +43,9 @@ def draw_coins(coins):
     display_text = str(coins).rjust(2, ' ') + ' €'
 
     create_text(display_text, color=arcade.csscolor.YELLOW).draw()
+
+
+def draw_debug(player_sprite, window):
+    display_text = str(int(player_sprite.center_x)) + ' ' + str(int(player_sprite.center_y))
+
+    create_text(display_text, width=window.width - (MARGIN * 2), align='right').draw()
