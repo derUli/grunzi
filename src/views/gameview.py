@@ -231,12 +231,12 @@ class GameView(FadingView):
         # Move the player with the physics engine
         self.physics_engine.update()
 
-        # Position the camera
-        self.center_camera_to_player()
-
-        self.update_fade()
         self.update_moveable()
         self.update_collectable()
+
+        # Position the camera
+        self.center_camera_to_player()
+        self.update_fade()
 
     def static_layers(self):
         return [
