@@ -26,13 +26,31 @@ class SkullSprite(arcade.sprite.Sprite):
 
         self.move_force = PLAYER_MOVE_FORCE
         self.damping = PLAYER_DAMPING
-        self.textures = arcade.load_texture_pair(filename)
+
+        dirname = os.path.join(os.path.dirname(filename))
+
+        self.skull_off = self.textures = arcade.load_texture_pair(
+            os.path.join(dirname, 'skull.png')
+        )
+        self.skull_on = self.textures = arcade.load_texture_pair(
+            os.path.join(dirname, 'skull2.png')
+        )
+
+        self.chasing = False
+
         self.friction = DEFAULT_FRICTION
 
         self.face = DEFAULT_FACE
-        self.texture = self.textures[self.face - 1]
+        self.textures = None
+
+        self.update_texture()
 
     def update_texture(self):
+        if self.chasing:
+            self.textures = self.skull_on
+        else:
+            self.textures = self.skull_off
+
         self.texture = self.textures[self.face - 1]
 
     def update(self, player = None, walls = None):
@@ -48,10 +66,11 @@ class SkullSprite(arcade.sprite.Sprite):
         if not player or not walls:
             return
 
-        if arcade.has_line_of_sight(player.position,
+        self.chasing = arcade.has_line_of_sight(player.position,
             self.position,
             walls=walls,
             check_resolution=SIGHT_CHECK_RESOLUTION,
             max_distance= SIGHT_DISTANCE
-        ):
-            print('Line of sight detected')
+        )
+
+        self.update_texture()
