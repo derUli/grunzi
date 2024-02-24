@@ -7,6 +7,7 @@ python -m arcade.examples.template_platformer
 import os
 
 import arcade
+from arcade import PymunkPhysicsEngine
 
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
@@ -16,11 +17,13 @@ from views.pausemenuview import PauseMenuView
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
 
-# Movement speed of player, in pixels per frame
-PLAYER_MOVEMENT_SPEED = 7
+DEFAULT_FRICTION = 1
 
-PLAYER_SPRINT_MODIFIER = 1.5
+# Gravity
+GRAVITY = (0, 0)
 
+# Physics force used to move the player. Higher number, faster accelerating.
+PLAYER_MOVE_FORCE = 3000
 
 class GameView(FadingView):
     """
@@ -81,9 +84,7 @@ class GameView(FadingView):
         # Doing this will make the SpriteList for the platforms layer
         # use spatial hashing for detection.
         layer_options = {
-            "Walls": {
-                "use_spatial_hash": True,
-            }
+
         }
 
         # Read in the tiled map
@@ -106,11 +107,53 @@ class GameView(FadingView):
         self.player_sprite.center_y = 128
         self.scene.add_sprite("Player", self.player_sprite)
 
-        # --- Other stuff
-        # Create the 'physics engine'
-        self.physics_engine = arcade.PhysicsEngineSimple(
-            self.player_sprite, walls=self.wall_layers()
-        )
+        damping = 0.7
+
+        # Set the gravity. (0, 0) is good for outer space and top-down.
+        gravity = GRAVITY
+
+        # Create the physics engine
+        self.physics_engine = PymunkPhysicsEngine(damping=damping,
+                                                  gravity=gravity)
+
+        # Add the player.
+        # For the player, we set the damping to a lower value, which increases
+        # the damping rate. This prevents the character from traveling too far
+        # after the player lets off the movement keys.
+        # Setting the moment to PymunkPhysicsEngine.MOMENT_INF prevents it from
+        # rotating.
+        # Friction normally goes between 0 (no friction) and 1.0 (high friction)
+        # Friction is between two objects in contact. It is important to remember
+        # in top-down games that friction moving along the 'floor' is controlled
+        # by damping.
+        self.physics_engine.add_sprite(self.player_sprite,
+                                       friction=DEFAULT_FRICTION,
+                                       moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+                                       damping=0.01,
+                                       collision_type="player",
+                                       max_velocity=400)
+
+        # Create the walls.
+        # By setting the body type to PymunkPhysicsEngine.STATIC the walls can't
+        # move.
+        # Movable objects that respond to forces are PymunkPhysicsEngine.DYNAMIC
+        # PymunkPhysicsEngine.KINEMATIC objects will move, but are assumed to be
+        # repositioned by code and don't respond to physics forces.
+        # Dynamic is default.
+        self.physics_engine.add_sprite_list(self.scene['Walls'],
+                                            friction=DEFAULT_FRICTION,
+                                            collision_type="wall",
+                                            body_type=PymunkPhysicsEngine.STATIC
+                                            )
+
+        # Create some boxes to push around.
+        # Mass controls, well, the mass of an object. Defaults to 1.
+        self.physics_engine.add_sprite_list(self.scene['Moveable'],
+                                            mass=2,
+                                            friction=0.8,
+                                            damping=0.1,
+                                            collision_type="rock")
+
 
         self.music_queue = utils.audio.MusicQueue()
 
@@ -147,22 +190,25 @@ class GameView(FadingView):
 
         # Calculate speed based on the keys pressed
         self.player_sprite.change_x = 0
-        self.player_sprite.change_y = 0
 
-        movement_speed = PLAYER_MOVEMENT_SPEED
 
-        if self.shift_key_down:
-            movement_speed *= PLAYER_SPRINT_MODIFIER
-
+        if self.up_key_down and not self.down_key_down and self:
+            force = (0, PLAYER_MOVE_FORCE)
+            self.physics_engine.apply_force(self.player_sprite, force)
+        elif self.down_key_down and not self.up_key_down:
+            force = (0, -PLAYER_MOVE_FORCE)
+            self.physics_engine.apply_force(self.player_sprite, force)
         if self.left_key_down and not self.right_key_down:
-            self.player_sprite.change_x = -movement_speed
+            force = (-PLAYER_MOVE_FORCE, 0)
+            self.physics_engine.apply_force(self.player_sprite, force)
+            self.player_sprite.change_x = -1
         elif self.right_key_down and not self.left_key_down:
-            self.player_sprite.change_x = movement_speed
-        if self.down_key_down and not self.up_key_down:
-            self.player_sprite.change_y = -movement_speed
-        elif self.up_key_down and not self.down_key_down:
-            self.player_sprite.change_y = movement_speed
+            force = (PLAYER_MOVE_FORCE, 0)
+            self.physics_engine.apply_force(self.player_sprite, force)
+            self.player_sprite.change_x = 1
 
+        # --- Move items in the physics engine
+        self.physics_engine.step()
         self.player_sprite.update()
 
     def on_key_press(self, key, modifiers):
@@ -175,20 +221,15 @@ class GameView(FadingView):
 
         if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
             self.shift_key_down = True
-            self.update_player_speed()
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True
-            self.update_player_speed()
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = True
-            self.update_player_speed()
 
         if key == arcade.key.UP or key == arcade.key.W:
             self.up_key_down = True
-            self.update_player_speed()
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.down_key_down = True
-            self.update_player_speed()
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
@@ -229,22 +270,17 @@ class GameView(FadingView):
         """Movement and game logic"""
 
         # Move the player with the physics engine
-        self.physics_engine.update()
-
-        self.update_moveable()
+        self.update_player_speed()
+        self.physics_engine.step()
         self.update_collectable()
 
         # Position the camera
         self.center_camera_to_player()
         self.update_fade()
 
-    def static_layers(self):
-        return [
-            self.scene['Walls']
-        ]
 
     def wall_layers(self):
-        return self.static_layers()
+        return self.scene['Walls']
 
     def update_collectable(self):
 
@@ -254,17 +290,3 @@ class GameView(FadingView):
             self.state.coins += 1
 
             self.state.play_sound('coin')
-
-    def update_moveable(self):
-        collides = arcade.check_for_collision_with_list(self.player_sprite, self.scene['Moveable'])
-        for moveable in collides:
-            old_center_x = moveable.center_x
-            old_center_y = moveable.center_y
-            if self.player_sprite.change_x != 0:
-                moveable.center_x = old_center_x + self.player_sprite.change_x
-            elif self.player_sprite.change_y != 0:
-                moveable.center_y = old_center_y + self.player_sprite.change_y
-
-            if any(arcade.check_for_collision_with_lists(moveable, self.static_layers())):
-                moveable.center_x = old_center_x
-                moveable.center_y = old_center_y

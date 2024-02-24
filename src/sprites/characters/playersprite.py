@@ -38,8 +38,6 @@ class PlayerSprite(arcade.sprite.Sprite):
         self.texture = self.pig_textures[self.state][self.face]
 
     def update(self):
-        self.center_x += self.change_x
-        self.center_y += self.change_y
 
         # Figure out if we should face left or right
         if self.change_x < 0:
