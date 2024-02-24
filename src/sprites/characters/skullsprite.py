@@ -43,7 +43,7 @@ class SkullSprite(arcade.sprite.Sprite):
         self.move_path = {}
         self.face = DEFAULT_FACE
         self.textures = None
-
+        self.move_id = None
         self.update_texture()
 
     def update_texture(self):
@@ -67,7 +67,7 @@ class SkullSprite(arcade.sprite.Sprite):
         if not player or not walls:
             return
 
-        grid_size = self.texture.width * 10
+        grid_size = self.texture.width * 100
 
         # Calculate the playing field size. We can't generate paths outside of
         # this.
@@ -96,6 +96,8 @@ class SkullSprite(arcade.sprite.Sprite):
                 ]
             )
 
+            self.move_id = move_id
+
             if move_id in self.move_path:
                 return
 
@@ -109,8 +111,9 @@ class SkullSprite(arcade.sprite.Sprite):
                 top=playing_field_top_boundary
             )
 
-            self.move_path[move_id] = arcade.astar_calculate_path(self.position,
-                                              player.position,
-                                              astar_barrier_list,
-                                              diagonal_movement=False
-                                                                  )
+            self.move_path[move_id] = arcade.astar_calculate_path(
+                self.position,
+                  player.position,
+                  astar_barrier_list,
+                  diagonal_movement=False
+            )
