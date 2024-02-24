@@ -49,7 +49,7 @@ class MusicQueue:
         if self.player:
             self.player.pop_handlers()
 
-        self.music = arcade.load_sound(self.queue[0])
+        self.music = arcade.load_sound(self.queue[0], streaming=True)
         self.player = self.music.play()
         self.queue = self.queue[1:]
 
