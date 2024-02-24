@@ -1,17 +1,16 @@
 """
-Platformer Template
-
-If Python and Arcade are installed, this example can be run from the command line with:
-python -m arcade.examples.template_platformer
+Grunzi launch file
 """
 import gettext
 import locale
 import os
+import logging
 
 import arcade
 import pyglet.image
 
 from state.viewstate import ViewState
+from utils.logging import configure_logger
 from views.mainmenuview import MainMenuView
 import argparse
 
@@ -39,6 +38,9 @@ class GameWindow(arcade.Window):
         super().__init__(width=width, height=height, title=SCREEN_TITLE, fullscreen=not window, vsync=True)
 
         self.debug = debug
+
+        if debug:
+            arcade.enable_timings()
 
 def main():
     """Main function"""
@@ -77,6 +79,14 @@ def main():
     )
 
     args = parser.parse_args()
+
+    LOG_LEVEL = logging.INFO
+
+    #if args.debug:
+    #    LOG_LEVEL = logging.DEBUG
+
+    configure_logger(LOG_LEVEL)
+    logging.debug(args)
 
     window = GameWindow(args.window, args.width, args.height, debug=args.debug)
     state = ViewState(ROOT_DIR)

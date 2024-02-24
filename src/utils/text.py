@@ -3,6 +3,7 @@ import os.path
 import arcade
 
 MARGIN = 10
+DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
 
 
 def create_text(
@@ -14,7 +15,8 @@ def create_text(
         anchor_x='left',
         anchor_y='bottom',
         align='left',
-        width=None
+        width=None,
+        multiline=False
 ):
     return arcade.Text(
         text=text,
@@ -25,7 +27,8 @@ def create_text(
         align=align,
         anchor_x=anchor_x,
         anchor_y=anchor_y,
-        width=width
+        width=width,
+        multiline=multiline
     )
 
 
@@ -45,7 +48,24 @@ def draw_coins(coins):
     create_text(display_text, color=arcade.csscolor.YELLOW).draw()
 
 
-def draw_debug(player_sprite, window):
-    display_text = str(int(player_sprite.center_x)) + ' ' + str(int(player_sprite.center_y))
+def label_value(label: str, value: any) -> str:
+    """
+    @param label: label text
+    @param value: value
+    @return:
+    """
+    return ': '.join([label, str(value)])
 
-    create_text(display_text, width=window.width - (MARGIN * 2), align='right').draw()
+def draw_debug(player_sprite, window):
+    debug_lines = []
+
+    debug_lines.append(label_value('POS', str(int(player_sprite.center_x)) + ' ' + str(int(player_sprite.center_y))))
+    debug_lines.append(label_value('FPS', str(int(arcade.get_fps()))))
+
+    create_text(
+        "\n".join(debug_lines),
+        width=window.width - (MARGIN * 2),
+        align='right',
+        color=DEBUG_COLOR,
+        multiline=True
+    ).draw()

@@ -260,11 +260,10 @@ class GameView(FadingView):
         for moveable in collides:
             old_center_x = moveable.center_x
             old_center_y = moveable.center_y
-            new_center_x = old_center_x + self.player_sprite.change_x
-            new_center_y = old_center_y + self.player_sprite.change_y
-
-            moveable.center_x = new_center_x
-            moveable.center_y = new_center_y
+            if self.player_sprite.change_x != 0:
+                moveable.center_x = old_center_x + self.player_sprite.change_x
+            elif self.player_sprite.change_y != 0:
+                moveable.center_y = old_center_y + self.player_sprite.change_y
 
             if any(arcade.check_for_collision_with_lists(moveable, self.static_layers() )):
                 moveable.center_x = old_center_x
