@@ -61,14 +61,13 @@ class SkullSprite(arcade.sprite.Sprite):
         self.texture = self.textures[self.face - 1]
 
     def draw_debug(self):
-        arcade.draw_lrtb_rectangle_outline(self.playing_field_left_boundary, self.playing_field_right_boundary,
-                                           self.playing_field_top_boundary, self.playing_field_bottom_boundary,
-                                           color=arcade.csscolor.RED)
-        self.update_texture()
+        if self.chasing:
+            arcade.draw_lrtb_rectangle_outline(self.playing_field_left_boundary, self.playing_field_right_boundary,
+                                               self.playing_field_top_boundary, self.playing_field_bottom_boundary,
+                                               color=arcade.csscolor.RED)
 
-        if not self.move_path:
-            return
-        arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
+        if self.move_path:
+            arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
 
 

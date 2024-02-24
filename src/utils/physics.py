@@ -50,6 +50,7 @@ def make_physics_engine(player_sprite, scene):
     # Mass controls, well, the mass of an object. Defaults to 1.
     physics_engine.add_sprite_list(scene['Moveable'],
                                    mass=2,
+                                   damping=0.01,
                                    collision_type="rock"
                                    )
 
