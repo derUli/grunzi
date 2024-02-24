@@ -83,8 +83,14 @@ class GameView(FadingView):
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, 'world.tmx')
 
+        layer_options = {
+            "Walls": {
+                "use_spatial_hash": True,
+            },
+        }
+
         # Read in the tiled map
-        self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING)
+        self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options)
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
@@ -222,6 +228,14 @@ class GameView(FadingView):
         # Position the camera
         self.center_camera_to_player()
         self.update_fade()
+
+        try:
+            enemies = self.scene[SPRITE_LIST_ENEMIES]
+        except KeyError:
+            return
+
+        for sprite in enemies:
+            sprite.update(player=self.player_sprite, walls = self.scene[SPRITE_LIST_WALL])
 
     def static_layers(self):
         sprite_list = SpriteList()

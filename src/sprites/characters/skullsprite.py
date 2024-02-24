@@ -12,6 +12,9 @@ DEFAULT_FACE = FACE_RIGHT
 PLAYER_MOVE_FORCE = 1000
 PLAYER_DAMPING = 0.2
 
+SIGHT_DISTANCE = 500
+SIGHT_CHECK_RESOLUTION = 2
+
 class SkullSprite(arcade.sprite.Sprite):
     def __init__(
             self,
@@ -32,7 +35,7 @@ class SkullSprite(arcade.sprite.Sprite):
     def update_texture(self):
         self.texture = self.textures[self.face - 1]
 
-    def update(self):
+    def update(self, player = None, walls = None):
 
         # Figure out if we should face left or right
         if self.change_x < 0:
@@ -41,3 +44,14 @@ class SkullSprite(arcade.sprite.Sprite):
         elif self.change_x > 0:
             self.face = FACE_RIGHT
             self.update_texture()
+
+        if not player or not walls:
+            return
+
+        if arcade.has_line_of_sight(player.position,
+            self.position,
+            walls=walls,
+            check_resolution=SIGHT_CHECK_RESOLUTION,
+            max_distance= SIGHT_DISTANCE
+        ):
+            print('Line of sight detected')
