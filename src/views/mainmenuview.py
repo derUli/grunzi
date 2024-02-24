@@ -20,9 +20,10 @@ class MainMenuView(FadingView):
 
         v_box = arcade.gui.UIBoxLayout()
 
-        newgame_button = arcade.gui.UIFlatButton(text=_("New Game"), width=200)
 
-        quit_button = arcade.gui.UIFlatButton(text=_("Quit game"), width=200)
+        newgame_button = arcade.gui.UIFlatButton(text=_("New Game"), width=200, style=utils.text.get_style())
+        quit_button = arcade.gui.UIFlatButton(text=_("Quit game"), width=200, style=utils.text.get_style())
+
         self.player = None
 
         self.scene = arcade.Scene()

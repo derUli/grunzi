@@ -326,8 +326,14 @@ class GameView(FadingView):
 
     def update_collectable(self):
         coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene[SPRITE_LIST_COINS])
+        collected = False
+
         for coin in coins:
             coin.remove_from_sprite_lists()
             self.state.coins += 1
-
             self.state.play_sound('coin')
+            collected = True
+
+        if collected:
+            total_coins = len(self.scene[SPRITE_LIST_COINS])
+            logging.info(f'Collected coins {self.state.coins} | coins in scene {total_coins}')

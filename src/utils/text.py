@@ -5,6 +5,7 @@ import arcade
 MARGIN = 10
 DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
 
+DEFAULT_FONT = 'Laila'
 
 def create_text(
         text,
@@ -28,8 +29,14 @@ def create_text(
         anchor_x=anchor_x,
         anchor_y=anchor_y,
         width=width,
-        multiline=multiline
+        multiline=multiline,
+        font_name=DEFAULT_FONT
     )
+
+def get_style():
+    return {
+        'font_name': DEFAULT_FONT
+    }
 
 
 def draw_build_number(build_file, window):

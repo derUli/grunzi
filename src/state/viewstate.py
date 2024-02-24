@@ -1,7 +1,7 @@
 import os
 
 import arcade
-
+import pyglet
 
 class ViewState:
     def __init__(self, root_dir):
@@ -12,10 +12,19 @@ class ViewState:
         self.sprite_dir = os.path.join(self.image_dir, 'sprites')
         self.music_dir = os.path.join(self.data_dir, 'music')
         self.sound_dir = os.path.join(self.data_dir, 'sounds')
+        self.fonts_dir = os.path.join(self.data_dir, 'fonts')
 
         self.sounds = {}
 
         self.coins = 0
+
+    def preload(self):
+        self.preload_sounds()
+        self.preload_fonts()
+
+    def preload_fonts(self):
+        arcade.load_font(os.path.join(self.fonts_dir, 'laila.ttf'))
+
 
     def preload_sounds(self):
         if not 'coin' in self.sounds:
