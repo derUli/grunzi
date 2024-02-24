@@ -5,8 +5,10 @@ def is_windows() -> bool:
     """ Check if we are on Windows """
     return os.name == 'nt'
 
+
 GAMEDIR_NAME_WINDOWS = 'Grunzi'
 GAMEDIR_NAME_LINUX = '.grunzi'
+
 
 def get_userdata_path() -> str:
     """ Get savegame dir """

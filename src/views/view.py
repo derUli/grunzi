@@ -1,12 +1,13 @@
 import arcade
 
-from utils.screenshots import make_screenshot
+from utils.screenshot import make_screenshot
 
 
 class View(arcade.View):
 
     def __init__(self, window):
         self.state = None
+        self.camera_gui = None
 
         # Call the parent class and set up the window
         super().__init__(window)

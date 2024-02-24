@@ -1,9 +1,11 @@
 import os
+
 import arcade.gui
 
 import utils.text
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from views.fadingview import FadingView
+
 
 class MainMenuView(FadingView):
     """Main menu view class."""
@@ -39,8 +41,6 @@ class MainMenuView(FadingView):
 
         self.next_view = None
         # A non-scrolling camera that can be used to draw GUI elements
-        self.camera_gui = None
-
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
@@ -72,13 +72,11 @@ class MainMenuView(FadingView):
         self.state = state
 
     def on_hide_view(self):
-
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
         self.player.pause()
 
     def on_show_view(self):
-
         """ This is run once when we switch to this view """
 
         # Makes the background darker

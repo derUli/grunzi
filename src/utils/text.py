@@ -56,6 +56,7 @@ def label_value(label: str, value: any) -> str:
     """
     return ': '.join([label, str(value)])
 
+
 def draw_debug(player_sprite, window):
     debug_lines = []
 

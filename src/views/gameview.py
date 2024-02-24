@@ -48,7 +48,6 @@ class GameView(FadingView):
 
         # A Camera that can be used for scrolling the screen
         self.camera_sprites = None
-        self.camera_gui = None
 
         # What key is pressed down?
         self.left_key_down = False
@@ -117,7 +116,6 @@ class GameView(FadingView):
         self.music_queue.play()
 
         self.initialized = True
-
 
     def on_hide_view(self):
 
@@ -265,9 +263,6 @@ class GameView(FadingView):
             elif self.player_sprite.change_y != 0:
                 moveable.center_y = old_center_y + self.player_sprite.change_y
 
-            if any(arcade.check_for_collision_with_lists(moveable, self.static_layers() )):
+            if any(arcade.check_for_collision_with_lists(moveable, self.static_layers())):
                 moveable.center_x = old_center_x
                 moveable.center_y = old_center_y
-
-
-

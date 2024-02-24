@@ -1,10 +1,11 @@
 """
 Grunzi launch file
 """
+import argparse
 import gettext
 import locale
-import os
 import logging
+import os
 
 import arcade
 import pyglet.image
@@ -12,7 +13,6 @@ import pyglet.image
 from state.viewstate import ViewState
 from utils.logging import configure_logger
 from views.mainmenuview import MainMenuView
-import argparse
 
 SCREEN_TITLE = "Grunzi"
 
@@ -27,13 +27,13 @@ TILE_SCALING = 1.0
 # Movement speed of player, in pixels per frame
 PLAYER_MOVEMENT_SPEED = 10
 
+
 class GameWindow(arcade.Window):
     """
     Main application class.
     """
 
     def __init__(self, window=False, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, debug=False):
-
         # Call the parent class and set up the window
         super().__init__(width=width, height=height, title=SCREEN_TITLE, fullscreen=not window, vsync=True)
 
@@ -41,6 +41,7 @@ class GameWindow(arcade.Window):
 
         if debug:
             arcade.enable_timings()
+
 
 def main():
     """Main function"""
@@ -82,7 +83,7 @@ def main():
 
     LOG_LEVEL = logging.INFO
 
-    #if args.debug:
+    # if args.debug:
     #    LOG_LEVEL = logging.DEBUG
 
     configure_logger(LOG_LEVEL)

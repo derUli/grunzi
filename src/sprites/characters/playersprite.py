@@ -8,6 +8,7 @@ STATE_GUN = 'gun'
 
 DEFAULT_FACE = FACE_RIGHT
 
+
 class PlayerSprite(arcade.sprite.Sprite):
     def __init__(
             self,
@@ -32,7 +33,6 @@ class PlayerSprite(arcade.sprite.Sprite):
         self.state = STATE_DEFAULT
         self.face = DEFAULT_FACE
         self.texture = self.pig_textures[self.state][self.face]
-
 
     def update_texture(self):
         self.texture = self.pig_textures[self.state][self.face]

@@ -1,9 +1,9 @@
 import os
+
 import arcade.gui
 
 import utils
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
-
 from views.mainmenuview import MainMenuView
 from views.view import View
 
@@ -11,7 +11,7 @@ from views.view import View
 class PauseMenuView(View):
     """Main menu view class."""
 
-    def __init__(self, window, state, previous_view = None):
+    def __init__(self, window, state, previous_view=None):
         super().__init__(window)
 
         self.window = window
@@ -42,7 +42,6 @@ class PauseMenuView(View):
 
         self.next_view = None
         # A non-scrolling camera that can be used to draw GUI elements
-        self.camera_gui = None
 
         self.previous_view = previous_view
 

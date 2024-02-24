@@ -14,6 +14,7 @@ stdout_handler = logging.StreamHandler(stream=sys.stdout)
 
 handlers = [file_handler, stdout_handler]
 
+
 def configure_logger(log_level) -> None:
     """ Configure logger """
     logging.basicConfig(

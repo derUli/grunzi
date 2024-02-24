@@ -1,10 +1,10 @@
 import os
-import threading
 import time
 
 import pyglet
 
 from utils.path import get_userdata_path
+
 
 def make_screenshot():
     """ Save a screenshot
