@@ -50,6 +50,7 @@ class SkullSprite(arcade.sprite.Sprite):
         self.face = DEFAULT_FACE
         self.textures = None
         self.update_texture()
+        self.astar_barrier_list = None
 
     def update_texture(self):
         if self.chasing:
@@ -71,7 +72,7 @@ class SkullSprite(arcade.sprite.Sprite):
 
 
 
-    def update(self, player=None, walls=None, physics_engine = None):
+    def update(self, player=None, walls=None, scene = None, physics_engine = None):
 
         # Figure out if we should face left or right
         if self.change_x < 0:
@@ -102,23 +103,23 @@ class SkullSprite(arcade.sprite.Sprite):
 
             self.update_texture()
 
-
         if self.chasing:
-            astar_barrier_list = arcade.AStarBarrierList(
-                moving_sprite=self,
-                blocking_sprites=walls,
-                grid_size=grid_size,
-                left=int(self.playing_field_left_boundary),
-                right=self.playing_field_right_boundary,
-                bottom=int(self.playing_field_bottom_boundary),
-                top=self.playing_field_top_boundary
-            )
+            if not self.astar_barrier_list:
+                self.astar_barrier_list = arcade.AStarBarrierList(
+                    moving_sprite=self,
+                    blocking_sprites=walls,
+                    grid_size=grid_size,
+                    left=int(self.playing_field_left_boundary),
+                    right=int(self.playing_field_right_boundary),
+                    bottom=int(self.playing_field_bottom_boundary),
+                    top=int(self.playing_field_top_boundary)
+                )
 
             self.move_path = arcade.astar_calculate_path(
                 self.position,
                   player.position,
-                  astar_barrier_list,
-                  diagonal_movement=False
+                  self.astar_barrier_list,
+                  diagonal_movement=True
             )
 
             if not self.move_path:

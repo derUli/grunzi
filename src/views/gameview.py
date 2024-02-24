@@ -249,6 +249,7 @@ class GameView(FadingView):
             sprite.update(
                 player=self.player_sprite,
                 walls = self.scene[SPRITE_LIST_WALL],
+                scene=self.scene,
                 physics_engine=self.physics_engine
             )
 
