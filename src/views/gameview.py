@@ -293,7 +293,8 @@ class GameView(FadingView):
         coin = arcade.sprite.Sprite(
             filename=os.path.join(self.state.sprite_dir, 'coin.png'),
             center_x = rand_x,
-            center_y = rand_y
+            center_y = rand_y,
+            scale = 0.7
         )
 
         if arcade.check_for_collision_with_list(coin, self.static_layers()):
