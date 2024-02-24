@@ -70,6 +70,7 @@ def main():
 
     window = GameWindow(args.window, args.width, args.height)
     state = ViewState(ROOT_DIR)
+    state.preload_sounds()
     icon_path = os.path.join(state.image_dir, 'ui', 'icon.ico')
     icon = pyglet.image.load(icon_path)
     window.set_icon(icon)

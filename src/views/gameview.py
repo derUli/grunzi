@@ -5,10 +5,8 @@ If Python and Arcade are installed, this example can be run from the command lin
 python -m arcade.examples.template_platformer
 """
 import os
-import random
 
 import arcade
-from arcade import SpriteList
 
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
@@ -116,8 +114,6 @@ class GameView(FadingView):
         self.music_queue.from_directory(os.path.join(self.state.music_dir, 'level1'))
         self.music_queue.play()
 
-        self.preload_sounds()
-
         self.initialized = True
 
 
@@ -164,10 +160,13 @@ class GameView(FadingView):
         self.player_sprite.update()
 
     def on_key_press(self, key, modifiers):
+        super().on_key_press(key, modifiers)
+
         """Called whenever a key is pressed."""
         if key == arcade.key.ESCAPE:
             pause_view = PauseMenuView(self.window, self.state, self)
             self.window.show_view(pause_view)
+
         if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
             self.shift_key_down = True
             self.update_player_speed()
@@ -177,6 +176,7 @@ class GameView(FadingView):
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = True
             self.update_player_speed()
+
         if key == arcade.key.UP or key == arcade.key.W:
             self.up_key_down = True
             self.update_player_speed()
@@ -194,14 +194,13 @@ class GameView(FadingView):
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = False
             self.update_player_speed()
-        elif key == arcade.key.RIGHT or key == arcade.key.D:
+        if key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = False
             self.update_player_speed()
-
         if key == arcade.key.UP or key == arcade.key.W:
             self.up_key_down = False
             self.update_player_speed()
-        elif key == arcade.key.DOWN or key == arcade.key.S:
+        if key == arcade.key.DOWN or key == arcade.key.S:
             self.down_key_down = False
             self.update_player_speed()
 
@@ -241,13 +240,6 @@ class GameView(FadingView):
     def wall_layers(self):
         return self.static_layers()
 
-    def preload_sounds(self):
-        if not 'coin' in self.state.sounds:
-            self.state.sounds['coin'] = arcade.load_sound(
-                os.path.join(self.state.sound_dir, 'common', 'pickup.ogg'),
-                streaming=False
-            )
-
     def update_collectable(self):
 
         coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene['Coins'])
@@ -255,7 +247,7 @@ class GameView(FadingView):
             coin.remove_from_sprite_lists()
             self.state.coins += 1
 
-            self.state.sounds['coin'].play()
+            self.state.play_sound('coin')
 
     def update_moveable(self):
         collides = arcade.check_for_collision_with_list(self.player_sprite, self.scene['Moveable'])

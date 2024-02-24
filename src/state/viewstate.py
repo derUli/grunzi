@@ -1,4 +1,8 @@
 import os
+
+import arcade
+
+
 class ViewState:
     def __init__(self, root_dir):
         self.root_dir = root_dir
@@ -12,3 +16,22 @@ class ViewState:
         self.sounds = {}
 
         self.coins = 0
+
+    def preload_sounds(self):
+        if not 'coin' in self.sounds:
+            self.sounds['coin'] = arcade.load_sound(
+                os.path.join(self.sound_dir, 'common', 'pickup.ogg'),
+                streaming=False
+            )
+
+        if not 'screenshot' in self.sounds:
+            self.sounds['screenshot'] = arcade.load_sound(
+                os.path.join(self.sound_dir, 'common', 'screenshot.ogg'),
+                streaming=False
+            )
+
+    def play_sound(self, name):
+        if name not in self.sounds:
+            self.preload_sounds()
+
+        return self.sounds[name].play()

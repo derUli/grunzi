@@ -1,8 +1,11 @@
 import arcade
 
+from views.view import View
+
 FADE_RATE = 5
 
-class FadingView(arcade.View):
+
+class FadingView(View):
     def __init__(self, window):
         super().__init__(window)
         self._fade_out = None
@@ -23,7 +26,6 @@ class FadingView(arcade.View):
             if self._fade_in <= 0:
                 self._fade_in = None
 
-
     def fade_out(self):
         self._fade_out = 0
         self._fade_in = None
@@ -38,7 +40,6 @@ class FadingView(arcade.View):
             arcade.draw_rectangle_filled(self.window.width / 2, self.window.height / 2,
                                          self.window.width, self.window.height,
                                          (0, 0, 0, self._fade_in))
-
 
     def fade_quit(self):
         self.fade_out()

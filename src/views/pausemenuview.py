@@ -5,8 +5,10 @@ import utils
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 
 from views.mainmenuview import MainMenuView
+from views.view import View
 
-class PauseMenuView(arcade.View):
+
+class PauseMenuView(View):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view = None):
