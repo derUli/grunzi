@@ -132,23 +132,22 @@ class GameView(FadingView):
         # Note, if you a want pixelated look, add pixelated=True to the parameters
         self.scene.draw()
 
-        if self.window.debug:
-            utils.text.draw_debug(self.player_sprite, self.window)
-
         try:
             enemies = self.scene[SPRITE_LIST_ENEMIES]
         except KeyError:
-            return
+            enemies = []
 
         for sprite in enemies:
             if self.window.debug:
                 sprite.draw_debug()
 
+
         self.camera_gui.use()
 
         utils.text.draw_coins(self.state.coins)
 
-
+        if self.window.debug:
+            utils.text.draw_debug(self.player_sprite, self.window)
 
         self.draw_fading()
 
