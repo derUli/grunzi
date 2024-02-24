@@ -7,7 +7,6 @@ python -m arcade.examples.template_platformer
 import os
 
 import arcade
-from arcade import PymunkPhysicsEngine
 
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
@@ -18,6 +17,7 @@ from views.pausemenuview import PauseMenuView
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
 
+SPRITE_LIST_COIN = 'Coins'
 
 class GameView(FadingView):
     """
@@ -69,29 +69,15 @@ class GameView(FadingView):
         # Setup the Cameras
         self.camera_sprites = arcade.Camera()
 
-
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, 'world.tmx')
 
-        # Layer specific options are defined based on Layer names in a dictionary
-        # Doing this will make the SpriteList for the platforms layer
-        # use spatial hashing for detection.
-        layer_options = {
-
-        }
-
         # Read in the tiled map
-        self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options)
-
-        arcade.set_background_color(arcade.color.LIGHT_BLUE)
+        self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING)
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tile_map)
-
-        # Set the background color
-        if self.tile_map.background_color:
-            self.background_color = self.tile_map.background_color
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'pig.png')
@@ -103,7 +89,7 @@ class GameView(FadingView):
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
-
+        # Create the music queue
         self.music_queue = utils.audio.MusicQueue()
 
         self.music_queue.from_directory(os.path.join(self.state.music_dir, 'level1'))
@@ -222,13 +208,9 @@ class GameView(FadingView):
         self.center_camera_to_player()
         self.update_fade()
 
-
-    def wall_layers(self):
-        return self.scene['Walls']
-
     def update_collectable(self):
 
-        coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene['Coins'])
+        coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene[SPRITE_LIST_COIN])
         for coin in coins:
             coin.remove_from_sprite_lists()
             self.state.coins += 1

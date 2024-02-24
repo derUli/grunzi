@@ -23,4 +23,4 @@ class View(arcade.View):
         self.camera_gui = arcade.Camera()
 
         # Set the background color
-        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
+        arcade.set_background_color(arcade.color.LIGHT_BLUE)
