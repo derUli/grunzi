@@ -157,20 +157,21 @@ class GameView(FadingView):
 
         move_force = self.player_sprite.move_force
 
+        force_x = 0
+        force_y = 0
+
         if self.up_key_down and not self.down_key_down and self:
-            force = (0, move_force)
-            self.physics_engine.apply_force(self.player_sprite, force)
+            force_y = move_force
         elif self.down_key_down and not self.up_key_down:
-            force = (0, -move_force)
-            self.physics_engine.apply_force(self.player_sprite, force)
+            force_y = -move_force
         if self.left_key_down and not self.right_key_down:
-            force = (-move_force, 0)
-            self.physics_engine.apply_force(self.player_sprite, force)
+            force_x = -move_force
             self.player_sprite.change_x = -1
         elif self.right_key_down and not self.left_key_down:
-            force = (move_force, 0)
-            self.physics_engine.apply_force(self.player_sprite, force)
+            force_x = move_force
             self.player_sprite.change_x = 1
+
+        self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
         # --- Move items in the physics engine
         self.player_sprite.update()
@@ -245,7 +246,11 @@ class GameView(FadingView):
             return
 
         for sprite in enemies:
-            sprite.update(player=self.player_sprite, walls = self.scene[SPRITE_LIST_WALL])
+            sprite.update(
+                player=self.player_sprite,
+                walls = self.scene[SPRITE_LIST_WALL],
+                physics_engine=self.physics_engine
+            )
 
     def static_layers(self):
         sprite_list = SpriteList()

@@ -58,7 +58,7 @@ class SkullSprite(arcade.sprite.Sprite):
             return
         arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
-    def update(self, player=None, walls=None):
+    def update(self, player=None, walls=None, physics_engine = None):
 
         # Figure out if we should face left or right
         if self.change_x < 0:
