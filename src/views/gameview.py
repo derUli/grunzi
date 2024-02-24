@@ -138,6 +138,15 @@ class GameView(FadingView):
         if self.window.debug:
             utils.text.draw_debug(self.player_sprite, self.window)
 
+        try:
+            enemies = self.scene[SPRITE_LIST_ENEMIES]
+        except KeyError:
+            return
+
+        for sprite in enemies:
+            if self.window.debug and sprite.move_path:
+                arcade.draw_line_strip(sprite.move_path, arcade.color.BLUE, 2)
+
         self.draw_fading()
 
     def update_player_speed(self):

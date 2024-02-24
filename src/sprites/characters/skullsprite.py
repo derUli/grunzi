@@ -40,10 +40,9 @@ class SkullSprite(arcade.sprite.Sprite):
         self.chasing = False
 
         self.friction = DEFAULT_FRICTION
-        self.move_path = {}
+        self.move_path = None
         self.face = DEFAULT_FACE
         self.textures = None
-        self.move_id = None
         self.update_texture()
 
     def update_texture(self):
@@ -53,6 +52,7 @@ class SkullSprite(arcade.sprite.Sprite):
             self.textures = self.skull_off
 
         self.texture = self.textures[self.face - 1]
+
 
     def update(self, player=None, walls=None):
 
@@ -67,7 +67,7 @@ class SkullSprite(arcade.sprite.Sprite):
         if not player or not walls:
             return
 
-        grid_size = self.texture.width * 100
+        grid_size = self.texture.width * 1
 
         # Calculate the playing field size. We can't generate paths outside of
         # this.
@@ -88,19 +88,6 @@ class SkullSprite(arcade.sprite.Sprite):
             self.chasing = None
 
         if self.chasing:
-            move_id = ','.join([
-                str(self.center_x),
-                str(self.center_y),
-                str(player.center_x),
-                str(player.center_y)
-                ]
-            )
-
-            self.move_id = move_id
-
-            if move_id in self.move_path:
-                return
-
             astar_barrier_list = arcade.AStarBarrierList(
                 moving_sprite=self,
                 blocking_sprites=walls,
@@ -111,7 +98,7 @@ class SkullSprite(arcade.sprite.Sprite):
                 top=playing_field_top_boundary
             )
 
-            self.move_path[move_id] = arcade.astar_calculate_path(
+            self.move_path = arcade.astar_calculate_path(
                 self.position,
                   player.position,
                   astar_barrier_list,
