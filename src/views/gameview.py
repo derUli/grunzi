@@ -157,8 +157,7 @@ class GameView(FadingView):
 
         move_force = self.player_sprite.move_force
 
-        force_x = 0
-        force_y = 0
+        force_x, force_y = 0, 0
 
         if self.up_key_down and not self.down_key_down and self:
             force_y = move_force
