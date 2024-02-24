@@ -8,6 +8,10 @@ STATE_GUN = 'gun'
 
 DEFAULT_FACE = FACE_RIGHT
 
+# Physics force used to move the player. Higher number, faster accelerating.
+PLAYER_MOVE_FORCE = 1000
+
+PLAYER_DAMPING = 0.2
 
 class PlayerSprite(arcade.sprite.Sprite):
     def __init__(
@@ -17,6 +21,8 @@ class PlayerSprite(arcade.sprite.Sprite):
         super().__init__()
 
         path = os.path.dirname(filename)
+        self.move_force = PLAYER_MOVE_FORCE
+        self.damping = PLAYER_DAMPING
 
         self.pig_textures = {
             STATE_DEFAULT: {

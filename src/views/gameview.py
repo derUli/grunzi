@@ -11,19 +11,13 @@ from arcade import PymunkPhysicsEngine
 
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
+from utils.physics import make_physics_engine
 from views.fadingview import FadingView
 from views.pausemenuview import PauseMenuView
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
 
-DEFAULT_FRICTION = 1
-
-# Gravity
-GRAVITY = (0, 0)
-
-# Physics force used to move the player. Higher number, faster accelerating.
-PLAYER_MOVE_FORCE = 2000
 
 class GameView(FadingView):
     """
@@ -106,52 +100,8 @@ class GameView(FadingView):
         self.player_sprite.center_y = 128
         self.scene.add_sprite("Player", self.player_sprite)
 
-        damping = 0.7
-
-        # Set the gravity. (0, 0) is good for outer space and top-down.
-        gravity = GRAVITY
-
         # Create the physics engine
-        self.physics_engine = PymunkPhysicsEngine(damping=damping,
-                                                  gravity=gravity)
-
-        # Add the player.
-        # For the player, we set the damping to a lower value, which increases
-        # the damping rate. This prevents the character from traveling too far
-        # after the player lets off the movement keys.
-        # Setting the moment to PymunkPhysicsEngine.MOMENT_INF prevents it from
-        # rotating.
-        # Friction normally goes between 0 (no friction) and 1.0 (high friction)
-        # Friction is between two objects in contact. It is important to remember
-        # in top-down games that friction moving along the 'floor' is controlled
-        # by damping.
-        self.physics_engine.add_sprite(self.player_sprite,
-                                       friction=DEFAULT_FRICTION,
-                                       moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-                                       damping=0.01,
-                                       collision_type="player",
-                                       max_velocity=400)
-
-        # Create the walls.
-        # By setting the body type to PymunkPhysicsEngine.STATIC the walls can't
-        # move.
-        # Movable objects that respond to forces are PymunkPhysicsEngine.DYNAMIC
-        # PymunkPhysicsEngine.KINEMATIC objects will move, but are assumed to be
-        # repositioned by code and don't respond to physics forces.
-        # Dynamic is default.
-        self.physics_engine.add_sprite_list(self.scene['Walls'],
-                                            friction=DEFAULT_FRICTION,
-                                            collision_type="wall",
-                                            body_type=PymunkPhysicsEngine.STATIC
-                                            )
-
-        # Create some boxes to push around.
-        # Mass controls, well, the mass of an object. Defaults to 1.
-        self.physics_engine.add_sprite_list(self.scene['Moveable'],
-                                            mass=2,
-                                            friction=0.8,
-                                            damping=0.1,
-                                            collision_type="rock")
+        self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
 
         self.music_queue = utils.audio.MusicQueue()
@@ -190,19 +140,20 @@ class GameView(FadingView):
         # Calculate speed based on the keys pressed
         self.player_sprite.change_x = 0
 
+        move_force = self.player_sprite.move_force
 
         if self.up_key_down and not self.down_key_down and self:
-            force = (0, PLAYER_MOVE_FORCE)
+            force = (0, move_force)
             self.physics_engine.apply_force(self.player_sprite, force)
         elif self.down_key_down and not self.up_key_down:
-            force = (0, -PLAYER_MOVE_FORCE)
+            force = (0, -move_force)
             self.physics_engine.apply_force(self.player_sprite, force)
         if self.left_key_down and not self.right_key_down:
-            force = (-PLAYER_MOVE_FORCE, 0)
+            force = (-move_force, 0)
             self.physics_engine.apply_force(self.player_sprite, force)
             self.player_sprite.change_x = -1
         elif self.right_key_down and not self.left_key_down:
-            force = (PLAYER_MOVE_FORCE, 0)
+            force = (move_force, 0)
             self.physics_engine.apply_force(self.player_sprite, force)
             self.player_sprite.change_x = 1
 
