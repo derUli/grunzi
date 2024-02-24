@@ -143,7 +143,6 @@ class GameView(FadingView):
             self.player_sprite.change_x = 1
 
         # --- Move items in the physics engine
-        self.physics_engine.step()
         self.player_sprite.update()
 
     def on_key_press(self, key, modifiers):
