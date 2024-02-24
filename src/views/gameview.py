@@ -50,6 +50,7 @@ class GameView(FadingView):
 
         # A Camera that can be used for scrolling the screen
         self.camera_sprites = None
+        self.camera_gui = None
 
         # What key is pressed down?
         self.left_key_down = False
@@ -70,6 +71,7 @@ class GameView(FadingView):
 
         # Setup the Cameras
         self.camera_sprites = arcade.Camera()
+        self.camera_gui = arcade.Camera()
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, 'world.tmx')
@@ -135,6 +137,8 @@ class GameView(FadingView):
         # Note, if you a want pixelated look, add pixelated=True to the parameters
         self.scene.draw()
 
+        self.camera_gui.use()
+        utils.text.draw_coins(self.state.coins)
         self.draw_fading()
 
     def update_player_speed(self):
@@ -249,6 +253,7 @@ class GameView(FadingView):
         coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene['Coins'])
         for coin in coins:
             coin.remove_from_sprite_lists()
+            self.state.coins += 1
 
             self.state.sounds['coin'].play()
 

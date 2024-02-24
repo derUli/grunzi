@@ -7,8 +7,8 @@ MARGIN = 10
 
 def create_text(
         text,
-        start_x=10,
-        start_y=10,
+        start_x=MARGIN,
+        start_y=MARGIN,
         color=arcade.csscolor.WHITE,
         font_size=14,
         anchor_x='left',
@@ -37,3 +37,9 @@ def draw_build_number(build_file, window):
             display_text = f.read()
 
     create_text(display_text, width=window.width - (MARGIN * 2), align='right').draw()
+
+
+def draw_coins(coins):
+    display_text = str(coins).rjust(2, ' ') + ' €'
+
+    create_text(display_text, color=arcade.csscolor.YELLOW).draw()

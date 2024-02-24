@@ -10,3 +10,5 @@ class ViewState:
         self.sound_dir = os.path.join(self.data_dir, 'sounds')
 
         self.sounds = {}
+
+        self.coins = 0
