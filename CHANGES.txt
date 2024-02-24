@@ -1,22 +1,13 @@
 # Changelog
 
-## Alpha XXX (Not yet released)
+## Alpha 006 (Not yet released)
 
-* Aufgabe mit Wildschwein und Pizza hinzugefügt
-* Bei "Zurück zum Hauptmenü" soll eine Nachfrage erfolgen
-* Sprachausgabe (?)
-
-## Alpha 005
-
-* Aufgabe mit blutleerem Pferd hinzugefügt
-* Weitere NPC-Tiere hinzugefügt
-* Regen-Shader hinzugefügt
-* Feuer-Shader hinzugefügt
-* Errungenschaften
-* Hauptmenü überarbeitet
-* Neuer Ladebildschirm
-* Autosave
-* Beim ersten Start wird die Bildschirmauflösung des Systems übernommen
+* Komplette Neuentwicklung auf neuer technologischer Basis
+* TMX-Tilemap
+* Aufsammelbare Münzen
+* Verschiebbare Kisten
+* Totenköpfe als Gegner
+* Pymunk Physik-Engine
 
 ## Alpha 004 (17.01.2024)
 

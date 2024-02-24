@@ -6,8 +6,15 @@ MARGIN = 10
 DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
 
 DEFAULT_FONT = 'Laila'
+ADRIP_FONT = 'a dripping marker'
+MONOTYPE_FONT = 'Consolas Mono Book'
+
+EXTRA_SMALL_FONT_SIZE = 10
+SMALL_FONT_SIZE = 12
 MEDIUM_FONT_SIZE = 14
-LOGO_FONT_SIZE = 24
+LOGO_FONT_SIZE = 60
+
+DEBUG_FONT_SIZE = SMALL_FONT_SIZE
 
 def create_text(
         text,
@@ -15,6 +22,7 @@ def create_text(
         start_y=MARGIN,
         color=arcade.csscolor.WHITE,
         font_size=MEDIUM_FONT_SIZE,
+        font_name=DEFAULT_FONT,
         anchor_x='left',
         anchor_y='bottom',
         align='left',
@@ -32,7 +40,7 @@ def create_text(
         anchor_y=anchor_y,
         width=width,
         multiline=multiline,
-        font_name=DEFAULT_FONT
+        font_name=font_name
     )
 
 def get_style():
@@ -41,7 +49,10 @@ def get_style():
     }
 
 
-def draw_build_number(build_file, window):
+def draw_build_number(build_file, window = None):
+    if not window:
+        window = arcade.get_window()
+
     display_text = _('Unknown build')
 
     if os.path.isfile(build_file):
@@ -77,5 +88,7 @@ def draw_debug(player_sprite, window):
         width=window.width - (MARGIN * 2),
         align='right',
         color=DEBUG_COLOR,
+        font_name=MONOTYPE_FONT,
+        font_size=DEBUG_FONT_SIZE,
         multiline=True
     ).draw()

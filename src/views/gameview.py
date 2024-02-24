@@ -154,6 +154,8 @@ class GameView(FadingView):
 
         self.draw_fading()
 
+        self.player_sprite.draw_overlay()
+
     def update_player_speed(self):
 
         # Calculate speed based on the keys pressed
@@ -176,8 +178,6 @@ class GameView(FadingView):
 
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
-        # --- Move items in the physics engine
-        self.player_sprite.update()
 
     def on_key_press(self, key, modifiers):
         super().on_key_press(key, modifiers)
@@ -185,7 +185,10 @@ class GameView(FadingView):
         """Called whenever a key is pressed."""
         if key == arcade.key.ESCAPE:
             pause_view = PauseMenuView(self.window, self.state, self)
+
             self.window.show_view(pause_view)
+        if key == arcade.key.G:
+            self.state.grunt()
 
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True
@@ -232,16 +235,16 @@ class GameView(FadingView):
         """Movement and game logic"""
 
         # Move the player with the physics engine
-        self.update_player_speed()
+        self.update_player()
         self.physics_engine.step()
         self.update_collectable()
-
-
-        # Position the camera
-        self.center_camera_to_player()
         self.update_fade()
-
         self.update_enemies()
+        self.center_camera_to_player()
+
+    def update_player(self):
+        self.update_player_speed()
+        self.player_sprite.update()
 
     def update_enemies(self):
 
@@ -257,9 +260,11 @@ class GameView(FadingView):
                 scene=self.scene,
                 physics_engine=self.physics_engine
             )
+            if arcade.check_for_collision(sprite, self.player_sprite):
+                self.player_sprite.hurt(sprite.damage)
 
         if len(enemies) < 100:
-            if random.randint(1, 100) == 100:
+            if random.randint(1, 100) == 50:
                 self.join_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 

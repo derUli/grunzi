@@ -1,12 +1,21 @@
 # Beschreibung
 
-Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen süßen Schweinchens.
-Ziel des Spiels ist es, das Ende des Levels zu erreichen.
-Dabei muss die Steckdose einige Hindernisse überwinden.
+Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufer und erkundest einer Welt voller Rätsel,
+Monster und friedlicher Zeitgenossen.
+Das Spiel befindet sich noch in einem sehr frühen Zustand der Entwicklung.
+Der Alpha Build 006 stellt einen technologischen Neuanfang dar, welcher neue Konzepte einführt.
 
-Das Spiel befindet sich noch in einem frühen Stand der Entwicklung.
-Bis jetzt sind nur Teile des ersten Levels spielbar.
-Das fertige Spiel sollen 4 verschiedene Levels enthalten.
+Die Maps sind jetzt im TMX Format und können mit dem Open-Source Map-Editor Tiled bearbeitet werden.
+100 sammelbare Münzen werden zufällig auf der geladenen Map verteilt.
+Kisten können durch die Gegend geschoben werden.
+
+Totenköpfe spawnen nach und nach an zufälligen Orten.
+Diese machen gebrauchen vom Sight Of Line Algorithmus und dem A*-Algorithmus, um den Hauptcharakter zu verfolgen.
+Es ist zukünftig geplant, dass die Totenköpfe den Hauptcharakter mit Geschossen angreifen.
+Das ist in diesem Build aber noch nicht implementiert.
+
+Das Spiel kann in diesem Build nicht gewonnen oder verloren werden.
+Man kann in dieser Version auf der noch recht leeren neuen Map frei herumlaufen.
 
 # Spiel starten
 
@@ -14,11 +23,10 @@ Das Spiel kann mit einem Doppelklick auf "Grunzi.exe" gestartet werden.
 Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden Start-Parameter zu übergeben:
 
 ```
-  -e, --edit                Enable in-game map editor
-  -v, --debug               Enable debug loglevel
-  -a, --disable-ai          Disable AI
-  -b, --disable-audio       Disable Audio
-  -d, --disable-controller  Disable controller support
+  --window         Run in windowed mode
+  --debug          Enable debug mode
+  --width WIDTH    Window width in pixels
+  --height HEIGHT  Window height in pixels
 ```
 
 Wenn der Start des Spiels mit der Fehlermeldung, dass die "VCRUNTIME140.dll" fehlt, fehlschlägt, müssen Sie das
@@ -31,74 +39,16 @@ https://www.microsoft.com/de-de/download/details.aspx?id=48145
 
 ## Tastatur
 
-Pfeiltasten: Bewegen
-E: Item benutzen
-Q: Item ablegen
+WASD, Pfeiltasten: Bewegen
 G: Grunzen
 F12: Screenshot erstellen
-Shift-Taste: Rennen
 ESC: Menü aufrufen
-Alt-Enter: Vollbildmodus / Fenster umschalten
 
 ## Controller
 
-Das Spiel unterstützt XBox 360 Controller.
-Andere Controller können funktionieren, wurden von mir jedoch nicht getestet.
-Wenn beim Start des Spiels ein Controller angeschlossen ist, wird dieser automatisch aktiviert.
-Wenn mehrere Controller zeitgleich an den PC angeschlossen sind, wird nur einer davon aktiviert.
-
-Linker Joystick oder Directional Pad: Bewegen
-A: Item benutzen
-Y: Item ablegen
-X: Grunzen
-RT: Rennen
-START: Menü aufrufen
+Controller werden in diesem Build leider nicht unterstützt
 
 # Einstellungen
 
-## Video
-
-### Bildschirm
-
-Hier kann die Bildschirmauflösung geändert, so wie V-Sync und der Vollbildmodus ein und ausgeschaltet werden.
-Nach einer Änderung der Einstellungen wird das Spiel automatisch neu gestartet, um die Änderungen zu übernehmen.
-
-## Grafik
-
-Hier kann man die Qualität der Grafikdetails einstellen.
-
-**Blut**
-Wenn Grunzi verletzt ist, wird der Monitor blutig eingefärbt.
-**Auswirkung auf die Performance:** Mittel
-
-**Wetter**
-Hier kann der Detailgrad des Wetters eingestellt werden.
-**Auswirkung auf die Performance:** Niedrig
-
-**Feuer**
-Hier kann der Detailgrad des Feuers eingestellt werden.
-"Mittel" bedeutet, dass das alte statische Feuer verwendet wird.
-Bei "Hoch" wird das Feuer in Echtzeit animiert.
-**Auswirkung auf die Performance:** Hoch
-
-**Nebel**
-Hier kann der Nebel ein- und ausgeschaltet werden.
-**Auswirkung auf die Performance:** Mittel
-
-**Bloom**
-Hier kann der Bloom-Effekt ein- und ausgeschaltet werden.
-**Auswirkung auf die Performance:** Hoch
-
-**Weiche Skalierung**
-Verwende für die Skalierung der Grafiken einen Algorithmus mit Kantenglättung.
-
-**Auswirkung auf die Performance:** Niedrig
-
-
-## Audio
-
-Hier kann die Lautstärke für Musik und Soundeffekte eingestellt werden.
-
-## Steuerung
-
-Hier wird die Steuerung für Tastatur und Controller angezeigt.
+In diesem Build gibt es kein Einstellungsmenü.
+Es gibt jedoch einige Startparameter, die dem Spiel übbergeben werden können.

@@ -12,11 +12,13 @@ DEFAULT_FACE = FACE_RIGHT
 MOVE_FORCE = 200
 MOVE_DAMPING = 0.01
 
-SIGHT_DISTANCE = 500
+SIGHT_DISTANCE = 600
 SIGHT_CHECK_RESOLUTION = 32
 
 FADE_IN_MAX = 255
 FADE_SPEED = 2
+
+DAMAGE = 1
 
 class SkullSprite(arcade.sprite.Sprite):
     def __init__(
@@ -54,7 +56,7 @@ class SkullSprite(arcade.sprite.Sprite):
         self.textures = None
         self.update_texture()
         self.astar_barrier_list = None
-
+        self.damage = DAMAGE
         self.fade_in = True
 
         if self.fade_in:

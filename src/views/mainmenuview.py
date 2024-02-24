@@ -24,11 +24,10 @@ class MainMenuView(FadingView):
 
         label = arcade.gui.UILabel(
             text=_('Grunzi'),
-            font_name=utils.text.DEFAULT_FONT,
+            font_name=utils.text.ADRIP_FONT,
             font_size=utils.text.LOGO_FONT_SIZE,
             text_color=arcade.csscolor.BLACK,
-            align='center',
-            width=BUTTON_WIDTH
+            align='center'
         )
 
         newgame_button = arcade.gui.UIFlatButton(

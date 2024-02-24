@@ -8,6 +8,7 @@ from utils.text import get_style
 from views.mainmenuview import MainMenuView
 from views.view import View
 
+BUTTON_WIDTH = 250
 
 class PauseMenuView(View):
     """Main menu view class."""
@@ -22,8 +23,8 @@ class PauseMenuView(View):
 
         v_box = arcade.gui.UIBoxLayout()
 
-        newgame_button = arcade.gui.UIFlatButton(text=_("Continue"), width=200, style=get_style())
-        quit_button = arcade.gui.UIFlatButton(text=_("Back to main menu"), width=200, style=get_style())
+        newgame_button = arcade.gui.UIFlatButton(text=_("Continue"), width=BUTTON_WIDTH, style=get_style())
+        quit_button = arcade.gui.UIFlatButton(text=_("Back to main menu"), width=BUTTON_WIDTH, style=get_style())
 
         self.scene = arcade.Scene()
 

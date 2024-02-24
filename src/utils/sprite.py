@@ -15,7 +15,6 @@ def get_closest_sprite(player_sprite, sprite_list, tolerance = DISTANCE):
 
     for point in check_points:
         closest = arcade.get_sprites_at_point(point, sprite_list)
-        print(closest)
 
     return None
 

@@ -1,7 +1,9 @@
+import logging
 import os
+import random
 
 import arcade
-import pyglet
+
 
 class ViewState:
     def __init__(self, root_dir):
@@ -24,23 +26,31 @@ class ViewState:
 
     def preload_fonts(self):
         arcade.load_font(os.path.join(self.fonts_dir, 'laila.ttf'))
-
+        arcade.load_font(os.path.join(self.fonts_dir, 'adrip1.ttf'))
+        arcade.load_font(os.path.join(self.fonts_dir, 'consolasmonobook.ttf'))
 
     def preload_sounds(self):
-        if not 'coin' in self.sounds:
-            self.sounds['coin'] = arcade.load_sound(
+        self.sounds = {
+            'coin': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'pickup.ogg'),
                 streaming=False
-            )
-
-        if not 'screenshot' in self.sounds:
-            self.sounds['screenshot'] = arcade.load_sound(
+            ),
+            'screenshot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'screenshot.ogg'),
+                streaming=False
+            )
+        }
+
+        for i in range(1, 6):
+            self.sounds[f"grunt{i}"] = arcade.load_sound(
+                os.path.join(self.sound_dir, 'pig', f"grunt{i}.ogg"),
                 streaming=False
             )
 
     def play_sound(self, name):
-        if name not in self.sounds:
-            self.preload_sounds()
-
         return self.sounds[name].play()
+
+    def grunt(self):
+        rand = random.randint(1, 5)
+        self.play_sound(f"grunt{rand}")
+        logging.debug(_('Grunt'))
