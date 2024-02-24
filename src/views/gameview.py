@@ -66,7 +66,7 @@ class GameView(FadingView):
             self.music_queue.play()
             return
 
-        # Setup the Cameras
+        # Set up the Cameras
         self.camera_sprites = arcade.Camera()
 
         # Name of map file to load
@@ -91,7 +91,6 @@ class GameView(FadingView):
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue()
-
         self.music_queue.from_directory(os.path.join(self.state.music_dir, 'level1'))
         self.music_queue.play()
 
