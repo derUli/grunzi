@@ -6,13 +6,15 @@ MARGIN = 10
 DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
 
 DEFAULT_FONT = 'Laila'
+MEDIUM_FONT_SIZE = 14
+LOGO_FONT_SIZE = 24
 
 def create_text(
         text,
         start_x=MARGIN,
         start_y=MARGIN,
         color=arcade.csscolor.WHITE,
-        font_size=14,
+        font_size=MEDIUM_FONT_SIZE,
         anchor_x='left',
         anchor_y='bottom',
         align='left',

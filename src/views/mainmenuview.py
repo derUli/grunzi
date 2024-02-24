@@ -6,6 +6,8 @@ import utils.text
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from views.fadingview import FadingView
 
+BUTTON_WIDTH = 250
+
 
 class MainMenuView(FadingView):
     """Main menu view class."""
@@ -20,9 +22,25 @@ class MainMenuView(FadingView):
 
         v_box = arcade.gui.UIBoxLayout()
 
+        label = arcade.gui.UILabel(
+            text=_('Grunzi'),
+            font_name=utils.text.DEFAULT_FONT,
+            font_size=utils.text.LOGO_FONT_SIZE,
+            text_color=arcade.csscolor.BLACK,
+            align='center',
+            width=BUTTON_WIDTH
+        )
 
-        newgame_button = arcade.gui.UIFlatButton(text=_("New Game"), width=200, style=utils.text.get_style())
-        quit_button = arcade.gui.UIFlatButton(text=_("Quit game"), width=200, style=utils.text.get_style())
+        newgame_button = arcade.gui.UIFlatButton(
+            text=_("New Game"),
+            width=BUTTON_WIDTH,
+            stye=utils.text.get_style()
+        )
+        quit_button = arcade.gui.UIFlatButton(
+            text=_("Quit game"),
+            width=BUTTON_WIDTH,
+            style=utils.text.get_style()
+        )
 
         self.player = None
 
@@ -41,6 +59,7 @@ class MainMenuView(FadingView):
         self.scene.add_sprite('backdrop', self.backdrop)
 
         self.next_view = None
+
         # A non-scrolling camera that can be used to draw GUI elements
 
         @newgame_button.event("on_click")
@@ -56,6 +75,7 @@ class MainMenuView(FadingView):
             self.fade_quit()
 
         buttons = [
+            label,
             newgame_button,
             quit_button
         ]
