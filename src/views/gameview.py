@@ -5,19 +5,26 @@ If Python and Arcade are installed, this example can be run from the command lin
 python -m arcade.examples.template_platformer
 """
 import os
-
 import arcade
+from arcade import SpriteList, PymunkPhysicsEngine
 
 import utils.audio
 from sprites.characters.playersprite import PlayerSprite
+from sprites.characters.skullsprite import SkullSprite
 from utils.physics import make_physics_engine
+from utils.sprite import random_position
 from views.fadingview import FadingView
 from views.pausemenuview import PauseMenuView
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
 
-SPRITE_LIST_COIN = 'Coins'
+SPRITE_LIST_COINS = 'Coins'
+SPRITE_LIST_WALL = 'Walls'
+SPRITE_LIST_ENEMIES = 'enemies'
+SPRITE_LIST_PLAYER = 'player'
+SPRITE_LIST_MOVEABLE = 'Moveable'
+TOTAL_COINS = 100
 
 class GameView(FadingView):
     """
@@ -66,6 +73,10 @@ class GameView(FadingView):
             self.music_queue.play()
             return
 
+        self.setup()
+
+    def setup(self):
+
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
 
@@ -84,7 +95,7 @@ class GameView(FadingView):
         self.player_sprite = PlayerSprite(filename)
         self.player_sprite.center_x = 500
         self.player_sprite.center_y = 128
-        self.scene.add_sprite("Player", self.player_sprite)
+        self.scene.add_sprite(SPRITE_LIST_PLAYER, self.player_sprite)
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
@@ -94,8 +105,11 @@ class GameView(FadingView):
         self.music_queue.from_directory(os.path.join(self.state.music_dir, 'level1'))
         self.music_queue.play()
 
-        self.initialized = True
+        # Place coins
+        for i in range(TOTAL_COINS):
+            self.make_coin()
 
+        self.initialized = True
     def on_hide_view(self):
 
         self.window.set_mouse_visible(True)
@@ -153,6 +167,9 @@ class GameView(FadingView):
             pause_view = PauseMenuView(self.window, self.state, self)
             self.window.show_view(pause_view)
 
+        if key == arcade.key.F1:
+            self.join_skull()
+
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True
         elif key == arcade.key.RIGHT or key == arcade.key.D:
@@ -206,9 +223,68 @@ class GameView(FadingView):
         self.center_camera_to_player()
         self.update_fade()
 
-    def update_collectable(self):
+    def static_layers(self):
+        sprite_list = SpriteList()
 
-        coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene[SPRITE_LIST_COIN])
+        layer_names = [
+            SPRITE_LIST_WALL,
+            SPRITE_LIST_COINS,
+            SPRITE_LIST_ENEMIES,
+            SPRITE_LIST_PLAYER,
+            SPRITE_LIST_MOVEABLE,
+        ]
+
+        layers = []
+
+        for layer_name in layer_names:
+            try:
+                layers.append(self.scene[layer_name])
+            except KeyError:
+                pass
+
+        for layer in layers:
+            for sprite in layer:
+                sprite_list.append(sprite)
+
+        return sprite_list
+
+    def make_coin(self):
+        rand_x, rand_y = random_position(self.tile_map)
+        coin = arcade.sprite.Sprite(
+            filename=os.path.join(self.state.sprite_dir, 'coin.png'),
+            center_x = rand_x,
+            center_y = rand_y
+        )
+
+        if arcade.check_for_collision_with_list(coin, self.static_layers()):
+            return self.make_coin()
+
+        self.scene.add_sprite(SPRITE_LIST_COINS, coin)
+
+        return
+
+    def join_skull(self):
+        rand_x, rand_y = random_position(self.tile_map)
+
+        skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x = rand_x, center_y = rand_y)
+
+        if arcade.check_for_collision_with_list(skull, self.static_layers()):
+            return self.join_skull()
+
+        self.scene.add_sprite(SPRITE_LIST_ENEMIES, skull)
+
+        self.physics_engine.add_sprite(skull,
+                                  friction=skull.friction,
+                                  moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+                                  collision_type="player",
+                                  max_velocity=400,
+                                  damping=skull.damping
+                                  )
+
+        return
+
+    def update_collectable(self):
+        coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene[SPRITE_LIST_COINS])
         for coin in coins:
             coin.remove_from_sprite_lists()
             self.state.coins += 1
