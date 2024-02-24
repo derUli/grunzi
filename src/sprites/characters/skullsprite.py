@@ -13,7 +13,10 @@ MOVE_FORCE = 200
 MOVE_DAMPING = 0.01
 
 SIGHT_DISTANCE = 500
-SIGHT_CHECK_RESOLUTION = 40
+SIGHT_CHECK_RESOLUTION = 2
+
+FADE_IN_MAX = 255
+FADE_SPEED = 2
 
 class SkullSprite(arcade.sprite.Sprite):
     def __init__(
@@ -52,6 +55,11 @@ class SkullSprite(arcade.sprite.Sprite):
         self.update_texture()
         self.astar_barrier_list = None
 
+        self.fade_in = True
+
+        if self.fade_in:
+            self.alpha = 0
+
     def update_texture(self):
         if self.chasing:
             self.textures = self.skull_on
@@ -72,6 +80,16 @@ class SkullSprite(arcade.sprite.Sprite):
 
 
     def update(self, player=None, walls=None, scene = None, physics_engine = None):
+        if self.fade_in and self.alpha < FADE_IN_MAX:
+            new_alpha = self.alpha + FADE_SPEED
+
+            if new_alpha >= FADE_IN_MAX:
+                new_alpha = FADE_IN_MAX
+                self.fade_in = False
+
+            self.alpha = new_alpha
+
+            return
 
         # Figure out if we should face left or right
         if self.change_x < 0:
@@ -95,7 +113,7 @@ class SkullSprite(arcade.sprite.Sprite):
           player.position,
             self.position,
             walls=walls,
-            check_resolution=2,
+            check_resolution=SIGHT_CHECK_RESOLUTION,
             max_distance=SIGHT_DISTANCE
          ):
             self.chasing = player

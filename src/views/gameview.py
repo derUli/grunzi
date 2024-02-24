@@ -4,7 +4,10 @@ Platformer Template
 If Python and Arcade are installed, this example can be run from the command line with:
 python -m arcade.examples.template_platformer
 """
+import logging
 import os
+import random
+
 import arcade
 from arcade import SpriteList, PymunkPhysicsEngine
 
@@ -184,9 +187,6 @@ class GameView(FadingView):
             pause_view = PauseMenuView(self.window, self.state, self)
             self.window.show_view(pause_view)
 
-        if key == arcade.key.F1:
-            self.join_skull()
-
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True
         elif key == arcade.key.RIGHT or key == arcade.key.D:
@@ -236,22 +236,32 @@ class GameView(FadingView):
         self.physics_engine.step()
         self.update_collectable()
 
+
         # Position the camera
         self.center_camera_to_player()
         self.update_fade()
 
+        self.update_enemies()
+
+    def update_enemies(self):
+
         try:
             enemies = self.scene[SPRITE_LIST_ENEMIES]
         except KeyError:
-            return
+            enemies = []
 
         for sprite in enemies:
             sprite.update(
                 player=self.player_sprite,
-                walls = self.scene[SPRITE_LIST_WALL],
+                walls=self.scene[SPRITE_LIST_WALL],
                 scene=self.scene,
                 physics_engine=self.physics_engine
             )
+
+        if len(enemies) < 100:
+            if random.randint(1, 100) == 100:
+                self.join_skull()
+                logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
     def static_layers(self):
         sprite_list = SpriteList()
@@ -295,8 +305,6 @@ class GameView(FadingView):
 
     def join_skull(self):
         rand_x, rand_y = random_position(self.tile_map)
-
-        rand_x, rand_y = 680, 500
 
         skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x = rand_x, center_y = rand_y)
 
