@@ -13,7 +13,7 @@ PLAYER_MOVE_FORCE = 1000
 PLAYER_DAMPING = 0.2
 
 SIGHT_DISTANCE = 500
-SIGHT_CHECK_RESOLUTION = 2
+SIGHT_CHECK_RESOLUTION = 20
 
 
 class SkullSprite(arcade.sprite.Sprite):
@@ -40,10 +40,10 @@ class SkullSprite(arcade.sprite.Sprite):
         self.chasing = False
 
         self.friction = DEFAULT_FRICTION
-
+        self.move_path = {}
         self.face = DEFAULT_FACE
         self.textures = None
-        self.astar_barrier_list = None
+
         self.update_texture()
 
     def update_texture(self):
@@ -67,7 +67,7 @@ class SkullSprite(arcade.sprite.Sprite):
         if not player or not walls:
             return
 
-        grid_size = self.texture.width * self._scale
+        grid_size = self.texture.width * 10
 
         # Calculate the playing field size. We can't generate paths outside of
         # this.
@@ -84,21 +84,33 @@ class SkullSprite(arcade.sprite.Sprite):
                                  max_distance=SIGHT_DISTANCE
                                  ):
             self.chasing = player
+        else:
+            self.chasing = None
 
         if self.chasing:
-            if not self.astar_barrier_list:
-                self.astar_barrier_list = arcade.AStarBarrierList(
-                    moving_sprite=self,
-                    blocking_sprites=walls,
-                    grid_size=grid_size,
-                    left=int(playing_field_left_boundary),
-                    right=playing_field_right_boundary,
-                    bottom=int(playing_field_bottom_boundary),
-                    top=playing_field_top_boundary
-                )
+            move_id = ','.join([
+                str(self.center_x),
+                str(self.center_y),
+                str(player.center_x),
+                str(player.center_y)
+                ]
+            )
 
-            arcade.astar_calculate_path(self.position,
+            if move_id in self.move_path:
+                return
+
+            astar_barrier_list = arcade.AStarBarrierList(
+                moving_sprite=self,
+                blocking_sprites=walls,
+                grid_size=grid_size,
+                left=int(playing_field_left_boundary),
+                right=playing_field_right_boundary,
+                bottom=int(playing_field_bottom_boundary),
+                top=playing_field_top_boundary
+            )
+
+            self.move_path[move_id] = arcade.astar_calculate_path(self.position,
                                               player.position,
-                                              self.astar_barrier_list,
-                                              diagonal_movement=False)
-
+                                              astar_barrier_list,
+                                              diagonal_movement=False
+                                                                  )

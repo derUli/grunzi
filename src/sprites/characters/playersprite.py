@@ -8,7 +8,7 @@ DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
 PLAYER_MOVE_FORCE = 1000
-PLAYER_DAMPING = 0.1
+PLAYER_DAMPING = 0.05
 
 class PlayerSprite(arcade.sprite.Sprite):
     def __init__(
