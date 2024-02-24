@@ -23,7 +23,7 @@ DEFAULT_FRICTION = 1
 GRAVITY = (0, 0)
 
 # Physics force used to move the player. Higher number, faster accelerating.
-PLAYER_MOVE_FORCE = 3000
+PLAYER_MOVE_FORCE = 2000
 
 class GameView(FadingView):
     """
@@ -57,7 +57,6 @@ class GameView(FadingView):
         self.right_key_down = False
         self.down_key_down = False
         self.up_key_down = False
-        self.shift_key_down = False
 
         # Music queue
         self.music_queue = None
@@ -219,8 +218,6 @@ class GameView(FadingView):
             pause_view = PauseMenuView(self.window, self.state, self)
             self.window.show_view(pause_view)
 
-        if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
-            self.shift_key_down = True
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True
         elif key == arcade.key.RIGHT or key == arcade.key.D:
@@ -233,10 +230,6 @@ class GameView(FadingView):
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
-
-        if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
-            self.shift_key_down = False
-            self.update_player_speed()
 
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = False
