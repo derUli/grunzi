@@ -3,9 +3,6 @@ import os
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-STATE_DEFAULT = 'default'
-STATE_GUN = 'gun'
-
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics force used to move the player. Higher number, faster accelerating.
@@ -23,25 +20,13 @@ class PlayerSprite(arcade.sprite.Sprite):
         path = os.path.dirname(filename)
         self.move_force = PLAYER_MOVE_FORCE
         self.damping = PLAYER_DAMPING
+        self.textures = arcade.load_texture_pair(os.path.join(path, 'pig.png'))
 
-        self.pig_textures = {
-            STATE_DEFAULT: {
-                FACE_RIGHT: arcade.load_texture(
-                    os.path.join(path, 'pig.png')
-                ),
-                FACE_LEFT: arcade.load_texture(
-                    os.path.join(path, 'pig.png'),
-                    flipped_horizontally=True
-                )
-            }
-        }
-
-        self.state = STATE_DEFAULT
         self.face = DEFAULT_FACE
-        self.texture = self.pig_textures[self.state][self.face]
+        self.texture = self.textures[self.face - 1]
 
     def update_texture(self):
-        self.texture = self.pig_textures[self.state][self.face]
+        self.texture = self.textures[self.face - 1]
 
     def update(self):
 
