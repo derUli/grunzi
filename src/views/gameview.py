@@ -223,7 +223,7 @@ class GameView(FadingView):
 
         # Here's our center, move to it
         player_centered = screen_center_x, screen_center_y
-        self.camera_sprites.move_to(player_centered)
+        self.camera_sprites.move_to(player_centered, speed=0.8)
 
     def on_update(self, delta_time):
         """Movement and game logic"""
