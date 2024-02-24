@@ -7,3 +7,6 @@ class ViewState:
         self.image_dir = os.path.join(self.data_dir, 'images')
         self.sprite_dir = os.path.join(self.image_dir, 'sprites')
         self.music_dir = os.path.join(self.data_dir, 'music')
+        self.sound_dir = os.path.join(self.data_dir, 'sounds')
+
+        self.sounds = {}
