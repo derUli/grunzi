@@ -73,4 +73,12 @@ class SkullSprite(arcade.sprite.Sprite):
             max_distance= SIGHT_DISTANCE
         )
 
+        astar_barrier_list = arcade.AStarBarrierList(walls)
+
+
+        print(arcade.astar_calculate_path(self.position,
+                                    player.position,
+                                    astar_barrier_list,
+                                    diagonal_movement=False))
+
         self.update_texture()
