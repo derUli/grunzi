@@ -132,9 +132,6 @@ class GameView(FadingView):
         # Note, if you a want pixelated look, add pixelated=True to the parameters
         self.scene.draw()
 
-        self.camera_gui.use()
-        utils.text.draw_coins(self.state.coins)
-
         if self.window.debug:
             utils.text.draw_debug(self.player_sprite, self.window)
 
@@ -146,6 +143,11 @@ class GameView(FadingView):
         for sprite in enemies:
             if self.window.debug:
                 sprite.draw_debug()
+
+        self.camera_gui.use()
+
+        utils.text.draw_coins(self.state.coins)
+
 
 
         self.draw_fading()
@@ -293,6 +295,8 @@ class GameView(FadingView):
 
     def join_skull(self):
         rand_x, rand_y = random_position(self.tile_map)
+
+        rand_x, rand_y = 680, 500
 
         skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x = rand_x, center_y = rand_y)
 

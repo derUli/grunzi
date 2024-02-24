@@ -9,8 +9,8 @@ from utils.physics import DEFAULT_FRICTION
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-PLAYER_MOVE_FORCE = 1000
-PLAYER_DAMPING = 0.2
+PLAYER_MOVE_FORCE = 500
+PLAYER_DAMPING = 0.01
 
 SIGHT_DISTANCE = 500
 SIGHT_CHECK_RESOLUTION = 20
@@ -108,3 +108,25 @@ class SkullSprite(arcade.sprite.Sprite):
                   astar_barrier_list,
                   diagonal_movement=False
             )
+
+            if not self.move_path:
+                self.move_path = []
+
+            for path in self.move_path:
+                x1, y1 = self.left, self.top
+
+                x2, y2 = path
+
+                force_x, force_y = 0, 0
+
+                if x2 > x1:
+                    force_x = self.move_force
+                elif x1 > x2:
+                    force_x = -self.move_force
+
+                if y2 > y1:
+                    force_y = self.move_force
+                elif y1 > y2:
+                    force_y = -self.move_force
+
+                physics_engine.apply_force(self, (force_x, force_y))
