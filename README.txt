@@ -26,6 +26,8 @@ Das ist in diesem Build aber noch nicht implementiert.
 Das Spiel kann in diesem Build nicht gewonnen oder verloren werden.
 Man kann in dieser Version auf der noch recht leeren neuen Map frei herumlaufen.
 
+Wenn Grunzi verletzt ist, regeneriert sich die Gesundheit jetzt automatisch.
+
 # Spiel starten
 
 Das Spiel kann mit einem Doppelklick auf "Grunzi.exe" gestartet werden.

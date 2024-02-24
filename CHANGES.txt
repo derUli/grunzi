@@ -4,10 +4,11 @@
 
 * Komplette Neuentwicklung auf neuer technologischer Basis
 * TMX-Tilemap
-* Aufsammelbare Münzen
+* Sammelbare Münzen
 * Verschiebbare Kisten
 * Totenköpfe als Gegner
 * Pymunk Physik-Engine
+* Automatische Selbstheilung
 
 ## Alpha 004 (17.01.2024)
 
