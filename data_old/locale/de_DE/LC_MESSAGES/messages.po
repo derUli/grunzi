@@ -1,0 +1,370 @@
+# German (Germany) translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-02-23 23:06+0100\n"
+"PO-Revision-Date: 2023-11-11 20:14+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de_DE\n"
+"Language-Team: de_DE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: utils/text.py:33
+msgid "Unknown build"
+msgstr "Unbekannter Build"
+
+#: views/mainmenuview.py:21
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: views/mainmenuview.py:23
+msgid "Quit game"
+msgstr "Beenden"
+
+#: views/pausemenuview.py:22
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: views/pausemenuview.py:24
+msgid "Back to main menu"
+msgstr "Zurück zum Hauptmenü"
+
+#~ msgid "Savegame"
+#~ msgstr "Spiel speichern"
+
+#~ msgid "Load Savegame"
+#~ msgstr "Spiel laden"
+
+#~ msgid "My favorite movie!"
+#~ msgstr ""
+
+#~ msgid "Snow"
+#~ msgstr "Schnee"
+
+#~ msgid "Keine Aufgabe"
+#~ msgstr ""
+
+#~ msgid "No Task"
+#~ msgstr "Keine Aufgabe"
+
+#~ msgid "Fog"
+#~ msgstr "Nebel"
+
+#~ msgid "Low"
+#~ msgstr "Niedrig"
+
+#~ msgid "Coming Soon"
+#~ msgstr "Kommt bald"
+
+#~ msgid "Grunzi"
+#~ msgstr ""
+
+#~ msgid "Piggy adventure game"
+#~ msgstr ""
+
+#~ msgid "Errungenschaften"
+#~ msgstr ""
+
+#~ msgid "Game Over"
+#~ msgstr "Du bist Schinken!"
+
+#~ msgid "Load Game"
+#~ msgstr "Spiel laden"
+
+#~ msgid "Back To Main Menu"
+#~ msgstr "Zurück zum Hauptmenü"
+
+#~ msgid "Loading..."
+#~ msgstr "Wird geladen..."
+
+#~ msgid "Grunt!"
+#~ msgstr "Grunz"
+
+#~ msgid "Level saved."
+#~ msgstr "Level gespeichert."
+
+#~ msgid "Level dumped."
+#~ msgstr ""
+
+#~ msgid "To be continued"
+#~ msgstr "Wird fortgesetzt"
+
+#~ msgid "Manual save"
+#~ msgstr "Manueller Spielstand"
+
+#~ msgid "Autosave"
+#~ msgstr "Auto-Speicher"
+
+#~ msgid "Back"
+#~ msgstr "Zurück"
+
+#~ msgid "Continue"
+#~ msgstr "Fortsetzen"
+
+#~ msgid "Load"
+#~ msgstr "Laden"
+
+#~ msgid "Achievements"
+#~ msgstr "Errungenschaften"
+
+#~ msgid "Settings"
+#~ msgstr "Einstellungen"
+
+#~ msgid "Audio"
+#~ msgstr ""
+
+#~ msgid "Music"
+#~ msgstr "Musik"
+
+#~ msgid "Sound Effects"
+#~ msgstr "Soundeffekte"
+
+#~ msgid "Walk"
+#~ msgstr "Gehen"
+
+#~ msgid "Use item"
+#~ msgstr "Gegenstand benutzen"
+
+#~ msgid "Drop item"
+#~ msgstr "Gegenstand ablegen"
+
+#~ msgid "Grunt"
+#~ msgstr "Grunzen"
+
+#~ msgid "Run"
+#~ msgstr "Rennen"
+
+#~ msgid "Pause"
+#~ msgstr ""
+
+#~ msgid "Make Screenshot"
+#~ msgstr "Screenshot erstellen"
+
+#~ msgid "Controls"
+#~ msgstr "Steuerung"
+
+#~ msgid "Keyboard"
+#~ msgstr "Tastatur"
+
+#~ msgid "Controller"
+#~ msgstr "Controller"
+
+#~ msgid "Controller: "
+#~ msgstr "Controller: "
+
+#~ msgid "Unsupported"
+#~ msgstr "Nicht unterstützt"
+
+#~ msgid "No Controller"
+#~ msgstr "Kein Controller"
+
+#~ msgid "Video"
+#~ msgstr ""
+
+#~ msgid "Graphics"
+#~ msgstr "Grafik"
+
+#~ msgid "Off"
+#~ msgstr "Aus"
+
+#~ msgid "On"
+#~ msgstr "An"
+
+#~ msgid "Blood"
+#~ msgstr "Blut"
+
+#~ msgid "Weather"
+#~ msgstr "Wetter"
+
+#~ msgid "Fire"
+#~ msgstr "Feuer"
+
+#~ msgid "Bloom"
+#~ msgstr "Bloom"
+
+#~ msgid "Smooth Scale"
+#~ msgstr "Weiche Skalierung"
+
+#~ msgid "Medium"
+#~ msgstr "Mittel"
+
+#~ msgid "High"
+#~ msgstr "Hoch"
+
+#~ msgid "Uncapped"
+#~ msgstr "Unbegrenzt"
+
+#~ msgid "Screen"
+#~ msgstr "Bildschirm"
+
+#~ msgid "Fullscreen"
+#~ msgstr "Vollbild"
+
+#~ msgid "Borderless"
+#~ msgstr "Rahmenlos"
+
+#~ msgid "V-Sync"
+#~ msgstr "Vertikale Synchronisation"
+
+#~ msgid "Screen Resolution"
+#~ msgstr "Bildschirmauflösung"
+
+#~ msgid "Framerate Cap"
+#~ msgstr "Maximale Framerate"
+
+#~ msgid "Save Game"
+#~ msgstr "Spiel speichern"
+
+#~ msgid "Aufgabe"
+#~ msgstr ""
+
+#~ msgid "Game saved."
+#~ msgstr "Spiel gespeichert."
+
+#~ msgid "The petrol is empty."
+#~ msgstr "Das Benzin ist leer."
+
+#~ msgid "The chainsaw was recharged."
+#~ msgstr "Die Kettensäge wurde aufgefüllt."
+
+#~ msgid "Heavy Metal, dude!"
+#~ msgstr "Meddl Leude!"
+
+#~ msgid "The door is closed. I need a key."
+#~ msgstr "Die Tür ist abgeschlossen. Ich brauche einen Schlüssel."
+
+#~ msgid "The door is now open."
+#~ msgstr "Die Tür ist jetzt offen."
+
+#~ msgid "Allahu Akbar!"
+#~ msgstr "Aluhut Nacktbar! Oder so."
+
+#~ msgid "Infinity bloodless!"
+#~ msgstr "Unendlich blutleer!"
+
+#~ msgid "I don't have a single drop of blood left."
+#~ msgstr "Ich habe keinen einzigen Tropfen Blut mehr."
+
+#~ msgid "Please give me some blood!"
+#~ msgstr "Bitte gib mir etwas Blut!"
+
+#~ msgid "I am infinitely thirsty for blood."
+#~ msgstr "Ich bin unendlich durstig nach Blut!"
+
+#~ msgid "Now I have a bit more blood."
+#~ msgstr "Jetzt habe ich ein wenig mehr Blut."
+
+#~ msgid "I still haven't enough blood."
+#~ msgstr "Ich habe immer noch nicht genug Blut."
+
+#~ msgid "Yummy blood!"
+#~ msgstr "Leckeres Blut!"
+
+#~ msgid "Give me more blood!"
+#~ msgstr "Bitte gib mir etwas Blut!"
+
+#~ msgid "Tasty blood!"
+#~ msgstr "Köstliches Blood!"
+
+#~ msgid "I need more blood!"
+#~ msgstr "Ich brauche mehr Blut!"
+
+#~ msgid "Hahaha! It tickles!"
+#~ msgstr "Hahaha! Das kitzelt!"
+
+#~ msgid "I don't need this."
+#~ msgstr "Ich brauche das nicht."
+
+#~ msgid "Now I am full of blood."
+#~ msgstr "Jetzt bin ich wieder blutvoll. :)"
+
+#~ msgid "There is a keyhole in the wall."
+#~ msgstr "Da ist ein Schlüsselloch in der Mauer."
+
+#~ msgid "[Insert Coin]"
+#~ msgstr "[Münze einwerfen]"
+
+#~ msgid "Move mouse to look"
+#~ msgstr "Maus bewegen zum Umschauen"
+
+#~ msgid "My favorite movie."
+#~ msgstr "Mein Lieblingsfilm."
+
+#~ msgid "The TV is off."
+#~ msgstr "Der Fernseher ist aus."
+
+#~ msgid "The TV is on."
+#~ msgstr "Der Fernseher ist an."
+
+#~ msgid "I am openly right-wing radical."
+#~ msgstr "Ich bin offen rechtsradikal."
+
+#~ msgid "I am very wild."
+#~ msgstr "Ich bin sehr wild."
+
+#~ msgid "Can I haz pizza?"
+#~ msgstr "Ich will Pizzer!"
+
+#~ msgid "I have not consumed a pink elephant."
+#~ msgstr "Ich habe keinen rosa Elefanten konsumiert."
+
+#~ msgid "I deny the climate."
+#~ msgstr "Ich leugne das Klima."
+
+#~ msgid "Do you have pizza?"
+#~ msgstr "Hast du Pizzer?"
+
+#~ msgid "Unknown"
+#~ msgstr ""
+
+#~ msgid "Code cracker"
+#~ msgstr "Codeknacker"
+
+#~ msgid "Demolition Expert"
+#~ msgstr "Sprengmeister"
+
+#~ msgid "Cat sawer"
+#~ msgstr "Katzenzersäger"
+
+#~ msgid "Full of blood"
+#~ msgstr "Blutvoll"
+
+#~ msgid "Grilled"
+#~ msgstr "Gegrillt"
+
+#~ msgid "Film Connoisseur"
+#~ msgstr "Filmkenner"
+
+#~ msgid "Chicken tikka masala"
+#~ msgstr ""
+
+#~ msgid "Hans look into the air"
+#~ msgstr "Hans-Guck-In-Die-Luft"
+
+#~ msgid "Saving level..."
+#~ msgstr "Speichere Level..."
+
+#~ msgid "Dumping level to image..."
+#~ msgstr "Generiere Level als Grafikdatei..."
+
+#~ msgid "Ouch!"
+#~ msgstr "Autsch!"
+
+#~ msgid "Find the code to deactivate the laser"
+#~ msgstr "Finde den Code um den Laser zu deaktivieren"
+
+#~ msgid "Give the horse blood"
+#~ msgstr "Gib dem Pferd Blut"
+
+#~ msgid "Blast your way free"
+#~ msgstr "Sprenge dir den Weg frei"
+
