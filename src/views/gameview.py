@@ -144,8 +144,9 @@ class GameView(FadingView):
             return
 
         for sprite in enemies:
-            if self.window.debug and sprite.move_path:
-                arcade.draw_line_strip(sprite.move_path, arcade.color.BLUE, 2)
+            if self.window.debug:
+                sprite.draw_debug()
+
 
         self.draw_fading()
 

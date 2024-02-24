@@ -53,6 +53,10 @@ class SkullSprite(arcade.sprite.Sprite):
 
         self.texture = self.textures[self.face - 1]
 
+    def draw_debug(self):
+        if not self.move_path:
+            return
+        arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
     def update(self, player=None, walls=None):
 
