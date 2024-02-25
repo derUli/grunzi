@@ -209,26 +209,13 @@ class GameView(FadingView):
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
 
         if key in constants.controls.keyboard.KEY_USE:
-            self.state.sounds['beep'].play()
-            logging.info('"Use" not implemented yet')
+            self.on_use()
 
         if key in constants.controls.keyboard.KEY_SHOOT:
-            bullet = Bullet(4, color=arcade.csscolor.HOTPINK)
-            bullet.setup(
-                source=self.player_sprite,
-                physics_engine=self.physics_engine,
-                scene=self.scene,
-                state=self.state
-            )
+            self.on_shoot()
 
         if key in constants.controls.keyboard.KEY_GRUNT:
-            bullet = Grunt(8)
-            bullet.setup(
-                source=self.player_sprite,
-                physics_engine=self.physics_engine,
-                scene=self.scene,
-                state=self.state
-            )
+            self.on_grunt()
 
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
             self.left_key_down = True
@@ -260,6 +247,28 @@ class GameView(FadingView):
 
         if movement:
             self.update_player_speed()
+
+    def on_shoot(self):
+        bullet = Bullet(4, color=arcade.csscolor.HOTPINK)
+        bullet.setup(
+            source=self.player_sprite,
+            physics_engine=self.physics_engine,
+            scene=self.scene,
+            state=self.state
+        )
+
+    def on_grunt(self):
+        bullet = Grunt(8)
+        bullet.setup(
+            source=self.player_sprite,
+            physics_engine=self.physics_engine,
+            scene=self.scene,
+            state=self.state
+        )
+
+    def on_use(self):
+        self.state.sounds['beep'].play()
+        logging.info('"Use" not implemented yet')
 
     def center_camera_to_player(self):
         # Find where player is, then calculate lower left corner from that
