@@ -57,9 +57,12 @@ class IntroView(FadingView):
         """ Render the screen. """
 
         if self._fade_in is None and self._fade_out is None:
+            if self.wait_since <= 0:
+                self.state.grunt()
+
             self.wait_since += 1
 
-        if self.wait_since > self.wait_for:
+        if self.wait_since > self.wait_for and not self.next_view:
             self.next_view = MainMenuView(self.window, self.state)
             self.fade_out()
 
