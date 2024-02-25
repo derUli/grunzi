@@ -66,6 +66,7 @@ class SkullSprite(EnemySprite):
         self.damage = DAMAGE
         self.fade_in = True
 
+
         if self.fade_in:
             self.alpha = 0
 
@@ -78,6 +79,8 @@ class SkullSprite(EnemySprite):
         self.texture = self.textures[self.face - 1]
 
     def draw_overlay(self):
+        if not self.insight:
+            return
         one_percent = self.width / 100
         width = round(one_percent * self.health)
         height = 4
@@ -97,6 +100,9 @@ class SkullSprite(EnemySprite):
         arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))
 
     def draw_debug(self):
+        if not self.insight:
+            return
+
         arcade.draw_lrtb_rectangle_outline(
             self.playing_field_left_boundary,
             self.playing_field_right_boundary,
@@ -137,7 +143,14 @@ class SkullSprite(EnemySprite):
         self.playing_field_top_boundary = self.top + SIGHT_DISTANCE
         self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
 
-        if not self.chasing and arcade.has_line_of_sight(
+        difference = arcade.get_distance_between_sprites(self, player)
+
+        self.insight = difference < SIGHT_DISTANCE
+
+        if not self.insight:
+            return
+
+        if arcade.has_line_of_sight(
                 player.position,
                 self.position,
                 walls=scene[views.gameview.SPRITE_LIST_WALL],
@@ -146,6 +159,8 @@ class SkullSprite(EnemySprite):
         ):
             self.chasing = player
             self.update_texture()
+        else:
+            self.chasing = None
 
         if self.chasing:
             if not self.astar_barrier_list:
@@ -158,6 +173,7 @@ class SkullSprite(EnemySprite):
                     bottom=int(self.playing_field_bottom_boundary),
                     top=int(self.playing_field_top_boundary)
                 )
+
 
             move_path = arcade.astar_calculate_path(
                 self.position,
