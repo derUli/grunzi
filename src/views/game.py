@@ -21,9 +21,9 @@ from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
-from views.fadingview import FadingView
-from views.mainmenuview import MainMenuView
-from views.pausemenuview import PauseMenuView
+from views.fading import Fading
+from views.mainmenu import MainMenu
+from views.pausemenu import PauseMenu
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
@@ -38,7 +38,8 @@ TOTAL_COINS = 100
 START_POS_X = 474
 START_POS_Y = 226
 
-class GameView(FadingView):
+
+class Game(Fading):
     """
     Main application class.
     """
@@ -122,7 +123,7 @@ class GameView(FadingView):
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue()
-        self.music_queue.from_directory(os.path.join(self.state.music_dir, 'world'))
+        self.music_queue.from_directory(os.path.join(self.state.music_dir, self.state.map_name))
         self.music_queue.play()
 
         # Place coins
@@ -200,10 +201,10 @@ class GameView(FadingView):
 
             if not self.player_sprite.dead():
                 self.window.show_view(
-                    PauseMenuView(self.window, self.state, self)
+                    PauseMenu(self.window, self.state, self)
                 )
             else:
-                self.next_view = MainMenuView(self.window, self.state)
+                self.next_view = MainMenu(self.window, self.state)
                 self.fade_out()
                 return
 

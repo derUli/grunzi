@@ -4,12 +4,12 @@ import arcade.gui
 
 import utils.text
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
-from views.fadingview import FadingView
+from views.fading import Fading
 
 BUTTON_WIDTH = 250
 
 
-class MainMenuView(FadingView):
+class MainMenu(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state):
@@ -61,8 +61,8 @@ class MainMenuView(FadingView):
         def on_click_newgame_button(event):
             # Pass already created view because we are resuming.
 
-            from views.gameview import GameView
-            self.next_view = GameView(self.window, self.state)
+            from views.game import Game
+            self.next_view = Game(self.window, self.state)
             self.fade_out()
 
         @quit_button.event("on_click")

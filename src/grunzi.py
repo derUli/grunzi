@@ -13,7 +13,7 @@ import pyglet
 from state.viewstate import ViewState
 from utils.logging import configure_logger
 from utils.text import label_value
-from views.introview import IntroView
+from views.intro import Intro
 
 SCREEN_TITLE = "Grunzi"
 
@@ -153,7 +153,7 @@ def main():
     icon = pyglet.image.load(icon_path)
     window.set_icon(icon)
 
-    view = IntroView(window, state)
+    view = Intro(window, state)
     window.show_view(view)
     arcade.run()
 

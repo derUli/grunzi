@@ -1,7 +1,7 @@
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-import views.gameview
+import views.game
 from sprites.characters.enemysprite import EnemySprite
 
 HURT = 10
@@ -44,7 +44,7 @@ class Bullet(arcade.sprite.SpriteCircle):
             self.force_move = -self.force_move
             self.left = source.left - self.width
 
-        scene.add_sprite(views.gameview.SPRITE_LIST_ENEMIES, self)
+        scene.add_sprite(views.game.SPRITE_LIST_ENEMIES, self)
 
         state.play_sound('shot')
 

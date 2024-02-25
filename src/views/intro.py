@@ -2,8 +2,8 @@ import os
 
 import arcade.gui
 
-from views.fadingview import FadingView
-from views.mainmenuview import MainMenuView
+from views.fading import Fading
+from views.mainmenu import MainMenu
 
 SPRITE_LIST_ENEMIES = 'ui'
 
@@ -11,7 +11,7 @@ SPRITE_LIST_ENEMIES = 'ui'
 WAIT_FOR = 3
 
 
-class IntroView(FadingView):
+class Intro(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state):
@@ -56,7 +56,7 @@ class IntroView(FadingView):
             self.wait_since += 1
 
         if self.wait_since > self.wait_for and not self.next_view:
-            self.next_view = MainMenuView(self.window, self.state)
+            self.next_view = MainMenu(self.window, self.state)
             self.fade_out()
 
         # Clear the screen

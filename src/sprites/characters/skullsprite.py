@@ -4,7 +4,7 @@ import os
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-import views.gameview
+import views.game
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTH_EMPTY
 from utils.physics import DEFAULT_FRICTION
@@ -65,7 +65,6 @@ class SkullSprite(EnemySprite):
         self.astar_barrier_list = None
         self.damage = DAMAGE
         self.fade_in = True
-
 
         if self.fade_in:
             self.alpha = 0
@@ -153,7 +152,7 @@ class SkullSprite(EnemySprite):
         if arcade.has_line_of_sight(
                 player.position,
                 self.position,
-                walls=scene[views.gameview.SPRITE_LIST_WALL],
+                walls=scene[views.game.SPRITE_LIST_WALL],
                 check_resolution=SIGHT_CHECK_RESOLUTION,
                 max_distance=SIGHT_DISTANCE
         ):
@@ -166,14 +165,13 @@ class SkullSprite(EnemySprite):
             if not self.astar_barrier_list:
                 self.astar_barrier_list = arcade.AStarBarrierList(
                     moving_sprite=self,
-                    blocking_sprites=scene[views.gameview.SPRITE_LIST_WALL],
+                    blocking_sprites=scene[views.game.SPRITE_LIST_WALL],
                     grid_size=GRID_SIZE,
                     left=int(self.playing_field_left_boundary),
                     right=int(self.playing_field_right_boundary),
                     bottom=int(self.playing_field_bottom_boundary),
                     top=int(self.playing_field_top_boundary)
                 )
-
 
             move_path = arcade.astar_calculate_path(
                 self.position,

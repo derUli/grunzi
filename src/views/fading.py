@@ -5,7 +5,7 @@ from views.view import View
 FADE_RATE = 5
 
 
-class FadingView(View):
+class Fading(View):
     def __init__(self, window):
         super().__init__(window)
 

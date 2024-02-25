@@ -46,6 +46,7 @@ class Sprite(arcade.sprite.Sprite):
         )
 
         self.insight = False
+
     def draw_debug(self):
         return
 

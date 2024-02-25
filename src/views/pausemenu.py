@@ -6,13 +6,13 @@ import constants.controls.keyboard
 import utils
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from utils.text import get_style
-from views.fadingview import FadingView
-from views.mainmenuview import MainMenuView
+from views.fading import Fading
+from views.mainmenu import MainMenu
 
 BUTTON_WIDTH = 250
 
 
-class PauseMenuView(FadingView):
+class PauseMenu(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view=None):
@@ -84,7 +84,7 @@ class PauseMenuView(FadingView):
         self.window.show_view(self.previous_view)
 
     def on_exit(self):
-        self.next_view = MainMenuView(self.window, self.state)
+        self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
     def on_show_view(self):
