@@ -11,6 +11,7 @@ import random
 import arcade
 from arcade import SpriteList, PymunkPhysicsEngine
 
+import sprites.characters.playersprite
 import utils.audio
 from sprites.bullet.bullet import Bullet
 from sprites.characters.enemysprite import EnemySprite
@@ -170,7 +171,7 @@ class GameView(FadingView):
         # Calculate speed based on the keys pressed
         self.player_sprite.change_x = 0
 
-        move_force = self.player_sprite.move_force
+        move_force = self.player_sprite.move_force * self.player_sprite.modifier
 
         force_x, force_y = 0, 0
 
@@ -195,6 +196,9 @@ class GameView(FadingView):
             pause_view = PauseMenuView(self.window, self.state, self)
             self.window.show_view(pause_view)
 
+        if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
+            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
+
         if key == arcade.key.E:
             bullet = Bullet(4, color=arcade.csscolor.HOTPINK)
             bullet.setup(
@@ -211,7 +215,6 @@ class GameView(FadingView):
             self.left_key_down = True
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_key_down = True
-
         if key == arcade.key.UP or key == arcade.key.W:
             self.up_key_down = True
         elif key == arcade.key.DOWN or key == arcade.key.S:
@@ -219,6 +222,9 @@ class GameView(FadingView):
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
+
+        if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
+            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
 
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = False

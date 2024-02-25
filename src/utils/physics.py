@@ -29,7 +29,6 @@ def make_physics_engine(player_sprite, scene):
                               friction=DEFAULT_FRICTION,
                               moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
                               collision_type="player",
-                              max_velocity=400,
                               damping=player_sprite.damping,
                               )
 

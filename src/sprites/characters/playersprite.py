@@ -9,7 +9,11 @@ from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-MOVE_FORCE = 3000
+MOVE_FORCE = 1500
+
+MODIFIER_DEFAULT = 1
+MODIFIER_SPRINT = 2
+
 MOVE_DAMPING = 0.01
 
 HEALTH_REGENERATION_SPEED = 0.1
@@ -26,6 +30,7 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         super().__init__()
 
         self.move_force = MOVE_FORCE
+        self.modifier = MODIFIER_DEFAULT
         self.damping = MOVE_DAMPING
         self.textures = arcade.load_texture_pair(filename)
 
