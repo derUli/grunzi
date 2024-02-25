@@ -82,4 +82,11 @@ Controller werden in diesem Build leider nicht unterstützt.
 # Einstellungen
 
 In diesem Build gibt es kein Einstellungsmenü.
-Es gibt jedoch einige Startparameter, die dem Spiel übbergeben werden können.
+Es gibt jedoch einige Startoptionen, die dem Spiel übbergeben werden können.
+
+## Grafik
+Das Spiel startet mit einer Auflösung 1280x720 im Vollbildmodus, sofern keine Startoptionen übergeben wurden.
+Die folgenden Batch-Dateien sind enthalten, um das Spiel mit anderen Bildschirmauflösungen zu starten.
+
+* Grunzi (Full HD).bat
+* Grunzi (4K).bat

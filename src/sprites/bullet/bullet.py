@@ -31,6 +31,9 @@ class Bullet(arcade.sprite.SpriteCircle):
     def draw_debug(self):
         pass
 
+    def draw_overlay(self):
+        pass
+
     def setup(self, source, physics_engine, scene, state):
 
         self.center_y = source.center_y

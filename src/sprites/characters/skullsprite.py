@@ -6,7 +6,6 @@ from arcade import FACE_RIGHT, FACE_LEFT
 
 import views.gameview
 from sprites.characters.enemysprite import EnemySprite
-from sprites.characters.playersprite import ONE_PERCENT_ALPHA
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTH_EMPTY
 from utils.physics import DEFAULT_FRICTION
 
@@ -78,6 +77,25 @@ class SkullSprite(EnemySprite):
 
         self.texture = self.textures[self.face - 1]
 
+    def draw_overlay(self):
+        one_percent = self.width / 100
+        width = round(one_percent * self.health)
+        height = 4
+
+        top = self.top + height * 2
+        right = self.left + width
+
+        a = self.alpha
+
+        if a > 50:
+            a = 50
+
+        r, g, b = arcade.color.BLACK
+        arcade.draw_line(self.left, top, self.right, top, line_width=height, color=(r, g, b, a))
+
+        r, g, b = arcade.color.RED
+        arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))
+
     def draw_debug(self):
         if self.chasing:
             arcade.draw_lrtb_rectangle_outline(self.playing_field_left_boundary, self.playing_field_right_boundary,
@@ -102,8 +120,6 @@ class SkullSprite(EnemySprite):
             self.alpha = new_alpha
 
             return
-
-        self.alpha = int(self.health * ONE_PERCENT_ALPHA)
 
         # Figure out if we should face left or right
         if self.change_x < 0:
