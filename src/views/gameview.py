@@ -311,7 +311,7 @@ class GameView(FadingView):
             if arcade.check_for_collision(sprite, self.player_sprite):
                 self.player_sprite.hurt(sprite.damage)
 
-        if len(enemies) < 500   :
+        if len(enemies) < 100:
             if random.randint(1, 100) == 50:
                 self.join_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
