@@ -3,6 +3,7 @@ import os
 import random
 
 import arcade
+import pyglet.media
 
 
 class ViewState:
@@ -38,6 +39,10 @@ class ViewState:
             ),
             'screenshot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'screenshot.ogg'),
+                streaming=False
+            ),
+            'shot': arcade.load_sound(
+                os.path.join(self.sound_dir, 'weapons', 'shot.ogg'),
                 streaming=False
             )
         }

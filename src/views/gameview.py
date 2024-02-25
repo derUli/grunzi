@@ -211,6 +211,7 @@ class GameView(FadingView):
             elif source.face == FACE_LEFT:
                 force_x = -2000
                 bullet.left = source.left - bullet.width
+            self.state.play_sound('shot')
 
             self.scene.add_sprite(SPRITE_LIST_ENEMIES, bullet)
 
