@@ -23,6 +23,7 @@ RAM: 8 GB
 OS: Windows 11 64-Bit
 
 ## Was ist neu?
+
 Der Alpha Build 006 stellt einen technologischen Neuanfang dar, welcher neue Konzepte einführt.
 
 Die Maps sind jetzt im TMX Format und können mit dem Open-Source Map-Editor Tiled bearbeitet werden.
@@ -39,7 +40,6 @@ Man kann in dieser Version auf der noch recht leeren neuen Map frei herumlaufen.
 
 Grunzi kann jetzt schießen.
 Wenn Grunzi verletzt ist, regeneriert sich die Gesundheit jetzt automatisch.
-
 
 # Spiel starten
 
@@ -63,7 +63,7 @@ Wenn der Start des Spiels mit der Fehlermeldung, dass die "VCRUNTIME140.dll" feh
 Sie können es hier herunterladen:
 https://www.microsoft.com/de-de/download/details.aspx?id=48145
 
-# Steuerung 
+# Steuerung
 
 ## Tastatur
 
@@ -85,8 +85,11 @@ In diesem Build gibt es kein Einstellungsmenü.
 Es gibt jedoch einige Startoptionen, die dem Spiel übbergeben werden können.
 
 ## Grafik
+
 Das Spiel startet mit einer Auflösung 1280x720 im Vollbildmodus, sofern keine Startoptionen übergeben wurden.
 Die folgenden Batch-Dateien sind enthalten, um das Spiel mit anderen Bildschirmauflösungen zu starten.
 
-* Grunzi (Full HD).bat
-* Grunzi (4K).bat
+| Batch-Datei          | Bildschirmauflösung | Bildschirmmodus |
+|----------------------|---------------------|-----------------|
+| Grunzi (Full HD).bat | 1920x1080           | Vollbild        |
+| Grunzi (4K).bat      | 3840x2160           | Vollbild        |
