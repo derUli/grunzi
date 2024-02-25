@@ -9,9 +9,10 @@ import os
 import random
 
 import arcade
-from arcade import SpriteList, PymunkPhysicsEngine, FACE_RIGHT, FACE_LEFT
+from arcade import SpriteList, PymunkPhysicsEngine
 
 import utils.audio
+from sprites.bullet.bullet import Bullet
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
@@ -151,8 +152,7 @@ class GameView(FadingView):
             enemies = []
 
         for sprite in enemies:
-            if self.window.debug and isinstance(sprite, EnemySprite):
-                sprite.draw_debug()
+            sprite.draw_debug()
 
         self.camera_gui.use()
 
@@ -196,36 +196,13 @@ class GameView(FadingView):
             self.window.show_view(pause_view)
 
         if key == arcade.key.E:
-            bullet = arcade.sprite.SpriteCircle(4, color=arcade.color.HOT_PINK)
-
-            force_x = 0
-            force_y = 0
-
-            source = self.player_sprite
-
-            bullet.center_y = source.center_y
-
-            if source.face == FACE_RIGHT:
-                force_x = 2000
-                bullet.right = source.right + bullet.width
-            elif source.face == FACE_LEFT:
-                force_x = -2000
-                bullet.left = source.left - bullet.width
-            self.state.play_sound('shot')
-
-            self.scene.add_sprite(SPRITE_LIST_ENEMIES, bullet)
-
-            self.physics_engine.add_sprite(bullet,
-                                           mass=0.1,
-                                           damping=1,
-                                           friction=0.6,
-                                           collision_type="bullet",
-                                           elasticity=0.9)
-
-            self.physics_engine.add_collision_handler('bullet', 'wall', post_handler=self.bullet_hit_handler)
-            self.physics_engine.add_collision_handler('bullet', 'skull', post_handler=self.bullet_hit_handler)
-
-            self.physics_engine.apply_force(bullet, (force_x, force_y))
+            bullet = Bullet(4, color=arcade.csscolor.HOTPINK)
+            bullet.setup(
+                source=self.player_sprite,
+                physics_engine=self.physics_engine,
+                scene=self.scene,
+                state=self.state
+            )
 
         if key == arcade.key.G:
             self.state.grunt()
@@ -239,13 +216,6 @@ class GameView(FadingView):
             self.up_key_down = True
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.down_key_down = True
-
-    def bullet_hit_handler(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
-        """ Called for bullet/wall collision """
-        bullet_sprite.remove_from_sprite_lists()
-
-        if isinstance(_hit_sprite, EnemySprite):
-            _hit_sprite.hurt(10)
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
@@ -311,8 +281,8 @@ class GameView(FadingView):
             if arcade.check_for_collision(sprite, self.player_sprite):
                 self.player_sprite.hurt(sprite.damage)
 
-        if len(enemies) < 50:
-            if random.randint(1, 100) == 50:
+        if len(enemies) < 100:
+            if random.randint(1, 1) == 1:
                 self.join_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
@@ -370,7 +340,7 @@ class GameView(FadingView):
         self.physics_engine.add_sprite(skull,
                                        friction=skull.friction,
                                        moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-                                       collision_type="skull",
+                                       collision_type="enemy",
                                        max_velocity=200,
                                        damping=skull.damping
                                        )

@@ -16,6 +16,7 @@ LOGO_FONT_SIZE = 60
 
 DEBUG_FONT_SIZE = SMALL_FONT_SIZE
 
+
 def create_text(
         text,
         start_x=MARGIN,
@@ -43,13 +44,14 @@ def create_text(
         font_name=font_name
     )
 
+
 def get_style():
     return {
         'font_name': DEFAULT_FONT
     }
 
 
-def draw_build_number(build_file, window = None):
+def draw_build_number(build_file, window=None):
     if not window:
         window = arcade.get_window()
 

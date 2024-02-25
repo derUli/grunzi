@@ -3,7 +3,6 @@ import os
 import random
 
 import arcade
-import pyglet.media
 
 
 class ViewState:

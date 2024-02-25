@@ -34,6 +34,8 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         self.face = DEFAULT_FACE
         self.texture = self.textures[self.face - 1]
 
+        self.scale = 0.9
+
     def update_texture(self):
         self.texture = self.textures[self.face - 1]
 

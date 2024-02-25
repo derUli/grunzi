@@ -6,8 +6,8 @@ from arcade import FACE_RIGHT, FACE_LEFT
 
 import views.gameview
 from sprites.characters.enemysprite import EnemySprite
-from sprites.characters.playersprite import FULL_ALPHA, ONE_PERCENT_ALPHA
-from sprites.characters.spritehealth import SpriteHealth, HEALTH_FULL, HEALTH_EMPTY
+from sprites.characters.playersprite import ONE_PERCENT_ALPHA
+from sprites.characters.spritehealth import HEALTH_FULL, HEALTH_EMPTY
 from utils.physics import DEFAULT_FRICTION
 
 DEFAULT_FACE = FACE_RIGHT
@@ -24,12 +24,13 @@ FADE_SPEED = 5
 
 DAMAGE = 1
 
+
 class SkullSprite(EnemySprite):
     def __init__(
             self,
             filename: str = None,
             center_x=0,
-            center_y=0
+            center_y=0,
     ):
         super().__init__(center_x=center_x, center_y=center_y)
 
@@ -85,8 +86,7 @@ class SkullSprite(EnemySprite):
         if self.move_path:
             arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
-
-    def update(self, player=None, scene = None, physics_engine = None):
+    def update(self, player=None, scene=None, physics_engine=None):
         if self.health <= HEALTH_EMPTY:
             self.remove_from_sprite_lists()
             return
@@ -120,19 +120,19 @@ class SkullSprite(EnemySprite):
         self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
 
         if not self.chasing and arcade.has_line_of_sight(
-            player.position,
-            self.position,
-            walls=scene[views.gameview.SPRITE_LIST_WALL],
-            check_resolution=SIGHT_CHECK_RESOLUTION,
-            max_distance=SIGHT_DISTANCE
-         ):
+                player.position,
+                self.position,
+                walls=scene[views.gameview.SPRITE_LIST_WALL],
+                check_resolution=SIGHT_CHECK_RESOLUTION,
+                max_distance=SIGHT_DISTANCE
+        ):
             self.chasing = player
             self.update_texture()
 
         if self.chasing:
             if not self.astar_barrier_list:
                 self.astar_barrier_list = arcade.AStarBarrierList(
-                    moving_sprite=self,
+                    moving_sprite=player,
                     blocking_sprites=scene[views.gameview.SPRITE_LIST_WALL],
                     grid_size=grid_size,
                     left=int(self.playing_field_left_boundary),
@@ -143,9 +143,9 @@ class SkullSprite(EnemySprite):
 
             self.move_path = arcade.astar_calculate_path(
                 self.position,
-                  player.position,
-                  self.astar_barrier_list,
-                  diagonal_movement=True
+                player.position,
+                self.astar_barrier_list,
+                diagonal_movement=True
             )
 
             if not self.move_path:
@@ -160,15 +160,15 @@ class SkullSprite(EnemySprite):
 
                 force_x, force_y = 0, 0
 
-                if x2 > x1:
-                    force_x = self.move_force
-                elif x1 > x2:
-                    force_x = -self.move_force
-
                 if y2 > y1:
                     force_y = self.move_force
-
-                elif y1 > y2:
+                if y1 > y2:
                     force_y = -self.move_force
+                if x2 > x1:
+                    force_x = self.move_force
+                if x1 > x2:
+                    force_x = -self.move_force
 
                 physics_engine.apply_force(self, (force_x, force_y))
+
+                break

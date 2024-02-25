@@ -1,9 +1,11 @@
-import arcade
 import random
 
-DISTANCE = 5
-def get_closest_sprite(player_sprite, sprite_list, tolerance = DISTANCE):
+import arcade
 
+DISTANCE = 5
+
+
+def get_closest_sprite(player_sprite, sprite_list, tolerance=DISTANCE):
     pos_x, pos_y = player_sprite.center_x, player_sprite.center_y
 
     check_points = [
@@ -23,6 +25,7 @@ def tilemap_size(tilemap):
     width = tilemap.width * tilemap.tile_width
     height = tilemap.height * tilemap.tile_height
     return width, height
+
 
 def random_position(tilemap):
     width, height = tilemap_size(tilemap)

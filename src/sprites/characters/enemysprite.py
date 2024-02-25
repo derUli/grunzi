@@ -1,11 +1,9 @@
 """ Player sprite class """
-import os
 
-import arcade
-from arcade import FACE_RIGHT, FACE_LEFT
+from arcade import FACE_RIGHT
 
+from sprites.characters.sprite import Sprite
 from sprites.characters.spritehealth import SpriteHealth
-from utils.physics import DEFAULT_FRICTION
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -21,7 +19,8 @@ FADE_SPEED = 2
 
 DAMAGE = 0
 
-class EnemySprite(arcade.sprite.Sprite, SpriteHealth):
+
+class EnemySprite(Sprite, SpriteHealth):
     def __init__(
             self,
             filename: str = None,
@@ -36,5 +35,5 @@ class EnemySprite(arcade.sprite.Sprite, SpriteHealth):
     def draw_debug(self):
         return
 
-    def update(self, player=None, walls=None, scene = None, physics_engine = None):
+    def update(self, player=None, walls=None, scene=None, physics_engine=None):
         return

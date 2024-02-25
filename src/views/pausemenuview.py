@@ -10,6 +10,7 @@ from views.view import View
 
 BUTTON_WIDTH = 250
 
+
 class PauseMenuView(View):
     """Main menu view class."""
 
