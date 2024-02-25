@@ -11,6 +11,7 @@ import random
 import arcade
 from arcade import SpriteList, PymunkPhysicsEngine
 
+import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
 from sprites.bullet.bullet import Bullet
@@ -197,7 +198,7 @@ class GameView(FadingView):
         super().on_key_press(key, modifiers)
 
         """Called whenever a key is pressed."""
-        if key == arcade.key.ESCAPE:
+        if key in constants.controls.keyboard.KEY_PAUSE:
             if not self.player_sprite.dead():
                 pause_view = PauseMenuView(self.window, self.state, self)
                 self.window.show_view(pause_view)
@@ -205,10 +206,10 @@ class GameView(FadingView):
                 self.next_view = MainMenuView(self.window, self.state)
                 self.fade_out()
 
-        if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
+        if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
 
-        if key == arcade.key.E:
+        if key in constants.controls.keyboard.KEY_SHOOT:
             bullet = Bullet(4, color=arcade.csscolor.HOTPINK)
             bullet.setup(
                 source=self.player_sprite,
@@ -217,7 +218,7 @@ class GameView(FadingView):
                 state=self.state
             )
 
-        if key == arcade.key.G:
+        if key in constants.controls.keyboard.KEY_GRUNT:
             bullet = Grunt(8)
             bullet.setup(
                 source=self.player_sprite,
@@ -226,32 +227,35 @@ class GameView(FadingView):
                 state=self.state
             )
 
-        if key == arcade.key.LEFT or key == arcade.key.A:
+        if key in constants.controls.keyboard.KEY_MOVE_LEFT:
             self.left_key_down = True
-        elif key == arcade.key.RIGHT or key == arcade.key.D:
+        elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
             self.right_key_down = True
-        if key == arcade.key.UP or key == arcade.key.W:
+        if key in constants.controls.keyboard.KEY_MOVE_UP:
             self.up_key_down = True
-        elif key == arcade.key.DOWN or key == arcade.key.S:
+        elif  key in constants.controls.keyboard.KEY_MOVE_DOWN:
             self.down_key_down = True
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
 
-        if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
+        if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
 
-        if key == arcade.key.LEFT or key == arcade.key.A:
+        movement = True
+
+        if key in constants.controls.keyboard.KEY_MOVE_LEFT:
             self.left_key_down = False
-            self.update_player_speed()
-        if key == arcade.key.RIGHT or key == arcade.key.D:
+        elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
             self.right_key_down = False
-            self.update_player_speed()
-        if key == arcade.key.UP or key == arcade.key.W:
+        if key in constants.controls.keyboard.KEY_MOVE_UP:
             self.up_key_down = False
-            self.update_player_speed()
-        if key == arcade.key.DOWN or key == arcade.key.S:
+        elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
             self.down_key_down = False
+        else:
+            movement = False
+
+        if movement:
             self.update_player_speed()
 
     def center_camera_to_player(self):
