@@ -208,6 +208,10 @@ class GameView(FadingView):
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
 
+        if key in constants.controls.keyboard.KEY_USE:
+            self.state.sounds['beep'].play()
+            logging.info('"Use" not implemented yet')
+
         if key in constants.controls.keyboard.KEY_SHOOT:
             bullet = Bullet(4, color=arcade.csscolor.HOTPINK)
             bullet.setup(

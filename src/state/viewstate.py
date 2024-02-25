@@ -40,10 +40,14 @@ class ViewState:
                 os.path.join(self.sound_dir, 'common', 'screenshot.ogg'),
                 streaming=False
             ),
+            'beep': arcade.load_sound(
+                os.path.join(self.sound_dir, 'common', 'beep.ogg'),
+                streaming=False
+            ),
             'shot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'weapons', 'shot.ogg'),
                 streaming=False
-            )
+            ),
         }
 
         for i in range(1, 6):
