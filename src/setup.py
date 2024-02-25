@@ -38,7 +38,8 @@ options = {
             '../CHANGES.txt',
             '../VERSION.txt',
             'Grunzi (Full HD).bat',
-            'Grunzi (4K).bat'
+            'Grunzi (4K).bat',
+            'Grunzi (HD+).bat'
         ]
     }
 
