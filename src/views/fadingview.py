@@ -27,6 +27,8 @@ class FadingView(View):
                 self._fade_in = None
 
     def fade_out(self):
+        if self._fade_out is not None:
+            return
         self._fade_out = 0
         self._fade_in = None
 
