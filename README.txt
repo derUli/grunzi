@@ -37,7 +37,9 @@ Das ist in diesem Build aber noch nicht implementiert.
 Das Spiel kann in diesem Build nicht gewonnen oder verloren werden.
 Man kann in dieser Version auf der noch recht leeren neuen Map frei herumlaufen.
 
+Grunzi kann jetzt schießen.
 Wenn Grunzi verletzt ist, regeneriert sich die Gesundheit jetzt automatisch.
+
 
 # Spiel starten
 
