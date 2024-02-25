@@ -9,9 +9,10 @@ import os
 import random
 
 import arcade
-from arcade import SpriteList, PymunkPhysicsEngine
+from arcade import SpriteList, PymunkPhysicsEngine, FACE_RIGHT, FACE_LEFT
 
 import utils.audio
+from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
 from utils.physics import make_physics_engine
@@ -135,7 +136,6 @@ class GameView(FadingView):
         """Render the screen."""
 
         self.clear()
-
         if not self.scene:
             return
 
@@ -151,7 +151,7 @@ class GameView(FadingView):
             enemies = []
 
         for sprite in enemies:
-            if self.window.debug:
+            if self.window.debug and isinstance(sprite, EnemySprite):
                 sprite.draw_debug()
 
         self.camera_gui.use()
@@ -193,8 +193,38 @@ class GameView(FadingView):
         """Called whenever a key is pressed."""
         if key == arcade.key.ESCAPE:
             pause_view = PauseMenuView(self.window, self.state, self)
-
             self.window.show_view(pause_view)
+
+        if key == arcade.key.F1:
+            bullet = arcade.sprite.SpriteCircle(2, color=arcade.color.YELLOW, )
+
+            force_x = 0
+            force_y = 0
+
+            source = self.player_sprite
+
+            bullet.center_y = source.center_y
+
+            if source.face == FACE_RIGHT:
+                force_x = 2000
+                bullet.right = source.right + 1
+            elif source.face == FACE_LEFT:
+                force_x = -2000
+                bullet.left = source.left - 1
+
+            self.scene.add_sprite(SPRITE_LIST_ENEMIES, bullet)
+
+            self.physics_engine.add_sprite(bullet,
+                                           mass=0.1,
+                                           damping=1,
+                                           friction=0.6,
+                                           collision_type="bullet",
+                                           elasticity=0.9)
+
+            self.physics_engine.add_collision_handler('bullet', 'wall', post_handler=self.wall_hit_handler)
+
+            self.physics_engine.apply_force(bullet, (force_x, force_y))
+
         if key == arcade.key.G:
             self.state.grunt()
 
@@ -207,6 +237,10 @@ class GameView(FadingView):
             self.up_key_down = True
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.down_key_down = True
+
+    def wall_hit_handler(self, bullet_sprite, _wall_sprite, _arbiter, _space, _data):
+        """ Called for bullet/wall collision """
+        bullet_sprite.remove_from_sprite_lists()
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
@@ -262,6 +296,8 @@ class GameView(FadingView):
             enemies = []
 
         for sprite in enemies:
+            if not isinstance(sprite, EnemySprite):
+                continue
             sprite.update(
                 player=self.player_sprite,
                 walls=self.scene[SPRITE_LIST_WALL],

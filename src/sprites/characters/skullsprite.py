@@ -4,6 +4,7 @@ import os
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
+from sprites.characters.enemysprite import EnemySprite
 from utils.physics import DEFAULT_FRICTION
 
 DEFAULT_FACE = FACE_RIGHT
@@ -20,7 +21,7 @@ FADE_SPEED = 2
 
 DAMAGE = 1
 
-class SkullSprite(arcade.sprite.Sprite):
+class SkullSprite(EnemySprite):
     def __init__(
             self,
             filename: str = None,
@@ -78,7 +79,6 @@ class SkullSprite(arcade.sprite.Sprite):
 
         if self.move_path:
             arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
-
 
 
     def update(self, player=None, walls=None, scene = None, physics_engine = None):
