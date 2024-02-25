@@ -1,3 +1,4 @@
+"""Keyboard controls"""
 import arcade
 
 KEY_PAUSE = [arcade.key.ESCAPE]
