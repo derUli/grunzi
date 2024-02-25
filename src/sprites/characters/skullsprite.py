@@ -115,14 +115,14 @@ class SkullSprite(EnemySprite):
         if not player or not scene:
             return
 
-        grid_size = self.texture.width * self._scale
+        grid_size = self.texture.width * self._scale * 1
 
         self.playing_field_left_boundary = self.left - SIGHT_DISTANCE
         self.playing_field_right_boundary = self.right + SIGHT_DISTANCE
         self.playing_field_top_boundary = self.top + SIGHT_DISTANCE
         self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
 
-        if not self.chasing and arcade.has_line_of_sight(
+        if arcade.has_line_of_sight(
           player.position,
             self.position,
             walls=scene[views.gameview.SPRITE_LIST_WALL],
@@ -130,8 +130,11 @@ class SkullSprite(EnemySprite):
             max_distance=SIGHT_DISTANCE
          ):
             self.chasing = player
-
             self.update_texture()
+        else:
+            self.chasing = None
+            self.update_texture()
+
 
         if self.chasing:
             if not self.astar_barrier_list:
@@ -153,11 +156,9 @@ class SkullSprite(EnemySprite):
             )
 
             if not self.move_path:
-                self.chasing = None
-                self.update_texture()
                 return
 
-            for path in self.move_path:
+            for path in reversed(self.move_path):
                 x1, y1 = self.left, self.top
 
                 x2, y2 = path
@@ -177,3 +178,4 @@ class SkullSprite(EnemySprite):
                     force_y = -self.move_force
 
                 physics_engine.apply_force(self, (force_x, force_y))
+

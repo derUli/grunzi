@@ -293,7 +293,6 @@ class GameView(FadingView):
         self.player_sprite.update()
 
     def update_enemies(self):
-
         try:
             enemies = self.scene[SPRITE_LIST_ENEMIES]
         except KeyError:
@@ -307,11 +306,12 @@ class GameView(FadingView):
                 scene=self.scene,
                 physics_engine=self.physics_engine
             )
+
             if arcade.check_for_collision(sprite, self.player_sprite):
                 self.player_sprite.hurt(sprite.damage)
 
-        if len(enemies) < 50:
-            if random.randint(1, 200) == 50:
+        if len(enemies) < 100:
+            if random.randint(1, 150) == 50:
                 self.join_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
