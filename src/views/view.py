@@ -1,5 +1,6 @@
 import arcade
 
+import constants.controls.keyboard
 from utils.screenshot import make_screenshot
 
 
@@ -14,7 +15,7 @@ class View(arcade.View):
 
     def on_key_press(self, key, modifiers):
         super().on_key_press(key, modifiers)
-        if key == arcade.key.F12:
+        if key in constants.controls.keyboard.KEY_SCREENSHOT:
             make_screenshot()
             self.state.play_sound('screenshot')
 

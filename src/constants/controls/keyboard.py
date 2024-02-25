@@ -10,3 +10,4 @@ KEY_MOVE_RIGHT = [arcade.key.RIGHT, arcade.key.D]
 KEY_MOVE_UP = [arcade.key.UP, arcade.key.W]
 KEY_MOVE_DOWN = [arcade.key.DOWN, arcade.key.S]
 
+KEY_SCREENSHOT = [arcade.key.F12]
