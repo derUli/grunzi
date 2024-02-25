@@ -172,7 +172,6 @@ class GameView(FadingView):
 
         force_x, force_y = 0, 0
 
-
         if self.up_key_pressed and not self.down_key_pressed:
             force_y = move_force
         elif self.down_key_pressed and not self.up_key_pressed:

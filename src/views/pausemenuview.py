@@ -2,8 +2,8 @@ import os
 
 import arcade.gui
 
-import utils
 import constants.controls.keyboard
+import utils
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from utils.text import get_style
 from views.fadingview import FadingView
@@ -75,6 +75,7 @@ class PauseMenuView(FadingView):
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_toggle()
+
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
