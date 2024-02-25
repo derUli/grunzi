@@ -1,13 +1,13 @@
 import random
 
-import arcade
-
 DISTANCE = 5
+
 
 def tilemap_size(tilemap):
     width = tilemap.width * tilemap.tile_width
     height = tilemap.height * tilemap.tile_height
     return width, height
+
 
 def random_position(tilemap):
     width, height = tilemap_size(tilemap)

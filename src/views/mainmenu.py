@@ -77,11 +77,9 @@ class MainMenu(Fading):
         def on_click_options_help(event):
             # Pass already created view because we are resuming.
 
-            from views.game import Game
             self.window.show_view(
-                OptionsMenu(self.window, self.state, previous_view = self)
+                OptionsMenu(self.window, self.state, previous_view=self)
             )
-
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):
