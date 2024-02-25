@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-25 22:22+0100\n"
+"POT-Creation-Date: 2024-02-25 22:34+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:41 views/optionsmenu.py:27 views/pausemenu.py:36
+#: views/mainmenu.py:41 views/optionsmenu.py:30 views/pausemenu.py:36
 msgid "Options & Help"
 msgstr "Optionen & Hilfe"
 
@@ -82,7 +82,11 @@ msgstr "Optionen & Hilfe"
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/optionsmenu.py:35
+#: views/optionsmenu.py:38
+msgid "Follow me on X"
+msgstr "Folge mir auf X"
+
+#: views/optionsmenu.py:44
 msgid "Zurück"
 msgstr ""
 
@@ -423,4 +427,7 @@ msgstr "Zurück zum Hauptmenü"
 
 #~ msgid "Blast your way free"
 #~ msgstr "Sprenge dir den Weg frei"
+
+#~ msgid "Grunzbabe @ X"
+#~ msgstr ""
 

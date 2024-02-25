@@ -1,4 +1,5 @@
 import os
+import webbrowser
 
 import arcade.gui
 
@@ -7,6 +8,8 @@ from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from views.view import View
 
 BUTTON_WIDTH = 250
+
+URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
 
 class OptionsMenu(View):
@@ -31,6 +34,12 @@ class OptionsMenu(View):
             align='center'
         )
 
+        grunzbabe_at_x_button = arcade.gui.UIFlatButton(
+            text=_("Follow me on X"),
+            width=BUTTON_WIDTH,
+            stye=utils.text.get_style()
+        )
+
         back_button = arcade.gui.UIFlatButton(
             text=_("Zurück"),
             width=BUTTON_WIDTH,
@@ -51,6 +60,12 @@ class OptionsMenu(View):
 
         # A non-scrolling camera that can be used to draw GUI elements
 
+        @grunzbabe_at_x_button.event("on_click")
+        def on_click_grunzbabe_at_x_button(event):
+            # Pass already created view because we are resuming.
+            self.window.set_fullscreen(self.window.fullscreen)
+            webbrowser.open(URL_GRUNZBABE_AT_X)
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
@@ -59,6 +74,7 @@ class OptionsMenu(View):
 
         buttons = [
             label,
+            grunzbabe_at_x_button,
             back_button
         ]
 
