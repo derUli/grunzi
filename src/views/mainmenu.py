@@ -35,6 +35,13 @@ class MainMenu(Fading):
             width=BUTTON_WIDTH,
             stye=utils.text.get_style()
         )
+
+        options_help = arcade.gui.UIFlatButton(
+            text=_("Options & Help"),
+            width=BUTTON_WIDTH,
+            stye=utils.text.get_style()
+        )
+
         quit_button = arcade.gui.UIFlatButton(
             text=_("Quit game"),
             width=BUTTON_WIDTH,
@@ -72,6 +79,7 @@ class MainMenu(Fading):
         buttons = [
             label,
             newgame_button,
+            options_help,
             quit_button
         ]
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-25 18:35+0100\n"
+"POT-Creation-Date: 2024-02-25 22:05+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,39 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: grunzi.py:83
+#: grunzi.py:85
 msgid "Run in windowed mode"
 msgstr ""
 
-#: grunzi.py:90
+#: grunzi.py:92
 msgid "Enable debug mode"
 msgstr ""
 
-#: grunzi.py:97
+#: grunzi.py:99
 msgid "Window width in pixels"
 msgstr ""
 
-#: grunzi.py:103
+#: grunzi.py:105
 msgid "Window height in pixels"
 msgstr ""
 
-#: grunzi.py:110
+#: grunzi.py:112
 msgid "Name of the map"
 msgstr ""
 
-#: grunzi.py:117
+#: grunzi.py:119
 msgid "Mute the sound"
 msgstr ""
 
-#: grunzi.py:125
+#: grunzi.py:127
 msgid "Make the operation more talkative"
 msgstr ""
 
-#: grunzi.py:144
+#: grunzi.py:146
 msgid "Args"
 msgstr ""
 
-#: grunzi.py:145
+#: grunzi.py:147
 msgid "Pyglet options"
 msgstr ""
 
@@ -66,23 +66,27 @@ msgstr ""
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
-#: views/mainmenuview.py:26
+#: views/mainmenu.py:26
 msgid "Grunzi"
 msgstr ""
 
-#: views/mainmenuview.py:34
+#: views/mainmenu.py:34
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenuview.py:39
+#: views/mainmenu.py:40
+msgid "Options & Help"
+msgstr "Optionen & Hilfe"
+
+#: views/mainmenu.py:46
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/pausemenuview.py:28
+#: views/pausemenu.py:28
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/pausemenuview.py:29
+#: views/pausemenu.py:29
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
