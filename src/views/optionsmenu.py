@@ -2,7 +2,6 @@ import os
 import webbrowser
 
 import arcade.gui
-
 import constants.controls.keyboard
 import utils.text
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
@@ -72,7 +71,7 @@ class OptionsMenu(View):
             self.on_back()
 
         buttons = [
-            # controls_button,
+            #controls_button,
             grunzbabe_at_x_button,
             back_button
         ]
@@ -116,7 +115,6 @@ class OptionsMenu(View):
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
-
     def on_update(self, dt):
         self.scene.update()
 
