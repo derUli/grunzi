@@ -123,7 +123,7 @@ class SkullSprite(EnemySprite):
         self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
 
         if arcade.has_line_of_sight(
-          player.position,
+            player.position,
             self.position,
             walls=scene[views.gameview.SPRITE_LIST_WALL],
             check_resolution=SIGHT_CHECK_RESOLUTION,
@@ -134,7 +134,6 @@ class SkullSprite(EnemySprite):
         else:
             self.chasing = None
             self.update_texture()
-
 
         if self.chasing:
             if not self.astar_barrier_list:
