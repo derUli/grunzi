@@ -1,8 +1,6 @@
 import os
 import unittest
 
-import arcade
-
 from state.viewstate import ViewState
 
 
@@ -13,6 +11,7 @@ class ViewStateTest(unittest.TestCase):
             '..',
             'src'
         )
-        state = ViewState(root_dir)
+        state = ViewState(root_dir, map_name='world')
+        state.preload_sounds()
         state.play_sound('coin')
         self.assertTrue(state.sounds['coin'].is_playing)
