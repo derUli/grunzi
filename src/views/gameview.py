@@ -91,7 +91,7 @@ class GameView(FadingView):
         layer_options = {
             "Walls": {
                 "use_spatial_hash": True,
-            },
+            }
         }
 
         # Read in the tiled map
@@ -304,15 +304,14 @@ class GameView(FadingView):
                 continue
             sprite.update(
                 player=self.player_sprite,
-                walls=self.scene[SPRITE_LIST_WALL],
                 scene=self.scene,
                 physics_engine=self.physics_engine
             )
             if arcade.check_for_collision(sprite, self.player_sprite):
                 self.player_sprite.hurt(sprite.damage)
 
-        if len(enemies) < 100:
-            if random.randint(1, 100) == 50:
+        if len(enemies) < 50:
+            if random.randint(1, 200) == 50:
                 self.join_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 

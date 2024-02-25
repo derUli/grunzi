@@ -4,6 +4,7 @@ import os
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
+import views.gameview
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import FULL_ALPHA, ONE_PERCENT_ALPHA
 from sprites.characters.spritehealth import SpriteHealth, HEALTH_FULL, HEALTH_EMPTY
@@ -85,7 +86,7 @@ class SkullSprite(EnemySprite):
             arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
 
-    def update(self, player=None, walls=None, scene = None, physics_engine = None):
+    def update(self, player=None, scene = None, physics_engine = None):
         if self.health <= HEALTH_EMPTY:
             self.remove_from_sprite_lists()
             return
@@ -111,7 +112,7 @@ class SkullSprite(EnemySprite):
             self.face = FACE_RIGHT
             self.update_texture()
 
-        if not player or not walls:
+        if not player or not scene:
             return
 
         grid_size = self.texture.width * self._scale
@@ -124,7 +125,7 @@ class SkullSprite(EnemySprite):
         if not self.chasing and arcade.has_line_of_sight(
           player.position,
             self.position,
-            walls=walls,
+            walls=scene[views.gameview.SPRITE_LIST_WALL],
             check_resolution=SIGHT_CHECK_RESOLUTION,
             max_distance=SIGHT_DISTANCE
          ):
@@ -136,7 +137,7 @@ class SkullSprite(EnemySprite):
             if not self.astar_barrier_list:
                 self.astar_barrier_list = arcade.AStarBarrierList(
                     moving_sprite=self,
-                    blocking_sprites=walls,
+                    blocking_sprites=scene[views.gameview.SPRITE_LIST_WALL],
                     grid_size=grid_size,
                     left=int(self.playing_field_left_boundary),
                     right=int(self.playing_field_right_boundary),
