@@ -36,7 +36,7 @@ SPRITE_LIST_MOVEABLE = 'Moveable'
 TOTAL_COINS = 100
 
 START_POS_X = 474
-START_POS_Y = 60
+START_POS_Y = 226
 
 class GameView(FadingView):
     """
