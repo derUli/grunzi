@@ -3,7 +3,7 @@ import arcade
 
 KEY_PAUSE = [arcade.key.ESCAPE]
 KEY_SPRINT = [arcade.key.LSHIFT, arcade.key.RSHIFT]
-KEY_SHOOT = [arcade.key.E]
+KEY_SHOOT = [arcade.key.LCTRL, arcade.key.RCTRL]
 KEY_GRUNT = [arcade.key.G]
 
 KEY_MOVE_LEFT = [arcade.key.LEFT, arcade.key.A]
