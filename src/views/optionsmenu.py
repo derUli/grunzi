@@ -26,6 +26,12 @@ class OptionsMenu(View):
 
         v_box = arcade.gui.UIBoxLayout()
 
+        controls_button = arcade.gui.UIFlatButton(
+            text=_("Controls"),
+            width=BUTTON_WIDTH,
+            stye=utils.text.get_style()
+        )
+
         grunzbabe_at_x_button = arcade.gui.UIFlatButton(
             text=_("Follow me on X"),
             width=BUTTON_WIDTH,
@@ -65,6 +71,7 @@ class OptionsMenu(View):
             self.window.show_view(self.previous_view)
 
         buttons = [
+            # controls_button,
             grunzbabe_at_x_button,
             back_button
         ]
