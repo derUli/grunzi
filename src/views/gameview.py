@@ -14,6 +14,7 @@ from arcade import SpriteList, PymunkPhysicsEngine
 import sprites.characters.playersprite
 import utils.audio
 from sprites.bullet.bullet import Bullet
+from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
@@ -209,7 +210,13 @@ class GameView(FadingView):
             )
 
         if key == arcade.key.G:
-            self.state.grunt()
+            bullet = Grunt(8)
+            bullet.setup(
+                source=self.player_sprite,
+                physics_engine=self.physics_engine,
+                scene=self.scene,
+                state=self.state
+            )
 
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.left_key_down = True

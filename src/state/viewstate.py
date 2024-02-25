@@ -57,5 +57,6 @@ class ViewState:
 
     def grunt(self):
         rand = random.randint(1, 5)
-        self.play_sound(f"grunt{rand}")
         logging.debug(_('Grunt'))
+        return self.play_sound(f"grunt{rand}")
+
