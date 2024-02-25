@@ -89,7 +89,6 @@ class Game(Fading):
 
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
-        self.camera_sprites.move_speed = 0.01
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
@@ -299,7 +298,7 @@ class Game(Fading):
 
         # Here's our center, move to it
         player_centered = screen_center_x, screen_center_y
-        self.camera_sprites.move_to(player_centered, speed=0.8)
+        self.camera_sprites.move_to(player_centered)
 
     def on_update(self, delta_time):
         """Movement and game logic"""
@@ -371,7 +370,7 @@ class Game(Fading):
             filename=os.path.join(self.state.sprite_dir, 'coin.png'),
             center_x=rand_x,
             center_y=rand_y,
-            scale=0.7
+            scale=0.6
         )
 
         if arcade.check_for_collision_with_list(coin, self.static_layers()):
