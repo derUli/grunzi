@@ -112,7 +112,7 @@ class SkullSprite(EnemySprite):
             self.face = FACE_RIGHT
             self.update_texture()
 
-        grid_size = 64
+        grid_size = 56
 
         self.playing_field_left_boundary = self.left - SIGHT_DISTANCE
         self.playing_field_right_boundary = self.right + SIGHT_DISTANCE
@@ -160,16 +160,15 @@ class SkullSprite(EnemySprite):
 
                 force_x, force_y = 0, 0
 
-                if y2 > y1:
-                    force_y = self.move_force
+                if x1 > x2:
+                    force_x = -self.move_force
                 if y1 > y2:
-
                     force_y = -self.move_force
                 if x2 > x1:
                     force_x = self.move_force
-                if x1 > x2:
-                    force_x = -self.move_force
+                if y2 > y1:
+                    force_y = self.move_force
 
                 physics_engine.apply_force(self, (force_x, force_y))
 
-                break
+
