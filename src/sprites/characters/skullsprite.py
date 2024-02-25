@@ -162,14 +162,13 @@ class SkullSprite(EnemySprite):
 
                 if x2 > x1:
                     force_x = self.move_force
-
-                if x1 > x2:
+                elif x1 > x2:
                     force_x = -self.move_force
 
                 if y2 > y1:
                     force_y = self.move_force
 
-                if y1 > y2:
+                elif y1 > y2:
                     force_y = -self.move_force
 
                 physics_engine.apply_force(self, (force_x, force_y))
