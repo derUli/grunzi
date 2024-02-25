@@ -29,7 +29,7 @@ def make_physics_engine(player_sprite, scene):
                               friction=DEFAULT_FRICTION,
                               moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
                               collision_type="player",
-                              damping=player_sprite.damping,
+                              damping=player_sprite.damping
                               )
 
     # Create the walls.
