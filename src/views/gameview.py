@@ -22,6 +22,7 @@ from sprites.characters.skullsprite import SkullSprite
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
 from views.fadingview import FadingView
+from views.mainmenuview import MainMenuView
 from views.pausemenuview import PauseMenuView
 
 # Constants used to scale our sprites from their original size
@@ -193,13 +194,16 @@ class GameView(FadingView):
 
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
-            pause_view = PauseMenuView(self.window, self.state, self)
             self.reset_keys()
+
             if not self.player_sprite.dead():
-                self.window.show_view(pause_view)
+                self.window.show_view(
+                    PauseMenuView(self.window, self.state, self)
+                )
             else:
-                self.next_view = pause_view
+                self.next_view = MainMenuView(self.window, self.state)
                 self.fade_out()
+                return
 
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
