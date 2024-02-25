@@ -2,7 +2,7 @@ import os
 import webbrowser
 
 import arcade.gui
-
+import constants.controls.keyboard
 import utils.text
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from views.view import View
@@ -68,7 +68,7 @@ class OptionsMenu(View):
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
 
-            self.window.show_view(self.previous_view)
+            self.on_back()
 
         buttons = [
             #controls_button,
@@ -90,6 +90,9 @@ class OptionsMenu(View):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
 
+    def on_back(self):
+        self.window.show_view(self.previous_view)
+
     def on_show_view(self):
         super().on_show_view()
         """ This is run once when we switch to this view """
@@ -106,6 +109,12 @@ class OptionsMenu(View):
 
         self.manager.enable()
 
+    def on_key_press(self, key, modifiers):
+        super().on_key_press(key, modifiers)
+
+        """Called whenever a key is pressed."""
+        if key in constants.controls.keyboard.KEY_PAUSE:
+            self.on_back()
     def on_update(self, dt):
         self.scene.update()
 
