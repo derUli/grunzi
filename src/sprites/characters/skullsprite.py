@@ -139,17 +139,18 @@ class SkullSprite(EnemySprite):
                     top=int(self.playing_field_top_boundary)
                 )
 
-            self.move_path = arcade.astar_calculate_path(
+
+            move_path = arcade.astar_calculate_path(
                 self.position,
                 (player.center_x, player.center_y),
                 self.astar_barrier_list,
                 diagonal_movement=True
             )
 
-            if not self.move_path:
-                self.chasing = None
-                self.update_texture()
+            if not move_path:
                 return
+
+            self.move_path = move_path
 
             for path in self.move_path:
 
