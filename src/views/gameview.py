@@ -22,7 +22,6 @@ from sprites.characters.skullsprite import SkullSprite
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
 from views.fadingview import FadingView
-from views.mainmenuview import MainMenuView
 from views.pausemenuview import PauseMenuView
 
 # Constants used to scale our sprites from their original size
@@ -61,10 +60,10 @@ class GameView(FadingView):
         self.camera_sprites = None
 
         # What key is pressed down?
-        self.left_key_down = False
-        self.right_key_down = False
-        self.down_key_down = False
-        self.up_key_down = False
+        self.up_key_pressed = False
+        self.right_key_pressed = False
+        self.down_key_pressed = False
+        self.left_key_pressed = False
 
         # Music queue
         self.music_queue = None
@@ -173,14 +172,15 @@ class GameView(FadingView):
 
         force_x, force_y = 0, 0
 
-        if self.up_key_down and not self.down_key_down and self:
+
+        if self.up_key_pressed and not self.down_key_pressed:
             force_y = move_force
-        elif self.down_key_down and not self.up_key_down:
+        elif self.down_key_pressed and not self.up_key_pressed:
             force_y = -move_force
-        if self.left_key_down and not self.right_key_down:
+        if self.left_key_pressed and not self.right_key_pressed:
             force_x = -move_force
             self.player_sprite.change_x = -1
-        elif self.right_key_down and not self.left_key_down:
+        elif self.right_key_pressed and not self.left_key_pressed:
             force_x = move_force
             self.player_sprite.change_x = 1
 
@@ -192,6 +192,7 @@ class GameView(FadingView):
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             pause_view = PauseMenuView(self.window, self.state, self)
+            self.reset_keys()
             if not self.player_sprite.dead():
                 self.window.show_view(pause_view)
             else:
@@ -211,13 +212,21 @@ class GameView(FadingView):
             self.on_grunt()
 
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
-            self.left_key_down = True
+            self.left_key_pressed = True
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
-            self.right_key_down = True
-        if key in constants.controls.keyboard.KEY_MOVE_UP:
-            self.up_key_down = True
+            self.right_key_pressed = True
+        elif key in constants.controls.keyboard.KEY_MOVE_UP:
+            self.up_key_pressed = True
         elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
-            self.down_key_down = True
+            self.down_key_pressed = True
+
+    def reset_keys(self):
+        # What key is pressed down?
+        self.up_key_pressed = False
+        self.right_key_pressed = False
+        self.down_key_pressed = False
+        self.left_key_pressed = False
+        self.player_sprite.reset()
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
@@ -228,13 +237,13 @@ class GameView(FadingView):
         movement = True
 
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
-            self.left_key_down = False
+            self.left_key_pressed = False
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
-            self.right_key_down = False
-        if key in constants.controls.keyboard.KEY_MOVE_UP:
-            self.up_key_down = False
+            self.right_key_pressed = False
+        elif key in constants.controls.keyboard.KEY_MOVE_UP:
+            self.up_key_pressed = False
         elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
-            self.down_key_down = False
+            self.down_key_pressed = False
         else:
             movement = False
 

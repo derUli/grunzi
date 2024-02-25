@@ -44,6 +44,9 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
     def update_texture(self):
         self.texture = self.textures[self.face - 1]
 
+    def reset(self):
+        self.modifier = MODIFIER_DEFAULT
+
     def update(self):
         if self.dead():
             return
