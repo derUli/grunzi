@@ -93,6 +93,14 @@ def main():
         help=_('Mute the sound')
     )
 
+    parser.add_argument(
+        '-v',
+        '--verbose',
+        default=0,
+        action='count',
+        help=_('Make the operation more talkative')
+    )
+
     args = parser.parse_args()
 
     if args.silent:
@@ -100,11 +108,14 @@ def main():
 
     LOG_LEVEL = logging.INFO
 
-    # if args.debug:
-    #    LOG_LEVEL = logging.DEBUG
+    if args.verbose >= 1:
+        LOG_LEVEL = logging.DEBUG
+
+    if args.verbose >= 2:
+        LOG_LEVEL = logging.NOTSET
 
     configure_logger(LOG_LEVEL)
-    logging.debug(args)
+    logging.info(args)
 
     window = GameWindow(args.window, args.width, args.height, debug=args.debug)
     state = ViewState(ROOT_DIR, map_name=args.map)

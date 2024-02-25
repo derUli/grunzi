@@ -40,6 +40,7 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --height HEIGHT  Window height in pixels
   --map MAP        Name of the map
   --silent         Mute the sound
+  -v, --verbose    Make the operation more talkative
 
 ```
 
