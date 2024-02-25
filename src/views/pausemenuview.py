@@ -55,8 +55,8 @@ class PauseMenuView(FadingView):
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):
-            self.fade_out()
             self.next_view = MainMenuView(self.window, self.state)
+            self.fade_out()
 
         buttons = [
             newgame_button,

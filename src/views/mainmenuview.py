@@ -65,9 +65,9 @@ class MainMenuView(FadingView):
         def on_click_newgame_button(event):
             # Pass already created view because we are resuming.
 
-            self.fade_out()
             from views.gameview import GameView
             self.next_view = GameView(self.window, self.state)
+            self.fade_out()
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):

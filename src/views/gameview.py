@@ -21,6 +21,7 @@ from sprites.characters.skullsprite import SkullSprite
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
 from views.fadingview import FadingView
+from views.mainmenuview import MainMenuView
 from views.pausemenuview import PauseMenuView
 
 # Constants used to scale our sprites from their original size
@@ -71,6 +72,8 @@ class GameView(FadingView):
         self.music_queue = None
 
         self.initialized = False
+
+        self.next_view = None
 
     def on_show_view(self):
         super().on_show_view()
@@ -163,9 +166,10 @@ class GameView(FadingView):
         if self.window.debug:
             utils.text.draw_debug(self.player_sprite, self.window)
 
-        self.draw_fading()
 
         self.player_sprite.draw_overlay()
+
+        self.draw_fading()
 
     def update_player_speed(self):
 
@@ -194,8 +198,12 @@ class GameView(FadingView):
 
         """Called whenever a key is pressed."""
         if key == arcade.key.ESCAPE:
-            pause_view = PauseMenuView(self.window, self.state, self)
-            self.window.show_view(pause_view)
+            if not self.player_sprite.dead():
+                pause_view = PauseMenuView(self.window, self.state, self)
+                self.window.show_view(pause_view)
+            else:
+                self.next_view = MainMenuView(self.window, self.state)
+                self.fade_out()
 
         if key == arcade.key.LSHIFT or key == arcade.key.RSHIFT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
@@ -268,9 +276,10 @@ class GameView(FadingView):
         self.update_player()
         self.physics_engine.step()
         self.update_collectable()
-        self.update_fade()
         self.update_enemies()
         self.center_camera_to_player()
+
+        self.update_fade(self.next_view)
 
     def update_player(self):
         self.update_player_speed()
@@ -295,8 +304,8 @@ class GameView(FadingView):
                 self.player_sprite.hurt(sprite.damage)
 
         if len(enemies) < 100:
-            if random.randint(1, 200) == 100:
-                self.join_skull()
+            if random.randint(1, 100) == 50:
+                self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
     def static_layers(self):
@@ -340,13 +349,13 @@ class GameView(FadingView):
 
         return
 
-    def join_skull(self):
+    def spawn_skull(self):
         rand_x, rand_y = random_position(self.tile_map)
 
         skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x=rand_x, center_y=rand_y)
 
         if arcade.check_for_collision_with_list(skull, self.static_layers()):
-            return self.join_skull()
+            return self.spawn_skull()
 
         self.scene.add_sprite(SPRITE_LIST_ENEMIES, skull)
 

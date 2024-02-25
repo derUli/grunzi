@@ -12,6 +12,7 @@ class FadingView(View):
         self._fade_in = 255
         self._do_quit = False
 
+
     def update_fade(self, next_view=None):
         if self._fade_out is not None:
             self._fade_out += FADE_RATE
