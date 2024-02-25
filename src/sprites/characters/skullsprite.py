@@ -115,7 +115,7 @@ class SkullSprite(EnemySprite):
         if not player or not scene:
             return
 
-        grid_size = self.texture.width * self._scale * 1
+        grid_size = self.texture.width * self._scale
 
         self.playing_field_left_boundary = self.left - SIGHT_DISTANCE
         self.playing_field_right_boundary = self.right + SIGHT_DISTANCE
