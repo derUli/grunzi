@@ -16,7 +16,7 @@ DEFAULT_FACE = FACE_RIGHT
 MOVE_FORCE = 200
 MOVE_DAMPING = 0.01
 
-SIGHT_DISTANCE = 600
+SIGHT_DISTANCE = 400
 SIGHT_CHECK_RESOLUTION = 32
 
 FADE_IN_MAX = 255
@@ -122,7 +122,7 @@ class SkullSprite(EnemySprite):
         self.playing_field_top_boundary = self.top + SIGHT_DISTANCE
         self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
 
-        if arcade.has_line_of_sight(
+        if not self.chasing and arcade.has_line_of_sight(
             player.position,
             self.position,
             walls=scene[views.gameview.SPRITE_LIST_WALL],
@@ -130,9 +130,6 @@ class SkullSprite(EnemySprite):
             max_distance=SIGHT_DISTANCE
          ):
             self.chasing = player
-            self.update_texture()
-        else:
-            self.chasing = None
             self.update_texture()
 
         if self.chasing:
@@ -155,6 +152,8 @@ class SkullSprite(EnemySprite):
             )
 
             if not self.move_path:
+                self.chasing = None
+                self.update_texture()
                 return
 
             for path in reversed(self.move_path):
