@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-25 22:05+0100\n"
+"POT-Creation-Date: 2024-02-25 22:22+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -66,27 +66,31 @@ msgstr ""
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
-#: views/mainmenu.py:26
+#: views/mainmenu.py:27
 msgid "Grunzi"
 msgstr ""
 
-#: views/mainmenu.py:34
+#: views/mainmenu.py:35
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:40
+#: views/mainmenu.py:41 views/optionsmenu.py:27 views/pausemenu.py:36
 msgid "Options & Help"
 msgstr "Optionen & Hilfe"
 
-#: views/mainmenu.py:46
+#: views/mainmenu.py:47
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/pausemenu.py:28
+#: views/optionsmenu.py:35
+msgid "Zurück"
+msgstr ""
+
+#: views/pausemenu.py:30
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/pausemenu.py:29
+#: views/pausemenu.py:42
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 

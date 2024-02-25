@@ -5,6 +5,7 @@ import arcade.gui
 import utils.text
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from views.fading import Fading
+from views.optionsmenu import OptionsMenu
 
 BUTTON_WIDTH = 250
 
@@ -16,9 +17,9 @@ class MainMenu(Fading):
         super().__init__(window)
 
         self.window = window
-        self.manager = arcade.gui.UIManager(window)
-
         self.state = state
+
+        self.manager = arcade.gui.UIManager(window)
 
         v_box = arcade.gui.UIBoxLayout()
 
@@ -72,6 +73,16 @@ class MainMenu(Fading):
             self.next_view = Game(self.window, self.state)
             self.fade_out()
 
+        @options_help.event("on_click")
+        def on_click_options_help(event):
+            # Pass already created view because we are resuming.
+
+            from views.game import Game
+            self.window.show_view(
+                OptionsMenu(self.window, self.state, previous_view = self)
+            )
+
+
         @quit_button.event("on_click")
         def on_click_quit_button(event):
             self.fade_quit()
@@ -96,7 +107,9 @@ class MainMenu(Fading):
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
-        self.player.pause()
+
+        if self.next_view:
+            self.player.pause()
 
     def on_show_view(self):
         super().on_show_view()
@@ -106,7 +119,9 @@ class MainMenu(Fading):
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
 
         music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
-        self.player = music.play(loop=True)
+
+        if not self.player:
+            self.player = music.play(loop=True)
 
         self.camera_gui.move_to(
             (

@@ -2,46 +2,39 @@ import os
 
 import arcade.gui
 
-import constants.controls.keyboard
-import utils
+import utils.text
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
-from utils.text import get_style
-from views.fading import Fading
-from views.mainmenu import MainMenu
-from views.optionsmenu import OptionsMenu
+from views.view import View
 
 BUTTON_WIDTH = 250
 
 
-class PauseMenu(Fading):
+class OptionsMenu(View):
     """Main menu view class."""
 
-    def __init__(self, window, state, previous_view=None):
+    def __init__(self, window, state, previous_view):
         super().__init__(window)
 
         self.window = window
+        self.state = state
         self.manager = arcade.gui.UIManager(window)
 
-        self.state = state
+        self.previous_view = previous_view
 
         v_box = arcade.gui.UIBoxLayout()
 
-        continue_button = arcade.gui.UIFlatButton(
-            text=_("Continue"),
-            width=BUTTON_WIDTH,
-            style=get_style()
+        label = arcade.gui.UILabel(
+            text=_('Options & Help'),
+            font_name=utils.text.ADRIP_FONT,
+            font_size=utils.text.LOGO_FONT_SIZE,
+            text_color=arcade.csscolor.HOTPINK,
+            align='center'
         )
 
-        options_help = arcade.gui.UIFlatButton(
-            text=_("Options & Help"),
+        back_button = arcade.gui.UIFlatButton(
+            text=_("Zurück"),
             width=BUTTON_WIDTH,
             stye=utils.text.get_style()
-        )
-
-        quit_button = arcade.gui.UIFlatButton(
-            text=_("Back to main menu"),
-            width=BUTTON_WIDTH,
-            style=get_style()
         )
 
         self.backdrop = ScrollingBackdrop(
@@ -51,7 +44,6 @@ class PauseMenu(Fading):
                 'menu.jpg'
             ),
         )
-
         self.backdrop.width = self.window.width
         self.backdrop.height = self.window.height
 
@@ -59,29 +51,15 @@ class PauseMenu(Fading):
 
         # A non-scrolling camera that can be used to draw GUI elements
 
-        self.previous_view = previous_view
-
-        @continue_button.event("on_click")
-        def on_click_continue_button(event):
-            # Pass already created view because we are resuming.
-            self.on_toggle()
-
-        @options_help.event("on_click")
-        def on_click_options_help(event):
+        @back_button.event("on_click")
+        def on_click_back_button(event):
             # Pass already created view because we are resuming.
 
-            self.window.show_view(
-                OptionsMenu(self.window, self.state, previous_view=self)
-            )
-
-        @quit_button.event("on_click")
-        def on_click_quit_button(event):
-            self.on_exit()
+            self.window.show_view(self.previous_view)
 
         buttons = [
-            continue_button,
-            options_help,
-            quit_button
+            label,
+            back_button
         ]
 
         for button in buttons:
@@ -94,27 +72,16 @@ class PauseMenu(Fading):
                 child=v_box)
         )
 
-    def on_key_press(self, key, modifiers):
-        super().on_key_press(key, modifiers)
-
-        """Called whenever a key is pressed."""
-        if key in constants.controls.keyboard.KEY_PAUSE:
-            self.on_toggle()
-
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
 
-    def on_toggle(self):
-        self.window.show_view(self.previous_view)
-
-    def on_exit(self):
-        self.next_view = MainMenu(self.window, self.state)
-        self.fade_out()
-
     def on_show_view(self):
-        """ This is run once when we switch to this view """
         super().on_show_view()
+        """ This is run once when we switch to this view """
+
+        # Makes the background darker
+        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
 
         self.camera_gui.move_to(
             (
@@ -126,7 +93,6 @@ class PauseMenu(Fading):
         self.manager.enable()
 
     def on_update(self, dt):
-        self.update_fade(self.next_view)
         self.scene.update()
 
     def on_draw(self):
@@ -142,6 +108,3 @@ class PauseMenu(Fading):
 
         build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
         utils.text.draw_build_number(build_version, self.window)
-
-        if self.next_view:
-            self.draw_fading()
