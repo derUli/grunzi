@@ -51,9 +51,6 @@ class GameView(FadingView):
         # Our TileMap Object
         self.tile_map = None
 
-        # Our Scene Object
-        self.scene = None
-
         # Separate variable that holds the player sprite
         self.player_sprite = None
 
@@ -73,8 +70,6 @@ class GameView(FadingView):
         self.music_queue = None
 
         self.initialized = False
-
-        self.next_view = None
 
     def on_show_view(self):
         super().on_show_view()

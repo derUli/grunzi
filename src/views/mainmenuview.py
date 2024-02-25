@@ -43,8 +43,6 @@ class MainMenuView(FadingView):
 
         self.player = None
 
-        self.scene = arcade.Scene()
-
         self.backdrop = ScrollingBackdrop(
             filename=os.path.join(
                 self.state.image_dir,
@@ -56,8 +54,6 @@ class MainMenuView(FadingView):
         self.backdrop.height = self.window.height
 
         self.scene.add_sprite('backdrop', self.backdrop)
-
-        self.next_view = None
 
         # A non-scrolling camera that can be used to draw GUI elements
 
@@ -103,8 +99,6 @@ class MainMenuView(FadingView):
 
         music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
         self.player = music.play(loop=True)
-
-        self.camera_gui = arcade.Camera()
 
         self.camera_gui.move_to(
             (

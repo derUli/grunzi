@@ -2,7 +2,6 @@ import os
 
 import arcade.gui
 
-import utils.text
 from views.fadingview import FadingView
 from views.mainmenuview import MainMenuView
 
@@ -11,15 +10,12 @@ SPRITE_LIST_ENEMIES = 'ui'
 # Seconds
 WAIT_FOR = 3
 
+
 class IntroView(FadingView):
     """Main menu view class."""
 
     def __init__(self, window, state):
         super().__init__(window)
-
-        self.scene = arcade.Scene()
-
-        self.next_view = None
 
         self.state = state
         fps_second = 1000 / 1000 / self.window.draw_rate
@@ -33,8 +29,6 @@ class IntroView(FadingView):
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
-
-        self.camera_gui = arcade.Camera()
 
         logo = arcade.sprite.Sprite(
             filename=os.path.join(
@@ -51,7 +45,6 @@ class IntroView(FadingView):
     def on_update(self, dt):
         self.scene.update()
         self.update_fade(self.next_view)
-
 
     def on_draw(self):
         """ Render the screen. """
@@ -73,5 +66,3 @@ class IntroView(FadingView):
 
         self.scene.draw()
         self.draw_fading()
-
-

@@ -27,8 +27,6 @@ class PauseMenuView(FadingView):
         newgame_button = arcade.gui.UIFlatButton(text=_("Continue"), width=BUTTON_WIDTH, style=get_style())
         quit_button = arcade.gui.UIFlatButton(text=_("Back to main menu"), width=BUTTON_WIDTH, style=get_style())
 
-        self.scene = arcade.Scene()
-
         self.backdrop = ScrollingBackdrop(
             filename=os.path.join(
                 self.state.image_dir,
@@ -42,7 +40,6 @@ class PauseMenuView(FadingView):
 
         self.scene.add_sprite('backdrop', self.backdrop)
 
-        self.next_view = None
         # A non-scrolling camera that can be used to draw GUI elements
 
         self.previous_view = previous_view

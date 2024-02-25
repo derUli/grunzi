@@ -8,6 +8,9 @@ FADE_RATE = 5
 class FadingView(View):
     def __init__(self, window):
         super().__init__(window)
+
+        self.next_view = None
+
         self._fade_out = None
         self._fade_in = 255
         self._do_quit = False
