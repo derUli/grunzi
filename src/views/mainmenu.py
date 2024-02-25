@@ -129,7 +129,6 @@ class MainMenu(Fading):
                 self.backdrop.center_y - (self.camera_gui.viewport_height / 2)
             )
         )
-
         self.manager.enable()
 
     def on_update(self, dt):

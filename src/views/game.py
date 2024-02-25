@@ -89,6 +89,7 @@ class Game(Fading):
 
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
+        self.camera_sprites.move_speed = 0.01
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
