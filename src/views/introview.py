@@ -9,7 +9,7 @@ from views.mainmenuview import MainMenuView
 SPRITE_LIST_ENEMIES = 'ui'
 
 # Seconds
-WAIT_FOR = 10
+WAIT_FOR = 3
 
 class IntroView(FadingView):
     """Main menu view class."""
@@ -32,7 +32,7 @@ class IntroView(FadingView):
         """ This is run once when we switch to this view """
 
         # Makes the background darker
-        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
+        arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
 
         self.camera_gui = arcade.Camera()
 
