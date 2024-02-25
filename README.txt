@@ -6,10 +6,21 @@ Das Spiel befindet sich noch in einem sehr frühen Zustand der Entwicklung.
 
 ## Systemvoraussetzungen
 
-OS: Windows 10 / 11
+Das Spiel benötigt OpenGL.
+
+Ich habe es auf meinem Desktop PC und meinem Laptop getestet, welche folgende Specs haben.
+
+Desktop PC:
+CPU: Intel Core i7-10700F
+GPU: Nvidia GeForce GT 1030
+RAM: 32 GB
+OS: Windows 11 64-Bit
+
+Laptop:
+CPU: Intel Pentium Gold 7505
+GPU: Intel UHD Graphics
 RAM: 8 GB
-CPU: Intel i3
-GPU: OpenGL 3.3 kompatibel
+OS: Windows 11 64-Bit
 
 ## Was ist neu?
 Der Alpha Build 006 stellt einen technologischen Neuanfang dar, welcher neue Konzepte einführt.
