@@ -16,7 +16,7 @@ DEFAULT_FACE = FACE_RIGHT
 MOVE_FORCE = 200
 MOVE_DAMPING = 0.01
 
-SIGHT_DISTANCE = 400
+SIGHT_DISTANCE = 600
 SIGHT_CHECK_RESOLUTION = 32
 
 FADE_IN_MAX = 255
@@ -112,9 +112,6 @@ class SkullSprite(EnemySprite):
             self.face = FACE_RIGHT
             self.update_texture()
 
-        if not player or not scene:
-            return
-
         grid_size = self.texture.width * self._scale
 
         self.playing_field_left_boundary = self.left - SIGHT_DISTANCE
@@ -156,9 +153,9 @@ class SkullSprite(EnemySprite):
                 self.update_texture()
                 return
 
-            for path in reversed(self.move_path):
-                x1, y1 = self.left, self.top
+            for path in self.move_path:
 
+                x1, y1 = self.left, self.top
                 x2, y2 = path
 
                 force_x, force_y = 0, 0
@@ -176,4 +173,3 @@ class SkullSprite(EnemySprite):
                     force_y = -self.move_force
 
                 physics_engine.apply_force(self, (force_x, force_y))
-
