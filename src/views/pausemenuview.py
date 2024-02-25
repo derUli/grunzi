@@ -95,6 +95,7 @@ class PauseMenuView(FadingView):
 
         # Clear the screen
         self.clear()
+
         self.camera_gui.use()
 
         self.scene.draw()

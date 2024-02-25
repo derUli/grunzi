@@ -138,11 +138,9 @@ class GameView(FadingView):
         """Render the screen."""
 
         self.clear()
-        if not self.scene:
-            return
 
-        # Activate the game camera
         self.camera_sprites.use()
+
         # Draw our Scene
         # Note, if you a want pixelated look, add pixelated=True to the parameters
         self.scene.draw()
