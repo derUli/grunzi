@@ -4,13 +4,13 @@ from arcade import FACE_RIGHT, FACE_LEFT
 import views.gameview
 from sprites.characters.enemysprite import EnemySprite
 
-
 MASS = 1
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
 
 FORCE_MOVE = 20000
+
 
 class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
     def __init__(

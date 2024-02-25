@@ -59,4 +59,3 @@ class ViewState:
         rand = random.randint(1, 5)
         logging.debug(_('Grunt'))
         return self.play_sound(f"grunt{rand}")
-

@@ -25,6 +25,7 @@ FADE_SPEED = 5
 DAMAGE = 1
 GRID_SIZE = 64
 
+
 class SkullSprite(EnemySprite):
     def __init__(
             self,
@@ -138,7 +139,6 @@ class SkullSprite(EnemySprite):
                     bottom=int(self.playing_field_bottom_boundary),
                     top=int(self.playing_field_top_boundary)
                 )
-
 
             move_path = arcade.astar_calculate_path(
                 self.position,
