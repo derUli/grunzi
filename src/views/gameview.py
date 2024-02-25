@@ -191,11 +191,11 @@ class GameView(FadingView):
 
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
+            pause_view = PauseMenuView(self.window, self.state, self)
             if not self.player_sprite.dead():
-                pause_view = PauseMenuView(self.window, self.state, self)
                 self.window.show_view(pause_view)
             else:
-                self.next_view = MainMenuView(self.window, self.state)
+                self.next_view = pause_view
                 self.fade_out()
 
         if key in constants.controls.keyboard.KEY_SPRINT:
@@ -313,7 +313,7 @@ class GameView(FadingView):
                 self.player_sprite.hurt(sprite.damage)
 
         if len(enemies) < 100:
-            if random.randint(1, 100) == 50:
+            if random.randint(1, 80) == 1:
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 

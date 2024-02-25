@@ -3,6 +3,7 @@ import os
 import arcade.gui
 
 import utils
+import constants.controls.keyboard
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from utils.text import get_style
 from views.fadingview import FadingView
@@ -24,7 +25,7 @@ class PauseMenuView(FadingView):
 
         v_box = arcade.gui.UIBoxLayout()
 
-        newgame_button = arcade.gui.UIFlatButton(text=_("Continue"), width=BUTTON_WIDTH, style=get_style())
+        continue_button = arcade.gui.UIFlatButton(text=_("Continue"), width=BUTTON_WIDTH, style=get_style())
         quit_button = arcade.gui.UIFlatButton(text=_("Back to main menu"), width=BUTTON_WIDTH, style=get_style())
 
         self.backdrop = ScrollingBackdrop(
@@ -44,18 +45,17 @@ class PauseMenuView(FadingView):
 
         self.previous_view = previous_view
 
-        @newgame_button.event("on_click")
-        def on_click_newgame_button(event):
+        @continue_button.event("on_click")
+        def on_click_continue_button(event):
             # Pass already created view because we are resuming.
-            self.window.show_view(self.previous_view)
+            self.on_toggle()
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):
-            self.next_view = MainMenuView(self.window, self.state)
-            self.fade_out()
+            self.on_exit()
 
         buttons = [
-            newgame_button,
+            continue_button,
             quit_button
         ]
 
@@ -69,9 +69,22 @@ class PauseMenuView(FadingView):
                 child=v_box)
         )
 
+    def on_key_press(self, key, modifiers):
+        super().on_key_press(key, modifiers)
+
+        """Called whenever a key is pressed."""
+        if key in constants.controls.keyboard.KEY_PAUSE:
+            self.on_toggle()
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
+
+    def on_toggle(self):
+        self.window.show_view(self.previous_view)
+
+    def on_exit(self):
+        self.next_view = MainMenuView(self.window, self.state)
+        self.fade_out()
 
     def on_show_view(self):
         """ This is run once when we switch to this view """
