@@ -5,13 +5,14 @@ import arcade.gui
 import utils
 from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from utils.text import get_style
+from views.fadingview import FadingView
 from views.mainmenuview import MainMenuView
 from views.view import View
 
 BUTTON_WIDTH = 250
 
 
-class PauseMenuView(View):
+class PauseMenuView(FadingView):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view=None):
@@ -54,7 +55,8 @@ class PauseMenuView(View):
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):
-            self.window.show_view(MainMenuView(self.window, self.state))
+            self.fade_out()
+            self.next_view = MainMenuView(self.window, self.state)
 
         buttons = [
             newgame_button,
@@ -91,6 +93,7 @@ class PauseMenuView(View):
         self.manager.enable()
 
     def on_update(self, dt):
+        self.update_fade(self.next_view)
         self.scene.update()
 
     def on_draw(self):
@@ -103,5 +106,8 @@ class PauseMenuView(View):
         self.scene.draw()
         self.manager.draw()
 
-        build_version = os.path.join(self.state.root_dir, 'VERSION')
+        build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
         utils.text.draw_build_number(build_version, self.window)
+
+        if self.next_view:
+            self.draw_fading()

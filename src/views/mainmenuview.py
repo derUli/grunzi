@@ -127,10 +127,11 @@ class MainMenuView(FadingView):
         # Clear the screen
         self.clear()
 
+        self.camera_gui.use()
+
         self.scene.draw()
         self.manager.draw()
 
-        build_version = os.path.join(self.state.root_dir, 'VERSION')
+        build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
         utils.text.draw_build_number(build_version, self.window)
         self.draw_fading()
-        self.camera_gui.use()

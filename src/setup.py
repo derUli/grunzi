@@ -36,7 +36,7 @@ options = {
             '../CREDITS.txt',
             '../README.txt',
             '../CHANGES.txt',
-            '../VERSION'
+            '../VERSION.txt'
         ]
     }
 
