@@ -26,14 +26,6 @@ class OptionsMenu(View):
 
         v_box = arcade.gui.UIBoxLayout()
 
-        label = arcade.gui.UILabel(
-            text=_('Options & Help'),
-            font_name=utils.text.ADRIP_FONT,
-            font_size=utils.text.LOGO_FONT_SIZE,
-            text_color=arcade.csscolor.HOTPINK,
-            align='center'
-        )
-
         grunzbabe_at_x_button = arcade.gui.UIFlatButton(
             text=_("Follow me on X"),
             width=BUTTON_WIDTH,
@@ -73,7 +65,6 @@ class OptionsMenu(View):
             self.window.show_view(self.previous_view)
 
         buttons = [
-            label,
             grunzbabe_at_x_button,
             back_button
         ]
