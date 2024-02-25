@@ -89,8 +89,6 @@ class MainMenuView(FadingView):
                 child=v_box)
         )
 
-        self.state = state
-
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()

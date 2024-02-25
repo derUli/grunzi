@@ -12,7 +12,7 @@ import pyglet
 
 from state.viewstate import ViewState
 from utils.logging import configure_logger
-from views.mainmenuview import MainMenuView
+from views.introview import IntroView
 
 SCREEN_TITLE = "Grunzi"
 
@@ -33,9 +33,26 @@ class GameWindow(arcade.Window):
     Main application class.
     """
 
-    def __init__(self, window=False, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, debug=False):
+    def __init__(
+            self,
+            window=False,
+            width=SCREEN_WIDTH,
+            height=SCREEN_HEIGHT,
+            debug=False,
+            update_rate=1 / 60
+    ):
         # Call the parent class and set up the window
-        super().__init__(width=width, height=height, title=SCREEN_TITLE, fullscreen=not window, vsync=True)
+        super().__init__(
+            width=width,
+            height=height,
+            title=SCREEN_TITLE,
+            fullscreen=not window,
+            vsync=True,
+            update_rate=update_rate
+        )
+
+        self.update_rate = update_rate
+        self.draw_rate = update_rate
 
         self.debug = debug
 
@@ -124,7 +141,7 @@ def main():
     icon = pyglet.image.load(icon_path)
     window.set_icon(icon)
 
-    view = MainMenuView(window, state)
+    view = IntroView(window, state)
     window.show_view(view)
     arcade.run()
 
