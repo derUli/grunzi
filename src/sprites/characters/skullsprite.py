@@ -97,10 +97,13 @@ class SkullSprite(EnemySprite):
         arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))
 
     def draw_debug(self):
-        if self.chasing:
-            arcade.draw_lrtb_rectangle_outline(self.playing_field_left_boundary, self.playing_field_right_boundary,
-                                               self.playing_field_top_boundary, self.playing_field_bottom_boundary,
-                                               color=arcade.csscolor.RED)
+        arcade.draw_lrtb_rectangle_outline(
+            self.playing_field_left_boundary,
+            self.playing_field_right_boundary,
+            self.playing_field_top_boundary,
+            self.playing_field_bottom_boundary,
+            color=arcade.csscolor.RED
+        )
 
         if self.move_path:
             arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
