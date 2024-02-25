@@ -132,7 +132,7 @@ class SkullSprite(EnemySprite):
         if self.chasing:
             if not self.astar_barrier_list:
                 self.astar_barrier_list = arcade.AStarBarrierList(
-                    moving_sprite=player,
+                    moving_sprite=self,
                     blocking_sprites=scene[views.gameview.SPRITE_LIST_WALL],
                     grid_size=grid_size,
                     left=int(self.playing_field_left_boundary),
@@ -171,4 +171,3 @@ class SkullSprite(EnemySprite):
 
                 physics_engine.apply_force(self, (force_x, force_y))
 
-                break
