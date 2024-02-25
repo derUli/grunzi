@@ -88,7 +88,6 @@ class SkullSprite(EnemySprite):
     def update(self, player=None, walls=None, scene = None, physics_engine = None):
 
         self.alpha = int(self.health * ONE_PERCENT_ALPHA)
-        print(self.alpha, self.health)
 
         if self.health <= HEALTH_EMPTY:
             self.remove_from_sprite_lists()
