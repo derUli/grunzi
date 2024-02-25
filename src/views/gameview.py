@@ -35,6 +35,8 @@ SPRITE_LIST_PLAYER = 'player'
 SPRITE_LIST_MOVEABLE = 'Moveable'
 TOTAL_COINS = 100
 
+START_POS_X = 474
+START_POS_Y = 60
 
 class GameView(FadingView):
     """
@@ -111,8 +113,8 @@ class GameView(FadingView):
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'pig.png')
         self.player_sprite = PlayerSprite(filename)
-        self.player_sprite.center_x = 500
-        self.player_sprite.center_y = 128
+        self.player_sprite.center_x = START_POS_X
+        self.player_sprite.center_y = START_POS_Y
         self.scene.add_sprite(SPRITE_LIST_PLAYER, self.player_sprite)
 
         # Create the physics engine
