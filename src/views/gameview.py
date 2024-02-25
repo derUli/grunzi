@@ -228,6 +228,7 @@ class GameView(FadingView):
         self.player_sprite.reset()
 
     def on_key_release(self, key, modifiers):
+        super().on_key_release(key, modifiers)
         """Called when the user releases a key."""
 
         if key in constants.controls.keyboard.KEY_SPRINT:
@@ -259,6 +260,9 @@ class GameView(FadingView):
         )
 
     def on_grunt(self):
+        if self.state.is_silent():
+            return
+
         bullet = Grunt(8)
         bullet.setup(
             source=self.player_sprite,

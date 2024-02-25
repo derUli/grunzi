@@ -3,6 +3,7 @@ import os
 import random
 
 import arcade
+import pyglet
 
 
 class ViewState:
@@ -63,3 +64,6 @@ class ViewState:
         rand = random.randint(1, 5)
         logging.debug(_('Grunt'))
         return self.play_sound(f"grunt{rand}")
+
+    def is_silent(self):
+        return pyglet.options['audio'] == 'silent'

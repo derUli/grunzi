@@ -12,6 +12,7 @@ import pyglet
 
 from state.viewstate import ViewState
 from utils.logging import configure_logger
+from utils.text import label_value
 from views.introview import IntroView
 
 SCREEN_TITLE = "Grunzi"
@@ -46,10 +47,12 @@ class GameWindow(arcade.Window):
             width=width,
             height=height,
             title=SCREEN_TITLE,
-            fullscreen=not window,
+            fullscreen=False,
             vsync=True,
             update_rate=update_rate
         )
+
+        self.set_fullscreen(not window)
 
         self.update_rate = update_rate
         self.draw_rate = update_rate
@@ -58,6 +61,12 @@ class GameWindow(arcade.Window):
 
         if debug:
             arcade.enable_timings()
+
+    def set_fullscreen(self, fullscreen=True):
+        screen = pyglet.canvas.get_display().get_default_screen()
+        mode = screen.get_closest_mode(self.width, self.height)
+
+        return super().set_fullscreen(fullscreen=fullscreen, screen=screen, mode=mode)
 
 
 def main():
@@ -123,6 +132,8 @@ def main():
     if args.silent:
         pyglet.options['audio'] = 'silent'
 
+    pyglet.options['debug_gl'] = args.debug
+
     LOG_LEVEL = logging.INFO
 
     if args.verbose >= 1:
@@ -132,7 +143,8 @@ def main():
         LOG_LEVEL = logging.NOTSET
 
     configure_logger(LOG_LEVEL)
-    logging.info(args)
+    logging.info(label_value(_('Args'), args))
+    logging.info(label_value(_('Pyglet options'), pyglet.options))
 
     window = GameWindow(args.window, args.width, args.height, debug=args.debug)
     state = ViewState(ROOT_DIR, map_name=args.map)
