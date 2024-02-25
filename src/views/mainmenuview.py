@@ -26,7 +26,7 @@ class MainMenuView(FadingView):
             text=_('Grunzi'),
             font_name=utils.text.ADRIP_FONT,
             font_size=utils.text.LOGO_FONT_SIZE,
-            text_color=arcade.csscolor.BLACK,
+            text_color=arcade.csscolor.HOTPINK,
             align='center'
         )
 

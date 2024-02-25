@@ -144,6 +144,8 @@ class SkullSprite(EnemySprite):
                     top=int(self.playing_field_top_boundary)
                 )
 
+            self.astar_barrier_list.recalculate()
+
             self.move_path = arcade.astar_calculate_path(
                 self.position,
                   player.position,
