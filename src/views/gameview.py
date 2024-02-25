@@ -371,7 +371,7 @@ class GameView(FadingView):
                                        friction=skull.friction,
                                        moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
                                        collision_type="skull",
-                                       max_velocity=400,
+                                       max_velocity=200,
                                        damping=skull.damping
                                        )
 
