@@ -5,6 +5,8 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
 from sprites.characters.enemysprite import EnemySprite
+from sprites.characters.playersprite import FULL_ALPHA, ONE_PERCENT_ALPHA
+from sprites.characters.spritehealth import SpriteHealth, HEALTH_FULL, HEALTH_EMPTY
 from utils.physics import DEFAULT_FRICTION
 
 DEFAULT_FACE = FACE_RIGHT
@@ -34,6 +36,8 @@ class SkullSprite(EnemySprite):
         self.damping = MOVE_DAMPING
 
         self._scale = 1
+
+        self.health = HEALTH_FULL
 
         dirname = os.path.join(os.path.dirname(filename))
 
@@ -82,6 +86,14 @@ class SkullSprite(EnemySprite):
 
 
     def update(self, player=None, walls=None, scene = None, physics_engine = None):
+
+        self.alpha = int(self.health * ONE_PERCENT_ALPHA)
+        print(self.alpha, self.health)
+
+        if self.health <= HEALTH_EMPTY:
+            self.remove_from_sprite_lists()
+            return
+
         if self.fade_in and self.alpha < FADE_IN_MAX:
             new_alpha = self.alpha + FADE_SPEED
 

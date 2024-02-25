@@ -53,6 +53,7 @@ https://www.microsoft.com/de-de/download/details.aspx?id=48145
 ## Tastatur
 
 WASD, Pfeiltasten: Bewegen
+E: Schießen
 G: Grunzen
 F12: Screenshot erstellen
 ESC: Menü aufrufen

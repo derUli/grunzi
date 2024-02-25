@@ -195,8 +195,8 @@ class GameView(FadingView):
             pause_view = PauseMenuView(self.window, self.state, self)
             self.window.show_view(pause_view)
 
-        if key == arcade.key.F1:
-            bullet = arcade.sprite.SpriteCircle(2, color=arcade.color.YELLOW, )
+        if key == arcade.key.E:
+            bullet = arcade.sprite.SpriteCircle(4, color=arcade.color.HOT_PINK)
 
             force_x = 0
             force_y = 0
@@ -207,10 +207,10 @@ class GameView(FadingView):
 
             if source.face == FACE_RIGHT:
                 force_x = 2000
-                bullet.right = source.right + 1
+                bullet.right = source.right + bullet.width
             elif source.face == FACE_LEFT:
                 force_x = -2000
-                bullet.left = source.left - 1
+                bullet.left = source.left - bullet.width
 
             self.scene.add_sprite(SPRITE_LIST_ENEMIES, bullet)
 
@@ -221,7 +221,8 @@ class GameView(FadingView):
                                            collision_type="bullet",
                                            elasticity=0.9)
 
-            self.physics_engine.add_collision_handler('bullet', 'wall', post_handler=self.wall_hit_handler)
+            self.physics_engine.add_collision_handler('bullet', 'wall', post_handler=self.bullet_hit_handler)
+            self.physics_engine.add_collision_handler('bullet', 'skull', post_handler=self.bullet_hit_handler)
 
             self.physics_engine.apply_force(bullet, (force_x, force_y))
 
@@ -238,9 +239,12 @@ class GameView(FadingView):
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.down_key_down = True
 
-    def wall_hit_handler(self, bullet_sprite, _wall_sprite, _arbiter, _space, _data):
+    def bullet_hit_handler(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
         bullet_sprite.remove_from_sprite_lists()
+
+        if isinstance(_hit_sprite, EnemySprite):
+            _hit_sprite.hurt(10)
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
@@ -366,7 +370,7 @@ class GameView(FadingView):
         self.physics_engine.add_sprite(skull,
                                        friction=skull.friction,
                                        moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-                                       collision_type="player",
+                                       collision_type="skull",
                                        max_velocity=400,
                                        damping=skull.damping
                                        )

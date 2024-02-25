@@ -4,6 +4,7 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
 import utils.text
+from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -11,15 +12,13 @@ DEFAULT_FACE = FACE_RIGHT
 MOVE_FORCE = 3000
 MOVE_DAMPING = 0.01
 
-HEALTH_FULL = 100.0
-HEALTH_EMPTY = 0.0
 HEALTH_REGENERATION_SPEED = 0.1
 
 FULL_ALPHA = 255
 ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 
 
-class PlayerSprite(arcade.sprite.Sprite):
+class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
     def __init__(
             self,
             filename: str = None,
@@ -37,17 +36,6 @@ class PlayerSprite(arcade.sprite.Sprite):
 
     def update_texture(self):
         self.texture = self.textures[self.face - 1]
-
-    def dead(self):
-        if self.health < HEALTH_EMPTY:
-            self.health = HEALTH_EMPTY
-
-        return self.health <= HEALTH_EMPTY
-
-    def hurt(self, damage):
-        self.health -= damage
-
-        return self.dead()
 
     def update(self):
         if self.dead():
