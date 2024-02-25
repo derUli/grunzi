@@ -41,7 +41,7 @@ def make_physics_engine(player_sprite, scene):
     # repositioned by code and don't respond to physics forces.
     # Dynamic is default.
     physics_engine.add_sprite_list(scene['Walls'],
-                                   friction=DEFAULT_FRICTION,
+                                   friction=0,
                                    collision_type="wall",
                                    body_type=PymunkPhysicsEngine.STATIC
                                    )

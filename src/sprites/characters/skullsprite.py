@@ -112,8 +112,6 @@ class SkullSprite(EnemySprite):
             self.face = FACE_RIGHT
             self.update_texture()
 
-        grid_size = GRID_SIZE
-
         self.playing_field_left_boundary = self.left - SIGHT_DISTANCE
         self.playing_field_right_boundary = self.right + SIGHT_DISTANCE
         self.playing_field_top_boundary = self.top + SIGHT_DISTANCE
@@ -134,7 +132,7 @@ class SkullSprite(EnemySprite):
                 self.astar_barrier_list = arcade.AStarBarrierList(
                     moving_sprite=self,
                     blocking_sprites=scene[views.gameview.SPRITE_LIST_WALL],
-                    grid_size=grid_size,
+                    grid_size=GRID_SIZE,
                     left=int(self.playing_field_left_boundary),
                     right=int(self.playing_field_right_boundary),
                     bottom=int(self.playing_field_bottom_boundary),
@@ -143,9 +141,9 @@ class SkullSprite(EnemySprite):
 
             self.move_path = arcade.astar_calculate_path(
                 self.position,
-                player.position,
+                (player.center_x, player.center_y),
                 self.astar_barrier_list,
-                diagonal_movement=False
+                diagonal_movement=True
             )
 
             if not self.move_path:
