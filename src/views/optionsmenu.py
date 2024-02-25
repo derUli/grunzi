@@ -39,7 +39,7 @@ class OptionsMenu(View):
         )
 
         back_button = arcade.gui.UIFlatButton(
-            text=_("Zurück"),
+            text=_("Back"),
             width=BUTTON_WIDTH,
             stye=utils.text.get_style()
         )
@@ -71,7 +71,7 @@ class OptionsMenu(View):
             self.window.show_view(self.previous_view)
 
         buttons = [
-            # controls_button,
+            #controls_button,
             grunzbabe_at_x_button,
             back_button
         ]

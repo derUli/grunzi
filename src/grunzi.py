@@ -143,7 +143,7 @@ def main():
         LOG_LEVEL = logging.NOTSET
 
     configure_logger(LOG_LEVEL)
-    logging.info(label_value(_('Args'), args))
+    logging.info(label_value(_('Arguments'), args))
     logging.info(label_value(_('Pyglet options'), pyglet.options))
 
     window = GameWindow(args.window, args.width, args.height, debug=args.debug)
