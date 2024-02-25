@@ -7,7 +7,6 @@ from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from utils.text import get_style
 from views.fadingview import FadingView
 from views.mainmenuview import MainMenuView
-from views.view import View
 
 BUTTON_WIDTH = 250
 

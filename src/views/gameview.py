@@ -167,7 +167,6 @@ class GameView(FadingView):
         if self.window.debug:
             utils.text.draw_debug(self.player_sprite, self.window)
 
-
         self.player_sprite.draw_overlay()
 
         self.draw_fading()
@@ -233,7 +232,7 @@ class GameView(FadingView):
             self.right_key_down = True
         if key in constants.controls.keyboard.KEY_MOVE_UP:
             self.up_key_down = True
-        elif  key in constants.controls.keyboard.KEY_MOVE_DOWN:
+        elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
             self.down_key_down = True
 
     def on_key_release(self, key, modifiers):
