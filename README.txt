@@ -39,6 +39,7 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --width WIDTH    Window width in pixels
   --height HEIGHT  Window height in pixels
   --map MAP        Name of the map
+  --silent         Mute the sound
 
 ```
 

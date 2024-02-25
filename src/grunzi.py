@@ -8,7 +8,7 @@ import logging
 import os
 
 import arcade
-import pyglet.image
+import pyglet
 
 from state.viewstate import ViewState
 from utils.logging import configure_logger
@@ -86,7 +86,17 @@ def main():
         help=_('Name of the map')
     )
 
+    parser.add_argument(
+        '--silent',
+        default=False,
+        action='store_true',
+        help=_('Mute the sound')
+    )
+
     args = parser.parse_args()
+
+    if args.silent:
+        pyglet.options['audio'] = 'silent'
 
     LOG_LEVEL = logging.INFO
 
