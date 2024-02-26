@@ -160,18 +160,18 @@ class SkullSprite(EnemySprite):
             self.update_texture()
         else:
             self.chasing = None
+            self.update_texture()
 
         if self.chasing:
-            if not self.astar_barrier_list:
-                self.astar_barrier_list = arcade.AStarBarrierList(
-                    moving_sprite=self,
-                    blocking_sprites=scene[views.game.SPRITE_LIST_WALL],
-                    grid_size=GRID_SIZE,
-                    left=int(self.playing_field_left_boundary),
-                    right=int(self.playing_field_right_boundary),
-                    bottom=int(self.playing_field_bottom_boundary),
-                    top=int(self.playing_field_top_boundary)
-                )
+            self.astar_barrier_list = arcade.AStarBarrierList(
+                moving_sprite=self,
+                blocking_sprites=scene[views.game.SPRITE_LIST_WALL],
+                grid_size=GRID_SIZE,
+                left=int(self.playing_field_left_boundary),
+                right=int(self.playing_field_right_boundary),
+                bottom=int(self.playing_field_bottom_boundary),
+                top=int(self.playing_field_top_boundary)
+            )
 
             move_path = arcade.astar_calculate_path(
                 self.position,

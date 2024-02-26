@@ -340,7 +340,7 @@ class Game(Fading):
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
     def static_layers(self):
-        sprite_list = SpriteList()
+        sprite_list = SpriteList(is_static=True)
 
         layer_names = [
             SPRITE_LIST_WALL,

@@ -46,8 +46,6 @@ class OptionsMenu(View):
             stye=utils.text.get_style()
         )
 
-        # A non-scrolling camera that can be used to draw GUI elements
-
         @grunzbabe_at_x_button.event("on_click")
         def on_click_grunzbabe_at_x_button(event):
             # Pass already created view because we are resuming.

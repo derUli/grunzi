@@ -8,9 +8,6 @@ from views.optionsmenu import OptionsMenu
 
 BUTTON_WIDTH = 250
 
-# TODO: Move to file
-SHADER_CODE = """"""
-
 
 class MainMenu(Fading):
     """Main menu view class."""
@@ -57,8 +54,6 @@ class MainMenu(Fading):
         self.shadertoy = self.state.load_shader(size, 'pigs')
 
         self.time = 0
-
-        # A non-scrolling camera that can be used to draw GUI elements
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
