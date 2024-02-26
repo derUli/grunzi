@@ -43,8 +43,7 @@ class PauseMenu(Fading):
 
         self.previous_view = previous_view
 
-        size = self.window.width, self.window.height
-
+        size = self.window.size()
         self.shadertoy = self.state.load_shader(size, 'gloopy')
 
         self.time = 0

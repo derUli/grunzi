@@ -50,7 +50,7 @@ class MainMenu(Fading):
 
         self.player = None
 
-        size = self.window.width, self.window.height
+        size = self.window.size()
         self.shadertoy = self.state.load_shader(size, 'pigs')
 
         self.time = 0

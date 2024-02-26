@@ -68,6 +68,8 @@ class GameWindow(arcade.Window):
 
         return super().set_fullscreen(fullscreen=fullscreen, screen=screen, mode=mode)
 
+    def size(self):
+        return self.width, self.height
 
 def main():
     """Main function"""
