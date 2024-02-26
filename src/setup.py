@@ -36,10 +36,7 @@ options = {
             '../CREDITS.txt',
             '../README.txt',
             '../CHANGES.txt',
-            '../VERSION.txt',
-            'Grunzi (Full HD).bat',
-            'Grunzi (4K).bat',
-            'Grunzi (HD+).bat'
+            '../VERSION.txt'
         ]
     }
 

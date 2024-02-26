@@ -1,1 +1,0 @@
-grunzi --width 3840 --height 2160

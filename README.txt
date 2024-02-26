@@ -87,10 +87,4 @@ Es gibt jedoch einige Startoptionen, die dem Spiel übbergeben werden können.
 
 ## Grafik
 
-Das Spiel startet mit einer Auflösung 1280x720 im Vollbildmodus, sofern keine Startoptionen übergeben wurden.
-Die folgenden Batch-Dateien sind enthalten, um das Spiel mit anderen Bildschirmauflösungen zu starten.
-
-| Batch-Datei          | Bildschirmauflösung | Bildschirmmodus |
-|----------------------|---------------------|-----------------|
-| Grunzi (Full HD).bat | 1920x1080           | Vollbild        |
-| Grunzi (4K).bat      | 3840x2160           | Vollbild        |
+Das Spiel startet mit einer Auflösung 1920x1080 im Vollbildmodus, sofern keine Startoptionen übergeben wurden.
