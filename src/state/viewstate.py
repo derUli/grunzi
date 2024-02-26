@@ -20,11 +20,13 @@ class ViewState:
         self.shader_dir = os.path.join(self.data_dir, 'shaders')
 
         self.shaders = {}
-
         self.sounds = {}
 
         self.coins = 0
         self.map_name = map_name
+
+    def reset(self):
+        self.coins = 0
 
     def preload(self):
         self.preload_sounds()

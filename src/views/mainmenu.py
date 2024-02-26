@@ -61,6 +61,7 @@ class MainMenu(Fading):
 
             from views.game import Game
             self.next_view = Game(self.window, self.state)
+            self.state.reset()
             self.fade_out()
 
         @options_help.event("on_click")
