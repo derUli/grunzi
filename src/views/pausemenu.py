@@ -1,5 +1,3 @@
-import os
-
 import arcade.gui
 
 import constants.controls.keyboard
@@ -132,8 +130,7 @@ class PauseMenu(Fading):
 
         self.manager.draw()
 
-        build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
-        utils.text.draw_build_number(build_version, self.window)
+        self.draw_build_version()
 
         if self.next_view:
             self.draw_fading()

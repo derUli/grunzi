@@ -130,8 +130,6 @@ class MainMenu(Fading):
         self.shadertoy.render(time=self.time)
 
         self.manager.draw()
-
-        build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
-        utils.text.draw_build_number(build_version, self.window)
+        self.draw_build_version()
 
         self.draw_fading()

@@ -1,5 +1,3 @@
-import os.path
-
 import arcade
 
 MARGIN = 10
@@ -49,19 +47,6 @@ def get_style():
     return {
         'font_name': DEFAULT_FONT
     }
-
-
-def draw_build_number(build_file, window=None):
-    if not window:
-        window = arcade.get_window()
-
-    display_text = _('Unknown build')
-
-    if os.path.isfile(build_file):
-        with open(build_file, 'r') as f:
-            display_text = f.read()
-
-    create_text(display_text, width=window.width - (MARGIN * 2), align='right').draw()
 
 
 def draw_coins(coins):

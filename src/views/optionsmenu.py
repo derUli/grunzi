@@ -1,4 +1,3 @@
-import os
 import webbrowser
 
 import arcade.gui
@@ -7,7 +6,6 @@ import constants.controls.keyboard
 import utils.text
 from views.controls import Controls
 from views.fading import Fading
-from views.view import View
 
 BUTTON_WIDTH = 250
 
@@ -51,7 +49,6 @@ class OptionsMenu(Fading):
 
         @controls_button.event("on_click")
         def on_click_controls_button(event):
-
             comeback_view = OptionsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
 
             # Pass already created view because we are resuming.
@@ -126,8 +123,6 @@ class OptionsMenu(Fading):
 
         self.manager.draw()
 
-        build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
-        utils.text.draw_build_number(build_version, self.window)
+        self.draw_build_version()
 
         self.draw_fading()
-

@@ -1,7 +1,10 @@
+import os
+
 import arcade
 
 import constants.controls.keyboard
 from utils.screenshot import make_screenshot
+from utils.text import MARGIN, create_text
 
 
 class View(arcade.View):
@@ -12,7 +15,7 @@ class View(arcade.View):
 
         self.state = None
         self.scene = arcade.Scene()
-
+        self.build_version = ''
         # Initialize the camera for static GUI elements
         self.camera_gui = arcade.Camera()
 
@@ -37,3 +40,14 @@ class View(arcade.View):
     def on_show_view(self):
         # Set the background color
         arcade.set_background_color(arcade.color.LIGHT_BLUE)
+
+    def draw_build_version(self):
+        if not self.build_version:
+            self.build_version = _('Unknown build')
+            version_file = os.path.join(self.state.root_dir, 'VERSION.txt')
+
+            if os.path.isfile(version_file):
+                with open(version_file, 'r') as f:
+                    self.build_version = f.read()
+
+        create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='right').draw()
