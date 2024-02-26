@@ -51,7 +51,7 @@ class Controls(Fading):
             (_("G"), _("Grunt")),
             (_("F12"), _("Make screenshot")),
             (_("ESC"), _("Open the pause menu")),
-            (_("Alt + Enter"), _("Open the pause menu"))
+            (_("Alt + Enter"), _("Toggle fullscreen"))
         ]
 
         text = ''

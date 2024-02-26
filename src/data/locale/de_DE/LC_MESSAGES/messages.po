@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-26 21:07+0100\n"
+"POT-Creation-Date: 2024-02-26 22:05+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,39 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: grunzi.py:85
+#: grunzi.py:87
 msgid "Run in windowed mode"
 msgstr "Ausführen im Fenstermodus"
 
-#: grunzi.py:92
+#: grunzi.py:94
 msgid "Enable debug mode"
 msgstr "Aktiviere den Debug Modus"
 
-#: grunzi.py:99
+#: grunzi.py:101
 msgid "Window width in pixels"
 msgstr "Fensterbreite in Pixeln"
 
-#: grunzi.py:105
+#: grunzi.py:107
 msgid "Window height in pixels"
 msgstr "Fensterhöhe in Pixeln"
 
-#: grunzi.py:112
+#: grunzi.py:114
 msgid "Name of the map"
 msgstr "Name der Map"
 
-#: grunzi.py:119
+#: grunzi.py:121
 msgid "Mute the sound"
 msgstr "Audioausgabe deaktivieren"
 
-#: grunzi.py:127
+#: grunzi.py:129
 msgid "Make the operation more talkative"
 msgstr "Machen Sie die Operation gesprächiger"
 
-#: grunzi.py:146
+#: grunzi.py:148
 msgid "Arguments"
 msgstr "Argumente"
 
-#: grunzi.py:147
+#: grunzi.py:149
 msgid "Pyglet options"
 msgstr "Pyglet Optionen"
 
@@ -110,7 +110,7 @@ msgstr "Screenshot erstellen"
 msgid "ESC"
 msgstr ""
 
-#: views/controls.py:53 views/controls.py:54
+#: views/controls.py:53
 msgid "Open the pause menu"
 msgstr "Pausenmenü öffnen"
 
@@ -118,7 +118,11 @@ msgstr "Pausenmenü öffnen"
 msgid "Alt + Enter"
 msgstr ""
 
-#: views/controls.py:70 views/optionsmenu.py:45
+#: views/controls.py:54
+msgid "Toggle fullscreen"
+msgstr "Vollbild/Fenster umschalten"
+
+#: views/controls.py:70 views/optionsmenu.py:46
 msgid "Back"
 msgstr "Zurück"
 
@@ -138,11 +142,11 @@ msgstr "Optionen & Hilfe"
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/optionsmenu.py:33
+#: views/optionsmenu.py:34
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/optionsmenu.py:39
+#: views/optionsmenu.py:40
 msgid "Follow me on X"
 msgstr "Folge mir auf X"
 
