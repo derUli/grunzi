@@ -27,7 +27,7 @@ class Controls(Fading):
         self.manager = arcade.gui.UIManager(window)
 
         size = window.width, window.height
-        self.shadertoy = self.state.load_shader(size, 'plasma')
+        self.shadertoy = self.state.load_shader(size, 'grass')
 
         self.previous_view = previous_view
 
