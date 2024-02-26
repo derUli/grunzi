@@ -1,5 +1,4 @@
 import os
-from cProfile import label
 
 import arcade.gui
 
@@ -16,6 +15,7 @@ BUTTON_MARGIN_BOTTOM = 20
 TEXTAREA_WIDTH = 640
 TEXTAREA_HEIGHT = 480 - BUTTON_MARGIN_BOTTOM
 
+
 class Controls(Fading):
     """Main menu view class."""
 
@@ -30,8 +30,6 @@ class Controls(Fading):
         self.shadertoy = self.state.load_shader(size, 'plasma')
 
         self.previous_view = previous_view
-
-
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
