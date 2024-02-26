@@ -1,3 +1,6 @@
+import os
+from cProfile import label
+
 import arcade.gui
 
 import constants.controls.keyboard
@@ -6,18 +9,12 @@ from views.fading import Fading
 
 BUTTON_WIDTH = 250
 
-MARGIN = 50
-
 URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
-LOREM_IPSUM = (
-    "↑→↓←Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque velit. "
-    "Nam eu rhoncus nulla. Fusce ornare libero eget ex vulputate, vitae mattis orci eleifend. "
-    "Donec quis volutpat arcu. Proin lacinia velit id imperdiet ultrices. Fusce porta magna leo, "
-    "non maximus justo facilisis vel. Duis pretium sem ut eros scelerisque, a dignissim ante "
-    "pellentesque. Cras rutrum aliquam fermentum. Donec id mollis min."
-)
+BUTTON_MARGIN_BOTTOM = 20
 
+TEXTAREA_WIDTH = 640
+TEXTAREA_HEIGHT = 480 - BUTTON_MARGIN_BOTTOM
 
 class Controls(Fading):
     """Main menu view class."""
@@ -34,6 +31,8 @@ class Controls(Fading):
 
         self.previous_view = previous_view
 
+
+
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
@@ -46,24 +45,42 @@ class Controls(Fading):
         super().on_show_view()
         """ This is run once when we switch to this view """
 
-        # Makes the background darker
+        controls = [
+            (_("WASD, Arrow keys"), _('Walk')),
+            (_("Shift"), _('Sprint')),
+            (_("Ctrl"), _("Shoot")),
+            (_("E"), _("Use")),
+            (_("G"), _("Grunt")),
+            (_("F12"), _("Make screenshot")),
+            (_("ESC"), _("Open the pause menu")),
+            (_("Alt + Enter"), _("Open the pause menu"))
+        ]
+
+        text = ''
+
+        for line in controls:
+            label, value = line
+
+            text = text + utils.text.label_value(label, value) + (os.linesep * 2)
+
+            # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
 
         v_box = arcade.gui.UIBoxLayout()
-
-        text_area = arcade.gui.UITextArea(
-            width=640,
-            height=480,
-            text=LOREM_IPSUM * 5,
-            font_size=18,
-            text_color=(0, 0, 0, 255),
-            multiline=True,
-        )
 
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
             stye=utils.text.get_style()
+        )
+
+        text_area = arcade.gui.UITextArea(
+            width=TEXTAREA_WIDTH,
+            height=TEXTAREA_HEIGHT,
+            text=text,
+            font_size=18,
+            text_color=(255, 255, 255),
+            multiline=True,
         )
 
         @back_button.event("on_click")
@@ -78,7 +95,7 @@ class Controls(Fading):
         ]
 
         for button in buttons:
-            v_box.add(button.with_space_around(bottom=20))
+            v_box.add(button.with_space_around(bottom=BUTTON_MARGIN_BOTTOM))
 
         self.manager.add(
             arcade.gui.UIAnchorWidget(

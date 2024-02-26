@@ -70,9 +70,10 @@ https://www.microsoft.com/de-de/download/details.aspx?id=48145
 WASD, Pfeiltasten: Bewegen
 Shift: Sprinten
 Ctrl: Schießen
+E: Benutzen
 G: Grunzen
 F12: Screenshot erstellen
-Esc: Menü aufrufen
+Esc: Pausenmenü öffnen
 Alt + Enter: Vollbildmodus umschalten
 
 ## Controller

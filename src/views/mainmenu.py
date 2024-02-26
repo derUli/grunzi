@@ -115,7 +115,7 @@ class MainMenu(Fading):
         self.manager.enable()
 
     def on_update(self, dt):
-        # self.time += dt
+        self.time += dt
         self.update_fade(self.next_view)
         self.scene.update()
 

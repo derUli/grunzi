@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-25 23:12+0100\n"
+"POT-Creation-Date: 2024-02-26 20:59+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -58,47 +58,106 @@ msgstr "Pyglet Optionen"
 msgid "Game Over"
 msgstr "Du bist Schinken"
 
-#: state/viewstate.py:65
+#: state/viewstate.py:86 views/controls.py:53
 msgid "Grunt"
 msgstr "Grunz"
 
-#: utils/text.py:58
-msgid "Unknown build"
-msgstr "Unbekannter Build"
+#: views/controls.py:49
+msgid "WASD, Arrow keys"
+msgstr ""
 
-#: views/mainmenu.py:27
-msgid "Grunzi"
-msgstr "Grunzi"
+#: views/controls.py:49
+msgid "Walk"
+msgstr ""
 
-#: views/mainmenu.py:35
-msgid "New Game"
-msgstr "Neues Spiel"
+#: views/controls.py:50
+msgid "Shift"
+msgstr ""
 
-#: views/mainmenu.py:41 views/pausemenu.py:36
-msgid "Options & Help"
-msgstr "Optionen & Hilfe"
+#: views/controls.py:50
+msgid "Sprint"
+msgstr ""
 
-#: views/mainmenu.py:47
-msgid "Quit game"
-msgstr "Beenden"
-
-#: views/optionsmenu.py:30
-msgid "Controls"
+#: views/controls.py:51
+msgid "Ctrl"
 msgstr "Steuerung"
 
-#: views/optionsmenu.py:36
-msgid "Follow me on X"
-msgstr "Folge mir auf X"
+#: views/controls.py:51
+msgid "Shoot"
+msgstr "Schießen"
 
-#: views/optionsmenu.py:42
+#: views/controls.py:52
+msgid "E"
+msgstr ""
+
+#: views/controls.py:52
+msgid "Use"
+msgstr "Benutzen"
+
+#: views/controls.py:53
+msgid "G"
+msgstr ""
+
+#: views/controls.py:54
+msgid "F12"
+msgstr ""
+
+#: views/controls.py:54
+msgid "Make screenshot"
+msgstr "Screenshot erstellen"
+
+#: views/controls.py:55
+msgid "ESC"
+msgstr ""
+
+#: views/controls.py:55 views/controls.py:56
+msgid "Open the pause menu"
+msgstr "Pausenmenü öffnen"
+
+#: views/controls.py:56
+msgid "Alt + Enter"
+msgstr ""
+
+#: views/controls.py:72 views/optionsmenu.py:45
 msgid "Back"
 msgstr "Zurück"
 
-#: views/pausemenu.py:30
+#: views/mainmenu.py:26
+msgid "Grunzi"
+msgstr "Grunzi"
+
+#: views/mainmenu.py:34
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: views/mainmenu.py:40 views/pausemenu.py:33
+msgid "Options & Help"
+msgstr "Optionen & Hilfe"
+
+#: views/mainmenu.py:46
+msgid "Quit game"
+msgstr "Beenden"
+
+#: views/optionsmenu.py:33
+msgid "Controls"
+msgstr "Steuerung"
+
+#: views/optionsmenu.py:39
+msgid "Follow me on X"
+msgstr "Folge mir auf X"
+
+#: views/pausemenu.py:27
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/pausemenu.py:42
+#: views/pausemenu.py:39
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
+
+#: views/view.py:46
+msgid "Unknown build"
+msgstr "Unbekannter Build"
+
+#~ msgid "use"
+#~ msgstr ""
 
