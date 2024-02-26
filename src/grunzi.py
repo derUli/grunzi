@@ -49,7 +49,9 @@ class GameWindow(arcade.Window):
             title=SCREEN_TITLE,
             fullscreen=False,
             vsync=True,
-            update_rate=update_rate
+            update_rate=update_rate,
+            antialiasing=True,
+            samples=4
         )
 
         self.set_fullscreen(not window)
