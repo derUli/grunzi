@@ -9,6 +9,7 @@ from views.optionsmenu import OptionsMenu
 
 BUTTON_WIDTH = 250
 
+# TODO: Move to file
 SHADER_CODE = """#define PI	3.14159265359
 #define PI2	( PI * 2.0 )
 
@@ -269,7 +270,7 @@ class MainMenu(Fading):
 
             from views.game import Game
             self.window.show_view(
-                OptionsMenu(self.window, self.state, previous_view=self)
+                OptionsMenu(self.window, self.state, previous_view=self, shadertoy=self.shadertoy, time=self.time)
             )
 
         @quit_button.event("on_click")
@@ -327,9 +328,9 @@ class MainMenu(Fading):
 
         self.camera_gui.use()
 
-        # self.scene.draw()
         arcade.start_render()
         self.shadertoy.render(time=self.time)
+
         self.manager.draw()
 
         build_version = os.path.join(self.state.root_dir, 'VERSION.txt')

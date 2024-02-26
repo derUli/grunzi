@@ -4,7 +4,6 @@ import webbrowser
 import arcade.gui
 import constants.controls.keyboard
 import utils.text
-from sprites.backdrops.scrollingbackdrop import ScrollingBackdrop
 from views.view import View
 
 BUTTON_WIDTH = 250
@@ -15,12 +14,14 @@ URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 class OptionsMenu(View):
     """Main menu view class."""
 
-    def __init__(self, window, state, previous_view):
+    def __init__(self, window, state, previous_view, shadertoy, time = 0):
         super().__init__(window)
 
         self.window = window
         self.state = state
         self.manager = arcade.gui.UIManager(window)
+        self.shadertoy = shadertoy
+        self.time = time
 
         self.previous_view = previous_view
 
@@ -43,18 +44,6 @@ class OptionsMenu(View):
             width=BUTTON_WIDTH,
             stye=utils.text.get_style()
         )
-
-        self.backdrop = ScrollingBackdrop(
-            filename=os.path.join(
-                self.state.image_dir,
-                'backdrops',
-                'menu.jpg'
-            ),
-        )
-        self.backdrop.width = self.window.width
-        self.backdrop.height = self.window.height
-
-        self.scene.add_sprite('backdrop', self.backdrop)
 
         # A non-scrolling camera that can be used to draw GUI elements
 
@@ -91,6 +80,7 @@ class OptionsMenu(View):
         self.manager.disable()
 
     def on_back(self):
+        self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
 
     def on_show_view(self):
@@ -99,14 +89,6 @@ class OptionsMenu(View):
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
-
-        self.camera_gui.move_to(
-            (
-                self.backdrop.center_x - (self.camera_gui.viewport_width / 2),
-                self.backdrop.center_y - (self.camera_gui.viewport_height / 2)
-            )
-        )
-
         self.manager.enable()
 
     def on_key_press(self, key, modifiers):
@@ -117,6 +99,7 @@ class OptionsMenu(View):
             self.on_back()
     def on_update(self, dt):
         self.scene.update()
+        self.time += dt
 
     def on_draw(self):
         """ Render the screen. """
@@ -124,9 +107,9 @@ class OptionsMenu(View):
         # Clear the screen
         self.clear()
 
-        self.camera_gui.use()
+        arcade.start_render()
+        self.shadertoy.render(time=self.time)
 
-        self.scene.draw()
         self.manager.draw()
 
         build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
