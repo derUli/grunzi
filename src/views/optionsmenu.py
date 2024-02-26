@@ -2,6 +2,7 @@ import os
 import webbrowser
 
 import arcade.gui
+
 import constants.controls.keyboard
 import utils.text
 from views.view import View
@@ -14,7 +15,7 @@ URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 class OptionsMenu(View):
     """Main menu view class."""
 
-    def __init__(self, window, state, previous_view, shadertoy, time = 0):
+    def __init__(self, window, state, previous_view, shadertoy, time=0):
         super().__init__(window)
 
         self.window = window
@@ -60,7 +61,7 @@ class OptionsMenu(View):
             self.on_back()
 
         buttons = [
-            #controls_button,
+            # controls_button,
             grunzbabe_at_x_button,
             back_button
         ]
@@ -97,6 +98,7 @@ class OptionsMenu(View):
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
+
     def on_update(self, dt):
         self.scene.update()
         self.time += dt

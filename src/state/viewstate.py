@@ -4,6 +4,7 @@ import random
 
 import arcade
 import pyglet
+from arcade.experimental import Shadertoy
 
 
 class ViewState:
@@ -15,7 +16,10 @@ class ViewState:
         self.sprite_dir = os.path.join(self.image_dir, 'sprites')
         self.music_dir = os.path.join(self.data_dir, 'music')
         self.sound_dir = os.path.join(self.data_dir, 'sounds')
-        self.fonts_dir = os.path.join(self.data_dir, 'fonts')
+        self.font_dir = os.path.join(self.data_dir, 'fonts')
+        self.shader_dir = os.path.join(self.data_dir, 'shaders')
+
+        self.shaders = {}
 
         self.sounds = {}
 
@@ -26,10 +30,12 @@ class ViewState:
         self.preload_sounds()
         self.preload_fonts()
 
+        self.shaders = {}
+
     def preload_fonts(self):
-        arcade.load_font(os.path.join(self.fonts_dir, 'laila.ttf'))
-        arcade.load_font(os.path.join(self.fonts_dir, 'adrip1.ttf'))
-        arcade.load_font(os.path.join(self.fonts_dir, 'consolasmonobook.ttf'))
+        arcade.load_font(os.path.join(self.font_dir, 'laila.ttf'))
+        arcade.load_font(os.path.join(self.font_dir, 'adrip1.ttf'))
+        arcade.load_font(os.path.join(self.font_dir, 'consolasmonobook.ttf'))
 
     def preload_sounds(self):
         self.sounds = {
@@ -56,6 +62,22 @@ class ViewState:
                 os.path.join(self.sound_dir, 'pig', f"grunt{i}.ogg"),
                 streaming=False
             )
+
+    def load_shader(self, size, name):
+
+        path = os.path.join(self.shader_dir, name + '.glsl')
+
+        if name in self.shaders:
+            return self.shaders[name]
+
+        code = ''
+
+        with open(path, 'r') as f:
+            code = f.read()
+
+        self.shaders[name] = Shadertoy(size, code)
+
+        return self.shaders[name]
 
     def play_sound(self, name):
         return self.sounds[name].play()
