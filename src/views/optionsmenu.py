@@ -11,6 +11,7 @@ BUTTON_WIDTH = 250
 
 URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
+BUTTON_MARGIN_BOTTOM = 20
 
 class OptionsMenu(Fading):
     """Main menu view class."""
@@ -74,7 +75,7 @@ class OptionsMenu(Fading):
         ]
 
         for button in buttons:
-            v_box.add(button.with_space_around(bottom=20))
+            v_box.add(button.with_space_around(bottom=BUTTON_MARGIN_BOTTOM))
 
         self.manager.add(
             arcade.gui.UIAnchorWidget(

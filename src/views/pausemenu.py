@@ -8,7 +8,7 @@ from views.mainmenu import MainMenu
 from views.optionsmenu import OptionsMenu
 
 BUTTON_WIDTH = 250
-
+BUTTON_MARGIN_BOTTOM = 20
 
 class PauseMenu(Fading):
     """Main menu view class."""
@@ -79,7 +79,7 @@ class PauseMenu(Fading):
         ]
 
         for button in buttons:
-            v_box.add(button.with_space_around(bottom=20))
+            v_box.add(button.with_space_around(bottom=BUTTON_MARGIN_BOTTOM))
 
         self.manager.add(
             arcade.gui.UIAnchorWidget(
