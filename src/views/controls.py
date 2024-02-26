@@ -10,7 +10,6 @@ MARGIN = 50
 
 URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
-
 LOREM_IPSUM = (
     "↑→↓←Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget pellentesque velit. "
     "Nam eu rhoncus nulla. Fusce ornare libero eget ex vulputate, vitae mattis orci eleifend. "
@@ -30,6 +29,9 @@ class Controls(Fading):
         self.state = state
         self.manager = arcade.gui.UIManager(window)
 
+        size = window.width, window.height
+        self.shadertoy = self.state.load_shader(size, 'plasma')
+
         self.previous_view = previous_view
 
     def on_hide_view(self):
@@ -46,7 +48,6 @@ class Controls(Fading):
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
-
 
         v_box = arcade.gui.UIBoxLayout()
 
@@ -103,13 +104,14 @@ class Controls(Fading):
         self.time += dt
 
         self.update_fade(self.next_view)
+
     def on_draw(self):
         """ Render the screen. """
 
         # Clear the screen
         self.clear()
         self.camera_gui.use()
+        self.shadertoy.render(time=self.time)
 
         self.manager.draw()
-
         self.draw_fading()
