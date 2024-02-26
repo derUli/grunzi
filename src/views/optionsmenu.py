@@ -5,6 +5,8 @@ import arcade.gui
 
 import constants.controls.keyboard
 import utils.text
+from views.controls import Controls
+from views.fading import Fading
 from views.view import View
 
 BUTTON_WIDTH = 250
@@ -12,7 +14,7 @@ BUTTON_WIDTH = 250
 URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
 
-class OptionsMenu(View):
+class OptionsMenu(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view, shadertoy, time=0):
@@ -25,6 +27,7 @@ class OptionsMenu(View):
         self.time = time
 
         self.previous_view = previous_view
+        self._fade_in = None
 
         v_box = arcade.gui.UIBoxLayout()
 
@@ -46,6 +49,15 @@ class OptionsMenu(View):
             stye=utils.text.get_style()
         )
 
+        @controls_button.event("on_click")
+        def on_click_controls_button(event):
+
+            comeback_view = OptionsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
+
+            # Pass already created view because we are resuming.
+            self.next_view = Controls(self.window, self.state, comeback_view)
+            self.fade_out()
+
         @grunzbabe_at_x_button.event("on_click")
         def on_click_grunzbabe_at_x_button(event):
             # Pass already created view because we are resuming.
@@ -59,7 +71,7 @@ class OptionsMenu(View):
             self.on_back()
 
         buttons = [
-            # controls_button,
+            controls_button,
             grunzbabe_at_x_button,
             back_button
         ]
@@ -100,12 +112,14 @@ class OptionsMenu(View):
     def on_update(self, dt):
         self.scene.update()
         self.time += dt
+        self.update_fade(self.next_view)
 
     def on_draw(self):
         """ Render the screen. """
 
         # Clear the screen
         self.clear()
+        self.camera_gui.use()
 
         arcade.start_render()
         self.shadertoy.render(time=self.time)
@@ -114,3 +128,6 @@ class OptionsMenu(View):
 
         build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
         utils.text.draw_build_number(build_version, self.window)
+
+        self.draw_fading()
+

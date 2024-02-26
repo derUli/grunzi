@@ -123,7 +123,6 @@ class MainMenu(Fading):
 
         # Clear the screen
         self.clear()
-
         self.camera_gui.use()
 
         arcade.start_render()
@@ -133,4 +132,5 @@ class MainMenu(Fading):
 
         build_version = os.path.join(self.state.root_dir, 'VERSION.txt')
         utils.text.draw_build_number(build_version, self.window)
+
         self.draw_fading()

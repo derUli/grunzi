@@ -125,7 +125,6 @@ class PauseMenu(Fading):
 
         # Clear the screen
         self.clear()
-
         self.camera_gui.use()
 
         arcade.start_render()
