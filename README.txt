@@ -87,4 +87,4 @@ Es gibt jedoch einige Startoptionen, die dem Spiel übbergeben werden können.
 
 ## Grafik
 
-Das Spiel startet mit einer Auflösung 1920x1080 im Vollbildmodus, sofern keine Startoptionen übergeben wurden.
+Das Spiel startet mit einer Auflösung 1280x720 im Vollbildmodus, sofern keine Startoptionen übergeben wurden.

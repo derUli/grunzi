@@ -19,8 +19,8 @@ SCREEN_TITLE = "Grunzi"
 
 ROOT_DIR = os.path.dirname(__file__)
 
-SCREEN_WIDTH = 1920
-SCREEN_HEIGHT = 1080
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
