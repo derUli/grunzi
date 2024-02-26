@@ -56,7 +56,7 @@ msgstr "Pyglet Optionen"
 
 #: sprites/characters/playersprite.py:85
 msgid "Game Over"
-msgstr "Du bist Schinken"
+msgstr "Du bist Schinken."
 
 #: state/viewstate.py:86 views/controls.py:51
 msgid "Grunt"
