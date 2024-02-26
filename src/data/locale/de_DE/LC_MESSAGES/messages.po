@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-26 21:05+0100\n"
+"POT-Creation-Date: 2024-02-26 21:07+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -60,7 +60,7 @@ msgstr "Du bist Schinken"
 
 #: state/viewstate.py:86 views/controls.py:51
 msgid "Grunt"
-msgstr "Grunz"
+msgstr "Grunzen"
 
 #: views/controls.py:47
 msgid "WASD, Arrow keys"
@@ -157,7 +157,4 @@ msgstr "Zurück zum Hauptmenü"
 #: views/view.py:46
 msgid "Unknown build"
 msgstr "Unbekannter Build"
-
-#~ msgid "use"
-#~ msgstr ""
 
