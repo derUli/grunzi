@@ -328,7 +328,8 @@ class Game(Fading):
             sprite.update(
                 player=self.player_sprite,
                 scene=self.scene,
-                physics_engine=self.physics_engine
+                physics_engine=self.physics_engine,
+                state=self.state
             )
 
             if arcade.check_for_collision(sprite, self.player_sprite):

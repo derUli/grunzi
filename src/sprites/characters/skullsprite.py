@@ -51,7 +51,7 @@ class SkullSprite(EnemySprite):
         )
 
         self.chasing = None
-
+        self.chased = False
         self.playing_field_left_boundary = 0
         self.playing_field_right_boundary = 0
         self.playing_field_top_boundary = 0
@@ -113,7 +113,7 @@ class SkullSprite(EnemySprite):
         if self.move_path:
             arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
-    def update(self, player=None, scene=None, physics_engine=None):
+    def update(self, player=None, scene=None, physics_engine=None, state=None):
         if self.health <= HEALTH_EMPTY:
             self.remove_from_sprite_lists()
             return
@@ -157,6 +157,10 @@ class SkullSprite(EnemySprite):
                 max_distance=SIGHT_DISTANCE
         ):
             self.chasing = player
+
+            if not self.chased:
+                state.sounds['screech'].play()
+            self.chased = True
             self.update_texture()
         else:
             self.chasing = None

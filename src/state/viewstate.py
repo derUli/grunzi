@@ -57,6 +57,9 @@ class ViewState:
                 os.path.join(self.sound_dir, 'weapons', 'shot.ogg'),
                 streaming=False
             ),
+            'screech': arcade.load_sound(
+                os.path.join(self.sound_dir, 'skull', 'screech.ogg'),
+            )
         }
 
         for i in range(1, 6):

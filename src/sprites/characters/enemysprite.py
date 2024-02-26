@@ -35,5 +35,5 @@ class EnemySprite(Sprite, SpriteHealth):
     def draw_debug(self):
         return
 
-    def update(self, player=None, scene=None, physics_engine=None):
+    def update(self, player=None, scene=None, physics_engine=None, state=None):
         return
