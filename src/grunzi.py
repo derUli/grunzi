@@ -50,7 +50,7 @@ class GameWindow(arcade.Window):
             fullscreen=False,
             vsync=True,
             update_rate=update_rate,
-            antialiasing=True,
+            antialiasing=False,
             samples=4
         )
 
