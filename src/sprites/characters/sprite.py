@@ -48,7 +48,7 @@ class Sprite(arcade.sprite.Sprite):
         self.insight = False
 
     def draw_debug(self):
-        return
+        pass
 
     def update(self, player=None, scene=None, physics_engine=None, state=None):
-        return
+        pass

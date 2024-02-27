@@ -36,7 +36,8 @@ SPRITE_LIST_MOVEABLE = 'Moveable'
 TOTAL_COINS = 100
 
 START_POS_X = 474
-START_POS_Y = 226
+#START_POS_Y = 226
+START_POS_Y = 1400
 
 
 class Game(Fading):
@@ -304,7 +305,7 @@ class Game(Fading):
         self.update_player()
         self.physics_engine.step()
         self.update_collectable()
-        self.update_enemies()
+        self.update_enemies(delta_time)
         self.center_camera_to_player()
 
         self.update_fade(self.next_view)
@@ -313,7 +314,7 @@ class Game(Fading):
         self.update_player_speed()
         self.player_sprite.update()
 
-    def update_enemies(self):
+    def update_enemies(self, delta_time):
         try:
             enemies = self.scene[SPRITE_LIST_ENEMIES]
         except KeyError:
@@ -326,14 +327,15 @@ class Game(Fading):
                 player=self.player_sprite,
                 scene=self.scene,
                 physics_engine=self.physics_engine,
-                state=self.state
+                state=self.state,
+                delta_time=delta_time
             )
 
             if arcade.check_for_collision(sprite, self.player_sprite):
                 self.player_sprite.hurt(sprite.damage)
 
-        if len(enemies) < 100:
-            if random.randint(1, 80) == 1:
+        if len(enemies) < 50:
+            if random.randint(1, 1) == 1:
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 

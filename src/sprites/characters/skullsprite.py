@@ -5,9 +5,11 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
 import views.game
+from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTH_EMPTY
 from utils.physics import DEFAULT_FRICTION
+from window.gamewindow import UPDATE_RATE
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -23,6 +25,8 @@ FADE_SPEED = 5
 
 DAMAGE = 1
 GRID_SIZE = 64
+
+SHOOT_DELTA = UPDATE_RATE * 60
 
 
 class SkullSprite(EnemySprite):
@@ -65,6 +69,8 @@ class SkullSprite(EnemySprite):
         self.astar_barrier_list = None
         self.damage = DAMAGE
         self.fade_in = True
+
+        self.shoot_time = 0
 
         if self.fade_in:
             self.alpha = 0
@@ -113,7 +119,7 @@ class SkullSprite(EnemySprite):
         if self.move_path:
             arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
-    def update(self, player=None, scene=None, physics_engine=None, state=None):
+    def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=None):
         if self.health <= HEALTH_EMPTY:
             self.remove_from_sprite_lists()
             return
@@ -207,3 +213,21 @@ class SkullSprite(EnemySprite):
                     force_x = -self.move_force
 
                 physics_engine.apply_force(self, (force_x, force_y))
+
+            if not self.chasing:
+                return
+
+            self.shoot_time += delta_time
+            if self.shoot_time < SHOOT_DELTA:
+                return
+
+            bullet = SkullBullet(4, color=arcade.csscolor.RED)
+            bullet.setup(
+                source=self,
+                physics_engine=physics_engine,
+                scene=scene,
+                state=state,
+                target=player
+            )
+
+            self.shoot_time = 0

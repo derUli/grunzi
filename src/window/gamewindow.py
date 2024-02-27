@@ -5,6 +5,9 @@ SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 SCREEN_TITLE = "Grunzi"
 
+UPDATE_RATE = 1 / 60
+DRAW_RATE = 1 / 60
+
 
 class GameWindow(arcade.Window):
     """
@@ -17,7 +20,7 @@ class GameWindow(arcade.Window):
             width=SCREEN_WIDTH,
             height=SCREEN_HEIGHT,
             debug=False,
-            update_rate=1 / 60
+            update_rate=UPDATE_RATE
     ):
         # Call the parent class and set up the window
         super().__init__(
