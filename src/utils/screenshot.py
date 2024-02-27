@@ -3,6 +3,7 @@ import time
 
 import pyglet
 
+import logging
 from utils.path import get_userdata_path
 
 
@@ -22,7 +23,6 @@ def make_screenshot():
 
     buffer = pyglet.image.get_buffer_manager().get_color_buffer()
     buffer.save(filename)
-
-    # logging.debug('Screenshot saved as ' + output_file)
+    logging.debug('Screenshot saved as ' + filename)
 
     return filename

@@ -38,7 +38,8 @@ class GameWindow(arcade.Window):
         self.show_fps = debug
 
         # Enable timings for FPS measurements
-        arcade.enable_timings()
+        if not arcade.timings_enabled():
+            arcade.enable_timings()
 
     def set_fullscreen(self, fullscreen=True):
         screen = pyglet.canvas.get_display().get_default_screen()
