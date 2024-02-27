@@ -26,7 +26,7 @@ FADE_SPEED = 5
 DAMAGE = 1
 GRID_SIZE = 64
 
-SHOOT_DELTA = UPDATE_RATE * 60
+SHOOT_DELTA = UPDATE_RATE * 10
 
 
 class SkullSprite(EnemySprite):

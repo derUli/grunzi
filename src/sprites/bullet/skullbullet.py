@@ -1,10 +1,7 @@
 import arcade
-from arcade import FACE_RIGHT, FACE_LEFT
 
 import views.game
 from sprites.bullet.bullet import Bullet
-from sprites.characters.enemysprite import EnemySprite
-from sprites.characters.playersprite import PlayerSprite
 
 HURT = 10
 
@@ -13,6 +10,7 @@ DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
 FORCE_MOVE = 2000
+
 
 class SkullBullet(Bullet):
 
@@ -27,6 +25,7 @@ class SkullBullet(Bullet):
         super().__init__(radius, color, soft, force_move, hurt)
 
         self.target = None
+
     def setup(self, source, physics_engine, scene, state, target=None):
 
         self.center_y = source.center_y
@@ -57,20 +56,20 @@ class SkullBullet(Bullet):
             mass=MASS,
             damping=DAMPING,
             friction=FRICTION,
-            collision_type="bullet",
+            collision_type="skull_bullet",
             elasticity=ELASTICITY
         )
 
-        physics_engine.add_collision_handler('bullet', 'wall', post_handler=self.on_hit)
-        physics_engine.add_collision_handler('bullet', 'player', post_handler=self.on_hit)
+        physics_engine.add_collision_handler('skull_bullet', 'wall', post_handler=self.on_hit_destroy)
+        physics_engine.add_collision_handler('skull_bullet', 'player', post_handler=self.on_hit_player)
         physics_engine.apply_force(self, (force_x, force_y))
 
-    def on_hit(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
-        """ Called for bullet/wall collision """
-        if isinstance(_hit_sprite, SkullBullet):
-            return
-
+    def on_hit_destroy(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         bullet_sprite.remove_from_sprite_lists()
 
-        if isinstance(_hit_sprite, PlayerSprite):
-            _hit_sprite.hurt(5)
+    def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
+        """ Called for bullet/wall collision """
+        print('Hit player')
+        bullet_sprite.remove_from_sprite_lists()
+
+        _hit_sprite.hurt(5)

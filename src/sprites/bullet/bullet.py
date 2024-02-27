@@ -57,14 +57,16 @@ class Bullet(arcade.sprite.SpriteCircle):
             elasticity=ELASTICITY
         )
 
-        physics_engine.add_collision_handler('bullet', 'wall', post_handler=self.on_hit)
+        physics_engine.add_collision_handler('bullet', 'wall', post_handler=self.on_hit_destroy)
         physics_engine.add_collision_handler('bullet', 'enemy', post_handler=self.on_hit)
 
         physics_engine.apply_force(self, (self.force_move, 0))
+
+    def on_hit_destroy(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
+        bullet_sprite.remove_from_sprite_lists()
 
     def on_hit(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
         bullet_sprite.remove_from_sprite_lists()
 
-        if isinstance(_hit_sprite, EnemySprite):
-            _hit_sprite.hurt(10)
+        _hit_sprite.hurt(10)

@@ -335,7 +335,7 @@ class Game(Fading):
                 self.player_sprite.hurt(sprite.damage)
 
         if len(enemies) < 50:
-            if random.randint(1, 1) == 1:
+            if random.randint(1, 100) == 50:
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
