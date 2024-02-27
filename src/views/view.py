@@ -5,7 +5,7 @@ import arcade
 import constants.controls.keyboard
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
-
+from utils.text import draw_debug
 
 class View(arcade.View):
 
@@ -28,6 +28,9 @@ class View(arcade.View):
             self.alt_key_pressed = True
         if self.alt_key_pressed and key == arcade.key.ENTER:
             self.window.set_fullscreen(not self.window.fullscreen)
+
+        if key in constants.controls.keyboard.KEY_TOGGLE_FPS:
+            self.window.show_fps = not self.window.show_fps
         if key in constants.controls.keyboard.KEY_SCREENSHOT:
             make_screenshot()
             self.state.play_sound('screenshot')
@@ -50,4 +53,7 @@ class View(arcade.View):
                 with open(version_file, 'r') as f:
                     self.build_version = f.read()
 
-        create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='right').draw()
+        create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='left').draw()
+
+    def draw_debug(self, player_sprite = None):
+        draw_debug(player_sprite, self.window)

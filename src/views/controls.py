@@ -130,3 +130,4 @@ class Controls(Fading):
 
         self.manager.draw()
         self.draw_fading()
+        self.draw_debug()

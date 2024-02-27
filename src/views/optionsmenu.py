@@ -128,3 +128,4 @@ class OptionsMenu(Fading):
         self.draw_build_version()
 
         self.draw_fading()
+        self.draw_debug()

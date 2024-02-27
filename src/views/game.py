@@ -141,7 +141,6 @@ class Game(Fading):
         """Render the screen."""
 
         self.clear()
-
         self.camera_sprites.use()
 
         # Draw our Scene
@@ -163,12 +162,10 @@ class Game(Fading):
 
         utils.text.draw_coins(self.state.coins)
 
-        if self.window.debug:
-            utils.text.draw_debug(self.player_sprite, self.window)
-
         self.player_sprite.draw_overlay()
 
         self.draw_fading()
+        self.draw_debug(self.player_sprite)
 
     def update_player_speed(self):
 

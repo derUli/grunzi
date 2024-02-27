@@ -134,3 +134,5 @@ class PauseMenu(Fading):
 
         if self.next_view:
             self.draw_fading()
+
+        self.draw_debug()
