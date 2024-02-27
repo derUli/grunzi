@@ -16,6 +16,7 @@ class MusicQueue:
         self.music = None
         self.player = None
         self.state = state
+
     def set_files(self, files) -> None:
         self.files = files
 

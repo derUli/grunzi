@@ -33,7 +33,7 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
     def draw_overlay(self):
         pass
 
-    def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time = None):
+    def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=None):
         if not self.sound.playing:
             self.remove_from_sprite_lists()
 

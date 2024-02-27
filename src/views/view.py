@@ -7,6 +7,7 @@ from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 from utils.text import draw_debug
 
+
 class View(arcade.View):
 
     def __init__(self, window):
@@ -65,5 +66,5 @@ class View(arcade.View):
 
         create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='left').draw()
 
-    def draw_debug(self, player_sprite = None):
+    def draw_debug(self, player_sprite=None):
         draw_debug(player_sprite, self.window)
