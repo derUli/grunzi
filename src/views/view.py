@@ -49,8 +49,10 @@ class View(arcade.View):
         self.window.show_fps = not self.window.show_fps
 
     def on_make_screenshot(self):
-        make_screenshot()
+        screenshot = make_screenshot()
         self.state.play_sound('screenshot')
+
+        return screenshot
 
     def draw_build_version(self):
         if not self.build_version:
