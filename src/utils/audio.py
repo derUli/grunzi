@@ -7,7 +7,7 @@ AUDIO_EXTENSIONS = ['.ogg']
 
 
 class MusicQueue:
-    def __init__(self, files: list = []):
+    def __init__(self, state, files: list = []):
         if files is None:
             files = []
 
@@ -15,7 +15,7 @@ class MusicQueue:
         self.queue = []
         self.music = None
         self.player = None
-
+        self.state = state
     def set_files(self, files) -> None:
         self.files = files
 
@@ -50,7 +50,7 @@ class MusicQueue:
             self.player.pop_handlers()
 
         self.music = arcade.load_sound(self.queue[0], streaming=True)
-        self.player = self.music.play()
+        self.player = self.music.play(volume=self.state.music_volume)
         self.queue = self.queue[1:]
 
         self.player.push_handlers(on_eos=self.next)

@@ -122,7 +122,7 @@ class Game(Fading):
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
         # Create the music queue
-        self.music_queue = utils.audio.MusicQueue()
+        self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, self.state.map_name))
         self.music_queue.play()
 

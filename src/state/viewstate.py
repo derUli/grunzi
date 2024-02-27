@@ -18,6 +18,8 @@ class ViewState:
         self.sound_dir = os.path.join(self.data_dir, 'sounds')
         self.font_dir = os.path.join(self.data_dir, 'fonts')
         self.shader_dir = os.path.join(self.data_dir, 'shaders')
+        self.music_volume = 1
+        self.sound_volume = 0
 
         self.shaders = {}
         self.sounds = {}
@@ -82,7 +84,7 @@ class ViewState:
         return self.shaders[name]
 
     def play_sound(self, name):
-        return self.sounds[name].play()
+        return self.sounds[name].play(volume=self.sound_volume)
 
     def grunt(self):
         rand = random.randint(1, 5)

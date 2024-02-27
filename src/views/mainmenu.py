@@ -111,7 +111,7 @@ class MainMenu(Fading):
         music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
 
         if not self.player:
-            self.player = music.play(loop=True)
+            self.player = music.play(loop=True, volume=self.state.music_volume)
 
         self.manager.enable()
 
