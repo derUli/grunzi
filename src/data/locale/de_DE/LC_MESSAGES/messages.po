@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-26 22:05+0100\n"
+"POT-Creation-Date: 2024-02-27 09:31+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,39 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: grunzi.py:87
+#: grunzi.py:35
 msgid "Run in windowed mode"
 msgstr "Ausführen im Fenstermodus"
 
-#: grunzi.py:94
+#: grunzi.py:42
 msgid "Enable debug mode"
 msgstr "Aktiviere den Debug Modus"
 
-#: grunzi.py:101
+#: grunzi.py:49
 msgid "Window width in pixels"
 msgstr "Fensterbreite in Pixeln"
 
-#: grunzi.py:107
+#: grunzi.py:55
 msgid "Window height in pixels"
 msgstr "Fensterhöhe in Pixeln"
 
-#: grunzi.py:114
+#: grunzi.py:62
 msgid "Name of the map"
 msgstr "Name der Map"
 
-#: grunzi.py:121
+#: grunzi.py:69
 msgid "Mute the sound"
 msgstr "Audioausgabe deaktivieren"
 
-#: grunzi.py:129
+#: grunzi.py:77
 msgid "Make the operation more talkative"
 msgstr "Machen Sie die Operation gesprächiger"
 
-#: grunzi.py:148
+#: grunzi.py:96
 msgid "Arguments"
 msgstr "Argumente"
 
-#: grunzi.py:149
+#: grunzi.py:97
 msgid "Pyglet options"
 msgstr "Pyglet Optionen"
 
@@ -58,7 +58,7 @@ msgstr "Pyglet Optionen"
 msgid "Game Over"
 msgstr "Du bist Schinken."
 
-#: state/viewstate.py:86 views/controls.py:51
+#: state/viewstate.py:89 views/controls.py:51
 msgid "Grunt"
 msgstr "Grunzen"
 
@@ -122,39 +122,39 @@ msgstr ""
 msgid "Toggle fullscreen"
 msgstr "Vollbild/Fenster umschalten"
 
-#: views/controls.py:70 views/optionsmenu.py:46
+#: views/controls.py:70 views/optionsmenu.py:47
 msgid "Back"
 msgstr "Zurück"
 
-#: views/mainmenu.py:26
+#: views/mainmenu.py:27
 msgid "Grunzi"
 msgstr "Grunzi"
 
-#: views/mainmenu.py:34
+#: views/mainmenu.py:35
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:40 views/pausemenu.py:33
+#: views/mainmenu.py:41 views/pausemenu.py:34
 msgid "Options & Help"
 msgstr "Optionen & Hilfe"
 
-#: views/mainmenu.py:46
+#: views/mainmenu.py:47
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/optionsmenu.py:34
+#: views/optionsmenu.py:35
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/optionsmenu.py:40
+#: views/optionsmenu.py:41
 msgid "Follow me on X"
 msgstr "Folge mir auf X"
 
-#: views/pausemenu.py:27
+#: views/pausemenu.py:28
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/pausemenu.py:39
+#: views/pausemenu.py:40
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 

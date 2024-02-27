@@ -13,6 +13,7 @@ URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
 BUTTON_MARGIN_BOTTOM = 20
 
+
 class OptionsMenu(Fading):
     """Main menu view class."""
 
