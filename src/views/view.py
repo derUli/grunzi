@@ -27,22 +27,30 @@ class View(arcade.View):
         if key == arcade.key.LALT:
             self.alt_key_pressed = True
         if self.alt_key_pressed and key == arcade.key.ENTER:
-            self.window.set_fullscreen(not self.window.fullscreen)
+            self.on_toggle_fullscreen()
 
         if key in constants.controls.keyboard.KEY_TOGGLE_FPS:
-            self.window.show_fps = not self.window.show_fps
+            self.on_toggle_fps()
         if key in constants.controls.keyboard.KEY_SCREENSHOT:
-            make_screenshot()
-            self.state.play_sound('screenshot')
+            self.on_make_screenshot()
 
     def on_key_release(self, key, modifiers):
-
         if key == arcade.key.LALT:
             self.alt_key_pressed = False
 
     def on_show_view(self):
         # Set the background color
         arcade.set_background_color(arcade.color.LIGHT_BLUE)
+
+    def on_toggle_fullscreen(self):
+        self.window.set_fullscreen(not self.window.fullscreen)
+
+    def on_toggle_fps(self):
+        self.window.show_fps = not self.window.show_fps
+
+    def on_make_screenshot(self):
+        make_screenshot()
+        self.state.play_sound('screenshot')
 
     def draw_build_version(self):
         if not self.build_version:
