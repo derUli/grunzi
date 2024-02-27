@@ -1,6 +1,6 @@
 # Beschreibung
 
-Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufer und erkundest einer Welt voller Rätsel,
+Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufers und erkundest einer Welt voller Action,
 Monster und friedlicher Zeitgenossen.
 Das Spiel befindet sich noch in einem sehr frühen Zustand der Entwicklung.
 

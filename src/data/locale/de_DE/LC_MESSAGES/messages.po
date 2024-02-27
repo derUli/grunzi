@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-27 17:04+0100\n"
+"POT-Creation-Date: 2024-02-27 23:52+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -55,7 +55,8 @@ msgid "Pyglet options"
 msgstr "Pyglet Optionen"
 
 #: sprites/characters/playersprite.py:85
-msgid "Game Over"
+#, fuzzy
+msgid "You're bacon!"
 msgstr "Du bist Schinken."
 
 #: state/viewstate.py:91 views/controls.py:51
@@ -166,7 +167,7 @@ msgstr "Fortsetzen"
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/view.py:49
+#: views/view.py:60
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 

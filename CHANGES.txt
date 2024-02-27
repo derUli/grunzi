@@ -1,5 +1,9 @@
 # Changelog
 
+## Alpha 007 (Not Yet released)
+
+* Totenköpfe können jetzt schießen
+
 ## Alpha 006 (Not yet released)
 
 * Komplette Neuentwicklung auf neuer technologischer Basis

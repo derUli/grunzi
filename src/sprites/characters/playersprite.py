@@ -82,6 +82,6 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
 
         # TODO: Implement real game over screen
         utils.text.create_text(
-            _('Game Over'),
+            _("You're bacon!"),
             width=window.width - (utils.text.MARGIN * 2),
-            align='right').draw()
+            align='left').draw()
