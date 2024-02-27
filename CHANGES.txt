@@ -6,7 +6,7 @@
 
 ## Alpha 006 (Not yet released)
 
-* Komplette Neuentwicklung auf neuer technologischer Basis
+* Komplette Neuentwicklung auf anderer technologischer Basis
 * TMX-Tilemap
 * Sammelbare Münzen
 * Verschiebbare Kisten
