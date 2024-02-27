@@ -36,14 +36,14 @@ class SkullBullet(Bullet):
         if target.left > source.right:
             self.right = source.right + self.width
             force_x = self.force_move
-        else:
+        elif target.left < source.right:
             self.left = source.left - self.width
             force_x = -self.force_move
 
         if target.top > source.bottom:
             self.bottom = source.bottom + self.width
             force_y = self.force_move
-        else:
+        elif target.top < source.bottom:
             self.top = source.top + self.width
             force_y = -self.force_move
 
@@ -62,7 +62,6 @@ class SkullBullet(Bullet):
 
         physics_engine.add_collision_handler('skull_bullet', 'wall', post_handler=self.on_hit_destroy)
         physics_engine.add_collision_handler('skull_bullet', 'player', post_handler=self.on_hit_player)  #
-        physics_engine.add_collision_handler('skull_bullet', 'skull_bullet', post_handler=self.on_hit_destroy)
         physics_engine.apply_force(self, (force_x, force_y))
 
     def on_hit_destroy(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):

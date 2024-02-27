@@ -346,7 +346,6 @@ class Game(Fading):
             SPRITE_LIST_WALL,
             SPRITE_LIST_COINS,
             SPRITE_LIST_ENEMIES,
-            SPRITE_LIST_PLAYER,
             SPRITE_LIST_MOVEABLE,
         ]
 
