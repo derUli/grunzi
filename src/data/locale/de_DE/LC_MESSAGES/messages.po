@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-27 09:31+0100\n"
+"POT-Creation-Date: 2024-02-27 17:04+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -58,7 +58,7 @@ msgstr "Pyglet Optionen"
 msgid "Game Over"
 msgstr "Du bist Schinken."
 
-#: state/viewstate.py:89 views/controls.py:51
+#: state/viewstate.py:91 views/controls.py:51
 msgid "Grunt"
 msgstr "Grunzen"
 
@@ -99,30 +99,38 @@ msgid "G"
 msgstr ""
 
 #: views/controls.py:52
-msgid "F12"
-msgstr ""
-
-#: views/controls.py:52
-msgid "Make screenshot"
-msgstr "Screenshot erstellen"
-
-#: views/controls.py:53
 msgid "ESC"
 msgstr ""
 
-#: views/controls.py:53
+#: views/controls.py:52
 msgid "Open the pause menu"
 msgstr "Pausenmenü öffnen"
 
+#: views/controls.py:53
+msgid "F3"
+msgstr ""
+
+#: views/controls.py:53
+msgid "Show FPS"
+msgstr "FPS anzeigen"
+
 #: views/controls.py:54
-msgid "Alt + Enter"
+msgid "F12"
 msgstr ""
 
 #: views/controls.py:54
+msgid "Make screenshot"
+msgstr "Screenshot erstellen"
+
+#: views/controls.py:55
+msgid "Alt + Enter"
+msgstr ""
+
+#: views/controls.py:55
 msgid "Toggle fullscreen"
 msgstr "Vollbild/Fenster umschalten"
 
-#: views/controls.py:70 views/optionsmenu.py:47
+#: views/controls.py:73 views/optionsmenu.py:47
 msgid "Back"
 msgstr "Zurück"
 
@@ -158,7 +166,7 @@ msgstr "Fortsetzen"
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/view.py:46
+#: views/view.py:49
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 

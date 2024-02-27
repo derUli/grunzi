@@ -13,4 +13,4 @@ KEY_MOVE_UP = [arcade.key.UP, arcade.key.W]
 KEY_MOVE_DOWN = [arcade.key.DOWN, arcade.key.S]
 
 KEY_SCREENSHOT = [arcade.key.F12]
-KEY_TOGGLE_FPS = [arcade.key.F1]
+KEY_TOGGLE_FPS = [arcade.key.F3]

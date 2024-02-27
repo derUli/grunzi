@@ -72,9 +72,10 @@ Shift: Sprinten
 Ctrl: Schießen
 E: Benutzen
 G: Grunzen
-F12: Screenshot erstellen
 Esc: Pausenmenü öffnen
 Alt + Enter: Vollbildmodus umschalten
+F3: Show FPS
+F12: Screenshot erstellen
 
 ## Controller
 

@@ -49,8 +49,9 @@ class Controls(Fading):
             (_("Ctrl"), _("Shoot")),
             (_("E"), _("Use")),
             (_("G"), _("Grunt")),
-            (_("F12"), _("Make screenshot")),
             (_("ESC"), _("Open the pause menu")),
+            (_('F3'), _('Show FPS')),
+            (_("F12"), _("Make screenshot")),
             (_("Alt + Enter"), _("Toggle fullscreen"))
         ]
 
@@ -61,7 +62,9 @@ class Controls(Fading):
 
             text = text + utils.text.label_value(label, value) + (os.linesep * 2)
 
-            # Makes the background darker
+        text = text.strip()
+
+        # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
 
         v_box = arcade.gui.UIBoxLayout()
