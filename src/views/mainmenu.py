@@ -127,7 +127,6 @@ class MainMenu(Fading):
         self.clear()
         self.camera_gui.use()
 
-        arcade.start_render()
         self.shadertoy.render(time=self.time)
 
         self.manager.draw()
