@@ -63,15 +63,7 @@ https://www.microsoft.com/de-de/download/details.aspx?id=48145
 
 ## Tastatur
 
-WASD, Pfeiltasten: Bewegen
-Shift: Sprinten
-Ctrl: Schießen
-E: Benutzen
-G: Grunzen
-Esc: Pausenmenü öffnen
-Alt + Enter: Vollbildmodus umschalten
-F3: Show FPS
-F12: Screenshot erstellen
+Die Steuerung über Tastatur kann im Hauptmenü unter "Hilfe & Optionen" - "Steuerung" eingesehen werden.
 
 ## Controller
 
