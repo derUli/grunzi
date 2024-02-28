@@ -31,12 +31,8 @@ Die Maps sind jetzt im TMX Format und können mit dem Open-Source Map-Editor Til
 Kisten können durch die Gegend geschoben werden.
 
 Totenköpfe spawnen nach und nach an zufälligen Orten.
-Diese machen gebrauchen vom Sight Of Line Algorithmus und dem A*-Algorithmus, um den Hauptcharakter zu verfolgen.
-Es ist zukünftig geplant, dass die Totenköpfe den Hauptcharakter mit Geschossen angreifen.
-Das ist in diesem Build aber noch nicht implementiert.
-
-Das Spiel kann in diesem Build nicht gewonnen oder verloren werden.
-Man kann in dieser Version auf der noch recht leeren neuen Map frei herumlaufen.
+Diese machen gebrauchen vom Sight Of Line Algorithmus und dem A*-Algorithmus, um den Hauptcharakter zu verfolgen
+und auf diesen zu schießen.
 
 Grunzi kann jetzt schießen.
 Wenn Grunzi verletzt ist, regeneriert sich die Gesundheit jetzt automatisch.

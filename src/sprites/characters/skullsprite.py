@@ -121,7 +121,14 @@ class SkullSprite(EnemySprite):
 
     def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=None):
         if self.health <= HEALTH_EMPTY:
-            self.remove_from_sprite_lists()
+            alpha = self.alpha - FADE_SPEED
+
+            if alpha <= 0:
+                alpha = 0
+                self.remove_from_sprite_lists()
+
+            self.alpha = alpha
+
             return
 
         if self.fade_in and self.alpha < FADE_IN_MAX:
