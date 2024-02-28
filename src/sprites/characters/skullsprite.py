@@ -175,9 +175,6 @@ class SkullSprite(EnemySprite):
                 state.sounds['screech'].play()
             self.chased = True
             self.update_texture()
-        else:
-            self.chasing = None
-            self.update_texture()
 
         if self.chasing:
             if not self.astar_barrier_list:
