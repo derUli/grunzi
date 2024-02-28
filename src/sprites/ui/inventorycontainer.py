@@ -1,5 +1,7 @@
 import arcade
 import os
+
+from sprites.items.ball import Ball
 from sprites.ui.inventoryitem import InventoryItem
 
 CAPACITY = 5
@@ -40,6 +42,8 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
         w -= total_width / 2
 
         left = w
+
+        self.sprite_list[0].set_item(Ball(state))
 
         for sprite in self.sprite_list:
             sprite.left = left
