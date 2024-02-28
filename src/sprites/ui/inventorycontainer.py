@@ -12,7 +12,7 @@ LEFT = MARGIN
 BOTTOM = MARGIN
 SPACE_BETWEEN = 10
 
-ALPHA = 100
+ALPHA = 200
 
 
 class InventoryContainer(arcade.sprite_list.SpriteList):
@@ -32,7 +32,7 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
         for i in range(CAPACITY):
             sprite = InventoryItem(filename=file, bottom=bottom, left=left)
-            sprite.setup(i=i, selected=i == 0)
+            sprite.setup(state=state, selected=i == 0)
             self.append(sprite)
 
             left += sprite.width + SPACE_BETWEEN
@@ -73,7 +73,7 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
             if klass1 != klass2:
                 continue
 
-            sprite.quantity += 1
+            sprite.push()
             return
 
     def get_item(self, index):

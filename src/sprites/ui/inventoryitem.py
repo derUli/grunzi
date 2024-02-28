@@ -1,12 +1,13 @@
+import os
 import uuid
 
 import PIL
 import arcade
+from PIL import ImageDraw, ImageFont
 from arcade import get_four_byte_color
 
-MARGIN = 10
-PADDING = 20
-
+PADDING = 10
+TEXT_PADDING = (28, 5)
 
 class InventoryItem(arcade.sprite.Sprite):
 
@@ -19,12 +20,14 @@ class InventoryItem(arcade.sprite.Sprite):
         self.selected = False
         self.names = None
         self.item = None
-
+        self.state = None
         self.quantity = 0
 
-    def setup(self, i, selected=False, item=None):
+    def setup(self, state, selected=False, item=None):
+        self.state = state
         self.set_item(item)
         self.update_sprite(selected)
+
 
     def get_item(self):
         return self.item
@@ -60,8 +63,11 @@ class InventoryItem(arcade.sprite.Sprite):
 
         image.paste(self.image, (0, 0), self.image)
 
-        width = self.width - PADDING
-        height = self.height - PADDING
+        width = self.width - (PADDING * 2)
+        height = self.height - (PADDING * 2)
+
+        x = 0
+        y = 0
 
         if self.item:
             scaled_item = PIL.ImageOps.fit(self.item.image, (width, height))
@@ -72,9 +78,28 @@ class InventoryItem(arcade.sprite.Sprite):
 
             image.paste(scaled_item, (x, y), scaled_item)
 
+        fontfile = os.path.join(self.state.font_dir, 'consolasmonobook.ttf')
+        draw = ImageDraw.Draw(image)
+        font = ImageFont.truetype(fontfile, 14)
+        text = str(self.quantity).rjust(3, ' ')
+
+        # drawing text size
+        draw.text(
+            TEXT_PADDING,
+            str(text),
+            font=font,
+            fill=arcade.csscolor.HOTPINK
+        )
+
         texture = arcade.texture.Texture(name=name, image=image)
 
         self.texture = texture
+
+    def push(self):
+        self.generate_cache_names()
+
+        self.quantity += 1
+        self.update_sprite()
 
     def __str__(self):
         if not self.item:

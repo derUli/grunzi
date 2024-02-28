@@ -355,7 +355,7 @@ class Game(Fading):
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
     def all_layers(self):
-        sprite_list = SpriteList(is_static=True, use_spatial_hash=True)
+        sprite_list = SpriteList(use_spatial_hash=True)
 
         layer_names = [
             SPRITE_LIST_WALL,
@@ -412,7 +412,6 @@ class Game(Fading):
                                        damping=skull.damping
                                        )
 
-        return
 
     def update_collectable(self):
         coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene[SPRITE_LIST_COINS])
