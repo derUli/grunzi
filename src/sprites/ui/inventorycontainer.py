@@ -9,9 +9,13 @@ LEFT = MARGIN
 BOTTOM = MARGIN
 SPACE_BETWEEN = 10
 
+ALPHA = 100
+
 class InventoryContainer(arcade.sprite_list.SpriteList):
     def __init__(self):
         super().__init__(capacity=CAPACITY, visible=True)
+
+        self.alpha = ALPHA
 
     def setup(self, state, size):
         self.clear()
@@ -30,7 +34,6 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
             left += sprite.width + SPACE_BETWEEN
             total_width += sprite.width + SPACE_BETWEEN
 
-
         w, h = size
         w = w / 2
 
@@ -46,9 +49,10 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
     def select(self, index):
         for sprite in self.sprite_list:
-            sprite.selected = False
+            sprite.unselect()
 
         if index < 0:
             return
 
-        self.sprite_list[index].selected = True
+        self.sprite_list[index].select()
+
