@@ -69,7 +69,6 @@ class SkullBullet(Bullet):
 
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
-        print('Hit player')
         bullet_sprite.remove_from_sprite_lists()
 
         _hit_sprite.hurt(10)

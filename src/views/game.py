@@ -236,7 +236,6 @@ class Game(Fading):
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
             index -= 1
-            print(index)
             self.inventory.select(index)
 
     def reset_keys(self):

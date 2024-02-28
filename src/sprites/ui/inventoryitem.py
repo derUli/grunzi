@@ -1,6 +1,9 @@
 import time
 import uuid
+
+import PIL
 import arcade
+from arcade import get_four_byte_color
 
 MARGIN = 10
 class InventoryItem(arcade.sprite.Sprite):
@@ -11,7 +14,8 @@ class InventoryItem(arcade.sprite.Sprite):
         self.bottom = bottom
         self.left = left
 
-        self.original_texture = self.texture
+        self.original_texture = PIL.Image.open(filename).convert('RGBA')
+
         self.selected = False
         self.name = time.time()
 
@@ -36,11 +40,10 @@ class InventoryItem(arcade.sprite.Sprite):
             color = arcade.csscolor.DARK_GREY
 
         name = self.names[int(self.selected)]
+        image = PIL.Image.new("RGBA", self.original_texture.size, get_four_byte_color(color))
 
-        texture = arcade.texture.Texture.create_filled(
-            name=name,
-            size=self.original_texture.size,
-            color=color
-        )
+        image.paste(self.original_texture, (0,0), self.original_texture)
+
+        texture = arcade.texture.Texture(name=name, image=image)
 
         self.texture = texture
