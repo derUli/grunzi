@@ -15,6 +15,7 @@ from utils.logging import configure_logger
 from utils.text import label_value
 from views.intro import Intro
 from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
+from window.launcherwindow import LauncherWindow
 
 ROOT_DIR = os.path.dirname(__file__)
 
@@ -55,6 +56,7 @@ def main():
         default=SCREEN_WIDTH,
         help=_('Window width in pixels')
     )
+
     parser.add_argument(
         '--height',
         type=int,
@@ -84,7 +86,31 @@ def main():
         help=_('Make the operation more talkative')
     )
 
+    parser.add_argument(
+        '--setup',
+        action='store_true',
+        default=False,
+        help=_('Shows launcher')
+    )
+
     args = parser.parse_args()
+
+    if args.fullscreen:
+        args.window = False
+    elif args.window:
+        args.fullscreen = False
+    else:
+        args.fullscreen = True
+
+    if args.setup:
+        launcher = LauncherWindow(args)
+        launcher.setup()
+        launcher.mainloop()
+
+        if not launcher.get_args():
+            return
+
+        args = launcher.get_args()
 
     if args.silent:
         pyglet.options['audio'] = 'silent'
@@ -103,15 +129,7 @@ def main():
     logging.info(label_value(_('Arguments'), args))
     logging.info(label_value(_('Pyglet options'), pyglet.options))
 
-    window = False
-
-    if args.window:
-        window = True
-
-    if args.fullscreen:
-        window = False
-
-    window = GameWindow(window, args.width, args.height, debug=args.debug)
+    window = GameWindow(args.window, args.width, args.height, debug=args.debug)
     state = ViewState(ROOT_DIR, map_name=args.map)
     state.preload()
     icon_path = os.path.join(state.image_dir, 'ui', 'icon.ico')
