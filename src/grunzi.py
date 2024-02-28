@@ -20,14 +20,7 @@ from window.launcherwindow import LauncherWindow
 ROOT_DIR = os.path.dirname(__file__)
 
 
-def main():
-    """Main function"""
-
-    # Set locale
-    locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
-    os.environ['LANG'] = ':'.join(locale.getlocale())
-    gettext.install('messages', locale_path)
-
+def cli_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--window',
@@ -93,7 +86,19 @@ def main():
         help=_('Shows launcher')
     )
 
-    args = parser.parse_args()
+    return parser.parse_args()
+
+def setup_locale():
+    # Set locale
+    locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
+    os.environ['LANG'] = ':'.join(locale.getlocale())
+    gettext.install('messages', locale_path)
+
+
+def main():
+    """Main function"""
+    setup_locale()
+    args = cli_args()
 
     if args.fullscreen:
         args.window = False
