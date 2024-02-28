@@ -2,7 +2,8 @@
 
 ## Alpha 007 (Not Yet released)
 
-* Totenköpfe können jetzt schießen
+* Inventar teilweise implementiert
+* Launcher
 
 ## Alpha 006 (Not yet released)
 
