@@ -354,7 +354,7 @@ class Game(Fading):
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
     def all_layers(self):
-        sprite_list = SpriteList(use_spatial_hash=True)
+        sprite_list = SpriteList(use_spatial_hash=False)
 
         layer_names = [
             SPRITE_LIST_WALL,
