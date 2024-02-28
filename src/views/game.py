@@ -39,7 +39,6 @@ TOTAL_COINS = 100
 
 START_POS_X = 474
 START_POS_Y = 226
-# START_POS_Y = 1400
 
 
 class Game(Fading):
@@ -110,7 +109,7 @@ class Game(Fading):
 
         # Read in the tiled map
         try:
-            self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options)
+            self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options, use_spatial_hash=True)
         except FileNotFoundError as e:
             logging.error(e)
             arcade.exit()
@@ -411,7 +410,6 @@ class Game(Fading):
                                        max_velocity=200,
                                        damping=skull.damping
                                        )
-
 
     def update_collectable(self):
         coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene[SPRITE_LIST_COINS])
