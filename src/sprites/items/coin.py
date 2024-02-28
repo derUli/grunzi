@@ -1,6 +1,7 @@
 import PIL
 import arcade
 
+SCALE = 0.6
 
 class Coin(arcade.sprite.Sprite):
     def __init__(self, filename, center_x, center_y):
@@ -13,5 +14,5 @@ class Coin(arcade.sprite.Sprite):
             texture=texture,
             center_x=center_x,
             center_y=center_y,
-            scale=0.6
+            scale=SCALE
         )

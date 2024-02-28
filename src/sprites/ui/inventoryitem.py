@@ -5,7 +5,7 @@ import arcade
 from arcade import get_four_byte_color
 
 MARGIN = 10
-PADDING = 5
+PADDING = 20
 
 
 class InventoryItem(arcade.sprite.Sprite):
