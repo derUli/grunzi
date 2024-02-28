@@ -16,21 +16,25 @@ class InventoryItem(arcade.sprite.Sprite):
         self.left = left
 
         self.image = PIL.Image.open(filename).convert('RGBA')
-
         self.selected = False
-
         self.names = None
-
         self.item = None
+
+        self.quantity = 0
 
     def setup(self, i, selected=False, item=None):
         self.set_item(item)
         self.update_sprite(selected)
 
+    def get_item(self):
+        return self.item
+
     def set_item(self, item):
         self.item = item
         self.generate_cache_names()
         self.update_sprite(self.selected)
+
+        self.quantity = 1
 
     def generate_cache_names(self):
         self.names = [
@@ -59,7 +63,6 @@ class InventoryItem(arcade.sprite.Sprite):
         width = self.width - PADDING
         height = self.height - PADDING
 
-
         if self.item:
             scaled_item = PIL.ImageOps.fit(self.item.image, (width, height))
             x, y = int(self.width / 2), int(self.height / 2)
@@ -72,3 +75,8 @@ class InventoryItem(arcade.sprite.Sprite):
         texture = arcade.texture.Texture(name=name, image=image)
 
         self.texture = texture
+
+    def __str__(self):
+        if not self.item:
+            return 'No Item'
+        return self.item.__class__.__name__ + ' ' + str(self.quantity)

@@ -1,0 +1,17 @@
+import PIL
+import arcade
+
+
+class Coin(arcade.sprite.Sprite):
+    def __init__(self, filename, center_x, center_y):
+        filename = filename
+
+        self.image = PIL.Image.open(filename).convert('RGBA').crop()
+
+        texture = arcade.texture.Texture(name='ball', image=self.image)
+        super().__init__(
+            texture=texture,
+            center_x=center_x,
+            center_y=center_y,
+            scale=0.6
+        )

@@ -19,6 +19,7 @@ from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
+from sprites.items.coin import Coin
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
@@ -99,8 +100,11 @@ class Game(Fading):
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
 
         layer_options = {
-            "Walls": {
+            SPRITE_LIST_WALL: {
                 "use_spatial_hash": True,
+            },
+            SPRITE_LIST_COINS: {
+                "custom_class": Coin
             }
         }
 
@@ -377,11 +381,10 @@ class Game(Fading):
 
     def make_coin(self):
         rand_x, rand_y = random_position(self.tile_map)
-        coin = arcade.sprite.Sprite(
+        coin = Coin(
             filename=os.path.join(self.state.sprite_dir, 'coin.png'),
             center_x=rand_x,
-            center_y=rand_y,
-            scale=0.6
+            center_y=rand_y
         )
 
         if arcade.check_for_collision_with_list(coin, self.all_layers()):
@@ -416,8 +419,11 @@ class Game(Fading):
         collected = False
 
         for coin in coins:
-            coin.remove_from_sprite_lists()
+            self.scene[SPRITE_LIST_COINS].remove(coin)
             self.state.coins += 1
+
+            self.inventory.add_item(coin)
+            logging.debug(self.inventory.get_item(1))
             self.state.play_sound('coin')
             collected = True
 

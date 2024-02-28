@@ -1,5 +1,6 @@
-import arcade
 import os
+
+import arcade
 
 from sprites.items.ball import Ball
 from sprites.ui.inventoryitem import InventoryItem
@@ -12,6 +13,7 @@ BOTTOM = MARGIN
 SPACE_BETWEEN = 10
 
 ALPHA = 100
+
 
 class InventoryContainer(arcade.sprite_list.SpriteList):
     def __init__(self):
@@ -30,7 +32,7 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
         for i in range(CAPACITY):
             sprite = InventoryItem(filename=file, bottom=bottom, left=left)
-            sprite.setup(i=i, selected = i == 0)
+            sprite.setup(i=i, selected=i == 0)
             self.append(sprite)
 
             left += sprite.width + SPACE_BETWEEN
@@ -50,7 +52,6 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
             left += sprite.width + SPACE_BETWEEN
 
-
     def select(self, index):
         for sprite in self.sprite_list:
             sprite.unselect()
@@ -60,3 +61,20 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
         self.sprite_list[index].select()
 
+    def add_item(self, item):
+        for sprite in self.sprite_list:
+            if not sprite.get_item():
+                sprite.set_item(item)
+                return
+
+            klass1 = sprite.item.__class__
+            klass2 = item.__class__
+
+            if klass1 != klass2:
+                continue
+
+            sprite.quantity += 1
+            return
+
+    def get_item(self, index):
+        return self.sprite_list[index]
