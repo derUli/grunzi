@@ -19,6 +19,7 @@ from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
+from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
 from views.fading import Fading
@@ -72,6 +73,9 @@ class Game(Fading):
 
         # Music queue
         self.music_queue = None
+
+        # Inventory
+        self.inventory = None
 
         self.initialized = False
 
@@ -133,8 +137,10 @@ class Game(Fading):
 
         self.initialized = True
 
-    def on_hide_view(self):
+        self.inventory = InventoryContainer()
+        self.inventory.setup(state=self.state, size=self.window.size())
 
+    def on_hide_view(self):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
 
@@ -164,7 +170,7 @@ class Game(Fading):
         utils.text.draw_coins(self.state.coins)
 
         self.player_sprite.draw_overlay()
-
+        self.inventory.draw()
         self.draw_fading()
         self.draw_debug(self.player_sprite)
 
@@ -276,7 +282,7 @@ class Game(Fading):
             source=self.player_sprite,
             physics_engine=self.physics_engine,
             scene=self.scene,
-            state=self.state
+            state=self.state,
         )
 
     def on_use(self):
