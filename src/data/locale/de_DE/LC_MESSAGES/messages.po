@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-27 23:52+0100\n"
+"POT-Creation-Date: 2024-02-28 14:18+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -23,39 +23,42 @@ msgid "Run in windowed mode"
 msgstr "Ausführen im Fenstermodus"
 
 #: grunzi.py:42
+msgid "Run in fullscreen mode"
+msgstr "Ausführen im Vollbildmodus"
+
+#: grunzi.py:49
 msgid "Enable debug mode"
 msgstr "Aktiviere den Debug Modus"
 
-#: grunzi.py:49
+#: grunzi.py:56
 msgid "Window width in pixels"
 msgstr "Fensterbreite in Pixeln"
 
-#: grunzi.py:55
+#: grunzi.py:62
 msgid "Window height in pixels"
 msgstr "Fensterhöhe in Pixeln"
 
-#: grunzi.py:62
+#: grunzi.py:69
 msgid "Name of the map"
 msgstr "Name der Map"
 
-#: grunzi.py:69
+#: grunzi.py:76
 msgid "Mute the sound"
 msgstr "Audioausgabe deaktivieren"
 
-#: grunzi.py:77
+#: grunzi.py:84
 msgid "Make the operation more talkative"
 msgstr "Machen Sie die Operation gesprächiger"
 
-#: grunzi.py:96
+#: grunzi.py:103
 msgid "Arguments"
 msgstr "Argumente"
 
-#: grunzi.py:97
+#: grunzi.py:104
 msgid "Pyglet options"
 msgstr "Pyglet Optionen"
 
 #: sprites/characters/playersprite.py:85
-#, fuzzy
 msgid "You're bacon!"
 msgstr "Du bist Schinken."
 

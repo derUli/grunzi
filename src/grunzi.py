@@ -36,6 +36,13 @@ def main():
     )
 
     parser.add_argument(
+        '--fullscreen',
+        action='store_true',
+        default=False,
+        help=_('Run in fullscreen mode')
+    )
+
+    parser.add_argument(
         '--debug',
         action='store_true',
         default=False,
@@ -96,7 +103,15 @@ def main():
     logging.info(label_value(_('Arguments'), args))
     logging.info(label_value(_('Pyglet options'), pyglet.options))
 
-    window = GameWindow(args.window, args.width, args.height, debug=args.debug)
+    window = False
+
+    if args.window:
+        window = True
+
+    if args.fullscreen:
+        window = False
+
+    window = GameWindow(window, args.width, args.height, debug=args.debug)
     state = ViewState(ROOT_DIR, map_name=args.map)
     state.preload()
     icon_path = os.path.join(state.image_dir, 'ui', 'icon.ico')

@@ -339,14 +339,15 @@ class Game(Fading):
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
-    def static_layers(self):
-        sprite_list = SpriteList(is_static=True)
+    def all_layers(self):
+        sprite_list = SpriteList(is_static=True, use_spatial_hash=True)
 
         layer_names = [
             SPRITE_LIST_WALL,
             SPRITE_LIST_COINS,
             SPRITE_LIST_ENEMIES,
             SPRITE_LIST_MOVEABLE,
+            SPRITE_LIST_PLAYER
         ]
 
         layers = []
@@ -372,7 +373,7 @@ class Game(Fading):
             scale=0.6
         )
 
-        if arcade.check_for_collision_with_list(coin, self.static_layers()):
+        if arcade.check_for_collision_with_list(coin, self.all_layers()):
             return self.make_coin()
 
         self.scene.add_sprite(SPRITE_LIST_COINS, coin)
@@ -384,7 +385,7 @@ class Game(Fading):
 
         skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x=rand_x, center_y=rand_y)
 
-        if arcade.check_for_collision_with_list(skull, self.static_layers()):
+        if arcade.check_for_collision_with_list(skull, self.all_layers()):
             return self.spawn_skull()
 
         self.scene.add_sprite(SPRITE_LIST_ENEMIES, skull)
