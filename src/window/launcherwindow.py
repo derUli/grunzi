@@ -79,4 +79,4 @@ class LauncherWindow(tk.Tk):
 
     def on_launch(self):
         self.confirmed = True
-        self.quit()
+        self.destroy()

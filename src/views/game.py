@@ -315,6 +315,10 @@ class Game(Fading):
     def on_update(self, delta_time):
         """Movement and game logic"""
 
+        if self.player_sprite.dead():
+            self.update_fade(self.next_view)
+            return
+
         # Move the player with the physics engine
         self.update_player()
         self.physics_engine.step()
