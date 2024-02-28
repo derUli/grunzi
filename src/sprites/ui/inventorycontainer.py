@@ -20,6 +20,7 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
         super().__init__(capacity=CAPACITY, visible=True)
 
         self.alpha = ALPHA
+        self.visible = False
 
     def setup(self, state, size):
         self.clear()
