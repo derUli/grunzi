@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-02-29 22:59+0100\n"
+"POT-Creation-Date: 2024-03-01 00:09+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -62,91 +62,91 @@ msgstr "Argumente"
 msgid "Pyglet options"
 msgstr "Pyglet Optionen"
 
-#: sprites/characters/playersprite.py:112
+#: sprites/characters/playersprite.py:111
 msgid "You're bacon!"
 msgstr "Du bist Schinken."
 
-#: state/viewstate.py:87 views/controls.py:51
+#: state/viewstate.py:87 views/controls.py:47
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: views/controls.py:47
+#: views/controls.py:43
 msgid "WASD, Arrow keys"
 msgstr "WASD, Pfeiltasten"
 
-#: views/controls.py:47
+#: views/controls.py:43
 msgid "Walk"
 msgstr "Gehen"
 
-#: views/controls.py:48
+#: views/controls.py:44
 msgid "Shift"
 msgstr ""
 
-#: views/controls.py:48
+#: views/controls.py:44
 msgid "Sprint"
 msgstr "Rennen"
 
-#: views/controls.py:49
+#: views/controls.py:45
 msgid "Ctrl"
 msgstr ""
 
-#: views/controls.py:49
+#: views/controls.py:45
 msgid "Shoot"
 msgstr "Schießen"
 
-#: views/controls.py:50
+#: views/controls.py:46
 msgid "E"
 msgstr ""
 
-#: views/controls.py:50
+#: views/controls.py:46
 msgid "Use"
 msgstr "Benutzen"
 
-#: views/controls.py:51
+#: views/controls.py:47
 msgid "G"
 msgstr ""
 
-#: views/controls.py:52
+#: views/controls.py:48
 msgid "0 - 5"
 msgstr ""
 
-#: views/controls.py:52
+#: views/controls.py:48
 msgid "Select item"
 msgstr "Item auswählen"
 
-#: views/controls.py:53
+#: views/controls.py:49
 msgid "ESC"
 msgstr ""
 
-#: views/controls.py:53
+#: views/controls.py:49
 msgid "Open the pause menu"
 msgstr "Pausenmenü öffnen"
 
-#: views/controls.py:54
+#: views/controls.py:50
 msgid "F3"
 msgstr ""
 
-#: views/controls.py:54
+#: views/controls.py:50
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
-#: views/controls.py:55
+#: views/controls.py:51
 msgid "F12"
 msgstr ""
 
-#: views/controls.py:55
+#: views/controls.py:51
 msgid "Make screenshot"
 msgstr "Screenshot erstellen"
 
-#: views/controls.py:56
+#: views/controls.py:52
 msgid "Alt + Enter"
 msgstr ""
 
-#: views/controls.py:56
+#: views/controls.py:52
 msgid "Toggle fullscreen"
 msgstr "Vollbild/Fenster umschalten"
 
-#: views/controls.py:74 views/optionsmenu.py:47
+#: views/controls.py:70 views/optionsmenu.py:47
 msgid "Back"
 msgstr "Zurück"
 
@@ -192,7 +192,7 @@ msgstr ""
 
 #: window/launcherwindow.py:49
 msgid "Fullscreen"
-msgstr "Fullscreen"
+msgstr "Vollbild"
 
 #: window/launcherwindow.py:57
 msgid "Silent"

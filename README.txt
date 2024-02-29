@@ -71,9 +71,10 @@ Controller werden in diesem Build leider nicht unterstützt.
 
 # Einstellungen
 
-In diesem Build gibt es kein Einstellungsmenü.
-Es gibt jedoch einige Startoptionen, die dem Spiel übergeben werden können.
+Beim Start des Spiels öffnet sich ein Dialog, wo die folgenden Einstellungen konfiguriert werden können:
 
-## Grafik
-
-Das Spiel startet mit einer Auflösung 1280x720 im Vollbildmodus, sofern keine Startoptionen übergeben wurden.
+* Vollbild
+* Ton deaktivieren
+* Debug
+* Bildschirmauflösung
+* Map
