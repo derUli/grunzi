@@ -2,6 +2,12 @@
 import arcade
 
 KEY_PAUSE = [arcade.key.ESCAPE]
+KEY_DISCARD = [
+    arcade.key.ESCAPE,
+    arcade.key.ENTER,
+    arcade.key.NUM_ENTER,
+    arcade.key.SPACE
+]
 KEY_SPRINT = [arcade.key.LSHIFT, arcade.key.RSHIFT]
 KEY_SHOOT = [arcade.key.LCTRL, arcade.key.RCTRL]
 KEY_GRUNT = [arcade.key.G]

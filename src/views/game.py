@@ -202,18 +202,22 @@ class Game(Fading):
     def on_key_press(self, key, modifiers):
         super().on_key_press(key, modifiers)
 
+
+        if self.player_sprite.dead():
+            if key in constants.controls.keyboard.KEY_DISCARD:
+                self.next_view = MainMenu(self.window, self.state)
+                self.fade_out()
+
+            return
+
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.reset_keys()
 
-            if not self.player_sprite.dead():
-                self.window.show_view(
-                    PauseMenu(self.window, self.state, self)
-                )
-            else:
-                self.next_view = MainMenu(self.window, self.state)
-                self.fade_out()
-                return
+            self.window.show_view(
+                PauseMenu(self.window, self.state, self)
+            )
+
 
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
