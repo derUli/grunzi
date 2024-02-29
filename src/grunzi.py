@@ -81,10 +81,10 @@ def cli_args():
     )
 
     parser.add_argument(
-        '--setup',
+        '--skip-launcher',
         action='store_true',
         default=False,
-        help=_('Shows launcher')
+        help=_('Skip launcher')
     )
 
     return parser.parse_args()
@@ -108,11 +108,7 @@ def main():
     else:
         args.fullscreen = True
 
-    # Start launcher once at first start
-    if not SettingsState.exists():
-        args.setup = True
-
-    if args.setup:
+    if not args.skip_launcher:
         launcher = LauncherWindow(args)
         launcher.setup()
         launcher.mainloop()
