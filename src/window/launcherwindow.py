@@ -58,7 +58,7 @@ class LauncherWindow(tk.Tk):
 
         screen_resolution = ttk.Combobox(
             values=[
-                "1024x768"
+                "1024x768",
                 "1280x720",
                 "1366x768",
                 "1600x900",
