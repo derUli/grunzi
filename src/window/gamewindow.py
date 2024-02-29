@@ -40,6 +40,7 @@ class GameWindow(arcade.Window):
         self.debug = debug
         self.show_fps = debug
 
+    def setup(self):
         # Enable timings for FPS measurements
         if not arcade.timings_enabled():
             arcade.enable_timings()

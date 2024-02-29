@@ -148,6 +148,8 @@ def main():
     logging.info(label_value(_('Pyglet options'), pyglet.options))
 
     window = GameWindow(args.window, args.width, args.height, debug=args.debug)
+    window.setup()
+
     state = ViewState(ROOT_DIR, map_name=args.map)
     state.preload()
     icon_path = os.path.join(state.image_dir, 'ui', 'icon.ico')

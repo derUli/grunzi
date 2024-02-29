@@ -1,6 +1,7 @@
 import os
 import time
 
+import arcade
 import pyglet
 
 import logging
@@ -18,13 +19,14 @@ def make_screenshot():
 
     filename = os.path.join(
         screenshot_dir,
-        time.strftime("%Y%m%d-%H%M%S") + '.png'
+        time.strftime("%Y%m%d-%H%M%S") + '.jpg'
     )
 
     start = time.time()
-    buffer = pyglet.image.get_buffer_manager().get_color_buffer()
-    buffer.save(filename)
+    image = arcade.draw_commands.get_image().convert('RGB')
+    image.save(filename)
     end = time.time() - start
+
     logging.debug(f"Screenshot saved as {filename} in {end} seconds")
 
     return filename
