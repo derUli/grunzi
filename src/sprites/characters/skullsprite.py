@@ -11,8 +11,6 @@ from sprites.characters.spritehealth import HEALTH_FULL, HEALTH_EMPTY
 from utils.physics import DEFAULT_FRICTION
 from window.gamewindow import UPDATE_RATE
 
-DEFAULT_FACE = FACE_RIGHT
-
 # Physics stuff
 MOVE_FORCE = 200
 MOVE_DAMPING = 0.01
@@ -26,7 +24,7 @@ FADE_SPEED = 5
 DAMAGE = 1
 GRID_SIZE = 64
 
-SHOOT_DELTA = UPDATE_RATE * 10
+SHOOT_DELTA = UPDATE_RATE * 110
 
 
 class SkullSprite(EnemySprite):
@@ -63,7 +61,6 @@ class SkullSprite(EnemySprite):
 
         self.friction = DEFAULT_FRICTION
         self.move_path = []
-        self.face = DEFAULT_FACE
         self.textures = None
         self.update_texture()
         self.astar_barrier_list = None

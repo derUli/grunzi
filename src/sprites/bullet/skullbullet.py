@@ -154,7 +154,9 @@ class SkullBullet(Bullet):
         )
 
         physics_engine.add_collision_handler('skull_bullet', 'wall', post_handler=self.on_hit_destroy)
-        physics_engine.add_collision_handler('skull_bullet', 'player', post_handler=self.on_hit_player)  #
+        physics_engine.add_collision_handler('skull_bullet', 'bullet', post_handler=self.on_hit_destroy)
+        physics_engine.add_collision_handler('skull_bullet', 'skull_bullet', post_handler=self.on_hit_destroy)
+        physics_engine.add_collision_handler('skull_bullet', 'player', post_handler=self.on_hit_player)
         physics_engine.apply_force(self, (force_x, force_y))
 
     def on_hit_destroy(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
@@ -164,4 +166,4 @@ class SkullBullet(Bullet):
         """ Called for bullet/wall collision """
         bullet_sprite.remove_from_sprite_lists()
 
-        _hit_sprite.hurt(10)
+        _hit_sprite.hurt(HURT)
