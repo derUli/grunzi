@@ -1,3 +1,5 @@
+""" Screenshot utilities"""
+
 import os
 import time
 
@@ -7,7 +9,7 @@ import logging
 from utils.path import get_userdata_path
 
 
-def make_screenshot():
+def make_screenshot() -> str:
     """ Save a screenshot
             @return: filename of the screenshot
         """

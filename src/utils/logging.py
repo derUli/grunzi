@@ -1,3 +1,5 @@
+""" Logging utilities """
+
 import os
 import sys
 
@@ -9,7 +11,6 @@ if not os.path.exists(get_userdata_path()):
     os.makedirs(get_userdata_path())
 
 file_handler = logging.FileHandler(filename=log_file)
-
 stdout_handler = logging.StreamHandler(stream=sys.stdout)
 
 handlers = [file_handler, stdout_handler]

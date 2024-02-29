@@ -1,4 +1,7 @@
-from arcade import PymunkPhysicsEngine
+"""Physics stuff """
+from arcade import PymunkPhysicsEngine, Scene
+
+from sprites.characters.playersprite import PlayerSprite
 
 DEFAULT_FRICTION = 1
 
@@ -6,7 +9,13 @@ DEFAULT_FRICTION = 1
 GRAVITY = (0, 0)
 
 
-def make_physics_engine(player_sprite, scene):
+def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhysicsEngine:
+    """
+    Initializes a physics engine
+    @param player_sprite: The player sprite
+    @param scene: The scene
+    @return: Pymunk Physics Engine
+    """
     damping = 0.5
 
     # Set the gravity. (0, 0) is good for outer space and top-down.

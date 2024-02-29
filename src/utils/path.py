@@ -11,7 +11,10 @@ GAMEDIR_NAME_LINUX = '.grunzi'
 
 
 def get_userdata_path() -> str:
-    """ Get savegame dir """
+    """
+    Get userdata path
+    @return: userdata path
+    """
     homedir = os.path.expanduser('~')
     userdata_dir = os.path.join(homedir, GAMEDIR_NAME_LINUX)
 
@@ -23,10 +26,16 @@ def get_userdata_path() -> str:
             GAMEDIR_NAME_WINDOWS
         )
 
+    # If the directory doesn't exists create it
     if not os.path.exists(userdata_dir):
         os.makedirs(userdata_dir)
 
     return userdata_dir
 
+
 def get_settings_path():
+    """
+    Get settings file path
+    @return: userdata path
+    """
     return os.path.join(get_userdata_path(), 'settings.json')
