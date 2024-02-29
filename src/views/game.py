@@ -181,6 +181,7 @@ class Game(Fading):
 
         # Calculate speed based on the keys pressed
         self.player_sprite.change_x = 0
+        self.player_sprite.change_y = 0
 
         move_force = self.player_sprite.move_force * self.player_sprite.modifier
 
@@ -188,8 +189,10 @@ class Game(Fading):
 
         if self.up_key_pressed and not self.down_key_pressed:
             force_y = move_force
+            self.player_sprite.change_y = -1
         elif self.down_key_pressed and not self.up_key_pressed:
             force_y = -move_force
+            self.player_sprite.change_y = 1
         if self.left_key_pressed and not self.right_key_pressed:
             force_x = -move_force
             self.player_sprite.change_x = -1
@@ -278,10 +281,12 @@ class Game(Fading):
         index -= 1
         item = self.inventory.select(index)
         self.player_sprite.set_item(item)
-        try:
+        if 'Place' in self.scene.name_mapping:
             self.scene.remove_sprite_list_by_name('Place')
-        except KeyError as e:
-            logging.error(e)
+
+        if not item:
+            return
+
         self.scene.add_sprite('Place', item)
 
     def on_shoot(self):

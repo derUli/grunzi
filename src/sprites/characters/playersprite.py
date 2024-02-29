@@ -1,7 +1,7 @@
 """ Player sprite class """
 
 import arcade
-from arcade import FACE_RIGHT, FACE_LEFT
+from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 import utils.text
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
@@ -44,6 +44,9 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         self.item = None
 
     def update_texture(self):
+        if self.face > len(self.textures):
+            return
+
         self.texture = self.textures[self.face - 1]
 
     def reset(self):
@@ -66,6 +69,10 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         elif self.change_x > 0:
             self.face = FACE_RIGHT
             self.update_texture()
+        elif self.change_y > 0:
+            self.face = FACE_DOWN
+        elif self.change_y < 0:
+            self.face = FACE_UP
 
         if self.item:
             if self.face == FACE_RIGHT:
@@ -76,6 +83,12 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
                 self.item.right = self.left
                 self.item.center_y = self.center_y
                 self.item.alpha = PLACE_ITEM_ALPHA
+            elif self.face == FACE_UP:
+                self.item.center_x = self.center_x
+                self.item.bottom = self.top
+            elif self.face == FACE_DOWN:
+                self.item.center_x = self.center_x
+                self.item.top = self.bottom
 
             self.item.draw()
 
