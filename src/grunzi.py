@@ -10,6 +10,7 @@ import os
 import arcade
 import pyglet
 
+from state.settingsstate import SettingsState
 from state.viewstate import ViewState
 from utils.logging import configure_logger
 from utils.text import label_value
@@ -106,6 +107,9 @@ def main():
         args.fullscreen = False
     else:
         args.fullscreen = True
+
+    if not SettingsState.exists():
+        args.setup = True
 
     if args.setup:
         launcher = LauncherWindow(args)
