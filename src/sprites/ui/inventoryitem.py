@@ -111,7 +111,16 @@ class InventoryItem(arcade.sprite.Sprite):
 
         self.quantity += 1
         self.update_sprite()
+    def pop(self):
+        self.generate_cache_names()
 
+        self.quantity -= 1
+
+        if self.quantity <= 0:
+            self.quantity = 0
+            self.item = None
+
+        self.update_sprite()
     def __str__(self):
         if not self.item:
             return 'No Item'
