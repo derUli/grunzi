@@ -37,21 +37,61 @@ class SkullBullet(Bullet):
         force_y = 0
 
         self.center_x = source.center_x
-        self.center_y = source.center_y
+        self.top = source.center_y
 
         # Check if should shoot up
-        self.collision_sprite = SpriteSolidColor(
+        collision_sprite_up = SpriteSolidColor(
             width=int(source.width),
             height=SIGHT_DISTANCE,
             color=arcade.csscolor.YELLOW
         )
-        self.collision_sprite.bottom = source.top
-        self.collision_sprite.left = source.left
+        collision_sprite_up.bottom = source.top
+        collision_sprite_up.left = source.left
 
-        if arcade.check_for_collision(self.collision_sprite, target):
+        # Check if should shoot down
+        collision_sprite_down = SpriteSolidColor(
+            width=int(source.width),
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_down.top = source.bottom
+        collision_sprite_down.left = source.left
+
+        # Check if should shoot down
+        collision_sprite_left = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=int(source.height),
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_left.top = source.top
+        collision_sprite_left.right = source.left
+
+        # Check if should shoot down
+        collision_sprite_right = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=int(source.height),
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_right.top = source.top
+        collision_sprite_right.left = source.right
+
+        self.collision_sprite = collision_sprite_right
+
+        if arcade.check_for_collision(collision_sprite_up, target):
             self.bottom = source.top
-            force_y = self.force_move-1
+            force_y = self.force_move
+        elif arcade.check_for_collision(collision_sprite_down, target):
+            self.top = source.bottom
+            force_y = -self.force_move
+        elif arcade.check_for_collision(collision_sprite_left, target):
+            self.right = source.left
+            force_x = -self.force_move
+        elif arcade.check_for_collision(collision_sprite_right, target):
+            self.left = source.right
+            force_x = self.force_move
 
+        else:
+            return
 
         scene.add_sprite(views.game.SPRITE_LIST_ENEMIES, self)
 
@@ -80,5 +120,4 @@ class SkullBullet(Bullet):
         _hit_sprite.hurt(10)
 
     def draw_debug(self):
-        print('draw debug')
         self.collision_sprite.draw()
