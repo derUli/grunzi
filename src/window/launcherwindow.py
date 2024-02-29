@@ -12,7 +12,7 @@ class LauncherWindow(tk.Tk):
         super().__init__()
 
         self.title(_('Grunzi Launcher'))
-        self.geometry('320x320')
+        self.geometry('320x200')
 
         self.fullscreen = tk.BooleanVar(value=args.fullscreen)
         self.screen_resolution = tk.StringVar(
