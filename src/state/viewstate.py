@@ -8,7 +8,7 @@ from arcade.experimental import Shadertoy
 
 
 class ViewState:
-    def __init__(self, root_dir, map_name = 'world'):
+    def __init__(self, root_dir, map_name='world'):
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
         self.map_dir = os.path.join(self.data_dir, 'levels')

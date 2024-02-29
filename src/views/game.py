@@ -32,6 +32,7 @@ TILE_SCALING = 1.0
 
 SPRITE_LIST_COINS = 'Coins'
 SPRITE_LIST_WALL = 'Walls'
+SPRITE_LIST_DECORATION = 'Decoration'
 SPRITE_LIST_ENEMIES = 'enemies'
 SPRITE_LIST_PLAYER = 'player'
 SPRITE_LIST_MOVEABLE = 'Moveable'
@@ -355,7 +356,8 @@ class Game(Fading):
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
-    def all_layers(self):
+    def all_layers(self, include_decoration=False):
+        """ Returns all layers except background and decoration"""
         sprite_list = SpriteList(use_spatial_hash=False)
 
         layer_names = [
@@ -365,6 +367,9 @@ class Game(Fading):
             SPRITE_LIST_MOVEABLE,
             SPRITE_LIST_PLAYER
         ]
+
+        if include_decoration:
+            layer_names.append(SPRITE_LIST_DECORATION)
 
         layers = []
 
@@ -388,7 +393,7 @@ class Game(Fading):
             center_y=rand_y
         )
 
-        if arcade.check_for_collision_with_list(coin, self.all_layers()):
+        if arcade.check_for_collision_with_list(coin, self.all_layers(include_decoration=True)):
             return self.make_coin()
 
         self.scene.add_sprite(SPRITE_LIST_COINS, coin)
@@ -400,7 +405,7 @@ class Game(Fading):
 
         skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x=rand_x, center_y=rand_y)
 
-        if arcade.check_for_collision_with_list(skull, self.all_layers()):
+        if arcade.check_for_collision_with_list(skull, self.all_layers(include_decoration=True)):
             return self.spawn_skull()
 
         self.scene.add_sprite(SPRITE_LIST_ENEMIES, skull)
