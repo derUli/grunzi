@@ -1,7 +1,5 @@
-import logging
-
 import arcade
-from arcade import SpriteList, SpriteSolidColor
+from arcade import SpriteSolidColor
 
 import views.game
 from sprites.bullet.bullet import Bullet
@@ -16,6 +14,7 @@ FORCE_MOVE = 2000
 
 SIGHT_DISTANCE = 600
 
+
 class SkullBullet(Bullet):
 
     def __init__(
@@ -29,7 +28,6 @@ class SkullBullet(Bullet):
         super().__init__(radius, color, soft, force_move, hurt)
 
         self.target = None
-        self.collision_sprite = SpriteSolidColor(width=1, height=1, color = arcade.csscolor.YELLOW)
 
     def setup(self, source, physics_engine, scene, state, target=None):
 
@@ -66,7 +64,7 @@ class SkullBullet(Bullet):
         collision_sprite_left.top = source.top
         collision_sprite_left.right = source.left
 
-        # Check if should shoot down
+        # Check if should shoot right
         collision_sprite_right = SpriteSolidColor(
             width=SIGHT_DISTANCE,
             height=int(source.height),
@@ -75,7 +73,7 @@ class SkullBullet(Bullet):
         collision_sprite_right.top = source.top
         collision_sprite_right.left = source.right
 
-        # Check if should shoot down
+        # Check if should shoot top right
         collision_sprite_topright = SpriteSolidColor(
             width=SIGHT_DISTANCE,
             height=SIGHT_DISTANCE,
@@ -84,16 +82,32 @@ class SkullBullet(Bullet):
         collision_sprite_topright.bottom = source.top
         collision_sprite_topright.left = source.right
 
-        # Check if should shoot down
-        collision_sprite_downright = SpriteSolidColor(
+        # Check if should shoot bottom right
+        collision_sprite_bottomright = SpriteSolidColor(
             width=SIGHT_DISTANCE,
             height=SIGHT_DISTANCE,
             color=arcade.csscolor.YELLOW
         )
-        collision_sprite_downright.top = source.bottom
-        collision_sprite_downright.left = source.right
+        collision_sprite_bottomright.top = source.bottom
+        collision_sprite_bottomright.left = source.right
 
-        self.collision_sprite = collision_sprite_downright
+        # Check if should shoot top right
+        collision_sprite_topleft = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_topleft.bottom = source.top
+        collision_sprite_topleft.right = source.left
+
+        # Check if should shoot top right
+        collision_sprite_bottomleft = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_bottomleft.top = source.bottom
+        collision_sprite_bottomleft.right = source.left
 
         if arcade.check_for_collision(collision_sprite_up, target):
             self.bottom = source.top
@@ -111,9 +125,17 @@ class SkullBullet(Bullet):
             self.bottom = source.top
             force_x = self.force_move
             force_y = self.force_move
-        elif arcade.check_for_collision(collision_sprite_downright, target):
+        elif arcade.check_for_collision(collision_sprite_bottomright, target):
             self.top = source.bottom
             force_x = self.force_move
+            force_y = -self.force_move
+        elif arcade.check_for_collision(collision_sprite_topleft, target):
+            self.bottom = source.top
+            force_x = -self.force_move
+            force_y = self.force_move
+        elif arcade.check_for_collision(collision_sprite_bottomleft, target):
+            self.top = source.bottom
+            force_x = -self.force_move
             force_y = -self.force_move
         else:
             return
@@ -143,6 +165,3 @@ class SkullBullet(Bullet):
         bullet_sprite.remove_from_sprite_lists()
 
         _hit_sprite.hurt(10)
-
-    def draw_debug(self):
-        self.collision_sprite.draw()

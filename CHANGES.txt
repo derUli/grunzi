@@ -4,8 +4,9 @@
 
 * Inventar teilweise implementiert
 * Launcher hinzugefügt
+* KI der Totenköpfe verbessert
 
-## Alpha 006 (01.03.2024):;::w
+## Alpha 006 (01.03.2024)
 
 * Komplette Neuentwicklung auf anderer technologischer Basis
 * TMX-Tilemap
