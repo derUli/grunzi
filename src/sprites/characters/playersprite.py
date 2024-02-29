@@ -74,15 +74,15 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         elif self.change_y < 0:
             self.face = FACE_UP
 
+        self.item.alpha = PLACE_ITEM_ALPHA
+
         if self.item:
             if self.face == FACE_RIGHT:
                 self.item.left = self.right
                 self.item.center_y = self.center_y
-                self.alpha = PLACE_ITEM_ALPHA
             elif self.face == FACE_LEFT:
                 self.item.right = self.left
                 self.item.center_y = self.center_y
-                self.item.alpha = PLACE_ITEM_ALPHA
             elif self.face == FACE_UP:
                 self.item.center_x = self.center_x
                 self.item.bottom = self.top
