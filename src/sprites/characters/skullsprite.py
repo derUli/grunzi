@@ -62,7 +62,7 @@ class SkullSprite(EnemySprite):
         self.playing_field_bottom_boundary = 0
 
         self.friction = DEFAULT_FRICTION
-        self.move_path = None
+        self.move_path = []
         self.face = DEFAULT_FACE
         self.textures = None
         self.update_texture()
@@ -195,10 +195,8 @@ class SkullSprite(EnemySprite):
                 diagonal_movement=True
             )
 
-            if not move_path:
-                return
-
-            self.move_path = move_path
+            if move_path:
+                self.move_force = move_path
 
             for path in self.move_path:
 

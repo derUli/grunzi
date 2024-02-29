@@ -28,23 +28,21 @@ class SkullBullet(Bullet):
 
     def setup(self, source, physics_engine, scene, state, target=None):
 
-        self.center_y = source.center_y
-
         force_x = 0
         force_y = 0
 
         if target.left > source.right:
-            self.right = source.right + self.width
+            self.right = source.right
             force_x = self.force_move
         elif target.left < source.right:
-            self.left = source.left - self.width
+            self.left = source.left
             force_x = -self.force_move
 
         if target.top > source.bottom:
-            self.bottom = source.bottom + self.width
+            self.top = source.top
             force_y = self.force_move
         elif target.top < source.bottom:
-            self.top = source.top + self.width
+            self.bottom = source.bottom
             force_y = -self.force_move
 
         scene.add_sprite(views.game.SPRITE_LIST_ENEMIES, self)

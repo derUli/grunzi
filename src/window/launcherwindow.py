@@ -104,7 +104,7 @@ class LauncherWindow(tk.Tk):
 
         self.state.fullscreen = self.fullscreen.get()
         self.state.silent = self.silent.get()
-
+        self.state.debug = self.debug.get()
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.save()
