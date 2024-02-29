@@ -8,7 +8,10 @@ import cx_Freeze
 
 base = None
 
-target_name = 'Grunzi'
+target_name = 'grunzi'
+
+if sys.platform == 'win32':
+    target_name = 'Grunzi'
 
 if sys.platform == 'win32':
     base = "Win32GUI"

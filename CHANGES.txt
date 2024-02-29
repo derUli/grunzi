@@ -5,7 +5,7 @@
 * Inventar teilweise implementiert
 * Launcher hinzugefügt
 
-## Alpha 006 (Not yet released)
+## Alpha 006 (01.03.2024):;::w
 
 * Komplette Neuentwicklung auf anderer technologischer Basis
 * TMX-Tilemap
