@@ -5,6 +5,7 @@
 * Inventar teilweise implementiert
 * Launcher hinzugefügt
 * KI der Totenköpfe verbessert
+* Screenshot-Funktion verbessert
 
 ## Alpha 006 (01.03.2024)
 
