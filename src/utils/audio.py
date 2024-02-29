@@ -41,7 +41,8 @@ class MusicQueue:
         self.next()
 
     def pause(self):
-        self.player.pause()
+        if self.player:
+            self.player.pause()
 
     def next(self) -> None:
         if len(self.queue) == 0:
@@ -49,6 +50,9 @@ class MusicQueue:
 
         if self.player:
             self.player.pop_handlers()
+
+        if len(self.queue) == 0:
+            return
 
         self.music = arcade.load_sound(self.queue[0], streaming=True)
         self.player = self.music.play(volume=self.state.music_volume)
