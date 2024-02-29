@@ -42,7 +42,6 @@ options = {
             '../VERSION.txt'
         ]
     }
-
 }
 
 cx_Freeze.setup(

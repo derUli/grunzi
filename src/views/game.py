@@ -202,7 +202,6 @@ class Game(Fading):
     def on_key_press(self, key, modifiers):
         super().on_key_press(key, modifiers)
 
-
         if self.player_sprite.dead():
             if key in constants.controls.keyboard.KEY_DISCARD:
                 self.next_view = MainMenu(self.window, self.state)
