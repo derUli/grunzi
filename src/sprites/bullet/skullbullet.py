@@ -1,4 +1,7 @@
+import logging
+
 import arcade
+from arcade import SpriteList, SpriteSolidColor
 
 import views.game
 from sprites.bullet.bullet import Bullet
@@ -11,6 +14,7 @@ FRICTION = 1
 ELASTICITY = 0.1
 FORCE_MOVE = 2000
 
+SIGHT_DISTANCE = 600
 
 class SkullBullet(Bullet):
 
@@ -25,25 +29,29 @@ class SkullBullet(Bullet):
         super().__init__(radius, color, soft, force_move, hurt)
 
         self.target = None
+        self.collision_sprite = SpriteSolidColor(width=1, height=1, color = arcade.csscolor.YELLOW)
 
     def setup(self, source, physics_engine, scene, state, target=None):
 
         force_x = 0
         force_y = 0
 
-        if target.left > source.right:
-            self.right = source.right
-            force_x = self.force_move
-        elif target.left < source.right:
-            self.left = source.left
-            force_x = -self.force_move
+        self.center_x = source.center_x
+        self.center_y = source.center_y
 
-        if target.top > source.bottom:
-            self.top = source.top
-            force_y = self.force_move
-        elif target.top < source.bottom:
-            self.bottom = source.bottom
-            force_y = -self.force_move
+        # Check if should shoot up
+        self.collision_sprite = SpriteSolidColor(
+            width=int(source.width),
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        self.collision_sprite.bottom = source.top
+        self.collision_sprite.left = source.left
+
+        if arcade.check_for_collision(self.collision_sprite, target):
+            self.bottom = source.top
+            force_y = self.force_move-1
+
 
         scene.add_sprite(views.game.SPRITE_LIST_ENEMIES, self)
 
@@ -70,3 +78,7 @@ class SkullBullet(Bullet):
         bullet_sprite.remove_from_sprite_lists()
 
         _hit_sprite.hurt(10)
+
+    def draw_debug(self):
+        print('draw debug')
+        self.collision_sprite.draw()
