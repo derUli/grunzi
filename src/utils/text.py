@@ -48,13 +48,6 @@ def get_style():
         'font_name': DEFAULT_FONT
     }
 
-
-def draw_coins(coins):
-    display_text = str(coins).rjust(2, ' ') + ' €'
-
-    create_text(display_text, color=arcade.csscolor.YELLOW).draw()
-
-
 def label_value(label: str, value: any) -> str:
     """
     @param label: label text

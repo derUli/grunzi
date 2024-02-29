@@ -12,15 +12,11 @@ LEFT = MARGIN
 BOTTOM = MARGIN
 SPACE_BETWEEN = 10
 
-ALPHA = 200
-
-
 class InventoryContainer(arcade.sprite_list.SpriteList):
     def __init__(self):
         super().__init__(capacity=CAPACITY, visible=True)
 
-        self.alpha = ALPHA
-        self.visible = False
+        self.visible = True
 
     def setup(self, state, size):
         self.clear()

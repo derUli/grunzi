@@ -8,6 +8,12 @@ from arcade import get_four_byte_color
 
 PADDING = 10
 TEXT_PADDING = (28, 5)
+a = 100
+
+r, g, b = arcade.csscolor.BLACK
+COLOR_DEFAULT = (r, g, b, a)
+r, g, b = arcade.csscolor.DARK_GREY
+COLOR_SELECTED = (r, g, b, a)
 
 class InventoryItem(arcade.sprite.Sprite):
 
@@ -54,9 +60,10 @@ class InventoryItem(arcade.sprite.Sprite):
     def update_sprite(self, selected=False):
         self.selected = selected
 
-        color = arcade.csscolor.BLACK
+        color = COLOR_DEFAULT
+
         if self.selected:
-            color = arcade.csscolor.DARK_GREY
+            color = COLOR_SELECTED
 
         name = self.names[int(self.selected)]
         image = PIL.Image.new("RGBA", self.image.size, get_four_byte_color(color))

@@ -170,8 +170,6 @@ class Game(Fading):
 
         self.camera_gui.use()
 
-        utils.text.draw_coins(self.state.coins)
-
         self.player_sprite.draw_overlay()
         self.inventory.draw()
         self.draw_fading()
@@ -417,17 +415,9 @@ class Game(Fading):
 
     def update_collectable(self):
         coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene[SPRITE_LIST_COINS])
-        collected = False
-
+        # TODO: Use a hit handler of physics engine for this
         for coin in coins:
             self.scene[SPRITE_LIST_COINS].remove(coin)
-            self.state.coins += 1
-
             self.inventory.add_item(coin)
             logging.debug(self.inventory.get_item(1))
             self.state.play_sound('coin')
-            collected = True
-
-        if collected:
-            total_coins = len(self.scene[SPRITE_LIST_COINS])
-            logging.info(f'Collected coins {self.state.coins} | coins in scene {total_coins}')
