@@ -4,6 +4,7 @@ import os
 import tkinter as tk
 import tkinter.ttk as ttk
 
+import pyglet
 from PIL.ImageTk import PhotoImage
 
 from state.settingsstate import SettingsState
@@ -77,17 +78,17 @@ class LauncherWindow(tk.Tk):
         label = tk.Label(self, textvariable=label_text)
         label.pack()
 
+        modes = pyglet.canvas.get_display().get_default_screen().get_modes()
+        mode_values = []
+
+        for mode in modes:
+            item = str(mode.width) + "x" + str(mode.height)
+            if item not in mode_values:
+                mode_values.append(item)
+
+
         screen_resolution = ttk.Combobox(
-            values=[
-                "1024x768",
-                "1280x720",
-                "1366x768",
-                "1600x900",
-                "1920x1080",
-                "2560x1440",
-                "3840x2160",
-                "7680x4320"
-            ],
+            values=mode_values,
             textvariable=self.screen_resolution,
             state='readonly'
         )
