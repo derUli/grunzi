@@ -1,3 +1,4 @@
+import logging
 import os
 
 import arcade.gui
@@ -98,7 +99,8 @@ class MainMenu(Fading):
         self.manager.disable()
 
         if self.next_view:
-            self.player.pause()
+            if self.player:
+                self.player.pause()
 
     def on_show_view(self):
         super().on_show_view()
@@ -107,9 +109,14 @@ class MainMenu(Fading):
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
 
-        music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
+        music = None
 
-        if not self.player:
+        try:
+            music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
+        except FileNotFoundError as e:
+            logging.error(e)
+
+        if not self.player and music:
             self.player = music.play(loop=True, volume=self.state.music_volume)
 
         self.manager.enable()
