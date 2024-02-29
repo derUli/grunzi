@@ -9,6 +9,7 @@ from window.gamewindow import GameWindow
 class TextTest(unittest.TestCase):
     def setUp(self):
         GameWindow()
+
     def test_label_value(self):
         self.assertEqual('Value: 123.0', label_value('Value', 123.0))
 

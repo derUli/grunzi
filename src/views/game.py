@@ -9,7 +9,7 @@ import os
 import random
 
 import arcade
-from arcade import SpriteList, PymunkPhysicsEngine, FACE_RIGHT
+from arcade import SpriteList, PymunkPhysicsEngine
 
 import constants.controls.keyboard
 import sprites.characters.playersprite
@@ -219,7 +219,6 @@ class Game(Fading):
             self.window.show_view(
                 PauseMenu(self.window, self.state, self)
             )
-
 
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT

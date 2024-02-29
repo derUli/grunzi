@@ -23,6 +23,7 @@ ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 
 PLACE_ITEM_ALPHA = 100
 
+
 class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
     def __init__(
             self,
@@ -45,7 +46,7 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         self.item = None
 
     def update_texture(self):
-        self.texture = self.textures[self.face_horizontal  - 1]
+        self.texture = self.textures[self.face_horizontal - 1]
 
     def reset(self):
         self.modifier = MODIFIER_DEFAULT

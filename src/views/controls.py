@@ -12,6 +12,7 @@ URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
 BUTTON_MARGIN_BOTTOM = 20
 
+
 class Controls(Fading):
     """Main menu view class."""
 
@@ -94,7 +95,7 @@ class Controls(Fading):
             top=BUTTON_MARGIN_BOTTOM,
             bottom=BUTTON_MARGIN_BOTTOM,
             left=BUTTON_MARGIN_BOTTOM,
-            right = BUTTON_MARGIN_BOTTOM)
+            right=BUTTON_MARGIN_BOTTOM)
         )
         v_box.add(back_button.with_space_around(bottom=BUTTON_MARGIN_BOTTOM))
 

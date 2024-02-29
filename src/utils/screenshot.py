@@ -1,10 +1,9 @@
+import logging
 import os
 import time
 
 import arcade
-import pyglet
 
-import logging
 from utils.path import get_userdata_path
 
 

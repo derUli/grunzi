@@ -26,7 +26,7 @@ FADE_SPEED = 5
 DAMAGE = 1
 GRID_SIZE = 64
 
-SHOOT_DELTA = UPDATE_RATE * 15
+SHOOT_DELTA = UPDATE_RATE * 20
 
 
 class SkullSprite(EnemySprite):
@@ -223,7 +223,6 @@ class SkullSprite(EnemySprite):
             )
             self.update_barrier_list(scene)
             self.shoot_time = 0
-
 
     def update_barrier_list(self, scene):
         self.astar_barrier_list = arcade.AStarBarrierList(

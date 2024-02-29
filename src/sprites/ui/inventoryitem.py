@@ -15,6 +15,7 @@ COLOR_DEFAULT = (r, g, b, a)
 r, g, b = arcade.csscolor.DARK_GREY
 COLOR_SELECTED = (r, g, b, a)
 
+
 class InventoryItem(arcade.sprite.Sprite):
 
     def __init__(self, filename, bottom, left):
@@ -33,7 +34,6 @@ class InventoryItem(arcade.sprite.Sprite):
         self.state = state
         self.set_item(item)
         self.update_sprite(selected)
-
 
     def get_item(self):
         return self.item
@@ -111,6 +111,7 @@ class InventoryItem(arcade.sprite.Sprite):
 
         self.quantity += 1
         self.update_sprite()
+
     def pop(self):
         self.generate_cache_names()
 
@@ -121,6 +122,7 @@ class InventoryItem(arcade.sprite.Sprite):
             self.item = None
 
         self.update_sprite()
+
     def __str__(self):
         if not self.item:
             return 'No Item'

@@ -2,7 +2,6 @@ import os
 
 import arcade
 
-from sprites.items.ball import Ball
 from sprites.ui.inventoryitem import InventoryItem
 
 CAPACITY = 5
@@ -11,6 +10,7 @@ MARGIN = 10
 LEFT = MARGIN
 BOTTOM = MARGIN
 SPACE_BETWEEN = 10
+
 
 class InventoryContainer(arcade.sprite_list.SpriteList):
     def __init__(self):

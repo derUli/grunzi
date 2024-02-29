@@ -1,17 +1,15 @@
-import unittest
 import os
+import unittest
 
 from arcade import Scene, PymunkPhysicsEngine, SpriteList
 
 from sprites.characters.playersprite import PlayerSprite
 from utils.physics import make_physics_engine
-from utils.screenshot import make_screenshot
-from views.mainmenu import MainMenu
+
 
 class PhysicsTest(unittest.TestCase):
 
     def test_make_physics(self):
-
         image = os.path.join('..', 'src', 'data', 'images', 'sprites', 'pig.png')
         sprite = PlayerSprite(image)
         scene = Scene()

@@ -3,6 +3,7 @@ import arcade
 
 SCALE = 0.6
 
+
 class Coin(arcade.sprite.Sprite):
     def __init__(self, filename, center_x, center_y):
         filename = filename

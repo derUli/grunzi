@@ -48,6 +48,7 @@ def get_style():
         'font_name': DEFAULT_FONT
     }
 
+
 def label_value(label: str, value: any) -> str:
     """
     @param label: label text

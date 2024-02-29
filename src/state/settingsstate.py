@@ -1,7 +1,8 @@
 import os
 
-from utils.path import get_settings_path
 import jsonpickle
+
+from utils.path import get_settings_path
 
 
 class SettingsState:
@@ -14,6 +15,7 @@ class SettingsState:
     @staticmethod
     def exists():
         return os.path.exists(get_settings_path())
+
     @staticmethod
     def load():
         with open(get_settings_path(), 'r') as f:
