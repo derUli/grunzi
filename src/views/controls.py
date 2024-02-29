@@ -49,6 +49,7 @@ class Controls(Fading):
             (_("Ctrl"), _("Shoot")),
             (_("E"), _("Use")),
             (_("G"), _("Grunt")),
+            (_("0 - 5"), _("Select item")),
             (_("ESC"), _("Open the pause menu")),
             (_('F3'), _('Show FPS')),
             (_("F12"), _("Make screenshot")),

@@ -24,8 +24,8 @@ class Intro(Fading):
         self.wait_since = 0
 
     def on_show_view(self):
-        super().on_show_view()
         """ This is run once when we switch to this view """
+        super().on_show_view()
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
