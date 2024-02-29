@@ -23,4 +23,10 @@ def get_userdata_path() -> str:
             GAMEDIR_NAME_WINDOWS
         )
 
+    if not os.path.exists(userdata_dir):
+        os.makedirs(userdata_dir)
+
     return userdata_dir
+
+def get_settings_path():
+    return os.path.join(get_userdata_path(), 'settings.json')
