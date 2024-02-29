@@ -15,7 +15,7 @@ import arcade
 import pyglet
 
 from state.viewstate import ViewState
-from utils.logging import configure_logger
+from utils.log import configure_logger
 from utils.text import label_value
 from views.intro import Intro
 from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
