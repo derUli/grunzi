@@ -109,7 +109,7 @@ def main():
         args.fullscreen = True
 
     if not args.skip_launcher:
-        launcher = LauncherWindow(args)
+        launcher = LauncherWindow(args, ViewState(ROOT_DIR))
         launcher.setup()
         launcher.mainloop()
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import os
 import tkinter as tk
 import tkinter.ttk as ttk
 
@@ -8,11 +8,18 @@ from state.settingsstate import SettingsState
 
 
 class LauncherWindow(tk.Tk):
-    def __init__(self, args):
+    def __init__(self, args, state):
         super().__init__()
 
         self.title(_('Grunzi Launcher'))
         self.geometry('320x200')
+        self.iconbitmap(
+            os.path.join(
+                state.image_dir,
+                'ui',
+                'icon.ico'
+            )
+        )
 
         self.fullscreen = tk.BooleanVar(value=args.fullscreen)
         self.screen_resolution = tk.StringVar(
