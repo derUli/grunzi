@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import glob
 import os
 import tkinter as tk
@@ -16,19 +14,7 @@ class LauncherWindow(tk.Tk):
     def __init__(self, args, state):
         super().__init__()
         self.path_state = state
-
-        self.withdraw()
-        self.title(_('Grunzi Launcher'))
-        self.geometry('320x240')
-
-        icon = PhotoImage(file=os.path.join(
-            state.image_dir,
-            'ui',
-            'icon.ico'
-        )
-        )
-
-        self.tk.call('wm', 'iconphoto', self._w, icon)
+        self.args = args
 
         self.fullscreen = tk.BooleanVar(value=args.fullscreen)
         self.screen_resolution = tk.StringVar(
@@ -39,6 +25,15 @@ class LauncherWindow(tk.Tk):
         self.map = tk.StringVar(value=args.map)
 
         self.state = SettingsState()
+        self.confirmed = False
+
+    def setup(self):
+        self.withdraw()
+        self.title(_('Grunzi Launcher'))
+        self.geometry('320x240')
+
+        self.bind_keyevents()
+        self.set_icon()
 
         if SettingsState.exists():
             self.state = SettingsState.load()
@@ -49,15 +44,6 @@ class LauncherWindow(tk.Tk):
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
             )
-
-        self.args = args
-
-        self.confirmed = False
-
-    def setup(self):
-        self.bind('<Escape>', lambda e: self.destroy())
-        self.bind('<Return>', self.on_launch)
-
 
         checkbox_fullscreen = tk.Checkbutton(
             text=_('Fullscreen'),
@@ -120,6 +106,14 @@ class LauncherWindow(tk.Tk):
 
         button_launch.focus_set()
 
+    def bind_keyevents(self):
+        self.bind('<Escape>', lambda e: self.destroy())
+        self.bind('<Return>', self.on_launch)
+
+    def set_icon(self):
+        icon = PhotoImage(file=os.path.join(self.path_state.image_dir, 'ui', 'icon.ico'))
+        self.tk.call('wm', 'iconphoto', self._w, icon)
+
     def get_args(self):
         if not self.confirmed:
             return None
@@ -144,7 +138,7 @@ class LauncherWindow(tk.Tk):
 
         return self.args
 
-    def on_launch(self, event = None):
+    def on_launch(self, event=None):
         self.confirmed = True
         self.state.save()
         self.destroy()
