@@ -178,15 +178,7 @@ class SkullSprite(EnemySprite):
 
         if self.chasing:
             if not self.astar_barrier_list:
-                self.astar_barrier_list = arcade.AStarBarrierList(
-                    moving_sprite=self,
-                    blocking_sprites=scene[views.game.SPRITE_LIST_WALL],
-                    grid_size=GRID_SIZE,
-                    left=int(self.playing_field_left_boundary),
-                    right=int(self.playing_field_right_boundary),
-                    bottom=int(self.playing_field_bottom_boundary),
-                    top=int(self.playing_field_top_boundary)
-                )
+                self.update_barrier_list(scene)
 
             move_path = arcade.astar_calculate_path(
                 self.position,
@@ -196,7 +188,7 @@ class SkullSprite(EnemySprite):
             )
 
             if move_path:
-                self.move_force = move_path
+                self.move_path = move_path
 
             for path in self.move_path:
 
@@ -216,10 +208,8 @@ class SkullSprite(EnemySprite):
 
                 physics_engine.apply_force(self, (force_x, force_y))
 
-            if not self.chasing:
-                return
-
             self.shoot_time += delta_time
+
             if self.shoot_time < SHOOT_DELTA:
                 return
 
@@ -231,5 +221,17 @@ class SkullSprite(EnemySprite):
                 state=state,
                 target=player
             )
-
+            self.update_barrier_list(scene)
             self.shoot_time = 0
+
+
+    def update_barrier_list(self, scene):
+        self.astar_barrier_list = arcade.AStarBarrierList(
+            moving_sprite=self,
+            blocking_sprites=scene[views.game.SPRITE_LIST_WALL],
+            grid_size=GRID_SIZE,
+            left=int(self.playing_field_left_boundary),
+            right=int(self.playing_field_right_boundary),
+            bottom=int(self.playing_field_bottom_boundary),
+            top=int(self.playing_field_top_boundary)
+        )

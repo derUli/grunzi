@@ -8,11 +8,12 @@ import gettext
 import locale
 import logging
 import os
+import signal
+import sys
 
 import arcade
 import pyglet
 
-from state.settingsstate import SettingsState
 from state.viewstate import ViewState
 from utils.logging import configure_logger
 from utils.text import label_value
@@ -91,6 +92,7 @@ def cli_args():
 
     return parser.parse_args()
 
+
 def setup_locale():
     # Set locale
     locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
@@ -98,7 +100,15 @@ def setup_locale():
     gettext.install('messages', locale_path)
 
 
+def signal_handler(signal, frame):
+    sys.exit()
+
+
 def main():
+    # Kill and interrupt handler
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGILL, signal_handler)
+
     """Main function"""
     setup_locale()
     args = cli_args()

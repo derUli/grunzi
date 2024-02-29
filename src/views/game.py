@@ -104,7 +104,8 @@ class Game(Fading):
                 "use_spatial_hash": True,
             },
             SPRITE_LIST_COINS: {
-                "custom_class": Coin
+                "custom_class": Coin,
+                "use_spatial_hash": True
             }
         }
 

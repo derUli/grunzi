@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import glob
 import os
 import tkinter as tk
 import tkinter.ttk as ttk
@@ -8,20 +9,23 @@ import pyglet
 from PIL.ImageTk import PhotoImage
 
 from state.settingsstate import SettingsState
+from utils.utils import natural_keys
 
 
 class LauncherWindow(tk.Tk):
     def __init__(self, args, state):
         super().__init__()
+        self.path_state = state
 
+        self.withdraw()
         self.title(_('Grunzi Launcher'))
-        self.geometry('320x200')
+        self.geometry('320x240')
 
         icon = PhotoImage(file=os.path.join(
-                state.image_dir,
-                'ui',
-                'icon.ico'
-            )
+            state.image_dir,
+            'ui',
+            'icon.ico'
+        )
         )
 
         self.tk.call('wm', 'iconphoto', self._w, icon)
@@ -32,6 +36,8 @@ class LauncherWindow(tk.Tk):
         )
         self.silent = tk.BooleanVar(value=args.silent)
         self.debug = tk.BooleanVar(value=args.debug)
+        self.map = tk.StringVar(value=args.map)
+
         self.state = SettingsState()
 
         if SettingsState.exists():
@@ -49,6 +55,8 @@ class LauncherWindow(tk.Tk):
         self.confirmed = False
 
     def setup(self):
+        self.bind('<Escape>', lambda e: self.destroy())
+
         checkbox_fullscreen = tk.Checkbutton(
             text=_('Fullscreen'),
             variable=self.fullscreen,
@@ -78,26 +86,35 @@ class LauncherWindow(tk.Tk):
         label = tk.Label(self, textvariable=label_text)
         label.pack()
 
-        modes = pyglet.canvas.get_display().get_default_screen().get_modes()
-        mode_values = []
-
-        for mode in modes:
-            item = str(mode.width) + "x" + str(mode.height)
-            if item not in mode_values:
-                mode_values.append(item)
-
+        modes = self.supported_screen_resolutions()
 
         screen_resolution = ttk.Combobox(
-            values=mode_values,
+            values=modes,
             textvariable=self.screen_resolution,
             state='readonly'
         )
         screen_resolution.pack()
 
+        label_text = tk.StringVar()
+        label_text.set(_('Map:'))
+        label = tk.Label(self, textvariable=label_text)
+        label.pack()
+
+        maps = self.available_maps()
+
+        maps = ttk.Combobox(
+            values=maps,
+            textvariable=self.map,
+            state='readonly'
+        )
+        maps.pack()
+
         button_launch = tk.Button(text=_('Launch Game'), command=self.on_launch)
         button_launch.pack(expand=True)
 
         self.resizable(False, False)
+
+        self.deiconify()
 
     def get_args(self):
         if not self.confirmed:
@@ -127,3 +144,27 @@ class LauncherWindow(tk.Tk):
         self.confirmed = True
         self.state.save()
         self.destroy()
+
+    def supported_screen_resolutions(self):
+        modes = pyglet.canvas.get_display().get_default_screen().get_modes()
+
+        mode_values = []
+
+        for mode in modes:
+            item = str(mode.width) + "x" + str(mode.height)
+            if item not in mode_values:
+                mode_values.append(item)
+
+        return sorted(mode_values, key=natural_keys)
+
+    def available_maps(self):
+        maps = []
+        dir = os.path.join(self.path_state.map_dir, '*.tmx')
+        for file in glob.glob(dir):
+            maps.append(
+                os.path.splitext(
+                    os.path.basename(file)
+                )[0]
+            )
+
+        return sorted(maps, key=natural_keys)
