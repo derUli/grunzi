@@ -38,16 +38,14 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         self.health = HEALTH_FULL
 
         self.face = DEFAULT_FACE
+        self.face_horizontal = DEFAULT_FACE
         self.texture = self.textures[self.face - 1]
 
         self.scale = 0.9
         self.item = None
 
     def update_texture(self):
-        if self.face > len(self.textures):
-            return
-
-        self.texture = self.textures[self.face - 1]
+        self.texture = self.textures[self.face_horizontal  - 1]
 
     def reset(self):
         self.modifier = MODIFIER_DEFAULT
@@ -65,9 +63,11 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         # Figure out if we should face left or right
         if self.change_x < 0:
             self.face = FACE_LEFT
+            self.face_horizontal = FACE_LEFT
             self.update_texture()
         elif self.change_x > 0:
             self.face = FACE_RIGHT
+            self.face_horizontal = FACE_RIGHT
             self.update_texture()
         elif self.change_y > 0:
             self.face = FACE_DOWN

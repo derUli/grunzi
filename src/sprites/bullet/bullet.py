@@ -37,9 +37,9 @@ class Bullet(arcade.sprite.SpriteCircle):
 
         self.center_y = source.center_y
 
-        if source.face == FACE_RIGHT:
+        if source.face_horizontal == FACE_RIGHT:
             self.right = source.right + self.width
-        elif source.face == FACE_LEFT:
+        elif source.face_horizontal == FACE_LEFT:
             self.force_move = -self.force_move
             self.left = source.left - self.width
 
