@@ -21,8 +21,10 @@ def make_screenshot():
         time.strftime("%Y%m%d-%H%M%S") + '.png'
     )
 
+    start = time.time()
     buffer = pyglet.image.get_buffer_manager().get_color_buffer()
     buffer.save(filename)
-    logging.debug('Screenshot saved as ' + filename)
+    end = time.time() - start
+    logging.debug(f"Screenshot saved as {filename} in {end} seconds")
 
     return filename
