@@ -4,6 +4,8 @@ import os
 import tkinter as tk
 import tkinter.ttk as ttk
 
+from PIL.ImageTk import PhotoImage
+
 from state.settingsstate import SettingsState
 
 
@@ -13,13 +15,15 @@ class LauncherWindow(tk.Tk):
 
         self.title(_('Grunzi Launcher'))
         self.geometry('320x200')
-        self.iconbitmap(
-            os.path.join(
+
+        icon = PhotoImage(file=os.path.join(
                 state.image_dir,
                 'ui',
                 'icon.ico'
             )
         )
+
+        self.tk.call('wm', 'iconphoto', self._w, icon)
 
         self.fullscreen = tk.BooleanVar(value=args.fullscreen)
         self.screen_resolution = tk.StringVar(
