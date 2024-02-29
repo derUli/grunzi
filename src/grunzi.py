@@ -108,6 +108,7 @@ def main():
     else:
         args.fullscreen = True
 
+    # Start launcher once at first start
     if not SettingsState.exists():
         args.setup = True
 
