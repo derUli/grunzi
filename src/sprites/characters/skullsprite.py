@@ -213,7 +213,7 @@ class SkullSprite(EnemySprite):
             if self.shoot_time < SHOOT_DELTA:
                 return
 
-            bullet = SkullBullet(4, color=arcade.csscolor.RED)
+            bullet = SkullBullet(6, color=arcade.csscolor.RED)
             bullet.setup(
                 source=self,
                 physics_engine=physics_engine,

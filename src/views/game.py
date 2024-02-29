@@ -273,7 +273,7 @@ class Game(Fading):
             self.update_player_speed()
 
     def on_shoot(self):
-        bullet = Bullet(4, color=arcade.csscolor.HOTPINK)
+        bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
         bullet.setup(
             source=self.player_sprite,
             physics_engine=self.physics_engine,

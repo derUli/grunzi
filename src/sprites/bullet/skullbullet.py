@@ -10,7 +10,7 @@ MASS = 0.1
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
-FORCE_MOVE = 2000
+FORCE_MOVE = 4000
 
 SIGHT_DISTANCE = 600
 
@@ -154,7 +154,6 @@ class SkullBullet(Bullet):
         )
 
         physics_engine.add_collision_handler('skull_bullet', 'wall', post_handler=self.on_hit_destroy)
-        physics_engine.add_collision_handler('skull_bullet', 'bullet', post_handler=self.on_hit_destroy)
         physics_engine.add_collision_handler('skull_bullet', 'skull_bullet', post_handler=self.on_hit_destroy)
         physics_engine.add_collision_handler('skull_bullet', 'player', post_handler=self.on_hit_player)
         physics_engine.apply_force(self, (force_x, force_y))
