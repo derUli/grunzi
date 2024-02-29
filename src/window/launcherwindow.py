@@ -56,6 +56,8 @@ class LauncherWindow(tk.Tk):
 
     def setup(self):
         self.bind('<Escape>', lambda e: self.destroy())
+        self.bind('<Return>', self.on_launch)
+
 
         checkbox_fullscreen = tk.Checkbutton(
             text=_('Fullscreen'),
@@ -116,6 +118,8 @@ class LauncherWindow(tk.Tk):
 
         self.deiconify()
 
+        button_launch.focus_set()
+
     def get_args(self):
         if not self.confirmed:
             return None
@@ -140,7 +144,7 @@ class LauncherWindow(tk.Tk):
 
         return self.args
 
-    def on_launch(self):
+    def on_launch(self, event = None):
         self.confirmed = True
         self.state.save()
         self.destroy()
