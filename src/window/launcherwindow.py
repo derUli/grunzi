@@ -19,12 +19,14 @@ class LauncherWindow(tk.Tk):
             value=str(args.width) + 'x' + str(args.height)
         )
         self.silent = tk.BooleanVar(value=args.silent)
+        self.debug = tk.BooleanVar(value=args.debug)
         self.state = SettingsState()
 
         if SettingsState.exists():
             self.state = SettingsState.load()
             self.fullscreen.set(self.state.fullscreen)
             self.silent.set(self.state.silent)
+            self.debug.set(self.state.debug)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -46,6 +48,14 @@ class LauncherWindow(tk.Tk):
         checkbox_silent = tk.Checkbutton(
             text=_('Silent'),
             variable=self.silent,
+            onvalue=True,
+            offvalue=False
+        )
+        checkbox_silent.pack()
+
+        checkbox_silent = tk.Checkbutton(
+            text=_('Debug'),
+            variable=self.debug,
             onvalue=True,
             offvalue=False
         )
@@ -91,6 +101,8 @@ class LauncherWindow(tk.Tk):
         self.args.fullscreen = self.fullscreen.get()
         self.args.window = not self.fullscreen.get()
         self.args.silent = self.silent.get()
+
+        self.args.debug = self.debug.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
 

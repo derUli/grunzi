@@ -3,7 +3,7 @@
 ## Alpha 007 (Not Yet released)
 
 * Inventar teilweise implementiert
-* Launcher
+* Launcher hinzugefügt
 
 ## Alpha 006 (Not yet released)
 

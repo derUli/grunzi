@@ -9,6 +9,7 @@ class SettingsState:
         self.fullscreen = False
         self.screen_resolution = [1280, 720]
         self.silent = False
+        self.debug = False
 
     @staticmethod
     def exists():
