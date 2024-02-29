@@ -29,7 +29,7 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
         for i in range(CAPACITY):
             sprite = InventoryItem(filename=file, bottom=bottom, left=left)
-            sprite.setup(state=state, selected=i == 0)
+            sprite.setup(state=state)
             self.append(sprite)
 
             left += sprite.width + SPACE_BETWEEN
@@ -42,8 +42,6 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
         left = w
 
-        self.sprite_list[0].set_item(Ball(state))
-
         for sprite in self.sprite_list:
             sprite.left = left
 
@@ -54,9 +52,11 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
             sprite.unselect()
 
         if index < 0:
-            return
+            return None
 
         self.sprite_list[index].select()
+
+        return self.sprite_list[index].item
 
     def add_item(self, item):
         for sprite in self.sprite_list:
@@ -72,6 +72,13 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
             sprite.push()
             return
+
+    def get_selected(self):
+        for item in self.sprite_list:
+            if item.selected:
+                return item
+
+        return None
 
     def get_item(self, index):
         return self.sprite_list[index]

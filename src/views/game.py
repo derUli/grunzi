@@ -9,7 +9,7 @@ import os
 import random
 
 import arcade
-from arcade import SpriteList, PymunkPhysicsEngine
+from arcade import SpriteList, PymunkPhysicsEngine, FACE_RIGHT
 
 import constants.controls.keyboard
 import sprites.characters.playersprite
@@ -240,9 +240,7 @@ class Game(Fading):
             self.down_key_pressed = True
 
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
-            index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
-            index -= 1
-            self.inventory.select(index)
+            self.on_select_item(key)
 
     def reset_keys(self):
         # What key is pressed down?
@@ -274,6 +272,17 @@ class Game(Fading):
 
         if movement:
             self.update_player_speed()
+
+    def on_select_item(self, key):
+        index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
+        index -= 1
+        item = self.inventory.select(index)
+        self.player_sprite.set_item(item)
+        try:
+            self.scene.remove_sprite_list_by_name('Place')
+        except KeyError as e:
+            logging.error(e)
+        self.scene.add_sprite('Place', item)
 
     def on_shoot(self):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)

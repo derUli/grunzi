@@ -21,6 +21,7 @@ HEALTH_REGENERATION_SPEED = 0.1
 FULL_ALPHA = 255
 ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 
+PLACE_ITEM_ALPHA = 100
 
 class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
     def __init__(
@@ -40,6 +41,7 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         self.texture = self.textures[self.face - 1]
 
         self.scale = 0.9
+        self.item = None
 
     def update_texture(self):
         self.texture = self.textures[self.face - 1]
@@ -65,6 +67,18 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
             self.face = FACE_RIGHT
             self.update_texture()
 
+        if self.item:
+            if self.face == FACE_RIGHT:
+                self.item.left = self.right
+                self.item.center_y = self.center_y
+                self.alpha = PLACE_ITEM_ALPHA
+            elif self.face == FACE_LEFT:
+                self.item.right = self.left
+                self.item.center_y = self.center_y
+                self.item.alpha = PLACE_ITEM_ALPHA
+
+            self.item.draw()
+
     def draw_overlay(self):
         window = arcade.get_window()
 
@@ -85,3 +99,10 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
             _("You're bacon!"),
             width=window.width - (utils.text.MARGIN * 2),
             align='left').draw()
+
+    def set_item(self, item):
+        if self.item:
+            self.item.alpha = 255
+
+        self.item = item
+        return item
