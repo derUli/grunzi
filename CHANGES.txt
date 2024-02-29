@@ -1,6 +1,6 @@
 # Changelog
 
-## Alpha 006 (30.02.2024)
+## Alpha 006 (01.03.2024)
 
 * Komplette Neuentwicklung auf anderer technologischer Basis
 * TMX-Tilemap
