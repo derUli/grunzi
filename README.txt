@@ -72,7 +72,7 @@ Controller werden in diesem Build leider nicht unterstützt.
 # Einstellungen
 
 In diesem Build gibt es kein Einstellungsmenü.
-Es gibt jedoch einige Startoptionen, die dem Spiel übbergeben werden können.
+Es gibt jedoch einige Startoptionen, die dem Spiel übergeben werden können.
 
 ## Grafik
 
