@@ -90,6 +90,10 @@ class InventoryItem(arcade.sprite.Sprite):
         font = ImageFont.truetype(fontfile, 14)
         text = str(self.quantity).rjust(3, ' ')
 
+        # If there is no item don't show the count
+        if not self.item:
+            text = ''
+
         # drawing text size
         draw.text(
             TEXT_PADDING,
