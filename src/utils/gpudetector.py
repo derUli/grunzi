@@ -1,4 +1,4 @@
-""" Generic GPU detection class """
+""" Generic platform independent GPU detection class """
 import subprocess
 
 # Used to detect NVIDIA GPUs
