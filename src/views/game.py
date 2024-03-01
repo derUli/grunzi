@@ -310,6 +310,7 @@ class Game(Fading):
 
     def on_drop(self):
         item = self.player_sprite.get_item()
+        selected = self.inventory.get_selected()
         if not item:
             logging.info('No item selected')
             self.state.sounds['beep'].play()
@@ -319,11 +320,12 @@ class Game(Fading):
         new_item = klass(filename=item.filename, center_x=item.center_x, center_y=item.center_y)
         layer = klass.__name__ + 's'
 
-        if self.inventory.get_selected():
-            quantity = self.inventory.get_selected().pop()
+        if selected:
+            quantity = selected.pop()
 
             if quantity == 0:
                 self.player_sprite.set_item(None)
+                self.inventory.select(-1)
 
         self.scene.add_sprite(layer, new_item)
 

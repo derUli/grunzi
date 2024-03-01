@@ -45,6 +45,7 @@ class Controls(Fading):
             (_("Shift"), _('Sprint')),
             (_("Ctrl"), _("Shoot")),
             (_("E"), _("Use")),
+            (_("Q"), _("Drop item")),
             (_("G"), _("Grunt")),
             (_("0 - 5"), _("Select item")),
             (_("ESC"), _("Open the pause menu")),
