@@ -57,7 +57,11 @@ def detect_lspci(lspci_output = None):
             print(device)
 
             gpus.append(
-                GPUInfo(name=device.device.name, vendor=device.vendor.name, vram=None)
+                GPUInfo(
+                    name=device.device.name,
+                    vendor=device.vendor.name,
+                    vram=None
+                )
             )
 
 
