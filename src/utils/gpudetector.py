@@ -100,7 +100,7 @@ def detect_lspci():
     try:
         devices = SimpleParser().run()
     except Exception as e:
-        logging.error(e)
+        devices = []
 
     for device in devices:
         if '[03' in str(device.cls):
