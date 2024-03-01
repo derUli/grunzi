@@ -12,6 +12,8 @@ except Exception as e:
     pyadl = None
 
 # Use lspci as a fallback for all other (Intel, ???)
+# Unfortunately lspci is Linux only
+# If someone knows a platform independent alternative feel free to contribute
 from pylspci import SimpleParser
 
 # NVIDIA brand
@@ -100,7 +102,9 @@ def detect_nvidia() -> list:
         for vendor in VENDOR_NVIDIA_ALL:
             name_without_vendor = name_without_vendor.replace(vendor, '')
             name_without_vendor = name_without_vendor.strip()
-        gpus.append(GPUInfo(model=name_without_vendor, vendor=VENDOR_NVIDIA_SHORT, vram=gpu.memoryTotal))
+        gpus.append(
+            GPUInfo(model=name_without_vendor, vendor=VENDOR_NVIDIA_SHORT, vram=gpu.memoryTotal)
+        )
 
     return gpus
 
@@ -129,7 +133,8 @@ def detect_amd() -> list:
     return gpus
 
 
-def detect_lspci():
+def detect_lspci() -> list:
+    """ Detect other GPUs using lspci """
     gpus = []
 
     # Try to run lspci
@@ -143,32 +148,41 @@ def detect_lspci():
         devices = []
 
     for device in devices:
-        if '[03' in str(device.cls):
-            # These vendors are already detected by other libraries
-            if device.vendor.name in IGNORE_VENDORS_LSPCI:
-                # TODO: try to figure out PCI IDs for already detected GPUs
-                # because GPUtil don't return PCI stuff
-                continue
+        # Skip all non GPU devices
+        if '[03' not in str(device.cls):
+            continue
 
-            gpus.append(
-                GPUInfo(
-                    model=device.device.name,
-                    vendor=device.vendor.name,
-                    vendor_id=device.vendor.id,
-                    device_id=device.device.id,
-                    vram=None
-                )
+        # Skip NVIDIA and AMD GPUs since they were already detected
+        if device.vendor.name in IGNORE_VENDORS_LSPCI:
+            # TODO: try to match PCI Vendor and model ID to already found GPUs
+            continue
+
+        # Add the GPU
+        gpus.append(
+            GPUInfo(
+                # Vendor Name (Intel Corporation)
+                vendor=device.vendor.name,
+                # Model Name (UHD Graphics 630)
+                model=device.device.name,
+                # PCI Vendor ID (8086)
+                vendor_id=device.vendor.id,
+                # PCI Device ID (591B)
+                device_id=device.device.id
             )
+        )
 
     return gpus
 
 
-def detect():
+def detect_gpus():
     available = []
+
+    # Detect NVIDIA GPUs using GPUtil
     available += detect_nvidia()
+    # Detect AMD GPUs using pyadl
     available += detect_amd()
 
-    # lspci as fallback for all other
+    # Detect other GPUs using lspci
     available += detect_lspci()
 
     return available
