@@ -25,6 +25,7 @@ PLACE_ITEM_ALPHA = 100
 
 INVENTORY_MARGIN = 15
 
+
 class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
     def __init__(
             self,

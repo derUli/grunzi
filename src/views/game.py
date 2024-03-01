@@ -330,8 +330,12 @@ class Game(Fading):
         self.scene.add_sprite(layer, new_item)
 
     def on_use(self):
-        logging.info('"Use" not implemented yet')
+        if self.update_collectable():
+            return
+
+        logging.info('Nothing to use at ' + str(self.player_sprite.position))
         self.state.sounds['beep'].play()
+
 
     def center_camera_to_player(self):
         # Find where player is, then calculate lower left corner from that
@@ -358,7 +362,6 @@ class Game(Fading):
         # Move the player with the physics engine
         self.update_player()
         self.physics_engine.step()
-        self.update_collectable()
         self.update_enemies(delta_time)
         self.center_camera_to_player()
 
@@ -463,3 +466,6 @@ class Game(Fading):
             self.inventory.add_item(coin)
             logging.debug(self.inventory.get_item(1))
             self.state.play_sound('coin')
+            return True
+
+        return False

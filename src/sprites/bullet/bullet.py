@@ -57,6 +57,7 @@ class Bullet(arcade.sprite.SpriteCircle):
         )
 
         physics_engine.add_collision_handler('bullet', 'wall', post_handler=self.on_hit_destroy)
+        physics_engine.add_collision_handler('bullet', 'skull_bullet', post_handler=self.on_hit_destroy)
         physics_engine.add_collision_handler('bullet', 'enemy', post_handler=self.on_hit)
 
         physics_engine.apply_force(self, (self.force_move, 0))
