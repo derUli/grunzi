@@ -1,17 +1,31 @@
 import GPUtil
+from datasize import DataSize
 
 
 class GPUInfo:
-    def __init__(self, name=None):
+    def __init__(self, name=None, vram=None):
         self.name = name
+        self.vram = vram
 
     def __str__(self):
-        return self.name
+        # VRAM in GB
+        vram = self.vram / 1024
+
+        if vram % 1 == 0:
+            vram = int(vram)
+
+        return ' '.join(
+            [
+                self.name,
+                f"({vram} GB)"
+            ]
+        )
+
 
 def detect_nvidia():
     gpus = []
     for gpu in GPUtil.getGPUs():
-        gpus.append(GPUInfo(name=gpu.name))
+        gpus.append(GPUInfo(name=gpu.name, vram=gpu.memoryTotal))
     return gpus
 
 
