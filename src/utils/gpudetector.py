@@ -96,10 +96,12 @@ def detect_amd():
 def detect_lspci():
     gpus = []
 
+    devices = []
+
     try:
         devices = SimpleParser().run()
-    except FileNotFoundError:
-        devices = []
+    except Exception as e:
+        logging.error(e)
 
     for device in devices:
         if '[03' in str(device.cls):
