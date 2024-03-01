@@ -1,6 +1,5 @@
 import GPUtil
-from datasize import DataSize
-
+from pylspci.parsers import SimpleParser
 
 class GPUInfo:
     def __init__(self, name=None, vram=None):
@@ -28,10 +27,21 @@ def detect_nvidia():
         gpus.append(GPUInfo(name=gpu.name, vram=gpu.memoryTotal))
     return gpus
 
+def detect_lspci():
+    gpus = []
+    try:
+        print(SimpleParser().run())
+    except FileNotFoundError as e:
+        return gpus
+
+    return gpus
+
 
 def detect():
     available = []
 
     available += detect_nvidia()
+
+    detect_lspci()
 
     return available
