@@ -34,5 +34,12 @@ def log_hardware_info():
     logging.info(f"OS: {uname.system} {uname.version}")
     logging.info(f"CPU: {uname.processor}")
     logging.info(f"RAM: {round(psutil.virtual_memory().total / 1024 / 1024)} MB")
-    for gpu in detect():
+
+    gpus = detect()
+
+    for gpu in gpus:
         logging.info(f'GPU: {gpu}')
+
+    if not any(gpus):
+        logging.info('GPU: Unknown')
+
