@@ -82,3 +82,35 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
     def get_item(self, index):
         return self.sprite_list[index]
+
+    def next(self):
+        index = 0
+        selected = -1
+        for item in self.sprite_list:
+            if item.selected:
+                selected = index
+                break
+            index += 1
+
+        next_selected = selected + 1
+
+        if (next_selected >= len(self.sprite_list)):
+            next_selected = -1
+
+        self.select(next_selected)
+
+    def previous(self):
+        index = 0
+        selected = -1
+        for item in self.sprite_list:
+            if item.selected:
+                selected = index
+                break
+            index += 1
+
+        next_selected = selected - 1
+
+        if next_selected < -1:
+            next_selected = len(self.sprite_list) - 1
+
+        self.select(next_selected)

@@ -303,6 +303,13 @@ class Game(Fading):
         if key in constants.controls.controller.KEY_GRUNT:
             self.on_grunt()
 
+
+
+        if key in constants.controls.controller.PREVIOUS_ITEM:
+            self.inventory.previous()
+        if key in constants.controls.controller.NEXT_ITEM:
+            self.inventory.next()
+
     def on_joyaxis_motion(self, controller, axis, value):
         logging.info(f"{controller} {axis} {value}")
         if axis in constants.controls.controller.KEY_SPRINT:
