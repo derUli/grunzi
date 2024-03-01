@@ -309,9 +309,31 @@ class Game(Fading):
             state=self.state,
         )
 
+    def on_drop(self):
+        item = self.player_sprite.get_item()
+        if not item:
+            self.state.sounds['beep'].play()
+            logging.info('No item selected')
+            return
+
+        klass = item.__class__
+        new_item = klass(filename=item.filename, center_x=item.center_x, center_y=item.center_y)
+        layer = klass.__name__ + 's'
+        self.scene.add_sprite(layer, new_item)
+
+        if self.inventory.get_selected():
+            quantity = self.inventory.get_selected().pop()
+
+            if quantity == 0:
+                self.player_sprite.set_item(None)
+
+
     def on_use(self):
-        self.state.sounds['beep'].play()
+        self.on_drop()
+        return
+
         logging.info('"Use" not implemented yet')
+        self.state.sounds['beep'].play()
 
     def center_camera_to_player(self):
         # Find where player is, then calculate lower left corner from that

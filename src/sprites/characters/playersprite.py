@@ -23,6 +23,7 @@ ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 
 PLACE_ITEM_ALPHA = 100
 
+INVENTORY_MARGIN = 15
 
 class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
     def __init__(
@@ -78,17 +79,17 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         if self.item:
             self.item.alpha = PLACE_ITEM_ALPHA
             if self.face == FACE_RIGHT:
-                self.item.left = self.right
+                self.item.left = self.right + INVENTORY_MARGIN
                 self.item.center_y = self.center_y
             elif self.face == FACE_LEFT:
-                self.item.right = self.left
+                self.item.right = self.left - INVENTORY_MARGIN
                 self.item.center_y = self.center_y
             elif self.face == FACE_UP:
                 self.item.center_x = self.center_x
-                self.item.bottom = self.top
+                self.item.bottom = self.top + INVENTORY_MARGIN
             elif self.face == FACE_DOWN:
                 self.item.center_x = self.center_x
-                self.item.top = self.bottom
+                self.item.top = self.bottom - INVENTORY_MARGIN
 
             self.item.draw()
 
@@ -117,5 +118,11 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         if self.item:
             self.item.alpha = 255
 
+            if item is None:
+                self.item.remove_from_sprite_lists()
+
         self.item = item
         return item
+
+    def get_item(self):
+        return self.item

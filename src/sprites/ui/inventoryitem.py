@@ -33,7 +33,6 @@ class InventoryItem(arcade.sprite.Sprite):
     def setup(self, state, selected=False, item=None):
         self.state = state
         self.set_item(item)
-        self.update_sprite(selected)
 
     def get_item(self):
         return self.item
@@ -41,9 +40,9 @@ class InventoryItem(arcade.sprite.Sprite):
     def set_item(self, item):
         self.item = item
         self.generate_cache_names()
+        self.quantity = 1
         self.update_sprite(self.selected)
 
-        self.quantity = 1
 
     def generate_cache_names(self):
         self.names = [
@@ -110,7 +109,7 @@ class InventoryItem(arcade.sprite.Sprite):
         self.generate_cache_names()
 
         self.quantity += 1
-        self.update_sprite()
+        self.update_sprite(self.selected)
 
     def pop(self):
         self.generate_cache_names()
@@ -121,7 +120,9 @@ class InventoryItem(arcade.sprite.Sprite):
             self.quantity = 0
             self.item = None
 
-        self.update_sprite()
+        self.update_sprite(self.selected)
+
+        return self.quantity
 
     def __str__(self):
         if not self.item:
