@@ -40,6 +40,10 @@ def detect_lspci():
             if '[03' in str(device.cls):
                 print(device)
 
+                gpus.append(
+                    GPUInfo(name=device.device.name, vendor=device.vendor, vram=None)
+                )
+
     except FileNotFoundError as e:
         return gpus
 
@@ -51,6 +55,6 @@ def detect():
 
     available += detect_nvidia()
 
-    detect_lspci()
+    available += detect_lspci()
 
     return available
