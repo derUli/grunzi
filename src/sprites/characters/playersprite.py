@@ -65,17 +65,13 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
 
         # Figure out if we should face left or right
         if self.change_x < 0:
-            self.face = FACE_LEFT
-            self.face_horizontal = FACE_LEFT
-            self.update_texture()
+            self.set_face(FACE_LEFT)
         elif self.change_x > 0:
-            self.face = FACE_RIGHT
-            self.face_horizontal = FACE_RIGHT
-            self.update_texture()
+            self.set_face(FACE_RIGHT)
         elif self.change_y > 0:
-            self.face = FACE_DOWN
+            self.set_face(FACE_DOWN)
         elif self.change_y < 0:
-            self.face = FACE_UP
+            self.set_face(FACE_UP)
 
         if self.item:
             self.item.alpha = PLACE_ITEM_ALPHA
@@ -127,3 +123,10 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
 
     def get_item(self):
         return self.item
+
+    def set_face(self, face):
+        if face in [FACE_LEFT, FACE_RIGHT]:
+            self.face_horizontal = face
+            self.update_texture()
+
+        self.face = face

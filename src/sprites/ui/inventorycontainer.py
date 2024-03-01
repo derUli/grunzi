@@ -99,6 +99,8 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
         self.select(next_selected)
 
+        return next_selected
+
     def previous(self):
         index = 0
         selected = -1
@@ -114,3 +116,5 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
             next_selected = len(self.sprite_list) - 1
 
         self.select(next_selected)
+
+        return next_selected

@@ -9,9 +9,10 @@ import os
 import random
 
 import arcade
-from arcade import SpriteList, PymunkPhysicsEngine
-import constants.controls.keyboard
+from arcade import SpriteList, PymunkPhysicsEngine, FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
+
 import constants.controls.controller
+import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
 from sprites.bullet.bullet import Bullet
@@ -147,6 +148,7 @@ class Game(Fading):
 
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size())
+
     def on_hide_view(self):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
@@ -250,9 +252,10 @@ class Game(Fading):
             self.down_key_pressed = True
 
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
-            self.on_select_item(key)
+            self.on_select_item(key=key)
 
     def on_key_release(self, key, modifiers):
+
         super().on_key_release(key, modifiers)
         """Called when the user releases a key."""
 
@@ -275,9 +278,11 @@ class Game(Fading):
         if movement:
             self.update_player_speed()
 
-    def on_select_item(self, key):
-        index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
-        index -= 1
+    def on_select_item(self, key=None, index=None):
+        if key:
+            index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
+            index -= 1
+
         item = self.inventory.select(index)
         self.player_sprite.set_item(item)
         if 'Place' in self.scene.name_mapping:
@@ -289,7 +294,13 @@ class Game(Fading):
         self.scene.add_sprite('Place', item)
 
     def on_joybutton_press(self, controller, key):
-        logging.info(f"{controller}, {key}")
+        if self.player_sprite.dead():
+            if key in constants.controls.controller.KEY_DICARD:
+                self.next_view = MainMenu(self.window, self.state)
+                self.fade_out()
+
+            return
+
         if key in constants.controls.controller.KEY_PAUSE:
             self.on_pause()
 
@@ -299,16 +310,12 @@ class Game(Fading):
             self.on_use()
         if key in constants.controls.controller.KEY_DROP:
             self.on_drop()
-
         if key in constants.controls.controller.KEY_GRUNT:
             self.on_grunt()
-
-
-
         if key in constants.controls.controller.PREVIOUS_ITEM:
-            self.inventory.previous()
+            self.on_select_item(index=self.inventory.previous())
         if key in constants.controls.controller.NEXT_ITEM:
-            self.inventory.next()
+            self.on_select_item(index=self.inventory.next())
 
     def on_joyaxis_motion(self, controller, axis, value):
         logging.info(f"{controller} {axis} {value}")
@@ -334,6 +341,18 @@ class Game(Fading):
                 self.down_key_pressed = True
             elif value == -1.0:
                 self.up_key_pressed = True
+
+        if axis in constants.controls.controller.AXIS_RX:
+            if value == -1.0:
+                self.player_sprite.set_face(FACE_LEFT)
+            elif value == 1.0:
+                self.player_sprite.set_face(FACE_RIGHT)
+
+        if axis in constants.controls.controller.AXIS_RY:
+            if value == -1.0:
+                self.player_sprite.set_face(FACE_UP)
+            elif value == 1.0:
+                self.player_sprite.set_face(FACE_DOWN)
 
     # Do something with the value
 
@@ -390,7 +409,6 @@ class Game(Fading):
 
         logging.info('Nothing to use at ' + str(self.player_sprite.position))
         self.state.sounds['beep'].play()
-
 
     def center_camera_to_player(self):
         # Find where player is, then calculate lower left corner from that
