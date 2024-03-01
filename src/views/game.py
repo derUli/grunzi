@@ -10,8 +10,8 @@ import random
 
 import arcade
 from arcade import SpriteList, PymunkPhysicsEngine
-
 import constants.controls.keyboard
+import constants.controls.controller
 import sprites.characters.playersprite
 import utils.audio
 from sprites.bullet.bullet import Bullet
@@ -85,6 +85,9 @@ class Game(Fading):
 
         self.window.set_mouse_visible(False)
 
+        for controller in self.window.controllers:
+            controller.push_handlers(self)
+
         if self.initialized:
             self.music_queue.play()
             return
@@ -144,10 +147,12 @@ class Game(Fading):
 
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size())
-
     def on_hide_view(self):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
+
+        for controller in self.window.controllers:
+            controller.pop_handlers()
 
     def on_draw(self):
         """Render the screen."""
@@ -202,6 +207,14 @@ class Game(Fading):
 
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
+    def reset_keys(self):
+        # What key is pressed down?
+        self.up_key_pressed = False
+        self.right_key_pressed = False
+        self.down_key_pressed = False
+        self.left_key_pressed = False
+        self.player_sprite.reset()
+
     def on_key_press(self, key, modifiers):
         super().on_key_press(key, modifiers)
 
@@ -214,11 +227,7 @@ class Game(Fading):
 
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
-            self.reset_keys()
-
-            self.window.show_view(
-                PauseMenu(self.window, self.state, self)
-            )
+            self.on_pause()
 
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
@@ -242,14 +251,6 @@ class Game(Fading):
 
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             self.on_select_item(key)
-
-    def reset_keys(self):
-        # What key is pressed down?
-        self.up_key_pressed = False
-        self.right_key_pressed = False
-        self.down_key_pressed = False
-        self.left_key_pressed = False
-        self.player_sprite.reset()
 
     def on_key_release(self, key, modifiers):
         super().on_key_release(key, modifiers)
@@ -286,6 +287,18 @@ class Game(Fading):
             return
 
         self.scene.add_sprite('Place', item)
+
+    def on_joybutton_press(self, controller, key):
+        logging.info(f"{controller}, {key}")
+        if key in constants.controls.controller.KEY_PAUSE:
+            self.on_pause()
+
+        if key in constants.controls.controller.KEY_SHOOT:
+            self.on_shoot()
+        if key in constants.controls.controller.KEY_USE:
+            self.on_use()
+        if key in constants.controls.controller.KEY_DROP:
+                self.on_drop()
 
     def on_shoot(self):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
@@ -328,6 +341,11 @@ class Game(Fading):
                 self.inventory.select(-1)
 
         self.scene.add_sprite(layer, new_item)
+
+    def on_pause(self):
+        self.reset_keys()
+
+        self.window.show_view(PauseMenu(self.window, self.state, self))
 
     def on_use(self):
         if self.update_collectable():

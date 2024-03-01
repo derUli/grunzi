@@ -1,3 +1,5 @@
+import logging
+
 import arcade
 import pyglet
 
@@ -39,11 +41,14 @@ class GameWindow(arcade.Window):
 
         self.debug = debug
         self.show_fps = debug
+        self.controllers = []
 
     def setup(self):
         # Enable timings for FPS measurements
         if not arcade.timings_enabled():
             arcade.enable_timings()
+
+        self.init_controllers()
 
     def set_fullscreen(self, fullscreen=True):
         screen = pyglet.canvas.get_display().get_default_screen()
@@ -53,3 +58,16 @@ class GameWindow(arcade.Window):
 
     def size(self):
         return self.width, self.height
+
+    def init_controllers(self):
+        if self.controllers:
+            return
+
+        self.controllers = arcade.get_game_controllers()
+
+        if not any(self.controllers):
+            logging.info(f"Controller: No controllers detected")
+
+        for controller in self.controllers:
+            logging.info(f'Controller: Init {controller.device.name}')
+            controller.open(self)

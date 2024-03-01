@@ -11,7 +11,6 @@ import os
 import signal
 import sys
 
-import arcade
 import pyglet
 
 from state.viewstate import ViewState
@@ -145,6 +144,9 @@ def main():
         pyglet.options['audio'] = 'silent'
 
     pyglet.options['debug_gl'] = args.debug
+    pyglet.options["xinput_controllers"] = False
+
+    import arcade
 
     logging.info(label_value(_('Arguments'), args))
     logging.info(label_value(_('Pyglet options'), pyglet.options))

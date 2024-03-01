@@ -1,0 +1,26 @@
+"""Keyboard controls"""
+
+# XBOX 360 Controller Mapping
+KEY_START = 7
+KEY_A = 0
+KEY_B = 1
+KEY_X = 2
+KEY_Y = 3
+
+KEY_PAUSE = [KEY_START]
+KEY_DISCARD = [KEY_START, KEY_X]
+KEY_SPRINT = []
+KEY_SHOOT = [KEY_A]
+KEY_GRUNT = [KEY_B]
+KEY_USE = [KEY_X]
+KEY_DROP = [KEY_Y]
+
+KEY_MOVE_LEFT = []
+KEY_MOVE_RIGHT = []
+KEY_MOVE_UP = []
+KEY_MOVE_DOWN = []
+
+KEY_SELECT_INVENTORY = []
+
+KEY_SCREENSHOT = []
+KEY_TOGGLE_FPS = []
