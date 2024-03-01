@@ -15,7 +15,7 @@ import arcade
 import pyglet
 
 from state.viewstate import ViewState
-from utils.log import configure_logger
+from utils.log import configure_logger, log_hardware_info
 from utils.text import label_value
 from views.intro import Intro
 from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
@@ -113,6 +113,17 @@ def main():
     setup_locale()
     args = cli_args()
 
+    LOG_LEVEL = logging.INFO
+
+    if args.verbose >= 1:
+        LOG_LEVEL = logging.DEBUG
+
+    if args.verbose >= 2:
+        LOG_LEVEL = logging.NOTSET
+
+    configure_logger(LOG_LEVEL)
+    log_hardware_info()
+
     if args.fullscreen:
         args.window = False
     elif args.window:
@@ -135,15 +146,6 @@ def main():
 
     pyglet.options['debug_gl'] = args.debug
 
-    LOG_LEVEL = logging.INFO
-
-    if args.verbose >= 1:
-        LOG_LEVEL = logging.DEBUG
-
-    if args.verbose >= 2:
-        LOG_LEVEL = logging.NOTSET
-
-    configure_logger(LOG_LEVEL)
     logging.info(label_value(_('Arguments'), args))
     logging.info(label_value(_('Pyglet options'), pyglet.options))
 
