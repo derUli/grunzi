@@ -16,7 +16,7 @@ class GPUInfo:
         # VRAM in GB
 
         vram_formatted = ''
-        if self.vram:
+        if self.vram and self.vram > 0:
             vram = self.vram / 1024
 
             if vram % 1 == 0:
