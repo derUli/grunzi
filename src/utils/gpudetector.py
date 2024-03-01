@@ -6,7 +6,6 @@ try:
     import pyadl
 except Exception as e:
     pyadl = None
-    logging.error(e)
 
 from pylspci import SimpleParser
 
