@@ -45,18 +45,18 @@ IGNORE_VENDORS_LSPCI = VENDOR_NVIDIA_ALL + VENDOR_AMD_ALL
 class GPUInfo:
     """ Information about GPUs """
 
-    def __init__(self, vendor=None, model=None, vram=None, vendor_id=None, device_id=None):
+    def __init__(self, vendor=None, model=None, memory=None, vendor_id=None, device_id=None):
         """
         Constructor
         @param model: GPU model
         @param vendor: GPU vendor
-        @param vram: Size of VRAM in MB
+        @param memory: Size of VRAM in MB
         @param vendor_id: GPU PCI vendor id
         @param device_id: GPU PCI model id
         """
         self.model = model
         self.vendor = vendor
-        self.vram = vram
+        self.memory = memory
         self.vendor_id = vendor_id
         self.device_id = device_id
 
@@ -68,24 +68,24 @@ class GPUInfo:
         Intel Corporation UHD Graphics 630 (Mobile)
         """
 
-        vram_formatted = ""
+        memory_formatted = ""
 
         # If we were able to get the VRAM of the GPU
-        if self.vram and self.vram > 0:
-            vram = self.vram / 1024
+        if self.memory and self.memory > 0:
+            memory = self.memory / 1024
 
             # If the GB size is even remove decimals
-            if vram % 1 == 0:
-                vram = int(vram)
+            if memory % 1 == 0:
+                memory = int(memory)
 
             # Format VRAM
-            vram_formatted = f"({vram} GB)"
+            memory_formatted = f"({memory} GB)"
 
         return ' '.join(
             [
-                self.vendor,
-                self.model,
-                vram_formatted
+                self.vendor,  # NVIDIA
+                self.model,  # GeForce GT 1030
+                memory_formatted  # (2 GB)
             ]
         )
 
@@ -103,7 +103,7 @@ def detect_nvidia() -> list:
             name_without_vendor = name_without_vendor.replace(vendor, '')
             name_without_vendor = name_without_vendor.strip()
         gpus.append(
-            GPUInfo(model=name_without_vendor, vendor=VENDOR_NVIDIA_SHORT, vram=gpu.memoryTotal)
+            GPUInfo(model=name_without_vendor, vendor=VENDOR_NVIDIA_SHORT, memory=gpu.memoryTotal)
         )
 
     return gpus
@@ -174,7 +174,11 @@ def detect_lspci() -> list:
     return gpus
 
 
-def detect_gpus():
+def detect_gpus() -> list:
+    """
+    Detect the GPUS in this system
+    @return:
+    """
     available = []
 
     # Detect NVIDIA GPUs using GPUtil
