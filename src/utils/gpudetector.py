@@ -105,7 +105,6 @@ def detect_lspci():
 
     for device in devices:
         if '[03' in str(device.cls):
-            logging.debug('PCI Device: ' + str(device))
             # These vendors are already detected by other libraries
             if device.vendor.name in IGNORE_VENDORS_LSPCI:
                 # TODO: try to figure out PCI IDs for already detected GPUs
