@@ -2,7 +2,7 @@
 
 ## Alpha 007 (Not Yet released)
 
-* Inventar teilweise implementiert
+* Inventar hinzugefügt
 * Launcher hinzugefügt
 * Kleinere Änderungen an der Map
 * KI der Totenköpfe verbessert
