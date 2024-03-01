@@ -6,6 +6,7 @@ import GPUtil
 
 # Used to detect amd GPUs
 # UNTESTED since I don't own AMD GPUs.
+# Feel free to open an issue if there are issues
 try:
     import pyadl
 except Exception as e:
