@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-01 16:18+0100\n"
+"POT-Creation-Date: 2024-03-02 00:49+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,57 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: grunzi.py:33
-msgid "Run in windowed mode"
-msgstr "Ausführen im Fenstermodus"
-
-#: grunzi.py:40
-msgid "Run in fullscreen mode"
-msgstr "Ausführen im Vollbildmodus"
-
-#: grunzi.py:47
-msgid "Enable debug mode"
-msgstr "Aktiviere den Debug Modus"
-
-#: grunzi.py:54
-msgid "Window width in pixels"
-msgstr "Fensterbreite in Pixeln"
-
-#: grunzi.py:61
-msgid "Window height in pixels"
-msgstr "Fensterhöhe in Pixeln"
-
-#: grunzi.py:68
-msgid "Name of the map"
-msgstr "Name der Map"
-
-#: grunzi.py:75
-msgid "Mute the sound"
-msgstr "Audioausgabe deaktivieren"
-
-#: grunzi.py:83
-msgid "Make the operation more talkative"
-msgstr "Machen Sie die Operation gesprächiger"
-
-#: grunzi.py:90
-msgid "Skip launcher"
-msgstr ""
-
-#: grunzi.py:149
-msgid "Arguments"
-msgstr "Argumente"
-
-#: grunzi.py:150
-msgid "Pyglet options"
-msgstr "Pyglet Optionen"
-
-#: sprites/characters/playersprite.py:114
+#: sprites/characters/playersprite.py:110
 msgid "You're bacon!"
 msgstr "Du bist Schinken."
-
-#: state/viewstate.py:87 views/controls.py:49
-msgid "Grunt"
-msgstr "Grunzen"
 
 #: views/controls.py:44
 msgid "WASD, Arrow keys"
@@ -113,6 +65,10 @@ msgstr "Item ablegen"
 #: views/controls.py:49
 msgid "G"
 msgstr ""
+
+#: views/controls.py:49
+msgid "Grunt"
+msgstr "Grunzen"
 
 #: views/controls.py:50
 msgid "0 - 5"
@@ -190,7 +146,7 @@ msgstr "Fortsetzen"
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/view.py:60
+#: views/view.py:61
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
@@ -203,8 +159,8 @@ msgid "Fullscreen"
 msgstr "Vollbild"
 
 #: window/launcherwindow.py:57
-msgid "Silent"
-msgstr "Ton deaktivieren"
+msgid "Sound"
+msgstr "Sound"
 
 #: window/launcherwindow.py:65
 msgid "Debug"
@@ -221,7 +177,3 @@ msgstr ""
 #: window/launcherwindow.py:100
 msgid "Launch Game"
 msgstr "Spiel starten"
-
-#~ msgid "Shows launcher"
-#~ msgstr ""
-

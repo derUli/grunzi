@@ -29,49 +29,49 @@ def cli_args():
         '--window',
         action='store_true',
         default=False,
-        help=_('Run in windowed mode')
+        help='Run in windowed mode'
     )
 
     parser.add_argument(
         '--fullscreen',
         action='store_true',
         default=False,
-        help=_('Run in fullscreen mode')
+        help='Run in fullscreen mode'
     )
 
     parser.add_argument(
         '--debug',
         action='store_true',
         default=False,
-        help=_('Enable debug mode')
+        help='Enable debug mode'
     )
 
     parser.add_argument(
         '--width',
         type=int,
         default=SCREEN_WIDTH,
-        help=_('Window width in pixels')
+        help='Window width in pixels'
     )
 
     parser.add_argument(
         '--height',
         type=int,
         default=SCREEN_HEIGHT,
-        help=_('Window height in pixels')
+        help='Window height in pixels'
     )
 
     parser.add_argument(
         '--map',
         type=str,
         default='world',
-        help=_('Name of the map')
+        help='Name of the map'
     )
 
     parser.add_argument(
         '--silent',
         default=False,
         action='store_true',
-        help=_('Mute the sound')
+        help='Mute the sound'
     )
 
     parser.add_argument(
@@ -79,14 +79,14 @@ def cli_args():
         '--verbose',
         default=0,
         action='count',
-        help=_('Make the operation more talkative')
+        help='Make the operation more talkative'
     )
 
     parser.add_argument(
         '--skip-launcher',
         action='store_true',
         default=False,
-        help=_('Skip launcher')
+        help='Skip launcher'
     )
 
     return parser.parse_args()
@@ -148,8 +148,8 @@ def main():
 
     import arcade
 
-    logging.info(label_value(_('Arguments'), args))
-    logging.info(label_value(_('Pyglet options'), pyglet.options))
+    logging.info(label_value('Arguments', args))
+    logging.info(label_value('Pyglet options', pyglet.options))
 
     window = GameWindow(args.window, args.width, args.height, debug=args.debug)
     window.setup()

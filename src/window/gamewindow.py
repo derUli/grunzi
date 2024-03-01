@@ -22,7 +22,8 @@ class GameWindow(arcade.Window):
             width=SCREEN_WIDTH,
             height=SCREEN_HEIGHT,
             debug=False,
-            update_rate=UPDATE_RATE
+            update_rate=UPDATE_RATE,
+            controller=False
     ):
         # Call the parent class and set up the window
         super().__init__(
@@ -39,6 +40,8 @@ class GameWindow(arcade.Window):
         self.update_rate = update_rate
         self.draw_rate = update_rate
 
+        self.controller = controller
+
         self.debug = debug
         self.show_fps = debug
         self.controllers = []
@@ -48,7 +51,9 @@ class GameWindow(arcade.Window):
         if not arcade.timings_enabled():
             arcade.enable_timings()
 
-        self.init_controllers()
+        # Init controllers if enabled
+        if self.controller:
+            self.init_controllers()
 
     def set_fullscreen(self, fullscreen=True):
         screen = pyglet.canvas.get_display().get_default_screen()
