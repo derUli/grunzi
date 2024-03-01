@@ -225,13 +225,12 @@ class Game(Fading):
 
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
-
+        if key in constants.controls.keyboard.KEY_DROP:
+            self.on_drop()
         if key in constants.controls.keyboard.KEY_SHOOT:
             self.on_shoot()
-
         if key in constants.controls.keyboard.KEY_GRUNT:
             self.on_grunt()
-
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
             self.left_key_pressed = True
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
@@ -312,14 +311,13 @@ class Game(Fading):
     def on_drop(self):
         item = self.player_sprite.get_item()
         if not item:
-            self.state.sounds['beep'].play()
             logging.info('No item selected')
+            self.state.sounds['beep'].play()
             return
 
         klass = item.__class__
         new_item = klass(filename=item.filename, center_x=item.center_x, center_y=item.center_y)
         layer = klass.__name__ + 's'
-        self.scene.add_sprite(layer, new_item)
 
         if self.inventory.get_selected():
             quantity = self.inventory.get_selected().pop()
@@ -327,11 +325,9 @@ class Game(Fading):
             if quantity == 0:
                 self.player_sprite.set_item(None)
 
+        self.scene.add_sprite(layer, new_item)
 
     def on_use(self):
-        self.on_drop()
-        return
-
         logging.info('"Use" not implemented yet')
         self.state.sounds['beep'].play()
 

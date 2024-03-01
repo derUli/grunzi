@@ -12,6 +12,7 @@ KEY_SPRINT = [arcade.key.LSHIFT, arcade.key.RSHIFT]
 KEY_SHOOT = [arcade.key.LCTRL, arcade.key.RCTRL]
 KEY_GRUNT = [arcade.key.G]
 KEY_USE = [arcade.key.E]
+KEY_DROP = [arcade.key.Q]
 
 KEY_MOVE_LEFT = [arcade.key.LEFT, arcade.key.A]
 KEY_MOVE_RIGHT = [arcade.key.RIGHT, arcade.key.D]
