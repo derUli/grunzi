@@ -31,7 +31,8 @@ def detect_lspci():
     gpus = []
     try:
         for device in SimpleParser().run():
-            print(device)
+            if '[03' in str(device.cls):
+                print(device)
 
     except FileNotFoundError as e:
         return gpus
