@@ -63,7 +63,7 @@ class GPUInfo:
 def detect_nvidia():
     gpus = []
     for gpu in GPUtil.getGPUs():
-        name_without_vendor = gpu.name
+        name_without_vendor = str(gpu.name)
 
         for vendor in VENDOR_NVIDIA_ALL:
             name_without_vendor = name_without_vendor.replace(vendor, '')
@@ -80,7 +80,7 @@ def detect_amd():
         return gpus
 
     for device in pyadl.ADLManager.getInstance().getDevices():
-        name_without_vendor = device.adapterName
+        name_without_vendor = str(device.adapterName)
 
         for vendor in VENDOR_AMD_ALL:
             name_without_vendor = name_without_vendor.replace(vendor, '')
