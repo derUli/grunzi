@@ -45,12 +45,18 @@ IGNORE_VENDORS_LSPCI = VENDOR_NVIDIA_ALL + VENDOR_AMD_ALL
 class GPUInfo:
     """ Information about GPUs """
 
-    def __init__(self, vendor=None, model=None, memory=None, vendor_id=None, device_id=None):
+    def __init__(
+            self, vendor: str | None = None,
+            model: str | None = None,
+            memory: int | float | None = None,
+            vendor_id: str | None = None,
+            device_id: str | None = None
+    ):
         """
         Constructor
         @param model: GPU model
         @param vendor: GPU vendor
-        @param memory: Size of VRAM in MB
+        @param memory: Size of video RAM in MB
         @param vendor_id: GPU PCI vendor id
         @param device_id: GPU PCI model id
         """
