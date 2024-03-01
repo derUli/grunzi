@@ -7,6 +7,8 @@ KEY_B = 1
 KEY_X = 2
 KEY_Y = 3
 
+AXIS_X = 'x'
+AXIS_Y = 'y'
 KEY_LT = 'z'
 
 KEY_PAUSE = [KEY_START]

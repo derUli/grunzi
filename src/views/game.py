@@ -300,12 +300,33 @@ class Game(Fading):
         if key in constants.controls.controller.KEY_DROP:
             self.on_drop()
 
+        if key in constants.controls.controller.KEY_GRUNT:
+            self.on_grunt()
+
     def on_joyaxis_motion(self, controller, axis, value):
+        logging.info(f"{controller} {axis} {value}")
         if axis in constants.controls.controller.KEY_SPRINT:
             if value > 0:
                 self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
             else:
                 self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
+        if axis in constants.controls.controller.AXIS_X:
+            self.right_key_pressed = False
+            self.left_key_pressed = False
+
+            if value == 1.0:
+                self.right_key_pressed = True
+            elif value == -1.0:
+                self.left_key_pressed = True
+
+        if axis in constants.controls.controller.AXIS_Y:
+            self.up_key_pressed = False
+            self.down_key_pressed = False
+
+            if value == 1.0:
+                self.down_key_pressed = True
+            elif value == -1.0:
+                self.up_key_pressed = True
 
     # Do something with the value
 
