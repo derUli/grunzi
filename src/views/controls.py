@@ -10,7 +10,7 @@ BUTTON_WIDTH = 250
 
 URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
-BUTTON_MARGIN_BOTTOM = 20
+MARGIN = 40
 
 
 class Controls(Fading):
@@ -74,8 +74,8 @@ class Controls(Fading):
             stye=utils.text.get_style()
         )
 
-        width = self.window.width - (BUTTON_MARGIN_BOTTOM * 2)
-        height = self.window.height - back_button.height - (BUTTON_MARGIN_BOTTOM * 2)
+        width = self.window.width - (MARGIN * 2)
+        height = self.window.height - back_button.height - (MARGIN * 2)
 
         textarea = arcade.gui.UITextArea(
             width=width,
@@ -93,12 +93,12 @@ class Controls(Fading):
             self.on_back()
 
         v_box.add(textarea.with_space_around(
-            top=BUTTON_MARGIN_BOTTOM,
-            bottom=BUTTON_MARGIN_BOTTOM,
-            left=BUTTON_MARGIN_BOTTOM,
-            right=BUTTON_MARGIN_BOTTOM)
+            top=MARGIN,
+            bottom=MARGIN,
+            left=MARGIN,
+            right=MARGIN)
         )
-        v_box.add(back_button.with_space_around(bottom=BUTTON_MARGIN_BOTTOM))
+        v_box.add(back_button.with_space_around(bottom=MARGIN))
 
         self.manager.add(
             arcade.gui.UIAnchorWidget(

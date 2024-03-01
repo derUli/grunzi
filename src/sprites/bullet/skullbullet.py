@@ -4,7 +4,7 @@ from arcade import SpriteSolidColor
 import views.game
 from sprites.bullet.bullet import Bullet
 
-HURT = 10
+HURT = 5
 
 MASS = 0.1
 DAMPING = 1
@@ -156,6 +156,7 @@ class SkullBullet(Bullet):
         physics_engine.add_collision_handler('skull_bullet', 'wall', post_handler=self.on_hit_destroy)
         physics_engine.add_collision_handler('skull_bullet', 'skull_bullet', post_handler=self.on_hit_destroy)
         physics_engine.add_collision_handler('skull_bullet', 'player', post_handler=self.on_hit_player)
+        physics_engine.add_collision_handler('skull_bullet', 'bullet', post_handler=self.on_hit_destroy)
         physics_engine.apply_force(self, (force_x, force_y))
 
     def on_hit_destroy(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):

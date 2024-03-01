@@ -379,7 +379,7 @@ class Game(Fading):
 
     def on_drop(self):
         item = self.player_sprite.get_item()
-        selected = self.inventory.get_selected()
+        selected, index = self.inventory.get_selected()
         if not item:
             logging.info('No item selected')
             self.state.sounds['beep'].play()
@@ -394,7 +394,7 @@ class Game(Fading):
 
             if quantity == 0:
                 self.player_sprite.set_item(None)
-                self.inventory.select(-1)
+                self.inventory.unselect()
 
         self.scene.add_sprite(layer, new_item)
 
@@ -464,8 +464,8 @@ class Game(Fading):
             if arcade.check_for_collision(sprite, self.player_sprite):
                 self.player_sprite.hurt(sprite.damage)
 
-        if len(enemies) < 20:
-            if random.randint(1, 150) == 50:
+        if len(enemies) < 25:
+            if random.randint(1, 100) == 50:
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
@@ -537,8 +537,8 @@ class Game(Fading):
         for coin in coins:
             self.scene[SPRITE_LIST_COINS].remove(coin)
             self.inventory.add_item(coin)
-            logging.debug(self.inventory.get_item(1))
             self.state.play_sound('coin')
+            self.on_select_item(index=-1)
             return True
 
         return False

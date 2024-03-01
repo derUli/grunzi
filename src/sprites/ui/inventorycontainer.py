@@ -58,11 +58,15 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
         return self.sprite_list[index].item
 
+    def unselect(self):
+        self.select(index=-1)
+
     def add_item(self, item):
         for sprite in self.sprite_list:
             if not sprite.get_item():
                 sprite.set_item(item)
                 return
+
 
             klass1 = sprite.item.__class__
             klass2 = item.__class__
@@ -74,11 +78,14 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
             return
 
     def get_selected(self):
+        index = 0
         for item in self.sprite_list:
             if item.selected:
-                return item
+                return item, index
+            index += 1
 
-        return None
+        return None, -1
+
 
     def get_item(self, index):
         return self.sprite_list[index]
