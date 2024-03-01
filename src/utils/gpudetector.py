@@ -30,7 +30,9 @@ def detect_nvidia():
 def detect_lspci():
     gpus = []
     try:
-        print(SimpleParser().run())
+        for device in SimpleParser().run():
+            print(device)
+
     except FileNotFoundError as e:
         return gpus
 
