@@ -1,10 +1,14 @@
 import GPUtil
 from pylspci.parsers import SimpleParser
 
+VENDOR_NVIDIA = 'NVIDIA'
+
 class GPUInfo:
-    def __init__(self, name=None, vram=None):
+    def __init__(self, name=None, vendor=None, vram=None):
         self.name = name
+        self.vendor = vendor
         self.vram = vram
+
 
     def __str__(self):
         # VRAM in GB
@@ -15,6 +19,7 @@ class GPUInfo:
 
         return ' '.join(
             [
+                self.vendor,
                 self.name,
                 f"({vram} GB)"
             ]
@@ -24,7 +29,8 @@ class GPUInfo:
 def detect_nvidia():
     gpus = []
     for gpu in GPUtil.getGPUs():
-        gpus.append(GPUInfo(name=gpu.name, vram=gpu.memoryTotal))
+        name_without_vendor = gpu.name.replace(VENDOR_NVIDIA, '').strip()
+        gpus.append(GPUInfo(name=name_without_vendor, vendor=VENDOR_NVIDIA, vram=gpu.memoryTotal))
     return gpus
 
 def detect_lspci():
