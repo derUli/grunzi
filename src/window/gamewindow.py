@@ -63,8 +63,11 @@ class GameWindow(arcade.Window):
         if self.controllers:
             return
 
-        self.controllers = arcade.get_game_controllers()
-
+        try:
+            self.controllers = arcade.get_game_controllers()
+        except FileNotFoundError as e:
+            logging.error(e)
+            self.controllers = []
         if not any(self.controllers):
             logging.info(f"Controller: No controllers detected")
 
