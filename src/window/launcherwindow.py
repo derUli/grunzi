@@ -53,13 +53,13 @@ class LauncherWindow(tk.Tk):
         )
         checkbox_fullscreen.pack()
 
-        checkbox_silent = tk.Checkbutton(
-            text=_('Silent'),
+        checkbox_sound = tk.Checkbutton(
+            text=_('Sound'),
             variable=self.silent,
-            onvalue=True,
-            offvalue=False
+            onvalue=False,
+            offvalue=True
         )
-        checkbox_silent.pack()
+        checkbox_sound.pack()
 
         checkbox_silent = tk.Checkbutton(
             text=_('Debug'),
