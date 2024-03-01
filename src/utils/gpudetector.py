@@ -1,65 +1,98 @@
-import logging
+""" Generic GPU detection class """
+import subprocess
 
+# Used to detect NVIDIA GPUs
 import GPUtil
 
+# Used to detect amd GPUs
+# UNTESTED since I don't own AMD GPUs.
 try:
     import pyadl
 except Exception as e:
     pyadl = None
 
+# Use lspci as a fallback for all other (Intel, ???)
 from pylspci import SimpleParser
 
+# NVIDIA brand
 VENDOR_NVIDIA_SHORT = 'NVIDIA'
 VENDOR_NVIDIA_LONG = 'NVIDIA Corporation'
 
+# AMD brand
 VENDOR_AMD_SHORT = 'AMD'
 VENDOR_AMD_LONG = ' Advanced Micro Devices, Inc.'
 VENDOR_ATI_SHORT = 'ATI'
 
+# All spellings of Nvidia brand
 VENDOR_NVIDIA_ALL = [
     VENDOR_NVIDIA_SHORT,
     VENDOR_NVIDIA_LONG
 ]
 
+# All spellings of AMD brand
 VENDOR_AMD_ALL = [
     VENDOR_ATI_SHORT,
     VENDOR_AMD_LONG,
     VENDOR_AMD_LONG,
 ]
 
+# lspci should only take care about the other GPUs
 IGNORE_VENDORS_LSPCI = VENDOR_NVIDIA_ALL + VENDOR_AMD_ALL
 
 
 class GPUInfo:
-    def __init__(self, name=None, vendor=None, vram=None, vendor_id=None, device_id=None):
-        self.name = name
+    """ Information about GPUs """
+
+    def __init__(self, vendor=None, model=None, vram=None, vendor_id=None, device_id=None):
+        """
+        Constructor
+        @param model: GPU model
+        @param vendor: GPU vendor
+        @param vram: Size of VRAM in MB
+        @param vendor_id: GPU PCI vendor id
+        @param device_id: GPU PCI model id
+        """
+        self.model = model
         self.vendor = vendor
         self.vram = vram
-        self.vendor_id = None
-        self.device_id = None
+        self.vendor_id = vendor_id
+        self.device_id = device_id
 
-    def __str__(self):
-        # VRAM in GB
+    def __str__(self) -> str:
+        """
+        String representation in the format of
+        NVIDIA GeForce GT 1030 (2 GB)
+        AMD Radeon HD 6570
+        Intel Corporation UHD Graphics 630 (Mobile)
+        """
 
-        vram_formatted = ''
+        vram_formatted = ""
+
+        # If we were able to get the VRAM of the GPU
         if self.vram and self.vram > 0:
             vram = self.vram / 1024
 
+            # If the GB size is even remove decimals
             if vram % 1 == 0:
                 vram = int(vram)
 
+            # Format VRAM
             vram_formatted = f"({vram} GB)"
 
         return ' '.join(
             [
                 self.vendor,
-                self.name,
+                self.model,
                 vram_formatted
             ]
         )
 
 
-def detect_nvidia():
+def detect_nvidia() -> list:
+    """
+    Detect NVIDIA GPUs using GPUtil
+    @return: Device
+    """
     gpus = []
     for gpu in GPUtil.getGPUs():
         name_without_vendor = str(gpu.name)
@@ -67,26 +100,30 @@ def detect_nvidia():
         for vendor in VENDOR_NVIDIA_ALL:
             name_without_vendor = name_without_vendor.replace(vendor, '')
             name_without_vendor = name_without_vendor.strip()
-        gpus.append(GPUInfo(name=name_without_vendor, vendor=VENDOR_NVIDIA_SHORT, vram=gpu.memoryTotal))
+        gpus.append(GPUInfo(model=name_without_vendor, vendor=VENDOR_NVIDIA_SHORT, vram=gpu.memoryTotal))
 
     return gpus
 
 
-def detect_amd():
+def detect_amd() -> list:
+    """ Detect AMD GPUs using ADL """
     gpus = []
 
+    # If there is no AMD driver there will be no pyadl
     if not pyadl:
         return gpus
 
+    # Detect devices
     for device in pyadl.ADLManager.getInstance().getDevices():
+        # Remove vendor name from device string
         name_without_vendor = str(device.adapterName)
-
         for vendor in VENDOR_AMD_ALL:
             name_without_vendor = name_without_vendor.replace(vendor, '')
             name_without_vendor = name_without_vendor.strip()
 
+        # Add GPU to the list of gpus
         gpus.append(
-            GPUInfo(name=name_without_vendor, vendor=VENDOR_AMD_SHORT)
+            GPUInfo(model=name_without_vendor, vendor=VENDOR_AMD_SHORT)
         )
 
     return gpus
@@ -95,11 +132,14 @@ def detect_amd():
 def detect_lspci():
     gpus = []
 
-    devices = []
-
+    # Try to run lspci
     try:
         devices = SimpleParser().run()
-    except Exception as e:
+    except OSError:
+        # If there is no lspci
+        devices = []
+    except subprocess.CalledProcessError:
+        # lspci exists but can't be executed for some reason
         devices = []
 
     for device in devices:
@@ -112,8 +152,10 @@ def detect_lspci():
 
             gpus.append(
                 GPUInfo(
-                    name=device.device.name,
+                    model=device.device.name,
                     vendor=device.vendor.name,
+                    vendor_id=device.vendor.id,
+                    device_id=device.device.id,
                     vram=None
                 )
             )
