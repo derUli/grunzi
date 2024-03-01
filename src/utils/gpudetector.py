@@ -4,6 +4,10 @@ from pylspci.parsers import SimpleParser
 VENDOR_NVIDIA_SHORT = 'NVIDIA'
 VENDOR_NVIDIA_LONG = 'NVIDIA Corporation'
 
+IGNORE_VENDORS_LSPCI = [
+    VENDOR_NVIDIA_LONG
+]
+
 class GPUInfo:
     def __init__(self, name=None, vendor=None, vram=None, vendor_id=None, device_id = None):
         self.name = name
@@ -11,8 +15,6 @@ class GPUInfo:
         self.vram = vram
         self.vendor_id = None
         self.device_id = None
-
-
     def __str__(self):
         # VRAM in GB
 
@@ -44,7 +46,6 @@ def detect_nvidia():
 def detect_lspci(lspci_output = None):
     gpus = []
 
-
     if lspci_output:
         devices = SimpleParser().parse(lspci_output)
     else:
@@ -56,6 +57,12 @@ def detect_lspci(lspci_output = None):
     for device in devices:
         if '[03' in str(device.cls):
             print(device)
+
+            # These vendors are already detected by other libraries
+            if device.vendor.name in IGNORE_VENDORS_LSPCI:
+                # TODO: try to figure out PCI IDs for already detected GPUs
+                # because GPUtil don't return PCI stuff
+                continue
 
             gpus.append(
                 GPUInfo(
