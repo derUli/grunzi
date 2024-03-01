@@ -298,7 +298,16 @@ class Game(Fading):
         if key in constants.controls.controller.KEY_USE:
             self.on_use()
         if key in constants.controls.controller.KEY_DROP:
-                self.on_drop()
+            self.on_drop()
+
+    def on_joyaxis_motion(self, controller, axis, value):
+        if axis in constants.controls.controller.KEY_SPRINT:
+            if value > 0:
+                self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
+            else:
+                self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
+
+    # Do something with the value
 
     def on_shoot(self):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
