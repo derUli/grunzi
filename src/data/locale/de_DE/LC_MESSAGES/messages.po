@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-01 09:00+0100\n"
+"POT-Creation-Date: 2024-03-01 16:18+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -54,15 +54,15 @@ msgstr "Machen Sie die Operation gesprächiger"
 msgid "Skip launcher"
 msgstr ""
 
-#: grunzi.py:147
+#: grunzi.py:149
 msgid "Arguments"
 msgstr "Argumente"
 
-#: grunzi.py:148
+#: grunzi.py:150
 msgid "Pyglet options"
 msgstr "Pyglet Optionen"
 
-#: sprites/characters/playersprite.py:113
+#: sprites/characters/playersprite.py:114
 msgid "You're bacon!"
 msgstr "Du bist Schinken."
 

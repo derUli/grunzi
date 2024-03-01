@@ -1,20 +1,44 @@
+import logging
+
 import GPUtil
-from pylspci.parsers import SimpleParser
+
+try:
+    import pyadl
+except Exception as e:
+    pyadl = None
+    logging.error(e)
+
+from pylspci import SimpleParser
 
 VENDOR_NVIDIA_SHORT = 'NVIDIA'
 VENDOR_NVIDIA_LONG = 'NVIDIA Corporation'
 
-IGNORE_VENDORS_LSPCI = [
+VENDOR_AMD_SHORT = 'AMD'
+VENDOR_AMD_LONG = ' Advanced Micro Devices, Inc.'
+VENDOR_ATI_SHORT = 'ATI'
+
+VENDOR_NVIDIA_ALL = [
+    VENDOR_NVIDIA_SHORT,
     VENDOR_NVIDIA_LONG
 ]
 
+VENDOR_AMD_ALL = [
+    VENDOR_ATI_SHORT,
+    VENDOR_AMD_LONG,
+    VENDOR_AMD_LONG,
+]
+
+IGNORE_VENDORS_LSPCI = VENDOR_NVIDIA_ALL + VENDOR_AMD_ALL
+
+
 class GPUInfo:
-    def __init__(self, name=None, vendor=None, vram=None, vendor_id=None, device_id = None):
+    def __init__(self, name=None, vendor=None, vram=None, vendor_id=None, device_id=None):
         self.name = name
         self.vendor = vendor
         self.vram = vram
         self.vendor_id = None
         self.device_id = None
+
     def __str__(self):
         # VRAM in GB
 
@@ -39,25 +63,47 @@ class GPUInfo:
 def detect_nvidia():
     gpus = []
     for gpu in GPUtil.getGPUs():
-        name_without_vendor = gpu.name.replace(VENDOR_NVIDIA_SHORT, '').strip()
-        gpus.append(GPUInfo(name=name_without_vendor, vendor=VENDOR_NVIDIA_LONG, vram=gpu.memoryTotal))
+        name_without_vendor = gpu.name
+
+        for vendor in VENDOR_NVIDIA_ALL:
+            name_without_vendor = name_without_vendor.replace(vendor, '')
+            name_without_vendor = name_without_vendor.strip()
+        gpus.append(GPUInfo(name=name_without_vendor, vendor=VENDOR_NVIDIA_SHORT, vram=gpu.memoryTotal))
+
     return gpus
 
-def detect_lspci(lspci_output = None):
+
+def detect_amd():
     gpus = []
 
-    if lspci_output:
-        devices = SimpleParser().parse(lspci_output)
-    else:
-        try:
-            devices = SimpleParser().run()
-        except FileNotFoundError:
-            devices = []
+    if not pyadl:
+        return gpus
+
+    for device in pyadl.ADLManager.getInstance().getDevices():
+        name_without_vendor = device.adapterName
+
+        for vendor in VENDOR_AMD_ALL:
+            name_without_vendor = name_without_vendor.replace(vendor, '')
+            name_without_vendor = name_without_vendor.strip()
+
+        gpus.append(
+            GPUInfo(name=name_without_vendor, vendor=VENDOR_AMD_SHORT)
+        )
+
+    return gpus
+
+
+def detect_lspci():
+    gpus = []
+
+    try:
+        devices = SimpleParser().run()
+    except FileNotFoundError:
+        devices = []
 
     for device in devices:
         if '[03' in str(device.cls):
-            print(device)
-
+            logging.debug('PCI Device: ' + str(device))
             # These vendors are already detected by other libraries
             if device.vendor.name in IGNORE_VENDORS_LSPCI:
                 # TODO: try to figure out PCI IDs for already detected GPUs
@@ -72,15 +118,15 @@ def detect_lspci(lspci_output = None):
                 )
             )
 
-
     return gpus
 
 
 def detect():
     available = []
-
     available += detect_nvidia()
+    available += detect_amd()
 
+    # lspci as fallback for all other
     available += detect_lspci()
 
     return available

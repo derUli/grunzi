@@ -7,7 +7,6 @@ import sys
 
 import psutil
 
-from utils.gpudetector import detect
 from utils.path import get_userdata_path
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
@@ -29,10 +28,11 @@ def configure_logger(log_level) -> None:
     )
 
 def log_hardware_info():
+    from utils.gpudetector import detect
+
     uname = platform.uname()
     logging.info(f"OS: {uname.system} {uname.version}")
     logging.info(f"CPU: {uname.processor}")
     logging.info(f"RAM: {round(psutil.virtual_memory().total / 1024 / 1024)} MB")
-
     for gpu in detect():
         logging.info(f'GPU: {gpu}')
