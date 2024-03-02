@@ -19,6 +19,7 @@ class Controls(Fading):
     def __init__(self, window, state, previous_view):
         super().__init__(window)
 
+        self.time = 0
         self.window = window
         self.state = state
         self.manager = arcade.gui.UIManager(window)
@@ -107,9 +108,6 @@ class Controls(Fading):
                 child=v_box
             )
         )
-
-        self.time = 0
-
         self.manager.enable()
 
     def on_key_press(self, key, modifiers):
