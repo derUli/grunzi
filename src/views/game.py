@@ -517,8 +517,6 @@ class Game(Fading):
         return
 
     def spawn_skull(self):
-        return
-
         rand_x, rand_y = random_position(self.tile_map)
 
         skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x=rand_x, center_y=rand_y)

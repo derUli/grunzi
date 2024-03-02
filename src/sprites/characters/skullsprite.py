@@ -41,8 +41,6 @@ class SkullSprite(EnemySprite):
         self.move_force = MOVE_FORCE
         self.damping = MOVE_DAMPING
 
-        self._scale = 1
-
         self.health = HEALTH_FULL
 
         dirname = os.path.join(os.path.dirname(filename))
