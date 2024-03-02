@@ -32,7 +32,6 @@ class GameWindow(arcade.Window):
             height=height,
             title=SCREEN_TITLE,
             fullscreen=False,
-            vsync=False,
             update_rate=update_rate,
             draw_rate=draw_rate
         )
