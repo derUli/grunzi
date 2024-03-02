@@ -91,15 +91,16 @@ class SkullSprite(EnemySprite):
         top = self.top + height * 2
         right = self.left + width
 
-        a = self.alpha
+        alpha = self.alpha
 
-        if a > 50:
-            a = 50
+        if alpha > 50:
+            alpha = 50
 
-        r, g, b = arcade.color.BLACK
+        r, g, b, a = arcade.color.BLACK
+        a = alpha
         arcade.draw_line(self.left, top, self.right, top, line_width=height, color=(r, g, b, a))
 
-        r, g, b = arcade.color.RED
+        r, g, b, a = arcade.color.RED
         arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))
 
     def draw_debug(self):
