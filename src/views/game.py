@@ -34,7 +34,7 @@ TILE_SCALING = 1.0
 SPRITE_LIST_COINS = 'Coins'
 SPRITE_LIST_WALL = 'Walls'
 SPRITE_LIST_DECORATION = 'Decoration'
-SPRITE_LIST_ENEMIES = 'enemies'
+SPRITE_LIST_ENEMIES = 'Enemies'
 SPRITE_LIST_PLAYER = 'player'
 SPRITE_LIST_MOVEABLE = 'Moveable'
 TOTAL_COINS = 100
@@ -517,6 +517,8 @@ class Game(Fading):
         return
 
     def spawn_skull(self):
+        return
+
         rand_x, rand_y = random_position(self.tile_map)
 
         skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x=rand_x, center_y=rand_y)

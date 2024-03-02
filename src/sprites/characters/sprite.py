@@ -34,8 +34,6 @@ class Sprite(arcade.sprite.Sprite):
             image_height,
             center_x,
             center_y,
-            repeat_count_x,
-            repeat_count_y,
             flipped_horizontally,
             flipped_vertically,
             flipped_diagonally,

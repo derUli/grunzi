@@ -8,12 +8,9 @@ from arcade import get_four_byte_color
 
 PADDING = 10
 TEXT_PADDING = (28, 5)
-a = 100
 
-r, g, b = arcade.csscolor.BLACK
-COLOR_DEFAULT = (r, g, b, a)
-r, g, b = arcade.csscolor.DARK_GREY
-COLOR_SELECTED = (r, g, b, a)
+COLOR_DEFAULT = arcade.csscolor.BLACK
+COLOR_SELECTED = arcade.csscolor.DARK_GREY
 
 
 class InventoryItem(arcade.sprite.Sprite):
