@@ -8,9 +8,17 @@ from arcade import get_four_byte_color
 
 PADDING = 10
 TEXT_PADDING = (28, 5)
+ALPHA = 100
 
-COLOR_DEFAULT = arcade.csscolor.BLACK
-COLOR_SELECTED = arcade.csscolor.DARK_GREY
+# Add transparency to colors
+r, g, b, a = arcade.csscolor.BLACK
+a = ALPHA
+COLOR_DEFAULT = r, g, b, a
+
+# Add transparency to colors
+r, g, b, a = arcade.csscolor.DARK_GREY
+a = ALPHA
+COLOR_SELECTED = r, g, b, a
 
 
 class InventoryItem(arcade.sprite.Sprite):
@@ -73,7 +81,7 @@ class InventoryItem(arcade.sprite.Sprite):
         y = 0
 
         if self.item:
-            scaled_item = PIL.ImageOps.fit(self.item.image, (width, height))
+            scaled_item = PIL.ImageOps.fit(self.item.image, (int(width), int(height)))
             x, y = int(self.width / 2), int(self.height / 2)
 
             x -= int(scaled_item.width / 2)
