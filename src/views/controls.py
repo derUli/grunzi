@@ -64,7 +64,11 @@ class Controls(Fading):
         ]
 
         if self.window.controller:
-            controls += ['XBOX 360 Controller:', os.linesep * 2]
+            controls += [
+                os.linesep * 2,
+                'XBOX 360 Controller:',
+                os.linesep * 2
+            ]
             controls += [
                 (_("Left stick"), _('Walk')),
                 (_("Right stick"), _('Look')),
@@ -73,7 +77,7 @@ class Controls(Fading):
                 (_("A"), _("Use")),
                 (_("Y"), _("Drop item")),
                 (_("B"), _("Grunt")),
-                (_("Left Button, Right Button"), _("Select item")),
+                (_("Left Bumper, Right Bumper"), os.linesep + _("Select item")),
                 (_("Start"), _("Open the pause menu"))
             ]
 
