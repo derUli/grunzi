@@ -69,7 +69,7 @@ class GameWindow(arcade.Window):
             return
 
         try:
-            self.controllers = arcade.get_game_controllers()
+            self.controllers = arcade.joysticks.get_game_controllers()
         except FileNotFoundError as e:
             logging.error(e)
             self.controllers = []

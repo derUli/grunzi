@@ -1,5 +1,9 @@
 # Changelog
 
+## Alpha 008 (Not Yet Released)
+
+* Spiel unterstützt jetzt mehr als 60 FPS
+
 ## Alpha 007 (Not Yet released)
 
 * Inventar hinzugefügt

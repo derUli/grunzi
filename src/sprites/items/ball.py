@@ -10,4 +10,4 @@ class Ball(arcade.sprite.Sprite):
 
         self.image = PIL.Image.open(filename).convert('RGBA').crop()
         texture = arcade.texture.Texture(name='ball', image=self.image)
-        super().__init__(texture=texture)
+        super().__init__(path_or_texture=texture)
