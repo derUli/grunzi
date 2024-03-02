@@ -8,12 +8,11 @@ DEFAULT_FONT = 'Laila'
 ADRIP_FONT = 'a dripping marker'
 MONOTYPE_FONT = 'Consolas Mono Book'
 
-EXTRA_SMALL_FONT_SIZE = 10
-SMALL_FONT_SIZE = 12  #
 MEDIUM_FONT_SIZE = 14
+LARGE_FONT_SIZE = 16
 LOGO_FONT_SIZE = 80
 
-DEBUG_FONT_SIZE = SMALL_FONT_SIZE
+DEBUG_FONT_SIZE = 12
 
 
 def create_text(
@@ -46,7 +45,9 @@ def create_text(
 
 def get_style():
     style = UIFlatButton.DEFAULT_STYLE
-    style['font_name'] = DEFAULT_FONT
+    for index in style:
+        style[index]['font_name'] = DEFAULT_FONT
+        style[index]['font_size'] = MEDIUM_FONT_SIZE
     return style
 
 
@@ -77,7 +78,7 @@ def draw_debug(player_sprite, window):
         width=window.width - (MARGIN * 2),
         align='right',
         color=DEBUG_COLOR,
-        # font_name=MONOTYPE_FONT,
+        font_name=MONOTYPE_FONT,
         font_size=DEBUG_FONT_SIZE,
         multiline=True
     ).draw()

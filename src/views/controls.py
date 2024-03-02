@@ -77,7 +77,7 @@ class Controls(Fading):
                 (_("A"), _("Use")),
                 (_("Y"), _("Drop item")),
                 (_("B"), _("Grunt")),
-                (_("Left Bumper, Right Bumper"), os.linesep + _("Select item")),
+                (_("Left Bumper, Right Bumper"), _("Select item")),
                 (_("Start"), _("Open the pause menu"))
             ]
 
@@ -102,7 +102,7 @@ class Controls(Fading):
         )
 
         width = int(BUTTON_WIDTH * 2)
-        height = self.window.height - back_button.height - (MARGIN * 3)
+        height = self.window.height - back_button.height - (MARGIN * 2)
 
         textarea = arcade.gui.UITextArea(
             width=width,
@@ -130,7 +130,7 @@ class Controls(Fading):
         for widget in widgets:
             widget_layout.add(widget)
 
-        frame = self.manager.add(arcade.gui.UIAnchorLayout().with_padding(top=MARGIN, bottom=MARGIN))
+        frame = self.manager.add(arcade.gui.UIAnchorLayout().with_padding())
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
         self.manager.enable()
