@@ -67,7 +67,6 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
                 sprite.set_item(item)
                 return
 
-
             klass1 = sprite.item.__class__
             klass2 = item.__class__
 
@@ -85,7 +84,6 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
             index += 1
 
         return None, -1
-
 
     def get_item(self, index):
         return self.sprite_list[index]

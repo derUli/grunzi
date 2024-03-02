@@ -6,8 +6,8 @@ import platform
 import sys
 
 import psutil
-
 from gpudetect import detect_gpus
+
 from utils.path import get_userdata_path
 
 log_file = os.path.join(get_userdata_path(), 'debug.log')
