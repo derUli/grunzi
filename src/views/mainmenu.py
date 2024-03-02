@@ -85,7 +85,10 @@ class MainMenu(Fading):
         widget_layout.add(options_help)
         widget_layout.add(quit_button)
 
-        self.manager.add(widget_layout)
+        frame = self.manager.add(arcade.gui.UIAnchorLayout())
+        frame.with_padding(bottom=20)
+
+        frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
 
     def on_hide_view(self):
