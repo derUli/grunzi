@@ -63,6 +63,21 @@ class Controls(Fading):
             (_("Alt + Enter"), _("Toggle fullscreen"))
         ]
 
+
+        if self.window.controller:
+            controls += ['XBOX 360 Controller:', os.linesep * 2]
+            controls += [
+                (_("Left stick"), _('Walk')),
+                (_("Right stick"), _('Look')),
+                (_("Left trigger"), _('Sprint')),
+                (_("X"), _("Shoot")),
+                (_("A"), _("Use")),
+                (_("Y"), _("Drop item")),
+                (_("B"), _("Grunt")),
+                (_("Left Button, Right Button"), _("Select item")),
+                (_("Start"), _("Open the pause menu"))
+            ]
+
         text = ''
 
         for line in controls:
