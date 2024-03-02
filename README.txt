@@ -24,18 +24,7 @@ OS: Windows 11 64-Bit
 
 ## Was ist neu?
 
-Der Alpha Build 006 stellt einen technologischen Neuanfang dar, welcher neue Konzepte einführt.
-
-Die Maps sind jetzt im TMX Format und können mit dem Open-Source Map-Editor Tiled bearbeitet werden.
-100 sammelbare Münzen werden zufällig auf der geladenen Map verteilt.
-Kisten können durch die Gegend geschoben werden.
-
-Totenköpfe spawnen nach und nach an zufälligen Orten.
-Diese machen gebrauchen vom Sight Of Line Algorithmus und dem A*-Algorithmus, um den Hauptcharakter zu verfolgen
-und auf diesen zu schießen.
-
-Grunzi kann jetzt schießen.
-Wenn Grunzi verletzt ist, regeneriert sich die Gesundheit jetzt automatisch.
+TODO
 
 # Spiel starten
 
