@@ -74,8 +74,8 @@ class GameWindow(arcade.Window):
             logging.error(e)
             self.controllers = []
         if not any(self.controllers):
-            logging.info(f"Controller: No controllers detected")
+            logging.info(f"No controllers detected")
 
         for controller in self.controllers:
-            logging.info(f'Controller: Init {controller.device.name}')
+            logging.info(f'Controller: {controller.device.name}')
             controller.open(self)
