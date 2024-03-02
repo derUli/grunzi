@@ -22,11 +22,9 @@ class MainMenu(Fading):
 
         self.manager = arcade.gui.UIManager(window)
 
-        v_box = arcade.gui.UIBoxLayout()
-
         label = arcade.gui.UILabel(
             text=_('Grunzi'),
-            font_name=utils.text.ADRIP_FONT,
+            #font_name=utils.text.ADRIP_FONT,
             font_size=utils.text.LOGO_FONT_SIZE,
             text_color=arcade.csscolor.HOTPINK,
             align='center'
@@ -35,19 +33,19 @@ class MainMenu(Fading):
         newgame_button = arcade.gui.UIFlatButton(
             text=_("New Game"),
             width=BUTTON_WIDTH,
-            stye=utils.text.get_style()
+            #stye=utils.text.get_style()
         )
 
         options_help = arcade.gui.UIFlatButton(
             text=_("Options & Help"),
             width=BUTTON_WIDTH,
-            stye=utils.text.get_style()
+            #stye=utils.text.get_style()
         )
 
         quit_button = arcade.gui.UIFlatButton(
             text=_("Quit game"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            #style=utils.text.get_style()
         )
 
         self.player = None
@@ -84,14 +82,29 @@ class MainMenu(Fading):
             quit_button
         ]
 
-        for button in buttons:
-            v_box.add(button.with_space_around(bottom=BUTTON_MARGIN_BOTTOM))
+        # Initialise a grid in which widgets can be arranged.
+        self.grid = arcade.gui.UIGridLayout(
+            column_count=1,
+            row_count=4,
+            horizontal_spacing=20,
+            vertical_spacing=20,
+            align_horizontal="center",
+            align_vertical="center"
+        )
 
-        self.manager.add(
-            arcade.gui.UIAnchorWidget(
-                anchor_x="center_x",
-                anchor_y="center_y",
-                child=v_box)
+        # Adding the buttons to the layout.
+        self.grid.add(label, col_num=0, row_num=0)
+        self.grid.add(newgame_button, col_num=0, row_num=1)
+        self.grid.add(options_help, col_num=0, row_num=2)
+        self.grid.add(quit_button, col_num=0, row_num=3)
+
+        # Use the anchor to position the button on the screen.
+        self.anchor = self.manager.add(
+            arcade.gui.UIAnchorLayout(
+        ))
+
+        self.anchor.add(
+            child=self.grid,
         )
 
     def on_hide_view(self):

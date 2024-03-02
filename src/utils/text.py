@@ -21,7 +21,7 @@ def create_text(
         start_y=MARGIN,
         color=arcade.csscolor.WHITE,
         font_size=MEDIUM_FONT_SIZE,
-        font_name=DEFAULT_FONT,
+        #font_name=DEFAULT_FONT,
         anchor_x='left',
         anchor_y='bottom',
         align='left',
@@ -39,7 +39,7 @@ def create_text(
         anchor_y=anchor_y,
         width=width,
         multiline=multiline,
-        font_name=font_name
+        #font_name=font_name
     )
 
 
@@ -76,7 +76,7 @@ def draw_debug(player_sprite, window):
         width=window.width - (MARGIN * 2),
         align='right',
         color=DEBUG_COLOR,
-        font_name=MONOTYPE_FONT,
+        #font_name=MONOTYPE_FONT,
         font_size=DEBUG_FONT_SIZE,
         multiline=True
     ).draw()
