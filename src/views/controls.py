@@ -10,7 +10,7 @@ BUTTON_WIDTH = 250
 
 URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
-MARGIN = 60
+MARGIN = 40
 
 
 class Controls(Fading):
@@ -95,16 +95,14 @@ class Controls(Fading):
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
 
-        v_box = arcade.gui.UIBoxLayout()
-
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
-            stye=utils.text.get_style()
+            stye=utils.text.get_style(),
         )
 
         width = int(BUTTON_WIDTH * 2)
-        height = self.window.height - (MARGIN * 3)
+        height = self.window.height - back_button.height - (MARGIN * 3)
 
         textarea = arcade.gui.UITextArea(
             width=width,
@@ -121,21 +119,20 @@ class Controls(Fading):
 
             self.on_back()
 
-        v_box.add(
-            textarea.with_space_around(
-                top=MARGIN,
-                bottom=MARGIN
-            )
-        )
-        v_box.add(back_button.with_space_around(bottom=MARGIN))
+        # Initialise a BoxLayout in which widgets can be arranged.
+        widget_layout = arcade.gui.UIBoxLayout(space_between=MARGIN, align='center')
 
-        self.manager.add(
-            arcade.gui.UIAnchorWidget(
-                anchor_x="center_x",
-                anchor_y="center_y",
-                child=v_box
-            )
-        )
+        widgets = [
+            textarea,
+            back_button
+        ]
+
+        for widget in widgets:
+            widget_layout.add(widget)
+
+        frame = self.manager.add(arcade.gui.UIAnchorLayout().with_padding(top=MARGIN, bottom=MARGIN))
+        frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
+
         self.manager.enable()
 
     def on_key_press(self, key, modifiers):

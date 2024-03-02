@@ -85,7 +85,6 @@ class PauseMenu(Fading):
 
         frame = self.manager.add(arcade.gui.UIAnchorLayout())
         frame.with_padding(bottom=20)
-
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
     def on_key_press(self, key, modifiers):
