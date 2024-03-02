@@ -75,37 +75,18 @@ class MainMenu(Fading):
         def on_click_quit_button(event):
             self.fade_quit()
 
-        buttons = [
-            label,
-            newgame_button,
-            options_help,
-            quit_button
-        ]
-
         # Initialise a grid in which widgets can be arranged.
-        self.grid = arcade.gui.UIGridLayout(
-            column_count=1,
-            row_count=4,
-            horizontal_spacing=20,
-            vertical_spacing=20,
-            align_horizontal="center",
-            align_vertical="center"
-        )
+
+        widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
 
         # Adding the buttons to the layout.
-        self.grid.add(label, col_num=0, row_num=0)
-        self.grid.add(newgame_button, col_num=0, row_num=1)
-        self.grid.add(options_help, col_num=0, row_num=2)
-        self.grid.add(quit_button, col_num=0, row_num=3)
+        widget_layout.add(label)
+        widget_layout.add(newgame_button)
+        widget_layout.add(options_help)
+        widget_layout.add(quit_button)
 
-        # Use the anchor to position the button on the screen.
-        self.anchor = self.manager.add(
-            arcade.gui.UIAnchorLayout(
-        ))
+        self.manager.add(widget_layout)
 
-        self.anchor.add(
-            child=self.grid,
-        )
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
