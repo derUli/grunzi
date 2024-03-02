@@ -23,7 +23,7 @@ class GameWindow(arcade.Window):
             height=SCREEN_HEIGHT,
             debug=False,
             update_rate=UPDATE_RATE,
-            controller=False
+            controller=True
     ):
         # Call the parent class and set up the window
         super().__init__(
