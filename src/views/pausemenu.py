@@ -26,19 +26,19 @@ class PauseMenu(Fading):
         continue_button = arcade.gui.UIFlatButton(
             text=_("Continue"),
             width=BUTTON_WIDTH,
-            #style=get_style()
+            style=get_style()
         )
 
         options_help = arcade.gui.UIFlatButton(
             text=_("Options & Help"),
             width=BUTTON_WIDTH,
-            #stye=utils.text.get_style()
+            style=utils.text.get_style()
         )
 
         quit_button = arcade.gui.UIFlatButton(
             text=_("Back to main menu"),
             width=BUTTON_WIDTH,
-            #style=get_style()
+            style=get_style()
         )
 
         self.previous_view = previous_view

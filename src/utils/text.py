@@ -1,4 +1,5 @@
 import arcade
+from arcade.gui import UIFlatButton
 
 MARGIN = 10
 DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
@@ -21,7 +22,7 @@ def create_text(
         start_y=MARGIN,
         color=arcade.csscolor.WHITE,
         font_size=MEDIUM_FONT_SIZE,
-        #font_name=DEFAULT_FONT,
+        font_name=DEFAULT_FONT,
         anchor_x='left',
         anchor_y='bottom',
         align='left',
@@ -39,14 +40,14 @@ def create_text(
         anchor_y=anchor_y,
         width=width,
         multiline=multiline,
-        #font_name=font_name
+        font_name=font_name
     )
 
 
 def get_style():
-    return {
-        'font_name': DEFAULT_FONT
-    }
+    style = UIFlatButton.DEFAULT_STYLE
+    style['font_name'] = DEFAULT_FONT
+    return style
 
 
 def label_value(label: str, value: any) -> str:
@@ -76,7 +77,7 @@ def draw_debug(player_sprite, window):
         width=window.width - (MARGIN * 2),
         align='right',
         color=DEBUG_COLOR,
-        #font_name=MONOTYPE_FONT,
+        # font_name=MONOTYPE_FONT,
         font_size=DEBUG_FONT_SIZE,
         multiline=True
     ).draw()

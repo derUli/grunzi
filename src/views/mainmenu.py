@@ -24,7 +24,7 @@ class MainMenu(Fading):
 
         label = arcade.gui.UILabel(
             text=_('Grunzi'),
-            #font_name=utils.text.ADRIP_FONT,
+            font_name=utils.text.ADRIP_FONT,
             font_size=utils.text.LOGO_FONT_SIZE,
             text_color=arcade.csscolor.HOTPINK,
             align='center'
@@ -33,19 +33,19 @@ class MainMenu(Fading):
         newgame_button = arcade.gui.UIFlatButton(
             text=_("New Game"),
             width=BUTTON_WIDTH,
-            #stye=utils.text.get_style()
+            style=utils.text.get_style()
         )
 
         options_help = arcade.gui.UIFlatButton(
             text=_("Options & Help"),
             width=BUTTON_WIDTH,
-            #stye=utils.text.get_style()
+            style=utils.text.get_style()
         )
 
         quit_button = arcade.gui.UIFlatButton(
             text=_("Quit game"),
             width=BUTTON_WIDTH,
-            #style=utils.text.get_style()
+            style=utils.text.get_style()
         )
 
         self.player = None

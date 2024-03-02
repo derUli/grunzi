@@ -98,7 +98,7 @@ class Controls(Fading):
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
-            stye=utils.text.get_style(),
+            style=utils.text.get_style(),
         )
 
         width = int(BUTTON_WIDTH * 2)

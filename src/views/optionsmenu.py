@@ -32,19 +32,19 @@ class OptionsMenu(Fading):
         controls_button = arcade.gui.UIFlatButton(
             text=_("Controls"),
             width=BUTTON_WIDTH,
-            stye=utils.text.get_style()
+            style=utils.text.get_style()
         )
 
         grunzbabe_at_x_button = arcade.gui.UIFlatButton(
             text=_("Follow me on X"),
             width=BUTTON_WIDTH,
-            stye=utils.text.get_style()
+            style=utils.text.get_style()
         )
 
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
-            stye=utils.text.get_style()
+            style=utils.text.get_style()
         )
 
         @controls_button.event("on_click")
