@@ -143,7 +143,7 @@ def main():
         pyglet.options['audio'] = 'silent'
 
     pyglet.options['debug_gl'] = args.debug
-    pyglet.options["xinput_controllers"] = False
+    pyglet.options['debug_input'] = True
 
     import arcade
 
