@@ -29,8 +29,6 @@ class OptionsMenu(Fading):
         self.previous_view = previous_view
         self._fade_in = None
 
-        v_box = arcade.gui.UIBoxLayout()
-
         controls_button = arcade.gui.UIFlatButton(
             text=_("Controls"),
             width=BUTTON_WIDTH,
