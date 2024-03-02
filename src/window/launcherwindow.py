@@ -29,7 +29,6 @@ class LauncherWindow(tk.Tk):
         self.confirmed = False
 
     def setup(self):
-        self.withdraw()
         self.title(_('Grunzi Launcher'))
         self.geometry('320x240')
 
@@ -111,9 +110,6 @@ class LauncherWindow(tk.Tk):
         button_launch.pack(expand=True)
 
         self.resizable(False, False)
-
-        self.deiconify()
-
         button_launch.focus_set()
 
     def bind_keyevents(self):
