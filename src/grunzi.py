@@ -11,11 +11,13 @@ import os
 import signal
 import sys
 
+import arcade
 import pyglet
 
 from state.viewstate import ViewState
 from utils.log import configure_logger, log_hardware_info
 from utils.text import label_value
+from utils.utils import disable_screensaver
 from views.intro import Intro
 from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
 from window.launcherwindow import LauncherWindow
@@ -107,7 +109,7 @@ def setup_locale():
 
 
 def signal_handler(signal, frame):
-    sys.exit()
+    shutdown()
 
 
 def main():
@@ -158,6 +160,9 @@ def main():
     logging.info(label_value('Arguments', args))
     logging.info(label_value('Pyglet options', pyglet.options))
 
+    # Disable the screensaver on windows
+    disable_screensaver(True)
+
     window = GameWindow(
         args.window,
         args.width,
@@ -165,6 +170,7 @@ def main():
         debug=args.debug,
         controller=args.controller
     )
+
     window.setup()
 
     state = ViewState(ROOT_DIR, map_name=args.map)
@@ -178,8 +184,19 @@ def main():
     arcade.run()
 
 
+def shutdown():
+    logging.debug('Shutdown')
+
+    # Enable Screensaver on windows after quit again
+    disable_screensaver(False)
+
+
 if __name__ == "__main__":
     try:
         main()
-    except KeyboardInterrupt:
-        pass
+    except KeyboardInterrupt as e:
+        logging.error(e)
+    except SystemExit as e:
+        logging.error(e)
+    finally:
+        shutdown()
