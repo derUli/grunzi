@@ -42,6 +42,14 @@ class Controls(Fading):
         """ This is run once when we switch to this view """
 
         controls = [
+            _('Scroll with mousewheel'),
+            os.linesep * 3
+        ]
+
+        if self.window.controller:
+            controls += [_('Keyboard:'), os.linesep * 2]
+
+        controls += [
             (_("WASD, Arrow keys"), _('Walk')),
             (_("Shift"), _('Sprint')),
             (_("Ctrl"), _("Shoot")),
@@ -58,9 +66,11 @@ class Controls(Fading):
         text = ''
 
         for line in controls:
-            label, value = line
-
-            text = text + utils.text.label_value(label, value) + (os.linesep * 2)
+            if isinstance(line, tuple):
+                label, value = line
+                text = text + utils.text.label_value(label, value) + (os.linesep * 2)
+            else:
+                text = text + str(line)
 
         text = text.strip()
 
@@ -95,8 +105,8 @@ class Controls(Fading):
 
         v_box.add(
             textarea.with_space_around(
-            top=MARGIN,
-            bottom=MARGIN
+                top=MARGIN,
+                bottom=MARGIN
             )
         )
         v_box.add(back_button.with_space_around(bottom=MARGIN))
