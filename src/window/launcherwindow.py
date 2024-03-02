@@ -21,6 +21,7 @@ class LauncherWindow(tk.Tk):
             value=str(args.width) + 'x' + str(args.height)
         )
         self.silent = tk.BooleanVar(value=args.silent)
+        self.controller = tk.BooleanVar(value=args.controller)
         self.debug = tk.BooleanVar(value=args.debug)
         self.map = tk.StringVar(value=args.map)
 
@@ -39,6 +40,7 @@ class LauncherWindow(tk.Tk):
             self.state = SettingsState.load()
             self.fullscreen.set(self.state.fullscreen)
             self.silent.set(self.state.silent)
+            self.controller.set(self.state.controller)
             self.debug.set(self.state.debug)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
@@ -61,13 +63,21 @@ class LauncherWindow(tk.Tk):
         )
         checkbox_sound.pack()
 
-        checkbox_silent = tk.Checkbutton(
+        checkbox_controller = tk.Checkbutton(
+            text=_('Use Controller'),
+            variable=self.controller,
+            onvalue=True,
+            offvalue=False
+        )
+        checkbox_controller.pack()
+
+        checkbox_debug = tk.Checkbutton(
             text=_('Debug'),
             variable=self.debug,
             onvalue=True,
             offvalue=False
         )
-        checkbox_silent.pack()
+        checkbox_debug.pack()
 
         label_text = tk.StringVar()
         label_text.set(_('Screen resolution:'))
@@ -118,17 +128,20 @@ class LauncherWindow(tk.Tk):
         if not self.confirmed:
             return None
 
+        # Apply settings in state
         self.state.fullscreen = self.fullscreen.get()
         self.state.silent = self.silent.get()
+        self.state.controller = self.controller.get()
         self.state.debug = self.debug.get()
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.save()
 
+        # Apply settings to args
         self.args.fullscreen = self.fullscreen.get()
         self.args.window = not self.fullscreen.get()
         self.args.silent = self.silent.get()
-
+        self.args.controller = self.controller.get()
         self.args.debug = self.debug.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
