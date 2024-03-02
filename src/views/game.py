@@ -319,10 +319,13 @@ class Game(Fading):
 
     def on_joyaxis_motion(self, controller, axis, value):
         logging.info(f"{controller} {axis} {value}")
-        if axis in constants.controls.controller.KEY_SPRINT:
-            if value > 0:
+
+        value = round(value)
+
+        if axis in constants.controls.controller.TRIGGERS:
+            if value == constants.controls.controller.LT_ON:
                 self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
-            else:
+            elif value == constants.controls.controller.LT_OFF:
                 self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
         if axis in constants.controls.controller.AXIS_X:
             self.right_key_pressed = False
