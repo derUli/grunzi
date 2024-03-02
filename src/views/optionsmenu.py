@@ -69,21 +69,22 @@ class OptionsMenu(Fading):
 
             self.on_back()
 
-        buttons = [
+        widgets = [
             controls_button,
             grunzbabe_at_x_button,
             back_button
         ]
 
-        for button in buttons:
-            v_box.add(button.with_space_around(bottom=BUTTON_MARGIN_BOTTOM))
+        # Initialise a BoxLayout in which widgets can be arranged.
+        widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
 
-        self.manager.add(
-            arcade.gui.UIAnchorWidget(
-                anchor_x="center_x",
-                anchor_y="center_y",
-                child=v_box)
-        )
+        for widget in widgets:
+            widget_layout.add(widget)
+
+        frame = self.manager.add(arcade.gui.UIAnchorLayout())
+        frame.with_padding(bottom=20)
+
+        frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.

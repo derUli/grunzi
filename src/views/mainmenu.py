@@ -75,15 +75,18 @@ class MainMenu(Fading):
         def on_click_quit_button(event):
             self.fade_quit()
 
-        # Initialise a grid in which widgets can be arranged.
+        widgets = [
+            label,
+            newgame_button,
+            options_help,
+            quit_button
+        ]
 
+        # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
 
-        # Adding the buttons to the layout.
-        widget_layout.add(label)
-        widget_layout.add(newgame_button)
-        widget_layout.add(options_help)
-        widget_layout.add(quit_button)
+        for widget in widgets:
+            widget_layout.add(widget)
 
         frame = self.manager.add(arcade.gui.UIAnchorLayout())
         frame.with_padding(bottom=20)
