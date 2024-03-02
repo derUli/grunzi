@@ -6,7 +6,7 @@ DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
 
 DEFAULT_FONT = 'Laila'
 ADRIP_FONT = 'a dripping marker'
-MONOTYPE_FONT = 'Consolas Mono Book'
+MONOTYPE_FONT = 'Consola Mono'
 
 MEDIUM_FONT_SIZE = 14
 LARGE_FONT_SIZE = 16

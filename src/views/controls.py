@@ -101,7 +101,7 @@ class Controls(Fading):
             style=utils.text.get_style(),
         )
 
-        width = int(BUTTON_WIDTH * 2)
+        width = int(BUTTON_WIDTH * 3)
         height = self.window.height - back_button.height - (MARGIN * 2)
 
         textarea = arcade.gui.UITextArea(
