@@ -23,7 +23,7 @@ class GameWindow(arcade.Window):
             height=SCREEN_HEIGHT,
             debug=False,
             update_rate=UPDATE_RATE,
-            draw_rate = DRAW_RATE,
+            draw_rate=DRAW_RATE,
             controller=True
     ):
         # Call the parent class and set up the window
