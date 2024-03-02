@@ -8,7 +8,7 @@ SCREEN_HEIGHT = 720
 SCREEN_TITLE = "Grunzi"
 
 UPDATE_RATE = 1 / 60
-DRAW_RATE = 1 / 60
+DRAW_RATE = 1 / 144
 
 
 class GameWindow(arcade.Window):
@@ -23,6 +23,7 @@ class GameWindow(arcade.Window):
             height=SCREEN_HEIGHT,
             debug=False,
             update_rate=UPDATE_RATE,
+            draw_rate = DRAW_RATE,
             controller=True
     ):
         # Call the parent class and set up the window
@@ -32,7 +33,8 @@ class GameWindow(arcade.Window):
             title=SCREEN_TITLE,
             fullscreen=False,
             vsync=True,
-            update_rate=update_rate
+            update_rate=update_rate,
+            draw_rate=draw_rate
         )
 
         self.set_fullscreen(not window)
