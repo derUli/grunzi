@@ -20,6 +20,8 @@ class SettingsState:
         # Is controller enabled
         self.controller = False
 
+        self.version = 1
+
     @staticmethod
     def exists():
         return os.path.exists(get_settings_path())
