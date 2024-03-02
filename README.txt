@@ -40,16 +40,20 @@ Wenn Grunzi verletzt ist, regeneriert sich die Gesundheit jetzt automatisch.
 # Spiel starten
 
 Das Spiel kann mit einem Doppelklick auf "Grunzi.exe" gestartet werden.
+Beim Start öffnet sich der Launcher, wo man die Einstellungen vornehmen kann.
 Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden Start-Parameter zu übergeben:
 
 ```
   --window         Run in windowed mode
+  --fullscreen     Run in fullscreen mode
   --debug          Enable debug mode
   --width WIDTH    Window width in pixels
   --height HEIGHT  Window height in pixels
   --map MAP        Name of the map
   --silent         Mute the sound
+  --controller     Enable controller
   -v, --verbose    Make the operation more talkative
+  --skip-launcher  Skip launcher
 
 ```
 
