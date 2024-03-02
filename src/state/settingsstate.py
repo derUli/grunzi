@@ -29,7 +29,18 @@ class SettingsState:
     @staticmethod
     def load():
         with open(get_settings_path(), 'r') as f:
-            return jsonpickle.decode(f.read())
+            state = jsonpickle.decode(f.read())
+
+            # jsonpickle don't calls __init__()
+            # So when loading a state attributes added since then are missing
+            # I added a version number
+            # If the state version from the code is newer than the stored version
+            # discard the old settings state and return a new one
+
+            if SettingsState().version > state.version:
+                return SettingsState()
+
+            return state
 
     def save(self):
         with open(get_settings_path(), 'w') as f:

@@ -75,6 +75,13 @@ def cli_args():
     )
 
     parser.add_argument(
+        '--controller',
+        default=False,
+        action='store_true',
+        help='Enable controller'
+    )
+
+    parser.add_argument(
         '-v',
         '--verbose',
         default=0,
@@ -151,7 +158,13 @@ def main():
     logging.info(label_value('Arguments', args))
     logging.info(label_value('Pyglet options', pyglet.options))
 
-    window = GameWindow(args.window, args.width, args.height, debug=args.debug)
+    window = GameWindow(
+        args.window,
+        args.width,
+        args.height,
+        debug=args.debug,
+        controller=args.controller
+    )
     window.setup()
 
     state = ViewState(ROOT_DIR, map_name=args.map)
