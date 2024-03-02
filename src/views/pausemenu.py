@@ -22,24 +22,23 @@ class PauseMenu(Fading):
 
         self.state = state
 
-        v_box = arcade.gui.UIBoxLayout()
 
         continue_button = arcade.gui.UIFlatButton(
             text=_("Continue"),
             width=BUTTON_WIDTH,
-            style=get_style()
+            #style=get_style()
         )
 
         options_help = arcade.gui.UIFlatButton(
             text=_("Options & Help"),
             width=BUTTON_WIDTH,
-            stye=utils.text.get_style()
+            #stye=utils.text.get_style()
         )
 
         quit_button = arcade.gui.UIFlatButton(
             text=_("Back to main menu"),
             width=BUTTON_WIDTH,
-            style=get_style()
+            #style=get_style()
         )
 
         self.previous_view = previous_view
@@ -72,21 +71,22 @@ class PauseMenu(Fading):
         def on_click_quit_button(event):
             self.on_exit()
 
-        buttons = [
+        widgets = [
             continue_button,
             options_help,
             quit_button
         ]
 
-        for button in buttons:
-            v_box.add(button.with_space_around(bottom=BUTTON_MARGIN_BOTTOM))
+        # Initialise a BoxLayout in which widgets can be arranged.
+        widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
 
-        self.manager.add(
-            arcade.gui.UIAnchorWidget(
-                anchor_x="center_x",
-                anchor_y="center_y",
-                child=v_box)
-        )
+        for widget in widgets:
+            widget_layout.add(widget)
+
+        frame = self.manager.add(arcade.gui.UIAnchorLayout())
+        frame.with_padding(bottom=20)
+
+        frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
     def on_key_press(self, key, modifiers):
         super().on_key_press(key, modifiers)
