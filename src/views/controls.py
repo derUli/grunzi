@@ -75,8 +75,8 @@ class Controls(Fading):
             stye=utils.text.get_style()
         )
 
-        width = self.window.width - (MARGIN * 2)
-        height = self.window.height - back_button.height - (MARGIN * 2)
+        width = int(BUTTON_WIDTH * 2)
+        height = self.window.height - (MARGIN * 3)
 
         textarea = arcade.gui.UITextArea(
             width=width,
@@ -93,11 +93,11 @@ class Controls(Fading):
 
             self.on_back()
 
-        v_box.add(textarea.with_space_around(
+        v_box.add(
+            textarea.with_space_around(
             top=MARGIN,
-            bottom=MARGIN,
-            left=MARGIN,
-            right=MARGIN)
+            bottom=MARGIN
+            )
         )
         v_box.add(back_button.with_space_around(bottom=MARGIN))
 
