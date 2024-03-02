@@ -1,7 +1,6 @@
+""" Used to store launcher settings """
 import os
-
 import jsonpickle
-
 from utils.path import get_settings_path
 
 
@@ -23,7 +22,11 @@ class SettingsState:
         self.version = 1
 
     @staticmethod
-    def exists():
+    def exists() -> bool:
+        """
+        Check if there is an existing settings file for the launcher
+        @return: bool
+        """
         return os.path.exists(get_settings_path())
 
     @staticmethod
