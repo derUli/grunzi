@@ -63,7 +63,6 @@ class Controls(Fading):
             (_("Alt + Enter"), _("Toggle fullscreen"))
         ]
 
-
         if self.window.controller:
             controls += ['XBOX 360 Controller:', os.linesep * 2]
             controls += [
