@@ -57,28 +57,43 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
 
 ```
 
-Wenn der Start des Spiels mit der Fehlermeldung, dass die "VCRUNTIME140.dll" fehlt, fehlschlägt, müssen Sie das
-"Visual C++ Redistributable" von Microsoft installieren.
+Wenn der Start des Spiels mit der Fehlermeldung, dass die Datei "VCRUNTIME140.dll" fehlt, fehlschlägt, muss das
+"Visual C++ Redistributable" von Microsoft installiert werden.
 
-Sie können es hier herunterladen:
+Es ist unter folgendem Link herunterzuladen
 https://www.microsoft.com/de-de/download/details.aspx?id=48145
 
 # Steuerung
+
+Das Spiel unterstützt Steuerung per Tastatur und per Controller.
+Das Hauptmenü kann aktuell nur per Maus bedient werden.
 
 ## Tastatur
 
 Die Steuerung über Tastatur kann im Hauptmenü unter "Hilfe & Optionen" - "Steuerung" eingesehen werden.
 
-## Controller
+## Controller:
 
-Controller werden in diesem Build leider nicht unterstützt.
+Der Controller muss bereits vor dem Spielstart mit dem Computer verbunden sein.
+Um den Controller zu aktivieren, muss im Launcher die Checkbox "Controller" aktiviert, oder der Start-Parameter
+--controller übergeben werden.
+Wenn mehrere Controller angeschlossen sind, werden alle aktiviert.
+
+Die Steuerung über Controller kann im Hauptmenü unter "Hilfe & Optionen" - "Steuerung" eingesehen werden.
+
+Derzeit werden die folgenden Controller unterstützt:
+
+* Xbox 360 Controller
+
+Weitere Modelle können funktionieren, sind von mir aber ungetestet.
 
 # Einstellungen
 
 Beim Start des Spiels öffnet sich ein Dialog, wo die folgenden Einstellungen konfiguriert werden können:
 
 * Vollbild
-* Ton deaktivieren
+* Sound
+* Controller
 * Debug
 * Bildschirmauflösung
 * Map
