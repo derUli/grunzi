@@ -3,10 +3,10 @@
 ## Alpha 007 (Not Yet released)
 
 * Inventar hinzugefügt
-* Launcher hinzugefügt
-* KI der Totenköpfe verbessert
-* Controller-Support hinzugefügt (unvollständig)
 * Kleinere Änderungen an der Map
+* Launcher hinzugefügt
+* Support für XBox 360 Controller hinzugefügt
+* KI der Totenköpfe verbessert
 * Screenshot-Funktion verbessert
 
 ## Alpha 006 (01.03.2024)
