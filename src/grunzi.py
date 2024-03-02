@@ -8,10 +8,8 @@ import gettext
 import locale
 import logging
 import os
-import signal
 import sys
 
-import arcade
 import pyglet
 
 from state.viewstate import ViewState
@@ -108,15 +106,7 @@ def setup_locale():
     gettext.install('messages', locale_path)
 
 
-def signal_handler(signal, frame):
-    shutdown()
-
-
 def main():
-    # Kill and interrupt handler
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGILL, signal_handler)
-
     """Main function"""
     setup_locale()
     args = cli_args()
@@ -184,19 +174,12 @@ def main():
     arcade.run()
 
 
-def shutdown():
-    logging.debug('Shutdown')
-
-    # Enable Screensaver on windows after quit again
-    disable_screensaver(False)
-
-
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt as e:
-        logging.error(e)
-    except SystemExit as e:
-        logging.error(e)
+        sys.exit()
     finally:
-        shutdown()
+        print('final')
+        # Enable the screensaver on windows again
+        disable_screensaver(False)
