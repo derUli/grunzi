@@ -85,7 +85,6 @@ class Game(Fading):
 
         self.scene = arcade.Scene()
 
-        self.manager = arcade.gui.UIManager()
         self.message_box = None
 
     def on_show_view(self):
@@ -155,24 +154,8 @@ class Game(Fading):
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
 
-        self.manager = arcade.gui.UIManager()
-        self.manager.enable()
-
-        self.message_box = arcade.gui.UIMessageBox(
-            width=300,
-            height=200,
-            message_text=(
-                _('Nothing to use here')
-            ),
-            buttons=["Ok", "Cancel"]
-        )
-        self.message_box.visible = False
-        self.message_box.with_background(texture=arcade.load_texture(":resources:gui_basic_assets/window/grey_panel.png"))
-        self.manager.add(self.message_box)
-
     def on_hide_view(self):
         self.music_queue.pause()
-        self.manager.disable()
         for controller in self.window.controllers:
             controller.pop_handlers()
 
@@ -201,7 +184,6 @@ class Game(Fading):
 
         self.inventory.draw()
 
-        self.manager.draw()
         self.draw_fading()
         self.player_sprite.draw_overlay()
         self.draw_debug(self.player_sprite)
@@ -440,8 +422,6 @@ class Game(Fading):
             return
 
         logging.info('Nothing to use at ' + str(self.player_sprite.position))
-
-        self.message_box.visible = not self.message_box.visible
 
         self.state.sounds['beep'].play()
 
