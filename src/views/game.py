@@ -276,6 +276,16 @@ class Game(Fading):
 
             self.player_sprite.set_face(face)
 
+    def on_trigger_motion(self, controller, trigger_name, value):
+        logging.info(f"{trigger_name}, {value}")
+        value = round(value)
+        if trigger_name in constants.controls.controller.LEFT_TRIGGER:
+            print(value)
+            if value == constants.controls.controller.TRIGGER_ON:
+                self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
+            if value == constants.controls.controller.TRIGGER_OFF:
+                self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
+
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
@@ -349,7 +359,6 @@ class Game(Fading):
             return
 
         self.scene.add_sprite('Place', item)
-
 
     def on_shoot(self):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
