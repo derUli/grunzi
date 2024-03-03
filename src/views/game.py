@@ -92,6 +92,7 @@ class Game(Fading):
 
         if self.initialized:
             self.music_queue.play()
+            return
 
         self.setup()
 
