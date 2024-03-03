@@ -31,10 +31,12 @@ class GameWindow(arcade.Window):
         native_mode = default_screen.get_mode()
         native_resolution = (native_mode.width, native_mode.height)
         style = pyglet.window.Window.WINDOW_STYLE_DEFAULT
+        self.is_native = native_resolution == (width, height)
 
-        is_native = native_resolution == (window, height)
-        if not window and is_native:
+        if not window and self.is_native:
             style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
+
+        print(native_resolution, (width, height))
 
         # Call the parent class and set up the window
         super().__init__(
@@ -48,8 +50,7 @@ class GameWindow(arcade.Window):
             style=style
         )
 
-        if not is_native:
-            self.set_fullscreen(not window)
+        self.set_fullscreen(not window)
 
         self.update_rate = update_rate
         self.draw_rate = update_rate
@@ -68,6 +69,8 @@ class GameWindow(arcade.Window):
         self.init_controllers()
 
     def set_fullscreen(self, fullscreen=True):
+        if self.is_native:
+            return
         screen = pyglet.canvas.get_display().get_default_screen()
         mode = screen.get_closest_mode(self.width, self.height)
 
