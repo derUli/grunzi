@@ -90,10 +90,8 @@ class Game(Fading):
         for controller in self.window.controllers:
             controller.on_button_press = self.on_button_press
 
-
         if self.initialized:
             self.music_queue.play()
-            return
 
         self.setup()
 
@@ -185,12 +183,6 @@ class Game(Fading):
         self.inventory.draw()
         self.draw_fading()
         self.draw_debug(self.player_sprite)
-
-    def on_button_press(self, button, key):
-        print(button, key)
-        if key in constants.controls.controller.KEY_GRUNT:
-            self.on_grunt()
-        pass
 
     def update_player_speed(self):
 
@@ -301,7 +293,8 @@ class Game(Fading):
 
         self.scene.add_sprite('Place', item)
 
-    def on_joybutton_press(self, controller, key):
+    def on_button_press(self, controller, key):
+        logging.debug(f'on button press {key}')
         if self.player_sprite.dead():
             if key in constants.controls.controller.KEY_DICARD:
                 self.next_view = MainMenu(self.window, self.state)
@@ -318,6 +311,8 @@ class Game(Fading):
             self.on_use()
         if key in constants.controls.controller.KEY_DROP:
             self.on_drop()
+        if key in constants.controls.controller.KEY_GRUNT:
+            self.on_grunt()
         if key in constants.controls.controller.PREVIOUS_ITEM:
             self.on_select_item(index=self.inventory.previous())
         if key in constants.controls.controller.NEXT_ITEM:

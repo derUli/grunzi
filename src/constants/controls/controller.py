@@ -1,11 +1,11 @@
 """Keyboard controls"""
 
 # XBOX 360 Controller Mapping
-KEY_START = 7
-KEY_A = 0
+KEY_START = 'start'
+KEY_A = 'a'
 KEY_B = 'b'
-KEY_X = 2
-KEY_Y = 3
+KEY_X = 'x'
+KEY_Y = 'y'
 
 AXIS_X = 'x'
 AXIS_Y = 'y'
