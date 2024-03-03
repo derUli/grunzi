@@ -5,6 +5,7 @@ import os
 import arcade.gui
 
 """ Show controls """
+
 import constants.controls.keyboard
 import utils.text
 from views.fading import Fading
@@ -37,12 +38,13 @@ class Controls(Fading):
         self.manager.disable()
 
     def on_back(self):
+        """ On "Back" button clicked """
         self.next_view = self.previous_view
         self.fade_out()
 
     def on_show_view(self):
-        super().on_show_view()
         """ This is run once when we switch to this view """
+        super().on_show_view()
 
         controls = [
             _('Scroll with mousewheel'),
