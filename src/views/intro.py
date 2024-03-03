@@ -43,11 +43,7 @@ class Intro(Fading):
         self.scene.add_sprite(SPRITE_LIST_ENEMIES, logo)
 
     def on_update(self, dt):
-        self.scene.update()
         self.update_fade(self.next_view)
-
-    def on_draw(self):
-        """ Render the screen. """
 
         if self._fade_in is None and self._fade_out is None:
             if self.wait_since <= 0:
@@ -59,9 +55,11 @@ class Intro(Fading):
             self.next_view = MainMenu(self.window, self.state)
             self.fade_out()
 
+    def on_draw(self):
+        """ Render the screen. """
+
         # Clear the screen
         self.clear()
-
         self.camera_gui.use()
 
         self.scene.draw()

@@ -82,6 +82,9 @@ class Game(Fading):
 
         self.initialized = False
 
+
+        self.scene = arcade.Scene()
+
     def on_show_view(self):
         super().on_show_view()
         print('view')

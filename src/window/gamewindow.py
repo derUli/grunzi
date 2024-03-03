@@ -2,7 +2,6 @@ import logging
 
 import arcade
 import pyglet
-from pyglet.input import Controller, Device
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
@@ -25,7 +24,7 @@ class GameWindow(arcade.Window):
             debug=False,
             update_rate=UPDATE_RATE,
             draw_rate=DRAW_RATE,
-            controller=False
+            controller=False,
     ):
         # Call the parent class and set up the window
         super().__init__(
@@ -34,7 +33,8 @@ class GameWindow(arcade.Window):
             title=SCREEN_TITLE,
             fullscreen=False,
             update_rate=update_rate,
-            draw_rate=draw_rate
+            draw_rate=draw_rate,
+            center_window=True
         )
 
         self.set_fullscreen(not window)

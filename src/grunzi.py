@@ -8,6 +8,7 @@ import gettext
 import locale
 import logging
 import os
+
 import sys
 
 import pyglet
@@ -140,6 +141,8 @@ def main():
 
     if args.silent:
         pyglet.options['audio'] = 'silent'
+
+    pyglet.options['shadow_window'] = False
 
     pyglet.options['debug_gl'] = args.debug
     pyglet.options['debug_input'] = True
