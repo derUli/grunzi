@@ -136,3 +136,6 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
             self.update_texture()
 
         self.face = face
+
+    def on_die(self):
+        self.state.squeak()

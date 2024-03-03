@@ -57,12 +57,18 @@ class ViewState:
             ),
             'screech': arcade.load_sound(
                 os.path.join(self.sound_dir, 'skull', 'screech.ogg'),
-            )
+            ),
         }
 
         for i in range(1, 6):
             self.sounds[f"grunt{i}"] = arcade.load_sound(
                 os.path.join(self.sound_dir, 'pig', f"grunt{i}.ogg"),
+                streaming=False
+            )
+
+        for i in range(1, 5):
+            self.sounds[f"squeak{i}"] = arcade.load_sound(
+                os.path.join(self.sound_dir, 'pig', f"squeak{i}.ogg"),
                 streaming=False
             )
 
@@ -86,6 +92,11 @@ class ViewState:
         rand = random.randint(1, 5)
         logging.info('Grunt')
         return self.play_sound(f"grunt{rand}")
+
+    def squeak(self):
+        rand = random.randint(1, 5)
+        logging.info('Squeak')
+        return self.play_sound(f"squeak{rand}")
 
     def is_silent(self):
         return pyglet.options['audio'] == 'silent'
