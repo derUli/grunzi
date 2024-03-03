@@ -29,7 +29,7 @@ class View(arcade.View):
         super().on_key_press(key, modifiers)
         if key == arcade.key.LALT:
             self.alt_key_pressed = True
-        if self.alt_key_pressed and key == arcade.key.ENTER:
+        if self.alt_key_pressed and key == arcade.key.ENTER or key == arcade.key.F11:
             self.on_toggle_fullscreen()
 
         if key in constants.controls.keyboard.KEY_TOGGLE_FPS:
