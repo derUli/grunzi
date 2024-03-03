@@ -3,7 +3,7 @@
 # XBOX 360 Controller Mapping
 KEY_START = 7
 KEY_A = 0
-KEY_B = 1
+KEY_B = 'b'
 KEY_X = 2
 KEY_Y = 3
 

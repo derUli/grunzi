@@ -88,7 +88,8 @@ class Game(Fading):
         self.window.set_mouse_visible(False)
 
         for controller in self.window.controllers:
-            controller.push_handlers(self)
+            controller.on_button_press = self.on_button_press
+
 
         if self.initialized:
             self.music_queue.play()
@@ -184,6 +185,12 @@ class Game(Fading):
         self.inventory.draw()
         self.draw_fading()
         self.draw_debug(self.player_sprite)
+
+    def on_button_press(self, button, key):
+        print(button, key)
+        if key in constants.controls.controller.KEY_GRUNT:
+            self.on_grunt()
+        pass
 
     def update_player_speed(self):
 
@@ -311,8 +318,6 @@ class Game(Fading):
             self.on_use()
         if key in constants.controls.controller.KEY_DROP:
             self.on_drop()
-        if key in constants.controls.controller.KEY_GRUNT:
-            self.on_grunt()
         if key in constants.controls.controller.PREVIOUS_ITEM:
             self.on_select_item(index=self.inventory.previous())
         if key in constants.controls.controller.NEXT_ITEM:
