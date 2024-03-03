@@ -130,7 +130,7 @@ class Game(Fading):
         self.scene = arcade.Scene.from_tilemap(self.tile_map)
 
         # Set up the player, specifically placing it at these coordinates.
-        filename = os.path.join(self.state.sprite_dir, 'pig.png')
+        filename = os.path.join(self.state.sprite_dir, 'char.png', 'pig.png')
         self.player_sprite = PlayerSprite(filename)
         self.player_sprite.center_x = START_POS_X
         self.player_sprite.center_y = START_POS_Y
@@ -513,7 +513,7 @@ class Game(Fading):
     def make_coin(self):
         rand_x, rand_y = random_position(self.tile_map)
         coin = Coin(
-            filename=os.path.join(self.state.sprite_dir, 'coin.png'),
+            filename=os.path.join(self.state.sprite_dir, 'coin', 'coin.png'),
             center_x=rand_x,
             center_y=rand_y
         )

@@ -10,7 +10,7 @@ from utils.physics import make_physics_engine
 class PhysicsTest(unittest.TestCase):
 
     def test_make_physics(self):
-        image = os.path.join('..', 'src', 'data', 'images', 'sprites', 'pig.png')
+        image = os.path.join('..', 'src', 'data', 'images', 'sprites', 'char', 'pig.png')
         sprite = PlayerSprite(image)
         scene = Scene()
         scene.add_sprite_list('Walls', SpriteList())

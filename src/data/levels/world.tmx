@@ -39,10 +39,10 @@
  <tileset firstgid="18" name="Walls" tilewidth="448" tileheight="160" tilecount="7" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="2">
-   <image width="64" height="64" source="../images/sprites/wall.jpg"/>
+   <image width="64" height="64" source="../images/sprites/wall/wall.jpg"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/garbagecan.png"/>
+   <image width="64" height="64" source="../images/sprites/decoration/garbagecan.png"/>
   </tile>
   <tile id="4">
    <image width="128" height="64" source="../images/sprites/fence/fence1.png"/>
@@ -63,28 +63,28 @@
  <tileset firstgid="28" name="Decoration" tilewidth="160" tileheight="196" tilecount="8" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="160" height="196" source="../images/sprites/kerstboom.png"/>
+   <image width="160" height="196" source="../images/sprites/vegetation/kerstboom.png"/>
   </tile>
   <tile id="2">
-   <image width="160" height="68" source="../images/sprites/car1.png"/>
+   <image width="160" height="68" source="../images/sprites/car/car1.png"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/dont_waste_water.png"/>
+   <image width="64" height="64" source="../images/sprites/decoration/dont_waste_water.png"/>
   </tile>
   <tile id="4">
-   <image width="64" height="64" source="../images/sprites/sunset.png"/>
+   <image width="64" height="64" source="../images/sprites/decoration/sunset.png"/>
   </tile>
   <tile id="8">
-   <image width="48" height="64" source="../images/sprites/flower/flower1.png"/>
+   <image width="48" height="64" source="../images/sprites/vegetation/flower1.png"/>
   </tile>
   <tile id="9">
-   <image width="60" height="60" source="../images/sprites/flower/flower3.png"/>
+   <image width="60" height="60" source="../images/sprites/vegetation/flower3.png"/>
   </tile>
   <tile id="10">
-   <image width="60" height="60" source="../images/sprites/flower/flower2.png"/>
+   <image width="60" height="60" source="../images/sprites/vegetation/flower2.png"/>
   </tile>
   <tile id="11">
-   <image width="141" height="193" source="../images/sprites/one_way.png"/>
+   <image width="141" height="193" source="../images/sprites/decoration/one_way.png"/>
   </tile>
  </tileset>
  <tileset firstgid="40" name="Moveable" tilewidth="160" tileheight="87" tilecount="1" columns="0" objectalignment="center" tilerendersize="grid" fillmode="preserve-aspect-fit">
