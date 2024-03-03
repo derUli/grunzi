@@ -40,7 +40,6 @@ SPRITE_LIST_PLAYER = 'player'
 SPRITE_LIST_MOVEABLE = 'Moveable'
 TOTAL_COINS = 100
 
-
 # TODO: Make this dynamic
 START_POS_X = 474
 START_POS_Y = 852
@@ -83,7 +82,6 @@ class Game(Fading):
         self.inventory = None
 
         self.initialized = False
-
 
         self.scene = arcade.Scene()
 
