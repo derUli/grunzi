@@ -22,6 +22,8 @@ class View(arcade.View):
 
         self.alt_key_pressed = False
 
+        self.view = None
+
     def on_key_press(self, key, modifiers):
 
         super().on_key_press(key, modifiers)

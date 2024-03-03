@@ -81,11 +81,14 @@ class Game(Fading):
         self.inventory = None
 
         self.initialized = False
+        self.pause_view = None
 
     def on_show_view(self):
         super().on_show_view()
 
         self.window.set_mouse_visible(False)
+
+        self.pause_view = PauseMenu(self.window, self.state, self)
 
         for controller in self.window.controllers:
             controller.push_handlers(self)
@@ -151,6 +154,7 @@ class Game(Fading):
         self.inventory.setup(state=self.state, size=self.window.size)
 
     def on_hide_view(self):
+
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
 
@@ -218,7 +222,17 @@ class Game(Fading):
         self.left_key_pressed = False
         self.player_sprite.reset()
 
+    def on_button_press(self, controller, key):
+        if self.player_sprite.dead():
+            if key in constants.controls.controller.KEY_DISCARD:
+                self.next_view = MainMenu(self.window, self.state)
+                self.fade_out()
+            return
+
+        if key in constants.controls.controller.KEY_START:
+            self.on_pause()
     def on_key_press(self, key, modifiers):
+        """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
         if self.player_sprite.dead():
@@ -228,7 +242,6 @@ class Game(Fading):
 
             return
 
-        """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
 
@@ -337,10 +350,14 @@ class Game(Fading):
 
         self.scene.add_sprite(layer, new_item)
 
-    def on_pause(self):
+    def on_pause(self) -> None:
+        """
+        On show pause menu
+        """
         self.reset_keys()
+        self.window.show_view(self.pause_view)
 
-        self.window.show_view(PauseMenu(self.window, self.state, self))
+        self.window.set_mouse_visible(True)
 
     def on_use(self):
         if self.update_collectable():

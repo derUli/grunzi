@@ -2,6 +2,7 @@ import logging
 
 import arcade
 import pyglet
+from pyglet.input import Controller, Device
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
@@ -40,8 +41,8 @@ class GameWindow(arcade.Window):
 
         self.update_rate = update_rate
         self.draw_rate = update_rate
-        self.controller = controller
-
+        self.controller = True
+        self.controller_manager = None
         self.debug = debug
         self.show_fps = debug
         self.controllers = []
@@ -52,8 +53,7 @@ class GameWindow(arcade.Window):
             arcade.enable_timings()
 
         # Init controllers if enabled
-        if self.controller:
-            self.init_controllers()
+        self.init_controllers()
 
     def set_fullscreen(self, fullscreen=True):
         screen = pyglet.canvas.get_display().get_default_screen()
@@ -70,17 +70,20 @@ class GameWindow(arcade.Window):
         return self.width, self.height
 
     def init_controllers(self):
-        if self.controllers:
+        if not self.controller:
             return
 
         try:
-            self.controllers = pyglet.input.get_controllers()
+            self.controller_manager = pyglet.input.ControllerManager()
+
+            for controller in self.controller_manager.get_controllers():
+                logging.info(f'Controller: {controller.device.manufacturer} {controller.device.name}')
+                controller.open()
+                self.controllers.append(controller)
         except FileNotFoundError as e:
             logging.error(e)
             self.controllers = []
-        if not any(self.controllers):
-            logging.info(f"No controllers detected")
+        finally:
+            if not any(self.controllers):
+                logging.info(f"No controllers detected")
 
-        for controller in self.controllers:
-            logging.info(f'Controller: {controller.device.name}')
-            controller.open(self)

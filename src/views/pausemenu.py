@@ -107,7 +107,6 @@ class PauseMenu(Fading):
     def on_show_view(self):
         """ This is run once when we switch to this view """
         super().on_show_view()
-
         self.manager.enable()
 
     def on_update(self, dt):
