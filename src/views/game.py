@@ -88,7 +88,6 @@ class Game(Fading):
         print(self.window.controllers)
         self.window.set_mouse_visible(False)
         for controller in self.window.controllers:
-            controller.open(self.window)
             controller.push_handlers(self)
 
         if self.initialized:

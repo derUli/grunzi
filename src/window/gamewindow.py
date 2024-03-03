@@ -78,6 +78,7 @@ class GameWindow(arcade.Window):
 
             for controller in self.controller_manager.get_controllers():
                 logging.info(f'Controller: {controller.device.manufacturer} {controller.device.name}')
+                controller.open(self)
                 self.controllers.append(controller)
         except FileNotFoundError as e:
             logging.error(e)
