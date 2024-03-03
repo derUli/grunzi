@@ -54,12 +54,32 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
                                    body_type=PymunkPhysicsEngine.STATIC
                                    )
 
+    wall_layers = [
+        'Walls',
+        'Fence'
+    ]
+
+    for wall_layer in wall_layers:
+
+        if wall_layer not in scene.name_mapping:
+            continue
+
+        physics_engine.add_sprite_list(
+            scene[wall_layer],
+            friction=0,
+            collision_type="wall",
+            body_type=PymunkPhysicsEngine.STATIC
+        )
+
     # Create some boxes to push around.
     # Mass controls, well, the mass of an object. Defaults to 1.
-    physics_engine.add_sprite_list(scene['Moveable'],
-                                   mass=2,
-                                   damping=0.01,
-                                   collision_type="rock"
-                                   )
+
+    if 'Moveable' in scene.name_mapping:
+        physics_engine.add_sprite_list(
+            scene['Moveable'],
+            mass=2,
+            damping=0.01,
+            collision_type="rock"
+        )
 
     return physics_engine
