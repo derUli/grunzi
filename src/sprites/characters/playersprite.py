@@ -47,6 +47,8 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         self.scale = 0.9
         self.item = None
 
+        self._died = False
+
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
 
