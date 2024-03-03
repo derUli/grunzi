@@ -102,9 +102,9 @@ class MainMenu(Fading):
                 self.player.pause()
 
     def on_show_view(self):
+        """ This is run once when we switch to this view """
         super().on_show_view()
         self.window.set_mouse_visible(True)
-        """ This is run once when we switch to this view """
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])

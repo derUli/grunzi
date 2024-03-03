@@ -85,9 +85,8 @@ class Game(Fading):
 
     def on_show_view(self):
         super().on_show_view()
-        print('view')
-        print(self.window.controllers)
         self.window.set_mouse_visible(False)
+        print(self.window.controllers)
         for controller in self.window.controllers:
             controller.push_handlers(self)
 
@@ -96,6 +95,12 @@ class Game(Fading):
             return
 
         self.setup()
+
+    def on_hide_view(self):
+        self.window.set_mouse_visible(True)
+        self.music_queue.pause()
+        for controller in self.window.controllers:
+            controller.pop_handlers()
 
     def setup(self):
 
@@ -151,11 +156,6 @@ class Game(Fading):
 
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
-
-    def on_hide_view(self):
-        self.music_queue.pause()
-        for controller in self.window.controllers:
-            controller.pop_handlers()
 
     def on_draw(self):
         """Render the screen."""

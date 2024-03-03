@@ -96,7 +96,6 @@ class PauseMenu(Fading):
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
-        self.window.set_mouse_visible(False)
 
     def on_toggle(self):
         self.window.show_view(self.previous_view)
@@ -108,7 +107,6 @@ class PauseMenu(Fading):
     def on_show_view(self):
         """ This is run once when we switch to this view """
         super().on_show_view()
-        self.window.set_mouse_visible(True)
         self.manager.enable()
 
     def on_update(self, dt):
