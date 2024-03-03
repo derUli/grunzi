@@ -3,9 +3,9 @@ import re
 
 from utils.path import is_windows
 
-
 WIN_SCREENSAVER_DISABLE = 0x80000002
 WIN_SCREENSAVER_ENABLE = 0x80000000
+
 
 def atoi(text):
     return int(text) if text.isdigit() else text.lower()

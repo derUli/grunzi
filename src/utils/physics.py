@@ -54,6 +54,12 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
                                    body_type=PymunkPhysicsEngine.STATIC
                                    )
 
+    physics_engine.add_sprite_list(scene['Fence'],
+                                   friction=0,
+                                   collision_type="wall",
+                                   body_type=PymunkPhysicsEngine.STATIC
+                                   )
+
     # Create some boxes to push around.
     # Mass controls, well, the mass of an object. Defaults to 1.
     physics_engine.add_sprite_list(scene['Moveable'],

@@ -61,7 +61,12 @@ class GameWindow(arcade.Window):
 
         return super().set_fullscreen(fullscreen=fullscreen, screen=screen, mode=mode)
 
-    def size(self):
+    @property
+    def size(self) -> tuple:
+        """
+        Size tuple of the window
+        @return:
+        """
         return self.width, self.height
 
     def init_controllers(self):

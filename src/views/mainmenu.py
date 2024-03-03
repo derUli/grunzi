@@ -50,7 +50,7 @@ class MainMenu(Fading):
 
         self.player = None
 
-        size = self.window.size()
+        size = self.window.size
         self.shadertoy = self.state.load_shader(size, 'pigs')
 
         self.time = 0
@@ -92,7 +92,6 @@ class MainMenu(Fading):
         frame.with_padding(bottom=20)
 
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
-
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.

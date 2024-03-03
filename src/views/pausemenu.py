@@ -22,7 +22,6 @@ class PauseMenu(Fading):
 
         self.state = state
 
-
         continue_button = arcade.gui.UIFlatButton(
             text=_("Continue"),
             width=BUTTON_WIDTH,
@@ -43,7 +42,7 @@ class PauseMenu(Fading):
 
         self.previous_view = previous_view
 
-        size = self.window.size()
+        size = self.window.size
         self.shadertoy = self.state.load_shader(size, 'gloopy')
 
         self.time = 0

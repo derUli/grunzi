@@ -1,6 +1,8 @@
 """ Used to store launcher settings """
 import os
+
 import jsonpickle
+
 from utils.path import get_settings_path
 
 
