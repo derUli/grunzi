@@ -80,6 +80,9 @@ class Game(Fading):
 
         self.message_box = None
 
+        # This method is called in next call of on_update
+        self._call_method = None
+
     def on_show_view(self):
         super().on_show_view()
         print('view')
@@ -147,14 +150,6 @@ class Game(Fading):
 
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
-
-        # There is an OpenGL error happens when a sprite class is first initialized by a controllers
-        # which seems to be related due to the controller events being handled in another thread
-        self.on_shoot(sound=False).remove_from_sprite_lists()
-        self.on_grunt(sound=False).remove_from_sprite_lists()
-
-        for i in range(CAPACITY + 1):
-            self.on_select_item(index=self.inventory.next())
 
     def on_hide_view(self):
         self.music_queue.pause()
@@ -234,17 +229,23 @@ class Game(Fading):
         if key in constants.controls.controller.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.controller.KEY_USE:
-            self.on_use()
+            self._call_method = self.on_use
         if key in constants.controls.controller.KEY_DROP:
-            self.on_drop()
+            self._call_method = self.on_drop
         if key in constants.controls.controller.KEY_SHOOT:
-            self.on_shoot()
+            self._call_method = self.on_shoot
         if key in constants.controls.controller.KEY_GRUNT:
-            self.on_grunt()
+            self._call_method = self.on_grunt
         if key in constants.controls.controller.PREVIOUS_ITEM:
-            self.on_select_item(index=self.inventory.previous())
+            self._call_method = self.on_item_previous
         if key in constants.controls.controller.NEXT_ITEM:
-            self.on_select_item(index=self.inventory.next())
+            self._call_method = self.on_item_next
+
+    def on_item_previous(self):
+        self.on_select_item(index=self.inventory.previous())
+
+    def on_item_next(self):
+        self.on_select_item(index=self.inventory.next())
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         if not self.initialized:
@@ -289,7 +290,6 @@ class Game(Fading):
         logging.info(f"{trigger_name}, {value}")
         value = round(value)
         if trigger_name in constants.controls.controller.LEFT_TRIGGER:
-            print(value)
             if value == constants.controls.controller.TRIGGER_ON:
                 self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
             if value == constants.controls.controller.TRIGGER_OFF:
@@ -461,6 +461,14 @@ class Game(Fading):
         self.center_camera_to_player()
 
         self.update_fade(self.next_view)
+
+        # There is an OpenGL error happens when a sprite is added by an controller event handler
+        # Which seems to happen because the controller events are handled in a different thread..
+        # To workaround this we have the _call_method class variable which can be set to a class method
+        # To postpone the method call to the next on_update
+        if self._call_method:
+            self._call_method()
+            self._call_method = None
 
     def update_player(self):
         self.update_player_speed()
