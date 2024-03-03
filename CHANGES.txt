@@ -6,7 +6,7 @@
 * Launcher hinzugefügt
 * Support für XBox 360 Controller hinzugefügt
 * KI der Totenköpfe verbessert
-* Kleinere Änderungen an der Map
+* Map erweitert
 * Performance der Screenshot-Funktion verbessert
 
 ## Alpha 006 (01.03.2024)
