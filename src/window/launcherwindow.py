@@ -140,7 +140,7 @@ class LauncherWindow(tk.Tk):
         self.args.silent = self.silent.get()
         self.args.controller = self.controller.get()
         self.args.debug = self.debug.get()
-
+        self.args.map = self.map.get()
         screen_resolution = self.screen_resolution.get().split('x')
 
         self.args.width = int(screen_resolution[0])
