@@ -1,3 +1,4 @@
+""" Audio utils """
 import os
 import random
 
@@ -7,33 +8,49 @@ AUDIO_EXTENSIONS = ['.ogg']
 
 
 class MusicQueue:
-    def __init__(self, state, files: list = []):
+    """ Queue used to play randomized background music """
+
+    def __init__(self, state, files=None):
         if files is None:
             files = []
-
         self.files = files
         self.queue = []
         self.music = None
         self.player = None
         self.state = state
 
-    def set_files(self, files) -> None:
+    def set_files(self, files: list) -> None:
+        """
+        Set the files to play
+        @param files: list of files
+        """
         self.files = files
 
-    def from_directory(self, dir) -> None:
-        files = sorted(os.listdir(dir))
+    def from_directory(self, path: str) -> None:
+        """
+        Fill queue from a directory of audio files
+        @param path: directory path containing audio files
+        """
+        files = sorted(os.listdir(path))
         self.files = []
         for file in files:
             ext = os.path.splitext(file)[1]
             if ext in AUDIO_EXTENSIONS:
-                abspath = os.path.join(dir, file)
+                abspath = os.path.join(path, file)
                 self.files.append(abspath)
 
     def shuffle(self) -> None:
+        """
+        Shuffle the playlist
+        """
         self.queue = list(self.files)
         random.shuffle(self.queue)
 
     def play(self):
+        """
+        Start the music queue
+        @return:
+        """
         if self.player:
             self.player.play()
             return
@@ -41,10 +58,17 @@ class MusicQueue:
         self.next()
 
     def pause(self):
+        """
+        Pause the queue
+        """
         if self.player:
             self.player.pause()
 
     def next(self) -> None:
+        """
+        Play the next song
+        @return:
+        """
         if len(self.queue) == 0:
             self.shuffle()
 
@@ -58,4 +82,5 @@ class MusicQueue:
         self.player = self.music.play(volume=self.state.music_volume)
         self.queue = self.queue[1:]
 
+        # Play the next song after the old song is completed
         self.player.push_handlers(on_eos=self.next)
