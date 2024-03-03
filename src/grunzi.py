@@ -145,7 +145,6 @@ def main():
     pyglet.options['shadow_window'] = True
 
     pyglet.options['debug_gl'] = args.debug
-    pyglet.options['debug_input'] = True
 
     import arcade
 
