@@ -19,11 +19,12 @@ class SpriteHealth:
     def hurt(self, damage):
         self.health -= damage
 
-        return self.dead()
+        return self.dead
 
     def on_die(self):
         logging.info(f"{self.__class__} is dead")
 
+    @property
     def dead(self):
         if self._died:
             return True

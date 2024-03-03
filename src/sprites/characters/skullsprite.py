@@ -85,9 +85,11 @@ class SkullSprite(EnemySprite):
     def draw_overlay(self):
         if not self.insight:
             return
+
         one_percent = self.width / 100
         width = round(one_percent * self.health)
         height = 4
+
 
         top = self.top + height * 2
         right = self.left + width
@@ -101,6 +103,8 @@ class SkullSprite(EnemySprite):
         a = alpha
         arcade.draw_line(self.left, top, self.right, top, line_width=height, color=(r, g, b, a))
 
+        if self.health < 1:
+            return
         r, g, b, a = arcade.color.RED
         arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))
 
@@ -120,7 +124,7 @@ class SkullSprite(EnemySprite):
             arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
     def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=None):
-        if self.health <= HEALTH_EMPTY:
+        if self.dead:
             alpha = self.alpha - FADE_SPEED
 
             if alpha <= 0:

@@ -46,8 +46,12 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
 
         self.scale = 0.9
         self.item = None
-
         self._died = False
+
+        self.state = None
+
+    def setup(self, state):
+        self.state = state
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
@@ -56,7 +60,7 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
         self.modifier = MODIFIER_DEFAULT
 
     def update(self):
-        if self.dead():
+        if self.dead:
             return
 
         if self.health < HEALTH_FULL:
@@ -104,7 +108,7 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
                                      window.width, window.height,
                                      (255, 0, 0, alpha))
 
-        if not self.dead():
+        if not self.dead:
             return
 
         # TODO: Implement real game over screen

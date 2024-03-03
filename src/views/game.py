@@ -130,6 +130,7 @@ class Game(Fading):
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = PlayerSprite(filename)
+        self.player_sprite.setup(state=self.state)
         self.player_sprite.center_x = START_POS_X
         self.player_sprite.center_y = START_POS_Y
         self.scene.add_sprite(SPRITE_LIST_PLAYER, self.player_sprite)
@@ -220,7 +221,7 @@ class Game(Fading):
 
     def on_button_press(self, controller, key):
         logging.info(f"Controller button {key} pressed")
-        if self.player_sprite.dead():
+        if self.player_sprite.dead:
             if key in constants.controls.controller.KEY_DISCARD:
                 self.next_view = MainMenu(self.window, self.state)
                 self.fade_out()
@@ -299,7 +300,7 @@ class Game(Fading):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
-        if self.player_sprite.dead():
+        if self.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
                 self.next_view = MainMenu(self.window, self.state)
                 self.fade_out()
@@ -450,7 +451,7 @@ class Game(Fading):
     def on_update(self, delta_time):
         """Movement and game logic"""
 
-        if self.player_sprite.dead():
+        if self.player_sprite.dead:
             self.update_fade(self.next_view)
             return
 
@@ -495,7 +496,7 @@ class Game(Fading):
                 self.player_sprite.hurt(sprite.damage)
 
         if len(enemies) < 10:
-            if random.randint(1, 200) == 50:
+            if random.randint(1,  150) == 50:
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
