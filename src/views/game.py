@@ -22,7 +22,7 @@ from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
 from sprites.items.coin import Coin
-from sprites.ui.inventorycontainer import InventoryContainer, CAPACITY
+from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
 from views.fading import Fading
@@ -376,7 +376,7 @@ class Game(Fading):
             physics_engine=self.physics_engine,
             state=self.state,
             scene=self.scene,
-            sound = sound
+            sound=sound
         )
 
         return bullet
@@ -463,9 +463,9 @@ class Game(Fading):
         self.update_fade(self.next_view)
 
         # There is an OpenGL error happens when a sprite is added by an controller event handler
-        # Which seems to happen because the controller events are handled in a different thread..
-        # To workaround this we have the _call_method class variable which can be set to a class method
-        # To postpone the method call to the next on_update
+        # which seems to happen because the controller events are handled in a different thread.
+        # To work around this we have the _call_method class variable which can be set to a class method
+        # Which is called in next execution of on_update
         if self._call_method:
             self._call_method()
             self._call_method = None
