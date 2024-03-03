@@ -4,24 +4,32 @@ import logging
 import os
 import platform
 import sys
+from logging.handlers import RotatingFileHandler
 
 import psutil
 from gpudetect import detect_gpus
 
-from utils.path import get_userdata_path
+from . import path
 
-log_file = os.path.join(get_userdata_path(), 'debug.log')
-if not os.path.exists(get_userdata_path()):
-    os.makedirs(get_userdata_path())
+log_file = os.path.join(path.get_userdata_path(), 'debug.log')
+if not os.path.exists(path.get_userdata_path()):
+    os.makedirs(path.get_userdata_path())
 
-file_handler = logging.FileHandler(filename=log_file)
+file_handler = RotatingFileHandler(
+    filename=log_file,
+    maxBytes=5 * 1024 * 1024,  # Maximum log file size 5 MB
+    # Keep previous 3 log files
+    backupCount=3,
+)
 stdout_handler = logging.StreamHandler(stream=sys.stdout)
 
 handlers = [file_handler, stdout_handler]
 
 
-def configure_logger(log_level) -> None:
-    """ Configure logger """
+def configure_logger(log_level: int | str) -> None:
+    """ Configure logger
+    @param log_level: Log level
+    """
     logging.basicConfig(
         level=log_level,
         format="%(asctime)s [%(levelname)s] %(message)s",
@@ -29,7 +37,10 @@ def configure_logger(log_level) -> None:
     )
 
 
-def log_hardware_info():
+def log_hardware_info() -> None:
+    """
+    Log hardware info
+    """
     uname = platform.uname()
     logging.info(f"OS: {uname.system} {uname.version}")
     logging.info(f"CPU: {uname.processor}")
