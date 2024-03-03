@@ -143,7 +143,6 @@ def main():
         pyglet.options['audio'] = 'silent'
 
     pyglet.options['shadow_window'] = True
-
     pyglet.options['debug_gl'] = args.debug
 
     import arcade
