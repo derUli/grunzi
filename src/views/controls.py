@@ -1,7 +1,10 @@
+""" Controls display """
+
 import os
 
 import arcade.gui
 
+""" Show controls """
 import constants.controls.keyboard
 import utils.text
 from views.fading import Fading
