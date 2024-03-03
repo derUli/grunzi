@@ -88,7 +88,7 @@ class Game(Fading):
         self.window.set_mouse_visible(False)
 
         for controller in self.window.controllers:
-            controller.on_button_press = self.on_button_press
+            controller.push_handlers(self)
 
         if self.initialized:
             self.music_queue.play()
@@ -294,7 +294,7 @@ class Game(Fading):
         self.scene.add_sprite('Place', item)
 
     def on_button_press(self, controller, key):
-        logging.debug(f'on button press {key}')
+        logging.info(f'on button press {key}')
         if self.player_sprite.dead():
             if key in constants.controls.controller.KEY_DICARD:
                 self.next_view = MainMenu(self.window, self.state)
@@ -318,47 +318,6 @@ class Game(Fading):
         if key in constants.controls.controller.NEXT_ITEM:
             self.on_select_item(index=self.inventory.next())
 
-    def on_joyaxis_motion(self, controller, axis, value):
-        logging.info(f"{controller} {axis} {value}")
-
-        value = round(value)
-
-        if axis in constants.controls.controller.TRIGGERS:
-            if value == constants.controls.controller.LT_ON:
-                self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
-            elif value == constants.controls.controller.LT_OFF:
-                self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
-        if axis in constants.controls.controller.AXIS_X:
-            self.right_key_pressed = False
-            self.left_key_pressed = False
-
-            if value == 1.0:
-                self.right_key_pressed = True
-            elif value == -1.0:
-                self.left_key_pressed = True
-
-        if axis in constants.controls.controller.AXIS_Y:
-            self.up_key_pressed = False
-            self.down_key_pressed = False
-
-            if value == 1.0:
-                self.down_key_pressed = True
-            elif value == -1.0:
-                self.up_key_pressed = True
-
-        if axis in constants.controls.controller.AXIS_RX:
-            if value == -1.0:
-                self.player_sprite.set_face(FACE_LEFT)
-            elif value == 1.0:
-                self.player_sprite.set_face(FACE_RIGHT)
-
-        if axis in constants.controls.controller.AXIS_RY:
-            if value == -1.0:
-                self.player_sprite.set_face(FACE_UP)
-            elif value == 1.0:
-                self.player_sprite.set_face(FACE_DOWN)
-
-    # Do something with the value
 
     def on_shoot(self):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
