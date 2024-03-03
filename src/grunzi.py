@@ -22,7 +22,6 @@ from window.launcherwindow import LauncherWindow
 
 ROOT_DIR = os.path.dirname(__file__)
 
-
 def cli_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
