@@ -7,7 +7,7 @@ HEALTH_EMPTY = 0.0
 class SpriteHealth:
 
     def __init__(self):
-        self.health = HEALTH_FULL
+        self._health = HEALTH_FULL
         self._died = False
 
     def _dead(self):
@@ -15,6 +15,13 @@ class SpriteHealth:
             self.health = HEALTH_EMPTY
 
         return self.health <= HEALTH_EMPTY
+
+    @property
+    def health(self):
+        return self._health
+    @health.setter
+    def health(self, value):
+        self._health = value = value
 
     def hurt(self, damage):
         self.health -= damage

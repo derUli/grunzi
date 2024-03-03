@@ -4,7 +4,7 @@ from arcade import SpriteSolidColor
 from constants.layers import SPRITE_LIST_ENEMIES
 from sprites.bullet.bullet import Bullet
 
-HURT = 5
+HURT = 10
 
 MASS = 0.1
 DAMPING = 1
