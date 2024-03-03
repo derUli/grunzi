@@ -1,5 +1,6 @@
 import glob
 import os
+import tkinter
 import tkinter as tk
 import tkinter.ttk as ttk
 
@@ -21,7 +22,7 @@ class LauncherWindow(tk.Tk):
             value=str(args.width) + 'x' + str(args.height)
         )
         self.silent = tk.BooleanVar(value=args.silent)
-        self.controller = tk.BooleanVar(value=args.controller)
+        self.controller = tk.BooleanVar(value=False)
         self.debug = tk.BooleanVar(value=args.debug)
         self.map = tk.StringVar(value=args.map)
 
@@ -39,7 +40,7 @@ class LauncherWindow(tk.Tk):
             self.state = SettingsState.load()
             self.fullscreen.set(self.state.fullscreen)
             self.silent.set(self.state.silent)
-            self.controller.set(self.state.controller)
+            # self.controller.set(self.state.controller)
             self.debug.set(self.state.debug)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
@@ -66,7 +67,8 @@ class LauncherWindow(tk.Tk):
             text=_('Use Controller'),
             variable=self.controller,
             onvalue=True,
-            offvalue=False
+            offvalue=False,
+            state=tkinter.DISABLED
         )
         checkbox_controller.pack()
 

@@ -141,6 +141,10 @@ def main():
     if args.silent:
         pyglet.options['audio'] = 'silent'
 
+    # TODO: Warning ausgeben, dass der Controller Support derzeit broken ist
+    if args.controller:
+        args.controller = False
+
     pyglet.options['debug_gl'] = args.debug
     pyglet.options['debug_input'] = True
 

@@ -294,31 +294,6 @@ class Game(Fading):
 
         self.scene.add_sprite('Place', item)
 
-    def on_button_press(self, controller, key):
-        logging.info(f'on button press {key}')
-        if self.player_sprite.dead():
-            if key in constants.controls.controller.KEY_DICARD:
-                self.next_view = MainMenu(self.window, self.state)
-                self.fade_out()
-
-            return
-
-        if key in constants.controls.controller.KEY_PAUSE:
-            self.on_pause()
-
-        if key in constants.controls.controller.KEY_SHOOT:
-            self.on_shoot()
-        if key in constants.controls.controller.KEY_USE:
-            self.on_use()
-        if key in constants.controls.controller.KEY_DROP:
-            self.on_drop()
-        if key in constants.controls.controller.KEY_GRUNT:
-            self.on_grunt()
-        if key in constants.controls.controller.PREVIOUS_ITEM:
-            self.on_select_item(index=self.inventory.previous())
-        if key in constants.controls.controller.NEXT_ITEM:
-            self.on_select_item(index=self.inventory.next())
-
 
     def on_shoot(self):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
