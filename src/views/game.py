@@ -27,17 +27,10 @@ from utils.sprite import random_position
 from views.fading import Fading
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
+from constants.layers import *
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
-
-SPRITE_LIST_COINS = 'Coins'
-SPRITE_LIST_WALL = 'Walls'
-SPRITE_LIST_FENCE = 'Fence'
-SPRITE_LIST_DECORATION = 'Decoration'
-SPRITE_LIST_ENEMIES = 'Enemies'
-SPRITE_LIST_PLAYER = 'player'
-SPRITE_LIST_MOVEABLE = 'Moveable'
 TOTAL_COINS = 100
 
 # TODO: Make this dynamic
@@ -370,14 +363,12 @@ class Game(Fading):
 
     def on_shoot(self):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
-        sprite = bullet.setup(
+        bullet.setup(
             source=self.player_sprite,
             physics_engine=self.physics_engine,
-            state=self.state
+            state=self.state,
+            scene=self.scene
         )
-        # Adding sprites to a scene in the setup method
-        # causes an OpenGL error when this method is called in a controller event for some odd
-        self.scene.add_sprite(SPRITE_LIST_ENEMIES, sprite)
 
     def on_grunt(self):
         if self.state.is_silent():
@@ -501,17 +492,13 @@ class Game(Fading):
             SPRITE_LIST_DECORATION
         ]
 
-        layers = []
+        for layer in self.scene.name_mapping:
+            if layer not in layer_names:
+                self.scene.add_sprite_list(layer)
 
-        for layer_name in layer_names:
-            try:
-                layers.append(self.scene[layer_name])
-            except KeyError:
-                pass
-
-        for layer in layers:
-            for sprite in layer:
+            for sprite in self.scene.get_sprite_list(layer):
                 sprite_list.append(sprite)
+
 
         return sprite_list
 

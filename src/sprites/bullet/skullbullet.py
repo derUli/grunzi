@@ -1,7 +1,7 @@
 import arcade
 from arcade import SpriteSolidColor
 
-import views.game
+from constants.layers import SPRITE_LIST_ENEMIES
 from sprites.bullet.bullet import Bullet
 
 HURT = 5
@@ -140,7 +140,7 @@ class SkullBullet(Bullet):
         else:
             return
 
-        scene.add_sprite(views.game.SPRITE_LIST_ENEMIES, self)
+        scene.add_sprite(SPRITE_LIST_ENEMIES, self)
 
         state.play_sound('shot')
 

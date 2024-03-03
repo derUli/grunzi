@@ -10,7 +10,7 @@ from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTH_EMPTY
 from utils.physics import DEFAULT_FRICTION
 from window.gamewindow import UPDATE_RATE
-
+from constants.layers import SPRITE_LIST_WALL
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
@@ -164,7 +164,7 @@ class SkullSprite(EnemySprite):
         if arcade.has_line_of_sight(
                 player.position,
                 self.position,
-                walls=scene[views.game.SPRITE_LIST_WALL],
+                walls=scene[SPRITE_LIST_WALL],
                 check_resolution=SIGHT_CHECK_RESOLUTION,
                 max_distance=SIGHT_DISTANCE
         ):
@@ -226,7 +226,7 @@ class SkullSprite(EnemySprite):
     def update_barrier_list(self, scene):
         self.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=self,
-            blocking_sprites=scene[views.game.SPRITE_LIST_WALL],
+            blocking_sprites=scene[SPRITE_LIST_WALL],
             grid_size=GRID_SIZE,
             left=int(self.playing_field_left_boundary),
             right=int(self.playing_field_right_boundary),
