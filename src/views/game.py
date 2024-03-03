@@ -242,6 +242,9 @@ class Game(Fading):
             self.on_select_item(index=self.inventory.next())
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
+        if not self.initialized:
+            return
+
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
 
         x_value = round(x_value)
