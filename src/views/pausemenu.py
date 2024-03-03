@@ -87,15 +87,16 @@ class PauseMenu(Fading):
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
     def on_key_press(self, key, modifiers):
+        """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
-        """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_toggle()
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.manager.disable()
+        self.window.set_mouse_visible(False)
 
     def on_toggle(self):
         self.window.show_view(self.previous_view)
@@ -107,6 +108,7 @@ class PauseMenu(Fading):
     def on_show_view(self):
         """ This is run once when we switch to this view """
         super().on_show_view()
+        self.window.set_mouse_visible(True)
         self.manager.enable()
 
     def on_update(self, dt):

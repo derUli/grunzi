@@ -81,14 +81,11 @@ class Game(Fading):
         self.inventory = None
 
         self.initialized = False
-        self.pause_view = None
 
     def on_show_view(self):
         super().on_show_view()
 
         self.window.set_mouse_visible(False)
-
-        self.pause_view = PauseMenu(self.window, self.state, self)
 
         for controller in self.window.controllers:
             controller.push_handlers(self)
@@ -154,8 +151,6 @@ class Game(Fading):
         self.inventory.setup(state=self.state, size=self.window.size)
 
     def on_hide_view(self):
-
-        self.window.set_mouse_visible(True)
         self.music_queue.pause()
 
         for controller in self.window.controllers:
@@ -223,14 +218,50 @@ class Game(Fading):
         self.player_sprite.reset()
 
     def on_button_press(self, controller, key):
+        logging.info(f"Controller button {key} pressed")
         if self.player_sprite.dead():
             if key in constants.controls.controller.KEY_DISCARD:
                 self.next_view = MainMenu(self.window, self.state)
                 self.fade_out()
             return
 
-        if key in constants.controls.controller.KEY_START:
+        if key in constants.controls.controller.KEY_PAUSE:
             self.on_pause()
+        if key in constants.controls.controller.KEY_USE:
+            self.on_use()
+        if key in constants.controls.controller.KEY_DROP:
+            self.on_drop()
+        if key in constants.controls.controller.KEY_SHOOT:
+            self.on_shoot()
+        if key in constants.controls.controller.KEY_GRUNT:
+            self.on_grunt()
+        if key in constants.controls.controller.PREVIOUS_ITEM:
+            self.on_select_item(index=self.inventory.previous())
+        if key in constants.controls.controller.NEXT_ITEM:
+            self.on_select_item(index=self.inventory.next())
+
+    def on_stick_motion(self, controller, stick_name, x_value, y_value):
+        logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
+
+        x_value = round(x_value)
+        y_value = round(y_value)
+
+        if stick_name == constants.controls.controller.LEFTSTICK:
+            if x_value == constants.controls.controller.AXIS_RIGHT:
+                self.right_key_pressed = True
+            elif x_value == constants.controls.controller.AXIS_LEFT:
+                self.left_key_pressed = True
+            else:
+                self.right_key_pressed = False
+                self.left_key_pressed = False
+
+            if y_value == constants.controls.controller.AXIS_DOWN:
+                self.down_key_pressed = True
+            elif y_value == constants.controls.controller.AXIS_UP:
+                self.up_key_pressed = True
+            else:
+                self.down_key_pressed = False
+                self.up_key_pressed = False
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
@@ -244,10 +275,8 @@ class Game(Fading):
 
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
-
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
-
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
         if key in constants.controls.keyboard.KEY_DROP:
@@ -355,9 +384,7 @@ class Game(Fading):
         On show pause menu
         """
         self.reset_keys()
-        self.window.show_view(self.pause_view)
-
-        self.window.set_mouse_visible(True)
+        self.window.show_view(PauseMenu(self.window, self.state, self))
 
     def on_use(self):
         if self.update_collectable():

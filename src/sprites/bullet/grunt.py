@@ -34,7 +34,8 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
         pass
 
     def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=None):
-        if not self.sound.playing:
+
+        if self.sound and not self.sound.playing:
             self.remove_from_sprite_lists()
 
     def setup(self, source, physics_engine, scene, state):
