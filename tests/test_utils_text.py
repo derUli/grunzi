@@ -20,6 +20,9 @@ class TextTest(unittest.TestCase):
         state.preload()
         GameWindow()
 
+    def tearDown(self):
+        arcade.exit()
+
     def test_label_value(self):
         self.assertEqual('Value: 123.0', label_value('Value', 123.0))
 

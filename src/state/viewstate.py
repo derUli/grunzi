@@ -35,9 +35,7 @@ class ViewState:
         self.shaders = {}
 
     def preload_fonts(self):
-        arcade.load_font(os.path.join(self.font_dir, 'laila.ttf'))
-        arcade.load_font(os.path.join(self.font_dir, 'adrip1.ttf'))
-        arcade.load_font(os.path.join(self.font_dir, 'consolasmonobook.ttf'))
+        pyglet.font.add_directory(self.font_dir)
 
     def preload_sounds(self):
         self.sounds = {
