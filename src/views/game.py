@@ -262,6 +262,20 @@ class Game(Fading):
             else:
                 self.down_key_pressed = False
                 self.up_key_pressed = False
+
+        if stick_name == constants.controls.controller.RIGHTSTICK:
+            face = self.player_sprite.face
+            if x_value == constants.controls.controller.AXIS_RIGHT:
+                face = FACE_RIGHT
+            if x_value == constants.controls.controller.AXIS_LEFT:
+                face = FACE_LEFT
+            if y_value == constants.controls.controller.AXIS_DOWN:
+                face = FACE_DOWN
+            if y_value == constants.controls.controller.AXIS_UP:
+                face = FACE_UP
+
+            self.player_sprite.set_face(face)
+
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
