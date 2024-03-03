@@ -1,5 +1,5 @@
 """Physics stuff """
-from arcade import PymunkPhysicsEngine, Scene
+from arcade import PymunkPhysicsEngine, Scene, SpriteList
 
 from sprites.characters.playersprite import PlayerSprite
 
@@ -56,7 +56,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
     for wall_layer in wall_layers:
 
         if wall_layer not in scene.name_mapping:
-            continue
+            scene.add_sprite_list(wall_layer, SpriteList())
 
         physics_engine.add_sprite_list(
             scene[wall_layer],
