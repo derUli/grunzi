@@ -25,7 +25,7 @@ class GameWindow(arcade.Window):
             debug=False,
             update_rate=UPDATE_RATE,
             draw_rate=DRAW_RATE,
-            controller=True
+            controller=False
     ):
         # Call the parent class and set up the window
         super().__init__(
@@ -41,7 +41,7 @@ class GameWindow(arcade.Window):
 
         self.update_rate = update_rate
         self.draw_rate = update_rate
-        self.controller = True
+        self.controller = controller
         self.controller_manager = None
         self.debug = debug
         self.show_fps = debug
@@ -78,7 +78,6 @@ class GameWindow(arcade.Window):
 
             for controller in self.controller_manager.get_controllers():
                 logging.info(f'Controller: {controller.device.manufacturer} {controller.device.name}')
-                controller.open()
                 self.controllers.append(controller)
         except FileNotFoundError as e:
             logging.error(e)
