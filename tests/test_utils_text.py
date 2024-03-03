@@ -1,22 +1,33 @@
+import os
 import unittest
 
 import arcade
 
+from state.viewstate import ViewState
 from utils.text import label_value, get_style, create_text
 from window.gamewindow import GameWindow
 
 
 class TextTest(unittest.TestCase):
     def setUp(self):
+
+        root_dir = os.path.join(
+            os.path.dirname(__file__),
+            '..',
+            'src'
+        )
+        state = ViewState(root_dir, map_name='world')
+        state.preload_fonts()
         GameWindow()
 
     def test_label_value(self):
         self.assertEqual('Value: 123.0', label_value('Value', 123.0))
 
     def test_get_style(self):
-        self.assertIn('font_name', get_style())
+        self.assertEqual('Laila', get_style()['hover']['font_name'])
 
-    def test_create_test(self):
-        text = create_text('foobar')
+    def test_create_text(self):
 
-        self.assertIsInstance(text, arcade.text_pyglet.Text)
+        text = create_text('Foobar')
+
+        self.assertIsInstance(text, arcade.text.Text)
