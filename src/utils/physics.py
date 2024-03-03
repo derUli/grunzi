@@ -48,12 +48,6 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
     # PymunkPhysicsEngine.KINEMATIC objects will move, but are assumed to be
     # repositioned by code and don't respond to physics forces.
     # Dynamic is default.
-    physics_engine.add_sprite_list(scene['Walls'],
-                                   friction=0,
-                                   collision_type="wall",
-                                   body_type=PymunkPhysicsEngine.STATIC
-                                   )
-
     wall_layers = [
         'Walls',
         'Fence'
