@@ -68,7 +68,6 @@ class LauncherWindow(tk.Tk):
             variable=self.controller,
             onvalue=True,
             offvalue=False,
-            state=tkinter.DISABLED
         )
         checkbox_controller.pack()
 
