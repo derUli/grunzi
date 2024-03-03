@@ -27,8 +27,7 @@ def get_userdata_path() -> str:
         )
 
     # If the directory doesn't exists create it
-    if not os.path.exists(userdata_dir):
-        os.makedirs(userdata_dir)
+    os.makedirs(userdata_dir, exist_ok=True)
 
     return userdata_dir
 

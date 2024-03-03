@@ -17,7 +17,7 @@ class TextTest(unittest.TestCase):
             'src'
         )
         state = ViewState(root_dir, map_name='world')
-        state.preload_fonts()
+        state.preload()
         GameWindow()
 
     def test_label_value(self):

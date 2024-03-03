@@ -370,12 +370,14 @@ class Game(Fading):
 
     def on_shoot(self):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
-        bullet.setup(
+        sprite = bullet.setup(
             source=self.player_sprite,
             physics_engine=self.physics_engine,
-            scene=self.scene,
             state=self.state
         )
+        # Adding sprites to a scene in the setup method
+        # causes an OpenGL error when this method is called in a controller event for some odd
+        self.scene.add_sprite(SPRITE_LIST_ENEMIES, sprite)
 
     def on_grunt(self):
         if self.state.is_silent():

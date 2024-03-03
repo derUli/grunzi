@@ -142,7 +142,7 @@ def main():
     if args.silent:
         pyglet.options['audio'] = 'silent'
 
-    pyglet.options['shadow_window'] = False
+    pyglet.options['shadow_window'] = True
 
     pyglet.options['debug_gl'] = args.debug
     pyglet.options['debug_input'] = True
