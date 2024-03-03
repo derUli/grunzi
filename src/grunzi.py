@@ -101,7 +101,7 @@ def cli_args():
 
 def setup_locale():
     # Set locale
-    locale_path = os.path.join(ROOT_DIR, 'data', 'locale')
+    locale_path = os.path.join(ROOT_DIR, 'data', 'locales')
     os.environ['LANG'] = ':'.join(locale.getlocale())
     gettext.install('messages', locale_path)
 

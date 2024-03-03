@@ -1,4 +1,4 @@
-"""Keyboard controls"""
+"""Controller stuff """
 
 # XBOX 360 Controller Mapping
 KEY_START = 'start'
