@@ -85,6 +85,9 @@ class Game(Fading):
 
         self.scene = arcade.Scene()
 
+        self.manager = arcade.gui.UIManager()
+        self.message_box = None
+
     def on_show_view(self):
         super().on_show_view()
         print('view')
@@ -98,7 +101,6 @@ class Game(Fading):
             return
 
         self.setup()
-
     def setup(self):
 
         # Set up the Cameras
@@ -130,7 +132,7 @@ class Game(Fading):
         self.scene = arcade.Scene.from_tilemap(self.tile_map)
 
         # Set up the player, specifically placing it at these coordinates.
-        filename = os.path.join(self.state.sprite_dir, 'char.png', 'pig.png')
+        filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = PlayerSprite(filename)
         self.player_sprite.center_x = START_POS_X
         self.player_sprite.center_y = START_POS_Y
@@ -152,6 +154,21 @@ class Game(Fading):
 
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
+
+        self.manager = arcade.gui.UIManager()
+
+        self.message_box = arcade.gui.UIMessageBox(
+            width=300,
+            height=200,
+            message_text=(
+                "Hello World!"
+            ),
+            buttons=["Ok", "Cancel"]
+        )
+        self.message_box.visible = False
+        self.manager.add(self.message_box)
+
+        self.manager.enable()
 
     def on_hide_view(self):
         self.music_queue.pause()
@@ -182,10 +199,13 @@ class Game(Fading):
 
         self.camera_gui.use()
 
-        self.player_sprite.draw_overlay()
         self.inventory.draw()
+
+        self.manager.draw()
         self.draw_fading()
+        self.player_sprite.draw_overlay()
         self.draw_debug(self.player_sprite)
+
 
     def update_player_speed(self):
 
@@ -420,6 +440,9 @@ class Game(Fading):
             return
 
         logging.info('Nothing to use at ' + str(self.player_sprite.position))
+
+        self.message_box.visible = True
+
         self.state.sounds['beep'].play()
 
     def center_camera_to_player(self):
