@@ -91,7 +91,6 @@ class OptionsMenu(Fading):
     def on_back(self):
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
-        self.on_show_view()
 
     def on_show_view(self):
         super().on_show_view()
