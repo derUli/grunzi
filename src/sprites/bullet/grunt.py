@@ -38,7 +38,7 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
         if self.sound and not self.sound.playing:
             self.remove_from_sprite_lists()
 
-    def setup(self, source, physics_engine, scene, state):
+    def setup(self, source, physics_engine, scene, state, sound=True):
 
         self.center_y = source.center_y
 
@@ -50,7 +50,8 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
 
         scene.add_sprite(SPRITE_LIST_ENEMIES, self)
 
-        self.sound = state.grunt()
+        if sound:
+            self.sound = state.grunt()
 
         physics_engine.add_sprite(
             self,

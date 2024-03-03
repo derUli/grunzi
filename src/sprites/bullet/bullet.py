@@ -1,6 +1,8 @@
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
+
 from constants.layers import SPRITE_LIST_ENEMIES
+
 HURT = 20
 
 MASS = 0.1
@@ -31,7 +33,7 @@ class Bullet(arcade.sprite.SpriteCircle):
     def draw_overlay(self):
         pass
 
-    def setup(self, source, physics_engine, scene, state):
+    def setup(self, source, physics_engine, scene, state, sound=True):
 
         self.center_y = source.center_y
 
@@ -41,7 +43,8 @@ class Bullet(arcade.sprite.SpriteCircle):
             self.force_move = -self.force_move
             self.left = source.left - self.width
 
-        state.play_sound('shot')
+        if sound:
+            state.play_sound('shot')
         scene.add_sprite(SPRITE_LIST_ENEMIES, self)
 
         physics_engine.add_sprite(

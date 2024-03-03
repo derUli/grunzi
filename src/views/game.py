@@ -15,19 +15,19 @@ import constants.controls.controller
 import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
+from constants.layers import *
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
 from sprites.items.coin import Coin
-from sprites.ui.inventorycontainer import InventoryContainer
+from sprites.ui.inventorycontainer import InventoryContainer, CAPACITY
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
 from views.fading import Fading
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
-from constants.layers import *
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
@@ -93,6 +93,7 @@ class Game(Fading):
             return
 
         self.setup()
+
     def setup(self):
 
         # Set up the Cameras
@@ -147,6 +148,14 @@ class Game(Fading):
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
 
+        # There is an OpenGL error happens when a sprite class is first initialized by a controllers
+        # which seems to be related due to the controller events being handled in another thread
+        self.on_shoot(sound=False).remove_from_sprite_lists()
+        self.on_grunt(sound=False).remove_from_sprite_lists()
+
+        for i in range(CAPACITY + 1):
+            self.on_select_item(index=self.inventory.next())
+
     def on_hide_view(self):
         self.music_queue.pause()
         for controller in self.window.controllers:
@@ -180,7 +189,6 @@ class Game(Fading):
         self.draw_fading()
         self.player_sprite.draw_overlay()
         self.draw_debug(self.player_sprite)
-
 
     def update_player_speed(self):
 
@@ -361,16 +369,19 @@ class Game(Fading):
 
         self.scene.add_sprite('Place', item)
 
-    def on_shoot(self):
+    def on_shoot(self, sound=True):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
         bullet.setup(
             source=self.player_sprite,
             physics_engine=self.physics_engine,
             state=self.state,
-            scene=self.scene
+            scene=self.scene,
+            sound = sound
         )
 
-    def on_grunt(self):
+        return bullet
+
+    def on_grunt(self, sound=True):
         if self.state.is_silent():
             return
 
@@ -380,7 +391,10 @@ class Game(Fading):
             physics_engine=self.physics_engine,
             scene=self.scene,
             state=self.state,
+            sound=sound
         )
+
+        return bullet
 
     def on_drop(self):
         item = self.player_sprite.get_item()
@@ -498,7 +512,6 @@ class Game(Fading):
 
             for sprite in self.scene.get_sprite_list(layer):
                 sprite_list.append(sprite)
-
 
         return sprite_list
 

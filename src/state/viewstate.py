@@ -6,6 +6,8 @@ import arcade
 import pyglet
 from arcade.experimental import Shadertoy
 
+from sprites.bullet.bullet import Bullet
+
 
 class ViewState:
     def __init__(self, root_dir, map_name='world'):
