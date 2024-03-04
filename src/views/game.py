@@ -112,10 +112,10 @@ class Game(Fading):
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
 
         layer_options = {
-            'Items': {
+            SPRITE_LIST_PLIER: {
                 'custom_class': Plier
             },
-            'Fence': {
+            SPRITE_LIST_FENCE: {
                 'custom_class': Fence
             }
         }
