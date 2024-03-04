@@ -5,7 +5,7 @@ import arcade.gui
 from views.fading import Fading
 from views.mainmenu import MainMenu
 
-SPRITE_LIST_ENEMIES = 'ui'
+LAYER_ENEMIES = 'ui'
 
 # Seconds
 WAIT_FOR = 3
@@ -41,7 +41,7 @@ class Intro(Fading):
             center_y=self.window.height / 2,
         )
 
-        self.scene.add_sprite(SPRITE_LIST_ENEMIES, logo)
+        self.scene.add_sprite(LAYER_ENEMIES, logo)
 
     def on_update(self, dt):
         self.update_fade(self.next_view)

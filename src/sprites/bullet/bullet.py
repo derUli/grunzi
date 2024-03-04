@@ -1,7 +1,7 @@
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-from constants.layers import SPRITE_LIST_ENEMIES
+from constants.layers import LAYER_ENEMIES
 
 HURT = 20
 
@@ -45,7 +45,7 @@ class Bullet(arcade.sprite.SpriteCircle):
 
         if sound:
             state.play_sound('shot')
-        scene.add_sprite(SPRITE_LIST_ENEMIES, self)
+        scene.add_sprite(LAYER_ENEMIES, self)
 
         physics_engine.add_sprite(
             self,

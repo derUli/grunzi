@@ -4,7 +4,7 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 import utils.text
-from constants.layers import SPRITE_LIST_SPAWN_POINT
+from constants.layers import LAYER_SPAWN_POINT
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.sprite import Sprite
 
@@ -60,10 +60,10 @@ class PlayerSprite(Sprite, SpriteHealth):
 
         self.center_x, self.center_y = SPAWN_POINT
 
-        if SPRITE_LIST_SPAWN_POINT not in self.scene.name_mapping:
+        if LAYER_SPAWN_POINT not in self.scene.name_mapping:
             return
 
-        for sprite in self.scene.get_sprite_list(SPRITE_LIST_SPAWN_POINT):
+        for sprite in self.scene.get_sprite_list(LAYER_SPAWN_POINT):
             self.center_x, self.center_y = sprite.center_x, sprite.center_y
             sprite.remove_from_sprite_lists()
 

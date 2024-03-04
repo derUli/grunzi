@@ -136,7 +136,7 @@ class Game(Fading):
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = PlayerSprite(filename)
         self.player_sprite.setup(state=self.state, scene=self.scene)
-        self.scene.add_sprite(SPRITE_LIST_PLAYER, self.player_sprite)
+        self.scene.add_sprite(LAYER_PLAYER, self.player_sprite)
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
@@ -168,7 +168,7 @@ class Game(Fading):
         self.scene.draw()
 
         try:
-            enemies = self.scene[SPRITE_LIST_ENEMIES]
+            enemies = self.scene[LAYER_ENEMIES]
         except KeyError:
             enemies = []
         for sprite in enemies:
@@ -372,7 +372,7 @@ class Game(Fading):
         if not item:
             return
 
-        self.scene.add_sprite(SPRITE_LIST_PLACE, item)
+        self.scene.add_sprite(LAYER_PLACE, item)
 
     def on_shoot(self, sound=True):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
@@ -506,7 +506,7 @@ class Game(Fading):
 
     def update_enemies(self, delta_time):
         try:
-            enemies = self.scene[SPRITE_LIST_ENEMIES]
+            enemies = self.scene[LAYER_ENEMIES]
         except KeyError:
             enemies = []
 
@@ -520,7 +520,7 @@ class Game(Fading):
         if len(enemies) < 10:
             if random.randint(1, 150) == 50:
                 self.spawn_skull()
-                logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
+                logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
 
     @property
     def all_layers(self):
@@ -528,13 +528,13 @@ class Game(Fading):
         sprite_list = SpriteList(use_spatial_hash=False)
 
         layer_names = [
-            SPRITE_LIST_WALL,
-            SPRITE_LIST_COINS,
-            SPRITE_LIST_ENEMIES,
-            SPRITE_LIST_MOVEABLE,
-            SPRITE_LIST_PLAYER,
-            SPRITE_LIST_FENCE,
-            SPRITE_LIST_DECORATION
+            LAYER_WALL,
+            LAYER_COINS,
+            LAYER_ENEMIES,
+            LAYER_MOVEABLE,
+            LAYER_PLAYER,
+            LAYER_FENCE,
+            LAYER_DECORATION
         ]
 
         for layer in self.scene.name_mapping:
@@ -557,7 +557,7 @@ class Game(Fading):
         if arcade.check_for_collision_with_list(coin, self.all_layers):
             return self.make_coin()
 
-        self.scene.add_sprite(SPRITE_LIST_COINS, coin)
+        self.scene.add_sprite(LAYER_COINS, coin)
 
         return
 
@@ -569,7 +569,7 @@ class Game(Fading):
         if arcade.check_for_collision_with_list(skull, self.all_layers):
             return
 
-        self.scene.add_sprite(SPRITE_LIST_ENEMIES, skull)
+        self.scene.add_sprite(LAYER_ENEMIES, skull)
 
         self.physics_engine.add_sprite(skull,
                                        friction=skull.friction,

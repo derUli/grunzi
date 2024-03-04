@@ -4,7 +4,7 @@ import os
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-from constants.layers import SPRITE_LIST_WALL
+from constants.layers import LAYER_WALL
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL
@@ -176,7 +176,7 @@ class SkullSprite(EnemySprite):
         if arcade.has_line_of_sight(
                 player.position,
                 self.position,
-                walls=scene[SPRITE_LIST_WALL],
+                walls=scene[LAYER_WALL],
                 check_resolution=SIGHT_CHECK_RESOLUTION,
                 max_distance=SIGHT_DISTANCE
         ):
@@ -238,7 +238,7 @@ class SkullSprite(EnemySprite):
     def update_barrier_list(self, scene):
         self.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=self,
-            blocking_sprites=scene[SPRITE_LIST_WALL],
+            blocking_sprites=scene[LAYER_WALL],
             grid_size=GRID_SIZE,
             left=int(self.playing_field_left_boundary),
             right=int(self.playing_field_right_boundary),

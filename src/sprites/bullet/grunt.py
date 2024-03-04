@@ -1,7 +1,7 @@
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-from constants.layers import SPRITE_LIST_ENEMIES
+from constants.layers import LAYER_ENEMIES
 from sprites.characters.enemysprite import EnemySprite
 
 MASS = 1
@@ -56,7 +56,7 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
             self.force_move = -self.force_move
             self.left = source.left - self.width
 
-        scene.add_sprite(SPRITE_LIST_ENEMIES, self)
+        scene.add_sprite(LAYER_ENEMIES, self)
 
         if sound:
             self.sound = state.grunt()
