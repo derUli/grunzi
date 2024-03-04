@@ -71,7 +71,7 @@ class Controls(Fading):
         if self.window.controller:
             controls += [
                 os.linesep * 2,
-                'XBOX 360 Controller:',
+                'XBox 360 Controller:',
                 os.linesep * 2
             ]
             controls += [

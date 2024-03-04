@@ -24,7 +24,12 @@ OS: Windows 11 64-Bit
 
 ## Was ist neu?
 
-TODO
+In diesem Build wurde das Inventar implementiert.
+Beim Start des Spiels wird jetzt ein Dialog anzeigt, wo man die Einstellungen konfigurieren kann.
+XBox 360 Controller können nun verwendet werden.
+Die KI der Totenköpfe wurde verbessert.
+Die Map wurde weiter ausgebaut.
+
 
 # Spiel starten
 
