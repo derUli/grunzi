@@ -1,6 +1,6 @@
 """ Layer constants """
 
-from sprites.decoration.car import Car
+from sprites.decoration.car import CarLeft, CarRight
 from sprites.items.item import Fence
 from sprites.items.plier import Plier
 
@@ -14,6 +14,7 @@ LAYER_PLAYER = 'player'
 LAYER_MOVEABLE = 'Moveable'
 LAYER_PLACE = 'Place'
 LAYER_SPAWN_POINT = 'Spawn Point'
+LAYER_CAR_LEFT = 'Cars Left'
 LAYER_CAR_RIGHT = 'Cars Right'
 
 LAYER_OPTIONS = {
@@ -24,6 +25,9 @@ LAYER_OPTIONS = {
         'custom_class': Fence
     },
     LAYER_CAR_RIGHT: {
-        'custom_class': Car
+        'custom_class': CarRight
+    },
+    LAYER_CAR_LEFT: {
+        'custom_class': CarLeft
     }
 }
