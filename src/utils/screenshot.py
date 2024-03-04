@@ -1,3 +1,4 @@
+""" Screenshot tools """
 import logging
 import os
 import time
@@ -10,7 +11,7 @@ from utils.path import get_userdata_path
 def make_screenshot():
     """ Save a screenshot
             @return: filename of the screenshot
-        """
+    """
     screenshot_dir = os.path.join(get_userdata_path(), 'screenshots')
 
     if not os.path.exists(screenshot_dir):
