@@ -3,10 +3,12 @@ from typing import Optional
 import PIL
 import arcade
 
+from sprites.items.item import Item
+
 SCALE = 0.6
 
 
-class Coin(arcade.sprite.Sprite):
+class Coin(arcade.sprite.Sprite, Item):
     def __init__(
             self,
             filename: Optional[str] = None,

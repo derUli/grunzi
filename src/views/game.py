@@ -22,6 +22,7 @@ from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
 from sprites.items.coin import Coin
+from sprites.items.item import Item, Fence, Useable
 from sprites.items.plier import Plier
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
@@ -88,7 +89,7 @@ class Game(Fading):
     def on_show_view(self):
         super().on_show_view()
         self.window.set_mouse_visible(False)
-        print(self.window.controllers)
+
         for controller in self.window.controllers:
             controller.push_handlers(self)
 
@@ -115,16 +116,22 @@ class Game(Fading):
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
 
         layer_options = {
+            'Items': {
+                'custom_class': Plier
+            },
+            'Fence': {
+                'custom_class': Fence
+            }
         }
 
         # Read in the tiled map
         try:
-            self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options, use_spatial_hash=True)
+            self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options, use_spatial_hash=True, lazy=True)
         except FileNotFoundError as e:
             logging.error(e)
             arcade.exit()
             return
-        print(self.tile_map.sprite_lists)
+
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tile_map)
@@ -426,12 +433,22 @@ class Game(Fading):
         self.window.show_view(PauseMenu(self.window, self.state, self))
 
     def on_use(self):
-        if self.update_collectable():
-            return
+        if not self.player_sprite.get_item():
+            return  self.update_collectable()
 
-        logging.info('Nothing to use at ' + str(self.player_sprite.position))
+
+        item = self.player_sprite.get_item()
+        sprites = arcade.check_for_collision_with_lists(self.player_sprite.get_item(), self.scene.sprite_lists)
+
+        for sprite in sprites:
+            if isinstance(sprite, Useable):
+                item.on_use(sprite)
+                return True
 
         self.state.sounds['beep'].play()
+        logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
+        return False
+
 
     def center_camera_to_player(self):
         # Find where player is, then calculate lower left corner from that
@@ -559,18 +576,11 @@ class Game(Fading):
                                        )
 
     def update_collectable(self):
-        item_layers = [
-            SPRITE_LIST_COINS,
-            'Items'
-        ]
+        items = arcade.check_for_collision_with_lists(self.player_sprite, self.scene.sprite_lists)
+        for item in items:
+            if isinstance(item, Item):
+                item.remove_from_sprite_lists()
 
-        for layer in item_layers:
-            items = arcade.check_for_collision_with_list(self.player_sprite, self.scene[layer])
-            print(layer, self.scene[layer].sprite_list)
-
-            # TODO: Use a hit handler of physics engine for this
-            for item in items:
-                self.scene[layer].remove(item)
                 self.inventory.add_item(item)
                 self.state.play_sound('coin')
                 self.on_select_item(index=-1)
