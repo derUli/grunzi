@@ -5,6 +5,7 @@
 * Inventar hinzugefügt
 * Launcher hinzugefügt
 * Support für XBox 360 Controller hinzugefügt
+* Atmosphären-Sound hinzugefügt
 * KI der Totenköpfe verbessert
 * Map erweitert
 * Performance der Screenshot-Funktion verbessert
