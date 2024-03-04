@@ -20,8 +20,11 @@ def natural_keys(text):
     return [atoi(c) for c in re.split('(\d+)', text)]
 
 
-def disable_screensaver(disable=True):
-    """ Disables the fullscreen on windows """
+def disable_screensaver(disable=True) -> None:
+    """ Disables the fullscreen on windows
+    @param disable: If the screensaver should get disabled
+    @return: None
+    """
     if not is_windows():
         return None
 
