@@ -412,6 +412,8 @@ class Game(Fading):
         klass = item.__class__
         layer = klass.__name__ + 's'
 
+        new_item = item
+
         if selected:
             quantity = selected.pop()
 
