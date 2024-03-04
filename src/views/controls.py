@@ -11,9 +11,6 @@ import utils.text
 from views.fading import Fading
 
 BUTTON_WIDTH = 250
-
-URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
-
 MARGIN = 40
 
 

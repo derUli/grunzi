@@ -58,13 +58,15 @@ class PlayerSprite(Sprite, SpriteHealth):
         self.state = state
         self.scene = scene
 
-        pos = SPAWN_POINT
+        self.center_x, self.center_y = SPAWN_POINT
+
+        if SPRITE_LIST_SPAWN_POINT not in self.scene.name_mapping:
+            return
 
         for sprite in self.scene.get_sprite_list(SPRITE_LIST_SPAWN_POINT):
-            pos = sprite.center_x, sprite.center_y
+            self.center_x, self.center_y = sprite.center_x, sprite.center_y
             sprite.remove_from_sprite_lists()
 
-        self.center_x, self.center_y = pos
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
