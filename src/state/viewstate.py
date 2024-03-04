@@ -66,7 +66,7 @@ class ViewState:
                 streaming=False
             )
 
-        for i in range(1, 5):
+        for i in range(1, 6):
             self.sounds[f"squeak{i}"] = arcade.load_sound(
                 os.path.join(self.sound_dir, 'pig', f"squeak{i}.ogg"),
                 streaming=False
