@@ -370,10 +370,7 @@ class Game(Fading):
             old_item.remove_from_sprite_lists()
 
         if not item:
-            item = arcade.sprite.SpriteSolidColor(
-                width=self.player_sprite.width,
-                height=self.player_sprite.height
-            )
+            return
 
         self.scene.add_sprite(SPRITE_LIST_PLACE, item)
 
