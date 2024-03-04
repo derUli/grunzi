@@ -1,6 +1,7 @@
 """Physics stuff """
 from arcade import PymunkPhysicsEngine, Scene, SpriteList
 
+from constants.layers import SPRITE_LIST_MOVEABLE
 from sprites.characters.playersprite import PlayerSprite
 
 DEFAULT_FRICTION = 1
@@ -70,7 +71,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
 
     if 'Moveable' in scene.name_mapping:
         physics_engine.add_sprite_list(
-            scene['Moveable'],
+            scene[SPRITE_LIST_MOVEABLE],
             mass=2,
             damping=0.01,
             collision_type="rock"

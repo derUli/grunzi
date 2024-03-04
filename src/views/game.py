@@ -440,7 +440,7 @@ class Game(Fading):
 
     def on_use(self):
         if not self.player_sprite.get_item():
-            return  self.update_collectable()
+            return self.update_collectable()
 
         item = self.player_sprite.get_item()
         sprites = arcade.check_for_collision_with_lists(self.player_sprite.get_item(), self.scene.sprite_lists)
@@ -453,7 +453,6 @@ class Game(Fading):
         self.state.sounds['beep'].play()
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
         return False
-
 
     def center_camera_to_player(self):
         # Find where player is, then calculate lower left corner from that
@@ -519,7 +518,7 @@ class Game(Fading):
                 self.player_sprite.hurt(sprite.damage)
 
         if len(enemies) < 10:
-            if random.randint(1,  150) == 50:
+            if random.randint(1, 150) == 50:
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[SPRITE_LIST_ENEMIES])}')
 
