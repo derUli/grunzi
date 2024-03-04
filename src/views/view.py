@@ -34,6 +34,8 @@ class View(arcade.View):
 
         if key in constants.controls.keyboard.KEY_TOGGLE_FPS:
             self.on_toggle_fps()
+        if key in constants.controls.keyboard.KEY_TOGGLE_DEBUG:
+            self.on_toggle_debug()
         if key in constants.controls.keyboard.KEY_SCREENSHOT:
             self.on_make_screenshot()
 
@@ -50,6 +52,9 @@ class View(arcade.View):
 
     def on_toggle_fps(self):
         self.window.show_fps = not self.window.show_fps
+
+    def on_toggle_debug(self):
+        self.window.debug = not self.window.debug
 
     def on_make_screenshot(self):
         screenshot = make_screenshot()

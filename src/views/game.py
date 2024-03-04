@@ -4,6 +4,7 @@ Platformer Template
 If Python and Arcade are installed, this example can be run from the command line with:
 python -m arcade.examples.template_platformer
 """
+import copy
 import logging
 import os
 import random
@@ -32,7 +33,7 @@ from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 
 # Constants used to scale our sprites from their original size
-TILE_SCALING = 0.8
+TILE_SCALING = 1.0
 TOTAL_COINS = 100
 
 
@@ -409,7 +410,6 @@ class Game(Fading):
             return
 
         klass = item.__class__
-        new_item = item
         layer = klass.__name__ + 's'
 
         if selected:
@@ -440,7 +440,7 @@ class Game(Fading):
                 item.on_use(sprite, state=self.state)
                 return True
 
-        self.state.sounds['beep'].play()
+        self.state.beep()
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
         return False
 
@@ -588,4 +588,5 @@ class Game(Fading):
                 self.on_select_item(index=-1)
                 return True
 
+        self.state.beep()
         return False

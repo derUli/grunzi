@@ -21,7 +21,6 @@ class GameWindow(arcade.Window):
             window=False,
             width=SCREEN_WIDTH,
             height=SCREEN_HEIGHT,
-            debug=False,
             update_rate=UPDATE_RATE,
             draw_rate=DRAW_RATE,
             controller=False,
@@ -56,8 +55,8 @@ class GameWindow(arcade.Window):
         self.draw_rate = update_rate
         self.controller = controller
         self.controller_manager = None
-        self.debug = debug
-        self.show_fps = debug
+        self.debug = False
+        self.show_fps = False
         self.controllers = []
 
     def setup(self):

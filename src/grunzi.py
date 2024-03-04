@@ -40,13 +40,6 @@ def cli_args():
     )
 
     parser.add_argument(
-        '--debug',
-        action='store_true',
-        default=False,
-        help='Enable debug mode'
-    )
-
-    parser.add_argument(
         '--width',
         type=int,
         default=SCREEN_WIDTH,
@@ -143,7 +136,6 @@ def main():
         pyglet.options['audio'] = 'silent'
 
     pyglet.options['shadow_window'] = True
-    pyglet.options['debug_gl'] = args.debug
 
     import arcade
 
@@ -157,7 +149,6 @@ def main():
         args.window,
         args.width,
         args.height,
-        debug=args.debug,
         controller=args.controller
     )
 

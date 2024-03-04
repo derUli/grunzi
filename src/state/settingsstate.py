@@ -16,8 +16,6 @@ class SettingsState:
         # Is sound disabled
         self.silent = False
 
-        # Is debug
-        self.debug = False
         # Is controller enabled
         self.controller = False
 
@@ -47,6 +45,7 @@ class SettingsState:
 
             return state
 
-    def save(self):
+    def save(self) -> None:
+        """ Save settings as json file """
         with open(get_settings_path(), 'w') as f:
             f.write(jsonpickle.encode(self, unpicklable=True))

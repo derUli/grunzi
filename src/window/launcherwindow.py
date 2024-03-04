@@ -22,7 +22,6 @@ class LauncherWindow(tk.Tk):
         )
         self.silent = tk.BooleanVar(value=args.silent)
         self.controller = tk.BooleanVar(value=args.controller)
-        self.debug = tk.BooleanVar(value=args.debug)
         self.map = tk.StringVar(value=args.map)
 
         self.state = SettingsState()
@@ -40,7 +39,6 @@ class LauncherWindow(tk.Tk):
             self.fullscreen.set(self.state.fullscreen)
             self.silent.set(self.state.silent)
             self.controller.set(self.state.controller)
-            self.debug.set(self.state.debug)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -69,14 +67,6 @@ class LauncherWindow(tk.Tk):
             offvalue=False,
         )
         checkbox_controller.pack()
-
-        checkbox_debug = tk.Checkbutton(
-            text=_('Debug'),
-            variable=self.debug,
-            onvalue=True,
-            offvalue=False
-        )
-        checkbox_debug.pack()
 
         label_text = tk.StringVar()
         label_text.set(_('Screen resolution:'))
@@ -128,7 +118,6 @@ class LauncherWindow(tk.Tk):
         self.state.fullscreen = self.fullscreen.get()
         self.state.silent = self.silent.get()
         self.state.controller = self.controller.get()
-        self.state.debug = self.debug.get()
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.save()
@@ -138,7 +127,6 @@ class LauncherWindow(tk.Tk):
         self.args.window = not self.fullscreen.get()
         self.args.silent = self.silent.get()
         self.args.controller = self.controller.get()
-        self.args.debug = self.debug.get()
         self.args.map = self.map.get()
         screen_resolution = self.screen_resolution.get().split('x')
 
