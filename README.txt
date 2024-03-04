@@ -30,7 +30,6 @@ XBox 360 Controller können nun verwendet werden.
 Die KI der Totenköpfe wurde verbessert.
 Die Map wurde weiter ausgebaut.
 
-
 # Spiel starten
 
 Das Spiel kann mit einem Doppelklick auf "Grunzi.exe" gestartet werden.

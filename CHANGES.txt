@@ -1,5 +1,10 @@
 # Changelog
 
+## Alpha 008 (Not Yet released)
+
+* Fahrende Autos zur Straße hinzugefügt
+*
+
 ## Alpha 007 (Not Yet released)
 
 * Inventar hinzugefügt

@@ -32,7 +32,7 @@ from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 
 # Constants used to scale our sprites from their original size
-TILE_SCALING = 1.0
+TILE_SCALING = 0.8
 TOTAL_COINS = 100
 
 
