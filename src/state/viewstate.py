@@ -62,6 +62,9 @@ class ViewState:
                 'world': arcade.load_sound(
                     os.path.join(self.sound_dir, 'atmos', 'world.ogg'),
                 )
+            },
+            'tools': {
+                'plier': arcade.load_sound(os.path.join(self.sound_dir, 'plier', 'plier.ogg'))
             }
         }
 

@@ -34,7 +34,8 @@ class Plier(arcade.sprite.Sprite, Item):
             image_y=image_y,
         )
 
-    def on_use(self, b):
-        print(b)
+    def on_use(self, b, state):
         if isinstance(b, Fence):
             b.remove_from_sprite_lists()
+
+            state.sounds['tools']['plier'].play()

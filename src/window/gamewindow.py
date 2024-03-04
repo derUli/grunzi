@@ -43,7 +43,7 @@ class GameWindow(arcade.Window):
             width=width,
             height=height,
             title=SCREEN_TITLE,
-            fullscreen=False,
+            fullscreen=self.is_native,
             update_rate=update_rate,
             draw_rate=draw_rate,
             center_window=True,

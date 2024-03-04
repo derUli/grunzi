@@ -372,7 +372,6 @@ class Game(Fading):
         item = self.inventory.select(index)
         self.player_sprite.set_item(item)
 
-
         if old_item:
             old_item.remove_from_sprite_lists()
 
@@ -446,7 +445,7 @@ class Game(Fading):
 
         for sprite in sprites:
             if isinstance(sprite, Useable):
-                item.on_use(sprite)
+                item.on_use(sprite, state=self.state)
                 return True
 
         self.state.sounds['beep'].play()
