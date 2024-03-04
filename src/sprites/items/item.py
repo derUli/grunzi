@@ -7,6 +7,10 @@ class Item:
     def on_use(self, b):
         logging.info(f"Use item {self} with {b}")
 
+    def copy(self):
+        logging.debug('Copy not implemented')
+        return self
+
 
 class Useable:
     pass

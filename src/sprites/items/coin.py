@@ -47,4 +47,5 @@ class Coin(arcade.sprite.Sprite, Item):
             center_y=center_y
         )
 
-        self.center_x, center_y
+    def copy(self):
+        return Coin(filename=self.filename, scale=SCALE, center_x = self.center_x, center_y = self.center_y)
