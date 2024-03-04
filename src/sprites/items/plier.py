@@ -17,7 +17,9 @@ class Plier(arcade.sprite.Sprite):
             flipped_diagonally=False,
             hit_box_algorithm=None,
             hit_box_detail=None,
-            scale=1.0
+            scale=1.0,
+            center_x=None,
+            center_y=None
     ):
         self.filename = filename
 
@@ -36,4 +38,6 @@ class Plier(arcade.sprite.Sprite):
             flipped_diagonally=flipped_diagonally,
             hit_box_algorithm=hit_box_algorithm,
             hit_box_detail=hit_box_detail,
+            center_x=center_x,
+            center_y=center_y
         )

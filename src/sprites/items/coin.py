@@ -44,3 +44,5 @@ class Coin(arcade.sprite.Sprite):
             center_x=center_x,
             center_y=center_y
         )
+
+        self.center_x, center_y

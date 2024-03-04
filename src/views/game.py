@@ -115,17 +115,6 @@ class Game(Fading):
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
 
         layer_options = {
-            SPRITE_LIST_WALL: {
-                "use_spatial_hash": True
-            },
-            SPRITE_LIST_COINS: {
-                "custom_class": Coin,
-                "use_spatial_hash": True
-            },
-            'Pliers': {
-                "custom_class": Plier,
-                "use_spatial_hash": True
-            }
         }
 
         # Read in the tiled map
@@ -135,7 +124,7 @@ class Game(Fading):
             logging.error(e)
             arcade.exit()
             return
-
+        print(self.tile_map.sprite_lists)
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tile_map)
@@ -572,19 +561,19 @@ class Game(Fading):
     def update_collectable(self):
         item_layers = [
             SPRITE_LIST_COINS,
-            'Pliers'
+            'Items'
         ]
-
-        collected = False
 
         for layer in item_layers:
             items = arcade.check_for_collision_with_list(self.player_sprite, self.scene[layer])
+            print(layer, self.scene[layer].sprite_list)
+
             # TODO: Use a hit handler of physics engine for this
             for item in items:
                 self.scene[layer].remove(item)
                 self.inventory.add_item(item)
                 self.state.play_sound('coin')
                 self.on_select_item(index=-1)
-                collected = True
+                return True
 
-        return collected
+        return False
