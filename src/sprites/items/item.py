@@ -2,6 +2,8 @@ import logging
 
 import arcade
 
+from sprites.sprite import Sprite
+
 
 class Item:
     def on_use(self, b):
@@ -12,5 +14,5 @@ class Useable:
     pass
 
 
-class Fence(arcade.sprite.Sprite, Useable):
+class Fence(Sprite, Useable):
     pass

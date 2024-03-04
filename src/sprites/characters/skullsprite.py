@@ -4,7 +4,6 @@ import os
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-import views.game
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTH_EMPTY

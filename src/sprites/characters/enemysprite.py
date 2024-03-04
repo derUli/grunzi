@@ -2,8 +2,8 @@
 
 from arcade import FACE_RIGHT
 
-from sprites.characters.sprite import Sprite
 from sprites.characters.spritehealth import SpriteHealth
+from sprites.sprite import Sprite
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -33,7 +33,4 @@ class EnemySprite(Sprite, SpriteHealth):
         self.health = 100
 
     def draw_debug(self):
-        return
-
-    def update(self, player=None, scene=None, physics_engine=None, state=None):
         return

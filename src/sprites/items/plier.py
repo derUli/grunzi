@@ -4,9 +4,10 @@ import PIL
 import arcade
 
 from sprites.items.item import Item, Fence
+from sprites.sprite import Sprite
 
 
-class Plier(arcade.sprite.Sprite, Item):
+class Plier(Sprite, Item):
     def __init__(
             self,
             filename: Optional[str] = None,
