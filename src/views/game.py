@@ -182,8 +182,8 @@ class Game(Fading):
 
         self.inventory.draw()
 
-        self.draw_fading()
         self.player_sprite.draw_overlay()
+        self.draw_fading()
         self.draw_debug(self.player_sprite)
 
     def update_player_speed(self):
@@ -223,12 +223,11 @@ class Game(Fading):
         logging.info(f"Controller button {key} pressed")
         if self.player_sprite.dead:
             if key in constants.controls.controller.KEY_DISCARD:
-                self.next_view = MainMenu(self.window, self.state)
-                self.fade_out()
+                self._call_method = self.on_main_menu
             return
 
         if key in constants.controls.controller.KEY_PAUSE:
-            self.on_pause()
+            self._call_method = self.on_pause
         if key in constants.controls.controller.KEY_USE:
             self._call_method = self.on_use
         if key in constants.controls.controller.KEY_DROP:
@@ -247,6 +246,10 @@ class Game(Fading):
 
     def on_item_next(self):
         self.on_select_item(index=self.inventory.next())
+
+    def on_main_menu(self):
+        self.next_view = MainMenu(self.window, self.state)
+        self.fade_out()
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         if not self.initialized:
@@ -302,9 +305,7 @@ class Game(Fading):
 
         if self.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
-                self.next_view = MainMenu(self.window, self.state)
-                self.fade_out()
-
+                self.on_main_menu()
             return
 
         if key in constants.controls.keyboard.KEY_PAUSE:
@@ -451,7 +452,17 @@ class Game(Fading):
     def on_update(self, delta_time):
         """Movement and game logic"""
 
+        # There is an OpenGL error happens when a sprite is added by an controller event handler
+        # which seems to happen because the controller events are handled in a different thread.
+        # To work around this we have the _call_method class variable which can be set to a class method
+        # Which is called in next execution of on_update
+        if self._call_method:
+            self._call_method()
+            self._call_method = None
+
         if self.player_sprite.dead:
+            self.update_fade(self.next_view)
+
             self.update_fade(self.next_view)
             return
 
@@ -460,16 +471,7 @@ class Game(Fading):
         self.physics_engine.step()
         self.update_enemies(delta_time)
         self.center_camera_to_player()
-
         self.update_fade(self.next_view)
-
-        # There is an OpenGL error happens when a sprite is added by an controller event handler
-        # which seems to happen because the controller events are handled in a different thread.
-        # To work around this we have the _call_method class variable which can be set to a class method
-        # Which is called in next execution of on_update
-        if self._call_method:
-            self._call_method()
-            self._call_method = None
 
     def update_player(self):
         self.update_player_speed()
