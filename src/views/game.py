@@ -376,9 +376,12 @@ class Game(Fading):
             old_item.remove_from_sprite_lists()
 
         if not item:
-            return
+            item = arcade.sprite.SpriteSolidColor(
+                width=self.player_sprite.width,
+                height=self.player_sprite.height
+            )
 
-        self.scene.add_sprite('Place', item)
+        self.scene.add_sprite(SPRITE_LIST_PLACE, item)
 
     def on_shoot(self, sound=True):
         bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
@@ -438,7 +441,6 @@ class Game(Fading):
     def on_use(self):
         if not self.player_sprite.get_item():
             return  self.update_collectable()
-
 
         item = self.player_sprite.get_item()
         sprites = arcade.check_for_collision_with_lists(self.player_sprite.get_item(), self.scene.sprite_lists)
