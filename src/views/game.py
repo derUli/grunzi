@@ -363,14 +363,18 @@ class Game(Fading):
             self.update_player_speed()
 
     def on_select_item(self, key=None, index=None):
+        old_item = self.player_sprite.get_item()
+
         if key:
             index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
             index -= 1
 
         item = self.inventory.select(index)
         self.player_sprite.set_item(item)
-        if 'Place' in self.scene.name_mapping:
-            self.scene.remove_sprite_list_by_name('Place')
+
+
+        if old_item:
+            old_item.remove_from_sprite_lists()
 
         if not item:
             return
@@ -413,7 +417,7 @@ class Game(Fading):
             return
 
         klass = item.__class__
-        new_item = klass(filename=item.filename, center_x=item.center_x, center_y=item.center_y)
+        new_item = item
         layer = klass.__name__ + 's'
 
         if selected:
