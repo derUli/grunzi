@@ -11,6 +11,11 @@ class MusicQueue:
     """ Queue used to play randomized background music """
 
     def __init__(self, state, files=None):
+        """
+        Constructor
+        @param state: view state
+        @param files: list of files to play
+        """
         if files is None:
             files = []
         self.files = files
