@@ -22,6 +22,7 @@ from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
 from sprites.items.coin import Coin
+from sprites.items.plier import Plier
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
@@ -70,6 +71,7 @@ class Game(Fading):
 
         # Music queue
         self.music_queue = None
+        self.atmo = None
 
         # Inventory
         self.inventory = None
@@ -92,6 +94,7 @@ class Game(Fading):
 
         if self.initialized:
             self.music_queue.play()
+            self.atmo.play()
             return
 
         self.setup()
@@ -99,6 +102,7 @@ class Game(Fading):
     def on_hide_view(self):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
+        self.atmo.pause()
         for controller in self.window.controllers:
             controller.pop_handlers()
 
@@ -112,10 +116,14 @@ class Game(Fading):
 
         layer_options = {
             SPRITE_LIST_WALL: {
-                "use_spatial_hash": True,
+                "use_spatial_hash": True
             },
             SPRITE_LIST_COINS: {
                 "custom_class": Coin,
+                "use_spatial_hash": True
+            },
+            'Pliers': {
+                "custom_class": Plier,
                 "use_spatial_hash": True
             }
         }
@@ -147,6 +155,8 @@ class Game(Fading):
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, self.state.map_name))
         self.music_queue.play()
+
+        self.atmo = self.state.sounds['atmos']['world'].play()
 
         # Place coins
         for i in range(TOTAL_COINS):
@@ -560,13 +570,21 @@ class Game(Fading):
                                        )
 
     def update_collectable(self):
-        coins = arcade.check_for_collision_with_list(self.player_sprite, self.scene[SPRITE_LIST_COINS])
-        # TODO: Use a hit handler of physics engine for this
-        for coin in coins:
-            self.scene[SPRITE_LIST_COINS].remove(coin)
-            self.inventory.add_item(coin)
-            self.state.play_sound('coin')
-            self.on_select_item(index=-1)
-            return True
+        item_layers = [
+            SPRITE_LIST_COINS,
+            'Pliers'
+        ]
 
-        return False
+        collected = False
+
+        for layer in item_layers:
+            items = arcade.check_for_collision_with_list(self.player_sprite, self.scene[layer])
+            # TODO: Use a hit handler of physics engine for this
+            for item in items:
+                self.scene[layer].remove(item)
+                self.inventory.add_item(item)
+                self.state.play_sound('coin')
+                self.on_select_item(index=-1)
+                collected = True
+
+        return collected
