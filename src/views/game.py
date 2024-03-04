@@ -120,7 +120,7 @@ class Game(Fading):
             SPRITE_LIST_FENCE: {
                 'custom_class': Fence
             },
-            SPRITE_LIST_CAR: {
+            SPRITE_LIST_CAR_RIGHT: {
                 'custom_class': Car
             }
         }
