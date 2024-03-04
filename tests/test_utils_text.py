@@ -10,7 +10,6 @@ from window.gamewindow import GameWindow
 
 class TextTest(unittest.TestCase):
     def setUp(self):
-
         root_dir = os.path.join(
             os.path.dirname(__file__),
             '..',
@@ -30,7 +29,6 @@ class TextTest(unittest.TestCase):
         self.assertEqual('Laila', get_style()['hover']['font_name'])
 
     def test_create_text(self):
-
         text = create_text('Foobar')
 
         self.assertIsInstance(text, arcade.text.Text)

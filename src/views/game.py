@@ -21,10 +21,8 @@ from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
-from sprites.decoration.car import Car
 from sprites.items.coin import Coin
-from sprites.items.item import Item, Fence, Useable
-from sprites.items.plier import Plier
+from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
@@ -113,22 +111,16 @@ class Game(Fading):
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
 
-        layer_options = {
-            SPRITE_LIST_PLIER: {
-                'custom_class': Plier
-            },
-            SPRITE_LIST_FENCE: {
-                'custom_class': Fence
-            },
-            SPRITE_LIST_CAR_RIGHT: {
-                'custom_class': Car
-            }
-        }
-
         self.tile_map_size = (0, 0)
         # Read in the tiled map
         try:
-            self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options, use_spatial_hash=True, lazy=True)
+            self.tile_map = arcade.load_tilemap(
+                map_name,
+                TILE_SCALING,
+                LAYER_OPTIONS,
+                use_spatial_hash=True,
+                lazy=True
+            )
             self.tile_map_size = tilemap_size(self.tile_map)
         except FileNotFoundError as e:
             logging.error(e)

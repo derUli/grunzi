@@ -1,7 +1,5 @@
 import logging
 
-import arcade
-
 from sprites.sprite import Sprite
 
 

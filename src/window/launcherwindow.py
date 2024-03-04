@@ -1,6 +1,5 @@
 import glob
 import os
-import tkinter
 import tkinter as tk
 import tkinter.ttk as ttk
 

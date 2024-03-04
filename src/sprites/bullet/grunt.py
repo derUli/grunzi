@@ -1,9 +1,9 @@
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-import views.game
-from sprites.characters.enemysprite import EnemySprite
 from constants.layers import SPRITE_LIST_ENEMIES
+from sprites.characters.enemysprite import EnemySprite
+
 MASS = 1
 DAMPING = 1
 FRICTION = 1

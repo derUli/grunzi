@@ -2,6 +2,7 @@ from sprites.sprite import Sprite
 
 CAR_SPEED = 10
 
+
 class Car(Sprite):
     def update(
             self,
@@ -17,4 +18,3 @@ class Car(Sprite):
         w, h = map_size
         if self.left > w:
             self.right = 0
-

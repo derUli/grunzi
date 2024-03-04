@@ -8,7 +8,6 @@ import gettext
 import locale
 import logging
 import os
-
 import sys
 
 import pyglet
@@ -22,6 +21,7 @@ from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
 from window.launcherwindow import LauncherWindow
 
 ROOT_DIR = os.path.dirname(__file__)
+
 
 def cli_args():
     parser = argparse.ArgumentParser()

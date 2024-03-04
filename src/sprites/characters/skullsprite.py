@@ -4,12 +4,13 @@ import os
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
+from constants.layers import SPRITE_LIST_WALL
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.enemysprite import EnemySprite
-from sprites.characters.spritehealth import HEALTH_FULL, HEALTH_EMPTY
+from sprites.characters.spritehealth import HEALTH_FULL
 from utils.physics import DEFAULT_FRICTION
 from window.gamewindow import UPDATE_RATE
-from constants.layers import SPRITE_LIST_WALL
+
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
@@ -88,7 +89,6 @@ class SkullSprite(EnemySprite):
         one_percent = self.width / 100
         width = round(one_percent * self.health)
         height = 4
-
 
         top = self.top + height * 2
         right = self.left + width
