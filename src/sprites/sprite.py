@@ -48,6 +48,13 @@ class Sprite(arcade.sprite.Sprite):
     def draw_debug(self):
         pass
 
-    def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=0):
-        print('update sprite')
+    def update(
+            self,
+            player=None,
+            scene=None,
+            physics_engine=None,
+            state=None,
+            delta_time=None,
+            map_size=None
+    ):
         pass

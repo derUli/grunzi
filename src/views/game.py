@@ -28,7 +28,7 @@ from sprites.items.plier import Plier
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
-from utils.sprite import random_position
+from utils.sprite import random_position, tilemap_size
 from views.fading import Fading
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
@@ -125,9 +125,11 @@ class Game(Fading):
             }
         }
 
+        self.tile_map_size = (0, 0)
         # Read in the tiled map
         try:
             self.tile_map = arcade.load_tilemap(map_name, TILE_SCALING, layer_options, use_spatial_hash=True, lazy=True)
+            self.tile_map_size = tilemap_size(self.tile_map)
         except FileNotFoundError as e:
             logging.error(e)
             arcade.exit()
@@ -496,7 +498,8 @@ class Game(Fading):
                     scene=self.scene,
                     physics_engine=self.physics_engine,
                     state=self.state,
-                    delta_time=delta_time
+                    delta_time=delta_time,
+                    map_size=self.tile_map_size
                 )
 
         self.update_enemies(delta_time)

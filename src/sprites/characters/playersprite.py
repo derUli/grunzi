@@ -72,7 +72,15 @@ class PlayerSprite(Sprite, SpriteHealth):
     def reset(self):
         self.modifier = MODIFIER_DEFAULT
 
-    def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=0):
+    def update(
+            self,
+            player=None,
+            scene=None,
+            physics_engine=None,
+            state=None,
+            delta_time=None,
+            map_size=None
+    ):
         if self.dead:
             return
 
