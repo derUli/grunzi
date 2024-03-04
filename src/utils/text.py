@@ -1,12 +1,10 @@
 import arcade
 from arcade.gui import UIFlatButton
 
+from constants.fonts import DEFAULT_FONT, MONOTYPE_FONT
+
 MARGIN = 10
 DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
-
-DEFAULT_FONT = 'Laila'
-ADRIP_FONT = 'a dripping marker'
-MONOTYPE_FONT = 'Consola Mono'
 
 MEDIUM_FONT_SIZE = 14
 LARGE_FONT_SIZE = 16

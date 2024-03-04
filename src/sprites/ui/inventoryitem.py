@@ -89,7 +89,7 @@ class InventoryItem(arcade.sprite.Sprite):
 
             image.paste(scaled_item, (x, y), scaled_item)
 
-        fontfile = os.path.join(self.state.font_dir, 'consolasmonobook.ttf')
+        fontfile = os.path.join(self.state.font_dir, 'consolamonobook.ttf')
         draw = ImageDraw.Draw(image)
         font = ImageFont.truetype(fontfile, 14)
         text = str(self.quantity).rjust(3, ' ')

@@ -1,10 +1,8 @@
-""" Controls display """
+""" Controls views """
 
 import os
 
 import arcade.gui
-
-""" Show controls """
 
 import constants.controls.keyboard
 import utils.text
@@ -12,6 +10,8 @@ from views.fading import Fading
 
 BUTTON_WIDTH = 250
 MARGIN = 40
+FONT_SIZE = 18
+TEXT_COLOR = (255, 255, 255)
 
 
 class Controls(Fading):
@@ -24,20 +24,12 @@ class Controls(Fading):
         self.window = window
         self.state = state
         self.manager = arcade.gui.UIManager(window)
+        self.next_view = None
 
         size = window.width, window.height
         self.shadertoy = self.state.load_shader(size, 'grass')
 
         self.previous_view = previous_view
-
-    def on_hide_view(self):
-        # Disable the UIManager when the view is hidden.
-        self.manager.disable()
-
-    def on_back(self):
-        """ On "Back" button clicked """
-        self.next_view = self.previous_view
-        self.fade_out()
 
     def on_show_view(self):
         """ This is run once when we switch to this view """
@@ -110,15 +102,13 @@ class Controls(Fading):
             width=width,
             height=height,
             text=text,
-            font_size=18,
-            text_color=(255, 255, 255),
+            font_size=FONT_SIZE,
+            text_color=TEXT_COLOR,
             multiline=True,
         )
 
         @back_button.event("on_click")
-        def on_click_back_button(event):
-            # Pass already created view because we are resuming.
-
+        def on_back(event):
             self.on_back()
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -137,23 +127,32 @@ class Controls(Fading):
 
         self.manager.enable()
 
+    def on_back(self) -> None:
+        """ Go back to main menu """
+        self.next_view = self.previous_view
+        self.fade_out()
+
+    def on_hide_view(self) -> None:
+        """ Disable the UIManager when the view is hidden. """
+        self.manager.disable()
+
     def on_key_press(self, key, modifiers):
+        """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
-        """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, dt):
+    def on_update(self, dt: float = 0) -> None:
+        """ On update
+        @param dt: Delta Time
+        """
         self.scene.update()
         self.time += dt
-
         self.update_fade(self.next_view)
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """ Render the screen. """
-
-        # Clear the screen
         self.clear()
         self.camera_gui.use()
         self.shadertoy.render(time=self.time)

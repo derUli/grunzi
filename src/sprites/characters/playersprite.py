@@ -67,7 +67,6 @@ class PlayerSprite(Sprite, SpriteHealth):
             self.center_x, self.center_y = sprite.center_x, sprite.center_y
             sprite.remove_from_sprite_lists()
 
-
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
 

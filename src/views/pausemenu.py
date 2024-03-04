@@ -9,6 +9,7 @@ from views.optionsmenu import OptionsMenu
 
 BUTTON_WIDTH = 250
 
+
 class PauseMenu(Fading):
     """Main menu view class."""
 
