@@ -1,10 +1,5 @@
 # Changelog
 
-## Alpha 008 (Not Yet released)
-
-* Fahrende Autos zur Straße hinzugefügt
-*
-
 ## Alpha 007 (Not Yet released)
 
 * Inventar hinzugefügt
@@ -14,6 +9,7 @@
 * KI der Totenköpfe verbessert
 * Map erweitert
 * Performance der Screenshot-Funktion verbessert
+* Fahrende Autos zur Straße hinzugefügt
 
 ## Alpha 006 (01.03.2024)
 
