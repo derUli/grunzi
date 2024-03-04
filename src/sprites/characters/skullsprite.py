@@ -122,7 +122,7 @@ class SkullSprite(EnemySprite):
         if self.move_path:
             arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
 
-    def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=None):
+    def update(self, player=None, scene=None, physics_engine=None, state=None, delta_time=0):
         if self.dead:
             alpha = self.alpha - FADE_SPEED
 

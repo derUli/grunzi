@@ -21,9 +21,11 @@ from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
+from sprites.decoration.car import Car
 from sprites.items.coin import Coin
 from sprites.items.item import Item, Fence, Useable
 from sprites.items.plier import Plier
+from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
 from utils.sprite import random_position
@@ -117,6 +119,9 @@ class Game(Fading):
             },
             SPRITE_LIST_FENCE: {
                 'custom_class': Fence
+            },
+            SPRITE_LIST_CAR: {
+                'custom_class': Car
             }
         }
 
@@ -480,6 +485,20 @@ class Game(Fading):
         # Move the player with the physics engine
         self.update_player()
         self.physics_engine.step()
+
+        for sprite_list in self.scene.sprite_lists:
+            for sprite in sprite_list:
+                if not isinstance(sprite, Sprite):
+                    continue
+
+                sprite.update(
+                    player=self.player_sprite,
+                    scene=self.scene,
+                    physics_engine=self.physics_engine,
+                    state=self.state,
+                    delta_time=delta_time
+                )
+
         self.update_enemies(delta_time)
         self.center_camera_to_player()
         self.update_fade(self.next_view)
@@ -497,13 +516,6 @@ class Game(Fading):
         for sprite in enemies:
             if not isinstance(sprite, EnemySprite):
                 continue
-            sprite.update(
-                player=self.player_sprite,
-                scene=self.scene,
-                physics_engine=self.physics_engine,
-                state=self.state,
-                delta_time=delta_time
-            )
 
             if arcade.check_for_collision(sprite, self.player_sprite):
                 self.player_sprite.hurt(sprite.damage)
