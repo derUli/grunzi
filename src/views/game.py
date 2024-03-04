@@ -35,10 +35,6 @@ from views.pausemenu import PauseMenu
 TILE_SCALING = 1.0
 TOTAL_COINS = 100
 
-# TODO: Make this dynamic
-START_POS_X = 474
-START_POS_Y = 852
-
 
 class Game(Fading):
     """
@@ -139,9 +135,7 @@ class Game(Fading):
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = PlayerSprite(filename)
-        self.player_sprite.setup(state=self.state)
-        self.player_sprite.center_x = START_POS_X
-        self.player_sprite.center_y = START_POS_Y
+        self.player_sprite.setup(state=self.state, scene=self.scene)
         self.scene.add_sprite(SPRITE_LIST_PLAYER, self.player_sprite)
 
         # Create the physics engine

@@ -4,6 +4,7 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 import utils.text
+from constants.layers import SPRITE_LIST_SPAWN_POINT
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 
 DEFAULT_FACE = FACE_RIGHT
@@ -25,6 +26,7 @@ PLACE_ITEM_ALPHA = 100
 
 INVENTORY_MARGIN = 15
 
+SPAWN_POINT = (0, 0)
 
 class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
     def __init__(
@@ -50,8 +52,17 @@ class PlayerSprite(arcade.sprite.Sprite, SpriteHealth):
 
         self.state = None
 
-    def setup(self, state):
+    def setup(self, state, scene):
         self.state = state
+        self.scene = scene
+
+        pos = SPAWN_POINT
+
+        for sprite in self.scene.get_sprite_list(SPRITE_LIST_SPAWN_POINT):
+            pos = sprite.center_x, sprite.center_y
+            sprite.remove_from_sprite_lists()
+
+        self.center_x, self.center_y = pos
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
