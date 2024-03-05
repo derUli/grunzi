@@ -32,6 +32,7 @@ from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
 from utils.sprite import random_position, tilemap_size
 from utils.video import load_video
+from views.camera import center_camera_to_player
 from views.fading import Fading
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
@@ -54,8 +55,8 @@ class Game(Fading):
         self.state = state
 
         # Our TileMap Object
-        self.tile_map = None
-        self.tile_map_size = (0, 0)
+        self.tilemap = None
+        self.tilemap_size = (0, 0)
 
         # Separate variable that holds the player sprite
         self.player_sprite = None
@@ -127,14 +128,13 @@ class Game(Fading):
 
         # Read in the tiled map
         try:
-            self.tile_map = arcade.load_tilemap(
+            self.tilemap = arcade.load_tilemap(
                 map_name,
-                TILE_SCALING,
-                LAYER_OPTIONS,
-                use_spatial_hash=True,
-                lazy=True
+                layer_options=LAYER_OPTIONS,
+                use_spatial_hash=True
             )
-            self.tile_map_size = tilemap_size(self.tile_map)
+
+            self.tilemap_size = tilemap_size(self.tilemap)
         except FileNotFoundError as e:
             logging.error(e)
             arcade.exit()
@@ -142,7 +142,7 @@ class Game(Fading):
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
-        self.scene = arcade.Scene.from_tilemap(self.tile_map)
+        self.scene = arcade.Scene.from_tilemap(self.tilemap)
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -510,20 +510,6 @@ class Game(Fading):
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
         return False
 
-    def center_camera_to_player(self):
-        # Find where player is, then calculate lower left corner from that
-        screen_center_x = self.player_sprite.center_x - (self.camera_sprites.viewport_width / 2)
-        screen_center_y = self.player_sprite.center_y - (self.camera_sprites.viewport_height / 2)
-
-        # Set some limits on how far we scroll
-        if screen_center_x < 0:
-            screen_center_x = 0
-        if screen_center_y < 0:
-            screen_center_y = 0
-
-        # Here's our center, move to it
-        player_centered = screen_center_x, screen_center_y
-        self.camera_sprites.move_to(player_centered)
 
     def on_update(self, delta_time):
         """Movement and game logic"""
@@ -559,11 +545,11 @@ class Game(Fading):
                     physics_engine=self.physics_engine,
                     state=self.state,
                     delta_time=delta_time,
-                    map_size=self.tile_map_size
+                    map_size=self.tilemap_size
                 )
 
         self.update_enemies(delta_time)
-        self.center_camera_to_player()
+        center_camera_to_player(self.player_sprite, self.camera_sprites)
         self.update_fade(self.next_view)
 
     def update_player(self):
@@ -589,32 +575,8 @@ class Game(Fading):
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
 
 
-    @property
-    def all_layers(self):
-        """ Returns all layers except background and decoration"""
-        sprite_list = SpriteList(use_spatial_hash=False)
-
-        layer_names = [
-            LAYER_WALL,
-            LAYER_COINS,
-            LAYER_ENEMIES,
-            LAYER_MOVEABLE,
-            LAYER_PLAYER,
-            LAYER_FENCE,
-            LAYER_DECORATION
-        ]
-
-        for layer in self.scene.name_mapping:
-            if layer not in layer_names:
-                self.scene.add_sprite_list(layer)
-
-            for sprite in self.scene.get_sprite_list(layer):
-                sprite_list.append(sprite)
-
-        return sprite_list
-
     def spawn_skull(self):
-        rand_x, rand_y = random_position(self.tile_map)
+        rand_x, rand_y = random_position(self.tilemap)
 
         skull = SkullSprite(
             filename=os.path.join(
@@ -627,7 +589,7 @@ class Game(Fading):
             center_y=rand_y
         )
 
-        if arcade.check_for_collision_with_list(skull, self.all_layers):
+        if arcade.check_for_collision_with_list(skull, all_layers(self.scene)):
             return
 
         self.scene.add_sprite(LAYER_ENEMIES, skull)
@@ -641,12 +603,12 @@ class Game(Fading):
         )
 
     def spawn_ferret(self):
-        rand_x, rand_y = random_position(self.tile_map)
+        rand_x, rand_y = random_position(self.tilemap)
 
         ferret = Ferret(filename=os.path.join(self.state.sprite_dir, 'char', 'ferret.png'), center_x=rand_x,
                         center_y=rand_y)
 
-        if arcade.check_for_collision_with_list(ferret, self.all_layers):
+        if arcade.check_for_collision_with_list(ferret, all_layers(self.scene)):
             return self.spawn_ferret()
 
         self.scene.add_sprite(COLLISION_ENEMY, ferret)
