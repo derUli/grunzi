@@ -8,6 +8,7 @@ import logging
 import os
 import random
 import threading
+import time
 
 import arcade
 import pyglet.clock
@@ -17,6 +18,7 @@ import constants.controls.controller
 import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
+from constants.collisions import COLLISION_ENEMY
 from constants.layers import *
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
@@ -37,8 +39,6 @@ from window.gamewindow import UPDATE_RATE
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
-TOTAL_COINS = 100
-
 
 class Game(Fading):
     """
@@ -117,6 +117,7 @@ class Game(Fading):
         threading.Thread(target=self.async_load).start()
 
     def async_load(self):
+        start_time = time.time()
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
 
@@ -155,15 +156,13 @@ class Game(Fading):
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
-        # Place coins
-        for i in range(TOTAL_COINS):
-            self.make_coin()
-
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
 
         self.initialized = True
+
+        logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
 
     def wait_for_video(self, dt=0):
 
@@ -610,21 +609,6 @@ class Game(Fading):
 
         return sprite_list
 
-    def make_coin(self):
-        rand_x, rand_y = random_position(self.tile_map)
-        coin = Coin(
-            filename=os.path.join(self.state.sprite_dir, 'coin', 'coin.png'),
-            center_x=rand_x,
-            center_y=rand_y
-        )
-
-        if arcade.check_for_collision_with_list(coin, self.all_layers):
-            return self.make_coin()
-
-        self.scene.add_sprite(LAYER_COINS, coin)
-
-        return
-
     def spawn_skull(self):
         rand_x, rand_y = random_position(self.tile_map)
 
@@ -638,7 +622,7 @@ class Game(Fading):
         self.physics_engine.add_sprite(skull,
                                        friction=skull.friction,
                                        moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-                                       collision_type="enemy",
+                                       collision_type=COLLISION_ENEMY,
                                        max_velocity=200,
                                        damping=skull.damping
                                        )
