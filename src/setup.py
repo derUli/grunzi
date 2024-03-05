@@ -6,16 +6,14 @@ import sys
 
 import cx_Freeze
 
+target_name = 'grunzi'
+ffmpeg_file = None
 base = None
 
-target_name = 'grunzi'
-
 if sys.platform == 'win32':
-    target_name = 'Grunzi'
-
-if sys.platform == 'win32':
+    target_name = 'Grunzi.exe'
     base = "Win32GUI"
-    target_name += '.exe'
+    ffmpeg_file = 'ffmpeg.exe'
 
 target = cx_Freeze.Executable(
     script="grunzi.py",
@@ -39,11 +37,13 @@ options = {
             '../CREDITS.txt',
             '../README.txt',
             '../CHANGES.txt',
-            '../VERSION.txt',
-            'ffmpeg.exe'
+            '../VERSION.txt'
         ]
     }
 }
+
+if ffmpeg_file:
+    options['build_exe']['include_files'].append(ffmpeg_file)
 
 cx_Freeze.setup(
     name='Grunzi',

@@ -7,6 +7,7 @@ python -m arcade.examples.template_platformer
 import logging
 import os
 import random
+import shutil
 import threading
 
 import arcade
@@ -113,9 +114,13 @@ class Game(Fading):
     def setup(self):
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
-        if os.path.exists(video_file):
+        has_ffmpeg = shutil.which('ffmpeg')
+
+        if os.path.exists(video_file) and has_ffmpeg:
             self.video = VideoPyglet(video_file)
             self.video.resize(self.window.size)
+            if self.state.is_silent():
+                self.video.mute()
 
         threading.Thread(target=self.async_load).start()
 
