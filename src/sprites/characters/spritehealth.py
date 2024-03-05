@@ -1,8 +1,11 @@
 import logging
 
+import arcade
+
 HEALTH_FULL = 100.0
 HEALTH_EMPTY = 0.0
-
+HEALTHBAR_ENEMY_COLOR = arcade.color.RED
+HEALTHBAR_FREN_COLOR = arcade.color.GREEN
 
 class SpriteHealth:
 
@@ -42,3 +45,25 @@ class SpriteHealth:
             self.on_die()
 
             return self._died
+
+    def draw_healthbar(self, color=HEALTHBAR_ENEMY_COLOR):
+        one_percent = self.width / 100
+        width = round(one_percent * self.health)
+        height = 4
+
+        top = self.top + height * 2
+        right = self.left + width
+
+        alpha = self.alpha
+
+        if alpha > 50:
+            alpha = 50
+
+        r, g, b, a = arcade.color.BLACK
+        a = alpha
+        arcade.draw_line(self.left, top, self.right, top, line_width=height, color=(r, g, b, a))
+
+        if self.health < 1:
+            return
+        r, g, b, a = HEALTHBAR_ENEMY_COLOR
+        arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))

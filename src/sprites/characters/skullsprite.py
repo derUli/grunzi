@@ -86,26 +86,7 @@ class SkullSprite(EnemySprite):
         if not self.insight:
             return
 
-        one_percent = self.width / 100
-        width = round(one_percent * self.health)
-        height = 4
-
-        top = self.top + height * 2
-        right = self.left + width
-
-        alpha = self.alpha
-
-        if alpha > 50:
-            alpha = 50
-
-        r, g, b, a = arcade.color.BLACK
-        a = alpha
-        arcade.draw_line(self.left, top, self.right, top, line_width=height, color=(r, g, b, a))
-
-        if self.health < 1:
-            return
-        r, g, b, a = arcade.color.RED
-        arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))
+        self.draw_healthbar()
 
     def draw_debug(self):
         if not self.insight:
