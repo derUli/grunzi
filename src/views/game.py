@@ -12,35 +12,31 @@ import time
 
 import arcade
 import pyglet.clock
-from arcade import PymunkPhysicsEngine, FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
+from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
 import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
-from constants.collisions import COLLISION_ENEMY
 from constants.layers import *
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.ferret import spawn_ferret
 from sprites.characters.playersprite import PlayerSprite
-from sprites.characters.skullsprite import SkullSprite
+from sprites.characters.skullsprite import spawn_skull
 from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
 from utils.scene import get_layer
-from utils.sprite import random_position, tilemap_size
+from utils.sprite import tilemap_size
 from utils.video import load_video
 from views.camera import center_camera_to_player
 from views.fading import Fading
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
-
-# Constants used to scale our sprites from their original size
-TILE_SCALING = 1.0
 
 
 class Game(Fading):
@@ -498,7 +494,6 @@ class Game(Fading):
         if self.player_sprite.dead:
             return self.update_fade(self.next_view)
 
-
         # Move the player with the physics engine
         self.update_player()
         self.physics_engine.step()
@@ -526,10 +521,7 @@ class Game(Fading):
         self.player_sprite.update()
 
     def update_enemies(self, delta_time):
-        try:
-            enemies = self.scene[LAYER_ENEMIES]
-        except KeyError:
-            enemies = []
+        enemies = get_layer(LAYER_ENEMIES, self.scene)
 
         for sprite in enemies:
             if not isinstance(sprite, EnemySprite):
@@ -540,35 +532,8 @@ class Game(Fading):
 
         if len(enemies) < 10:
             if random.randint(1, 150) == 50:
-                self.spawn_skull()
+                spawn_skull(self.state, self.tilemap, self.scene, self.physics_engine)
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
-
-    def spawn_skull(self):
-        rand_x, rand_y = random_position(self.tilemap)
-
-        skull = SkullSprite(
-            filename=os.path.join(
-                self.state.sprite_dir,
-                'monster',
-                'skull',
-                'skull.png'
-            ),
-            center_x=rand_x,
-            center_y=rand_y
-        )
-
-        if arcade.check_for_collision_with_list(skull, all_layers(self.scene)):
-            return
-
-        self.scene.add_sprite(LAYER_ENEMIES, skull)
-        self.physics_engine.add_sprite(
-            skull,
-            friction=skull.friction,
-            moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-            collision_type=COLLISION_ENEMY,
-            max_velocity=200,
-            damping=skull.damping
-        )
 
     def update_collectable(self):
         items = arcade.check_for_collision_with_lists(self.player_sprite, self.scene.sprite_lists)

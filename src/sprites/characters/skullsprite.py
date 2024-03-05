@@ -2,13 +2,15 @@
 import os
 
 import arcade
-from arcade import FACE_RIGHT, FACE_LEFT
+from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 
-from constants.layers import LAYER_WALL
+from constants.collisions import COLLISION_ENEMY
+from constants.layers import LAYER_WALL, all_layers, LAYER_ENEMIES
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL
 from utils.physics import DEFAULT_FRICTION
+from utils.sprite import random_position
 from window.gamewindow import UPDATE_RATE
 
 DEFAULT_FACE = FACE_RIGHT
@@ -226,3 +228,31 @@ class SkullSprite(EnemySprite):
             bottom=int(self.playing_field_bottom_boundary),
             top=int(self.playing_field_top_boundary)
         )
+
+
+def spawn_skull(state, tilemap, scene, physics_engine):
+    rand_x, rand_y = random_position(tilemap)
+
+    skull = SkullSprite(
+        filename=os.path.join(
+            state.sprite_dir,
+            'monster',
+            'skull',
+            'skull.png'
+        ),
+        center_x=rand_x,
+        center_y=rand_y
+    )
+
+    if arcade.check_for_collision_with_list(skull, all_layers(scene)):
+        return
+
+    scene.add_sprite(LAYER_ENEMIES, skull)
+    physics_engine.add_sprite(
+        skull,
+        friction=skull.friction,
+        moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+        collision_type=COLLISION_ENEMY,
+        max_velocity=200,
+        damping=skull.damping
+    )
