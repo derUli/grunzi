@@ -99,7 +99,7 @@ class Game(Fading):
 
         if self.initialized:
             self.music_queue.play()
-            self.atmo.play(loop=True)
+            self.atmo.play()
             return
 
         self.setup()
@@ -269,6 +269,11 @@ class Game(Fading):
             return
 
         if self.video and self.video.active:
+            if key in constants.controls.controller.KEY_DISCARD:
+                self.video.stop()
+            return
+
+        if self.video and self.video.active:
             return
 
         if self.player_sprite.dead:
@@ -358,6 +363,11 @@ class Game(Fading):
         super().on_key_press(key, modifiers)
 
         if not self.initialized:
+            return
+
+        if self.video and self.video.active:
+            if key in constants.controls.keyboard.KEY_DISCARD:
+                self.video.stop()
             return
 
         if self.player_sprite.dead:
