@@ -394,7 +394,6 @@ class Game(Fading):
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
-
         super().on_key_release(key, modifiers)
 
         if not self.initialized:
@@ -444,6 +443,7 @@ class Game(Fading):
             state=self.state,
             scene=self.scene
         )
+
     def on_grunt(self):
         return Grunt(8).setup(
             source=self.player_sprite,
@@ -462,7 +462,6 @@ class Game(Fading):
 
         klass = item.__class__
         layer = klass.__name__ + 's'
-
         new_item = item.copy()
 
         if selected:
@@ -511,8 +510,6 @@ class Game(Fading):
             self._call_method = None
 
         if self.player_sprite.dead:
-            self.update_fade(self.next_view)
-
             self.update_fade(self.next_view)
             return
 
@@ -590,8 +587,11 @@ class Game(Fading):
     def spawn_ferret(self):
         rand_x, rand_y = random_position(self.tilemap)
 
-        ferret = Ferret(filename=os.path.join(self.state.sprite_dir, 'char', 'ferret.png'), center_x=rand_x,
-                        center_y=rand_y)
+        ferret = Ferret(
+            filename=os.path.join(self.state.sprite_dir, 'char', 'ferret.png'),
+            center_x=rand_x,
+            center_y=rand_y
+        )
 
         if arcade.check_for_collision_with_list(ferret, all_layers(self.scene)):
             return self.spawn_ferret()
@@ -600,8 +600,7 @@ class Game(Fading):
         self.physics_engine.add_sprite(
             ferret,
             moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-            collision_type=COLLISION_ENEMY,
-            max_velocity=200
+            collision_type=COLLISION_ENEMY
         )
 
     def update_collectable(self):
