@@ -23,9 +23,9 @@ from constants.layers import *
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
+from sprites.characters.ferret import Ferret
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
-from sprites.items.coin import Coin
 from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
@@ -39,6 +39,7 @@ from window.gamewindow import UPDATE_RATE
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
+
 
 class Game(Fading):
     """
@@ -155,7 +156,7 @@ class Game(Fading):
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
-
+        self.spawn_ferret()
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
@@ -378,6 +379,8 @@ class Game(Fading):
             self.on_shoot()
         if key in constants.controls.keyboard.KEY_GRUNT:
             self.on_grunt()
+        if key in constants.controls.keyboard.KEY_SPAWN_FERRET:
+            self.spawn_ferret()
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
             self.left_key_pressed = True
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
@@ -585,6 +588,7 @@ class Game(Fading):
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
 
+
     @property
     def all_layers(self):
         """ Returns all layers except background and decoration"""
@@ -612,20 +616,46 @@ class Game(Fading):
     def spawn_skull(self):
         rand_x, rand_y = random_position(self.tile_map)
 
-        skull = SkullSprite(filename=os.path.join(self.state.sprite_dir, 'skull.png'), center_x=rand_x, center_y=rand_y)
+        skull = SkullSprite(
+            filename=os.path.join(
+                self.state.sprite_dir,
+                'monster',
+                'skull',
+                'skull.png'
+            ),
+            center_x=rand_x,
+            center_y=rand_y
+        )
 
         if arcade.check_for_collision_with_list(skull, self.all_layers):
             return
 
         self.scene.add_sprite(LAYER_ENEMIES, skull)
+        self.physics_engine.add_sprite(
+            skull,
+            friction=skull.friction,
+            moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+            collision_type=COLLISION_ENEMY,
+            max_velocity=200,
+            damping=skull.damping
+        )
 
-        self.physics_engine.add_sprite(skull,
-                                       friction=skull.friction,
-                                       moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-                                       collision_type=COLLISION_ENEMY,
-                                       max_velocity=200,
-                                       damping=skull.damping
-                                       )
+    def spawn_ferret(self):
+        rand_x, rand_y = random_position(self.tile_map)
+
+        ferret = Ferret(filename=os.path.join(self.state.sprite_dir, 'char', 'ferret.png'), center_x=rand_x,
+                        center_y=rand_y)
+
+        if arcade.check_for_collision_with_list(ferret, self.all_layers):
+            return self.spawn_ferret()
+
+        self.scene.add_sprite(COLLISION_ENEMY, ferret)
+        self.physics_engine.add_sprite(
+            ferret,
+            moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+            collision_type=COLLISION_ENEMY,
+            max_velocity=200
+        )
 
     def update_collectable(self):
         items = arcade.check_for_collision_with_lists(self.player_sprite, self.scene.sprite_lists)

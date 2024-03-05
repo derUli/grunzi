@@ -46,7 +46,7 @@ class SpriteHealth:
 
             return self._died
 
-    def draw_healthbar(self, color=HEALTHBAR_ENEMY_COLOR):
+    def draw_healthbar(self, color_health=HEALTHBAR_ENEMY_COLOR):
         one_percent = self.width / 100
         width = round(one_percent * self.health)
         height = 4
@@ -65,5 +65,5 @@ class SpriteHealth:
 
         if self.health < 1:
             return
-        r, g, b, a = HEALTHBAR_ENEMY_COLOR
+        r, g, b, a = color_health
         arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))

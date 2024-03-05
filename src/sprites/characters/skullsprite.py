@@ -47,10 +47,10 @@ class SkullSprite(EnemySprite):
         dirname = os.path.join(os.path.dirname(filename))
 
         self.skull_off = self.textures = arcade.load_texture_pair(
-            os.path.join(dirname, 'monster', 'skull', 'skull.png')
+            os.path.join(dirname, 'skull.png')
         )
         self.skull_on = self.textures = arcade.load_texture_pair(
-            os.path.join(dirname, 'monster', 'skull', 'skull2.png')
+            os.path.join(dirname, 'skull2.png')
         )
 
         self.chasing = None
