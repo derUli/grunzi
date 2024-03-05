@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-05 14:20+0100\n"
+"POT-Creation-Date: 2024-03-05 20:59+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,9 +18,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/characters/playersprite.py:138
-msgid "You're bacon!"
-msgstr "Du bist Schinken."
+#: sprites/characters/playersprite.py:73
+msgid "bacon"
+msgstr "Schinken"
+
+#: sprites/characters/playersprite.py:74
+msgid "salami"
+msgstr "Salami"
+
+#: sprites/characters/playersprite.py:75
+msgid "schnitzel"
+msgstr "Schnitzel"
+
+#: sprites/characters/playersprite.py:76
+msgid "Cutlet"
+msgstr "Kotelett"
+
+#: sprites/characters/playersprite.py:77
+msgid "Mett"
+msgstr "Mett"
+
+#: sprites/characters/playersprite.py:78
+msgid "Suckling pig"
+msgstr "Spanferkel"
+
+#: sprites/characters/playersprite.py:79
+msgid "Pulled Pork"
+msgstr "Pulled Pork"
+
+#: sprites/characters/playersprite.py:80
+msgid "Spare ribs"
+msgstr "Spareribs"
+
+#: sprites/characters/playersprite.py:83
+msgid "You are"
+msgstr "Du bist"
 
 #: views/controls.py:39
 msgid "Scroll with mousewheel"
@@ -162,7 +194,7 @@ msgstr "Starttaste"
 msgid "Back"
 msgstr "Zurück"
 
-#: views/game.py:201
+#: views/game.py:195
 msgid "Loading..."
 msgstr "Wird geladen..."
 

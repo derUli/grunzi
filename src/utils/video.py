@@ -1,4 +1,3 @@
-
 """ Video playback utils  """
 import os
 import shutil

@@ -9,6 +9,7 @@ DEFAULT_FACE = FACE_RIGHT
 DAMAGE = 0
 HEALTH_FULL = 100
 
+
 class EnemySprite(Sprite, SpriteHealth):
     def __init__(
             self,

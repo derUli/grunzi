@@ -12,6 +12,7 @@ class VideoTest(unittest.TestCase):
             os.path.join('..', 'src', 'data', '3rdparty')
         )
         os.environ["PATH"] += os.pathsep + thirdpartydir
+
     def test_load_video(self):
         path = os.path.join(
             os.path.dirname(__file__),

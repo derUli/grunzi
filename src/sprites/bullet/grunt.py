@@ -1,7 +1,7 @@
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-from constants.collisions import COLLISION_ENEMY
+from constants.collisions import COLLISION_ENEMY, COLLISION_GRUNT
 from constants.layers import LAYER_ENEMIES
 from sprites.characters.enemysprite import EnemySprite
 
@@ -72,7 +72,7 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
         )
 
         physics_engine.apply_force(self, (self.force_move, 0))
-        physics_engine.add_collision_handler('grunt', COLLISION_ENEMY, post_handler=self.on_hit)
+        physics_engine.add_collision_handler(COLLISION_GRUNT, COLLISION_ENEMY, post_handler=self.on_hit)
 
     def on_hit(self, sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """

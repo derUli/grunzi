@@ -1,6 +1,7 @@
 import arcade
 from arcade import SpriteSolidColor
 
+from constants.collisions import COLLISION_BULLET, COLLISION_WALL, COLLISION_SKULL_BULLET, COLLISION_PLAYER
 from constants.layers import LAYER_ENEMIES
 from sprites.bullet.bullet import Bullet
 
@@ -153,10 +154,11 @@ class SkullBullet(Bullet):
             elasticity=ELASTICITY
         )
 
-        physics_engine.add_collision_handler('skull_bullet', 'wall', post_handler=self.on_hit_destroy)
-        physics_engine.add_collision_handler('skull_bullet', 'skull_bullet', post_handler=self.on_hit_destroy)
-        physics_engine.add_collision_handler('skull_bullet', 'player', post_handler=self.on_hit_player)
-        physics_engine.add_collision_handler('skull_bullet', 'bullet', post_handler=self.on_hit_destroy)
+        physics_engine.add_collision_handler(COLLISION_SKULL_BULLET, COLLISION_WALL, post_handler=self.on_hit_destroy)
+        physics_engine.add_collision_handler(COLLISION_SKULL_BULLET, COLLISION_SKULL_BULLET,
+                                             post_handler=self.on_hit_destroy)
+        physics_engine.add_collision_handler(COLLISION_SKULL_BULLET, COLLISION_PLAYER, post_handler=self.on_hit_player)
+        physics_engine.add_collision_handler(COLLISION_SKULL_BULLET, COLLISION_BULLET, post_handler=self.on_hit_destroy)
         physics_engine.apply_force(self, (force_x, force_y))
 
     def on_hit_destroy(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):

@@ -1,4 +1,5 @@
 """ Player sprite class """
+import random
 
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
@@ -53,6 +54,7 @@ class PlayerSprite(Sprite, SpriteHealth):
         self._died = False
 
         self.state = None
+        self.gameover_text = None
 
     def setup(self, state, scene):
         self.state = state
@@ -66,6 +68,19 @@ class PlayerSprite(Sprite, SpriteHealth):
         for sprite in self.scene.get_sprite_list(LAYER_SPAWN_POINT):
             self.center_x, self.center_y = sprite.center_x, sprite.center_y
             sprite.remove_from_sprite_lists()
+
+        sausages = [
+            _('bacon'),
+            _('salami'),
+            _('schnitzel'),
+            _('Cutlet'),
+            _('Mett'),
+            _('Suckling pig'),
+            _('Pulled Pork'),
+            _('Spare ribs')
+        ]
+
+        self.gameover_text = _('You are') + ' ' + random.choice(sausages) + '!'
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
@@ -135,7 +150,7 @@ class PlayerSprite(Sprite, SpriteHealth):
 
         # TODO: Implement real game over screen
         utils.text.create_text(
-            _("You're bacon!"),
+            self.gameover_text,
             width=window.width - (utils.text.MARGIN * 2),
             align='left').draw()
 

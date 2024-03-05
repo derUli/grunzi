@@ -7,7 +7,6 @@ python -m arcade.examples.template_platformer
 import logging
 import os
 import random
-import shutil
 import threading
 
 import arcade
@@ -39,7 +38,6 @@ from window.gamewindow import UPDATE_RATE
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
 TOTAL_COINS = 100
-from pyvidplayer2 import VideoPyglet
 
 
 class Game(Fading):

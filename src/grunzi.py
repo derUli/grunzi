@@ -7,6 +7,7 @@ import argparse
 import gettext
 import locale
 import logging
+import os
 import sys
 
 import pyglet
@@ -18,13 +19,13 @@ from utils.utils import disable_screensaver
 from views.intro import Intro
 from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
 from window.launcherwindow import LauncherWindow
-import os
 
 ROOT_DIR = os.path.dirname(__file__)
 
 # extend path for ffmpeg
 THIRDPARTY_DIR = os.path.join(ROOT_DIR, 'data', '3rdparty')
 os.environ["PATH"] += os.pathsep + THIRDPARTY_DIR
+
 
 def cli_args():
     parser = argparse.ArgumentParser()
