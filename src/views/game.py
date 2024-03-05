@@ -8,7 +8,6 @@ import logging
 import os
 import random
 import threading
-import time
 
 import arcade
 import pyglet.clock
@@ -39,6 +38,7 @@ from window.gamewindow import UPDATE_RATE
 TILE_SCALING = 1.0
 TOTAL_COINS = 100
 from pyvidplayer2 import VideoPyglet
+
 
 class Game(Fading):
     """
@@ -111,11 +111,13 @@ class Game(Fading):
             controller.pop_handlers()
 
     def setup(self):
-       video_file = os.path.join(self.state.video_dir, 'intro.webm')
-       self.video = VideoPyglet(video_file)
-       self.video.resize(self.window.size)
-       threading.Thread(target=self.async_load).start()
+        video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
+        if os.path.exists(video_file):
+            self.video = VideoPyglet(video_file)
+            self.video.resize(self.window.size)
+
+        threading.Thread(target=self.async_load).start()
 
     def async_load(self):
         # Set up the Cameras
@@ -166,8 +168,11 @@ class Game(Fading):
 
         self.initialized = True
 
+    def wait_for_video(self, dt=0):
 
-    def wait_for_video(self, dt = 0):
+        if not self.initialized:
+            return
+
         # Wait until video is completed until playing music
         if self.video and self.video.active:
             return
