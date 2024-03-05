@@ -389,7 +389,6 @@ class Game(Fading):
             self.up_key_pressed = True
         elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
             self.down_key_pressed = True
-
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             self.on_select_item(key=key)
 
