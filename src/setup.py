@@ -7,13 +7,11 @@ import sys
 import cx_Freeze
 
 target_name = 'grunzi'
-ffmpeg_file = None
 base = None
 
 if sys.platform == 'win32':
     target_name = 'Grunzi.exe'
     base = "Win32GUI"
-    ffmpeg_file = 'ffmpeg.exe'
 
 target = cx_Freeze.Executable(
     script="grunzi.py",
@@ -42,9 +40,6 @@ options = {
     }
 }
 
-if ffmpeg_file:
-    options['build_exe']['include_files'].append(ffmpeg_file)
-
 cx_Freeze.setup(
     name='Grunzi',
     options=options,
@@ -52,3 +47,10 @@ cx_Freeze.setup(
         target
     ]
 )
+
+
+# If windows delete linux ffmpeg executable
+if sys.platform == 'win32':
+    os.unlink('build/exe.win-amd64-3.11/data/3rdparty/ffmpeg')
+else:
+    os.unlink('build/exe.win-amd64-3.11/data/3rdparty/ffmpeg.exe')
