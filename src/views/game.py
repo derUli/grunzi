@@ -101,8 +101,7 @@ class Game(Fading):
 
         if self.initialized:
             self.music_queue.play()
-            self.atmo.play()
-            return
+            return self.atmo.play()
 
         self.setup()
 
@@ -138,8 +137,8 @@ class Game(Fading):
             self.tilemap_size = tilemap_size(self.tilemap)
         except FileNotFoundError as e:
             logging.error(e)
-            arcade.exit()
-            return
+            return arcade.exit()
+
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
@@ -184,8 +183,7 @@ class Game(Fading):
 
         if self.video and self.video.active:
             self.video.draw((0, 0), force_draw=False)
-            self.draw_debug()
-            return
+            return self.draw_debug()
 
         self.clear()
 
@@ -196,8 +194,7 @@ class Game(Fading):
                 _("Loading..."),
                 width=self.window.width - (utils.text.MARGIN * 2),
                 align='left').draw()
-            self.draw_debug()
-            return
+            return self.draw_debug()
 
         self.camera_sprites.use()
         self.scene.draw()
