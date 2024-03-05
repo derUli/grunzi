@@ -1,0 +1,2 @@
+COLLISION_TYPE_CAR = "car"
+COLLISION_ENEMY = "enemy"
