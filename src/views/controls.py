@@ -127,11 +127,6 @@ class Controls(Fading):
 
         self.manager.enable()
 
-    def on_back(self) -> None:
-        """ Go back to main menu """
-        self.next_view = self.previous_view
-        self.fade_out()
-
     def on_hide_view(self) -> None:
         """ Disable the UIManager when the view is hidden. """
         self.manager.disable()
@@ -160,3 +155,8 @@ class Controls(Fading):
         self.manager.draw()
         self.draw_fading()
         self.draw_debug()
+
+    def on_back(self) -> None:
+        """ Go back to main menu """
+        self.next_view = self.previous_view
+        self.fade_out()

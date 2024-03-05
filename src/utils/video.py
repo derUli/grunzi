@@ -16,7 +16,7 @@ def load_video(
     if not has_ffmpeg:
         return None
 
-    if not os.path.exists(has_ffmpeg):
+    if not os.path.exists(path):
         return None
 
     video = VideoPyglet(path)

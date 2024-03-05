@@ -1,3 +1,4 @@
+""" Fading view """
 import arcade
 
 from views.view import View
@@ -6,6 +7,8 @@ FADE_RATE = 5
 
 
 class Fading(View):
+    """ Fading view """
+
     def __init__(self, window):
         super().__init__(window)
 
