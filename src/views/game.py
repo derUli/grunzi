@@ -23,7 +23,7 @@ from constants.layers import *
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.enemysprite import EnemySprite
-from sprites.characters.ferret import Ferret
+from sprites.characters.ferret import spawn_ferret
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import SkullSprite
 from sprites.items.item import Item, Useable
@@ -139,7 +139,6 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
-
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tilemap)
@@ -155,7 +154,7 @@ class Game(Fading):
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
-        self.spawn_ferret()
+        spawn_ferret(self.state, self.tilemap, self.scene, self.physics_engine)
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
@@ -334,6 +333,7 @@ class Game(Fading):
             return
 
         value = round(value)
+
         if trigger_name in constants.controls.controller.LEFT_TRIGGER:
             if value == constants.controls.controller.TRIGGER_ON:
                 self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
@@ -349,13 +349,11 @@ class Game(Fading):
 
         if self.video and self.video.active:
             if key in constants.controls.keyboard.KEY_DISCARD:
-                self.video.stop()
-            return
+                return self.video.stop()
 
         if self.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
-                self.on_main_menu()
-            return
+                return self.on_main_menu()
 
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
@@ -370,7 +368,7 @@ class Game(Fading):
         if key in constants.controls.keyboard.KEY_GRUNT:
             self.on_grunt()
         if key in constants.controls.keyboard.KEY_SPAWN_FERRET:
-            self.spawn_ferret()
+            spawn_ferret(self.state, self.tilemap, self.scene, self.physics_engine)
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
             self.left_key_pressed = True
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
@@ -479,11 +477,10 @@ class Game(Fading):
         for sprite in sprites:
             if isinstance(sprite, Useable):
                 item.on_use(sprite, state=self.state)
-                return True
+                return
 
         self.state.beep()
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
-        return False
 
     def on_update(self, delta_time):
         """Movement and game logic"""
@@ -499,8 +496,8 @@ class Game(Fading):
             self._call_method = None
 
         if self.player_sprite.dead:
-            self.update_fade(self.next_view)
-            return
+            return self.update_fade(self.next_view)
+
 
         # Move the player with the physics engine
         self.update_player()
@@ -571,25 +568,6 @@ class Game(Fading):
             collision_type=COLLISION_ENEMY,
             max_velocity=200,
             damping=skull.damping
-        )
-
-    def spawn_ferret(self):
-        rand_x, rand_y = random_position(self.tilemap)
-
-        ferret = Ferret(
-            filename=os.path.join(self.state.sprite_dir, 'char', 'ferret.png'),
-            center_x=rand_x,
-            center_y=rand_y
-        )
-
-        if arcade.check_for_collision_with_list(ferret, all_layers(self.scene)):
-            return self.spawn_ferret()
-
-        self.scene.add_sprite(COLLISION_ENEMY, ferret)
-        self.physics_engine.add_sprite(
-            ferret,
-            moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-            collision_type=COLLISION_ENEMY
         )
 
     def update_collectable(self):

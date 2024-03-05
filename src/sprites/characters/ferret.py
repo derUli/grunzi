@@ -1,10 +1,14 @@
 """ Player sprite class """
+import os
 
 import arcade
-from arcade import FACE_RIGHT
+from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
+from constants.collisions import COLLISION_ENEMY
+from constants.layers import all_layers
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
+from utils.sprite import random_position
 
 FADE_SPEED = 5
 DEFAULT_FACE = FACE_RIGHT
@@ -52,3 +56,23 @@ class Ferret(EnemySprite):
             self.alpha = alpha
 
             return
+
+
+def spawn_ferret(state, tilemap, scene, physics_engine):
+    rand_x, rand_y = random_position(tilemap)
+
+    ferret = Ferret(
+        filename=os.path.join(state.sprite_dir, 'char', 'ferret.png'),
+        center_x=rand_x,
+        center_y=rand_y
+    )
+
+    if arcade.check_for_collision_with_list(ferret, all_layers(scene)):
+        return spawn_ferret(state, tilemap, scene, physics_engine)
+
+    scene.add_sprite(COLLISION_ENEMY, ferret)
+    physics_engine.add_sprite(
+        ferret,
+        moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+        collision_type=COLLISION_ENEMY
+    )
