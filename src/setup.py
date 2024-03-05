@@ -39,7 +39,8 @@ options = {
             '../CREDITS.txt',
             '../README.txt',
             '../CHANGES.txt',
-            '../VERSION.txt'
+            '../VERSION.txt',
+            'ffmpeg.exe'
         ]
     }
 }

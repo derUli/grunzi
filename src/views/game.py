@@ -7,8 +7,11 @@ python -m arcade.examples.template_platformer
 import logging
 import os
 import random
+import threading
+import time
 
 import arcade
+import pyglet.clock
 from arcade import SpriteList, PymunkPhysicsEngine, FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
@@ -30,11 +33,12 @@ from utils.sprite import random_position, tilemap_size
 from views.fading import Fading
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
+from window.gamewindow import UPDATE_RATE
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 1.0
 TOTAL_COINS = 100
-
+from pyvidplayer2 import VideoPyglet
 
 class Game(Fading):
     """
@@ -50,6 +54,7 @@ class Game(Fading):
 
         # Our TileMap Object
         self.tile_map = None
+        self.tile_map_size = (0, 0)
 
         # Separate variable that holds the player sprite
         self.player_sprite = None
@@ -75,12 +80,14 @@ class Game(Fading):
 
         self.initialized = False
 
-        self.scene = arcade.Scene()
+        self.scene = None
 
         self.message_box = None
 
         # This method is called in next call of on_update
         self._call_method = None
+
+        self.video = None
 
     def on_show_view(self):
         super().on_show_view()
@@ -104,14 +111,19 @@ class Game(Fading):
             controller.pop_handlers()
 
     def setup(self):
+       video_file = os.path.join(self.state.video_dir, 'intro.webm')
+       self.video = VideoPyglet(video_file)
+       self.video.resize(self.window.size)
+       threading.Thread(target=self.async_load).start()
 
+
+    def async_load(self):
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
 
-        self.tile_map_size = (0, 0)
         # Read in the tiled map
         try:
             self.tile_map = arcade.load_tilemap(
@@ -142,22 +154,37 @@ class Game(Fading):
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
-        self.music_queue.from_directory(os.path.join(self.state.music_dir, self.state.map_name))
-        self.music_queue.play()
-
-        self.atmo = self.state.sounds['atmos']['world'].play()
+        self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
         # Place coins
         for i in range(TOTAL_COINS):
             self.make_coin()
 
-        self.initialized = True
-
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
+        pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
+
+        self.initialized = True
+
+
+    def wait_for_video(self, dt = 0):
+        # Wait until video is completed until playing music
+        if self.video and self.video.active:
+            return
+
+        self.music_queue.play()
+        self.atmo = self.state.sounds['atmos']['world'].play()
+
+        pyglet.clock.unschedule(self.wait_for_video)
 
     def on_draw(self):
         """Render the screen."""
+
+        if self.video and self.video.active:
+            self.video.draw((0, 0), force_draw=False)
+            return
+        if not self.initialized:
+            return
 
         self.clear()
         self.camera_sprites.use()
@@ -220,6 +247,10 @@ class Game(Fading):
 
     def on_button_press(self, controller, key):
         logging.info(f"Controller button {key} pressed")
+
+        if not self.initialized:
+            return
+
         if self.player_sprite.dead:
             if key in constants.controls.controller.KEY_DISCARD:
                 self._call_method = self.on_main_menu
@@ -251,10 +282,10 @@ class Game(Fading):
         self.fade_out()
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
+        logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
+
         if not self.initialized:
             return
-
-        logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
 
         x_value = round(x_value)
         y_value = round(y_value)
@@ -291,6 +322,10 @@ class Game(Fading):
 
     def on_trigger_motion(self, controller, trigger_name, value):
         logging.info(f"{trigger_name}, {value}")
+
+        if not self.initialized:
+            return
+
         value = round(value)
         if trigger_name in constants.controls.controller.LEFT_TRIGGER:
             if value == constants.controls.controller.TRIGGER_ON:
@@ -301,6 +336,9 @@ class Game(Fading):
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
+
+        if not self.initialized:
+            return
 
         if self.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
@@ -332,9 +370,12 @@ class Game(Fading):
             self.on_select_item(key=key)
 
     def on_key_release(self, key, modifiers):
+        """Called when the user releases a key."""
 
         super().on_key_release(key, modifiers)
-        """Called when the user releases a key."""
+
+        if not self.initialized:
+            return
 
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
@@ -462,6 +503,8 @@ class Game(Fading):
 
     def on_update(self, delta_time):
         """Movement and game logic"""
+        if not self.initialized:
+            return
 
         # There is an OpenGL error happens when a sprite is added by an controller event handler
         # which seems to happen because the controller events are handled in a different thread.
