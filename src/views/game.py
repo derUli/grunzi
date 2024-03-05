@@ -12,7 +12,7 @@ import time
 
 import arcade
 import pyglet.clock
-from arcade import SpriteList, PymunkPhysicsEngine, FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
+from arcade import PymunkPhysicsEngine, FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
 import constants.controls.keyboard
@@ -437,32 +437,20 @@ class Game(Fading):
 
         self.scene.add_sprite(LAYER_PLACE, item)
 
-    def on_shoot(self, sound=True):
-        bullet = Bullet(6, color=arcade.csscolor.HOTPINK)
-        bullet.setup(
+    def on_shoot(self):
+        return Bullet(6, color=arcade.csscolor.HOTPINK).setup(
             source=self.player_sprite,
             physics_engine=self.physics_engine,
             state=self.state,
-            scene=self.scene,
-            sound=sound
+            scene=self.scene
         )
-
-        return bullet
-
-    def on_grunt(self, sound=True):
-        if self.state.is_silent():
-            return
-
-        bullet = Grunt(8)
-        bullet.setup(
+    def on_grunt(self):
+        return Grunt(8).setup(
             source=self.player_sprite,
             physics_engine=self.physics_engine,
             scene=self.scene,
-            state=self.state,
-            sound=sound
+            state=self.state
         )
-
-        return bullet
 
     def on_drop(self):
         item = self.player_sprite.get_item()
@@ -508,7 +496,6 @@ class Game(Fading):
         self.state.beep()
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
         return False
-
 
     def on_update(self, delta_time):
         """Movement and game logic"""
@@ -572,7 +559,6 @@ class Game(Fading):
             if random.randint(1, 150) == 50:
                 self.spawn_skull()
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
-
 
     def spawn_skull(self):
         rand_x, rand_y = random_position(self.tilemap)

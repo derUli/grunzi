@@ -33,7 +33,7 @@ class Bullet(arcade.sprite.SpriteCircle):
     def draw_overlay(self):
         pass
 
-    def setup(self, source, physics_engine, scene, state, sound=True):
+    def setup(self, source, physics_engine, scene, state):
 
         self.center_y = source.center_y
 
@@ -43,10 +43,9 @@ class Bullet(arcade.sprite.SpriteCircle):
             self.force_move = -self.force_move
             self.left = source.left - self.width
 
-        if sound:
-            state.play_sound('shot')
-        scene.add_sprite(LAYER_ENEMIES, self)
+        state.play_sound('shot')
 
+        scene.add_sprite(LAYER_ENEMIES, self)
         physics_engine.add_sprite(
             self,
             mass=MASS,
@@ -61,6 +60,8 @@ class Bullet(arcade.sprite.SpriteCircle):
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_ENEMY, post_handler=self.on_hit)
 
         physics_engine.apply_force(self, (self.force_move, 0))
+
+        return self
 
     def on_hit_destroy(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         bullet_sprite.remove_from_sprite_lists()

@@ -47,7 +47,11 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
         if self.sound and not self.sound.playing:
             self.remove_from_sprite_lists()
 
-    def setup(self, source, physics_engine, scene, state, sound=True):
+    def setup(self, source, physics_engine, scene, state):
+        # If silent there is grunt
+        if state.is_silent():
+            self.remove_from_sprite_lists()
+            return
 
         self.center_y = source.center_y
 
@@ -59,8 +63,7 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
 
         scene.add_sprite(LAYER_ENEMIES, self)
 
-        if sound:
-            self.sound = state.grunt()
+        self.sound = state.grunt()
 
         physics_engine.add_sprite(
             self,
@@ -73,6 +76,8 @@ class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
 
         physics_engine.apply_force(self, (self.force_move, 0))
         physics_engine.add_collision_handler(COLLISION_GRUNT, COLLISION_ENEMY, post_handler=self.on_hit)
+
+        return self
 
     def on_hit(self, sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
