@@ -193,6 +193,7 @@ class Game(Fading):
         if self.video and self.video.active:
             self.video.draw((0, 0), force_draw=False)
             return
+
         if not self.initialized:
             return
 
@@ -259,6 +260,9 @@ class Game(Fading):
         logging.info(f"Controller button {key} pressed")
 
         if not self.initialized:
+            return
+
+        if self.video and self.video.active:
             return
 
         if self.player_sprite.dead:
