@@ -30,6 +30,7 @@ from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
 from utils.sprite import random_position, tilemap_size
+from utils.video import load_video
 from views.fading import Fading
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
@@ -113,14 +114,7 @@ class Game(Fading):
 
     def setup(self):
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
-
-        has_ffmpeg = shutil.which('ffmpeg')
-
-        if os.path.exists(video_file) and has_ffmpeg:
-            self.video = VideoPyglet(video_file)
-            self.video.resize(self.window.size)
-            if self.state.is_silent():
-                self.video.mute()
+        self.video = load_video(video_file)
 
         threading.Thread(target=self.async_load).start()
 
