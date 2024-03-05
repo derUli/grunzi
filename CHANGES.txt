@@ -1,6 +1,6 @@
 # Changelog
 
-## Alpha 007 (Not Yet released)
+## Alpha 007 (08.03.2024)
 
 * Inventar hinzugefügt
 * Launcher hinzugefügt
