@@ -170,6 +170,8 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt as e:
         sys.exit()
+    except Exception:
+        logging.exception("Fatal exception")
     finally:
         # Enable the screensaver on windows again
         disable_screensaver(False)
