@@ -1,4 +1,5 @@
 """Physics stuff """
+import arcade
 from arcade import PymunkPhysicsEngine, Scene, SpriteList
 
 from constants.layers import LAYER_MOVEABLE, LAYER_CAR_RIGHT, LAYER_CAR_LEFT
@@ -70,6 +71,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
         LAYER_CAR_LEFT,
         LAYER_CAR_RIGHT
     ]
+
     for layer in car_layers:
         if layer not in scene.name_mapping:
             scene.add_sprite_list(layer, SpriteList())
@@ -77,7 +79,9 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
         physics_engine.add_sprite_list(
             scene[layer],
             mass=2,
-            damping=0.01
+            damping=0.01,
+            collision_type="car",
+            moment_of_intertia=arcade.PymunkPhysicsEngine.MOMENT_INF
         )
 
     # Create some boxes to push around.

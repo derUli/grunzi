@@ -1,6 +1,5 @@
 """ Layer constants """
-
-from sprites.decoration.car import CarLeft, CarRight
+import sprites.decoration.car
 from sprites.items.item import Fence
 from sprites.items.plier import Plier
 
@@ -25,9 +24,9 @@ LAYER_OPTIONS = {
         'custom_class': Fence
     },
     LAYER_CAR_RIGHT: {
-        'custom_class': CarRight
+        'custom_class': sprites.decoration.car.CarRight
     },
     LAYER_CAR_LEFT: {
-        'custom_class': CarLeft
+        'custom_class': sprites.decoration.car.CarLeft
     }
 }
