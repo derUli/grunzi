@@ -50,7 +50,5 @@ cx_Freeze.setup(
 
 
 # If windows delete linux ffmpeg executable
-if sys.platform == 'win32':
+if sys.platform != 'win32':
     os.unlink('build/exe.win-amd64-3.11/data/3rdparty/ffmpeg')
-else:
-    os.unlink('build/exe.win-amd64-3.11/data/3rdparty/ffmpeg.exe')
