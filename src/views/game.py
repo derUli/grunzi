@@ -195,6 +195,12 @@ class Game(Fading):
             return
 
         if not self.initialized:
+            # Loading screen fallback if there is no intro video
+            # or the intro video is already completed
+            utils.text.create_text(
+                _("Loading..."),
+                width=self.window.width - (utils.text.MARGIN * 2),
+                align='left').draw()
             return
 
         self.clear()

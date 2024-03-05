@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-02 09:16+0100\n"
+"POT-Creation-Date: 2024-03-05 11:53+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,218 +18,221 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/characters/playersprite.py:110
+#: sprites/characters/playersprite.py:138
 msgid "You're bacon!"
 msgstr "Du bist Schinken."
 
-#: views/controls.py:45
+#: views/controls.py:39
 msgid "Scroll with mousewheel"
 msgstr "Scrollen mit Mausrad"
 
-#: views/controls.py:50
+#: views/controls.py:44
 msgid "Keyboard:"
 msgstr "Tastatur:"
 
-#: views/controls.py:53
+#: views/controls.py:47
 msgid "WASD, Arrow keys"
 msgstr "WASD, Pfeiltasten"
 
-#: views/controls.py:53 views/controls.py:73
+#: views/controls.py:47 views/controls.py:67
 msgid "Walk"
 msgstr "Gehen"
 
-#: views/controls.py:54
+#: views/controls.py:48
 msgid "Shift"
 msgstr ""
 
-#: views/controls.py:54 views/controls.py:75
+#: views/controls.py:48 views/controls.py:69
 msgid "Sprint"
 msgstr "Rennen"
 
-#: views/controls.py:55
+#: views/controls.py:49
 msgid "Ctrl"
 msgstr ""
 
-#: views/controls.py:55 views/controls.py:76
+#: views/controls.py:49 views/controls.py:70
 msgid "Shoot"
 msgstr "Schießen"
 
-#: views/controls.py:56
+#: views/controls.py:50
 msgid "E"
 msgstr ""
 
-#: views/controls.py:56 views/controls.py:77
+#: views/controls.py:50 views/controls.py:71
 msgid "Use"
 msgstr "Benutzen"
 
-#: views/controls.py:57
+#: views/controls.py:51
 msgid "Q"
 msgstr ""
 
-#: views/controls.py:57 views/controls.py:78
+#: views/controls.py:51 views/controls.py:72
 msgid "Drop item"
 msgstr "Item ablegen"
 
-#: views/controls.py:58
+#: views/controls.py:52
 msgid "G"
 msgstr ""
 
-#: views/controls.py:58 views/controls.py:79
+#: views/controls.py:52 views/controls.py:73
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: views/controls.py:59
+#: views/controls.py:53
 msgid "0 - 5"
 msgstr ""
 
-#: views/controls.py:59 views/controls.py:80
+#: views/controls.py:53 views/controls.py:74
 msgid "Select item"
 msgstr "Item auswählen"
 
-#: views/controls.py:60
+#: views/controls.py:54
 msgid "ESC"
 msgstr ""
 
-#: views/controls.py:60 views/controls.py:81
+#: views/controls.py:54 views/controls.py:75
 msgid "Open the pause menu"
 msgstr "Pausenmenü öffnen"
 
-#: views/controls.py:61
+#: views/controls.py:55
 msgid "F3"
 msgstr ""
 
-#: views/controls.py:61
+#: views/controls.py:55
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
-#: views/controls.py:62
+#: views/controls.py:56
 msgid "F12"
 msgstr ""
 
-#: views/controls.py:62
+#: views/controls.py:56
 msgid "Make screenshot"
 msgstr "Screenshot erstellen"
 
-#: views/controls.py:63
+#: views/controls.py:57
 msgid "Alt + Enter"
 msgstr ""
 
-#: views/controls.py:63
+#: views/controls.py:57
 msgid "Toggle fullscreen"
 msgstr "Vollbild/Fenster umschalten"
 
-#: views/controls.py:73
+#: views/controls.py:67
 msgid "Left stick"
 msgstr "Linker Stick"
 
-#: views/controls.py:74
+#: views/controls.py:68
 msgid "Right stick"
 msgstr "Rechter Stick"
 
-#: views/controls.py:74
+#: views/controls.py:68
 msgid "Look"
 msgstr "Umschauen"
 
-#: views/controls.py:75
+#: views/controls.py:69
 msgid "Left trigger"
 msgstr "Linker Trigger"
 
-#: views/controls.py:76
+#: views/controls.py:70
 msgid "X"
 msgstr ""
 
-#: views/controls.py:77
+#: views/controls.py:71
 msgid "A"
 msgstr ""
 
-#: views/controls.py:78
+#: views/controls.py:72
 msgid "Y"
 msgstr ""
 
-#: views/controls.py:79
+#: views/controls.py:73
 msgid "B"
 msgstr ""
 
-#: views/controls.py:80
+#: views/controls.py:74
 msgid "Left Bumper, Right Bumper"
 msgstr "Linker Bumper, Rechter Bumper"
 
-#: views/controls.py:81
+#: views/controls.py:75
 msgid "Start"
 msgstr "Starttaste"
 
-#: views/controls.py:101 views/optionsmenu.py:47
+#: views/controls.py:93 views/optionsmenu.py:42
 msgid "Back"
 msgstr "Zurück"
 
-#: views/mainmenu.py:28
+#: views/game.py:201
+msgid "Loading..."
+msgstr "Wird geladen..."
+
+#: views/mainmenu.py:27
 msgid "Grunzi"
 msgstr "Grunzi"
 
-#: views/mainmenu.py:36
+#: views/mainmenu.py:35
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:42 views/pausemenu.py:34
+#: views/mainmenu.py:41 views/pausemenu.py:31
 msgid "Options & Help"
 msgstr "Optionen & Hilfe"
 
-#: views/mainmenu.py:48
+#: views/mainmenu.py:47
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/optionsmenu.py:35
+#: views/optionsmenu.py:30
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/optionsmenu.py:41
+#: views/optionsmenu.py:36
 msgid "Follow me on X"
 msgstr "Folge mir auf X"
 
-#: views/pausemenu.py:28
+#: views/pausemenu.py:25
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/pausemenu.py:40
+#: views/pausemenu.py:37
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/view.py:60
+#: views/view.py:68
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
-#: window/launcherwindow.py:33
+#: window/launcherwindow.py:31
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:51
+#: window/launcherwindow.py:48
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: window/launcherwindow.py:59
+#: window/launcherwindow.py:56
 msgid "Sound"
 msgstr "Sound"
 
-#: window/launcherwindow.py:67
+#: window/launcherwindow.py:64
 msgid "Use Controller"
 msgstr "Controller"
 
-#: window/launcherwindow.py:75
-msgid "Debug"
-msgstr ""
-
-#: window/launcherwindow.py:83
+#: window/launcherwindow.py:72
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:97
+#: window/launcherwindow.py:86
 msgid "Map:"
 msgstr ""
 
-#: window/launcherwindow.py:110
+#: window/launcherwindow.py:99
 msgid "Launch Game"
 msgstr "Spiel starten"
 
 #~ msgid "Left Button, Right Button"
+#~ msgstr ""
+
+#~ msgid "Debug"
 #~ msgstr ""
 

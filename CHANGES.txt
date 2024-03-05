@@ -1,5 +1,10 @@
 # Changelog
 
+
+# Alpha 008 (Not yet released)
+
+* Intro Video vor einer WOrld
+
 ## Alpha 007 (Not Yet released)
 
 * Inventar hinzugefügt
