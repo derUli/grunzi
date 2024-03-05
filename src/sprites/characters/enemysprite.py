@@ -6,19 +6,8 @@ from sprites.characters.spritehealth import SpriteHealth
 from sprites.sprite import Sprite
 
 DEFAULT_FACE = FACE_RIGHT
-
-# Physics stuff
-MOVE_FORCE = 200
-MOVE_DAMPING = 0.01
-
-SIGHT_DISTANCE = 600
-SIGHT_CHECK_RESOLUTION = 32
-
-FADE_IN_MAX = 255
-FADE_SPEED = 2
-
 DAMAGE = 0
-
+HEALTH_FULL = 100
 
 class EnemySprite(Sprite, SpriteHealth):
     def __init__(
@@ -29,8 +18,7 @@ class EnemySprite(Sprite, SpriteHealth):
     ):
         super().__init__(center_x=center_x, center_y=center_y)
         self.damage = DAMAGE
-
-        self.health = 100
+        self.health = HEALTH_FULL
 
     def draw_debug(self):
         return
