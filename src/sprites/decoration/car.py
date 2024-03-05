@@ -1,7 +1,7 @@
 from sprites.sprite import Sprite
 
 CAR_SPEED = 10
-
+FORCE_MOVE = 4000
 
 class CarRight(Sprite):
     def update(
@@ -13,11 +13,12 @@ class CarRight(Sprite):
             delta_time=None,
             map_size=None
     ):
-        self.center_x += CAR_SPEED
+
+        physics_engine.apply_force(self, (FORCE_MOVE, 0))
 
         w, h = map_size
         if self.left > w:
-            self.right = 0
+            physics_engine.set_position(self, (0 - self.width, self.center_y))
 
 
 class CarLeft(Sprite):
@@ -30,8 +31,9 @@ class CarLeft(Sprite):
             delta_time=None,
             map_size=None
     ):
-        self.center_x -= CAR_SPEED
+
+        physics_engine.apply_force(self, (-FORCE_MOVE, 0))
 
         w, h = map_size
         if self.right < 0:
-            self.left = w
+            physics_engine.set_position(self, (w, self.center_y))

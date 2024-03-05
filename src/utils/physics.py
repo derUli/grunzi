@@ -1,7 +1,7 @@
 """Physics stuff """
 from arcade import PymunkPhysicsEngine, Scene, SpriteList
 
-from constants.layers import LAYER_MOVEABLE
+from constants.layers import LAYER_MOVEABLE, LAYER_CAR_RIGHT, LAYER_CAR_LEFT
 from sprites.characters.playersprite import PlayerSprite
 
 DEFAULT_FRICTION = 1
@@ -54,16 +54,30 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
         'Fence'
     ]
 
-    for wall_layer in wall_layers:
+    for layer in wall_layers:
 
-        if wall_layer not in scene.name_mapping:
-            scene.add_sprite_list(wall_layer, SpriteList())
+        if layer not in scene.name_mapping:
+            scene.add_sprite_list(layer, SpriteList())
 
         physics_engine.add_sprite_list(
-            scene[wall_layer],
+            scene[layer],
             friction=0,
             collision_type="wall",
             body_type=PymunkPhysicsEngine.STATIC
+        )
+
+    car_layers = [
+        LAYER_CAR_LEFT,
+        LAYER_CAR_RIGHT
+    ]
+    for layer in car_layers:
+        if layer not in scene.name_mapping:
+            scene.add_sprite_list(layer, SpriteList())
+
+        physics_engine.add_sprite_list(
+            scene[layer],
+            mass=2,
+            damping=0.01
         )
 
     # Create some boxes to push around.
