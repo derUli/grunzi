@@ -1,6 +1,6 @@
 def get_layer(name, scene):
     try:
-        sprites = self.scene[LAYER_ENEMIES]
+        sprites = scene.get_sprite_list(name)
     except KeyError:
         sprites = []
 

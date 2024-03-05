@@ -5,7 +5,7 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 import utils.text
-from constants.layers import LAYER_SPAWN_POINT
+from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.sprite import Sprite
 
@@ -81,6 +81,8 @@ class PlayerSprite(Sprite, SpriteHealth):
         ]
 
         self.gameover_text = _('You are') + ' ' + random.choice(sausages) + '!'
+
+        scene.add_sprite(LAYER_PLAYER, self)
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]

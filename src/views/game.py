@@ -149,7 +149,6 @@ class Game(Fading):
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = PlayerSprite(filename)
         self.player_sprite.setup(state=self.state, scene=self.scene)
-        self.scene.add_sprite(LAYER_PLAYER, self.player_sprite)
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
@@ -203,8 +202,7 @@ class Game(Fading):
         self.camera_sprites.use()
         self.scene.draw()
 
-        for sprite in get_layer(self.scene, LAYER_ENEMIES):
-
+        for sprite in get_layer(LAYER_ENEMIES, self.scene):
             if self.window.debug:
                 sprite.draw_debug()
 
@@ -452,8 +450,7 @@ class Game(Fading):
         selected, index = self.inventory.get_selected()
         if not item:
             logging.info('No item selected')
-            self.state.sounds['beep'].play()
-            return
+            return self.state.beep()
 
         klass = item.__class__
         layer = klass.__name__ + 's'
