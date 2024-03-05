@@ -1,21 +1,19 @@
 # Changelog
 
-
 # Alpha 008 (Not yet released)
 
 * Intro Video
 * Map Änderungen
 
-## Alpha 007 (Not Yet released)
+## Alpha 007 (08.03.2024)
 
 * Inventar hinzugefügt
 * Launcher hinzugefügt
-* Support für XBox 360 Controller hinzugefügt
-* Atmosphären-Sound hinzugefügt
-* KI der Totenköpfe verbessert
 * Map erweitert
+* Atmosphären-Sound hinzugefügt
+* Support für XBox 360 Controller hinzugefügt
+* KI der Totenköpfe verbessert
 * Performance der Screenshot-Funktion verbessert
-* Fahrende Autos zur Straße hinzugefügt
 
 ## Alpha 006 (01.03.2024)
 
