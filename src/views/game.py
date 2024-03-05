@@ -30,6 +30,7 @@ from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
+from utils.scene import get_layer
 from utils.sprite import random_position, tilemap_size
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -184,7 +185,10 @@ class Game(Fading):
 
         if self.video and self.video.active:
             self.video.draw((0, 0), force_draw=False)
+            self.draw_debug()
             return
+
+        self.clear()
 
         if not self.initialized:
             # Loading screen fallback if there is no intro video
@@ -193,20 +197,13 @@ class Game(Fading):
                 _("Loading..."),
                 width=self.window.width - (utils.text.MARGIN * 2),
                 align='left').draw()
+            self.draw_debug()
             return
 
-        self.clear()
         self.camera_sprites.use()
-
-        # Draw our Scene
-        # Note, if you a want pixelated look, add pixelated=True to the parameters
         self.scene.draw()
 
-        try:
-            enemies = self.scene[LAYER_ENEMIES]
-        except KeyError:
-            enemies = []
-        for sprite in enemies:
+        for sprite in get_layer(self.scene, LAYER_ENEMIES):
 
             if self.window.debug:
                 sprite.draw_debug()
@@ -214,9 +211,7 @@ class Game(Fading):
             sprite.draw_overlay()
 
         self.camera_gui.use()
-
         self.inventory.draw()
-
         self.player_sprite.draw_overlay()
         self.draw_fading()
         self.draw_debug(self.player_sprite)
