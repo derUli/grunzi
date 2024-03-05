@@ -4,6 +4,7 @@
 # Alpha 008 (Not yet released)
 
 * Intro Video
+* Map Änderungen
 
 ## Alpha 007 (Not Yet released)
 

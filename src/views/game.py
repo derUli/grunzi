@@ -99,7 +99,7 @@ class Game(Fading):
 
         if self.initialized:
             self.music_queue.play()
-            self.atmo.play()
+            self.atmo.play(loop=True)
             return
 
         self.setup()
@@ -183,7 +183,7 @@ class Game(Fading):
             return
 
         self.music_queue.play()
-        self.atmo = self.state.sounds['atmos']['world'].play()
+        self.atmo = self.state.sounds['atmos']['world'].play(loop=True)
 
         pyglet.clock.unschedule(self.wait_for_video)
 
