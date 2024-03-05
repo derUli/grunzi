@@ -7,7 +7,6 @@ import argparse
 import gettext
 import locale
 import logging
-import os
 import sys
 
 import pyglet
@@ -19,9 +18,8 @@ from utils.utils import disable_screensaver
 from views.intro import Intro
 from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
 from window.launcherwindow import LauncherWindow
-
+import os
 ROOT_DIR = os.path.dirname(__file__)
-
 
 def cli_args():
     parser = argparse.ArgumentParser()
