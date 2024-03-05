@@ -9,8 +9,7 @@ MASS = 0.1
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
-
-FORCE_MOVE = 4000
+FORCE_MOVE = 6000
 
 
 class Bullet(arcade.sprite.SpriteCircle):
