@@ -47,65 +47,57 @@ class LauncherWindow(tk.Tk):
                 value=str(w) + 'x' + str(h)
             )
 
-        checkbox_fullscreen = tk.Checkbutton(
+        tk.Checkbutton(
             text=_('Fullscreen'),
             variable=self.fullscreen,
             onvalue=True,
             offvalue=False
-        )
-        checkbox_fullscreen.pack()
+        ).pack()
 
-        checkbox_vsync = tk.Checkbutton(
+        tk.Checkbutton(
             text=_('V-Sync'),
             variable=self.vsync,
             onvalue=True,
             offvalue=False
-        )
-        checkbox_vsync.pack()
+        ).pack()
 
-        checkbox_sound = tk.Checkbutton(
+        tk.Checkbutton(
             text=_('Sound'),
             variable=self.silent,
             onvalue=False,
             offvalue=True
-        )
-        checkbox_sound.pack()
+        ).pack()
 
-        checkbox_controller = tk.Checkbutton(
+        tk.Checkbutton(
             text=_('Use Controller'),
             variable=self.controller,
             onvalue=True,
             offvalue=False,
-        )
-        checkbox_controller.pack()
+        ).pack()
 
         label_text = tk.StringVar()
         label_text.set(_('Screen resolution:'))
-        label = tk.Label(self, textvariable=label_text)
-        label.pack()
+        tk.Label(self, textvariable=label_text).pack()
 
         modes = self.supported_screen_resolutions()
 
-        screen_resolution = ttk.Combobox(
+        ttk.Combobox(
             values=modes,
             textvariable=self.screen_resolution,
             state='readonly'
-        )
-        screen_resolution.pack()
+        ).pack()
 
         label_text = tk.StringVar()
         label_text.set(_('Map:'))
-        label = tk.Label(self, textvariable=label_text)
-        label.pack()
+        tk.Label(self, textvariable=label_text).pack()
 
         maps = self.available_maps()
 
-        maps = ttk.Combobox(
+        ttk.Combobox(
             values=maps,
             textvariable=self.map,
             state='readonly'
-        )
-        maps.pack()
+        ).pack()
 
         button_launch = tk.Button(text=_('Launch Game'), command=self.on_launch)
         button_launch.pack(expand=True)
