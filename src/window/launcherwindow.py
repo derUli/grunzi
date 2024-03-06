@@ -11,6 +11,10 @@ from state.settingsstate import SettingsState
 from utils.utils import natural_keys
 
 NOTEBOOK_PADDING = 20
+
+SPACE_BETWEEN = 5
+
+
 class LauncherWindow(ThemedTk):
     def __init__(self, theme='breeze', args=None, state=None):
         super().__init__(theme=theme)
@@ -62,30 +66,30 @@ class LauncherWindow(ThemedTk):
 
         label_text = tk.StringVar()
         label_text.set(_('Screen resolution:'))
-        tk.Label(tab_video, textvariable=label_text).pack()
+        tk.Label(tab_video, textvariable=label_text).pack(expand=True)
 
         ttk.Combobox(
             tab_video,
             values=self.supported_screen_resolutions(),
             textvariable=self.screen_resolution,
             state='readonly'
-        ).pack()
+        ).pack(expand=True)
 
-        tk.Checkbutton(tab_video,
+        ttk.Checkbutton(tab_video,
                        text=_('Fullscreen'),
                        variable=self.fullscreen,
                        onvalue=True,
                        offvalue=False
-                       ).pack()
+                       ).pack(expand=True)
 
-        tk.Checkbutton(tab_video,
+        ttk.Checkbutton(tab_video,
                        text=_('V-Sync'),
                        variable=self.vsync,
                        onvalue=True,
                        offvalue=False
-                       ).pack()
+                       ).pack(expand=True)
 
-        tk.Checkbutton(
+        ttk.Checkbutton(
             tab_audio,
             text=_('Sound'),
             variable=self.silent,
@@ -93,7 +97,7 @@ class LauncherWindow(ThemedTk):
             offvalue=True
         ).pack()
 
-        tk.Checkbutton(
+        ttk.Checkbutton(
             tab_controller,
             text=_('Use Controller'),
             variable=self.controller,
