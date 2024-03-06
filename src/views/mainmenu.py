@@ -2,7 +2,6 @@ import logging
 import os
 
 import arcade.gui
-
 import utils.text
 from constants.fonts import ADRIP_FONT
 from views.fading import Fading
@@ -10,7 +9,6 @@ from views.optionsmenu import OptionsMenu
 
 BUTTON_WIDTH = 250
 BUTTON_MARGIN_BOTTOM = 20
-
 
 class MainMenu(Fading):
     """Main menu view class."""
@@ -98,6 +96,7 @@ class MainMenu(Fading):
         """ This is run once when we switch to this view """
         super().on_show_view()
         self.window.set_mouse_visible(True)
+        self.push_controller_handlers()
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
@@ -116,6 +115,7 @@ class MainMenu(Fading):
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
+        self.pop_controller_handlers()
         self.manager.disable()
 
         if self.next_view:
@@ -124,6 +124,8 @@ class MainMenu(Fading):
 
     def on_update(self, dt):
         self.time += dt
+
+        self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()
 

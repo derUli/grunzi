@@ -125,10 +125,13 @@ class Controls(Fading):
         frame = self.manager.add(arcade.gui.UIAnchorLayout().with_padding())
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
+        self.push_controller_handlers()
         self.manager.enable()
 
     def on_hide_view(self) -> None:
         """ Disable the UIManager when the view is hidden. """
+
+        self.pop_controller_handlers()
         self.manager.disable()
 
     def on_key_press(self, key, modifiers):
@@ -142,9 +145,12 @@ class Controls(Fading):
         """ On update
         @param dt: Delta Time
         """
-        self.scene.update()
+
         self.time += dt
+
+        self.update_mouse()
         self.update_fade(self.next_view)
+        self.scene.update()
 
     def on_draw(self) -> None:
         """ Render the screen. """

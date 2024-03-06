@@ -105,8 +105,6 @@ class Game(Fading):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
         self.atmo.pause()
-        for controller in self.window.controllers:
-            controller.pop_handlers()
 
     def setup(self):
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")

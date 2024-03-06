@@ -83,6 +83,7 @@ class OptionsMenu(Fading):
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
+        self.pop_controller_handlers()
         self.manager.disable()
 
     def on_back(self):
@@ -90,8 +91,11 @@ class OptionsMenu(Fading):
         self.window.show_view(self.previous_view)
 
     def on_show_view(self):
-        super().on_show_view()
         """ This is run once when we switch to this view """
+        super().on_show_view()
+
+        self.push_controller_handlers()
+        self.window.set_mouse_visible(True)
 
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
@@ -105,9 +109,11 @@ class OptionsMenu(Fading):
             self.on_back()
 
     def on_update(self, dt):
-        self.scene.update()
         self.time += dt
+
+        self.update_mouse()
         self.update_fade(self.next_view)
+        self.scene.update()
 
     def on_draw(self):
         """ Render the screen. """

@@ -4,6 +4,7 @@
 
 * Intro Video
 * Map Änderungen
+* Menüs kennen jetzt mit Controller bedient werden.
 
 ## Alpha 007 (08.03.2024)
 

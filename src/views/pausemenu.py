@@ -92,8 +92,15 @@ class PauseMenu(Fading):
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_toggle()
 
+    def on_show_view(self):
+        """ This is run once when we switch to this view """
+        super().on_show_view()
+        self.push_controller_handlers()
+        self.manager.enable()
+
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
+        self.pop_controller_handlers()
         self.manager.disable()
 
     def on_toggle(self):
@@ -103,16 +110,13 @@ class PauseMenu(Fading):
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
-    def on_show_view(self):
-        """ This is run once when we switch to this view """
-        super().on_show_view()
-        self.manager.enable()
-
     def on_update(self, dt):
+        self.time += dt
+
+        self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()
 
-        self.time += dt
 
     def on_draw(self):
         """ Render the screen. """
