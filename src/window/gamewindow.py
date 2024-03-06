@@ -35,8 +35,6 @@ class GameWindow(arcade.Window):
         if not window and self.is_native:
             style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
 
-        print(native_resolution, (width, height))
-
         # Call the parent class and set up the window
         super().__init__(
             width=width,

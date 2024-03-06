@@ -92,8 +92,7 @@ class Game(Fading):
         super().on_show_view()
         self.window.set_mouse_visible(False)
 
-        for controller in self.window.controllers:
-            controller.push_handlers(self)
+        self.push_controller_handlers()
 
         if self.initialized:
             self.music_queue.play()
@@ -104,6 +103,7 @@ class Game(Fading):
     def on_hide_view(self):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
+        self.pop_controller_handlers()
         self.atmo.pause()
 
     def setup(self):
