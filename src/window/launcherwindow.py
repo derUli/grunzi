@@ -16,7 +16,7 @@ SPACE_BETWEEN = 5
 
 
 class LauncherWindow(ThemedTk):
-    def __init__(self, theme='breeze', args=None, state=None):
+    def __init__(self, theme='equilux', args=None, state=None):
         super().__init__(theme=theme)
         self.path_state = state
         self.args = args
@@ -64,9 +64,7 @@ class LauncherWindow(ThemedTk):
         tabControl.add(tab_game, text=_('Game'))
         tabControl.pack(expand=True, fill=tk.BOTH)
 
-        label_text = tk.StringVar()
-        label_text.set(_('Screen resolution:'))
-        tk.Label(tab_video, textvariable=label_text).pack(expand=True)
+        ttk.Label(tab_video, text=_('Screen resolution:')).pack(expand=True)
 
         ttk.Combobox(
             tab_video,
@@ -105,9 +103,7 @@ class LauncherWindow(ThemedTk):
             offvalue=False,
         ).pack()
 
-        label_text = tk.StringVar()
-        label_text.set(_('Map:'))
-        tk.Label(tab_game, textvariable=label_text).pack()
+        ttk.Label(tab_game, text=_('Map:')).pack()
 
         maps = self.available_maps()
 
@@ -118,7 +114,7 @@ class LauncherWindow(ThemedTk):
             state='readonly'
         ).pack()
 
-        button_launch = tk.Button(text=_('Launch Game'), command=self.on_launch)
+        button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
 
         button_launch.pack(expand=True, fill=tk.BOTH)
 
