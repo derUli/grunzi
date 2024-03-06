@@ -2,6 +2,7 @@ import logging
 import os
 
 import arcade.gui
+
 import utils.text
 from constants.fonts import ADRIP_FONT
 from views.fading import Fading
@@ -9,6 +10,7 @@ from views.optionsmenu import OptionsMenu
 
 BUTTON_WIDTH = 250
 BUTTON_MARGIN_BOTTOM = 20
+
 
 class MainMenu(Fading):
     """Main menu view class."""
@@ -51,8 +53,6 @@ class MainMenu(Fading):
 
         size = self.window.size
         self.shadertoy = self.state.load_shader(size, 'pigs')
-
-        self.time = 0
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
@@ -135,8 +135,7 @@ class MainMenu(Fading):
         # Clear the screen
         self.clear()
         self.camera_gui.use()
-
-        self.shadertoy.render(time=self.time)
+        self.render_shadertoy()
 
         self.manager.draw()
         self.draw_build_version()

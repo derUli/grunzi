@@ -44,8 +44,6 @@ class PauseMenu(Fading):
         size = self.window.size
         self.shadertoy = self.state.load_shader(size, 'gloopy')
 
-        self.time = 0
-
         @continue_button.event("on_click")
         def on_click_continue_button(event):
             # Pass already created view because we are resuming.
@@ -117,18 +115,15 @@ class PauseMenu(Fading):
         self.update_fade(self.next_view)
         self.scene.update()
 
-
     def on_draw(self):
         """ Render the screen. """
 
         # Clear the screen
         self.clear()
         self.camera_gui.use()
-
-        self.shadertoy.render(time=self.time)
+        self.render_shadertoy()
 
         self.manager.draw()
-
         self.draw_build_version()
 
         if self.next_view:

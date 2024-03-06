@@ -20,7 +20,6 @@ class Controls(Fading):
     def __init__(self, window, state, previous_view):
         super().__init__(window)
 
-        self.time = 0
         self.window = window
         self.state = state
         self.manager = arcade.gui.UIManager(window)
@@ -157,7 +156,7 @@ class Controls(Fading):
         """ Render the screen. """
         self.clear()
         self.camera_gui.use()
-        self.shadertoy.render(time=self.time)
+        self.render_shadertoy()
 
         self.manager.draw()
         self.draw_fading()

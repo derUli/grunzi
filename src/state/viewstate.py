@@ -86,6 +86,9 @@ class ViewState:
         if name in self.shaders:
             return self.shaders[name]
 
+        if not os.path.exists(path):
+            return None
+
         with open(path, 'r') as f:
             code = f.read()
         self.shaders[name] = Shadertoy(size, code)

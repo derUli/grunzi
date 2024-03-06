@@ -4,7 +4,7 @@ import os
 import arcade
 from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
-from constants.collisions import COLLISION_ENEMY, COLLISION_FERRET
+from constants.collisions import COLLISION_FERRET
 from constants.layers import all_layers, LAYER_ENEMIES
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
@@ -14,12 +14,13 @@ FADE_SPEED = 5
 DEFAULT_FACE = FACE_RIGHT
 MOVE_DAMPING = 0.01
 
+
 class Ferret(EnemySprite):
     def __init__(
             self,
             filename: str = None,
-            center_x = 0,
-            center_y = 0
+            center_x=0,
+            center_y=0
     ):
         super().__init__(filename, center_x=center_x, center_y=center_y)
 

@@ -10,8 +10,8 @@ from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 from utils.text import draw_debug
 
-
 MOUSE_POINTER_SPEED = 10
+
 
 class View(arcade.View):
 
@@ -24,11 +24,11 @@ class View(arcade.View):
         self.build_version = ''
         # Initialize the camera for static GUI elements
         self.camera_gui = arcade.Camera()
-
+        self.shadertoy = None
         self.alt_key_pressed = False
 
         self.view = None
-
+        self.time = 0
         self.move_pointer = None
 
     def on_key_press(self, key, modifiers):
@@ -84,7 +84,6 @@ class View(arcade.View):
     def draw_debug(self, player_sprite=None):
         draw_debug(player_sprite, self.window)
 
-
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
 
@@ -126,3 +125,7 @@ class View(arcade.View):
         if self.move_pointer:
             x, y = self.move_pointer
             mouse.move(x, y, absolute=False)
+
+    def render_shadertoy(self):
+        if self.shadertoy:
+            self.shadertoy.render(time=self.time)

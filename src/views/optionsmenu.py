@@ -121,11 +121,9 @@ class OptionsMenu(Fading):
         # Clear the screen
         self.clear()
         self.camera_gui.use()
-
-        self.shadertoy.render(time=self.time)
+        self.render_shadertoy()
 
         self.manager.draw()
-
         self.draw_build_version()
 
         self.draw_fading()

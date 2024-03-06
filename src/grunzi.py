@@ -25,7 +25,7 @@ ROOT_DIR = os.path.dirname(__file__)
 # extend path for ffmpeg
 THIRDPARTY_DIR = os.path.join(ROOT_DIR, 'data', '3rdparty')
 os.environ["PATH"] += os.pathsep + THIRDPARTY_DIR
-import pyogg
+
 
 def cli_args():
     parser = argparse.ArgumentParser()

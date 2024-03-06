@@ -7,6 +7,7 @@ HEALTH_EMPTY = 0.0
 HEALTHBAR_ENEMY_COLOR = arcade.csscolor.RED
 HEALTHBAR_FREN_COLOR = arcade.csscolor.GREEN
 
+
 class SpriteHealth:
 
     def __init__(self):

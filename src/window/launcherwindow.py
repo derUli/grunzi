@@ -74,18 +74,18 @@ class LauncherWindow(ThemedTk):
         ).pack(expand=True)
 
         ttk.Checkbutton(tab_video,
-                       text=_('Fullscreen'),
-                       variable=self.fullscreen,
-                       onvalue=True,
-                       offvalue=False
-                       ).pack(expand=True)
+                        text=_('Fullscreen'),
+                        variable=self.fullscreen,
+                        onvalue=True,
+                        offvalue=False
+                        ).pack(expand=True)
 
         ttk.Checkbutton(tab_video,
-                       text=_('V-Sync'),
-                       variable=self.vsync,
-                       onvalue=True,
-                       offvalue=False
-                       ).pack(expand=True)
+                        text=_('V-Sync'),
+                        variable=self.vsync,
+                        onvalue=True,
+                        offvalue=False
+                        ).pack(expand=True)
 
         ttk.Checkbutton(
             tab_audio,

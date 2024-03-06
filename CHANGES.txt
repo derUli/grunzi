@@ -4,6 +4,7 @@
 
 * Intro Video
 * Map Änderungen
+* Frettchen
 * Menüs können jetzt mit Controller bedient werden
 * V-Sync Grafik-Option hinzugefügt
 * Launcher UI verbessert

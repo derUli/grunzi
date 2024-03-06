@@ -17,7 +17,6 @@ class SettingsState:
         # Vertical synchronisation
         self.vsync = True
 
-
         # Is sound disabled
         self.silent = False
 
