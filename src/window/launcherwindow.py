@@ -47,14 +47,38 @@ class LauncherWindow(tk.Tk):
                 value=str(w) + 'x' + str(h)
             )
 
-        tk.Checkbutton(
+        tabControl = ttk.Notebook(self)
+
+        tab_video = ttk.Frame(tabControl)
+        tab_audio = ttk.Frame(tabControl)
+        tab_controller = ttk.Frame(tabControl)
+        tab_game = ttk.Frame(tabControl)
+
+        tabControl.add(tab_video, text=_('Video'))
+        tabControl.add(tab_audio, text=_('Audio'))
+        tabControl.add(tab_controller, text=_('Controller'))
+        tabControl.add(tab_game, text=_('Game'))
+        tabControl.pack(expand=True, fill=tk.BOTH)
+
+        label_text = tk.StringVar()
+        label_text.set(_('Screen resolution:'))
+        tk.Label(tab_video, textvariable=label_text).pack()
+
+        ttk.Combobox(
+            tab_video,
+            values=self.supported_screen_resolutions(),
+            textvariable=self.screen_resolution,
+            state='readonly'
+        ).pack()
+
+        tk.Checkbutton(tab_video,
             text=_('Fullscreen'),
             variable=self.fullscreen,
             onvalue=True,
             offvalue=False
         ).pack()
 
-        tk.Checkbutton(
+        tk.Checkbutton(tab_video,
             text=_('V-Sync'),
             variable=self.vsync,
             onvalue=True,
@@ -62,6 +86,7 @@ class LauncherWindow(tk.Tk):
         ).pack()
 
         tk.Checkbutton(
+            tab_audio,
             text=_('Sound'),
             variable=self.silent,
             onvalue=False,
@@ -69,6 +94,7 @@ class LauncherWindow(tk.Tk):
         ).pack()
 
         tk.Checkbutton(
+            tab_controller,
             text=_('Use Controller'),
             variable=self.controller,
             onvalue=True,
@@ -76,31 +102,21 @@ class LauncherWindow(tk.Tk):
         ).pack()
 
         label_text = tk.StringVar()
-        label_text.set(_('Screen resolution:'))
-        tk.Label(self, textvariable=label_text).pack()
-
-        modes = self.supported_screen_resolutions()
-
-        ttk.Combobox(
-            values=modes,
-            textvariable=self.screen_resolution,
-            state='readonly'
-        ).pack()
-
-        label_text = tk.StringVar()
         label_text.set(_('Map:'))
-        tk.Label(self, textvariable=label_text).pack()
+        tk.Label(tab_game, textvariable=label_text).pack()
 
         maps = self.available_maps()
 
         ttk.Combobox(
+            tab_game,
             values=maps,
             textvariable=self.map,
             state='readonly'
         ).pack()
 
         button_launch = tk.Button(text=_('Launch Game'), command=self.on_launch)
-        button_launch.pack(expand=True)
+
+        button_launch.pack(expand=True, fill=tk.BOTH)
 
         self.resizable(False, False)
         button_launch.focus_set()
