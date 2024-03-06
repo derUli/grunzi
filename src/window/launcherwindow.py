@@ -5,14 +5,14 @@ import tkinter.ttk as ttk
 
 import pyglet
 from PIL.ImageTk import PhotoImage
+from ttkthemes import ThemedTk
 
 from state.settingsstate import SettingsState
 from utils.utils import natural_keys
 
-
-class LauncherWindow(tk.Tk):
-    def __init__(self, args, state):
-        super().__init__()
+class LauncherWindow(ThemedTk):
+    def __init__(self, theme='breeze', args=None, state=None):
+        super().__init__(theme=theme)
         self.path_state = state
         self.args = args
 
@@ -72,18 +72,18 @@ class LauncherWindow(tk.Tk):
         ).pack()
 
         tk.Checkbutton(tab_video,
-            text=_('Fullscreen'),
-            variable=self.fullscreen,
-            onvalue=True,
-            offvalue=False
-        ).pack()
+                       text=_('Fullscreen'),
+                       variable=self.fullscreen,
+                       onvalue=True,
+                       offvalue=False
+                       ).pack()
 
         tk.Checkbutton(tab_video,
-            text=_('V-Sync'),
-            variable=self.vsync,
-            onvalue=True,
-            offvalue=False
-        ).pack()
+                       text=_('V-Sync'),
+                       variable=self.vsync,
+                       onvalue=True,
+                       offvalue=False
+                       ).pack()
 
         tk.Checkbutton(
             tab_audio,
