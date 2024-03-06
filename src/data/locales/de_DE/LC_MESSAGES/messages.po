@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-06 19:45+0100\n"
+"POT-Creation-Date: 2024-03-06 20:52+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -242,35 +242,51 @@ msgstr "Zurück zum Hauptmenü"
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
-#: window/launcherwindow.py:33
+#: window/launcherwindow.py:34
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:51
-msgid "Fullscreen"
-msgstr "Vollbild"
-
-#: window/launcherwindow.py:59
-msgid "V-Sync"
+#: window/launcherwindow.py:57
+msgid "Video"
 msgstr ""
 
-#: window/launcherwindow.py:67
-msgid "Sound"
-msgstr "Sound"
+#: window/launcherwindow.py:58
+msgid "Audio"
+msgstr "Audio"
 
-#: window/launcherwindow.py:75
-msgid "Use Controller"
+#: window/launcherwindow.py:59
+msgid "Controller"
 msgstr "Controller"
 
-#: window/launcherwindow.py:83
+#: window/launcherwindow.py:60
+msgid "Game"
+msgstr "Spiel"
+
+#: window/launcherwindow.py:64
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:97
+#: window/launcherwindow.py:75
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: window/launcherwindow.py:82
+msgid "V-Sync"
+msgstr ""
+
+#: window/launcherwindow.py:90
+msgid "Sound"
+msgstr "Sound"
+
+#: window/launcherwindow.py:98
+msgid "Use Controller"
+msgstr "Controller"
+
+#: window/launcherwindow.py:105
 msgid "Map:"
 msgstr ""
 
-#: window/launcherwindow.py:110
+#: window/launcherwindow.py:117
 msgid "Launch Game"
 msgstr "Spiel starten"
 

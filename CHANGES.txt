@@ -6,6 +6,7 @@
 * Map Änderungen
 * Menüs können jetzt mit Controller bedient werden
 * V-Sync Grafik-Option hinzugefügt
+* Launcher UI verbessert
 
 ## Alpha 007 (08.03.2024)
 
