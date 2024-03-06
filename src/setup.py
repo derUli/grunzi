@@ -29,7 +29,13 @@ target = cx_Freeze.Executable(
 options = {
     'build_exe': {
         # "include_msvcr": True, Not allowed to legal reasons
-        'optimize': 2,
+        'optimize': 0,
+        'includes': [
+            'arcade',
+            'pyglet',
+            'tkinter',
+            'pyogg'
+        ],
         'include_files': [
             'data/',
             '../CREDITS.txt',
