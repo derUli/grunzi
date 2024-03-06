@@ -53,7 +53,7 @@ class View(arcade.View):
 
     def on_show_view(self):
         # Set the background color
-        arcade.set_background_color(arcade.color.LIGHT_BLUE)
+        arcade.set_background_color(arcade.csscolor.BLACK)
 
     def on_toggle_fullscreen(self):
         self.window.set_fullscreen(not self.window.fullscreen)
