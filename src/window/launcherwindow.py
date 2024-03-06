@@ -10,6 +10,7 @@ from ttkthemes import ThemedTk
 from state.settingsstate import SettingsState
 from utils.utils import natural_keys
 
+NOTEBOOK_PADDING = 20
 class LauncherWindow(ThemedTk):
     def __init__(self, theme='breeze', args=None, state=None):
         super().__init__(theme=theme)
@@ -48,10 +49,10 @@ class LauncherWindow(ThemedTk):
 
         tabControl = ttk.Notebook(self)
 
-        tab_video = ttk.Frame(tabControl)
-        tab_audio = ttk.Frame(tabControl)
-        tab_controller = ttk.Frame(tabControl)
-        tab_game = ttk.Frame(tabControl)
+        tab_video = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
+        tab_audio = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
+        tab_controller = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
+        tab_game = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
 
         tabControl.add(tab_video, text=_('Video'))
         tabControl.add(tab_audio, text=_('Audio'))
