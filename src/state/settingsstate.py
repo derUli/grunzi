@@ -8,10 +8,15 @@ from utils.path import get_settings_path
 
 class SettingsState:
     def __init__(self):
-        # Is fullscreen mode
-        self.fullscreen = False
         # Screen resolution
         self.screen_resolution = [1280, 720]
+
+        # Is fullscreen mode
+        self.fullscreen = False
+
+        # Vertical synchronisation
+        self.vsync = True
+
 
         # Is sound disabled
         self.silent = False
@@ -19,7 +24,7 @@ class SettingsState:
         # Is controller enabled
         self.controller = False
 
-        self.version = 1
+        self.version = 2
 
     @staticmethod
     def exists() -> bool:

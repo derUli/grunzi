@@ -4,7 +4,8 @@
 
 * Intro Video
 * Map Änderungen
-* Menüs kennen jetzt mit Controller bedient werden.
+* Menüs können jetzt mit Controller bedient werden
+* V-Sync Grafik-Option hinzugefügt
 
 ## Alpha 007 (08.03.2024)
 

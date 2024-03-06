@@ -20,6 +20,8 @@ class LauncherWindow(tk.Tk):
         self.screen_resolution = tk.StringVar(
             value=str(args.width) + 'x' + str(args.height)
         )
+
+        self.vsync = tk.BooleanVar(value=not args.no_vsync)
         self.silent = tk.BooleanVar(value=args.silent)
         self.controller = tk.BooleanVar(value=args.controller)
         self.map = tk.StringVar(value=args.map)
@@ -37,6 +39,7 @@ class LauncherWindow(tk.Tk):
         if SettingsState.exists():
             self.state = SettingsState.load()
             self.fullscreen.set(self.state.fullscreen)
+            self.vsync.set(self.state.vsync)
             self.silent.set(self.state.silent)
             self.controller.set(self.state.controller)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
@@ -51,6 +54,14 @@ class LauncherWindow(tk.Tk):
             offvalue=False
         )
         checkbox_fullscreen.pack()
+
+        checkbox_vsync = tk.Checkbutton(
+            text=_('V-Sync'),
+            variable=self.vsync,
+            onvalue=True,
+            offvalue=False
+        )
+        checkbox_vsync.pack()
 
         checkbox_sound = tk.Checkbutton(
             text=_('Sound'),
@@ -116,6 +127,7 @@ class LauncherWindow(tk.Tk):
 
         # Apply settings in state
         self.state.fullscreen = self.fullscreen.get()
+        self.state.vsync = self.vsync.get()
         self.state.silent = self.silent.get()
         self.state.controller = self.controller.get()
         w, h = self.screen_resolution.get().split('x')
@@ -125,9 +137,12 @@ class LauncherWindow(tk.Tk):
         # Apply settings to args
         self.args.fullscreen = self.fullscreen.get()
         self.args.window = not self.fullscreen.get()
+        self.args.no_vsync = not self.vsync.get()
+
         self.args.silent = self.silent.get()
         self.args.controller = self.controller.get()
         self.args.map = self.map.get()
+
         screen_resolution = self.screen_resolution.get().split('x')
 
         self.args.width = int(screen_resolution[0])
