@@ -72,6 +72,13 @@ def cli_args():
     )
 
     parser.add_argument(
+        '--no-vsync',
+        action='store_true',
+        default=False,
+        help='Disable V-Sync'
+    )
+
+    parser.add_argument(
         '--controller',
         default=False,
         action='store_true',
@@ -153,7 +160,8 @@ def main():
         args.window,
         args.width,
         args.height,
-        controller=args.controller
+        controller=args.controller,
+        vsync=not args.no_vsync
     )
 
     window.setup()
