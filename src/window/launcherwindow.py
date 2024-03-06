@@ -32,7 +32,6 @@ class LauncherWindow(ThemedTk):
     def setup(self):
         self.title(_('Grunzi Launcher'))
         self.geometry('320x240')
-
         self.bind_keyevents()
         self.set_icon()
 
