@@ -11,7 +11,7 @@ base = None
 
 if sys.platform == 'win32':
     target_name = 'Grunzi.exe'
-    base = "Win32GUI"
+    #base = "Win32GUI"
 
 target = cx_Freeze.Executable(
     script="grunzi.py",
@@ -34,7 +34,8 @@ options = {
             'arcade',
             'pyglet',
             'tkinter',
-            'pyogg'
+            'pyogg',
+            'numpy'
         ],
         'include_files': [
             'data/',
