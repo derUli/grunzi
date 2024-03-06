@@ -18,6 +18,7 @@ SPACE_BETWEEN = 5
 class LauncherWindow(ThemedTk):
     def __init__(self, theme='equilux', args=None, state=None):
         super().__init__(theme=theme)
+
         self.path_state = state
         self.args = args
 
