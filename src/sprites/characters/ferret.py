@@ -5,7 +5,7 @@ import arcade
 from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
-from constants.layers import all_layers
+from constants.layers import all_layers, LAYER_ENEMIES
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from utils.sprite import random_position
@@ -70,7 +70,7 @@ def spawn_ferret(state, tilemap, scene, physics_engine):
     if arcade.check_for_collision_with_list(ferret, all_layers(scene)):
         return spawn_ferret(state, tilemap, scene, physics_engine)
 
-    scene.add_sprite(COLLISION_ENEMY, ferret)
+    scene.add_sprite(LAYER_ENEMIES, ferret)
     physics_engine.add_sprite(
         ferret,
         moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,

@@ -4,8 +4,8 @@ import arcade
 
 HEALTH_FULL = 100.0
 HEALTH_EMPTY = 0.0
-HEALTHBAR_ENEMY_COLOR = arcade.color.RED
-HEALTHBAR_FREN_COLOR = arcade.color.GREEN
+HEALTHBAR_ENEMY_COLOR = arcade.csscolor.RED
+HEALTHBAR_FREN_COLOR = arcade.csscolor.GREEN
 
 class SpriteHealth:
 
@@ -65,5 +65,6 @@ class SpriteHealth:
 
         if self.health < 1:
             return
+
         r, g, b, a = color_health
         arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))
