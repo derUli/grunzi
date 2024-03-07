@@ -6,7 +6,8 @@ import platform
 import sys
 from logging.handlers import RotatingFileHandler
 
-import arcade.gl.context
+import arcade
+import sounddevice
 import psutil
 
 from . import path
@@ -49,10 +50,9 @@ def log_hardware_info() -> None:
     window = arcade.Window(visible=False)
     ctx = window.ctx
 
-    logging.debug(ctx)
+    logging.info(f"GPU: {ctx.info.RENDERER}")
 
-    logging.info(f"GPU VENDOR: {ctx.info.VENDOR}")
-    logging.info(f"GPU RENDERER: {ctx.info.RENDERER}")
-    logging.info(f"GPU MAX_TEXTURE_SIZE: {ctx.info.MAX_TEXTURE_SIZE}")
+    for audio in sounddevice.query_devices():
+        logging.info(f"Audio: {audio['name']}")
 
     window.close()
