@@ -2,6 +2,7 @@
 import arcade
 from arcade import PymunkPhysicsEngine, Scene
 
+from constants.collisions import COLLISION_WALL
 from constants.layers import LAYER_MOVEABLE, LAYER_CAR_RIGHT, LAYER_CAR_LEFT, LAYER_WALL, LAYER_FENCE, LAYER_PIGGYBANK
 from sprites.characters.playersprite import PlayerSprite
 
@@ -64,7 +65,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
         physics_engine.add_sprite_list(
             scene[layer],
             friction=0,
-            collision_type="wall",
+            collision_type=COLLISION_WALL,
             body_type=PymunkPhysicsEngine.STATIC
         )
 

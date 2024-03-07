@@ -9,7 +9,7 @@ CAPACITY = 5
 MARGIN = 10
 LEFT = MARGIN
 BOTTOM = MARGIN
-SPACE_BETWEEN = 10
+SPACE_BETWEEN = 5
 
 
 class InventoryContainer(arcade.sprite_list.SpriteList):
