@@ -6,8 +6,8 @@ import platform
 import sys
 from logging.handlers import RotatingFileHandler
 
-import arcade
 import psutil
+import pyglet
 import sounddevice
 
 from . import path
@@ -39,7 +39,7 @@ def configure_logger(log_level: int | str = logging.INFO) -> None:
     )
 
 
-def log_hardware_info() -> None:
+def log_hardware_info(window) -> None:
     """
     Log hardware info
     """
@@ -55,14 +55,13 @@ def log_hardware_info() -> None:
     ram_size = round(psutil.virtual_memory().total / 1024 / 1024 / 1024)
     logging.info(label_value('RAM', f"{ram_size} GB"))
 
-    # Open a hidden window to get the renderer
-    window = arcade.Window(visible=False)
     # The renderer is the GPU model
     renderer = window.ctx.info.RENDERER
-    window.close()
 
     # Log the GPU model
     logging.info(label_value('GPU', renderer))
+
+    logging.info(label_value('OpenGL version', pyglet.gl.gl_info.get_version_string()))
 
     # Log the audio devices
     for audio in sounddevice.query_devices():

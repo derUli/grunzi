@@ -124,7 +124,6 @@ def main():
         LOG_LEVEL = logging.NOTSET
 
     configure_logger(LOG_LEVEL)
-    log_hardware_info()
 
     if args.fullscreen:
         args.window = False
@@ -163,6 +162,8 @@ def main():
         controller=args.controller,
         vsync=not args.no_vsync
     )
+
+    log_hardware_info(window)
 
     window.setup()
 

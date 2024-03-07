@@ -8,7 +8,7 @@ from pyvidplayer2 import VideoPyglet
 def load_video(
         path: str,
         size: tuple[int, int] | None = None,
-        silent: bool = False
+        volume: float = 1
 ) -> VideoPyglet | None:
     has_ffmpeg = shutil.which('ffmpeg')
 
@@ -23,7 +23,6 @@ def load_video(
     if size:
         video.resize(size)
 
-    if silent:
-        video.mute()
+    video.set_volume(volume)
 
     return video

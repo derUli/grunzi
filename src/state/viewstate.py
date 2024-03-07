@@ -20,7 +20,7 @@ class ViewState:
         self.shader_dir = os.path.join(self.data_dir, 'shaders')
         self.video_dir = os.path.join(self.data_dir, 'videos')
         self.music_volume = 1
-        self.sound_volume = 1
+        self._sound_volume = 1
 
         self.shaders = {}
         self.sounds = {}
@@ -113,3 +113,10 @@ class ViewState:
 
     def beep(self):
         return self.sounds['beep'].play()
+
+    @property
+    def sound_volume(self):
+        if self.is_silent():
+            return 0.0
+
+        return self._sound_volume

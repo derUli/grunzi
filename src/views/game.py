@@ -108,7 +108,11 @@ class Game(Fading):
 
     def setup(self):
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
-        self.video = load_video(video_file, self.window.size, self.state.is_silent())
+        self.video = load_video(
+            video_file,
+            self.window.size,
+            self.state.sound_volume
+        )
 
         threading.Thread(target=self.async_load).start()
 
