@@ -7,10 +7,11 @@ import sys
 from logging.handlers import RotatingFileHandler
 
 import arcade
-import sounddevice
 import psutil
+import sounddevice
 
 from . import path
+from .text import label_value
 
 log_file = os.path.join(path.get_userdata_path(), 'debug.log')
 if not os.path.exists(path.get_userdata_path()):
@@ -42,16 +43,27 @@ def log_hardware_info() -> None:
     """
     Log hardware info
     """
-    uname = platform.uname()
-    logging.info(f"OS: {uname.system} {uname.version}")
-    logging.info(f"CPU: {uname.processor}")
-    logging.info(f"RAM: {round(psutil.virtual_memory().total / 1024 / 1024)} MB")
 
+    # Log OS info
+    uname = platform.uname()
+    logging.info(label_value('OS', f"{uname.system} {uname.version}"))
+
+    # Log CPU model
+    logging.info(label_value('CPU', uname.processor))
+
+    # Log the ram size
+    ram_size = round(psutil.virtual_memory().total / 1024 / 1024 / 1024)
+    logging.info(label_value('RAM', f"{ram_size} GB"))
+
+    # Open a hidden window to get the renderer
     window = arcade.Window(visible=False)
-    info = window.ctx.info
+    # The renderer is the GPU model
+    renderer = window.ctx.info.RENDERER
     window.close()
 
-    logging.info(f"GPU: {info.RENDERER}")
+    # Log the GPU model
+    logging.info(label_value('GPU', renderer))
 
+    # Log the audio devices
     for audio in sounddevice.query_devices():
-        logging.info(f"Audio: {audio['name']}")
+        logging.info(label_value('Audio', audio['name']))
