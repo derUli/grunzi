@@ -48,11 +48,10 @@ def log_hardware_info() -> None:
     logging.info(f"RAM: {round(psutil.virtual_memory().total / 1024 / 1024)} MB")
 
     window = arcade.Window(visible=False)
-    ctx = window.ctx
+    info = window.ctx.info
+    window.close()
 
-    logging.info(f"GPU: {ctx.info.RENDERER}")
+    logging.info(f"GPU: {info.RENDERER}")
 
     for audio in sounddevice.query_devices():
         logging.info(f"Audio: {audio['name']}")
-
-    window.close()
