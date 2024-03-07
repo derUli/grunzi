@@ -58,7 +58,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
     for layer in wall_layers:
 
         if layer not in scene.name_mapping:
-            scene.add_sprite_list(layer, SpriteList())
+            scene.add_sprite_list(layer)
 
         physics_engine.add_sprite_list(
             scene[layer],
@@ -74,7 +74,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
 
     for layer in car_layers:
         if layer not in scene.name_mapping:
-            scene.add_sprite_list(layer, SpriteList())
+            scene.add_sprite_list(layer)
 
         physics_engine.add_sprite_list(
             scene[layer],
