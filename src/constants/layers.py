@@ -3,7 +3,7 @@ from arcade import SpriteList
 
 import sprites.decoration.car
 from sprites.items.hammer import Hammer
-from sprites.items.item import Fence
+from sprites.items.item import Fence, PiggyBank
 from sprites.items.plier import Plier
 from sprites.items.redherring import RedHerring
 
@@ -12,6 +12,7 @@ LAYER_PLIER = 'Plier'
 LAYER_HAMMER = 'Hammer'
 LAYER_RED_HERRINGS = 'Red Herrings'
 LAYER_FENCE = 'Fence'
+LAYER_PIGGYBANK = 'Piggybanks'
 LAYER_DECORATION = 'Decoration'
 LAYER_ENEMIES = 'Enemies'
 LAYER_PLAYER = 'player'
@@ -39,6 +40,9 @@ LAYER_OPTIONS = {
     },
     LAYER_HAMMER: {
         'custom_class': Hammer
+    },
+    LAYER_PIGGYBANK: {
+        'custom_class': PiggyBank
     },
     LAYER_FENCE: {
         'custom_class': Fence

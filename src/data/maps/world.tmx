@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="135" height="80" tilewidth="64" tileheight="64" infinite="0" nextlayerid="29" nextobjectid="19">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="135" height="80" tilewidth="64" tileheight="64" infinite="0" nextlayerid="30" nextobjectid="20">
  <tileset firstgid="1" name="Background" tilewidth="448" tileheight="448" tilecount="13" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
@@ -172,6 +172,12 @@
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="60" height="46" source="../images/sprites/char/pig.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="70" name="Barriers" tilewidth="56" tileheight="64" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="56" height="64" source="../images/sprites/piggybank/piggybank.png"/>
   </tile>
  </tileset>
  <layer id="1" name="Gras" width="135" height="80">
@@ -852,6 +858,9 @@
  <objectgroup id="19" name="Plier">
   <object id="5" name="Plier" gid="66" x="6210.33" y="5005.33" width="54" height="64"/>
  </objectgroup>
+ <objectgroup id="29" name="Piggybanks">
+  <object id="19" gid="70" x="1281.09" y="1665.33" width="56" height="64"/>
+ </objectgroup>
  <objectgroup id="28" name="Red Herrings">
   <object id="15" gid="68" x="470" y="1600" width="28" height="64"/>
   <object id="16" gid="68" x="404.182" y="2177.45" width="28" height="64"/>
@@ -859,7 +868,7 @@
   <object id="18" gid="68" x="5713.27" y="4353.21" width="28" height="64"/>
  </objectgroup>
  <objectgroup id="22" name="Spawn Point">
-  <object id="7" name="Spawn Point" gid="69" x="1544.47" y="1126.23" width="60" height="46"/>
+  <object id="7" name="Spawn Point" gid="69" x="1535.38" y="1144.41" width="60" height="46"/>
  </objectgroup>
  <layer id="3" name="Walls" width="135" height="80">
   <data encoding="csv">

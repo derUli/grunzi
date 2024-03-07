@@ -2,7 +2,7 @@
 import arcade
 from arcade import PymunkPhysicsEngine, Scene
 
-from constants.layers import LAYER_MOVEABLE, LAYER_CAR_RIGHT, LAYER_CAR_LEFT
+from constants.layers import LAYER_MOVEABLE, LAYER_CAR_RIGHT, LAYER_CAR_LEFT, LAYER_WALL, LAYER_FENCE, LAYER_PIGGYBANK
 from sprites.characters.playersprite import PlayerSprite
 
 DEFAULT_FRICTION = 1
@@ -51,8 +51,9 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
     # repositioned by code and don't respond to physics forces.
     # Dynamic is default.
     wall_layers = [
-        'Walls',
-        'Fence'
+        LAYER_WALL,
+        LAYER_FENCE,
+        LAYER_PIGGYBANK
     ]
 
     for layer in wall_layers:

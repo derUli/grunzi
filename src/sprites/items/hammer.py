@@ -1,10 +1,12 @@
-import logging
 
-from sprites.items.item import Item
+from sprites.items.item import Item, PiggyBank
 
 
 class Hammer(Item):
     def on_use(self, b, state):
-        logging.debug('TODO: implement use hammer')
+        if isinstance(b, PiggyBank):
+            b.remove_from_sprite_lists()
+            state.play_sound('piggybank', 'destroy')
+            return
 
         state.beep()

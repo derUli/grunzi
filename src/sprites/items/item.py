@@ -49,3 +49,6 @@ class Useable:
 
 class Fence(Sprite, Useable):
     pass
+
+class PiggyBank(Sprite, Useable):
+    pass

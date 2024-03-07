@@ -60,7 +60,11 @@ class ViewState:
             'atmos': {
                 'world': arcade.load_sound(
                     os.path.join(self.sound_dir, 'atmos', 'world.ogg'),
+                    streaming=True
                 )
+            },
+            'piggybank': {
+                'destroy': arcade.load_sound(os.path.join(self.sound_dir, 'piggybank', 'destroy.ogg'))
             },
             'tools': {
                 'plier': arcade.load_sound(os.path.join(self.sound_dir, 'plier', 'plier.ogg'))
