@@ -5,10 +5,12 @@ import sprites.decoration.car
 from sprites.items.hammer import Hammer
 from sprites.items.item import Fence
 from sprites.items.plier import Plier
+from sprites.items.redherring import RedHerring
 
 LAYER_WALL = 'Walls'
 LAYER_PLIER = 'Plier'
 LAYER_HAMMER = 'Hammer'
+LAYER_RED_HERRINGS = 'Red Herrings'
 LAYER_FENCE = 'Fence'
 LAYER_DECORATION = 'Decoration'
 LAYER_ENEMIES = 'Enemies'
@@ -46,6 +48,9 @@ LAYER_OPTIONS = {
     },
     LAYER_CAR_LEFT: {
         'custom_class': sprites.decoration.car.CarLeft
+    },
+    LAYER_RED_HERRINGS: {
+        'custom_class': RedHerring
     }
 }
 
