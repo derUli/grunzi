@@ -1,6 +1,6 @@
 """Physics stuff """
 import arcade
-from arcade import PymunkPhysicsEngine, Scene, SpriteList
+from arcade import PymunkPhysicsEngine, Scene
 
 from constants.layers import LAYER_MOVEABLE, LAYER_CAR_RIGHT, LAYER_CAR_LEFT
 from sprites.characters.playersprite import PlayerSprite

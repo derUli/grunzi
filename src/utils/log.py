@@ -6,8 +6,8 @@ import platform
 import sys
 from logging.handlers import RotatingFileHandler
 
+import arcade.gl.context
 import psutil
-from gpudetect import detect_gpus
 
 from . import path
 
@@ -46,10 +46,13 @@ def log_hardware_info() -> None:
     logging.info(f"CPU: {uname.processor}")
     logging.info(f"RAM: {round(psutil.virtual_memory().total / 1024 / 1024)} MB")
 
-    gpus = detect_gpus()
+    window = arcade.Window(visible=False)
+    ctx = window.ctx
 
-    for gpu in gpus:
-        logging.info(f'GPU: {gpu}')
+    logging.debug(ctx)
 
-    if not any(gpus):
-        logging.info('GPU: Unknown')
+    logging.info(f"GPU VENDOR: {ctx.info.VENDOR}")
+    logging.info(f"GPU RENDERER: {ctx.info.RENDERER}")
+    logging.info(f"GPU MAX_TEXTURE_SIZE: {ctx.info.MAX_TEXTURE_SIZE}")
+
+    window.close()
