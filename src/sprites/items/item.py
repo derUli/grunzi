@@ -34,6 +34,7 @@ class Item(Sprite):
             image_x=image_x,
             image_y=image_y,
         )
+
     def on_use(self, b):
         logging.info(f"Use item {self} with {b}")
 

@@ -1,11 +1,6 @@
 import logging
-from typing import Optional
 
-import PIL
-import arcade
-
-from sprites.items.item import Item, Fence
-from sprites.sprite import Sprite
+from sprites.items.item import Item
 
 
 class Hammer(Item):
