@@ -95,8 +95,12 @@ class ViewState:
 
         return self.shaders[name]
 
-    def play_sound(self, name):
-        return self.sounds[name].play(volume=self.sound_volume)
+    def play_sound(self, name1, name2=None, loop=False):
+        sound = self.sounds[name1]
+        if name2:
+            sound = sound[name2]
+
+        return sound.play(volume=self.sound_volume, loop=loop)
 
     def grunt(self):
         rand = random.randint(1, 5)
