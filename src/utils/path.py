@@ -38,7 +38,22 @@ def get_settings_path():
     Get settings file path
     @return: userdata path
     """
-    return os.path.join(get_userdata_path(), 'settings.json')
+    path = os.path.join(get_userdata_path())
+
+    os.makedirs(path, exist_ok=True)
+
+    return os.path.join(path, 'settings.json')
+
+
+def get_log_path() -> str:
+    """
+    Get savegame file path
+    @return: userdata path
+    """
+    path = os.path.join(get_userdata_path(), 'logs')
+
+    os.makedirs(path, exist_ok=True)
+    return path
 
 
 def get_savegame_path(name: str) -> str:

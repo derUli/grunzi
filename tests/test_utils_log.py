@@ -5,7 +5,7 @@ import unittest
 import arcade
 
 from utils.log import configure_logger, log_hardware_info
-from utils.path import get_userdata_path
+from utils.path import get_userdata_path, get_log_path
 
 configure_logger()
 
@@ -14,7 +14,7 @@ import logging
 
 class TestUtilsLog(unittest.TestCase):
     def setUp(self):
-        self.log_file = os.path.join(get_userdata_path(), 'debug.log')
+        self.log_file = os.path.join(get_log_path(), 'debug.log')
 
     def test_configure_logger(self):
         timestamp_string = f"Test {time.time()}"

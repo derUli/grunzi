@@ -10,12 +10,10 @@ import psutil
 import pyglet
 import sounddevice
 
-from . import path
+from .path import get_log_path
 from .text import label_value
 
-log_file = os.path.join(path.get_userdata_path(), 'debug.log')
-if not os.path.exists(path.get_userdata_path()):
-    os.makedirs(path.get_userdata_path())
+log_file = os.path.join(get_log_path(), 'debug.log')
 
 file_handler = RotatingFileHandler(
     filename=log_file,
