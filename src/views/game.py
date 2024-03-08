@@ -211,10 +211,16 @@ class Game(Fading):
         self.scene.draw()
 
         for sprite in get_layer(LAYER_ENEMIES, self.scene):
+
+            if not isinstance(sprite, Character):
+                continue
+
+            sprite.draw_overlay()
+
             if self.window.debug:
                 sprite.draw_debug()
 
-            sprite.draw_overlay()
+
 
         self.camera_gui.use()
         self.inventory.draw()

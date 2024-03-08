@@ -8,7 +8,6 @@ import utils.text
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
-from sprites.sprite import Sprite
 
 DEFAULT_FACE = FACE_RIGHT
 

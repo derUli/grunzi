@@ -51,6 +51,9 @@ class Sprite(arcade.sprite.Sprite):
     def draw_debug(self):
         pass
 
+    def draw_overlay(self):
+        pass
+
     def update(
             self,
             player=None,
