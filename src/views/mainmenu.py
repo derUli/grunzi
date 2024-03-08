@@ -152,6 +152,7 @@ class MainMenu(Fading):
             return
 
         from views.game import Game
+        self.state.map_name = self.state.map_name_first
         new_savegame(self.state.map_name)
         self.next_view = Game(self.window, self.state)
         self.fade_out()
