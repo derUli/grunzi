@@ -7,7 +7,7 @@
 
 # Alpha 008 (Not yet released)
 
-* Intro Video hinzugefügt
+* Intro Video für Level hinzugefügt
 * Hammer und Sparschwein hinzugefügt
 * Frettchen hinzugefügt
 * Spielstand-System hinzugefügt
