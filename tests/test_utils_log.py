@@ -2,6 +2,8 @@ import os
 import time
 import unittest
 
+import arcade
+
 from utils.log import configure_logger, log_hardware_info
 from utils.path import get_userdata_path
 
@@ -23,7 +25,8 @@ class TestUtilsLog(unittest.TestCase):
             self.assertIn(timestamp_string, f.read())
 
     def test_log_hardware_info(self):
-        log_hardware_info()
+        window = arcade.Window(800, 600, visible = False)
+        log_hardware_info(window)
 
         with open(self.log_file, "r") as f:
             logged = f.read()

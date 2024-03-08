@@ -1,4 +1,4 @@
-from constants.collisions import COLLISION_TYPE_CAR, COLLISION_ENEMY, COLLISION_PLAYER
+from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER
 from sprites.sprite import Sprite
 
 CAR_SPEED = 10
@@ -46,5 +46,5 @@ class CarLeft(Sprite, Car):
         if self.right < 0:
             physics_engine.set_position(self, (w, self.center_y))
 
-        physics_engine.add_collision_handler(COLLISION_TYPE_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
-        physics_engine.add_collision_handler(COLLISION_TYPE_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
+        physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
+        physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)

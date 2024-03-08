@@ -28,4 +28,4 @@ class VideoTest(unittest.TestCase):
 
         self.assertEqual(video.path, path)
         self.assertTrue(video.current_size, (640, 480))
-        self.assertTrue(video.muted)
+        self.assertFalse(video.muted)

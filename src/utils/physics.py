@@ -1,14 +1,22 @@
-"""Physics stuff """
+""" Physics stuff """
+
 import arcade
 from arcade import PymunkPhysicsEngine, Scene
 
-from constants.collisions import COLLISION_WALL
-from constants.layers import LAYER_MOVEABLE, LAYER_CAR_RIGHT, LAYER_CAR_LEFT, LAYER_WALL, LAYER_FENCE, LAYER_PIGGYBANK
+from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR
+from constants.layers import (
+    LAYER_MOVEABLE,
+    LAYER_CAR_RIGHT,
+    LAYER_CAR_LEFT,
+    LAYER_WALL,
+    LAYER_FENCE,
+    LAYER_PIGGYBANK
+)
 from sprites.characters.playersprite import PlayerSprite
 
 DEFAULT_FRICTION = 1
 
-# Gravity
+DAMPING = 0.5
 GRAVITY = (0, 0)
 
 
@@ -19,7 +27,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
     @param scene: The scene
     @return: Pymunk Physics Engine
     """
-    damping = 0.5
+    damping = DAMPING
 
     # Set the gravity. (0, 0) is good for outer space and top-down.
     gravity = GRAVITY
@@ -40,7 +48,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
     physics_engine.add_sprite(player_sprite,
                               friction=DEFAULT_FRICTION,
                               moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-                              collision_type="player",
+                              collision_type=COLLISION_PLAYER,
                               damping=player_sprite.damping
                               )
 
@@ -82,7 +90,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
             scene[layer],
             mass=2,
             damping=0.01,
-            collision_type="car",
+            collision_type=COLLISION_CAR,
             moment_of_intertia=arcade.PymunkPhysicsEngine.MOMENT_INF
         )
 
@@ -94,7 +102,6 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
             scene[LAYER_MOVEABLE],
             mass=2,
             damping=0.01,
-            collision_type="rock"
         )
 
     return physics_engine
