@@ -1,7 +1,7 @@
 import arcade
 from arcade.gui import UIFlatButton
 
-from constants.fonts import DEFAULT_FONT
+from constants.fonts import FONT_DEFAULT
 
 MARGIN = 10
 DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
@@ -19,7 +19,7 @@ def create_text(
         start_y=MARGIN,
         color=arcade.csscolor.WHITE,
         font_size=MEDIUM_FONT_SIZE,
-        font_name=DEFAULT_FONT,
+        font_name=FONT_DEFAULT,
         anchor_x='left',
         anchor_y='bottom',
         align='left',
@@ -44,7 +44,7 @@ def create_text(
 def get_style():
     style = UIFlatButton.DEFAULT_STYLE
     for index in style:
-        style[index]['font_name'] = DEFAULT_FONT
+        style[index]['font_name'] = FONT_DEFAULT
         style[index]['font_size'] = MEDIUM_FONT_SIZE
     return style
 

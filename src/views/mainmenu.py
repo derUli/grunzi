@@ -4,7 +4,7 @@ import os
 import arcade.gui
 
 import utils.text
-from constants.fonts import ADRIP_FONT
+from constants.fonts import FONT_ADRIP
 from state.savegamestate import new_savegame, SaveGameState
 from views.fading import Fading
 from views.optionsmenu import OptionsMenu
@@ -26,7 +26,7 @@ class MainMenu(Fading):
 
         label = arcade.gui.UILabel(
             text=_('Grunzi'),
-            font_name=ADRIP_FONT,
+            font_name=FONT_ADRIP,
             font_size=utils.text.LOGO_FONT_SIZE,
             text_color=arcade.csscolor.HOTPINK,
             align='center'
