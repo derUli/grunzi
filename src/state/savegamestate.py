@@ -5,9 +5,9 @@ import os
 import jsonpickle
 
 from constants.difficulty import DIFFICULTY_EASY
+from constants.savegames import SAVEGAME_DEFAULT
 from utils.path import get_savegame_path
 
-SAVEGAME_DEFAULT = 'default'
 
 
 class SaveGameState:
