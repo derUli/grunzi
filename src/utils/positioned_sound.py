@@ -1,3 +1,4 @@
+import logging
 
 MAX_DISTANCE = 800
 
@@ -10,6 +11,7 @@ class PositionedSound:
         self.source = source
         self.state = state
         self.player = player
+        self.player.volume = 0
 
     def update(self):
         if not self.player.playing:
@@ -26,10 +28,10 @@ class PositionedSound:
         else:
             volume = max(volume - 0.01, 0)
 
-        volume = volume * self.state.sound_volume
+        volume = round(volume * self.state.sound_volume, 2)
 
         if volume != self.player.volume:
-            print(volume)
+            logging.info('Volume at %s', volume)
             self.player.volume = volume
 
     def pause(self):
