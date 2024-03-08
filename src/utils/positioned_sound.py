@@ -1,7 +1,7 @@
 import arcade
 
-
 MAX_HEARABLE_DISTANCE = 1 / 1000
+
 
 class PositionedSound:
     def __init__(self, listener, source, sound, state):
