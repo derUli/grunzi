@@ -29,7 +29,6 @@ class View(arcade.View):
         self.view = None
         self.time = 0
         self.move_pointer = None
-
         self.perf_graph = None
 
     def on_key_press(self, key, modifiers):
@@ -45,6 +44,10 @@ class View(arcade.View):
             self.on_toggle_fps()
         if key in constants.controls.keyboard.KEY_TOGGLE_DEBUG:
             self.on_toggle_debug()
+        if key in constants.controls.keyboard.KEY_SOUND_QUIETER:
+            self.state.sound_volume -= 0.1
+        if key in constants.controls.keyboard.KEY_SOUND_LOUDER:
+            self.state.sound_volume += 0.1
         if key in constants.controls.keyboard.KEY_SCREENSHOT:
             self.on_make_screenshot()
 
@@ -91,9 +94,7 @@ class View(arcade.View):
         if self.window.show_fps:
             self.perf_graph.update_graph(delta_time)
 
-    def draw_debug(self):
-        if self.window.show_fps:
-            self.perf_graph.draw()
+
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")

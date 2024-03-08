@@ -29,6 +29,7 @@ from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
+from utils.positioned_sound import PositionedSound
 from utils.scene import get_layer
 from utils.sprite import tilemap_size
 from utils.video import load_video
@@ -98,7 +99,6 @@ class Game(Fading):
 
         if self.initialized:
             self.music_queue.play()
-            return self.atmo.play()
 
         self.setup()
 
@@ -106,7 +106,6 @@ class Game(Fading):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
         self.pop_controller_handlers()
-        self.atmo.pause()
         self.state.mute()
 
     def setup(self):
@@ -175,7 +174,8 @@ class Game(Fading):
 
         self.music_queue.play()
 
-        self.atmo = self.state.play_sound('atmos', 'world', loop=True)
+        atmo = self.state.play_sound('atmos', 'world', loop=True)
+        self.atmo = PositionedSound(self.player_sprite, self.player_sprite, atmo, self.state)
 
         pyglet.clock.unschedule(self.wait_for_video)
 
@@ -485,12 +485,13 @@ class Game(Fading):
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
 
     def on_update(self, delta_time):
-
-        super().on_update(delta_time)
-
         """Movement and game logic"""
         if not self.initialized:
             return
+
+        super().on_update(delta_time)
+        if self.atmo:
+            self.atmo.update()
 
         # There is an OpenGL error happens when a sprite is added by an controller event handler
         # which seems to happen because the controller events are handled in a different thread.
