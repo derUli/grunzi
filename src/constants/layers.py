@@ -1,6 +1,6 @@
 """ Layer constants """
 
-from arcade import SpriteList
+from arcade import SpriteList, Scene
 
 import sprites.decoration.car
 from sprites.items.hammer import Hammer
@@ -71,8 +71,12 @@ LAYER_OPTIONS = {
 }
 
 
-def all_layers(scene, layer_names=None):
-    """ Returns all layers except background and decoration"""
+def all_layers(scene: Scene, layer_names: list | None = None):
+    """ Returns all layers except background and decoration
+    @param scene: The scene
+    @param layer_names: the layer names
+    @return:
+    """
     if layer_names is None:
         layer_names = ALL_LAYERS
 
