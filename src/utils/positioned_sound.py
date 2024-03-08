@@ -15,7 +15,6 @@ class PositionedSound:
         volume = 1
         volume = volume - (distance * VOLUME_QUANTITY)
 
-        print(volume)
         volume = volume * self.state.sound_volume
 
         if volume < 0:
