@@ -6,6 +6,7 @@ from sprites.items.hammer import Hammer
 from sprites.items.item import Fence, PiggyBank
 from sprites.items.plier import Plier
 from sprites.items.redherring import RedHerring
+from sprites.sounds.highway import Highway
 
 LAYER_WALL = 'Walls'
 LAYER_PLIER = 'Plier'
@@ -21,6 +22,9 @@ LAYER_PLACE = 'Place'
 LAYER_SPAWN_POINT = 'Spawn Point'
 LAYER_CAR_LEFT = 'Cars Left'
 LAYER_CAR_RIGHT = 'Cars Right'
+
+
+LAYER_HIGHWAY = 'Highway'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -46,6 +50,9 @@ LAYER_OPTIONS = {
     },
     LAYER_FENCE: {
         'custom_class': Fence
+    },
+    LAYER_HIGHWAY: {
+        'custom_class': Highway
     },
     LAYER_CAR_RIGHT: {
         'custom_class': sprites.decoration.car.CarRight

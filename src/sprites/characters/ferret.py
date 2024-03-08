@@ -8,7 +8,6 @@ from constants.collisions import COLLISION_FERRET
 from constants.layers import all_layers, LAYER_ENEMIES
 from sprites.characters.enemysprite import EnemySprite
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
-from utils.positioned_sound import PositionedSound
 from utils.sprite import random_position
 
 FADE_SPEED = 5
@@ -49,7 +48,6 @@ class Ferret(EnemySprite):
             map_size=None
     ):
 
-        PositionedSound(player, self, None, state).update()
         if self.dead:
             alpha = self.alpha - FADE_SPEED
 

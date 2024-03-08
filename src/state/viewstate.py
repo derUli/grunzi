@@ -19,7 +19,7 @@ class ViewState:
         self.font_dir = os.path.join(self.data_dir, 'fonts')
         self.shader_dir = os.path.join(self.data_dir, 'shaders')
         self.video_dir = os.path.join(self.data_dir, 'videos')
-        self.music_volume = 1
+        self.music_volume = 0
         self._sound_volume = 1
 
         self.shaders = {}
@@ -61,6 +61,9 @@ class ViewState:
                 'world': arcade.load_sound(
                     os.path.join(self.sound_dir, 'atmos', 'world.ogg'),
                     streaming=True
+                ),
+                'highway': arcade.load_sound(
+                    os.path.join(self.sound_dir, 'atmos', 'highway.ogg')
                 )
             },
             'piggybank': {
