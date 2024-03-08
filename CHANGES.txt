@@ -2,9 +2,8 @@
 
 # Alpha 009 (Not yet released)
 
-* Levelauswahl
+* Level-Auswahl
 * Schwierigkeitsgrad-Auswahl (WIP)
-
 
 # Alpha 008 (Not yet released)
 

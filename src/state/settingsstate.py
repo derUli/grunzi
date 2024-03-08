@@ -6,6 +6,7 @@ import jsonpickle
 
 from utils.path import get_settings_path
 
+SETTINGS_STATE_VERSION = 2
 
 class SettingsState:
     def __init__(self):
@@ -23,7 +24,7 @@ class SettingsState:
 
         self.show_fps = False
 
-        self.version = 2
+        self.version = SETTINGS_STATE_VERSION
 
     @staticmethod
     def exists() -> bool:

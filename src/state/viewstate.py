@@ -11,7 +11,7 @@ from constants.maps import FIRST_MAP
 
 
 class ViewState:
-    def __init__(self, root_dir, map_name=FIRST_MAP):
+    def __init__(self, root_dir, map_name=FIRST_MAP, settings=None):
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
         self.map_dir = os.path.join(self.data_dir, 'maps')
@@ -31,6 +31,8 @@ class ViewState:
         self.map_name = map_name
         self.map_name_first = map_name
         self._muted = False
+
+        self.settings = settings
 
     def preload(self):
         self.preload_sounds()
