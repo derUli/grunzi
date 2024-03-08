@@ -95,10 +95,10 @@ class Game(Fading):
 
         self.push_controller_handlers()
 
-        self.state.unmute()
-
         if self.initialized:
             self.music_queue.play()
+            self.atmo.play()
+            return
 
         self.setup()
 
@@ -106,7 +106,8 @@ class Game(Fading):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
         self.pop_controller_handlers()
-        self.state.mute()
+        if self.atmo:
+            self.atmo.pause()
 
     def setup(self):
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
@@ -171,6 +172,8 @@ class Game(Fading):
         # Wait until video is completed until playing music
         if self.video and self.video.active:
             return
+
+        self.video = None
 
         self.music_queue.play()
 
@@ -254,9 +257,6 @@ class Game(Fading):
         if self.video and self.video.active:
             if key in constants.controls.controller.KEY_DISCARD:
                 self.video.stop()
-            return
-
-        if self.video and self.video.active:
             return
 
         if self.player_sprite.dead:
@@ -490,6 +490,10 @@ class Game(Fading):
             return
 
         super().on_update(delta_time)
+
+        if self.video and self.video.active:
+            return
+
         if self.atmo:
             self.atmo.update()
 

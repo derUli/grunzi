@@ -60,8 +60,9 @@ class Highway(Sprite):
             delta_time=None,
             map_size=None
     ):
+        return # Doesn't work currently
+
         if not self.sound:
             audio = state.play_sound('atmos', 'highway', loop=True)
             self.sound = PositionedSound(player, self, audio, state)
-
-        self.sound.update()
+            self.sound.update()

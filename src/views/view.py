@@ -92,9 +92,7 @@ class View(arcade.View):
 
     def on_update(self, delta_time = 0):
         if self.window.show_fps:
-            self.perf_graph.update_graph(delta_time)
-
-
+            self.perf_graph.update_graph(delta_time=delta_time)
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
@@ -141,3 +139,7 @@ class View(arcade.View):
     def render_shadertoy(self):
         if self.shadertoy:
             self.shadertoy.render(time=self.time)
+
+    def draw_debug(self, delta_time = 0):
+        if self.window.show_fps:
+            self.perf_graph.draw()

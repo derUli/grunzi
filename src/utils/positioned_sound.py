@@ -1,6 +1,8 @@
 VOLUME_QUANTITY = 0.001
 
 import arcade
+
+
 class PositionedSound:
     def __init__(self, listener, source, player, state):
         self.listener = listener
@@ -21,3 +23,11 @@ class PositionedSound:
 
         if volume != self.player.volume:
             self.player.volume = volume
+
+    def pause(self):
+        if self.player:
+            self.player.pause()
+
+    def play(self):
+        if self.player:
+            self.player.play()
