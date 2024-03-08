@@ -11,6 +11,7 @@
 * Controller Support ist nun immer aktiviert
 * Bugfix: Man kann ein Item nicht mehr auf einer Mauer ablegen
 * Bugfix: Absturz im Launcher behoben
+* Spielstand-System hinzugefügt
 
 ## Alpha 007 (08.03.2024)
 
