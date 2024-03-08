@@ -1,3 +1,4 @@
+""" User path utils """
 import os
 
 
