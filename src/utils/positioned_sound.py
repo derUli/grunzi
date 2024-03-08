@@ -9,6 +9,7 @@ class PositionedSound:
         self.player = player
 
     def update(self):
+        return True
         distance = arcade.get_distance_between_sprites(self.listener, self.source)
         distance = abs(distance)
 

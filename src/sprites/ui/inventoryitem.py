@@ -8,7 +8,7 @@ from arcade import get_four_byte_color
 
 PADDING = 10
 TEXT_PADDING = (28, 5)
-ALPHA = 100
+ALPHA = 80
 
 # Add transparency to colors
 r, g, b, a = arcade.csscolor.BLACK
@@ -74,14 +74,14 @@ class InventoryItem(arcade.sprite.Sprite):
 
         image.paste(self.image, (0, 0), self.image)
 
-        width = self.width - (PADDING * 2)
-        height = self.height - (PADDING * 2)
+        width = self.width - PADDING
+        height = self.height - PADDING * 2
 
         x = 0
         y = 0
 
         if self.item:
-            scaled_item = PIL.ImageOps.fit(self.item.image, (int(width), int(height)))
+            scaled_item = PIL.ImageOps.pad(self.item.image, (int(width), int(height)))
             x, y = int(self.width / 2), int(self.height / 2)
 
             x -= int(scaled_item.width / 2)
@@ -103,7 +103,7 @@ class InventoryItem(arcade.sprite.Sprite):
             TEXT_PADDING,
             str(text),
             font=font,
-            fill=arcade.csscolor.HOTPINK
+            fill=arcade.csscolor.WHITE
         )
 
         texture = arcade.texture.Texture(name=name, image=image)
