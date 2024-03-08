@@ -109,7 +109,7 @@ class Game(Fading):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
         self.pop_controller_handlers()
-
+        self.atmo.pause()
         self.state.mute()
         self.call_update(0)
 
@@ -517,8 +517,11 @@ class Game(Fading):
         # Move the player with the physics engine
         self.update_player()
         self.physics_engine.step()
-
         self.call_update(delta_time)
+
+        self.update_enemies(delta_time)
+        center_camera_to_player(self.player_sprite, self.camera_sprites)
+        self.update_fade(self.next_view)
 
 
     def call_update(self, delta_time):
@@ -535,10 +538,6 @@ class Game(Fading):
                     delta_time=delta_time,
                     map_size=self.tilemap_size
                 )
-
-        self.update_enemies(delta_time)
-        center_camera_to_player(self.player_sprite, self.camera_sprites)
-        self.update_fade(self.next_view)
 
     def update_player(self):
         self.update_player_speed()
