@@ -95,6 +95,8 @@ class MainMenu(Fading):
     def on_show_view(self):
         """ This is run once when we switch to this view """
         super().on_show_view()
+
+        arcade.cleanup_texture_cache()
         self.window.set_mouse_visible(True)
         self.push_controller_handlers()
 
