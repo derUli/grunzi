@@ -11,6 +11,10 @@ from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 
 MOUSE_POINTER_SPEED = 10
+PERFORMANCE_GRAPH_WIDTH = 160
+PERFORMANCE_GRAPH_HEIGHT = 90
+
+PERFORMANCE_GRAPH_BACKGROUND = (0, 0, 0, 80)
 
 
 class View(arcade.View):
@@ -59,8 +63,11 @@ class View(arcade.View):
     def on_show_view(self):
         # Set the background color
         arcade.set_background_color(arcade.csscolor.BLACK)
-
-        self.perf_graph = arcade.PerfGraph(160, 90)
+        self.perf_graph = arcade.PerfGraph(
+            PERFORMANCE_GRAPH_WIDTH,
+            PERFORMANCE_GRAPH_HEIGHT,
+            background_color=PERFORMANCE_GRAPH_BACKGROUND
+        )
         self.perf_graph.left = self.window.width - MARGIN - self.perf_graph.width
         self.perf_graph.bottom = MARGIN
 
