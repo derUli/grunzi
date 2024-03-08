@@ -8,7 +8,7 @@ SCREEN_HEIGHT = 720
 SCREEN_TITLE = "Grunzi"
 
 UPDATE_RATE = 1 / 60
-DRAW_RATE = 1 / 9999
+DRAW_RATE = 9999
 
 
 class GameWindow(arcade.Window):
@@ -33,6 +33,12 @@ class GameWindow(arcade.Window):
 
         if not window and self.is_native:
             style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
+
+        if vsync:
+            draw_rate = pyglet.canvas.get_display().get_default_screen().get_mode().rate
+            logging.debug('Refresh rate ', draw_rate)
+
+            draw_rate = 1 / draw_rate
 
         # Call the parent class and set up the window
         super().__init__(

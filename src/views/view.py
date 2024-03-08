@@ -6,6 +6,7 @@ import mouse
 
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
+from state.settingsstate import SettingsState
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 
@@ -65,6 +66,9 @@ class View(arcade.View):
 
     def on_toggle_fullscreen(self):
         self.window.set_fullscreen(not self.window.fullscreen)
+        settings = SettingsState().load()
+        settings.fullscreen = self.window.fullscreen
+        settings.save()
 
     def on_toggle_fps(self):
         self.window.show_fps = not self.window.show_fps
