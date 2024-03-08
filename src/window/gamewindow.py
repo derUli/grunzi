@@ -24,7 +24,7 @@ class GameWindow(arcade.Window):
             update_rate=UPDATE_RATE,
             draw_rate=DRAW_RATE,
             controller=False,
-            vsync=None
+            vsync=False
     ):
 
         default_screen = pyglet.canvas.get_display().get_default_screen()

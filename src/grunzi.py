@@ -136,7 +136,6 @@ def main():
         launcher = LauncherWindow(args=args, state=ViewState(ROOT_DIR))
         launcher.setup()
         launcher.mainloop()
-
         if not launcher.get_args():
             return
 

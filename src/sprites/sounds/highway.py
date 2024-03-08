@@ -5,7 +5,6 @@ from arcade import Texture
 from sprites.sprite import Sprite
 from utils.positioned_sound import PositionedSound
 
-
 class Highway(Sprite):
     def __init__(
             self,
@@ -60,9 +59,8 @@ class Highway(Sprite):
             delta_time=None,
             map_size=None
     ):
-        return # Doesn't work currently
-
         if not self.sound:
             audio = state.play_sound('atmos', 'highway', loop=True)
             self.sound = PositionedSound(player, self, audio, state)
-            self.sound.update()
+
+        self.sound.update()

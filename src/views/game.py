@@ -95,6 +95,8 @@ class Game(Fading):
 
         self.push_controller_handlers()
 
+        self.state.unmute()
+
         if self.initialized:
             self.music_queue.play()
             self.atmo.play()
@@ -106,8 +108,9 @@ class Game(Fading):
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
         self.pop_controller_handlers()
-        if self.atmo:
-            self.atmo.pause()
+
+        self.state.mute()
+        self.on_update(0)
 
     def setup(self):
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")

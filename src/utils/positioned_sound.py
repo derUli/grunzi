@@ -1,4 +1,5 @@
-VOLUME_QUANTITY = 0.001
+
+MAX_DISTANCE = 800
 
 import arcade
 
@@ -11,17 +12,24 @@ class PositionedSound:
         self.player = player
 
     def update(self):
+        if not self.player.playing:
+            return
+
         distance = arcade.get_distance_between_sprites(self.listener, self.source)
         distance = abs(distance)
 
-        volume = 1 - (distance * VOLUME_QUANTITY)
-        volume = volume * self.state.sound_volume
-        volume = round(volume, 2)
+        # Final volume = normalized sound volume × (max distance - distance) / max distance
+        volume = self.player.volume
 
-        if volume < 0.0:
-            volume = 0.0
+        if distance <= MAX_DISTANCE:
+            volume = min(volume + 0.01, 1.0)
+        else:
+            volume = max(volume - 0.01, 0)
+
+        volume = volume * self.state.sound_volume
 
         if volume != self.player.volume:
+            print(volume)
             self.player.volume = volume
 
     def pause(self):
