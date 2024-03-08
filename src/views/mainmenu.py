@@ -172,8 +172,9 @@ class MainMenu(Fading):
 
         self.manager.add(message_box)
 
-    def on_overwrite_savegame(self, button):
-        if button == _('Yes'):
+    def on_overwrite_savegame(self, event):
+        action = event.action
+        if action == _('Yes'):
             self.on_new_game(overwrite=True)
 
     def on_update(self, delta_time):
