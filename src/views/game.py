@@ -220,8 +220,6 @@ class Game(Fading):
             if self.window.debug:
                 sprite.draw_debug()
 
-
-
         self.camera_gui.use()
         self.inventory.draw()
         self.player_sprite.draw_overlay()
