@@ -37,6 +37,11 @@ ALL_LAYERS = [
     LAYER_CAR_RIGHT
 ]
 
+WALL_LAYERS = [
+    LAYER_WALL,
+    LAYER_FENCE
+]
+
 LAYER_OPTIONS = {
     LAYER_PLIER: {
         'custom_class': Plier
@@ -65,11 +70,12 @@ LAYER_OPTIONS = {
 }
 
 
-def all_layers(scene):
+def all_layers(scene, layer_names=None):
     """ Returns all layers except background and decoration"""
-    sprite_list = SpriteList(use_spatial_hash=False)
+    if layer_names is None:
+        layer_names = ALL_LAYERS
 
-    layer_names = ALL_LAYERS
+    sprite_list = SpriteList(use_spatial_hash=False)
 
     for layer in scene.name_mapping:
         if layer not in layer_names:

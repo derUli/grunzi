@@ -150,10 +150,12 @@ class MainMenu(Fading):
 
     def on_new_game(self, overwrite=False):
         if SaveGameState.exists() and not overwrite:
-            from views.game import Game
-            new_savegame(self.state.map_name)
-            self.next_view = Game(self.window, self.state)
-            self.fade_out()
+            return
+
+        from views.game import Game
+        new_savegame(self.state.map_name)
+        self.next_view = Game(self.window, self.state)
+        self.fade_out()
 
     def on_confirm_overwrite_savegame(self):
         message_box = arcade.gui.UIMessageBox(

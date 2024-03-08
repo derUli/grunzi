@@ -459,6 +459,13 @@ class Game(Fading):
         layer = klass.__name__ + 's'
         new_item = item.copy()
 
+        wall_layers = all_layers(self.scene, layer_names=WALL_LAYERS)
+
+        if arcade.check_for_collision_with_list(new_item, wall_layers):
+            logging.info("Can't drop item on wall.")
+            self.state.beep()
+            return
+
         if selected:
             quantity = selected.pop()
 
