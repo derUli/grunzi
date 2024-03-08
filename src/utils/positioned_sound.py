@@ -32,7 +32,7 @@ class PositionedSound:
         volume = round(volume * self.state.sound_volume, 2)
 
         if volume != self.player.volume:
-            logging.info('Volume at %s', volume)
+            logging.debug('Volume at %s', volume)
             self.player.volume = volume
 
     def pause(self):
