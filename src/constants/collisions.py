@@ -1,4 +1,5 @@
 """ Collision types """
+
 COLLISION_CAR = "car"
 COLLISION_ENEMY = "enemy"
 COLLISION_GRUNT = "grunt"

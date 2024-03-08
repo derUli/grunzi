@@ -3,7 +3,7 @@ from arcade import FACE_RIGHT, FACE_LEFT
 
 from constants.collisions import COLLISION_ENEMY, COLLISION_GRUNT
 from constants.layers import LAYER_ENEMIES
-from sprites.characters.enemysprite import EnemySprite
+from sprites.characters.character import Character
 
 MASS = 1
 DAMPING = 1
@@ -13,7 +13,7 @@ ELASTICITY = 0.1
 FORCE_MOVE = 20000
 
 
-class Grunt(arcade.sprite.SpriteCircle, EnemySprite):
+class Grunt(arcade.sprite.SpriteCircle, Character):
     def __init__(
             self,
             radius,

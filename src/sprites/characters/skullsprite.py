@@ -7,7 +7,7 @@ from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 from constants.collisions import COLLISION_ENEMY
 from constants.layers import LAYER_WALL, all_layers, LAYER_ENEMIES
 from sprites.bullet.skullbullet import SkullBullet
-from sprites.characters.enemysprite import EnemySprite
+from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
 from utils.physics import DEFAULT_FRICTION
 from utils.sprite import random_position
@@ -31,7 +31,7 @@ GRID_SIZE = 64
 SHOOT_DELTA = UPDATE_RATE * 15
 
 
-class SkullSprite(EnemySprite):
+class SkullSprite(Character):
     def __init__(
             self,
             filename: str = None,

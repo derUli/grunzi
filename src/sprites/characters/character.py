@@ -10,7 +10,7 @@ DAMAGE = 0
 HEALTH_FULL = 100
 
 
-class EnemySprite(Sprite, SpriteHealth):
+class Character(Sprite, SpriteHealth):
     def __init__(
             self,
             filename: str = None,

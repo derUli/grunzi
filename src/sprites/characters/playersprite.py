@@ -6,6 +6,7 @@ from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 import utils.text
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER
+from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.sprite import Sprite
 
@@ -31,7 +32,7 @@ INVENTORY_MARGIN = 15
 SPAWN_POINT = (0, 0)
 
 
-class PlayerSprite(Sprite, SpriteHealth):
+class PlayerSprite(Character, SpriteHealth):
     def __init__(
             self,
             filename: str = None,

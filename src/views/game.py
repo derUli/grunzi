@@ -21,7 +21,7 @@ import utils.audio
 from constants.layers import *
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
-from sprites.characters.enemysprite import EnemySprite
+from sprites.characters.character import Character
 from sprites.characters.ferret import spawn_ferret
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import spawn_skull
@@ -204,6 +204,8 @@ class Game(Fading):
                 width=self.window.width - (utils.text.MARGIN * 2),
                 align='left').draw()
             return self.draw_debug()
+
+        center_camera_to_player(self.player_sprite, self.camera_sprites)
 
         self.camera_sprites.use()
         self.scene.draw()
@@ -526,7 +528,6 @@ class Game(Fading):
         self.call_update(delta_time)
 
         self.update_enemies(delta_time)
-        center_camera_to_player(self.player_sprite, self.camera_sprites)
         self.update_fade(self.next_view)
 
     def call_update(self, delta_time):
@@ -552,7 +553,7 @@ class Game(Fading):
         enemies = get_layer(LAYER_ENEMIES, self.scene)
 
         for sprite in enemies:
-            if not isinstance(sprite, EnemySprite):
+            if not isinstance(sprite, Character):
                 continue
 
             if arcade.check_for_collision(sprite, self.player_sprite):
