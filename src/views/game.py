@@ -111,7 +111,7 @@ class Game(Fading):
         self.pop_controller_handlers()
 
         self.state.mute()
-        self.on_update(0)
+        self.call_update(0)
 
     def setup(self):
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
@@ -185,6 +185,8 @@ class Game(Fading):
         self.atmo = PositionalSound(self.player_sprite, self.player_sprite, atmo, self.state)
 
         pyglet.clock.unschedule(self.wait_for_video)
+
+        self.video = None
 
     def on_draw(self):
         """Render the screen."""
@@ -516,6 +518,10 @@ class Game(Fading):
         self.update_player()
         self.physics_engine.step()
 
+        self.call_update(delta_time)
+
+
+    def call_update(self, delta_time):
         for sprite_list in self.scene.sprite_lists:
             for sprite in sprite_list:
                 if not isinstance(sprite, Sprite):

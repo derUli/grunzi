@@ -159,14 +159,20 @@ class MainMenu(Fading):
         message_box = arcade.gui.UIMessageBox(
             width=300,
             height=200,
-            message_text=(
-                _('Overwrite existing savegame?')
-            ),
-            callback=self.on_message_box_close,
-            buttons=["Yes", "No"]
+            message_text=_('Overwrite existing savegame?'),
+            buttons=[
+                _("Yes"),
+                _("No")
+            ]
         )
 
+        message_box.on_action = self.on_overwrite_savegame
+
         self.manager.add(message_box)
+
+    def on_overwrite_savegame(self, button):
+        if button == _('Yes'):
+            self.on_new_game(overwrite=True)
 
     def on_update(self, delta_time):
 
