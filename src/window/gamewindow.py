@@ -23,10 +23,8 @@ class GameWindow(arcade.Window):
             height=SCREEN_HEIGHT,
             update_rate=UPDATE_RATE,
             draw_rate=DRAW_RATE,
-            controller=False,
             vsync=False
     ):
-
         default_screen = pyglet.canvas.get_display().get_default_screen()
         native_mode = default_screen.get_mode()
         native_resolution = (native_mode.width, native_mode.height)
@@ -53,7 +51,6 @@ class GameWindow(arcade.Window):
 
         self.update_rate = update_rate
         self.draw_rate = update_rate
-        self.controller = controller
         self.controller_manager = None
         self.debug = False
         self.show_fps = False
@@ -84,9 +81,6 @@ class GameWindow(arcade.Window):
         return self.width, self.height
 
     def init_controllers(self):
-        if not self.controller:
-            return
-
         try:
             self.controller_manager = pyglet.input.ControllerManager()
 

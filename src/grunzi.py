@@ -158,7 +158,6 @@ def main():
         args.window,
         args.width,
         args.height,
-        controller=args.controller,
         vsync=not args.no_vsync
     )
 

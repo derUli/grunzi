@@ -39,7 +39,7 @@ class Controls(Fading):
             os.linesep * 3
         ]
 
-        if self.window.controller:
+        if any(self.window.controllers):
             controls += [_('Keyboard:'), os.linesep * 2]
 
         controls += [
@@ -57,7 +57,7 @@ class Controls(Fading):
             (_('F'), _('Ferret'))
         ]
 
-        if self.window.controller:
+        if any(self.window.controllers):
             controls += [
                 os.linesep * 2,
                 'XBox 360 Controller:',

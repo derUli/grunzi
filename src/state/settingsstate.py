@@ -20,9 +20,6 @@ class SettingsState:
         # Is sound disabled
         self.silent = False
 
-        # Is controller enabled
-        self.controller = False
-
         self.version = 2
 
     @staticmethod

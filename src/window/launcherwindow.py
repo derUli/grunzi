@@ -29,7 +29,7 @@ class LauncherWindow(ThemedTk):
 
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
         self.silent = tk.BooleanVar(value=args.silent)
-        self.controller = tk.BooleanVar(value=args.controller)
+
         self.map = tk.StringVar(value=args.map)
 
         self.state = SettingsState()
@@ -46,7 +46,6 @@ class LauncherWindow(ThemedTk):
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
             self.silent.set(self.state.silent)
-            self.controller.set(self.state.controller)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -56,12 +55,10 @@ class LauncherWindow(ThemedTk):
 
         tab_video = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
         tab_audio = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
-        tab_controller = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
         tab_game = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
 
         tabControl.add(tab_video, text=_('Video'))
         tabControl.add(tab_audio, text=_('Audio'))
-        tabControl.add(tab_controller, text=_('Controller'))
         tabControl.add(tab_game, text=_('Game'))
         tabControl.pack(expand=True, fill=tk.BOTH)
 
@@ -94,14 +91,6 @@ class LauncherWindow(ThemedTk):
             variable=self.silent,
             onvalue=False,
             offvalue=True
-        ).pack()
-
-        ttk.Checkbutton(
-            tab_controller,
-            text=_('Use Controller'),
-            variable=self.controller,
-            onvalue=True,
-            offvalue=False,
         ).pack()
 
         ttk.Label(tab_game, text=_('Map:')).pack()
@@ -138,7 +127,6 @@ class LauncherWindow(ThemedTk):
         self.state.fullscreen = self.fullscreen.get()
         self.state.vsync = self.vsync.get()
         self.state.silent = self.silent.get()
-        self.state.controller = self.controller.get()
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.save()
@@ -149,7 +137,6 @@ class LauncherWindow(ThemedTk):
         self.args.no_vsync = not self.vsync.get()
 
         self.args.silent = self.silent.get()
-        self.args.controller = self.controller.get()
         self.args.map = self.map.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
