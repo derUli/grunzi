@@ -5,6 +5,7 @@ import arcade.gui
 
 import utils.text
 from constants.fonts import ADRIP_FONT
+from state.savegamestate import new_savegame, SaveGameState
 from views.fading import Fading
 from views.optionsmenu import OptionsMenu
 
@@ -37,6 +38,12 @@ class MainMenu(Fading):
             style=utils.text.get_style()
         )
 
+        continue_button = arcade.gui.UIFlatButton(
+            text=_("Continue"),
+            width=BUTTON_WIDTH,
+            style=utils.text.get_style(),
+        )
+
         options_help = arcade.gui.UIFlatButton(
             text=_("Options & Help"),
             width=BUTTON_WIDTH,
@@ -59,6 +66,18 @@ class MainMenu(Fading):
             # Pass already created view because we are resuming.
 
             from views.game import Game
+            new_savegame(self.state.map_name)
+            self.next_view = Game(self.window, self.state)
+            self.fade_out()
+
+        @continue_button.event("on_click")
+        def on_click_continue_button(event):
+            # Pass already created view because we are resuming.
+
+            from views.game import Game
+            savegame = SaveGameState.load()
+            self.state.map_name = savegame.current
+
             self.next_view = Game(self.window, self.state)
             self.fade_out()
 
@@ -76,7 +95,13 @@ class MainMenu(Fading):
 
         widgets = [
             label,
-            newgame_button,
+            newgame_button
+        ]
+
+        if SaveGameState.exists():
+            widgets += [continue_button]
+
+        widgets += [
             options_help,
             quit_button
         ]

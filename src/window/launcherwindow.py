@@ -1,5 +1,4 @@
 import glob
-import logging
 import os
 import tkinter as tk
 import tkinter.ttk as ttk

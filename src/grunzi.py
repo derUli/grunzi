@@ -15,7 +15,6 @@ import pyglet
 from state.viewstate import ViewState
 from utils.log import configure_logger, log_hardware_info
 from utils.text import label_value
-from utils.utils import disable_screensaver
 from views.intro import Intro
 from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
 from window.launcherwindow import LauncherWindow
@@ -151,9 +150,6 @@ def main():
     logging.info(label_value('Arguments', args))
     logging.info(label_value('Pyglet options', pyglet.options))
 
-    # Disable the screensaver on windows
-    disable_screensaver(True)
-
     window = GameWindow(
         args.window,
         args.width,
@@ -184,7 +180,3 @@ if __name__ == "__main__":
     except Exception as e:
         logging.fatal("Fatal exception", exc_info=e)
         sys.exit()
-
-    finally:
-        # Enable the screensaver on windows again
-        disable_screensaver(False)
