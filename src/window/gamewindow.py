@@ -38,7 +38,7 @@ class GameWindow(arcade.Window):
             draw_rate = pyglet.canvas.get_display().get_default_screen().get_mode().rate
             logging.debug('Refresh rate ', draw_rate)
 
-            draw_rate = 1 / draw_rate
+        draw_rate = 1 / draw_rate
 
         # Call the parent class and set up the window
         super().__init__(

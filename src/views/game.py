@@ -18,6 +18,7 @@ import constants.controls.controller
 import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
+from constants.maps import FIRST_MAP
 from constants.layers import *
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
@@ -180,7 +181,7 @@ class Game(Fading):
 
         self.music_queue.play()
 
-        atmo = self.state.play_sound('atmos', 'world', loop=True)
+        atmo = self.state.play_sound('atmos', FIRST_MAP, loop=True)
         self.atmo = PositionalSound(self.player_sprite, self.player_sprite, atmo, self.state)
 
         pyglet.clock.unschedule(self.wait_for_video)

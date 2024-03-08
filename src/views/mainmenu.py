@@ -65,10 +65,11 @@ class MainMenu(Fading):
         def on_click_newgame_button(event):
             # Pass already created view because we are resuming.
 
-            from views.game import Game
-            new_savegame(self.state.map_name)
-            self.next_view = Game(self.window, self.state)
-            self.fade_out()
+            if SaveGameState().exists:
+                self.on_confirm_overwrite_savegame()
+                return
+
+            self.on_new_game()
 
         @continue_button.event("on_click")
         def on_click_continue_button(event):
@@ -146,6 +147,26 @@ class MainMenu(Fading):
         if self.next_view:
             if self.player:
                 self.player.pause()
+
+    def on_new_game(self, overwrite=False):
+        if SaveGameState.exists() and not overwrite:
+            from views.game import Game
+            new_savegame(self.state.map_name)
+            self.next_view = Game(self.window, self.state)
+            self.fade_out()
+
+    def on_confirm_overwrite_savegame(self):
+        message_box = arcade.gui.UIMessageBox(
+            width=300,
+            height=200,
+            message_text=(
+                _('Overwrite existing savegame?')
+            ),
+            callback=self.on_message_box_close,
+            buttons=["Yes", "No"]
+        )
+
+        self.manager.add(message_box)
 
     def on_update(self, delta_time):
 

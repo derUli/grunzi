@@ -1,6 +1,7 @@
 import os
 import unittest
 
+from constants.maps import FIRST_MAP
 from state.viewstate import ViewState
 
 
@@ -11,7 +12,7 @@ class ViewStateTest(unittest.TestCase):
             '..',
             'src'
         )
-        state = ViewState(root_dir, map_name='world')
+        state = ViewState(root_dir, map_name=FIRST_MAP)
         state.preload_sounds()
         state.play_sound('coin')
         self.assertTrue(state.sounds['coin'].is_playing)

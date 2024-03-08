@@ -12,6 +12,7 @@ import sys
 
 import pyglet
 
+from constants.maps import FIRST_MAP
 from state.viewstate import ViewState
 from utils.log import configure_logger, log_hardware_info
 from utils.text import label_value
@@ -59,7 +60,7 @@ def cli_args():
     parser.add_argument(
         '--map',
         type=str,
-        default='world',
+        default=FIRST_MAP,
         help='Name of the map'
     )
 
