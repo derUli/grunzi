@@ -172,7 +172,7 @@ class Game(Fading):
 
         self.music_queue.play()
 
-        #self.atmo = self.state.play_sound('atmos', 'world', loop=True)
+        self.atmo = self.state.play_sound('atmos', 'world', loop=True)
 
         pyglet.clock.unschedule(self.wait_for_video)
 
