@@ -21,7 +21,7 @@ class VideoTest(unittest.TestCase):
             'data',
             'videos',
             'splash',
-            'world.webm'
+            'map01.webm'
         )
 
         video = load_video(path, (640, 480), True)

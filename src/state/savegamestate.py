@@ -9,7 +9,6 @@ from constants.savegames import SAVEGAME_DEFAULT
 from utils.path import get_savegame_path
 
 
-
 class SaveGameState:
     def __init__(self):
         # Screen resolution

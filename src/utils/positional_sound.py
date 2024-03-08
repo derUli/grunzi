@@ -12,9 +12,14 @@ class PositionalSound:
         self.source = source
         self.state = state
         self.player = player
-        self.player.volume = 0
+
+        if self.player:
+            self.player.volume = 0
 
     def update(self):
+        if not self.player:
+            return
+
         if not self.player.playing:
             return
 
@@ -36,9 +41,13 @@ class PositionalSound:
             self.player.volume = volume
 
     def pause(self):
-        if self.player:
-            self.player.pause()
+        if not self.player:
+            return
+
+        self.player.pause()
 
     def play(self):
-        if self.player:
-            self.player.play()
+        if not self.player:
+            return
+
+        self.player.play()

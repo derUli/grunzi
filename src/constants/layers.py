@@ -1,4 +1,5 @@
 """ Layer constants """
+
 from arcade import SpriteList
 
 import sprites.decoration.car

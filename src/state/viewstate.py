@@ -1,3 +1,4 @@
+import glob
 import logging
 import os
 import random
@@ -61,12 +62,6 @@ class ViewState:
                 os.path.join(self.sound_dir, 'skull', 'screech.ogg'),
             ),
             'atmos': {
-                'world': arcade.load_sound(
-                    os.path.join(self.sound_dir, 'atmos', 'world.ogg')
-                ),
-                'highway': arcade.load_sound(
-                    os.path.join(self.sound_dir, 'atmos', 'highway.ogg')
-                )
             },
             'piggybank': {
                 'destroy': arcade.load_sound(os.path.join(self.sound_dir, 'piggybank', 'destroy.ogg'))
@@ -75,6 +70,13 @@ class ViewState:
                 'plier': arcade.load_sound(os.path.join(self.sound_dir, 'plier', 'plier.ogg'))
             }
         }
+
+        dir = os.path.join(self.sound_dir, 'atmos', '*.ogg')
+        for file in glob.glob(dir):
+            path = file
+            name = os.path.splitext(os.path.basename(path))[0]
+
+            self.sounds['atmos'][name] = arcade.load_sound(path)
 
         for i in range(1, 6):
             self.sounds[f"grunt{i}"] = arcade.load_sound(
@@ -105,9 +107,12 @@ class ViewState:
         return self.shaders[name]
 
     def play_sound(self, name1, name2=None, loop=False):
-        sound = self.sounds[name1]
-        if name2:
-            sound = sound[name2]
+        try:
+            sound = self.sounds[name1]
+            if name2:
+                sound = sound[name2]
+        except KeyError:
+            return
 
         return sound.play(volume=self.sound_volume, loop=loop)
 

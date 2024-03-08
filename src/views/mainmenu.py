@@ -65,9 +65,8 @@ class MainMenu(Fading):
         def on_click_newgame_button(event):
             # Pass already created view because we are resuming.
 
-            if SaveGameState().exists:
-                self.on_confirm_overwrite_savegame()
-                return
+            if SaveGameState().exists():
+                return self.on_confirm_overwrite_savegame()
 
             self.on_new_game()
 
