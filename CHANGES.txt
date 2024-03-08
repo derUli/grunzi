@@ -7,16 +7,18 @@
 
 # Alpha 008 (Not yet released)
 
-* Intro Video
-* Map Änderungen
-* Frettchen
-* Menüs können jetzt mit Controller bedient werden
+* Intro Video hinzugefügt
+* Hammer und Sparschwein hinzugefügt
+* Frettchen hinzugefügt
+* Spielstand-System hinzugefügt
 * V-Sync Grafik-Option hinzugefügt
+* Menüs können jetzt mit Controller bedient werden
 * Launcher UI verbessert
 * Controller Support ist nun immer aktiviert
 * Bugfix: Man kann ein Item nicht mehr auf einer Mauer ablegen
 * Bugfix: Absturz im Launcher behoben
-* Spielstand-System hinzugefügt
+
+
 
 ## Alpha 007 (08.03.2024)
 
