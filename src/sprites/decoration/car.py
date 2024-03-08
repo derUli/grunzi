@@ -1,5 +1,6 @@
 from constants.collisions import COLLISION_TYPE_CAR, COLLISION_ENEMY, COLLISION_PLAYER
 from sprites.sprite import Sprite
+from utils.positioned_sound import PositionedSound
 
 CAR_SPEED = 10
 FORCE_MOVE = 4000

@@ -1,6 +1,8 @@
 import arcade
 
 
+MAX_HEARABLE_DISTANCE = 1 / 1000
+
 class PositionedSound:
     def __init__(self, listener, source, sound, state):
         self.listener = listener
@@ -15,4 +17,10 @@ class PositionedSound:
     def update(self):
         distance = arcade.get_distance_between_sprites(self.listener, self.source)
         distance = abs(distance)
-        print(distance)
+
+        volume = 1 - (MAX_HEARABLE_DISTANCE * distance) * self.state.sound_volume
+
+        if volume < 0:
+            volume = 0
+
+        self.player.volume = volume
