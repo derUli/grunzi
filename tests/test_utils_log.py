@@ -25,7 +25,7 @@ class TestUtilsLog(unittest.TestCase):
             self.assertIn(timestamp_string, f.read())
 
     def test_log_hardware_info(self):
-        window = arcade.Window(800, 600, visible = False)
+        window = arcade.Window(800, 600, visible=False)
         log_hardware_info(window)
 
         with open(self.log_file, "r") as f:

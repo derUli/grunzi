@@ -5,26 +5,27 @@ from arcade import Texture
 
 FADE_SPEED = 255 / 20
 
+
 class Sprite(arcade.sprite.Sprite):
     def __init__(
-        self,
-        filename: str = None,
-        scale: float = 1,
-        image_x: float = 0,
-        image_y: float = 0,
-        image_width: float = 0,
-        image_height: float = 0,
-        center_x: float = 0,
-        center_y: float = 0,
-        repeat_count_x: int = 1,  # Unused
-        repeat_count_y: int = 1,  # Unused
-        flipped_horizontally: bool = False,
-        flipped_vertically: bool = False,
-        flipped_diagonally: bool = False,
-        hit_box_algorithm: Optional[str] = "Simple",
-        hit_box_detail: float = 4.5,
-        texture: Texture = None,
-        angle: float = 0
+            self,
+            filename: str = None,
+            scale: float = 1,
+            image_x: float = 0,
+            image_y: float = 0,
+            image_width: float = 0,
+            image_height: float = 0,
+            center_x: float = 0,
+            center_y: float = 0,
+            repeat_count_x: int = 1,  # Unused
+            repeat_count_y: int = 1,  # Unused
+            flipped_horizontally: bool = False,
+            flipped_vertically: bool = False,
+            flipped_diagonally: bool = False,
+            hit_box_algorithm: Optional[str] = "Simple",
+            hit_box_detail: float = 4.5,
+            texture: Texture = None,
+            angle: float = 0
     ):
         super().__init__(
             filename,
@@ -45,8 +46,7 @@ class Sprite(arcade.sprite.Sprite):
         )
 
         self.insight = False
-        self.fadeout = False#
-
+        self.fadeout = False  #
 
     def draw_debug(self):
         pass
@@ -75,4 +75,3 @@ class Sprite(arcade.sprite.Sprite):
             return True
 
         return False
-

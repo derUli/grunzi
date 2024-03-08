@@ -89,8 +89,7 @@ class View(arcade.View):
 
         create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='left').draw()
 
-
-    def on_update(self, delta_time = 0):
+    def on_update(self, delta_time=0):
         if self.window.show_fps:
             self.perf_graph.update_graph(delta_time=delta_time)
 
@@ -140,6 +139,6 @@ class View(arcade.View):
         if self.shadertoy:
             self.shadertoy.render(time=self.time)
 
-    def draw_debug(self, delta_time = 0):
+    def draw_debug(self, delta_time=0):
         if self.window.show_fps:
             self.perf_graph.draw()

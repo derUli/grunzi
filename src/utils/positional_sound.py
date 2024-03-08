@@ -6,7 +6,7 @@ FADE_SPEED = 0.1
 import arcade
 
 
-class PositionedSound:
+class PositionalSound:
     def __init__(self, listener, source, player, state):
         self.listener = listener
         self.source = source

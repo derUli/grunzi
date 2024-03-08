@@ -1,7 +1,7 @@
 import arcade
 from arcade.gui import UIFlatButton
 
-from constants.fonts import DEFAULT_FONT, MONOTYPE_FONT
+from constants.fonts import DEFAULT_FONT
 
 MARGIN = 10
 DEBUG_COLOR = arcade.csscolor.GHOST_WHITE

@@ -3,7 +3,8 @@ from typing import Optional
 from arcade import Texture
 
 from sprites.sprite import Sprite
-from utils.positioned_sound import PositionedSound
+from utils.positional_sound import PositionalSound
+
 
 class Highway(Sprite):
     def __init__(
@@ -61,6 +62,6 @@ class Highway(Sprite):
     ):
         if not self.sound:
             audio = state.play_sound('atmos', 'highway', loop=True)
-            self.sound = PositionedSound(player, self, audio, state)
+            self.sound = PositionalSound(player, self, audio, state)
 
         self.sound.update()

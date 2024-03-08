@@ -1,4 +1,3 @@
-
 from sprites.items.item import Item, PiggyBank
 
 

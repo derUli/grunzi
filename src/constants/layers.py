@@ -23,7 +23,6 @@ LAYER_SPAWN_POINT = 'Spawn Point'
 LAYER_CAR_LEFT = 'Cars Left'
 LAYER_CAR_RIGHT = 'Cars Right'
 
-
 LAYER_HIGHWAY = 'Highway'
 
 ALL_LAYERS = [

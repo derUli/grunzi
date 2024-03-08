@@ -29,7 +29,7 @@ from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.physics import make_physics_engine
-from utils.positioned_sound import PositionedSound
+from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
 from utils.sprite import tilemap_size
 from utils.video import load_video
@@ -181,7 +181,7 @@ class Game(Fading):
         self.music_queue.play()
 
         atmo = self.state.play_sound('atmos', 'world', loop=True)
-        self.atmo = PositionedSound(self.player_sprite, self.player_sprite, atmo, self.state)
+        self.atmo = PositionalSound(self.player_sprite, self.player_sprite, atmo, self.state)
 
         pyglet.clock.unschedule(self.wait_for_video)
 
