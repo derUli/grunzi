@@ -1,4 +1,5 @@
 """ Used to store launcher settings """
+import logging
 import os
 
 import jsonpickle
@@ -12,7 +13,7 @@ class SettingsState:
         self.screen_resolution = [1280, 720]
 
         # Is fullscreen mode
-        self.fullscreen = False
+        self.fullscreen = True
 
         # Vertical synchronisation
         self.vsync = True
@@ -32,6 +33,19 @@ class SettingsState:
 
     @staticmethod
     def load():
+        try:
+            return SettingsState._load()
+        except ValueError as e:
+            logging.error(e)
+        except OSError as e:
+            logging.error(e)
+        except AttributeError as e:
+            logging.error(e)
+
+        return SettingsState()
+
+    @staticmethod
+    def _load():
         with open(get_settings_path(), 'r') as f:
             state = jsonpickle.decode(f.read())
 

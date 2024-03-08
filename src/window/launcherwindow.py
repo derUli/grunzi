@@ -43,16 +43,7 @@ class LauncherWindow(ThemedTk):
         self.set_icon()
 
         if SettingsState.exists():
-            self.state = SettingsState()
-
-            try:
-                self.state = SettingsState.load()
-            except ValueError as e:
-                logging.error(e)
-            except OSError as e:
-                logging.error(e)
-            except AttributeError as e:
-                logging.error(e)
+            self.state = SettingsState.load()
 
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
