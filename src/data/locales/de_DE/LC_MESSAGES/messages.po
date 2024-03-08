@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-07 18:51+0100\n"
+"POT-Creation-Date: 2024-03-08 22:45+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -202,25 +202,41 @@ msgstr "Starttaste"
 msgid "Back"
 msgstr "Zurück"
 
-#: views/game.py:192
+#: views/game.py:203
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: views/mainmenu.py:27
+#: views/mainmenu.py:28
 msgid "Grunzi"
 msgstr "Grunzi"
 
-#: views/mainmenu.py:35
+#: views/mainmenu.py:36
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:41 views/pausemenu.py:31
+#: views/mainmenu.py:42 views/pausemenu.py:25
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: views/mainmenu.py:48 views/pausemenu.py:31
 msgid "Options & Help"
 msgstr "Optionen & Hilfe"
 
-#: views/mainmenu.py:47
+#: views/mainmenu.py:54
 msgid "Quit game"
 msgstr "Beenden"
+
+#: views/mainmenu.py:164
+msgid "Overwrite existing savegame?"
+msgstr "Existierenden Spielstand überschreiben?"
+
+#: views/mainmenu.py:166 views/mainmenu.py:177
+msgid "Yes"
+msgstr "Ja"
+
+#: views/mainmenu.py:167
+msgid "No"
+msgstr "Nein"
 
 #: views/optionsmenu.py:30
 msgid "Controls"
@@ -230,15 +246,11 @@ msgstr "Steuerung"
 msgid "Follow me on X"
 msgstr "Folge mir auf X"
 
-#: views/pausemenu.py:25
-msgid "Continue"
-msgstr "Fortsetzen"
-
 #: views/pausemenu.py:37
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/view.py:75
+#: views/view.py:94
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
@@ -246,47 +258,31 @@ msgstr "Unbekannter Build"
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:62
+#: window/launcherwindow.py:60
 msgid "Video"
 msgstr ""
 
-#: window/launcherwindow.py:63
+#: window/launcherwindow.py:61
 msgid "Audio"
-msgstr "Audio"
+msgstr ""
 
 #: window/launcherwindow.py:64
-msgid "Controller"
-msgstr "Controller"
-
-#: window/launcherwindow.py:65
-msgid "Game"
-msgstr "Spiel"
-
-#: window/launcherwindow.py:68
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:78
+#: window/launcherwindow.py:74
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: window/launcherwindow.py:85
+#: window/launcherwindow.py:81
 msgid "V-Sync"
 msgstr ""
 
-#: window/launcherwindow.py:93
-msgid "Sound"
-msgstr "Sound"
+#: window/launcherwindow.py:89
+msgid "Enable Sound"
+msgstr "Sound aktivieren"
 
-#: window/launcherwindow.py:101
-msgid "Use Controller"
-msgstr "Controller"
-
-#: window/launcherwindow.py:107
-msgid "Map:"
-msgstr ""
-
-#: window/launcherwindow.py:118
+#: window/launcherwindow.py:95
 msgid "Launch Game"
 msgstr "Spiel starten"
 

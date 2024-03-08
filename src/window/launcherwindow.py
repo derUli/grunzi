@@ -86,7 +86,7 @@ class LauncherWindow(ThemedTk):
 
         ttk.Checkbutton(
             tab_audio,
-            text=_('Sound'),
+            text=_('Enable Sound'),
             variable=self.silent,
             onvalue=False,
             offvalue=True
