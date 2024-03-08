@@ -161,7 +161,7 @@ class Game(Fading):
 
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
 
-    def wait_for_video(self, dt=0):
+    def wait_for_video(self, delta_time=0):
 
         if not self.initialized:
             return
@@ -207,7 +207,7 @@ class Game(Fading):
         self.inventory.draw()
         self.player_sprite.draw_overlay()
         self.draw_fading()
-        self.draw_debug(self.player_sprite)
+        self.draw_debug()
 
     def update_player_speed(self):
 
@@ -482,6 +482,9 @@ class Game(Fading):
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
 
     def on_update(self, delta_time):
+
+        super().on_update(delta_time)
+
         """Movement and game logic"""
         if not self.initialized:
             return

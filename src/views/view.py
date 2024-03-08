@@ -8,7 +8,6 @@ import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
-from utils.text import draw_debug
 
 MOUSE_POINTER_SPEED = 10
 
@@ -30,6 +29,8 @@ class View(arcade.View):
         self.view = None
         self.time = 0
         self.move_pointer = None
+
+        self.perf_graph = None
 
     def on_key_press(self, key, modifiers):
 
@@ -54,6 +55,10 @@ class View(arcade.View):
     def on_show_view(self):
         # Set the background color
         arcade.set_background_color(arcade.csscolor.BLACK)
+
+        self.perf_graph = arcade.PerfGraph(160, 90)
+        self.perf_graph.left = self.window.width - MARGIN - self.perf_graph.width
+        self.perf_graph.bottom = MARGIN
 
     def on_toggle_fullscreen(self):
         self.window.set_fullscreen(not self.window.fullscreen)
@@ -81,8 +86,14 @@ class View(arcade.View):
 
         create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='left').draw()
 
-    def draw_debug(self, player_sprite=None):
-        draw_debug(player_sprite, self.window)
+
+    def on_update(self, delta_time = 0):
+        if self.window.show_fps:
+            self.perf_graph.update_graph(delta_time)
+
+    def draw_debug(self):
+        if self.window.show_fps:
+            self.perf_graph.draw()
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")

@@ -122,8 +122,10 @@ class MainMenu(Fading):
             if self.player:
                 self.player.pause()
 
-    def on_update(self, dt):
-        self.time += dt
+    def on_update(self, delta_time):
+
+        super().on_update(delta_time=delta_time)
+        self.time += delta_time
 
         self.update_mouse()
         self.update_fade(self.next_view)

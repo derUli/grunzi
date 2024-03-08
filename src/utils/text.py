@@ -56,27 +56,3 @@ def label_value(label: str, value: any) -> str:
     @return:
     """
     return ': '.join([label, str(value)])
-
-
-def draw_debug(player_sprite, window):
-    debug_lines = []
-
-    if not window.show_fps:
-        return
-
-    if player_sprite:
-        debug_lines.append(
-            label_value('POS', str(int(player_sprite.center_x)) + ' ' + str(int(player_sprite.center_y)))
-        )
-
-    debug_lines.append(label_value('FPS', str(int(arcade.get_fps()))))
-
-    create_text(
-        "\n".join(debug_lines),
-        width=window.width - (MARGIN * 2),
-        align='right',
-        color=DEBUG_COLOR,
-        font_name=MONOTYPE_FONT,
-        font_size=DEBUG_FONT_SIZE,
-        multiline=True
-    ).draw()

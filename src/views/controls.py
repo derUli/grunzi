@@ -141,12 +141,14 @@ class Controls(Fading):
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, dt: float = 0) -> None:
+    def on_update(self, delta_time: float = 0) -> None:
         """ On update
         @param dt: Delta Time
         """
 
-        self.time += dt
+        super().on_update(delta_time=delta_time)
+
+        self.time += delta_time
 
         self.update_mouse()
         self.update_fade(self.next_view)

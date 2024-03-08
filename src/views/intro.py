@@ -43,7 +43,10 @@ class Intro(Fading):
 
         self.scene.add_sprite(LAYER_UI, logo)
 
-    def on_update(self, dt):
+    def on_update(self, delta_time):
+
+        super().on_update(delta_time=delta_time)
+
         self.update_fade(self.next_view)
 
         if self._fade_in is None and self._fade_out is None:

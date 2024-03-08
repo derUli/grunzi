@@ -108,8 +108,11 @@ class OptionsMenu(Fading):
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, dt):
-        self.time += dt
+    def on_update(self, delta_time):
+
+        super().on_update(delta_time)
+
+        self.time += delta_time
 
         self.update_mouse()
         self.update_fade(self.next_view)
