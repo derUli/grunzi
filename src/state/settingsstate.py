@@ -21,6 +21,8 @@ class SettingsState:
         # Is sound disabled
         self.silent = False
 
+        self.show_fps = False
+
         self.version = 2
 
     @staticmethod

@@ -59,7 +59,6 @@ class GameWindow(arcade.Window):
         self.draw_rate = update_rate
         self.controller_manager = None
         self.debug = False
-        self.show_fps = False
         self.controllers = []
 
     def setup(self):

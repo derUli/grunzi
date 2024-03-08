@@ -1,5 +1,11 @@
 # Changelog
 
+# Alpha 009 (Not yet released)
+
+* Levelauswahl
+* Schwierigkeitsgrad-Auswahl (WIP)
+
+
 # Alpha 008 (Not yet released)
 
 * Intro Video

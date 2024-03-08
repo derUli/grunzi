@@ -78,7 +78,7 @@ class View(arcade.View):
         settings.save()
 
     def on_toggle_fps(self):
-        self.window.show_fps = not self.window.show_fps
+        self.state.show_fps = not self.state.show_fps
 
     def on_toggle_debug(self):
         self.window.debug = not self.window.debug
@@ -101,7 +101,7 @@ class View(arcade.View):
         create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='left').draw()
 
     def on_update(self, delta_time=0):
-        if self.window.show_fps:
+        if self.state.show_fps:
             self.perf_graph.update_graph(delta_time=delta_time)
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
@@ -151,5 +151,5 @@ class View(arcade.View):
             self.shadertoy.render(time=self.time)
 
     def draw_debug(self, delta_time=0):
-        if self.window.show_fps:
+        if self.state.show_fps:
             self.perf_graph.draw()
