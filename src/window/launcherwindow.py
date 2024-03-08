@@ -56,11 +56,9 @@ class LauncherWindow(ThemedTk):
 
         tab_video = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
         tab_audio = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
-        tab_game = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
 
         tabControl.add(tab_video, text=_('Video'))
         tabControl.add(tab_audio, text=_('Audio'))
-        tabControl.add(tab_game, text=_('Game'))
         tabControl.pack(expand=True, fill=tk.BOTH)
 
         ttk.Label(tab_video, text=_('Screen resolution:')).pack(expand=True)
@@ -92,17 +90,6 @@ class LauncherWindow(ThemedTk):
             variable=self.silent,
             onvalue=False,
             offvalue=True
-        ).pack()
-
-        ttk.Label(tab_game, text=_('Map:')).pack()
-
-        maps = self.available_maps()
-
-        ttk.Combobox(
-            tab_game,
-            values=maps,
-            textvariable=self.map,
-            state='readonly'
         ).pack()
 
         button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
