@@ -26,6 +26,7 @@ class ViewState:
         self.sounds = {}
 
         self.map_name = map_name
+        self._muted = False
 
     def preload(self):
         self.preload_sounds()
@@ -59,8 +60,7 @@ class ViewState:
             ),
             'atmos': {
                 'world': arcade.load_sound(
-                    os.path.join(self.sound_dir, 'atmos', 'world.ogg'),
-                    streaming=True
+                    os.path.join(self.sound_dir, 'atmos', 'world.ogg')
                 ),
                 'highway': arcade.load_sound(
                     os.path.join(self.sound_dir, 'atmos', 'highway.ogg')
@@ -125,9 +125,25 @@ class ViewState:
     def beep(self):
         return self.sounds['beep'].play()
 
+    def mute(self):
+        self._muted = True
+
+    def unmute(self):
+        self._muted = False
+
     @property
     def sound_volume(self):
-        if self.is_silent():
+        if self.is_silent() or self._muted:
             return 0.0
 
         return self._sound_volume
+
+    @sound_volume.setter
+    def sound_volume(self, volume):
+        if volume < 0:
+            volume = 0.0
+
+        if volume > 1:
+            volume = 1.0
+        logging.info('Audio: New volume %s', volume)
+        self._sound_volume = volume

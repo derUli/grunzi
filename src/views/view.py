@@ -53,7 +53,6 @@ class View(arcade.View):
             self.alt_key_pressed = False
 
     def on_show_view(self):
-        arcade.cleanup_texture_cache()
         # Set the background color
         arcade.set_background_color(arcade.csscolor.BLACK)
 
