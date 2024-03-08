@@ -8,6 +8,7 @@
 * Menüs können jetzt mit Controller bedient werden
 * V-Sync Grafik-Option hinzugefügt
 * Launcher UI verbessert
+* Controller Support ist nun immer aktiviert
 
 ## Alpha 007 (08.03.2024)
 
