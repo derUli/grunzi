@@ -1,6 +1,7 @@
 import logging
 
 MAX_DISTANCE = 800
+FADE_SPEED = 0.1
 
 import arcade
 
@@ -24,9 +25,9 @@ class PositionedSound:
         volume = self.player.volume
 
         if distance <= MAX_DISTANCE:
-            volume = min(volume + 0.01, 1.0)
+            volume = min(volume + FADE_SPEED, 1.0)
         else:
-            volume = max(volume - 0.01, 0)
+            volume = max(volume - FADE_SPEED, 0)
 
         volume = round(volume * self.state.sound_volume, 2)
 
