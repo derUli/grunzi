@@ -1,6 +1,8 @@
 import webbrowser
 
+import PIL
 import arcade.gui
+from PIL import Image
 
 import constants.controls.keyboard
 import utils.text
@@ -26,11 +28,48 @@ class OptionsMenu(Fading):
         self.previous_view = previous_view
         self._fade_in = None
 
+
+    def on_hide_view(self):
+        # Disable the UIManager when the view is hidden.
+        self.pop_controller_handlers()
+        self.manager.disable()
+
+    def on_back(self):
+        self.previous_view.time = self.time
+        self.window.show_view(self.previous_view)
+
+    def on_show_view(self):
+        """ This is run once when we switch to this view """
+        super().on_show_view()
+
+        self.push_controller_handlers()
+        self.window.set_mouse_visible(True)
+
+        # Makes the background darker
+        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
+
+        self.setup()
+
+    def setup(self):
+        self.manager.clear()
         controls_button = arcade.gui.UIFlatButton(
             text=_("Controls"),
             width=BUTTON_WIDTH,
             style=utils.text.get_style()
         )
+
+        fullscreen_button = arcade.gui.UITextureButton(
+            text=_("Fullscreen"),
+            width=BUTTON_WIDTH,
+            texture=self.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=controls_button.height,
+                value=self.window.fullscreen
+            ),
+            style=utils.text.get_style()
+        )
+
+        self.fullscreen_button = fullscreen_button
 
         grunzbabe_at_x_button = arcade.gui.UIFlatButton(
             text=_("Follow me on X"),
@@ -52,6 +91,10 @@ class OptionsMenu(Fading):
             self.next_view = Controls(self.window, self.state, comeback_view)
             self.fade_out()
 
+        @fullscreen_button.event('on_click')
+        def on_click_fullscreen_button(event):
+            self.on_toggle_fullscreen()
+            self.setup()
         @grunzbabe_at_x_button.event("on_click")
         def on_click_grunzbabe_at_x_button(event):
             # Pass already created view because we are resuming.
@@ -65,7 +108,15 @@ class OptionsMenu(Fading):
             self.on_back()
 
         widgets = [
-            controls_button,
+            controls_button
+        ]
+
+        if not self.window.is_native:
+            widgets += [
+                self.fullscreen_button
+            ]
+
+        widgets += [
             grunzbabe_at_x_button,
             back_button
         ]
@@ -81,24 +132,6 @@ class OptionsMenu(Fading):
 
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
-    def on_hide_view(self):
-        # Disable the UIManager when the view is hidden.
-        self.pop_controller_handlers()
-        self.manager.disable()
-
-    def on_back(self):
-        self.previous_view.time = self.time
-        self.window.show_view(self.previous_view)
-
-    def on_show_view(self):
-        """ This is run once when we switch to this view """
-        super().on_show_view()
-
-        self.push_controller_handlers()
-        self.window.set_mouse_visible(True)
-
-        # Makes the background darker
-        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
         self.manager.enable()
 
     def on_key_press(self, key, modifiers):
@@ -131,3 +164,15 @@ class OptionsMenu(Fading):
 
         self.draw_fading()
         self.draw_debug()
+
+    def get_texture_by_value(self, width, height, value=False):
+        red_background = PIL.Image.new("RGBA", (width, height), arcade.csscolor.RED)
+        green_background = PIL.Image.new("RGBA", (width, height), arcade.csscolor.GREEN)
+
+        texture_red = arcade.texture.Texture(name='red_background', image=red_background)
+        texture_green = arcade.texture.Texture(name='green_background', image=green_background)
+
+        if value:
+            return texture_green
+
+        return texture_red
