@@ -102,3 +102,14 @@ class MusicQueue:
             self.player.volume = self.state.music_volume
 
             logging.info(f"Music volume at {self.state.music_volume}")
+
+
+def normalize_volume(volume):
+    volume = round(volume, 2)
+    if volume > 1.0:
+        volume = 1.0
+
+    if volume < 0.0:
+        volume = 0.0
+
+    return volume

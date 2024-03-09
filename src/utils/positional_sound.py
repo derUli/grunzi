@@ -1,5 +1,7 @@
 import logging
 
+from utils.audio import normalize_volume
+
 MAX_DISTANCE = 800
 FADE_SPEED = 0.1
 
@@ -34,7 +36,7 @@ class PositionalSound:
         else:
             volume = max(volume - FADE_SPEED, 0)
 
-        volume = round(volume * self.state.sound_volume, 2)
+        volume = normalize_volume(volume * self.state.sound_volume)
 
         if volume != self.player.volume:
             logging.debug('Sound volume at %s', volume)

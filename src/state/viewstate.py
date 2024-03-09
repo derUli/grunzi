@@ -8,6 +8,7 @@ import pyglet
 from arcade.experimental import Shadertoy
 
 from constants.maps import FIRST_MAP
+from utils.audio import normalize_volume
 
 
 class ViewState:
@@ -151,13 +152,7 @@ class ViewState:
 
     @music_volume.setter
     def music_volume(self, volume):
-        if volume < 0:
-            volume = 0.0
-
-        if volume > 1:
-            volume = 1.0
-
-        volume = round(volume, 2)
+        volume = normalize_volume(volume)
 
         self._music_volume = volume
 
