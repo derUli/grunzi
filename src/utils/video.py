@@ -3,7 +3,10 @@ import logging
 import os
 import shutil
 
-from pyvidplayer2 import VideoPyglet
+try:
+    from pyvidplayer2 import VideoPyglet
+except Exception as e:
+    logging.error(e)
 
 from utils.path import is_windows
 
