@@ -18,6 +18,7 @@ from state.viewstate import ViewState
 from utils.log import configure_logger, log_hardware_info
 from utils.text import label_value
 from views.intro import Intro
+from views.mainmenu import MainMenu
 from window.gamewindow import GameWindow, SCREEN_WIDTH, SCREEN_HEIGHT
 from window.launcherwindow import LauncherWindow
 
@@ -92,6 +93,13 @@ def cli_args():
         default=0,
         action='count',
         help='Make the operation more talkative'
+    )
+
+    parser.add_argument(
+        '-l',
+        '--skip-logo',
+        action='store_true',
+        help='Skip the logo screen and go straight to main menu'
     )
 
     parser.add_argument(
@@ -170,6 +178,10 @@ def main():
     window.set_icon(icon)
 
     view = Intro(window, state)
+
+    if args.skip_logo:
+        view = MainMenu(window, state)
+
     window.show_view(view)
     arcade.run()
 
