@@ -44,6 +44,12 @@ WALL_LAYERS = [
 ]
 
 LAYER_OPTIONS = {
+    LAYER_WALL: {
+        'use_spatial_hash': True
+    },
+    LAYER_FENCE: {
+        'use_spatial_hash': True
+    },
     LAYER_PLIER: {
         'custom_class': Plier
     },
