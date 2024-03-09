@@ -5,6 +5,7 @@ from constants.collisions import COLLISION_BULLET, COLLISION_WALL, COLLISION_SKU
     COLLISION_FERRET
 from constants.layers import LAYER_ENEMIES
 from sprites.bullet.bullet import Bullet
+from sprites.characters.character import Character
 from utils.physics import on_hit_destroy
 
 HURT_PLAYER = 10
@@ -191,6 +192,9 @@ class SkullBullet(Bullet):
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
         bullet_sprite.remove_from_sprite_lists()
+        if not isinstance(_hit_sprite, Character):
+            return
+
         _hit_sprite.hurt(HURT_PLAYER)
 
     def on_hit_ferret(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
