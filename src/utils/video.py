@@ -15,7 +15,7 @@ def load_video(
         path: str,
         size: tuple[int, int] | None = None,
         volume: float = 1
-) -> VideoPyglet | None:
+):
     has_ffmpeg = shutil.which('ffmpeg')
 
     if not has_ffmpeg:
