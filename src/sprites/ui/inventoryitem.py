@@ -27,8 +27,7 @@ class InventoryItem(arcade.sprite.Sprite):
         super().__init__(filename=filename)
         self.bottom = bottom
         self.left = left
-
-        self.image = PIL.Image.open(filename).convert('RGBA')
+        self.image = PIL.Image.open(filename).convert('RGBA').crop()
         self.selected = False
         self.names = None
         self.item = None

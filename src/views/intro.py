@@ -1,7 +1,9 @@
 import os
 
+import PIL
 import arcade.gui
 
+from sprites.sprite import Sprite
 from views.fading import Fading
 from views.mainmenu import MainMenu
 
@@ -10,6 +12,7 @@ LAYER_UI = 'ui'
 # Seconds
 WAIT_FOR = 3
 
+MARGIN = 10
 
 class Intro(Fading):
     """Main menu view class."""
@@ -31,12 +34,23 @@ class Intro(Fading):
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
 
-        logo = arcade.sprite.Sprite(
-            filename=os.path.join(
-                self.state.image_dir,
-                'ui',
-                'logo.png'
-            ),
+
+        image = PIL.Image.open(
+            os.path.join(self.state.image_dir, 'ui', 'logo.png')
+        ).convert('RGBA').crop()
+
+
+        if image.size > self.window.size:
+            w, h = self.window.size
+
+            w -= MARGIN * 2
+            h -= MARGIN * 2
+            image = PIL.ImageOps.pad(image, (w, h))
+
+        texture = arcade.texture.Texture(name='logo', image=image)
+
+        logo = Sprite(
+            texture=texture,
             center_x=self.window.width / 2,
             center_y=self.window.height / 2,
         )
