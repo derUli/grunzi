@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-09 01:33+0100\n"
+"POT-Creation-Date: 2024-03-09 12:56+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -130,7 +130,7 @@ msgstr "Pausenmenü öffnen"
 msgid "F3"
 msgstr ""
 
-#: views/controls.py:69
+#: views/controls.py:69 views/optionsmenu.py:89
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
@@ -198,7 +198,7 @@ msgstr "Linker Bumper, Rechter Bumper"
 msgid "Start"
 msgstr "Starttaste"
 
-#: views/controls.py:107 views/optionsmenu.py:42
+#: views/controls.py:107 views/optionsmenu.py:106
 msgid "Back"
 msgstr "Zurück"
 
@@ -227,8 +227,8 @@ msgid "Continue"
 msgstr "Fortsetzen"
 
 #: views/mainmenu.py:48 views/pausemenu.py:31
-msgid "Options & Help"
-msgstr "Optionen & Hilfe"
+msgid "Settings"
+msgstr "Einstellungen"
 
 #: views/mainmenu.py:54
 msgid "Quit game"
@@ -246,11 +246,19 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: views/optionsmenu.py:30
+#: views/optionsmenu.py:58
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/optionsmenu.py:36
+#: views/optionsmenu.py:65 window/launcherwindow.py:74
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: views/optionsmenu.py:77 window/launcherwindow.py:81
+msgid "V-Sync"
+msgstr ""
+
+#: views/optionsmenu.py:100
 msgid "Follow me on X"
 msgstr "Folge mir auf X"
 
@@ -258,7 +266,7 @@ msgstr "Folge mir auf X"
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/view.py:96
+#: views/view.py:101
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
@@ -277,14 +285,6 @@ msgstr ""
 #: window/launcherwindow.py:64
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
-
-#: window/launcherwindow.py:74
-msgid "Fullscreen"
-msgstr "Vollbild"
-
-#: window/launcherwindow.py:81
-msgid "V-Sync"
-msgstr ""
 
 #: window/launcherwindow.py:89
 msgid "Enable Sound"

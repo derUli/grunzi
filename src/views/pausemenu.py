@@ -28,7 +28,7 @@ class PauseMenu(Fading):
         )
 
         options_help = arcade.gui.UIFlatButton(
-            text=_("Options & Help"),
+            text=_("Settings"),
             width=BUTTON_WIDTH,
             style=utils.text.get_style()
         )
