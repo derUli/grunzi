@@ -51,7 +51,8 @@ LAYER_OPTIONS = {
         'use_spatial_hash': True
     },
     LAYER_FENCE: {
-        'use_spatial_hash': True
+        'use_spatial_hash': True,
+        'custom_class': Fence
     },
     LAYER_PLIER: {
         'custom_class': Plier
