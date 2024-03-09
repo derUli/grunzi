@@ -1,6 +1,6 @@
 import unittest
 
-from utils.path import is_windows, get_userdata_path, get_settings_path
+from utils.path import is_windows, get_userdata_path, get_settings_path, get_savegame_path
 
 
 class PathTest(unittest.TestCase):
@@ -12,3 +12,7 @@ class PathTest(unittest.TestCase):
 
     def test_get_settings_path(self):
         self.assertIn('settings.json', get_settings_path())
+
+    def test_get_savegame_path(self):
+        self.assertIn('savegames', get_savegame_path('foo'))
+        self.assertIn('foo.json', get_savegame_path('foo'))
