@@ -2,8 +2,8 @@
 
 """ cx_freeze setup file """
 import os
-import sys
 import shutil
+import sys
 
 import cx_Freeze
 

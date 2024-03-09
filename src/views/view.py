@@ -56,7 +56,7 @@ class View(arcade.View):
         if key in constants.controls.keyboard.KEY_MUSIC_QUIETER:
             self.state.music_volume -= 0.1
         if key in constants.controls.keyboard.KEY_MUSIC_LOUDER:
-                self.state.music_volume += 0.1
+            self.state.music_volume += 0.1
         if key in constants.controls.keyboard.KEY_SCREENSHOT:
             self.on_make_screenshot()
 

@@ -1,5 +1,3 @@
-import webbrowser
-
 import PIL
 import arcade.gui
 from PIL import Image
@@ -10,10 +8,9 @@ from views.controls import Controls
 from views.fading import Fading
 
 BUTTON_WIDTH = 250
-URL_GRUNZBABE_AT_X = "https://x.com/GrunzBabe"
 
 
-class OptionsMenu(Fading):
+class SettingsMenu(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view, shadertoy, time=0):
@@ -96,12 +93,6 @@ class OptionsMenu(Fading):
             style=utils.text.get_style()
         )
 
-        grunzbabe_at_x_button = arcade.gui.UIFlatButton(
-            text=_("Follow me on X"),
-            width=BUTTON_WIDTH,
-            style=utils.text.get_style()
-        )
-
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
@@ -110,7 +101,7 @@ class OptionsMenu(Fading):
 
         @controls_button.event("on_click")
         def on_click_controls_button(event):
-            comeback_view = OptionsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
+            comeback_view = SettingsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
 
             # Pass already created view because we are resuming.
             self.next_view = Controls(self.window, self.state, comeback_view)
@@ -131,20 +122,15 @@ class OptionsMenu(Fading):
             self.on_toggle_fps()
             self.setup()
 
-        @grunzbabe_at_x_button.event("on_click")
-        def on_click_grunzbabe_at_x_button(event):
-            # Pass already created view because we are resuming.
-            self.window.set_fullscreen(self.window.fullscreen)
-            webbrowser.open(URL_GRUNZBABE_AT_X)
-
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
 
             self.on_back()
 
-
-        widgets = []
+        widgets = [
+            back_button
+        ]
 
         # Toggle fullscreen is pointless if the window size equals to the native screen resolution
         if not self.window.is_native:
@@ -159,9 +145,7 @@ class OptionsMenu(Fading):
         ]
 
         widgets += [
-            # grunzbabe_at_x_button,
-            controls_button,
-            back_button
+            controls_button
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.

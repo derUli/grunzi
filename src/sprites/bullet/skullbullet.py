@@ -188,7 +188,6 @@ class SkullBullet(Bullet):
             post_handler=self.on_hit_ferret
         )
 
-
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
         bullet_sprite.remove_from_sprite_lists()

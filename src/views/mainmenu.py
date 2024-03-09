@@ -2,12 +2,12 @@ import logging
 import os
 
 import arcade.gui
+from views.settings.settingsmenu import SettingsMenu
 
 import utils.text
 from constants.fonts import FONT_ADRIP
 from state.savegamestate import new_savegame, SaveGameState
 from views.fading import Fading
-from views.optionsmenu import OptionsMenu
 
 BUTTON_WIDTH = 250
 BUTTON_MARGIN_BOTTOM = 20
@@ -86,7 +86,7 @@ class MainMenu(Fading):
             # Pass already created view because we are resuming.
 
             self.window.show_view(
-                OptionsMenu(self.window, self.state, previous_view=self, shadertoy=self.shadertoy, time=self.time)
+                SettingsMenu(self.window, self.state, previous_view=self, shadertoy=self.shadertoy, time=self.time)
             )
 
         @quit_button.event("on_click")

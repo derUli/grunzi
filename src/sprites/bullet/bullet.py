@@ -65,7 +65,6 @@ class Bullet(arcade.sprite.SpriteCircle):
 
         return self
 
-
     def on_hit(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
         bullet_sprite.remove_from_sprite_lists()

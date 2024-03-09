@@ -18,6 +18,7 @@ CONTROLS_CONTROLLER = 'controller'
 
 LOWEST_FITTING_RESOLUTION = (1440, 900)
 
+
 class Controls(Fading):
     """Main menu view class."""
 
@@ -44,7 +45,6 @@ class Controls(Fading):
         super().on_show_view()
         self.scene = arcade.Scene()
         self.manager.clear()
-
 
         controls = []
 

@@ -5,7 +5,7 @@ import utils
 from utils.text import get_style
 from views.fading import Fading
 from views.mainmenu import MainMenu
-from views.optionsmenu import OptionsMenu
+from views.settings.settingsmenu import SettingsMenu
 
 BUTTON_WIDTH = 250
 
@@ -54,7 +54,7 @@ class PauseMenu(Fading):
             # Pass already created view because we are resuming.
 
             self.window.show_view(
-                OptionsMenu(
+                SettingsMenu(
                     self.window,
                     self.state,
                     previous_view=self,

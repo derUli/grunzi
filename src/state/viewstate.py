@@ -142,7 +142,6 @@ class ViewState:
     def unmute(self):
         self._muted = False
 
-
     @property
     def music_volume(self):
         if self.is_silent() or self._muted:
