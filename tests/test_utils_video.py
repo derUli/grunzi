@@ -1,7 +1,8 @@
 import os
 import unittest
 
-from utils.video import load_video
+from utils.path import is_windows
+from utils.video import load_video, video_supported
 
 
 class VideoTest(unittest.TestCase):
@@ -29,3 +30,6 @@ class VideoTest(unittest.TestCase):
         self.assertEqual(video.path, path)
         self.assertTrue(video.current_size, (640, 480))
         self.assertFalse(video.muted)
+
+    def test_video_supported(self):
+        self.assertEqual(is_windows(), video_supported())
