@@ -77,6 +77,12 @@ class View(arcade.View):
         settings.fullscreen = self.window.fullscreen
         settings.save()
 
+    def on_toggle_vsync(self):
+        self.window.set_vsync(not self.window.vsync)
+        settings = SettingsState().load()
+        settings.vsync = self.window.vsync
+        settings.save()
+
     def on_toggle_fps(self):
         self.state.settings.show_fps = not self.state.settings.show_fps
 

@@ -28,7 +28,6 @@ class OptionsMenu(Fading):
         self.previous_view = previous_view
         self._fade_in = None
 
-
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
         self.pop_controller_handlers()
@@ -52,12 +51,15 @@ class OptionsMenu(Fading):
 
     def setup(self):
         self.manager.clear()
+
+        # Control settings
         controls_button = arcade.gui.UIFlatButton(
             text=_("Controls"),
             width=BUTTON_WIDTH,
             style=utils.text.get_style()
         )
 
+        # Video settings
         fullscreen_button = arcade.gui.UITextureButton(
             text=_("Fullscreen"),
             width=BUTTON_WIDTH,
@@ -69,7 +71,17 @@ class OptionsMenu(Fading):
             style=utils.text.get_style()
         )
 
-        self.fullscreen_button = fullscreen_button
+        # Video settings
+        vsync_button = arcade.gui.UITextureButton(
+            text=_("V-Sync"),
+            width=BUTTON_WIDTH,
+            texture=self.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=controls_button.height,
+                value=self.window.vsync
+            ),
+            style=utils.text.get_style()
+        )
 
         grunzbabe_at_x_button = arcade.gui.UIFlatButton(
             text=_("Follow me on X"),
@@ -95,6 +107,12 @@ class OptionsMenu(Fading):
         def on_click_fullscreen_button(event):
             self.on_toggle_fullscreen()
             self.setup()
+
+        @vsync_button.event('on_click')
+        def on_click_vsync_button(event):
+            self.on_toggle_vsync()
+            self.setup()
+
         @grunzbabe_at_x_button.event("on_click")
         def on_click_grunzbabe_at_x_button(event):
             # Pass already created view because we are resuming.
@@ -111,13 +129,19 @@ class OptionsMenu(Fading):
             controls_button
         ]
 
+        # Toggle fullscreen is pointless if the window size equals to the native screen resolution
         if not self.window.is_native:
             widgets += [
-                self.fullscreen_button
+                fullscreen_button
             ]
 
+        # Other video settings
         widgets += [
-            grunzbabe_at_x_button,
+            vsync_button
+        ]
+
+        widgets += [
+            # grunzbabe_at_x_button,
             back_button
         ]
 
