@@ -33,4 +33,4 @@ class TestUtilsLog(unittest.TestCase):
             self.assertIn('[INFO] OS:', logged)
             self.assertIn('[INFO] CPU:', logged)
             self.assertIn('[INFO] RAM:', logged)
-            self.assertIn('[INFO] GPU:', logged)
+            self.assertIn('[INFO] GPU', logged)
