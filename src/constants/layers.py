@@ -63,7 +63,6 @@ LAYER_OPTIONS = {
     LAYER_PIGGYBANK: {
         'custom_class': PiggyBank
     },
-
     LAYER_HIGHWAY: {
         'custom_class': Highway
     },

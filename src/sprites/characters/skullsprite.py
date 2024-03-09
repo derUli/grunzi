@@ -85,9 +85,6 @@ class SkullSprite(Character):
         self.texture = self.textures[self.face - 1]
 
     def draw_overlay(self):
-        if not self.insight:
-            return
-
         self.draw_healthbar()
 
     def draw_debug(self):
