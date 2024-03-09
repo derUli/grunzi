@@ -5,14 +5,12 @@ from PIL import Image
 import constants.controls.keyboard
 import utils.text
 from views.fading import Fading
-from views.settings.settingsaudio import SettingsAudio
 from views.settings.settingscontrols import SettingsControls
-from views.settings.settingsvideo import SettingsVideo
 
 BUTTON_WIDTH = 250
 
 
-class SettingsMenu(Fading):
+class SettingsAudio(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view, shadertoy, time=0):
@@ -52,80 +50,20 @@ class SettingsMenu(Fading):
         self.manager.clear()
         self.manager.disable()
 
-        # Video settings
-        video_button = arcade.gui.UIFlatButton(
-            text=_("Video"),
-            width=BUTTON_WIDTH,
-            style=utils.text.get_style()
-        )
-
-        # Video settings
-        audio_button = arcade.gui.UIFlatButton(
-            text=_("Audio"),
-            width=BUTTON_WIDTH,
-            style=utils.text.get_style()
-        )
-
-        # Control settings
-        controls_button = arcade.gui.UIFlatButton(
-            text=_("Controls"),
-            width=BUTTON_WIDTH,
-            style=utils.text.get_style()
-        )
-
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
             style=utils.text.get_style()
         )
 
-        @controls_button.event("on_click")
-        def on_click_controls_button(event):
-            comeback_view = SettingsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
-
-            # Pass already created view because we are resuming.
-            self.next_view = SettingsControls(self.window, self.state, comeback_view)
-            self.fade_out()
-
-        @video_button.event("on_click")
-        def on_click_video_button(event):
-            self.window.show_view(
-                SettingsVideo(
-                    self.window,
-                    self.state,
-                    previous_view=self,
-                    shadertoy=self.shadertoy,
-                    time=self.time
-                ),
-            )
-
-        @audio_button.event("on_click")
-        def on_click_audio_button(event):
-            self.window.show_view(
-                SettingsAudio(
-                    self.window,
-                    self.state,
-                    previous_view=self,
-                    shadertoy=self.shadertoy,
-                    time=self.time
-                )
-            )
-
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
+
             self.on_back()
 
         widgets = [
-            back_button,
-            video_button
-        ]
-
-        if not self.state.is_silent():
-            widgets += [audio_button]
-
-        widgets += [
-            controls_button
+            back_button
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
