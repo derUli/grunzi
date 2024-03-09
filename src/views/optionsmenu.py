@@ -51,6 +51,7 @@ class OptionsMenu(Fading):
 
     def setup(self):
         self.manager.clear()
+        self.manager.disable()
 
         # Control settings
         controls_button = arcade.gui.UIFlatButton(
@@ -79,6 +80,18 @@ class OptionsMenu(Fading):
                 width=BUTTON_WIDTH,
                 height=controls_button.height,
                 value=self.window.vsync
+            ),
+            style=utils.text.get_style()
+        )
+
+        # Video settings
+        fps_button = arcade.gui.UITextureButton(
+            text=_("Show FPS"),
+            width=BUTTON_WIDTH,
+            texture=self.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=controls_button.height,
+                value=self.state.settings.show_fps
             ),
             style=utils.text.get_style()
         )
@@ -113,6 +126,11 @@ class OptionsMenu(Fading):
             self.on_toggle_vsync()
             self.setup()
 
+        @fps_button.event('on_click')
+        def on_click_fps_button(event):
+            self.on_toggle_fps()
+            self.setup()
+
         @grunzbabe_at_x_button.event("on_click")
         def on_click_grunzbabe_at_x_button(event):
             # Pass already created view because we are resuming.
@@ -125,6 +143,7 @@ class OptionsMenu(Fading):
 
             self.on_back()
 
+
         widgets = []
 
         # Toggle fullscreen is pointless if the window size equals to the native screen resolution
@@ -135,7 +154,8 @@ class OptionsMenu(Fading):
 
         # Other video settings
         widgets += [
-            vsync_button
+            vsync_button,
+            fps_button
         ]
 
         widgets += [

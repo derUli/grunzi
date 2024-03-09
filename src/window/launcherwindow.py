@@ -145,6 +145,9 @@ class LauncherWindow(ThemedTk):
         mode_values = []
 
         for mode in modes:
+            if (mode.width, mode.height) < (1024, 768):
+                continue
+
             item = str(mode.width) + "x" + str(mode.height)
             if item not in mode_values:
                 mode_values.append(item)
