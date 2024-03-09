@@ -1,8 +1,11 @@
 """ Video playback utils  """
+import logging
 import os
 import shutil
 
-from pyvidplayer2 import VideoPyglet
+from pyvidplayer2 import VideoPyglet, PostProcessing
+
+from utils.path import is_windows
 
 
 def load_video(
@@ -15,10 +18,14 @@ def load_video(
     if not has_ffmpeg:
         return None
 
+    if not is_windows():
+        logging.warning("Video play back isn't support on Linux currently")
+        return
+
     if not os.path.exists(path):
         return None
 
-    video = VideoPyglet(path)
+    video = VideoPyglet(path, post_process=PostProcessing.cel_shading)
 
     if size:
         video.resize(size)
