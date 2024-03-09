@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-09 14:53+0100\n"
+"POT-Creation-Date: 2024-03-09 19:43+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -82,11 +82,12 @@ msgstr "Beenden"
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/mainmenu.py:166 views/mainmenu.py:177
+#: views/mainmenu.py:166 views/mainmenu.py:177 views/pausemenu.py:120
+#: views/pausemenu.py:137
 msgid "Yes"
 msgstr "Ja"
 
-#: views/mainmenu.py:167
+#: views/mainmenu.py:167 views/pausemenu.py:121
 msgid "No"
 msgstr "Nein"
 
@@ -94,9 +95,30 @@ msgstr "Nein"
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
+#: views/pausemenu.py:115
+msgid "Leave to main menu?"
+msgstr "Zurück zum Hauptmenü?"
+
+#: views/pausemenu.py:116
+msgid "All progress since the begin of this level will be lost."
+msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
+
 #: views/view.py:105
 msgid "Unknown build"
 msgstr "Unbekannter Build"
+
+#: views/settings/settingsaudio.py:49 views/settings/settingscontrols.py:107
+#: views/settings/settingsmenu.py:77 views/settings/settingsvideo.py:98
+msgid "Back"
+msgstr "Zurück"
+
+#: views/settings/settingsaudio.py:55
+msgid "Music"
+msgstr ""
+
+#: views/settings/settingsaudio.py:66
+msgid "Sound"
+msgstr ""
 
 #: views/settings/settingscontrols.py:53
 msgid "Scroll with mousewheel"
@@ -174,7 +196,7 @@ msgstr "Pausenmenü öffnen"
 msgid "F3"
 msgstr ""
 
-#: views/settings/settingscontrols.py:69 views/settings/settingsvideo.py:86
+#: views/settings/settingscontrols.py:69 views/settings/settingsvideo.py:87
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
@@ -242,11 +264,6 @@ msgstr "Linker Bumper, Rechter Bumper"
 msgid "Start"
 msgstr "Starttaste"
 
-#: views/settings/settingscontrols.py:107 views/settings/settingsmenu.py:69
-#: views/settings/settingsvideo.py:97
-msgid "Back"
-msgstr "Zurück"
-
 #: views/settings/settingscontrols.py:113
 msgid "Controller"
 msgstr "Controller"
@@ -255,28 +272,28 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:56 window/launcherwindow.py:60
+#: views/settings/settingsmenu.py:57 window/launcherwindow.py:60
 msgid "Video"
 msgstr ""
 
-#: views/settings/settingsmenu.py:63 views/settings/settingsvideo.py:55
+#: views/settings/settingsmenu.py:64 window/launcherwindow.py:61
+msgid "Audio"
+msgstr ""
+
+#: views/settings/settingsmenu.py:71 views/settings/settingsvideo.py:56
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsvideo.py:62 window/launcherwindow.py:74
+#: views/settings/settingsvideo.py:63 window/launcherwindow.py:74
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsvideo.py:74 window/launcherwindow.py:81
+#: views/settings/settingsvideo.py:75 window/launcherwindow.py:81
 msgid "V-Sync"
 msgstr ""
 
 #: window/launcherwindow.py:39
 msgid "Grunzi Launcher"
-msgstr ""
-
-#: window/launcherwindow.py:61
-msgid "Audio"
 msgstr ""
 
 #: window/launcherwindow.py:64
@@ -290,4 +307,10 @@ msgstr "Sound aktivieren"
 #: window/launcherwindow.py:95
 msgid "Launch Game"
 msgstr "Spiel starten"
+
+#~ msgid "Go back to main menu?"
+#~ msgstr "Zurück zum Hauptmenü"
+
+#~ msgid "All progress since the begin of the last level will be lost."
+#~ msgstr ""
 

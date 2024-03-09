@@ -104,9 +104,38 @@ class PauseMenu(Fading):
     def on_toggle(self):
         self.window.show_view(self.previous_view)
 
-    def on_exit(self):
+    def on_exit(self, confirm=False):
+        if not confirm:
+            message_box = arcade.gui.UIMessageBox(
+                width=300,
+                height=200,
+                message_text=
+                "\n".join(
+                    [
+                        _("Leave to main menu?"),
+                        _("All progress since the begin of this level will be lost.")
+                    ]
+                ),
+                buttons=[
+                    _("Yes"),
+                    _("No")
+                ]
+            )
+
+            message_box.on_action = self.on_confirm_exit
+
+            self.manager.add(message_box)
+
+            return
+
+        self.manager.clear()
+
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
+
+    def on_confirm_exit(self, button):
+        if button.action == _('Yes'):
+            self.on_exit(confirm=True)
 
     def on_update(self, delta_time):
         super().on_update(delta_time)
