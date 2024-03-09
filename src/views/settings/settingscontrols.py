@@ -19,7 +19,7 @@ CONTROLS_CONTROLLER = 'controller'
 LOWEST_FITTING_RESOLUTION = (1440, 900)
 
 
-class Controls(Fading):
+class SettingsControls(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view):

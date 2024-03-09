@@ -4,8 +4,8 @@ from PIL import Image
 
 import constants.controls.keyboard
 import utils.text
-from views.controls import Controls
 from views.fading import Fading
+from views.settings.settingscontrols import SettingsControls
 
 BUTTON_WIDTH = 250
 
@@ -104,7 +104,7 @@ class SettingsMenu(Fading):
             comeback_view = SettingsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
 
             # Pass already created view because we are resuming.
-            self.next_view = Controls(self.window, self.state, comeback_view)
+            self.next_view = SettingsControls(self.window, self.state, comeback_view)
             self.fade_out()
 
         @fullscreen_button.event('on_click')
