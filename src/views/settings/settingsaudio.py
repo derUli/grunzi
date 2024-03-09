@@ -5,7 +5,6 @@ from PIL import Image
 import constants.controls.keyboard
 import utils.text
 from views.fading import Fading
-from views.settings.settingscontrols import SettingsControls
 
 BUTTON_WIDTH = 250
 
@@ -62,7 +61,18 @@ class SettingsAudio(Fading):
             texture=self.get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=back_button.height,
-                value=self.state.music_volume > 0.0
+                value=self.state._music_volume > 0.0
+            ),
+            style=utils.text.get_style()
+        )
+
+        audio_button = arcade.gui.UITextureButton(
+            text=_("Sound"),
+            width=BUTTON_WIDTH,
+            texture=self.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state._sound_volume > 0.0
             ),
             style=utils.text.get_style()
         )
@@ -77,9 +87,15 @@ class SettingsAudio(Fading):
             # Pass already created view because we are resuming.
             self.on_toggle_music()
 
+        @audio_button.event("on_click")
+        def on_click_audio_button(event):
+            # Pass already created view because we are resuming.
+            self.on_toggle_audio()
+
         widgets = [
             back_button,
-            music_button
+            music_button,
+            audio_button
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -139,9 +155,24 @@ class SettingsAudio(Fading):
         return texture_red
 
     def on_toggle_music(self):
-        if self.state.music_volume > 0.0:
-            self.state.music_volume = 0.0
+        if self.state._music_volume > 0.0:
+            self.state._music_volume = 0.0
         else:
-            self.state.music_volume = 1.0
+            self.state._music_volume = 1.0
+
+        main_menu = self.previous_view.previous_view
+        from views.mainmenu import MainMenu
+
+        if isinstance(main_menu, MainMenu):
+            main_menu.player.volume = self.state._music_volume
+
+        self.setup()
+
+    def on_toggle_audio(self):
+        if self.state._sound_volume > 0.0:
+            self.state._sound_volume = 0.0
+        else:
+            self.state._sound_volume = 1.0
+
 
         self.setup()
