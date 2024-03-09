@@ -85,7 +85,6 @@ class View(arcade.View):
 
     def on_toggle_fps(self):
         self.state.settings.show_fps = not self.state.settings.show_fps
-
         self.state.settings.save()
 
     def on_toggle_debug(self):

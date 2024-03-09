@@ -125,9 +125,7 @@ class OptionsMenu(Fading):
 
             self.on_back()
 
-        widgets = [
-            controls_button
-        ]
+        widgets = []
 
         # Toggle fullscreen is pointless if the window size equals to the native screen resolution
         if not self.window.is_native:
@@ -142,6 +140,7 @@ class OptionsMenu(Fading):
 
         widgets += [
             # grunzbabe_at_x_button,
+            controls_button,
             back_button
         ]
 
