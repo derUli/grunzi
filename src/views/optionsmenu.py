@@ -219,3 +219,7 @@ class OptionsMenu(Fading):
             return texture_green
 
         return texture_red
+
+    def on_toggle_fps(self):
+        super().on_toggle_fps()
+        self.setup()

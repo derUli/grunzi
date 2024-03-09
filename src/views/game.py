@@ -89,6 +89,7 @@ class Game(Fading):
 
         self.video = None
 
+
     def on_show_view(self):
         super().on_show_view()
         self.window.set_mouse_visible(False)
