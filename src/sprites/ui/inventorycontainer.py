@@ -2,6 +2,7 @@ import os
 
 import arcade
 
+from sprites.items.redherring import RedHerring
 from sprites.ui.inventoryitem import InventoryItem
 
 CAPACITY = 5

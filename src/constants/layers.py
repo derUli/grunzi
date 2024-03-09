@@ -8,13 +8,14 @@ import sprites.decoration.car
 from sprites.items.hammer import Hammer
 from sprites.items.item import Fence, PiggyBank
 from sprites.items.plier import Plier
-from sprites.items.redherring import RedHerring
+from sprites.items.redherring import Feather, Vase
 from sprites.sounds.highway import Highway
 
 LAYER_WALL = 'Walls'
 LAYER_PLIER = 'Plier'
 LAYER_HAMMER = 'Hammer'
-LAYER_RED_HERRINGS = 'Red Herrings'
+LAYER_FEATHER = 'Feathers'
+LAYER_VASE = 'Vase'
 LAYER_FENCE = 'Fence'
 LAYER_PIGGYBANK = 'Piggybanks'
 LAYER_DECORATION = 'Decoration'
@@ -61,9 +62,7 @@ LAYER_OPTIONS = {
     LAYER_PIGGYBANK: {
         'custom_class': PiggyBank
     },
-    LAYER_FENCE: {
-        'custom_class': Fence
-    },
+
     LAYER_HIGHWAY: {
         'custom_class': Highway
     },
@@ -73,8 +72,11 @@ LAYER_OPTIONS = {
     LAYER_CAR_LEFT: {
         'custom_class': sprites.decoration.car.CarLeft
     },
-    LAYER_RED_HERRINGS: {
-        'custom_class': RedHerring
+    LAYER_FEATHER: {
+        'custom_class': Feather
+    },
+    LAYER_VASE: {
+        'custom_class': Vase
     }
 }
 
