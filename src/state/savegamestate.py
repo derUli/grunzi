@@ -1,4 +1,5 @@
-""" Used to store save games """
+""" Used to handle save games """
+
 import logging
 import os
 
@@ -18,8 +19,8 @@ class SaveGameState:
         self.difficulty = DIFFICULTY_EASY
         self.version = 1
 
-    def get_selectable(self):
-        """ Get selectable maps"""
+    def get_selectable(self) -> list:
+        """ Get selectable maps """
         selectable = self.completed.copy()
 
         if self.current not in selectable:
@@ -37,6 +38,10 @@ class SaveGameState:
 
     @staticmethod
     def load():
+        """
+        Load savegame file
+        @return: SavegameState
+        """
         try:
             return SaveGameState._load(SAVEGAME_DEFAULT)
         except ValueError as e:
