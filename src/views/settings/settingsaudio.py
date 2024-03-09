@@ -57,7 +57,7 @@ class SettingsAudio(Fading):
             texture=get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=back_button.height,
-                value=self.state._music_volume > 0.0
+                value=self.state.settings._music_volume > 0.0
             ),
             style=utils.text.get_style()
         )
@@ -68,7 +68,7 @@ class SettingsAudio(Fading):
             texture=get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=back_button.height,
-                value=self.state._sound_volume > 0.0
+                value=self.state.settings._sound_volume > 0.0
             ),
             style=utils.text.get_style()
         )
@@ -145,10 +145,10 @@ class SettingsAudio(Fading):
 
     def on_toggle_music(self):
         """ Toggle music """
-        if self.state._music_volume > 0.0:
-            self.state._music_volume = 0.0
+        if self.state.settings._music_volume > 0.0:
+            self.state.settings._music_volume = 0.0
         else:
-            self.state._music_volume = 1.0
+            self.state.settings._music_volume = 1.0
 
         # We can't import this at the beginning of the
         # file because it would be a circular import
@@ -159,7 +159,9 @@ class SettingsAudio(Fading):
 
         # Update volume of main menu music
         if isinstance(main_menu, MainMenu):
-            main_menu.player.volume = self.state._music_volume
+            main_menu.player.volume = self.state.settings._music_volume
+
+        self.state.settings.save()
 
         # Update button color
         self.setup()
@@ -168,9 +170,10 @@ class SettingsAudio(Fading):
         """
         Toggle sound effect
         """
-        if self.state._sound_volume > 0.0:
-            self.state._sound_volume = 0.0
+        if self.state.settings._sound_volume > 0.0:
+            self.state.settings._sound_volume = 0.0
         else:
-            self.state._sound_volume = 1.0
+            self.state.settings._sound_volume = 1.0
 
+        self.state.settings.save()
         self.setup()

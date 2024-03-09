@@ -32,9 +32,3 @@ KEY_SCREENSHOT = [arcade.key.F12]
 KEY_TOGGLE_FPS = [arcade.key.F3]
 KEY_TOGGLE_DEBUG = [arcade.key.F4]
 KEY_SPAWN_FERRET = [arcade.key.F]
-
-KEY_MUSIC_QUIETER = [arcade.key.F5]
-KEY_MUSIC_LOUDER = [arcade.key.F6]
-
-KEY_SOUND_QUIETER = [arcade.key.F7]
-KEY_SOUND_LOUDER = [arcade.key.F8]

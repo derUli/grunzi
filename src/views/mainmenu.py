@@ -134,7 +134,7 @@ class MainMenu(Fading):
             logging.error(e)
 
         if not self.player and music:
-            self.player = music.play(loop=True, volume=self.state.music_volume)
+            self.player = music.play(loop=True, volume=self.state.settings.music_volume)
 
         self.manager.enable()
 
@@ -186,8 +186,8 @@ class MainMenu(Fading):
         self.update_fade(self.next_view)
         self.scene.update()
 
-        if self.player and self.player.volume != self.state.music_volume:
-            self.player.volume = self.state.music_volume
+        if self.player and self.player.volume != self.state.settings.music_volume:
+            self.player.volume = self.state.settings.music_volume
 
     def on_draw(self):
         """ Render the screen. """

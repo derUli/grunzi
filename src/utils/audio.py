@@ -88,7 +88,7 @@ class MusicQueue:
             return
 
         self.music = arcade.load_sound(self.queue[0], streaming=True)
-        self.player = self.music.play(volume=self.state.music_volume)
+        self.player = self.music.play(volume=self.state.settings.music_volume)
         self.queue = self.queue[1:]
 
         # Play the next song after the old song is completed
@@ -98,10 +98,10 @@ class MusicQueue:
         if not self.player:
             return
 
-        if self.player.volume != self.state.music_volume:
-            self.player.volume = self.state.music_volume
+        if self.player.volume != self.state.settings.music_volume:
+            self.player.volume = self.state.settings.music_volume
 
-            logging.info(f"Music volume at {self.state.music_volume}")
+            logging.info(f"Music volume at {self.state.settings.music_volume}")
 
 
 def normalize_volume(volume):

@@ -36,7 +36,7 @@ class PositionalSound:
         else:
             volume = max(volume - FADE_SPEED, 0)
 
-        volume = normalize_volume(volume * self.state.sound_volume)
+        volume = normalize_volume(volume * self.state.settings.sound_volume)
 
         if volume != self.player.volume:
             logging.debug('Sound volume at %s', volume)

@@ -49,14 +49,6 @@ class View(arcade.View):
             self.on_toggle_fps()
         if key in constants.controls.keyboard.KEY_TOGGLE_DEBUG:
             self.on_toggle_debug()
-        if key in constants.controls.keyboard.KEY_SOUND_QUIETER:
-            self.state.sound_volume -= 0.1
-        if key in constants.controls.keyboard.KEY_SOUND_LOUDER:
-            self.state.sound_volume += 0.1
-        if key in constants.controls.keyboard.KEY_MUSIC_QUIETER:
-            self.state.music_volume -= 0.1
-        if key in constants.controls.keyboard.KEY_MUSIC_LOUDER:
-            self.state.music_volume += 0.1
         if key in constants.controls.keyboard.KEY_SCREENSHOT:
             self.on_make_screenshot()
 

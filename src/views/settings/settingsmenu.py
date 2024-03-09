@@ -121,7 +121,7 @@ class SettingsMenu(Fading):
             video_button
         ]
 
-        if not self.state.is_silent():
+        if not self.state.settings.is_silent():
             widgets += [audio_button]
 
         widgets += [

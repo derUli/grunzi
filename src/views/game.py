@@ -95,7 +95,7 @@ class Game(Fading):
 
         self.push_controller_handlers()
 
-        self.state.unmute()
+        self.state.settings.unmute()
 
         if self.initialized:
             self.music_queue.play()
@@ -109,7 +109,7 @@ class Game(Fading):
         self.music_queue.pause()
         self.pop_controller_handlers()
         self.atmo.pause()
-        self.state.mute()
+        self.state.settings.mute()
         self.call_update(0)
 
     def setup(self):
@@ -117,7 +117,7 @@ class Game(Fading):
         self.video = load_video(
             video_file,
             self.window.size,
-            self.state.sound_volume
+            self.state.settings.sound_volume
         )
 
         threading.Thread(target=self.async_load).start()

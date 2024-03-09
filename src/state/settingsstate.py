@@ -3,7 +3,9 @@ import logging
 import os
 
 import jsonpickle
+import pyglet
 
+from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
 SETTINGS_STATE_VERSION = 2
@@ -26,6 +28,10 @@ class SettingsState:
         self.show_fps = False
 
         self.version = SETTINGS_STATE_VERSION
+
+        self._music_volume = 1
+        self._sound_volume = 1
+        self._muted = False
 
     @staticmethod
     def exists() -> bool:
@@ -68,3 +74,45 @@ class SettingsState:
         """ Save settings as json file """
         with open(get_settings_path(), 'w') as f:
             f.write(jsonpickle.encode(self, unpicklable=True))
+
+
+    @property
+    def music_volume(self):
+        if self.is_silent() or self._muted:
+            return 0.0
+
+        return self._music_volume
+
+    @music_volume.setter
+    def music_volume(self, volume):
+        volume = normalize_volume(volume)
+
+        self._music_volume = volume
+
+    @property
+    def sound_volume(self):
+        if self.is_silent() or self._muted:
+            return 0.0
+
+        return self._sound_volume
+
+    @sound_volume.setter
+    def sound_volume(self, volume):
+        if volume < 0:
+            volume = 0.0
+
+        if volume > 1:
+            volume = 1.0
+
+        volume = round(volume, 2)
+        logging.info('Audio: New volume %s', volume)
+        self._sound_volume = volume
+
+    def mute(self):
+        self._muted = True
+
+    def unmute(self):
+        self._muted = False
+
+    def is_silent(self):
+        return pyglet.options['audio'] == 'silent'

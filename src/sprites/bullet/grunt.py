@@ -49,7 +49,7 @@ class Grunt(arcade.sprite.SpriteCircle, Character):
 
     def setup(self, source, physics_engine, scene, state):
         # If silent there is grunt
-        if state.is_silent():
+        if state.settings.is_silent():
             self.remove_from_sprite_lists()
             return
 

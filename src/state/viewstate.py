@@ -8,7 +8,6 @@ import pyglet
 from arcade.experimental import Shadertoy
 
 from constants.maps import FIRST_MAP
-from utils.audio import normalize_volume
 
 
 class ViewState:
@@ -23,15 +22,12 @@ class ViewState:
         self.font_dir = os.path.join(self.data_dir, 'fonts')
         self.shader_dir = os.path.join(self.data_dir, 'shaders')
         self.video_dir = os.path.join(self.data_dir, 'videos')
-        self._music_volume = 1
-        self._sound_volume = 1
 
         self.shaders = {}
         self.sounds = {}
 
         self.map_name = map_name
         self.map_name_first = map_name
-        self._muted = False
 
         self.settings = settings
 
@@ -118,7 +114,7 @@ class ViewState:
         except KeyError:
             return
 
-        return sound.play(volume=self.sound_volume, loop=loop)
+        return sound.play(volume=self.settings.sound_volume, loop=loop)
 
     def grunt(self):
         rand = random.randint(1, 5)
@@ -130,46 +126,5 @@ class ViewState:
         logging.info('Squeak')
         return self.play_sound(f"squeak{rand}")
 
-    def is_silent(self):
-        return pyglet.options['audio'] == 'silent'
-
     def beep(self):
         return self.play_sound('beep')
-
-    def mute(self):
-        self._muted = True
-
-    def unmute(self):
-        self._muted = False
-
-    @property
-    def music_volume(self):
-        if self.is_silent() or self._muted:
-            return 0.0
-
-        return self._music_volume
-
-    @music_volume.setter
-    def music_volume(self, volume):
-        volume = normalize_volume(volume)
-
-        self._music_volume = volume
-
-    @property
-    def sound_volume(self):
-        if self.is_silent() or self._muted:
-            return 0.0
-
-        return self._sound_volume
-
-    @sound_volume.setter
-    def sound_volume(self, volume):
-        if volume < 0:
-            volume = 0.0
-
-        if volume > 1:
-            volume = 1.0
-
-        volume = round(volume, 2)
-        logging.info('Audio: New volume %s', volume)
-        self._sound_volume = volume
