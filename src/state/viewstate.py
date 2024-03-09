@@ -155,5 +155,7 @@ class ViewState:
 
         if volume > 1:
             volume = 1.0
+
+        volume = round(volume, 2)
         logging.info('Audio: New volume %s', volume)
         self._sound_volume = volume

@@ -3,6 +3,7 @@ from arcade import FACE_RIGHT, FACE_LEFT
 
 from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_FERRET
 from constants.layers import LAYER_ENEMIES
+from utils.physics import on_hit_destroy
 
 HURT = 20
 
@@ -55,8 +56,8 @@ class Bullet(arcade.sprite.SpriteCircle):
             elasticity=ELASTICITY
         )
 
-        physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_WALL, post_handler=self.on_hit_destroy)
-        physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_BULLET, post_handler=self.on_hit_destroy)
+        physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_WALL, post_handler=on_hit_destroy)
+        physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_BULLET, post_handler=on_hit_destroy)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_ENEMY, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_FERRET, post_handler=self.on_hit)
 
@@ -64,8 +65,6 @@ class Bullet(arcade.sprite.SpriteCircle):
 
         return self
 
-    def on_hit_destroy(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
-        bullet_sprite.remove_from_sprite_lists()
 
     def on_hit(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """

@@ -105,3 +105,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
         )
 
     return physics_engine
+
+
+def on_hit_destroy(bullet_sprite, _hit_sprite, _arbiter, _space, _data):
+    bullet_sprite.remove_from_sprite_lists()
