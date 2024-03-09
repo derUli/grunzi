@@ -44,7 +44,7 @@ class MainMenu(Fading):
             style=utils.text.get_style(),
         )
 
-        options_help = arcade.gui.UIFlatButton(
+        options_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
             style=utils.text.get_style()
@@ -81,8 +81,8 @@ class MainMenu(Fading):
             self.next_view = Game(self.window, self.state)
             self.fade_out()
 
-        @options_help.event("on_click")
-        def on_click_options_help(event):
+        @options_button.event("on_click")
+        def on_click_options_button(event):
             # Pass already created view because we are resuming.
 
             self.window.show_view(
@@ -102,7 +102,7 @@ class MainMenu(Fading):
             widgets += [continue_button]
 
         widgets += [
-            options_help,
+            options_button,
             quit_button
         ]
 
