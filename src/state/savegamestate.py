@@ -18,6 +18,15 @@ class SaveGameState:
         self.difficulty = DIFFICULTY_EASY
         self.version = 1
 
+    def get_selectable(self):
+        """ Get selectable maps"""
+        selectable = self.completed.copy()
+
+        if self.current not in selectable:
+            selectable += [self.current]
+
+        return selectable
+
     @staticmethod
     def exists() -> bool:
         """
