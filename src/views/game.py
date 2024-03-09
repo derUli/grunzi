@@ -516,6 +516,9 @@ class Game(Fading):
         if self.atmo:
             self.atmo.update()
 
+        if self.music_queue:
+            self.music_queue.update()
+
         # There is an OpenGL error happens when a sprite is added by an controller event handler
         # which seems to happen because the controller events are handled in a different thread.
         # To work around this we have the _call_method class variable which can be set to a class method

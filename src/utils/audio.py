@@ -1,4 +1,5 @@
 """ Audio utils """
+import logging
 import os
 import random
 
@@ -92,3 +93,11 @@ class MusicQueue:
 
         # Play the next song after the old song is completed
         self.player.push_handlers(on_eos=self.next)
+
+    def update(self):
+        if not self.player:
+            return
+
+        if self.player.volume != self.state.music_volume:
+            logging.info(f"Music volume at {self.player.volume}")
+            self.player.volume = self.state.music_volume

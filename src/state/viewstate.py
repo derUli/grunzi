@@ -22,7 +22,7 @@ class ViewState:
         self.font_dir = os.path.join(self.data_dir, 'fonts')
         self.shader_dir = os.path.join(self.data_dir, 'shaders')
         self.video_dir = os.path.join(self.data_dir, 'videos')
-        self.music_volume = 1
+        self._music_volume = 1
         self._sound_volume = 1
 
         self.shaders = {}
@@ -140,6 +140,26 @@ class ViewState:
 
     def unmute(self):
         self._muted = False
+
+
+    @property
+    def music_volume(self):
+        if self.is_silent() or self._muted:
+            return 0.0
+
+        return self._music_volume
+
+    @music_volume.setter
+    def music_volume(self, volume):
+        if volume < 0:
+            volume = 0.0
+
+        if volume > 1:
+            volume = 1.0
+
+        volume = round(volume, 2)
+
+        self._music_volume = volume
 
     @property
     def sound_volume(self):

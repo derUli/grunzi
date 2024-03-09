@@ -37,7 +37,7 @@ class PositionalSound:
         volume = round(volume * self.state.sound_volume, 2)
 
         if volume != self.player.volume:
-            logging.debug('Volume at %s', volume)
+            logging.debug('Sound volume at %s', volume)
             self.player.volume = volume
 
     def pause(self):
