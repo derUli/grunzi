@@ -2,12 +2,12 @@ import logging
 import os
 
 import arcade.gui
-from views.settings.settingsmenu import SettingsMenu
 
 import utils.text
 from constants.fonts import FONT_ADRIP
 from state.savegamestate import new_savegame, SaveGameState
 from views.fading import Fading
+from views.settings.settingsmenu import SettingsMenu
 
 BUTTON_WIDTH = 250
 BUTTON_MARGIN_BOTTOM = 20
@@ -185,6 +185,9 @@ class MainMenu(Fading):
         self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()
+
+        if self.player and self.player.volume != self.state.music_volume:
+            self.player.volume = self.state.music_volume
 
     def on_draw(self):
         """ Render the screen. """

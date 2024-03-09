@@ -56,14 +56,30 @@ class SettingsAudio(Fading):
             style=utils.text.get_style()
         )
 
+        music_button = arcade.gui.UITextureButton(
+            text=_("Music"),
+            width=BUTTON_WIDTH,
+            texture=self.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state.music_volume > 0.0
+            ),
+            style=utils.text.get_style()
+        )
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
-
             self.on_back()
 
+        @music_button.event("on_click")
+        def on_click_music_button(event):
+            # Pass already created view because we are resuming.
+            self.on_toggle_music()
+
         widgets = [
-            back_button
+            back_button,
+            music_button
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -80,9 +96,9 @@ class SettingsAudio(Fading):
         self.manager.enable()
 
     def on_key_press(self, key, modifiers):
+        """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
-        """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
@@ -122,10 +138,10 @@ class SettingsAudio(Fading):
 
         return texture_red
 
-    def on_toggle_fps(self):
-        super().on_toggle_fps()
-        self.setup()
+    def on_toggle_music(self):
+        if self.state.music_volume > 0.0:
+            self.state.music_volume = 0.0
+        else:
+            self.state.music_volume = 1.0
 
-    def on_toggle_fullscreen(self):
-        super().on_toggle_fullscreen()
         self.setup()
