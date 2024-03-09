@@ -4,6 +4,7 @@ from PIL import Image
 
 import constants.controls.keyboard
 import utils.text
+from utils.gui import get_texture_by_value
 from views.fading import Fading
 from views.settings.settingscontrols import SettingsControls
 
@@ -61,7 +62,7 @@ class SettingsVideo(Fading):
         fullscreen_button = arcade.gui.UITextureButton(
             text=_("Fullscreen"),
             width=BUTTON_WIDTH,
-            texture=self.get_texture_by_value(
+            texture=get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=controls_button.height,
                 value=self.window.fullscreen
@@ -73,7 +74,7 @@ class SettingsVideo(Fading):
         vsync_button = arcade.gui.UITextureButton(
             text=_("V-Sync"),
             width=BUTTON_WIDTH,
-            texture=self.get_texture_by_value(
+            texture=get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=controls_button.height,
                 value=self.window.vsync
@@ -85,7 +86,7 @@ class SettingsVideo(Fading):
         fps_button = arcade.gui.UITextureButton(
             text=_("Show FPS"),
             width=BUTTON_WIDTH,
-            texture=self.get_texture_by_value(
+            texture=get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=controls_button.height,
                 value=self.state.settings.show_fps
@@ -192,18 +193,6 @@ class SettingsVideo(Fading):
 
         self.draw_fading()
         self.draw_debug()
-
-    def get_texture_by_value(self, width, height, value=False):
-        red_background = PIL.Image.new("RGBA", (width, height), arcade.csscolor.BLACK)
-        green_background = PIL.Image.new("RGBA", (width, height), arcade.csscolor.HOTPINK)
-
-        texture_red = arcade.texture.Texture(name='red_background', image=red_background)
-        texture_green = arcade.texture.Texture(name='green_background', image=green_background)
-
-        if value:
-            return texture_green
-
-        return texture_red
 
     def on_toggle_fps(self):
         super().on_toggle_fps()

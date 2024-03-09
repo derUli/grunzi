@@ -4,6 +4,7 @@ from PIL import Image
 
 import constants.controls.keyboard
 import utils.text
+from utils.gui import get_texture_by_value
 from views.fading import Fading
 
 BUTTON_WIDTH = 250
@@ -58,7 +59,7 @@ class SettingsAudio(Fading):
         music_button = arcade.gui.UITextureButton(
             text=_("Music"),
             width=BUTTON_WIDTH,
-            texture=self.get_texture_by_value(
+            texture=get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=back_button.height,
                 value=self.state._music_volume > 0.0
@@ -69,7 +70,7 @@ class SettingsAudio(Fading):
         audio_button = arcade.gui.UITextureButton(
             text=_("Sound"),
             width=BUTTON_WIDTH,
-            texture=self.get_texture_by_value(
+            texture=get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=back_button.height,
                 value=self.state._sound_volume > 0.0
@@ -141,18 +142,6 @@ class SettingsAudio(Fading):
 
         self.draw_fading()
         self.draw_debug()
-
-    def get_texture_by_value(self, width, height, value=False):
-        red_background = PIL.Image.new("RGBA", (width, height), arcade.csscolor.BLACK)
-        green_background = PIL.Image.new("RGBA", (width, height), arcade.csscolor.HOTPINK)
-
-        texture_red = arcade.texture.Texture(name='red_background', image=red_background)
-        texture_green = arcade.texture.Texture(name='green_background', image=green_background)
-
-        if value:
-            return texture_green
-
-        return texture_red
 
     def on_toggle_music(self):
         if self.state._music_volume > 0.0:
