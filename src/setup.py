@@ -3,6 +3,7 @@
 """ cx_freeze setup file """
 import os
 import sys
+import shutil
 
 import cx_Freeze
 
@@ -48,6 +49,7 @@ cx_Freeze.setup(
     ]
 )
 
-# If windows delete linux ffmpeg executable
+# If Linux delete the video related stuff because it won't work on Linux
 if sys.platform != 'win32':
-    os.unlink('build/exe.win-amd64-3.11/data/3rdparty/ffmpeg')
+    os.unlink('build/exe.linux-x86_64-3.10/data/3rdparty/ffmpeg.exe')
+    shutil.rmtree('build/exe.linux-x86_64-3.10/data/videos')
