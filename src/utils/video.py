@@ -3,7 +3,7 @@ import logging
 import os
 import shutil
 
-from pyvidplayer2 import VideoPyglet, PostProcessing
+from pyvidplayer2 import VideoPyglet
 
 from utils.path import is_windows
 
@@ -25,7 +25,7 @@ def load_video(
     if not os.path.exists(path):
         return None
 
-    video = VideoPyglet(path, post_process=PostProcessing.cel_shading)
+    video = VideoPyglet(path)
 
     if size:
         video.resize(size)
