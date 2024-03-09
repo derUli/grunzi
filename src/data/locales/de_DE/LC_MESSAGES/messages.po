@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-09 13:36+0100\n"
+"POT-Creation-Date: 2024-03-09 14:53+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -54,163 +54,7 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
-#: views/controls.py:53
-msgid "Scroll with mousewheel"
-msgstr "Scrollen mit Mausrad"
-
-#: views/controls.py:58
-msgid "Keyboard:"
-msgstr "Tastatur:"
-
-#: views/controls.py:61
-msgid "WASD, Arrow keys"
-msgstr "WASD, Pfeiltasten"
-
-#: views/controls.py:61 views/controls.py:81
-msgid "Walk"
-msgstr "Gehen"
-
-#: views/controls.py:62
-msgid "Shift"
-msgstr ""
-
-#: views/controls.py:62 views/controls.py:83
-msgid "Sprint"
-msgstr "Rennen"
-
-#: views/controls.py:63
-msgid "Ctrl"
-msgstr ""
-
-#: views/controls.py:63 views/controls.py:84
-msgid "Shoot"
-msgstr "Schießen"
-
-#: views/controls.py:64
-msgid "E"
-msgstr ""
-
-#: views/controls.py:64 views/controls.py:85
-msgid "Use"
-msgstr "Benutzen"
-
-#: views/controls.py:65
-msgid "Q"
-msgstr ""
-
-#: views/controls.py:65 views/controls.py:86
-msgid "Drop item"
-msgstr "Item ablegen"
-
-#: views/controls.py:66
-msgid "G"
-msgstr ""
-
-#: views/controls.py:66 views/controls.py:87
-msgid "Grunt"
-msgstr "Grunzen"
-
-#: views/controls.py:67
-msgid "0 - 5"
-msgstr ""
-
-#: views/controls.py:67 views/controls.py:88
-msgid "Select item"
-msgstr "Item auswählen"
-
-#: views/controls.py:68
-msgid "ESC"
-msgstr ""
-
-#: views/controls.py:68 views/controls.py:89
-msgid "Open the pause menu"
-msgstr "Pausenmenü öffnen"
-
-#: views/controls.py:69
-msgid "F3"
-msgstr ""
-
-#: views/controls.py:69 views/optionsmenu.py:89
-msgid "Show FPS"
-msgstr "FPS anzeigen"
-
-#: views/controls.py:70
-msgid "F12"
-msgstr ""
-
-#: views/controls.py:70
-msgid "Make screenshot"
-msgstr "Screenshot erstellen"
-
-#: views/controls.py:71
-msgid "Alt + Enter"
-msgstr ""
-
-#: views/controls.py:71
-msgid "Toggle fullscreen"
-msgstr "Vollbild/Fenster umschalten"
-
-#: views/controls.py:72
-msgid "F"
-msgstr ""
-
-#: views/controls.py:72
-msgid "Ferret"
-msgstr "Frettchen"
-
-#: views/controls.py:81
-msgid "Left stick"
-msgstr "Linker Stick"
-
-#: views/controls.py:82
-msgid "Right stick"
-msgstr "Rechter Stick"
-
-#: views/controls.py:82
-msgid "Look"
-msgstr "Umschauen"
-
-#: views/controls.py:83
-msgid "Left trigger"
-msgstr "Linker Trigger"
-
-#: views/controls.py:84
-msgid "X"
-msgstr ""
-
-#: views/controls.py:85
-msgid "A"
-msgstr ""
-
-#: views/controls.py:86
-msgid "Y"
-msgstr ""
-
-#: views/controls.py:87
-msgid "B"
-msgstr ""
-
-#: views/controls.py:88
-msgid "Left Bumper, Right Bumper"
-msgstr "Linker Bumper, Rechter Bumper"
-
-#: views/controls.py:89
-msgid "Start"
-msgstr "Starttaste"
-
-#: views/controls.py:107 views/optionsmenu.py:106
-msgid "Back"
-msgstr "Zurück"
-
-#: views/controls.py:113
-msgid "Controller"
-msgstr "Controller"
-
-#: views/controls.py:115
-msgid "Keyboard"
-msgstr "Tastatur"
-
-#: views/game.py:204
+#: views/game.py:203
 msgid "Loading..."
 msgstr "Wird geladen..."
 
@@ -246,36 +90,189 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: views/optionsmenu.py:58
-msgid "Controls"
-msgstr "Steuerung"
-
-#: views/optionsmenu.py:65 window/launcherwindow.py:74
-msgid "Fullscreen"
-msgstr "Vollbild"
-
-#: views/optionsmenu.py:77 window/launcherwindow.py:81
-msgid "V-Sync"
-msgstr ""
-
-#: views/optionsmenu.py:100
-msgid "Follow me on X"
-msgstr "Folge mir auf X"
-
 #: views/pausemenu.py:37
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/view.py:101
+#: views/view.py:105
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
-#: window/launcherwindow.py:39
-msgid "Grunzi Launcher"
+#: views/settings/settingscontrols.py:53
+msgid "Scroll with mousewheel"
+msgstr "Scrollen mit Mausrad"
+
+#: views/settings/settingscontrols.py:58
+msgid "Keyboard:"
+msgstr "Tastatur:"
+
+#: views/settings/settingscontrols.py:61
+msgid "WASD, Arrow keys"
+msgstr "WASD, Pfeiltasten"
+
+#: views/settings/settingscontrols.py:61 views/settings/settingscontrols.py:81
+msgid "Walk"
+msgstr "Gehen"
+
+#: views/settings/settingscontrols.py:62
+msgid "Shift"
 msgstr ""
 
-#: window/launcherwindow.py:60
+#: views/settings/settingscontrols.py:62 views/settings/settingscontrols.py:83
+msgid "Sprint"
+msgstr "Rennen"
+
+#: views/settings/settingscontrols.py:63
+msgid "Ctrl"
+msgstr ""
+
+#: views/settings/settingscontrols.py:63 views/settings/settingscontrols.py:84
+msgid "Shoot"
+msgstr "Schießen"
+
+#: views/settings/settingscontrols.py:64
+msgid "E"
+msgstr ""
+
+#: views/settings/settingscontrols.py:64 views/settings/settingscontrols.py:85
+msgid "Use"
+msgstr "Benutzen"
+
+#: views/settings/settingscontrols.py:65
+msgid "Q"
+msgstr ""
+
+#: views/settings/settingscontrols.py:65 views/settings/settingscontrols.py:86
+msgid "Drop item"
+msgstr "Item ablegen"
+
+#: views/settings/settingscontrols.py:66
+msgid "G"
+msgstr ""
+
+#: views/settings/settingscontrols.py:66 views/settings/settingscontrols.py:87
+msgid "Grunt"
+msgstr "Grunzen"
+
+#: views/settings/settingscontrols.py:67
+msgid "0 - 5"
+msgstr ""
+
+#: views/settings/settingscontrols.py:67 views/settings/settingscontrols.py:88
+msgid "Select item"
+msgstr "Item auswählen"
+
+#: views/settings/settingscontrols.py:68
+msgid "ESC"
+msgstr ""
+
+#: views/settings/settingscontrols.py:68 views/settings/settingscontrols.py:89
+msgid "Open the pause menu"
+msgstr "Pausenmenü öffnen"
+
+#: views/settings/settingscontrols.py:69
+msgid "F3"
+msgstr ""
+
+#: views/settings/settingscontrols.py:69 views/settings/settingsvideo.py:86
+msgid "Show FPS"
+msgstr "FPS anzeigen"
+
+#: views/settings/settingscontrols.py:70
+msgid "F12"
+msgstr ""
+
+#: views/settings/settingscontrols.py:70
+msgid "Make screenshot"
+msgstr "Screenshot erstellen"
+
+#: views/settings/settingscontrols.py:71
+msgid "Alt + Enter"
+msgstr ""
+
+#: views/settings/settingscontrols.py:71
+msgid "Toggle fullscreen"
+msgstr "Vollbild/Fenster umschalten"
+
+#: views/settings/settingscontrols.py:72
+msgid "F"
+msgstr ""
+
+#: views/settings/settingscontrols.py:72
+msgid "Ferret"
+msgstr "Frettchen"
+
+#: views/settings/settingscontrols.py:81
+msgid "Left stick"
+msgstr "Linker Stick"
+
+#: views/settings/settingscontrols.py:82
+msgid "Right stick"
+msgstr "Rechter Stick"
+
+#: views/settings/settingscontrols.py:82
+msgid "Look"
+msgstr "Umschauen"
+
+#: views/settings/settingscontrols.py:83
+msgid "Left trigger"
+msgstr "Linker Trigger"
+
+#: views/settings/settingscontrols.py:84
+msgid "X"
+msgstr ""
+
+#: views/settings/settingscontrols.py:85
+msgid "A"
+msgstr ""
+
+#: views/settings/settingscontrols.py:86
+msgid "Y"
+msgstr ""
+
+#: views/settings/settingscontrols.py:87
+msgid "B"
+msgstr ""
+
+#: views/settings/settingscontrols.py:88
+msgid "Left Bumper, Right Bumper"
+msgstr "Linker Bumper, Rechter Bumper"
+
+#: views/settings/settingscontrols.py:89
+msgid "Start"
+msgstr "Starttaste"
+
+#: views/settings/settingscontrols.py:107 views/settings/settingsmenu.py:69
+#: views/settings/settingsvideo.py:97
+msgid "Back"
+msgstr "Zurück"
+
+#: views/settings/settingscontrols.py:113
+msgid "Controller"
+msgstr "Controller"
+
+#: views/settings/settingscontrols.py:115
+msgid "Keyboard"
+msgstr "Tastatur"
+
+#: views/settings/settingsmenu.py:56 window/launcherwindow.py:60
 msgid "Video"
+msgstr ""
+
+#: views/settings/settingsmenu.py:63 views/settings/settingsvideo.py:55
+msgid "Controls"
+msgstr "Steuerung"
+
+#: views/settings/settingsvideo.py:62 window/launcherwindow.py:74
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: views/settings/settingsvideo.py:74 window/launcherwindow.py:81
+msgid "V-Sync"
+msgstr ""
+
+#: window/launcherwindow.py:39
+msgid "Grunzi Launcher"
 msgstr ""
 
 #: window/launcherwindow.py:61

@@ -6,12 +6,11 @@ import constants.controls.keyboard
 import utils.text
 from views.fading import Fading
 from views.settings.settingscontrols import SettingsControls
-from views.settings.settingsvideo import SettingsVideo
 
 BUTTON_WIDTH = 250
 
 
-class SettingsMenu(Fading):
+class SettingsVideo(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view, shadertoy, time=0):
@@ -51,17 +50,46 @@ class SettingsMenu(Fading):
         self.manager.clear()
         self.manager.disable()
 
-        # Video settings
-        video_button = arcade.gui.UIFlatButton(
-            text=_("Video"),
-            width=BUTTON_WIDTH,
-            style=utils.text.get_style()
-        )
-
         # Control settings
         controls_button = arcade.gui.UIFlatButton(
             text=_("Controls"),
             width=BUTTON_WIDTH,
+            style=utils.text.get_style()
+        )
+
+        # Video settings
+        fullscreen_button = arcade.gui.UITextureButton(
+            text=_("Fullscreen"),
+            width=BUTTON_WIDTH,
+            texture=self.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=controls_button.height,
+                value=self.window.fullscreen
+            ),
+            style=utils.text.get_style()
+        )
+
+        # Video settings
+        vsync_button = arcade.gui.UITextureButton(
+            text=_("V-Sync"),
+            width=BUTTON_WIDTH,
+            texture=self.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=controls_button.height,
+                value=self.window.vsync
+            ),
+            style=utils.text.get_style()
+        )
+
+        # Video settings
+        fps_button = arcade.gui.UITextureButton(
+            text=_("Show FPS"),
+            width=BUTTON_WIDTH,
+            texture=self.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=controls_button.height,
+                value=self.state.settings.show_fps
+            ),
             style=utils.text.get_style()
         )
 
@@ -73,32 +101,51 @@ class SettingsMenu(Fading):
 
         @controls_button.event("on_click")
         def on_click_controls_button(event):
+            from views.settings.settingsmenu import SettingsMenu
             comeback_view = SettingsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
 
             # Pass already created view because we are resuming.
             self.next_view = SettingsControls(self.window, self.state, comeback_view)
             self.fade_out()
 
-        @video_button.event("on_click")
-        def on_click_video_button(event):
-            self.window.show_view(
-                SettingsVideo(
-                    self.window,
-                    self.state,
-                    previous_view=self,
-                    shadertoy=self.shadertoy,
-                    time=self.time
-                ),
-            )
+        @fullscreen_button.event('on_click')
+        def on_click_fullscreen_button(event):
+            self.on_toggle_fullscreen()
+            self.setup()
+
+        @vsync_button.event('on_click')
+        def on_click_vsync_button(event):
+            self.on_toggle_vsync()
+            self.setup()
+
+        @fps_button.event('on_click')
+        def on_click_fps_button(event):
+            self.on_toggle_fps()
+            self.setup()
 
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
+
             self.on_back()
 
         widgets = [
-            back_button,
-            video_button,
+            back_button
+        ]
+
+        # Toggle fullscreen is pointless if the window size equals to the native screen resolution
+        if not self.window.is_native:
+            widgets += [
+                fullscreen_button
+            ]
+
+        # Other video settings
+        widgets += [
+            vsync_button,
+            fps_button
+        ]
+
+        widgets += [
             controls_button
         ]
 
