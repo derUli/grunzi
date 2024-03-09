@@ -1,6 +1,5 @@
-import PIL
+""" Settings > Audio """
 import arcade.gui
-from PIL import Image
 
 import constants.controls.keyboard
 import utils.text
@@ -11,7 +10,7 @@ BUTTON_WIDTH = 250
 
 
 class SettingsAudio(Fading):
-    """Main menu view class."""
+    """ Settings > Audio """
 
     def __init__(self, window, state, previous_view, shadertoy, time=0):
         super().__init__(window)
@@ -29,10 +28,6 @@ class SettingsAudio(Fading):
         # Disable the UIManager when the view is hidden.
         self.pop_controller_handlers()
         self.manager.disable()
-
-    def on_back(self):
-        self.previous_view.time = self.time
-        self.window.show_view(self.previous_view)
 
     def on_show_view(self):
         """ This is run once when we switch to this view """
@@ -67,7 +62,7 @@ class SettingsAudio(Fading):
             style=utils.text.get_style()
         )
 
-        audio_button = arcade.gui.UITextureButton(
+        sound_button = arcade.gui.UITextureButton(
             text=_("Sound"),
             width=BUTTON_WIDTH,
             texture=get_texture_by_value(
@@ -88,15 +83,15 @@ class SettingsAudio(Fading):
             # Pass already created view because we are resuming.
             self.on_toggle_music()
 
-        @audio_button.event("on_click")
-        def on_click_audio_button(event):
+        @sound_button.event("on_click")
+        def on_click_sound_button(event):
             # Pass already created view because we are resuming.
-            self.on_toggle_audio()
+            self.on_toggle_sound()
 
         widgets = [
             back_button,
             music_button,
-            audio_button
+            sound_button
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -143,25 +138,39 @@ class SettingsAudio(Fading):
         self.draw_fading()
         self.draw_debug()
 
+    def on_back(self) -> None:
+        """ Back button clicked """
+        self.previous_view.time = self.time
+        self.window.show_view(self.previous_view)
+
     def on_toggle_music(self):
+        """ Toggle music """
         if self.state._music_volume > 0.0:
             self.state._music_volume = 0.0
         else:
             self.state._music_volume = 1.0
 
-        main_menu = self.previous_view.previous_view
+        # We can't import this at the beginning of the
+        # file because it would be a circular import
         from views.mainmenu import MainMenu
 
+        # Main Menu or game
+        main_menu = self.previous_view.previous_view
+
+        # Update volume of main menu music
         if isinstance(main_menu, MainMenu):
             main_menu.player.volume = self.state._music_volume
 
+        # Update button color
         self.setup()
 
-    def on_toggle_audio(self):
+    def on_toggle_sound(self) -> None:
+        """
+        Toggle sound effect
+        """
         if self.state._sound_volume > 0.0:
             self.state._sound_volume = 0.0
         else:
             self.state._sound_volume = 1.0
-
 
         self.setup()
