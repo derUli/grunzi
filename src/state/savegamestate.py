@@ -8,6 +8,7 @@ import jsonpickle
 from constants.difficulty import DIFFICULTY_EASY
 from constants.savegames import SAVEGAME_DEFAULT
 from utils.path import get_savegame_path
+from utils.utils import natural_keys
 
 
 class SaveGameState:
@@ -21,12 +22,10 @@ class SaveGameState:
 
     def get_selectable(self) -> list:
         """ Get selectable maps """
-        selectable = self.completed.copy()
 
-        if self.current not in selectable:
-            selectable += [self.current]
+        maps = set(self.completed + [self.current])
 
-        return selectable
+        return sorted(maps, key=natural_keys)
 
     @staticmethod
     def exists() -> bool:
@@ -67,7 +66,7 @@ class SaveGameState:
             if SaveGameState().version > state.version:
                 return SaveGameState()
 
-            return state
+        return state
 
     def save(self) -> None:
         """ Save settings as json file """
