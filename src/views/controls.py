@@ -13,6 +13,10 @@ MARGIN = 40
 FONT_SIZE = 18
 TEXT_COLOR = (255, 255, 255)
 
+CONTROLS_KEYBOARD = 'keyboard'
+CONTROLS_CONTROLLER = 'controller'
+
+LOWEST_FITTING_RESOLUTION = (1440, 900)
 
 class Controls(Fading):
     """Main menu view class."""
@@ -30,36 +34,46 @@ class Controls(Fading):
 
         self.previous_view = previous_view
 
+        self.show_controls = CONTROLS_KEYBOARD
+
     def on_show_view(self):
         """ This is run once when we switch to this view """
+        self.show_scene()
+
+    def show_scene(self):
         super().on_show_view()
+        self.scene = arcade.Scene()
+        self.manager.clear()
 
-        controls = [
-            _('Scroll with mousewheel'),
-            os.linesep * 3
-        ]
 
-        if any(self.window.controllers):
+        controls = []
+
+        if self.window.size < LOWEST_FITTING_RESOLUTION:
+            controls += [
+                _('Scroll with mousewheel'),
+                os.linesep * 3
+            ]
+
+        if self.show_controls == CONTROLS_KEYBOARD:
             controls += [_('Keyboard:'), os.linesep * 2]
 
-        controls += [
-            (_("WASD, Arrow keys"), _('Walk')),
-            (_("Shift"), _('Sprint')),
-            (_("Ctrl"), _("Shoot")),
-            (_("E"), _("Use")),
-            (_("Q"), _("Drop item")),
-            (_("G"), _("Grunt")),
-            (_("0 - 5"), _("Select item")),
-            (_("ESC"), _("Open the pause menu")),
-            (_('F3'), _('Show FPS')),
-            (_("F12"), _("Make screenshot")),
-            (_("Alt + Enter"), _("Toggle fullscreen")),
-            (_('F'), _('Ferret'))
-        ]
-
-        if any(self.window.controllers):
             controls += [
-                os.linesep * 2,
+                (_("WASD, Arrow keys"), _('Walk')),
+                (_("Shift"), _('Sprint')),
+                (_("Ctrl"), _("Shoot")),
+                (_("E"), _("Use")),
+                (_("Q"), _("Drop item")),
+                (_("G"), _("Grunt")),
+                (_("0 - 5"), _("Select item")),
+                (_("ESC"), _("Open the pause menu")),
+                (_('F3'), _('Show FPS')),
+                (_("F12"), _("Make screenshot")),
+                (_("Alt + Enter"), _("Toggle fullscreen")),
+                (_('F'), _('Ferret'))
+            ]
+
+        if self.show_controls == CONTROLS_CONTROLLER:
+            controls += [
                 'XBox 360 Controller:',
                 os.linesep * 2
             ]
@@ -95,6 +109,26 @@ class Controls(Fading):
             style=utils.text.get_style(),
         )
 
+        if self.show_controls == CONTROLS_KEYBOARD:
+            toggle_text = _('Controller')
+        else:
+            toggle_text = _('Keyboard')
+
+        toggle_button = arcade.gui.UIFlatButton(
+            text=_(toggle_text),
+            width=BUTTON_WIDTH,
+            style=utils.text.get_style(),
+        )
+
+        @toggle_button.event('on_click')
+        def on_toggle(event):
+            if self.show_controls == CONTROLS_KEYBOARD:
+                self.show_controls = CONTROLS_CONTROLLER
+            else:
+                self.show_controls = CONTROLS_KEYBOARD
+
+            self.show_scene()
+
         width = int(BUTTON_WIDTH * 3)
         height = self.window.height - back_button.height - (MARGIN * 2)
 
@@ -114,9 +148,15 @@ class Controls(Fading):
         # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=MARGIN, align='center')
 
+        buttons = arcade.gui.UIBoxLayout(space_between=MARGIN, align='center', vertical=False)
+        buttons.add(back_button)
+
+        if any(self.window.controllers):
+            buttons.add(toggle_button)
+
         widgets = [
             textarea,
-            back_button
+            buttons
         ]
 
         for widget in widgets:
