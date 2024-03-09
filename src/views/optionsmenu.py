@@ -223,3 +223,7 @@ class OptionsMenu(Fading):
     def on_toggle_fps(self):
         super().on_toggle_fps()
         self.setup()
+
+    def on_toggle_fullscreen(self):
+        super().on_toggle_fullscreen()
+        self.setup()
