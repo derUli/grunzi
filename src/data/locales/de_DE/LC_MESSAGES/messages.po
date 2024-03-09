@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-09 19:43+0100\n"
+"POT-Creation-Date: 2024-03-09 19:46+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -307,10 +307,4 @@ msgstr "Sound aktivieren"
 #: window/launcherwindow.py:95
 msgid "Launch Game"
 msgstr "Spiel starten"
-
-#~ msgid "Go back to main menu?"
-#~ msgstr "Zurück zum Hauptmenü"
-
-#~ msgid "All progress since the begin of the last level will be lost."
-#~ msgstr ""
 
