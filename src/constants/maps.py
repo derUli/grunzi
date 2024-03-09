@@ -1,4 +1,4 @@
-""" Maps """
+""" Map constants """
 
 FIRST_MAP = 'map01'
 

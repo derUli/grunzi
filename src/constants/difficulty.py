@@ -1,4 +1,4 @@
-""" Difficulties """
+""" Difficulty constants """
 
 DIFFICULTY_EASY = 1
 DIFFICULTY_MEDIUM = 2
