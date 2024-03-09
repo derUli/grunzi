@@ -31,9 +31,6 @@ options = {
     'build_exe': {
         # "include_msvcr": True, Not allowed to legal reasons
         'optimize': 0,
-        'includes': [
-            'PyAudio'
-        ],
         'include_files': [
             'data/',
             '../CREDITS.txt',
