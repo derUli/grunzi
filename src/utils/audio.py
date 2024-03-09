@@ -99,5 +99,6 @@ class MusicQueue:
             return
 
         if self.player.volume != self.state.music_volume:
-            logging.info(f"Music volume at {self.player.volume}")
             self.player.volume = self.state.music_volume
+
+            logging.info(f"Music volume at {self.state.music_volume}")
