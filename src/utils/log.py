@@ -58,9 +58,9 @@ def log_hardware_info(window) -> None:
     logging.info(label_value('RAM', f"{ram_size} GB"))
 
     # Renderer is the GPU
-    logging.info(label_value('GPU VENDOR:', window.ctx.info.VENDOR))
-    logging.info(label_value('GPU RENDERER:', window.ctx.info.RENDERER))
-    logging.info(label_value('GPU MAX_TEXTURE_SIZE:', window.ctx.info.MAX_TEXTURE_SIZE))
+    logging.info(label_value('GPU VENDOR', window.ctx.info.VENDOR))
+    logging.info(label_value('GPU RENDERER', window.ctx.info.RENDERER))
+    logging.info(label_value('GPU MAX_TEXTURE_SIZE', window.ctx.info.MAX_TEXTURE_SIZE))
 
     logging.info(label_value('OpenGL version', pyglet.gl.gl_info.get_version_string()))
 
