@@ -166,7 +166,7 @@ class SkullSprite(Character):
             self.chasing = player
 
             if not self.chased:
-                state.sounds['screech'].play()
+                state.play_sound('screech')
             self.chased = True
             self.update_texture()
 

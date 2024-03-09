@@ -134,7 +134,7 @@ class ViewState:
         return pyglet.options['audio'] == 'silent'
 
     def beep(self):
-        return self.sounds['beep'].play()
+        return self.play_sound('beep')
 
     def mute(self):
         self._muted = True

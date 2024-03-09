@@ -5,7 +5,7 @@ class Plier(Item):
     def on_use(self, b, state):
         if isinstance(b, Fence):
             b.fade_destroy()
-            state.sounds['tools']['plier'].play()
+            state.play_sound('tools', 'plier')
             return
 
         state.beep()
