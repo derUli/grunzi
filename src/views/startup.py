@@ -127,8 +127,6 @@ class StartUp:
 
         LOG_LEVEL = logging.INFO
 
-        debug_gl = False
-
         if args.verbose >= 1:
             LOG_LEVEL = logging.DEBUG
 
