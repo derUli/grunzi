@@ -3,13 +3,13 @@ import logging
 import arcade
 import pyglet
 
+from constants.display import UNLIMITED_FRAMERATE
+
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 SCREEN_TITLE = "Grunzi"
 
 UPDATE_RATE = 1 / 60
-DRAW_RATE = 100000
-
 
 class GameWindow(arcade.Window):
     """
@@ -22,7 +22,7 @@ class GameWindow(arcade.Window):
             width=SCREEN_WIDTH,
             height=SCREEN_HEIGHT,
             update_rate=UPDATE_RATE,
-            draw_rate=DRAW_RATE,
+            draw_rate=UNLIMITED_FRAMERATE,
             vsync=False
     ):
         default_screen = pyglet.canvas.get_display().get_default_screen()
