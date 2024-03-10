@@ -6,6 +6,7 @@ import os
 
 import pyglet
 
+from constants.audio import DEFAULT_AUDIO_BACKEND, AUDIO_BACKENDS
 from constants.maps import FIRST_MAP
 from state.settingsstate import SettingsState
 from state.viewstate import ViewState
@@ -68,16 +69,10 @@ class StartUp:
 
         parser.add_argument(
             '--audio-backend',
+            choices=tuple(AUDIO_BACKENDS),
+            default=DEFAULT_AUDIO_BACKEND,
+            action='store',
             type=str,
-            default='auto',
-            choices=[
-                'auto',
-                'openal',
-                'xaudio2',
-                'directsound',
-                'pulse',
-                'silent'
-            ],
             help='The audio backend'
         )
 
@@ -160,7 +155,10 @@ class StartUp:
             args.audio_backend = 'silent'
 
         if args.audio_backend and args.audio_backend != 'auto':
-            pyglet.options['audio'] = args.audio_backend
+            print(args.audio_backend)
+            pyglet.options['audio'] = (args.audio_backend, )
+
+        logging.debug(label_value('Audio backend', args.audio_backend))
 
         pyglet.options['shadow_window'] = True
 

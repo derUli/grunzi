@@ -7,6 +7,7 @@ import pyglet
 from PIL.ImageTk import PhotoImage
 from ttkthemes import ThemedTk
 
+from constants.audio import AUDIO_BACKENDS
 from state.settingsstate import SettingsState
 from utils.utils import natural_keys
 
@@ -26,12 +27,9 @@ class LauncherWindow(ThemedTk):
         self.screen_resolution = tk.StringVar(
             value=str(args.width) + 'x' + str(args.height)
         )
-
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
-        self.silent = tk.BooleanVar(value=args.silent)
 
-        self.map = tk.StringVar(value=args.map)
-
+        self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
         self.confirmed = False
 
@@ -46,11 +44,12 @@ class LauncherWindow(ThemedTk):
 
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
-            self.silent.set(self.state.silent)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
             )
+
+            self.audio_backend.set(self.state.audio_backend)
 
         tabControl = ttk.Notebook(self)
 
@@ -84,12 +83,14 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).pack(expand=True)
 
-        ttk.Checkbutton(
+
+        ttk.Label(tab_audio, text=_('Audio Backend:')).pack()
+
+        ttk.Combobox(
             tab_audio,
-            text=_('Enable Sound'),
-            variable=self.silent,
-            onvalue=False,
-            offvalue=True
+            values=AUDIO_BACKENDS,
+            textvariable=self.audio_backend,
+            state='readonly'
         ).pack()
 
         button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
@@ -114,9 +115,9 @@ class LauncherWindow(ThemedTk):
         # Apply settings in state
         self.state.fullscreen = self.fullscreen.get()
         self.state.vsync = self.vsync.get()
-        self.state.silent = self.silent.get()
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
+        self.state.audio_backend = self.audio_backend.get()
         self.state.save()
 
         # Apply settings to args
@@ -124,13 +125,12 @@ class LauncherWindow(ThemedTk):
         self.args.window = not self.fullscreen.get()
         self.args.no_vsync = not self.vsync.get()
 
-        self.args.silent = self.silent.get()
-        self.args.map = self.map.get()
-
         screen_resolution = self.screen_resolution.get().split('x')
 
         self.args.width = int(screen_resolution[0])
         self.args.height = int(screen_resolution[1])
+
+        self.args.audio_backend = self.audio_backend.get()
 
         return self.args
 

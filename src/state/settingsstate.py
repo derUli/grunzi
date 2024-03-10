@@ -5,6 +5,7 @@ import os
 import jsonpickle
 import pyglet
 
+from constants.audio import DEFAULT_AUDIO_BACKEND
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
@@ -23,7 +24,7 @@ class SettingsState:
         self.vsync = True
 
         # Is sound disabled
-        self.silent = False
+        self.audio_backend = DEFAULT_AUDIO_BACKEND
 
         self.show_fps = False
 
@@ -115,4 +116,4 @@ class SettingsState:
         self._muted = False
 
     def is_silent(self):
-        return pyglet.options['audio'] == 'silent'
+        return self.audio_backend == 'silent'
