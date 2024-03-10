@@ -118,7 +118,7 @@ class Game(Fading):
         self.video = load_video(
             video_file,
             self.window.size,
-            self.state.settings.sound_volume
+            self.state.settings.music_volume
         )
 
         threading.Thread(target=self.async_load).start()
