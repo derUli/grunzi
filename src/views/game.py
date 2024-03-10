@@ -366,7 +366,8 @@ class Game(Fading):
 
         if self.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
-                return self.on_main_menu()
+                self.on_main_menu()
+            return
 
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
