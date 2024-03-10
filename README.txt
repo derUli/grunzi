@@ -59,7 +59,7 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
 Wenn der Start des Spiels mit der Fehlermeldung, dass die Datei "VCRUNTIME140.dll" fehlt, fehlschlägt, muss das
 "Visual C++ Redistributable" von Microsoft installiert werden.
 
-Es ist unter folgendem Link herunterzuladen
+Es ist unter folgendem Link herunterzuladen:
 https://www.microsoft.com/de-de/download/details.aspx?id=48145
 
 # Steuerung
