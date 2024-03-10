@@ -1,3 +1,5 @@
+""" Text utils """
+
 import arcade
 from arcade.gui import UIFlatButton
 
@@ -41,8 +43,13 @@ def create_text(
     )
 
 
-def get_style():
+def get_style() -> dict:
+    """
+    Get the style for the flat button
+    @return: Style
+    """
     style = UIFlatButton.DEFAULT_STYLE
+
     for index in style:
         style[index]['font_name'] = FONT_DEFAULT
         style[index]['font_size'] = MEDIUM_FONT_SIZE
