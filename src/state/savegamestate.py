@@ -5,7 +5,7 @@ import os
 
 import jsonpickle
 
-from constants.difficulty import DIFFICULTY_EASY
+from constants.difficulty import DIFFICULTY_MEDIUM
 from constants.savegames import SAVEGAME_DEFAULT
 from utils.path import get_savegame_path
 from utils.utils import natural_keys
@@ -17,7 +17,7 @@ class SaveGameState:
         self.completed = []
         self.current = None
         self.score = 0
-        self.difficulty = DIFFICULTY_EASY
+        self.difficulty = DIFFICULTY_MEDIUM
         self.version = 1
 
     def get_selectable(self) -> list:
