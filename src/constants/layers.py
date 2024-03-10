@@ -3,8 +3,9 @@
 from arcade import SpriteList, Scene
 
 import sprites.decoration.car
+from sprites.items.carkey import CarKey
 from sprites.items.hammer import Hammer
-from sprites.items.item import Fence, PiggyBank
+from sprites.items.item import Fence, PiggyBank, Jeep
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.sounds.highway import Highway
@@ -24,7 +25,8 @@ LAYER_PLACE = 'Place'
 LAYER_SPAWN_POINT = 'Spawn Point'
 LAYER_CAR_LEFT = 'Cars Left'
 LAYER_CAR_RIGHT = 'Cars Right'
-
+LAYER_CAR_KEY = 'Car Key'
+LAYER_JEEP = 'Jeep'
 LAYER_HIGHWAY = 'Highway'
 
 ALL_LAYERS = [
@@ -41,7 +43,8 @@ ALL_LAYERS = [
 
 WALL_LAYERS = [
     LAYER_WALL,
-    LAYER_FENCE
+    LAYER_FENCE,
+    LAYER_JEEP
 ]
 
 LAYER_OPTIONS = {
@@ -75,6 +78,12 @@ LAYER_OPTIONS = {
     },
     LAYER_VASE: {
         'custom_class': Vase
+    },
+    LAYER_CAR_KEY: {
+        'custom_class': CarKey
+    },
+    LAYER_JEEP: {
+        'custom_class': Jeep
     }
 }
 

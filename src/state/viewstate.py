@@ -64,6 +64,9 @@ class ViewState:
             },
             'tools': {
                 'plier': arcade.load_sound(os.path.join(self.sound_dir, 'plier', 'plier.ogg'))
+            },
+            'car': {
+                'start': arcade.load_sound(os.path.join(self.sound_dir, 'car', 'car_start.ogg'))
             }
         }
 

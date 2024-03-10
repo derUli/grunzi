@@ -10,7 +10,7 @@ from constants.layers import (
     LAYER_CAR_LEFT,
     LAYER_WALL,
     LAYER_FENCE,
-    LAYER_PIGGYBANK
+    LAYER_PIGGYBANK, LAYER_JEEP
 )
 from sprites.characters.playersprite import PlayerSprite
 
@@ -62,7 +62,8 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
     wall_layers = [
         LAYER_WALL,
         LAYER_FENCE,
-        LAYER_PIGGYBANK
+        LAYER_PIGGYBANK,
+        LAYER_JEEP
     ]
 
     for layer in wall_layers:

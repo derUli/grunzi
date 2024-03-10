@@ -28,6 +28,7 @@ from sprites.characters.skullsprite import spawn_skull
 from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
+from utils.callbackhandler import CallbackHandler
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
@@ -495,10 +496,14 @@ class Game(Fading):
         item = self.player_sprite.get_item()
         sprites = arcade.check_for_collision_with_lists(self.player_sprite.get_item(), self.scene.sprite_lists)
 
+
         for sprite in sprites:
-            print(sprite)
             if isinstance(sprite, Useable):
-                item.on_use(sprite, state=self.state)
+                item.on_use(
+                    sprite,
+                    state=self.state,
+                    handlers=CallbackHandler(on_complete=self.on_main_menu)
+                )
                 return
 
         self.state.beep()
