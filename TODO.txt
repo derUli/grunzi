@@ -1,0 +1,6 @@
+* Hühner NPCs
+* Level-Auswahl
+* Schwierigkeitsgrade
+* Dropdown "FPS beschränken" im Launcher
+* Checkbox "Borderless" im Launcher
+* Autofahr-Animation am Levelende
