@@ -4,10 +4,8 @@ def center_camera_to_player(player_sprite, camera):
     screen_center_y = player_sprite.center_y - (camera.viewport_height / 2)
 
     # Set some limits on how far we scroll
-    if screen_center_x < 0:
-        screen_center_x = 0
-    if screen_center_y < 0:
-        screen_center_y = 0
+    screen_center_x = max(screen_center_x, 0)
+    screen_center_y = max(screen_center_y, 0)
 
     # Here's our center, move to it
     player_centered = screen_center_x, screen_center_y
