@@ -2,8 +2,10 @@
 
 # Alpha 009 (Not yet released)
 
-* Level-Auswahl
-* Schwierigkeitsgrade
++ Aufgabe mit Autoschlüssel hinzugefügt
+* Level-Auswahl hinzugefügt
+* Schwierigkeitsgrade hinzugefügt
+
 
 # Alpha 008 (Not yet released)
 

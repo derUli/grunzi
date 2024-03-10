@@ -3,7 +3,6 @@ import gettext
 import locale
 import logging
 import os
-
 import pyglet
 
 from constants.audio import DEFAULT_AUDIO_BACKEND, AUDIO_BACKENDS
@@ -127,11 +126,15 @@ class StartUp:
 
         LOG_LEVEL = logging.INFO
 
+        debug_gl = False
+
         if args.verbose >= 1:
             LOG_LEVEL = logging.DEBUG
 
         if args.verbose >= 2:
             LOG_LEVEL = logging.NOTSET
+
+        pyglet.options['win32_disable_shaping'] = True
 
         configure_logger(LOG_LEVEL)
 
@@ -159,8 +162,6 @@ class StartUp:
             pyglet.options['audio'] = (args.audio_backend, )
 
         logging.debug(label_value('Audio backend', args.audio_backend))
-
-        pyglet.options['shadow_window'] = True
 
         import arcade
 

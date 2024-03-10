@@ -8,7 +8,6 @@ import sys
 
 from views.startup import StartUp
 
-
 def start() -> None:
     """ Starts the game """
     try:

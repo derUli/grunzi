@@ -31,9 +31,6 @@ class GameWindow(arcade.Window):
         style = pyglet.window.Window.WINDOW_STYLE_DEFAULT
         self.is_native = native_resolution == (width, height)
 
-        if not window and self.is_native:
-            style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
-
         logging.debug('Refresh rate ', draw_rate)
 
         draw_rate = 1 / draw_rate
@@ -47,8 +44,8 @@ class GameWindow(arcade.Window):
             update_rate=update_rate,
             draw_rate=draw_rate,
             center_window=True,
-            style=style,
-            vsync=vsync
+            vsync=vsync,
+            style=style
         )
 
         self.set_fullscreen(not window)
