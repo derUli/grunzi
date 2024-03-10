@@ -2,7 +2,6 @@
 
 # Alpha XXX (Not yet released)
 
-* Aufgabe mit Autoschlüssel hinzugefügt
 * Hühner NPCs hinzugefügt
 * Level-Auswahl hinzugefügt
 * Schwierigkeitsgrade hinzugefügt
@@ -11,6 +10,7 @@
 
 # Alpha 008 (Not yet released)
 
+* Aufgabe mit Autoschlüssel hinzugefügt
 * Intro Video für Level hinzugefügt
 * Hammer und Sparschwein hinzugefügt
 * Frettchen hinzugefügt
