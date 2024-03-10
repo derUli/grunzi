@@ -1,14 +1,15 @@
 # Changelog
 
-# Alpha XXX (Not yet released)
+# TODO
 
-TODO:
 * Hühner NPCs
 * Level-Auswahl
 * Schwierigkeitsgrade
 * Dropdown "FPS beschränken" im Launcher
 * Checkbox "Borderless" im Launcher
 * Autofahr-Animation am Levelende
+
+* Alpha 009 (Not yet released
 
 # Alpha 008 (15.03.2024)
 
