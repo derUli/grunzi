@@ -44,19 +44,15 @@ class ViewState:
         self.sounds = {
             'coin': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'pickup.ogg'),
-                streaming=False
             ),
             'screenshot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'screenshot.ogg'),
-                streaming=False
             ),
             'beep': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'beep.ogg'),
-                streaming=False
             ),
             'shot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'weapons', 'shot.ogg'),
-                streaming=False
             ),
             'screech': arcade.load_sound(
                 os.path.join(self.sound_dir, 'skull', 'screech.ogg'),
@@ -80,14 +76,12 @@ class ViewState:
 
         for i in range(1, 6):
             self.sounds[f"grunt{i}"] = arcade.load_sound(
-                os.path.join(self.sound_dir, 'pig', f"grunt{i}.ogg"),
-                streaming=False
+                os.path.join(self.sound_dir, 'pig', f"grunt{i}.ogg")
             )
 
         for i in range(1, 6):
             self.sounds[f"squeak{i}"] = arcade.load_sound(
-                os.path.join(self.sound_dir, 'pig', f"squeak{i}.ogg"),
-                streaming=False
+                os.path.join(self.sound_dir, 'pig', f"squeak{i}.ogg")
             )
 
     def load_shader(self, size, name):

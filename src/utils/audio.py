@@ -87,7 +87,7 @@ class MusicQueue:
         if len(self.queue) == 0:
             return
 
-        self.music = arcade.load_sound(self.queue[0], streaming=False)
+        self.music = arcade.load_sound(self.queue[0], streaming=True)
         self.player = self.music.play(volume=self.state.settings.music_volume)
         self.queue = self.queue[1:]
 
