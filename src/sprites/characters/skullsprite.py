@@ -28,7 +28,7 @@ FADE_SPEED = 5
 DAMAGE = 5
 GRID_SIZE = 64
 
-SHOOT_DELTA = UPDATE_RATE * 15
+SHOOT_DELTA = UPDATE_RATE * 10
 
 
 class SkullSprite(Character):

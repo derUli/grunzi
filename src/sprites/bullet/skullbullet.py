@@ -8,7 +8,7 @@ from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
 from utils.physics import on_hit_destroy
 
-HURT_PLAYER = 10
+HURT_PLAYER = 15
 HURT_FERRET = 25
 
 MASS = 0.1
