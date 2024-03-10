@@ -74,6 +74,21 @@ def cli_args():
     )
 
     parser.add_argument(
+        '--audio-backend',
+        type=str,
+        default='auto',
+        choices=[
+            'auto',
+            'openal',
+            'xaudio2',
+            'directsound',
+            'pulse',
+            'silent'
+        ],
+        help='The audio backend'
+    )
+
+    parser.add_argument(
         '--no-vsync',
         action='store_true',
         default=False,
@@ -144,7 +159,10 @@ def main():
         args = launcher.get_args()
 
     if args.silent:
-        pyglet.options['audio'] = 'silent'
+        args.audio_backend = 'silent'
+
+    if args.audio_backend and args.audio_backend != 'auto':
+        pyglet.options['audio'] = args.audio_backend
 
     pyglet.options['shadow_window'] = True
 
