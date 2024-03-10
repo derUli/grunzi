@@ -81,13 +81,6 @@ def cli_args():
     )
 
     parser.add_argument(
-        '--controller',
-        default=False,
-        action='store_true',
-        help='Enable controller'
-    )
-
-    parser.add_argument(
         '-v',
         '--verbose',
         default=0,
