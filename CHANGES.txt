@@ -2,11 +2,13 @@
 
 # Alpha XXX (Not yet released)
 
-* Hühner NPCs hinzugefügt
-* Level-Auswahl hinzugefügt
-* Schwierigkeitsgrade hinzugefügt
-* Dropdown "FPS beschränken" zum Launcher hinzugefügt
-* Button "Rahmenlos" zum Launcher hinzugefügt
+TODO:
+* Hühner NPCs
+* Level-Auswahl
+* Schwierigkeitsgrade
+* Dropdown "FPS beschränken" im Launcher
+* Checkbox "Borderless" im Launcher
+* Autofahr-Animation am Levelende
 
 # Alpha 008 (15.03.2024)
 
