@@ -1,11 +1,13 @@
 # Changelog
 
-# Alpha 009 (Not yet released)
+# Alpha XXX (Not yet released)
 
-+ Aufgabe mit Autoschlüssel hinzugefügt
+* Aufgabe mit Autoschlüssel hinzugefügt
+* Hühner NPCs hinzugefügt
 * Level-Auswahl hinzugefügt
 * Schwierigkeitsgrade hinzugefügt
-
+* Dropdown "FPS beschränken" zum Launcher hinzugefügt
+* Button "Rahmenlos" zum Launcher hinzugefügt
 
 # Alpha 008 (Not yet released)
 
