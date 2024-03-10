@@ -9,6 +9,7 @@ from constants.layers import LAYER_WALL, all_layers, LAYER_ENEMIES
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
+from sprites.items.item import Useable
 from utils.physics import DEFAULT_FRICTION
 from utils.sprite import random_position
 from window.gamewindow import UPDATE_RATE
@@ -31,7 +32,7 @@ GRID_SIZE = 64
 SHOOT_DELTA = UPDATE_RATE * 10
 
 
-class SkullSprite(Character):
+class SkullSprite(Character, Useable):
     def __init__(
             self,
             filename: str = None,
