@@ -3,7 +3,6 @@ import logging
 import os
 
 import jsonpickle
-import pyglet
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
 from utils.audio import normalize_volume
@@ -75,7 +74,6 @@ class SettingsState:
         """ Save settings as json file """
         with open(get_settings_path(), 'w') as f:
             f.write(jsonpickle.encode(self, unpicklable=True))
-
 
     @property
     def music_volume(self):

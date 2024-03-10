@@ -1,6 +1,4 @@
-import PIL
 import arcade.gui
-from PIL import Image
 
 import constants.controls.keyboard
 import utils.gui

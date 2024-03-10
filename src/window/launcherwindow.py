@@ -83,7 +83,6 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).pack(expand=True)
 
-
         ttk.Label(tab_audio, text=_('Audio Backend:')).pack()
 
         ttk.Combobox(

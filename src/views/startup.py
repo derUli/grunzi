@@ -3,6 +3,7 @@ import gettext
 import locale
 import logging
 import os
+
 import pyglet
 
 from constants.audio import DEFAULT_AUDIO_BACKEND, AUDIO_BACKENDS
@@ -159,7 +160,7 @@ class StartUp:
 
         if args.audio_backend and args.audio_backend != 'auto':
             print(args.audio_backend)
-            pyglet.options['audio'] = (args.audio_backend, )
+            pyglet.options['audio'] = (args.audio_backend,)
 
         logging.debug(label_value('Audio backend', args.audio_backend))
 

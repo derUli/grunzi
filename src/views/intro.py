@@ -14,6 +14,7 @@ WAIT_FOR = 3
 
 MARGIN = 10
 
+
 class Intro(Fading):
     """Main menu view class."""
 
@@ -34,11 +35,9 @@ class Intro(Fading):
         # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
 
-
         image = PIL.Image.open(
             os.path.join(self.state.image_dir, 'ui', 'logo.png')
         ).convert('RGBA').crop()
-
 
         if image.size > self.window.size:
             w, h = self.window.size

@@ -1,5 +1,6 @@
 from sprites.items.item import Item, PiggyBank
 
+
 class Hammer(Item):
     def on_use(self, b, state=None, handlers=None):
         from sprites.characters.ferret import Ferret
