@@ -24,11 +24,14 @@ OS: Windows 11 64-Bit
 
 ## Was ist neu?
 
-In diesem Build wurde das Inventar implementiert.
-Beim Start des Spiels wird jetzt ein Dialog anzeigt, wo man die Einstellungen konfigurieren kann.
-XBox 360 Controller können nun verwendet werden.
-Die KI der Totenköpfe wurde verbessert.
-Die Map wurde weiter ausgebaut.
+In diesem Build kann das bisher einzige Level abgeschlossen werden.
+Ein Intro-Video, welches zur Überbrückung der Ladezeit dient, wurde hinzugefügt.
+Bei jedem Spielstand wird ein friedliches Frettchen, welches bisher noch keine KI hat, zufällig auf der Karte positioniert.
+Mit der Taste "F" können weitere Frettchen gespawnt werden.
+Ein Spielstandsystem, welches zum Ende jedes Levels speichert, wurde hinzugefügt.
+Der Launcher wurde überarbeitet.
+In-Game Einstellungsmöglichkeiten wurden hinzugefügt.
+Einige Bugs wurden behoben.
 
 # Spiel starten
 
@@ -37,16 +40,19 @@ Beim Start öffnet sich der Launcher, wo man die Einstellungen vornehmen kann.
 Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden Start-Parameter zu übergeben:
 
 ```
-  --window         Run in windowed mode
-  --fullscreen     Run in fullscreen mode
-  --debug          Enable debug mode
-  --width WIDTH    Window width in pixels
-  --height HEIGHT  Window height in pixels
-  --map MAP        Name of the map
-  --silent         Mute the sound
-  --controller     Enable controller
-  -v, --verbose    Make the operation more talkative
-  --skip-launcher  Skip launcher
+  --window              Run in windowed mode
+  --fullscreen          Run in fullscreen mode
+  --width WIDTH         Window width in pixels
+  --height HEIGHT       Window height in pixels
+  --map MAP             Name of the map
+  --silent              Mute the sound
+  --audio-backend {auto,xaudio2,directsound,openal,pulse,silent}
+                        The audio backend
+  --no-vsync            Disable V-Sync
+  -v, --verbose         Make the operation more talkative
+  -l, --skip-logo       Skip the logo screen and go straight to main menu
+  --skip-launcher       Skip launcher
+
 
 ```
 
@@ -63,30 +69,26 @@ Das Hauptmenü kann aktuell nur per Maus bedient werden.
 
 ## Tastatur
 
-Die Steuerung über Tastatur kann im Hauptmenü unter "Hilfe & Optionen" - "Steuerung" eingesehen werden.
+Die Steuerung über Tastatur kann im Hauptmenü unter "Einstellungen" - "Steuerung" eingesehen werden.
 
-## Controller:
+## Controller
 
 Der Controller muss bereits vor dem Spielstart mit dem Computer verbunden sein.
-Um den Controller zu aktivieren, muss im Launcher die Checkbox "Controller" aktiviert, oder der Start-Parameter
---controller übergeben werden.
-Wenn mehrere Controller angeschlossen sind, werden alle aktiviert.
+Angeschlossene Controller werden beim Spielstart automatisch erkannt.
 
-Die Steuerung über Controller kann im Hauptmenü unter "Hilfe & Optionen" - "Steuerung" eingesehen werden.
+Die Steuerung über Controller kann im Hauptmenü unter "Einstellungen" - "Steuerung" eingesehen werden.
 
 Derzeit werden die folgenden Controller unterstützt:
 
 * Xbox 360 Controller
 
-Weitere Modelle können funktionieren, sind von mir aber ungetestet.
+Weitere Modelle können funktionieren, wurden von mir aber nicht getestet.
 
 # Einstellungen
 
 Beim Start des Spiels öffnet sich ein Dialog, wo die folgenden Einstellungen konfiguriert werden können:
 
 * Vollbild
-* Sound
-* Controller
-* Debug
+* V-Sync
 * Bildschirmauflösung
-* Map
+* Audio Backend

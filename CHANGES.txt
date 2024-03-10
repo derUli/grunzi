@@ -17,6 +17,7 @@
 * Spielstand-System hinzugefügt
 * Fadeout-Animationen hinzugefügt
 * V-Sync Grafik-Option hinzugefügt
+* Weitere Musiktracks hinzugefügt
 * In-Game Grafikeinstellungen hinzugefügt
 * Menüs können jetzt mit Controller bedient werden
 * Launcher UI verbessert
