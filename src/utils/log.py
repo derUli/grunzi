@@ -45,7 +45,6 @@ def log_hardware_info(window) -> None:
     """
     Log hardware info
     """
-
     # Log OS info
     uname = platform.uname()
     logging.info(label_value('OS', f"{uname.system} {uname.version}"))
