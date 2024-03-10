@@ -63,7 +63,7 @@ class SaveGameState:
             # If the state version from the code is newer than the stored version
             # discard the old settings state and return a new one
 
-            if SaveGameState().version > state.version:
+            if SaveGameState().version != state.version:
                 return SaveGameState()
 
         return state

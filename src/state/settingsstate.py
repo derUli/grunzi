@@ -65,7 +65,7 @@ class SettingsState:
             # If the state version from the code is newer than the stored version
             # discard the old settings state and return a new one
 
-            if SettingsState().version > state.version:
+            if SettingsState().version != state.version:
                 return SettingsState()
 
             return state
