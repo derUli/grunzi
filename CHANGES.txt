@@ -8,7 +8,7 @@
 * Dropdown "FPS beschränken" zum Launcher hinzugefügt
 * Button "Rahmenlos" zum Launcher hinzugefügt
 
-# Alpha 008 (Not yet released)
+# Alpha 008 (15.03.2024)
 
 * Aufgabe mit Autoschlüssel hinzugefügt
 * Intro Video für Level hinzugefügt
