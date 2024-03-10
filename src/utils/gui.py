@@ -1,5 +1,9 @@
 import PIL
 import arcade
+from arcade.gui import UIFlatButton
+
+from constants.fonts import FONT_DEFAULT
+from utils.text import MEDIUM_FONT_SIZE
 
 
 def get_texture_by_value(width, height, value=False):
@@ -13,3 +17,16 @@ def get_texture_by_value(width, height, value=False):
         return texture_green
 
     return texture_red
+
+
+def get_button_style() -> dict:
+    """
+    Get the style for the flat button
+    @return: Style
+    """
+    style = UIFlatButton.DEFAULT_STYLE
+
+    for index in style:
+        style[index]['font_name'] = FONT_DEFAULT
+        style[index]['font_size'] = MEDIUM_FONT_SIZE
+    return style

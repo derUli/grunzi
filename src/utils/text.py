@@ -1,7 +1,6 @@
 """ Text utils """
 
 import arcade
-from arcade.gui import UIFlatButton
 
 from constants.fonts import FONT_DEFAULT
 
@@ -41,19 +40,6 @@ def create_text(
         multiline=multiline,
         font_name=font_name
     )
-
-
-def get_style() -> dict:
-    """
-    Get the style for the flat button
-    @return: Style
-    """
-    style = UIFlatButton.DEFAULT_STYLE
-
-    for index in style:
-        style[index]['font_name'] = FONT_DEFAULT
-        style[index]['font_size'] = MEDIUM_FONT_SIZE
-    return style
 
 
 def label_value(label: str, value: any) -> str:

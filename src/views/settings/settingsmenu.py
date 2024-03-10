@@ -3,6 +3,7 @@ import arcade.gui
 from PIL import Image
 
 import constants.controls.keyboard
+import utils.gui
 import utils.text
 from views.fading import Fading
 from views.settings.settingsaudio import SettingsAudio
@@ -56,27 +57,27 @@ class SettingsMenu(Fading):
         video_button = arcade.gui.UIFlatButton(
             text=_("Video"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         # Video settings
         audio_button = arcade.gui.UIFlatButton(
             text=_("Audio"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         # Control settings
         controls_button = arcade.gui.UIFlatButton(
             text=_("Controls"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         @controls_button.event("on_click")

@@ -3,6 +3,7 @@ import os
 
 import arcade.gui
 
+import utils.gui
 import utils.text
 from constants.fonts import FONT_ADRIP
 from state.savegamestate import new_savegame, SaveGameState
@@ -35,25 +36,25 @@ class MainMenu(Fading):
         newgame_button = arcade.gui.UIFlatButton(
             text=_("New Game"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         continue_button = arcade.gui.UIFlatButton(
             text=_("Continue"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style(),
+            style=utils.gui.get_button_style(),
         )
 
         options_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         quit_button = arcade.gui.UIFlatButton(
             text=_("Quit game"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         self.player = None

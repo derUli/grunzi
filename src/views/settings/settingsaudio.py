@@ -2,6 +2,7 @@
 import arcade.gui
 
 import constants.controls.keyboard
+import utils.gui
 import utils.text
 from utils.gui import get_texture_by_value
 from views.fading import Fading
@@ -48,7 +49,7 @@ class SettingsAudio(Fading):
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         music_button = arcade.gui.UITextureButton(
@@ -59,7 +60,7 @@ class SettingsAudio(Fading):
                 height=back_button.height,
                 value=self.state.settings._music_volume > 0.0
             ),
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         sound_button = arcade.gui.UITextureButton(
@@ -70,7 +71,7 @@ class SettingsAudio(Fading):
                 height=back_button.height,
                 value=self.state.settings._sound_volume > 0.0
             ),
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         @back_button.event("on_click")

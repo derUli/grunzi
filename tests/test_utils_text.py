@@ -4,7 +4,8 @@ import unittest
 import arcade
 
 from state.viewstate import ViewState
-from utils.text import label_value, get_style, create_text
+from utils.text import label_value, create_text
+from utils.gui import get_button_style
 from window.gamewindow import GameWindow
 
 
@@ -25,8 +26,8 @@ class TextTest(unittest.TestCase):
     def test_label_value(self):
         self.assertEqual('Value: 123.0', label_value('Value', 123.0))
 
-    def test_get_style(self):
-        self.assertEqual('Laila', get_style()['hover']['font_name'])
+    def test_get_button_style(self):
+        self.assertEqual('Laila', get_button_style()['hover']['font_name'])
 
     def test_create_text(self):
         text = create_text('Foobar')

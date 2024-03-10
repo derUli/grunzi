@@ -5,6 +5,7 @@ import os
 import arcade.gui
 
 import constants.controls.keyboard
+import utils.gui
 import utils.text
 from views.fading import Fading
 
@@ -106,7 +107,7 @@ class SettingsControls(Fading):
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style(),
+            style=utils.gui.get_button_style(),
         )
 
         if self.show_controls == CONTROLS_KEYBOARD:
@@ -117,7 +118,7 @@ class SettingsControls(Fading):
         toggle_button = arcade.gui.UIFlatButton(
             text=_(toggle_text),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style(),
+            style=utils.gui.get_button_style(),
         )
 
         @toggle_button.event('on_click')

@@ -3,6 +3,7 @@ import arcade.gui
 from PIL import Image
 
 import constants.controls.keyboard
+import utils.gui
 import utils.text
 from utils.gui import get_texture_by_value
 from views.fading import Fading
@@ -55,7 +56,7 @@ class SettingsVideo(Fading):
         controls_button = arcade.gui.UIFlatButton(
             text=_("Controls"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         # Video settings
@@ -67,7 +68,7 @@ class SettingsVideo(Fading):
                 height=controls_button.height,
                 value=self.window.fullscreen
             ),
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         # Video settings
@@ -79,7 +80,7 @@ class SettingsVideo(Fading):
                 height=controls_button.height,
                 value=self.window.vsync
             ),
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         # Video settings
@@ -91,13 +92,13 @@ class SettingsVideo(Fading):
                 height=controls_button.height,
                 value=self.state.settings.show_fps
             ),
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
-            style=utils.text.get_style()
+            style=utils.gui.get_button_style()
         )
 
         @controls_button.event("on_click")
