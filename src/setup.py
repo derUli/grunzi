@@ -30,7 +30,7 @@ target = cx_Freeze.Executable(
 options = {
     'build_exe': {
         # "include_msvcr": True, Not allowed to legal reasons
-        'optimize': 0,
+        'optimize': 1,
         'include_files': [
             'data/',
             '../CREDITS.txt',
