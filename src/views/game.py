@@ -205,7 +205,7 @@ class Game(Fading):
                 align='left').draw()
             return self.draw_debug()
 
-        center_camera_to_player(self.player_sprite, self.camera_sprites)
+        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap_size)
 
         self.camera_sprites.use()
         self.scene.draw()
