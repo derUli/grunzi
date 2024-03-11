@@ -572,7 +572,7 @@ class Game(Fading):
             if arcade.check_for_collision(sprite, self.player_sprite):
                 self.player_sprite.hurt(sprite.damage)
 
-        if len(enemies) < 10:
+        if len(enemies) < self.state.difficulty.max_skulls:
             if random.randint(1, 150) == 50:
                 spawn_skull(self.state, self.tilemap, self.scene, self.physics_engine)
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
