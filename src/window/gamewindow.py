@@ -23,7 +23,8 @@ class GameWindow(arcade.Window):
             height=SCREEN_HEIGHT,
             update_rate=UPDATE_RATE,
             draw_rate=UNLIMITED_FRAMERATE,
-            vsync=False
+            vsync=False,
+            borderless=False
     ):
         default_screen = pyglet.canvas.get_display().get_default_screen()
         native_mode = default_screen.get_mode()
@@ -31,7 +32,7 @@ class GameWindow(arcade.Window):
         style = pyglet.window.Window.WINDOW_STYLE_DEFAULT
         self.is_native = native_resolution == (width, height)
 
-        if not window and self.is_native:
+        if borderless:
             style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
 
         logging.debug('Refresh rate ', draw_rate)

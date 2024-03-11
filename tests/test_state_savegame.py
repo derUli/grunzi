@@ -23,7 +23,6 @@ class SaveGameStateTest(unittest.TestCase):
 
         self.assertEqual(['map01', 'map02', 'map03'], state.get_selectable())
 
-
     def test_load(self):
         self.assertIsInstance(SaveGameState.load(), SaveGameState)
 

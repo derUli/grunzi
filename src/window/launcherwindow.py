@@ -28,6 +28,7 @@ class LauncherWindow(ThemedTk):
             value=str(args.width) + 'x' + str(args.height)
         )
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
+        self.borderless = tk.BooleanVar(value=args.borderless)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
@@ -44,6 +45,7 @@ class LauncherWindow(ThemedTk):
 
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
+            self.borderless.set(self.state.borderless)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -73,8 +75,20 @@ class LauncherWindow(ThemedTk):
                         text=_('Fullscreen'),
                         variable=self.fullscreen,
                         onvalue=True,
-                        offvalue=False
+                        offvalue=False,
+                        command=self.on_toggle_fullscreen
                         ).pack(expand=True)
+
+        self.borderless_check = ttk.Checkbutton(tab_video,
+                        text=_('Borderless'),
+                        variable=self.borderless,
+                        onvalue=True,
+                        offvalue=False,
+                        )
+
+        self.borderless_check.pack(expand=True)
+
+        self.on_toggle_fullscreen()
 
         ttk.Checkbutton(tab_video,
                         text=_('V-Sync'),
@@ -82,6 +96,7 @@ class LauncherWindow(ThemedTk):
                         onvalue=True,
                         offvalue=False
                         ).pack(expand=True)
+
 
         ttk.Label(tab_audio, text=_('Audio Backend:')).pack()
 
@@ -113,6 +128,7 @@ class LauncherWindow(ThemedTk):
 
         # Apply settings in state
         self.state.fullscreen = self.fullscreen.get()
+        self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
@@ -122,6 +138,7 @@ class LauncherWindow(ThemedTk):
         # Apply settings to args
         self.args.fullscreen = self.fullscreen.get()
         self.args.window = not self.fullscreen.get()
+        self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
@@ -161,3 +178,12 @@ class LauncherWindow(ThemedTk):
             )
 
         return sorted(maps, key=natural_keys)
+
+
+    def on_toggle_fullscreen(self):
+
+        if self.fullscreen.get():
+            self.borderless_check.configure(state='disabled')
+            self.borderless.set(False)
+        else:
+            self.borderless_check.configure(state='enabled')

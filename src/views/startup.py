@@ -41,6 +41,14 @@ class StartUp:
         )
 
         parser.add_argument(
+            '--borderless',
+            default=False,
+            action='store_true',
+            help='Borderless window'
+        )
+
+
+        parser.add_argument(
             '--width',
             type=int,
             default=SCREEN_WIDTH,
@@ -180,7 +188,8 @@ class StartUp:
             args.width,
             args.height,
             vsync=not args.no_vsync,
-            draw_rate=args.limit_fps
+            draw_rate=args.limit_fps,
+            borderless=args.borderless
         )
 
         log_hardware_info(window)

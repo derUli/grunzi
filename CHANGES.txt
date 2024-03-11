@@ -3,6 +3,7 @@
 # Alpha 009 (Unreleased)
 
 * Schwierigkeitsgrad Auswahl hinzugefügt
+* Checkbox "Rahmenlos" zum Launcher hinzugefügt
 
 # Alpha 008 (15.03.2024)
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-11 15:05+0100\n"
+"POT-Creation-Date: 2024-03-11 18:22+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -289,11 +289,11 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:56 window/launcherwindow.py:59
+#: views/settings/settingsmenu.py:56 window/launcherwindow.py:61
 msgid "Video"
 msgstr ""
 
-#: views/settings/settingsmenu.py:63 window/launcherwindow.py:60
+#: views/settings/settingsmenu.py:63 window/launcherwindow.py:62
 msgid "Audio"
 msgstr ""
 
@@ -301,27 +301,31 @@ msgstr ""
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsvideo.py:62 window/launcherwindow.py:73
+#: views/settings/settingsvideo.py:62 window/launcherwindow.py:75
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsvideo.py:74 window/launcherwindow.py:80
+#: views/settings/settingsvideo.py:74 window/launcherwindow.py:89
 msgid "V-Sync"
 msgstr ""
 
-#: window/launcherwindow.py:37
+#: window/launcherwindow.py:38
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:63
+#: window/launcherwindow.py:65
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:86
+#: window/launcherwindow.py:82
+msgid "Borderless"
+msgstr "Rahmenlos"
+
+#: window/launcherwindow.py:96
 msgid "Audio Backend:"
 msgstr ""
 
-#: window/launcherwindow.py:95
+#: window/launcherwindow.py:105
 msgid "Launch Game"
 msgstr "Spiel starten"
 
