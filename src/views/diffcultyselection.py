@@ -5,8 +5,8 @@ import arcade.gui
 import constants.controls.keyboard
 import utils.gui
 import utils.text
-from constants.difficulty import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD
-from state.savegamestate import SaveGameState
+from constants.difficulty import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, Difficulty
+from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
 
 BUTTON_WIDTH = 250
@@ -144,13 +144,23 @@ class DifficultySelection(Fading):
         self.draw_fading()
         self.draw_debug()
 
-    def on_select_difficulty(self, difficulty, overwrite = False):
+    def on_select_difficulty(self, difficulty, overwrite=False):
         self.difficulty = difficulty
 
         if SaveGameState.exists() and not overwrite:
             return self.on_confirm_overwrite_savegame()
 
         logging.info(utils.text.label_value('Difficulty', difficulty))
+
+        new_savegame(self.state.map_name_first, difficulty)
+
+        self.state.map_name = self.state.map_name_first
+        self.state.difficulty = Difficulty(difficulty)
+
+        from views.game import Game
+
+        self.next_view = Game(self.window, self.state)
+        self.fade_out()
 
     def on_back(self):
         self.previous_view.time = self.time

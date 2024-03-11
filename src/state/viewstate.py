@@ -28,6 +28,7 @@ class ViewState:
 
         self.map_name = map_name
         self.map_name_first = map_name
+        self.difficulty = None
 
         self.settings = settings
 

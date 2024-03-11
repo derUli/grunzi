@@ -74,9 +74,10 @@ class SaveGameState:
             f.write(jsonpickle.encode(self, unpicklable=True))
 
 
-def new_savegame(map):
+def new_savegame(map, difficulty):
     state = SaveGameState()
     state.current = map
+    state.difficulty = difficulty
     state.save()
 
     return state

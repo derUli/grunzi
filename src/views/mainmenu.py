@@ -5,8 +5,9 @@ import arcade.gui
 
 import utils.gui
 import utils.text
+from constants.difficulty import Difficulty
 from constants.fonts import FONT_ADRIP
-from state.savegamestate import SaveGameState
+from state.savegamestate import SaveGameState, new_savegame
 from views.diffcultyselection import DifficultySelection
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
@@ -74,6 +75,7 @@ class MainMenu(Fading):
             from views.game import Game
             savegame = SaveGameState.load()
             self.state.map_name = savegame.current
+            self.state.difficulty = Difficulty(savegame.difficulty)
 
             self.next_view = Game(self.window, self.state)
             self.fade_out()
