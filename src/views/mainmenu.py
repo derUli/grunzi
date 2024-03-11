@@ -6,7 +6,8 @@ import arcade.gui
 import utils.gui
 import utils.text
 from constants.fonts import FONT_ADRIP
-from state.savegamestate import new_savegame, SaveGameState
+from state.savegamestate import SaveGameState
+from views.diffcultyselection import DifficultySelection
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
 
@@ -22,7 +23,7 @@ class MainMenu(Fading):
 
         self.window = window
         self.state = state
-
+        self.time = 0
         self.manager = arcade.gui.UIManager(window)
 
         label = arcade.gui.UILabel(
@@ -64,11 +65,6 @@ class MainMenu(Fading):
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
-            # Pass already created view because we are resuming.
-
-            if SaveGameState().exists():
-                return self.on_confirm_overwrite_savegame()
-
             self.on_new_game()
 
         @continue_button.event("on_click")
@@ -148,35 +144,16 @@ class MainMenu(Fading):
             if self.player:
                 self.player.pause()
 
-    def on_new_game(self, overwrite=False):
-        if SaveGameState.exists() and not overwrite:
-            return
-
-        from views.game import Game
-        self.state.map_name = self.state.map_name_first
-        new_savegame(self.state.map_name)
-        self.next_view = Game(self.window, self.state)
-        self.fade_out()
-
-    def on_confirm_overwrite_savegame(self):
-        message_box = arcade.gui.UIMessageBox(
-            width=300,
-            height=200,
-            message_text=_('Overwrite existing savegame?'),
-            buttons=[
-                _("Yes"),
-                _("No")
-            ]
+    def on_new_game(self):
+        self.window.show_view(
+            DifficultySelection(
+                self.window,
+                self.state,
+                previous_view=self,
+                shadertoy=self.shadertoy,
+                time=self.time
+            )
         )
-
-        message_box.on_action = self.on_overwrite_savegame
-
-        self.manager.add(message_box)
-
-    def on_overwrite_savegame(self, event):
-        action = event.action
-        if action == _('Yes'):
-            self.on_new_game(overwrite=True)
 
     def on_update(self, delta_time):
 
