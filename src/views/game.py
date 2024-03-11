@@ -121,6 +121,12 @@ class Game(Fading):
             self.state.settings.music_volume
         )
 
+        # Loading a video will open a ffmpeg console window.
+        # Which will disappear after a second.
+        # The game window lose it's focus.
+        # Activate the window again.
+        self.window.activate()
+
         threading.Thread(target=self.async_load).start()
 
     def async_load(self):
