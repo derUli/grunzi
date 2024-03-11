@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-11 12:23+0100\n"
+"POT-Creation-Date: 2024-03-11 14:17+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -72,16 +72,20 @@ msgstr "Versaut"
 msgid "High"
 msgstr "Sauschwer"
 
-#: views/diffcultyselection.py:176
+#: views/diffcultyselection.py:77
+msgid "Pig Stuff (TODO)"
+msgstr "Schweinkram (TODO)"
+
+#: views/diffcultyselection.py:183
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/diffcultyselection.py:178 views/diffcultyselection.py:189
+#: views/diffcultyselection.py:185 views/diffcultyselection.py:196
 #: views/pausemenu.py:121 views/pausemenu.py:138
 msgid "Yes"
 msgstr "Ja"
 
-#: views/diffcultyselection.py:179 views/pausemenu.py:122
+#: views/diffcultyselection.py:186 views/pausemenu.py:122
 msgid "No"
 msgstr "Nein"
 
@@ -320,7 +324,4 @@ msgstr ""
 #: window/launcherwindow.py:95
 msgid "Launch Game"
 msgstr "Spiel starten"
-
-#~ msgid "Enable Sound"
-#~ msgstr "Sound aktivieren"
 
