@@ -152,6 +152,9 @@ class DifficultySelection(Fading):
 
         logging.info(utils.text.label_value('Difficulty', difficulty))
 
+        if self.previous_view.player:
+            self.previous_view.player.pause()
+
         new_savegame(self.state.map_name_first, difficulty)
 
         self.state.map_name = self.state.map_name_first

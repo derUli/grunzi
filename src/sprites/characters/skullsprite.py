@@ -25,8 +25,6 @@ SIGHT_CHECK_RESOLUTION = 64
 
 FADE_IN_MAX = 255
 FADE_SPEED = 5
-
-DAMAGE = 5
 GRID_SIZE = 64
 
 SHOOT_DELTA = UPDATE_RATE * 10
@@ -69,7 +67,6 @@ class SkullSprite(Character, Useable):
         self.textures = None
         self.update_texture()
         self.astar_barrier_list = None
-        self.damage = DAMAGE
         self.fade_in = True
 
         self.shoot_time = 0
@@ -205,7 +202,11 @@ class SkullSprite(Character, Useable):
             if self.shoot_time < SHOOT_DELTA:
                 return
 
-            bullet = SkullBullet(6, color=arcade.csscolor.RED)
+            bullet = SkullBullet(
+                6,
+                color=arcade.csscolor.RED,
+                hurt=state.difficulty.skull_hurt
+            )
             bullet.setup(
                 source=self,
                 physics_engine=physics_engine,

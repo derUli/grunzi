@@ -565,13 +565,6 @@ class Game(Fading):
     def update_enemies(self, delta_time):
         enemies = get_layer(LAYER_ENEMIES, self.scene)
 
-        for sprite in enemies:
-            if not isinstance(sprite, Character):
-                continue
-
-            if arcade.check_for_collision(sprite, self.player_sprite):
-                self.player_sprite.hurt(sprite.damage)
-
         if len(enemies) < self.state.difficulty.max_skulls:
             a, b = self.state.difficulty.skull_spawn_range
             if random.randint(a, b) == 50:

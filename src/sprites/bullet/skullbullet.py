@@ -8,7 +8,6 @@ from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
 from utils.physics import on_hit_destroy
 
-HURT_PLAYER = 10
 HURT_FERRET = 25
 
 MASS = 0.1
@@ -28,7 +27,7 @@ class SkullBullet(Bullet):
             color=arcade.csscolor.BLACK,
             soft=False,
             force_move=FORCE_MOVE,
-            hurt=HURT_PLAYER
+            hurt=10
     ):
         super().__init__(radius, color, soft, force_move, hurt)
 
@@ -195,7 +194,7 @@ class SkullBullet(Bullet):
         if not isinstance(_hit_sprite, Character):
             return
 
-        _hit_sprite.hurt(HURT_PLAYER)
+        _hit_sprite.hurt(self.hurt)
 
     def on_hit_ferret(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
