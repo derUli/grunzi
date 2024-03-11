@@ -1,5 +1,9 @@
 # Changelog
 
+# Alpha 009 (Unreleased)
+
+* Schwierigkeitsgrad Auswahl hinzugefügt
+
 # Alpha 008 (15.03.2024)
 
 * Aufgabe mit Autoschlüssel hinzugefügt
