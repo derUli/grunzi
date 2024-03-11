@@ -32,4 +32,4 @@ class SaveGameStateTest(unittest.TestCase):
         self.assertTrue(os.path.exists(get_settings_path()))
 
     def test_new_savegame(self):
-        self.assertIsInstance(new_savegame('map01'), SaveGameState)
+        self.assertIsInstance(new_savegame('map01', 2), SaveGameState)
