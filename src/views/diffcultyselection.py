@@ -74,7 +74,7 @@ class DifficultySelection(Fading):
         )
 
         difficulty_hardcore = arcade.gui.UIFlatButton(
-            text=_("Pig Stuff (TODO)"),
+            text=_("Pig Stuff Mode"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
@@ -104,7 +104,7 @@ class DifficultySelection(Fading):
             difficulty_easy,
             difficulty_medium,
             difficulty_high,
-            difficulty_hardcore
+            # difficulty_hardcore
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
