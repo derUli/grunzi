@@ -7,6 +7,7 @@ import os
 import pyglet
 
 from constants.audio import DEFAULT_AUDIO_BACKEND, AUDIO_BACKENDS
+from constants.display import UNLIMITED_FRAMERATE
 from constants.maps import FIRST_MAP
 from state.settingsstate import SettingsState
 from state.viewstate import ViewState
@@ -51,6 +52,13 @@ class StartUp:
             type=int,
             default=SCREEN_HEIGHT,
             help='Window height in pixels'
+        )
+
+        parser.add_argument(
+            '--limit-fps',
+            type=int,
+            default=UNLIMITED_FRAMERATE,
+            help='Limit maximum fps'
         )
 
         parser.add_argument(
@@ -171,7 +179,8 @@ class StartUp:
             args.window,
             args.width,
             args.height,
-            vsync=not args.no_vsync
+            vsync=not args.no_vsync,
+            draw_rate=args.limit_fps
         )
 
         log_hardware_info(window)
