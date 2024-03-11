@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-11 14:56+0100\n"
+"POT-Creation-Date: 2024-03-11 15:05+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -54,38 +54,38 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
-#: views/diffcultyselection.py:53 views/settings/settingsaudio.py:50
+#: views/diffcultyselection.py:52 views/settings/settingsaudio.py:50
 #: views/settings/settingscontrols.py:108 views/settings/settingsmenu.py:76
 #: views/settings/settingsvideo.py:97
 msgid "Back"
 msgstr "Zurück"
 
-#: views/diffcultyselection.py:59
+#: views/diffcultyselection.py:58
 msgid "Easy"
 msgstr "Sauleicht"
 
-#: views/diffcultyselection.py:65
+#: views/diffcultyselection.py:64
 msgid "Medium"
 msgstr "Versaut"
 
-#: views/diffcultyselection.py:71
+#: views/diffcultyselection.py:70
 msgid "High"
 msgstr "Sauschwer"
 
-#: views/diffcultyselection.py:77
+#: views/diffcultyselection.py:76
 msgid "Pig Stuff Mode"
 msgstr "Schweinkram Modus"
 
-#: views/diffcultyselection.py:183
+#: views/diffcultyselection.py:184
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/diffcultyselection.py:185 views/diffcultyselection.py:196
+#: views/diffcultyselection.py:186 views/diffcultyselection.py:197
 #: views/pausemenu.py:121 views/pausemenu.py:138
 msgid "Yes"
 msgstr "Ja"
 
-#: views/diffcultyselection.py:186 views/pausemenu.py:122
+#: views/diffcultyselection.py:187 views/pausemenu.py:122
 msgid "No"
 msgstr "Nein"
 

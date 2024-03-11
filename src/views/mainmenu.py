@@ -7,7 +7,7 @@ import utils.gui
 import utils.text
 from constants.difficulty import Difficulty
 from constants.fonts import FONT_ADRIP
-from state.savegamestate import SaveGameState, new_savegame
+from state.savegamestate import SaveGameState
 from views.diffcultyselection import DifficultySelection
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
@@ -62,7 +62,7 @@ class MainMenu(Fading):
         self.player = None
 
         size = self.window.size
-        self.shadertoy = self.state.load_shader(size, 'pigs')
+        self.shadertoy = self.state.load_shader(size, 'pigs1')
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
@@ -147,15 +147,13 @@ class MainMenu(Fading):
                 self.player.pause()
 
     def on_new_game(self):
-        self.window.show_view(
-            DifficultySelection(
-                self.window,
-                self.state,
-                previous_view=self,
-                shadertoy=self.shadertoy,
-                time=self.time
-            )
+        self.next_view = DifficultySelection(
+            self.window,
+            self.state,
+            previous_view=self
         )
+
+        self.fade_out()
 
     def on_update(self, delta_time):
 

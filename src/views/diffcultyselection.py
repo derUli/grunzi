@@ -15,16 +15,16 @@ BUTTON_WIDTH = 250
 class DifficultySelection(Fading):
     """Main menu view class."""
 
-    def __init__(self, window, state, previous_view, shadertoy, time=0):
+    def __init__(self, window, state, previous_view):
         super().__init__(window)
 
         self.window = window
         self.state = state
-        self.manager = arcade.gui.UIManager(window)
-        self.shadertoy = shadertoy
-        self.time = time
-
         self.previous_view = previous_view
+        self.manager = arcade.gui.UIManager(window)
+        self.shadertoy = self.state.load_shader(window.size, 'pigs2')
+        self.time = 0
+
         self.difficulty = None
         self._fade_in = None
 
@@ -97,6 +97,7 @@ class DifficultySelection(Fading):
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
+
             self.on_back()
 
         widgets = [
@@ -173,8 +174,9 @@ class DifficultySelection(Fading):
         self.fade_out()
 
     def on_back(self):
-        self.previous_view.time = self.time
-        self.window.show_view(self.previous_view)
+        from views.mainmenu import MainMenu
+        self.next_view = MainMenu(self.window, self.state)
+        self.fade_out()
 
     def on_confirm_overwrite_savegame(self):
         message_box = arcade.gui.UIMessageBox(
