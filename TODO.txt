@@ -2,3 +2,4 @@
 * Level-Auswahl
 * Dropdown "FPS beschränken" im Launcher
 * Autofahr-Animation am Levelende
+* Rii USB Classic Controller Support
