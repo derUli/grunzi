@@ -10,7 +10,14 @@ MAX_SKULLS = {
     DIFFICULTY_HARD: 20
 }
 
+SKULL_SPAWN_RANGE = {
+    DIFFICULTY_EASY: (0, 100),
+    DIFFICULTY_MEDIUM: (0, 80),
+    DIFFICULTY_HARD: (0, 60)
+}
+
 
 class Difficulty:
     def __init__(self, difficulty):
         self.max_skulls = MAX_SKULLS[difficulty]
+        self.skull_spawn_range = SKULL_SPAWN_RANGE[difficulty]

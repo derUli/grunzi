@@ -573,7 +573,8 @@ class Game(Fading):
                 self.player_sprite.hurt(sprite.damage)
 
         if len(enemies) < self.state.difficulty.max_skulls:
-            if random.randint(1, 150) == 50:
+            a, b = self.state.difficulty.skull_spawn_range
+            if random.randint(a, b):
                 spawn_skull(self.state, self.tilemap, self.scene, self.physics_engine)
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
 
