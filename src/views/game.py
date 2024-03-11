@@ -290,6 +290,14 @@ class Game(Fading):
             self._call_method = self.on_item_previous
         if key in constants.controls.controller.NEXT_ITEM:
             self._call_method = self.on_item_next
+        if key in constants.controls.controller.KEY_SPRINT:
+            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
+
+    def on_button_release(self, controller, key):
+        logging.info(f"Controller button {key} released")
+
+        if key in constants.controls.controller.KEY_SPRINT:
+            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
 
     def on_item_previous(self):
         self.on_select_item(index=self.inventory.previous())

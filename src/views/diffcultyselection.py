@@ -26,7 +26,6 @@ class DifficultySelection(Fading):
         self.time = 0
 
         self.difficulty = None
-        self._fade_in = None
 
     def on_hide_view(self):
         # Disable the UIManager when the view is hidden.
