@@ -19,9 +19,11 @@ class PauseMenu(Fading):
 
         self.window = window
         self.manager = arcade.gui.UIManager(window)
-
+        self.time = 0
         self.state = state
+        self.previous_view = previous_view
 
+    def setup(self):
         continue_button = arcade.gui.UIFlatButton(
             text=_("Continue"),
             width=BUTTON_WIDTH,
@@ -39,8 +41,6 @@ class PauseMenu(Fading):
             width=BUTTON_WIDTH,
             style=get_button_style()
         )
-
-        self.previous_view = previous_view
 
         size = self.window.size
         self.shadertoy = self.state.load_shader(size, 'gloopy')
@@ -124,9 +124,7 @@ class PauseMenu(Fading):
             )
 
             message_box.on_action = self.on_confirm_exit
-
             self.manager.add(message_box)
-
             return
 
         self.manager.clear()

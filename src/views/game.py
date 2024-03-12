@@ -501,7 +501,9 @@ class Game(Fading):
         On show pause menu
         """
         self.reset_keys()
-        self.window.show_view(PauseMenu(self.window, self.state, self))
+        menu = PauseMenu(self.window, self.state, self)
+        menu.setup()
+        self.window.show_view(menu)
 
     def on_use(self):
         if not self.player_sprite.get_item():
