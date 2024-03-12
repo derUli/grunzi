@@ -1,4 +1,3 @@
-import glob
 import os
 import tkinter as tk
 import tkinter.ttk as ttk
@@ -34,7 +33,10 @@ class LauncherWindow(ThemedTk):
         self.state = SettingsState()
         self.confirmed = False
 
-    def setup(self):
+    def setup(self) -> None:
+        """
+        Set up the UI
+        """
         self.title(_('Grunzi Launcher'))
         self.geometry('320x240')
         self.bind_keyevents()
@@ -53,14 +55,14 @@ class LauncherWindow(ThemedTk):
 
             self.audio_backend.set(self.state.audio_backend)
 
-        tabControl = ttk.Notebook(self)
+        tab_control = ttk.Notebook(self)
 
-        tab_video = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
-        tab_audio = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
+        tab_video = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
+        tab_audio = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
 
-        tabControl.add(tab_video, text=_('Video'))
-        tabControl.add(tab_audio, text=_('Audio'))
-        tabControl.pack(expand=True, fill=tk.BOTH)
+        tab_control.add(tab_video, text=_('Video'))
+        tab_control.add(tab_audio, text=_('Audio'))
+        tab_control.pack(expand=True, fill=tk.BOTH)
 
         ttk.Label(tab_video, text=_('Screen resolution:')).pack(expand=True)
 
@@ -80,11 +82,11 @@ class LauncherWindow(ThemedTk):
                         ).pack(expand=True)
 
         self.borderless_check = ttk.Checkbutton(tab_video,
-                        text=_('Borderless'),
-                        variable=self.borderless,
-                        onvalue=True,
-                        offvalue=False,
-                        )
+                                                text=_('Borderless'),
+                                                variable=self.borderless,
+                                                onvalue=True,
+                                                offvalue=False,
+                                                )
 
         self.borderless_check.pack(expand=True)
 
@@ -96,7 +98,6 @@ class LauncherWindow(ThemedTk):
                         onvalue=True,
                         offvalue=False
                         ).pack(expand=True)
-
 
         ttk.Label(tab_audio, text=_('Audio Backend:')).pack()
 
@@ -115,10 +116,18 @@ class LauncherWindow(ThemedTk):
         button_launch.focus_set()
 
     def bind_keyevents(self):
+        """ Bind keyboard events"""
+
+        # ESC key will quit the app
         self.bind('<Escape>', lambda e: self.destroy())
+
+        # RETURN key will start the game
         self.bind('<Return>', self.on_launch)
 
-    def set_icon(self):
+    def set_icon(self) -> None:
+        """
+        Set window icon
+        """
         icon = PhotoImage(file=os.path.join(self.path_state.image_dir, 'ui', 'icon.ico'))
         self.tk.call('wm', 'iconphoto', self._w, icon)
 
@@ -167,21 +176,10 @@ class LauncherWindow(ThemedTk):
 
         return sorted(mode_values, key=natural_keys)
 
-    def available_maps(self):
-        maps = []
-        dir = os.path.join(self.path_state.map_dir, '*.tmx')
-        for file in glob.glob(dir):
-            maps.append(
-                os.path.splitext(
-                    os.path.basename(file)
-                )[0]
-            )
-
-        return sorted(maps, key=natural_keys)
-
-
-    def on_toggle_fullscreen(self):
-
+    def on_toggle_fullscreen(self) -> None:
+        """
+        On toggle fullscreen enable or disable and uncheck the "Borderless" checkbox
+        """
         if self.fullscreen.get():
             self.borderless_check.configure(state='disabled')
             self.borderless.set(False)
