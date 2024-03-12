@@ -12,7 +12,7 @@ BUTTON_WIDTH = 250
 
 
 class PauseMenu(Fading):
-    """Main menu view class."""
+    """ Main menu view class."""
 
     def __init__(self, window, state, previous_view=None):
         super().__init__(window)
@@ -23,14 +23,15 @@ class PauseMenu(Fading):
         self.state = state
         self.previous_view = previous_view
 
-    def setup(self):
+    def setup(self) -> None:
+        """ Set up the pause menu """
         continue_button = arcade.gui.UIFlatButton(
             text=_("Continue"),
             width=BUTTON_WIDTH,
             style=get_button_style()
         )
 
-        options_help = arcade.gui.UIFlatButton(
+        settings_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
@@ -50,8 +51,8 @@ class PauseMenu(Fading):
             # Pass already created view because we are resuming.
             self.on_toggle()
 
-        @options_help.event("on_click")
-        def on_click_options_help(event):
+        @settings_button.event("on_click")
+        def on_click_settings_button(event):
             # Pass already created view because we are resuming.
 
             self.window.show_view(
@@ -70,7 +71,7 @@ class PauseMenu(Fading):
 
         widgets = [
             continue_button,
-            options_help,
+            settings_button,
             quit_button
         ]
 
