@@ -2,13 +2,12 @@ import os
 import tkinter as tk
 import tkinter.ttk as ttk
 
-import pyglet
 from PIL.ImageTk import PhotoImage
 from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
 from state.settingsstate import SettingsState
-from utils.utils import natural_keys
+from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 20
 
@@ -32,6 +31,7 @@ class LauncherWindow(ThemedTk):
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
         self.confirmed = False
+        self.borderless_check = None
 
     def setup(self) -> None:
         """
@@ -68,7 +68,7 @@ class LauncherWindow(ThemedTk):
 
         ttk.Combobox(
             tab_video,
-            values=self.supported_screen_resolutions(),
+            values=supported_screen_resolutions(),
             textvariable=self.screen_resolution,
             state='readonly'
         ).pack(expand=True)
@@ -163,18 +163,6 @@ class LauncherWindow(ThemedTk):
         self.confirmed = True
         self.state.save()
         self.destroy()
-
-    def supported_screen_resolutions(self):
-        modes = pyglet.canvas.get_display().get_default_screen().get_modes()
-
-        mode_values = []
-
-        for mode in modes:
-            item = str(mode.width) + "x" + str(mode.height)
-            if item not in mode_values:
-                mode_values.append(item)
-
-        return sorted(mode_values, key=natural_keys)
 
     def on_toggle_fullscreen(self) -> None:
         """
