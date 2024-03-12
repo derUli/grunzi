@@ -4,8 +4,6 @@ import random
 
 from arcade import TileMap
 
-DISTANCE = 5
-
 
 def tilemap_size(tilemap: TileMap) -> tuple:
     """
