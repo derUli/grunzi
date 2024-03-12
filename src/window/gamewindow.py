@@ -11,6 +11,7 @@ SCREEN_TITLE = "Grunzi"
 
 UPDATE_RATE = 1 / 60
 
+
 class GameWindow(arcade.Window):
     """
     Main application class.

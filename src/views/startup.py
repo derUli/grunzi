@@ -47,7 +47,6 @@ class StartUp:
             help='Borderless window'
         )
 
-
         parser.add_argument(
             '--width',
             type=int,
