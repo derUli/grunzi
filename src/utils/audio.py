@@ -125,6 +125,6 @@ def normalize_volume(volume: float) -> float:
     return volume
 
 
-def streaming_enabled():
+def streaming_enabled() -> bool:
     """ Linux OGG playback with streaming has timing issues """
     return is_windows()

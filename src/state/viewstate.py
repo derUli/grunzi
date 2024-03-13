@@ -74,14 +74,10 @@ class ViewState:
 
         dir = os.path.join(self.sound_dir, 'atmos', '*.ogg')
 
-        stream_atmos = ['map01']
         for file in glob.glob(dir):
             path = file
             name = os.path.splitext(os.path.basename(path))[0]
-
-            streaming = name in stream_atmos and streaming_enabled()
-
-            self.sounds['atmos'][name] = arcade.load_sound(path, streaming=streaming)
+            self.sounds['atmos'][name] = arcade.load_sound(path)
 
         for i in range(1, 6):
             self.sounds[f"grunt{i}"] = arcade.load_sound(
