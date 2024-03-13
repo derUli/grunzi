@@ -4,6 +4,7 @@
 
 * Schwierigkeitsgrad Auswahl hinzugefügt
 * Checkbox "Rahmenlos" zum Launcher hinzugefügt
+* Musik Wiedergabe auf Linux korrigiert
 
 # Alpha 008 (15.03.2024)
 
