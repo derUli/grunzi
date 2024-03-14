@@ -7,6 +7,8 @@ from constants.fonts import FONT_DEFAULT
 MARGIN = 10
 
 MEDIUM_FONT_SIZE = 14
+
+HEADLINE_FONT_SIZE = 40
 LOGO_FONT_SIZE = 80
 
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-11 18:22+0100\n"
+"POT-Creation-Date: 2024-03-14 21:44+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -54,74 +54,78 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
-#: views/diffcultyselection.py:52 views/settings/settingsaudio.py:50
+#: views/difficultyselection.py:53 views/settings/settingsaudio.py:50
 #: views/settings/settingscontrols.py:108 views/settings/settingsmenu.py:76
 #: views/settings/settingsvideo.py:97
 msgid "Back"
 msgstr "Zurück"
 
-#: views/diffcultyselection.py:58
+#: views/difficultyselection.py:59
 msgid "Easy"
 msgstr "Sauleicht"
 
-#: views/diffcultyselection.py:64
+#: views/difficultyselection.py:65
 msgid "Medium"
 msgstr "Versaut"
 
-#: views/diffcultyselection.py:70
+#: views/difficultyselection.py:71
 msgid "High"
 msgstr "Sauschwer"
 
-#: views/diffcultyselection.py:76
+#: views/difficultyselection.py:77
 msgid "Pig Stuff Mode"
 msgstr "Schweinkram Modus"
 
-#: views/diffcultyselection.py:184
+#: views/difficultyselection.py:104
+msgid "Difficulty"
+msgstr "Schwierigkeit"
+
+#: views/difficultyselection.py:194
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/diffcultyselection.py:186 views/diffcultyselection.py:197
-#: views/pausemenu.py:121 views/pausemenu.py:138
+#: views/difficultyselection.py:196 views/difficultyselection.py:207
+#: views/pausemenu.py:122 views/pausemenu.py:137
 msgid "Yes"
 msgstr "Ja"
 
-#: views/diffcultyselection.py:187 views/pausemenu.py:122
+#: views/difficultyselection.py:197 views/pausemenu.py:123
 msgid "No"
 msgstr "Nein"
 
-#: views/game.py:204
+#: views/game.py:210
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: views/mainmenu.py:31
+#: views/mainmenu.py:32
 msgid "Grunzi"
 msgstr "Grunzi"
 
-#: views/mainmenu.py:39
+#: views/mainmenu.py:40
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:45 views/pausemenu.py:26
+#: views/mainmenu.py:46 views/pausemenu.py:29
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/mainmenu.py:51 views/pausemenu.py:32
+#: views/mainmenu.py:52 views/pausemenu.py:35
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: views/mainmenu.py:57
+#: views/mainmenu.py:58
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/pausemenu.py:38
+#: views/pausemenu.py:41
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/pausemenu.py:116
+#: views/pausemenu.py:117
 msgid "Leave to main menu?"
 msgstr "Zurück zum Hauptmenü?"
 
-#: views/pausemenu.py:117
+#: views/pausemenu.py:118
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
@@ -289,11 +293,11 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:56 window/launcherwindow.py:61
+#: views/settings/settingsmenu.py:56 window/launcherwindow.py:65
 msgid "Video"
 msgstr ""
 
-#: views/settings/settingsmenu.py:63 window/launcherwindow.py:62
+#: views/settings/settingsmenu.py:63 window/launcherwindow.py:66
 msgid "Audio"
 msgstr ""
 
@@ -301,31 +305,31 @@ msgstr ""
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsvideo.py:62 window/launcherwindow.py:75
+#: views/settings/settingsvideo.py:62 window/launcherwindow.py:79
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsvideo.py:74 window/launcherwindow.py:89
+#: views/settings/settingsvideo.py:74 window/launcherwindow.py:98
 msgid "V-Sync"
 msgstr ""
 
-#: window/launcherwindow.py:38
+#: window/launcherwindow.py:42
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:65
+#: window/launcherwindow.py:69
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:82
+#: window/launcherwindow.py:87
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:96
+#: window/launcherwindow.py:104
 msgid "Audio Backend:"
 msgstr ""
 
-#: window/launcherwindow.py:105
+#: window/launcherwindow.py:113
 msgid "Launch Game"
 msgstr "Spiel starten"
 

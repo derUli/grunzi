@@ -6,6 +6,7 @@ import constants.controls.keyboard
 import utils.gui
 import utils.text
 from constants.difficulty import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, Difficulty
+from constants.fonts import FONT_DEFAULT
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
 
@@ -99,7 +100,16 @@ class DifficultySelection(Fading):
 
             self.on_back()
 
+        title = arcade.gui.UILabel(
+            text=_('Difficulty'),
+            font_name=FONT_DEFAULT,
+            font_size=utils.text.HEADLINE_FONT_SIZE,
+            text_color=arcade.csscolor.HOTPINK,
+            align='center'
+        )
+
         widgets = [
+            title,
             back_button,
             difficulty_easy,
             difficulty_medium,
