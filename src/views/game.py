@@ -19,6 +19,7 @@ import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
 from constants.layers import *
+from constants.maps import MAPS
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.character import Character
@@ -315,6 +316,13 @@ class Game(Fading):
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
+    def on_next_level(self):
+        index = MAPS.index(self.state.map_name)
+        next_map = MAPS[index + 1]
+        self.state.map_name = next_map
+        self.next_view = Game(self.window, self.state)
+        self.fade_out()
+
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
 
@@ -390,6 +398,8 @@ class Game(Fading):
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
+        if key == arcade.key.F2:
+            self.on_next_level()
         if key in constants.controls.keyboard.KEY_DROP:
             self.on_drop()
         if key in constants.controls.keyboard.KEY_SHOOT:
@@ -517,7 +527,7 @@ class Game(Fading):
                 item.on_use(
                     sprite,
                     state=self.state,
-                    handlers=CallbackHandler(on_complete=self.on_main_menu)
+                    handlers=CallbackHandler(on_complete=self.on_next_level)
                 )
                 return
 
