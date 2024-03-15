@@ -317,7 +317,7 @@ class Game(Fading):
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
-    def on_next_level(self, wait_for_sound = None):
+    def on_next_level(self):
 
         old_map = self.state.map_name
         index = MAPS.index(old_map)
