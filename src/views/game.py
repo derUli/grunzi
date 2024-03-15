@@ -29,6 +29,7 @@ from sprites.characters.skullsprite import spawn_skull
 from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
+from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
@@ -316,10 +317,18 @@ class Game(Fading):
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
-    def on_next_level(self):
-        index = MAPS.index(self.state.map_name)
+    def on_next_level(self, wait_for_sound = None):
+
+        old_map = self.state.map_name
+        index = MAPS.index(old_map)
         next_map = MAPS[index + 1]
         self.state.map_name = next_map
+
+        savegame = SaveGameState.load()
+        savegame.current = next_map
+        savegame.completed += [old_map]
+        savegame.save()
+
         self.next_view = Game(self.window, self.state)
         self.fade_out()
 
