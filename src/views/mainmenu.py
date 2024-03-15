@@ -5,8 +5,11 @@ import arcade.gui
 
 import utils.gui
 import utils.text
+from constants.difficulty import Difficulty
 from constants.fonts import FONT_ADRIP
-from state.savegamestate import new_savegame, SaveGameState
+from state.savegamestate import SaveGameState
+from utils.audio import streaming_enabled
+from views.difficultyselection import DifficultySelection
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
 
@@ -22,7 +25,7 @@ class MainMenu(Fading):
 
         self.window = window
         self.state = state
-
+        self.time = 0
         self.manager = arcade.gui.UIManager(window)
 
         label = arcade.gui.UILabel(
@@ -60,15 +63,10 @@ class MainMenu(Fading):
         self.player = None
 
         size = self.window.size
-        self.shadertoy = self.state.load_shader(size, 'pigs')
+        self.shadertoy = self.state.load_shader(size, 'pigs1')
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
-            # Pass already created view because we are resuming.
-
-            if SaveGameState().exists():
-                return self.on_confirm_overwrite_savegame()
-
             self.on_new_game()
 
         @continue_button.event("on_click")
@@ -78,6 +76,7 @@ class MainMenu(Fading):
             from views.game import Game
             savegame = SaveGameState.load()
             self.state.map_name = savegame.current
+            self.state.difficulty = Difficulty(savegame.difficulty)
 
             self.next_view = Game(self.window, self.state)
             self.fade_out()
@@ -131,7 +130,10 @@ class MainMenu(Fading):
         music = None
 
         try:
-            music = arcade.load_sound(os.path.join(self.state.music_dir, 'menu.ogg'))
+            music = arcade.load_sound(
+                os.path.join(self.state.music_dir, 'menu.ogg'),
+                streaming=streaming_enabled()
+            )
         except FileNotFoundError as e:
             logging.error(e)
 
@@ -148,35 +150,14 @@ class MainMenu(Fading):
             if self.player:
                 self.player.pause()
 
-    def on_new_game(self, overwrite=False):
-        if SaveGameState.exists() and not overwrite:
-            return
-
-        from views.game import Game
-        self.state.map_name = self.state.map_name_first
-        new_savegame(self.state.map_name)
-        self.next_view = Game(self.window, self.state)
-        self.fade_out()
-
-    def on_confirm_overwrite_savegame(self):
-        message_box = arcade.gui.UIMessageBox(
-            width=300,
-            height=200,
-            message_text=_('Overwrite existing savegame?'),
-            buttons=[
-                _("Yes"),
-                _("No")
-            ]
+    def on_new_game(self):
+        self.next_view = DifficultySelection(
+            self.window,
+            self.state,
+            previous_view=self
         )
 
-        message_box.on_action = self.on_overwrite_savegame
-
-        self.manager.add(message_box)
-
-    def on_overwrite_savegame(self, event):
-        action = event.action
-        if action == _('Yes'):
-            self.on_new_game(overwrite=True)
+        self.fade_out()
 
     def on_update(self, delta_time):
 

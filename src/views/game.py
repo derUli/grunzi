@@ -121,6 +121,12 @@ class Game(Fading):
             self.state.settings.music_volume
         )
 
+        # Loading a video will open a ffmpeg console window.
+        # Which will disappear after a second.
+        # The game window lose it's focus.
+        # Activate the window again.
+        self.window.activate()
+
         threading.Thread(target=self.async_load).start()
 
     def async_load(self):
@@ -290,6 +296,14 @@ class Game(Fading):
             self._call_method = self.on_item_previous
         if key in constants.controls.controller.NEXT_ITEM:
             self._call_method = self.on_item_next
+        if key in constants.controls.controller.KEY_SPRINT:
+            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
+
+    def on_button_release(self, controller, key):
+        logging.info(f"Controller button {key} released")
+
+        if key in constants.controls.controller.KEY_SPRINT:
+            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
 
     def on_item_previous(self):
         self.on_select_item(index=self.inventory.previous())
@@ -487,7 +501,9 @@ class Game(Fading):
         On show pause menu
         """
         self.reset_keys()
-        self.window.show_view(PauseMenu(self.window, self.state, self))
+        menu = PauseMenu(self.window, self.state, self)
+        menu.setup()
+        self.window.show_view(menu)
 
     def on_use(self):
         if not self.player_sprite.get_item():
@@ -565,15 +581,9 @@ class Game(Fading):
     def update_enemies(self, delta_time):
         enemies = get_layer(LAYER_ENEMIES, self.scene)
 
-        for sprite in enemies:
-            if not isinstance(sprite, Character):
-                continue
-
-            if arcade.check_for_collision(sprite, self.player_sprite):
-                self.player_sprite.hurt(sprite.damage)
-
-        if len(enemies) < 10:
-            if random.randint(1, 150) == 50:
+        if len(enemies) < self.state.difficulty.max_skulls:
+            a, b = self.state.difficulty.skull_spawn_range
+            if random.randint(a, b) == 50:
                 spawn_skull(self.state, self.tilemap, self.scene, self.physics_engine)
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
 

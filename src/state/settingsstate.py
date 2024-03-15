@@ -8,7 +8,7 @@ from constants.audio import DEFAULT_AUDIO_BACKEND
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 2
+SETTINGS_STATE_VERSION = 3
 
 
 class SettingsState:
@@ -18,6 +18,7 @@ class SettingsState:
 
         # Is fullscreen mode
         self.fullscreen = True
+        self.borderless = False
 
         # Vertical synchronisation
         self.vsync = True

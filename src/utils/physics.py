@@ -109,4 +109,12 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
 
 
 def on_hit_destroy(bullet_sprite, _hit_sprite, _arbiter, _space, _data):
+    """
+    On hit destroy handler for physics
+    @param bullet_sprite: The bullet sprite
+    @param _hit_sprite: The hit sprite
+    @param _arbiter: TODO: What is this?
+    @param _space: TODO: What is this?
+    @param _data: TODO: What is this?
+    """
     bullet_sprite.remove_from_sprite_lists()

@@ -1,23 +1,23 @@
-import glob
 import os
 import tkinter as tk
 import tkinter.ttk as ttk
 
-import pyglet
 from PIL.ImageTk import PhotoImage
 from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
 from state.settingsstate import SettingsState
-from utils.utils import natural_keys
+from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 20
 
 SPACE_BETWEEN = 5
 
+TTK_THEME = 'equilux'
+
 
 class LauncherWindow(ThemedTk):
-    def __init__(self, theme='equilux', args=None, state=None):
+    def __init__(self, theme=TTK_THEME, args=None, state=None):
         super().__init__(theme=theme)
 
         self.path_state = state
@@ -28,12 +28,17 @@ class LauncherWindow(ThemedTk):
             value=str(args.width) + 'x' + str(args.height)
         )
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
+        self.borderless = tk.BooleanVar(value=args.borderless)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
         self.confirmed = False
+        self.borderless_check = None
 
-    def setup(self):
+    def setup(self) -> None:
+        """
+        Set up the UI
+        """
         self.title(_('Grunzi Launcher'))
         self.geometry('320x240')
         self.bind_keyevents()
@@ -44,6 +49,7 @@ class LauncherWindow(ThemedTk):
 
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
+            self.borderless.set(self.state.borderless)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -51,20 +57,20 @@ class LauncherWindow(ThemedTk):
 
             self.audio_backend.set(self.state.audio_backend)
 
-        tabControl = ttk.Notebook(self)
+        tab_control = ttk.Notebook(self)
 
-        tab_video = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
-        tab_audio = ttk.Frame(tabControl, padding=NOTEBOOK_PADDING)
+        tab_video = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
+        tab_audio = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
 
-        tabControl.add(tab_video, text=_('Video'))
-        tabControl.add(tab_audio, text=_('Audio'))
-        tabControl.pack(expand=True, fill=tk.BOTH)
+        tab_control.add(tab_video, text=_('Video'))
+        tab_control.add(tab_audio, text=_('Audio'))
+        tab_control.pack(expand=True, fill=tk.BOTH)
 
         ttk.Label(tab_video, text=_('Screen resolution:')).pack(expand=True)
 
         ttk.Combobox(
             tab_video,
-            values=self.supported_screen_resolutions(),
+            values=supported_screen_resolutions(),
             textvariable=self.screen_resolution,
             state='readonly'
         ).pack(expand=True)
@@ -73,8 +79,20 @@ class LauncherWindow(ThemedTk):
                         text=_('Fullscreen'),
                         variable=self.fullscreen,
                         onvalue=True,
-                        offvalue=False
+                        offvalue=False,
+                        command=self.on_toggle_fullscreen
                         ).pack(expand=True)
+
+        self.borderless_check = ttk.Checkbutton(tab_video,
+                                                text=_('Borderless'),
+                                                variable=self.borderless,
+                                                onvalue=True,
+                                                offvalue=False,
+                                                )
+
+        self.borderless_check.pack(expand=True)
+
+        self.on_toggle_fullscreen()
 
         ttk.Checkbutton(tab_video,
                         text=_('V-Sync'),
@@ -100,10 +118,18 @@ class LauncherWindow(ThemedTk):
         button_launch.focus_set()
 
     def bind_keyevents(self):
+        """ Bind keyboard events"""
+
+        # ESC key will quit the app
         self.bind('<Escape>', lambda e: self.destroy())
+
+        # RETURN key will start the game
         self.bind('<Return>', self.on_launch)
 
-    def set_icon(self):
+    def set_icon(self) -> None:
+        """
+        Set window icon
+        """
         icon = PhotoImage(file=os.path.join(self.path_state.image_dir, 'ui', 'icon.ico'))
         self.tk.call('wm', 'iconphoto', self._w, icon)
 
@@ -113,6 +139,7 @@ class LauncherWindow(ThemedTk):
 
         # Apply settings in state
         self.state.fullscreen = self.fullscreen.get()
+        self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
@@ -122,6 +149,7 @@ class LauncherWindow(ThemedTk):
         # Apply settings to args
         self.args.fullscreen = self.fullscreen.get()
         self.args.window = not self.fullscreen.get()
+        self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
@@ -138,26 +166,12 @@ class LauncherWindow(ThemedTk):
         self.state.save()
         self.destroy()
 
-    def supported_screen_resolutions(self):
-        modes = pyglet.canvas.get_display().get_default_screen().get_modes()
-
-        mode_values = []
-
-        for mode in modes:
-            item = str(mode.width) + "x" + str(mode.height)
-            if item not in mode_values:
-                mode_values.append(item)
-
-        return sorted(mode_values, key=natural_keys)
-
-    def available_maps(self):
-        maps = []
-        dir = os.path.join(self.path_state.map_dir, '*.tmx')
-        for file in glob.glob(dir):
-            maps.append(
-                os.path.splitext(
-                    os.path.basename(file)
-                )[0]
-            )
-
-        return sorted(maps, key=natural_keys)
+    def on_toggle_fullscreen(self) -> None:
+        """
+        On toggle fullscreen enable or disable and uncheck the "Borderless" checkbox
+        """
+        if self.fullscreen.get():
+            self.borderless_check.configure(state='disabled')
+            self.borderless.set(False)
+        else:
+            self.borderless_check.configure(state='enabled')

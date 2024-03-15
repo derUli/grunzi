@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-09 19:46+0100\n"
+"POT-Creation-Date: 2024-03-14 21:44+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -54,257 +54,282 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
-#: views/game.py:203
-msgid "Loading..."
-msgstr "Wird geladen..."
-
-#: views/mainmenu.py:28
-msgid "Grunzi"
-msgstr "Grunzi"
-
-#: views/mainmenu.py:36
-msgid "New Game"
-msgstr "Neues Spiel"
-
-#: views/mainmenu.py:42 views/pausemenu.py:25
-msgid "Continue"
-msgstr "Fortsetzen"
-
-#: views/mainmenu.py:48 views/pausemenu.py:31
-msgid "Settings"
-msgstr "Einstellungen"
-
-#: views/mainmenu.py:54
-msgid "Quit game"
-msgstr "Beenden"
-
-#: views/mainmenu.py:164
-msgid "Overwrite existing savegame?"
-msgstr "Existierenden Spielstand überschreiben?"
-
-#: views/mainmenu.py:166 views/mainmenu.py:177 views/pausemenu.py:120
-#: views/pausemenu.py:137
-msgid "Yes"
-msgstr "Ja"
-
-#: views/mainmenu.py:167 views/pausemenu.py:121
-msgid "No"
-msgstr "Nein"
-
-#: views/pausemenu.py:37
-msgid "Back to main menu"
-msgstr "Zurück zum Hauptmenü"
-
-#: views/pausemenu.py:115
-msgid "Leave to main menu?"
-msgstr "Zurück zum Hauptmenü?"
-
-#: views/pausemenu.py:116
-msgid "All progress since the begin of this level will be lost."
-msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
-
-#: views/view.py:105
-msgid "Unknown build"
-msgstr "Unbekannter Build"
-
-#: views/settings/settingsaudio.py:49 views/settings/settingscontrols.py:107
-#: views/settings/settingsmenu.py:77 views/settings/settingsvideo.py:98
+#: views/difficultyselection.py:53 views/settings/settingsaudio.py:50
+#: views/settings/settingscontrols.py:108 views/settings/settingsmenu.py:76
+#: views/settings/settingsvideo.py:97
 msgid "Back"
 msgstr "Zurück"
 
-#: views/settings/settingsaudio.py:55
+#: views/difficultyselection.py:59
+msgid "Easy"
+msgstr "Sauleicht"
+
+#: views/difficultyselection.py:65
+msgid "Medium"
+msgstr "Versaut"
+
+#: views/difficultyselection.py:71
+msgid "High"
+msgstr "Sauschwer"
+
+#: views/difficultyselection.py:77
+msgid "Pig Stuff Mode"
+msgstr "Schweinkram Modus"
+
+#: views/difficultyselection.py:104
+msgid "Difficulty"
+msgstr "Schwierigkeit"
+
+#: views/difficultyselection.py:194
+msgid "Overwrite existing savegame?"
+msgstr "Existierenden Spielstand überschreiben?"
+
+#: views/difficultyselection.py:196 views/difficultyselection.py:207
+#: views/pausemenu.py:122 views/pausemenu.py:137
+msgid "Yes"
+msgstr "Ja"
+
+#: views/difficultyselection.py:197 views/pausemenu.py:123
+msgid "No"
+msgstr "Nein"
+
+#: views/game.py:210
+msgid "Loading..."
+msgstr "Wird geladen..."
+
+#: views/mainmenu.py:32
+msgid "Grunzi"
+msgstr "Grunzi"
+
+#: views/mainmenu.py:40
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: views/mainmenu.py:46 views/pausemenu.py:29
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: views/mainmenu.py:52 views/pausemenu.py:35
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: views/mainmenu.py:58
+msgid "Quit game"
+msgstr "Beenden"
+
+#: views/pausemenu.py:41
+msgid "Back to main menu"
+msgstr "Zurück zum Hauptmenü"
+
+#: views/pausemenu.py:117
+msgid "Leave to main menu?"
+msgstr "Zurück zum Hauptmenü?"
+
+#: views/pausemenu.py:118
+msgid "All progress since the begin of this level will be lost."
+msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
+
+#: views/view.py:97
+msgid "Unknown build"
+msgstr "Unbekannter Build"
+
+#: views/settings/settingsaudio.py:56
 msgid "Music"
 msgstr ""
 
-#: views/settings/settingsaudio.py:66
+#: views/settings/settingsaudio.py:67
 msgid "Sound"
 msgstr ""
 
-#: views/settings/settingscontrols.py:53
+#: views/settings/settingscontrols.py:54
 msgid "Scroll with mousewheel"
 msgstr "Scrollen mit Mausrad"
 
-#: views/settings/settingscontrols.py:58
+#: views/settings/settingscontrols.py:59
 msgid "Keyboard:"
 msgstr "Tastatur:"
 
-#: views/settings/settingscontrols.py:61
+#: views/settings/settingscontrols.py:62
 msgid "WASD, Arrow keys"
 msgstr "WASD, Pfeiltasten"
 
-#: views/settings/settingscontrols.py:61 views/settings/settingscontrols.py:81
+#: views/settings/settingscontrols.py:62 views/settings/settingscontrols.py:82
 msgid "Walk"
 msgstr "Gehen"
 
-#: views/settings/settingscontrols.py:62
+#: views/settings/settingscontrols.py:63
 msgid "Shift"
 msgstr ""
 
-#: views/settings/settingscontrols.py:62 views/settings/settingscontrols.py:83
+#: views/settings/settingscontrols.py:63 views/settings/settingscontrols.py:84
 msgid "Sprint"
 msgstr "Rennen"
 
-#: views/settings/settingscontrols.py:63
+#: views/settings/settingscontrols.py:64
 msgid "Ctrl"
 msgstr ""
 
-#: views/settings/settingscontrols.py:63 views/settings/settingscontrols.py:84
+#: views/settings/settingscontrols.py:64 views/settings/settingscontrols.py:85
 msgid "Shoot"
 msgstr "Schießen"
 
-#: views/settings/settingscontrols.py:64
+#: views/settings/settingscontrols.py:65
 msgid "E"
 msgstr ""
 
-#: views/settings/settingscontrols.py:64 views/settings/settingscontrols.py:85
+#: views/settings/settingscontrols.py:65 views/settings/settingscontrols.py:86
 msgid "Use"
 msgstr "Benutzen"
 
-#: views/settings/settingscontrols.py:65
+#: views/settings/settingscontrols.py:66
 msgid "Q"
 msgstr ""
 
-#: views/settings/settingscontrols.py:65 views/settings/settingscontrols.py:86
+#: views/settings/settingscontrols.py:66 views/settings/settingscontrols.py:87
 msgid "Drop item"
 msgstr "Item ablegen"
 
-#: views/settings/settingscontrols.py:66
+#: views/settings/settingscontrols.py:67
 msgid "G"
 msgstr ""
 
-#: views/settings/settingscontrols.py:66 views/settings/settingscontrols.py:87
+#: views/settings/settingscontrols.py:67 views/settings/settingscontrols.py:88
 msgid "Grunt"
 msgstr "Grunzen"
 
-#: views/settings/settingscontrols.py:67
+#: views/settings/settingscontrols.py:68
 msgid "0 - 5"
 msgstr ""
 
-#: views/settings/settingscontrols.py:67 views/settings/settingscontrols.py:88
+#: views/settings/settingscontrols.py:68 views/settings/settingscontrols.py:89
 msgid "Select item"
 msgstr "Item auswählen"
 
-#: views/settings/settingscontrols.py:68
+#: views/settings/settingscontrols.py:69
 msgid "ESC"
 msgstr ""
 
-#: views/settings/settingscontrols.py:68 views/settings/settingscontrols.py:89
+#: views/settings/settingscontrols.py:69 views/settings/settingscontrols.py:90
 msgid "Open the pause menu"
 msgstr "Pausenmenü öffnen"
 
-#: views/settings/settingscontrols.py:69
+#: views/settings/settingscontrols.py:70
 msgid "F3"
 msgstr ""
 
-#: views/settings/settingscontrols.py:69 views/settings/settingsvideo.py:87
+#: views/settings/settingscontrols.py:70 views/settings/settingsvideo.py:86
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
-#: views/settings/settingscontrols.py:70
+#: views/settings/settingscontrols.py:71
 msgid "F12"
 msgstr ""
 
-#: views/settings/settingscontrols.py:70
+#: views/settings/settingscontrols.py:71
 msgid "Make screenshot"
 msgstr "Screenshot erstellen"
 
-#: views/settings/settingscontrols.py:71
+#: views/settings/settingscontrols.py:72
 msgid "Alt + Enter"
 msgstr ""
 
-#: views/settings/settingscontrols.py:71
+#: views/settings/settingscontrols.py:72
 msgid "Toggle fullscreen"
 msgstr "Vollbild/Fenster umschalten"
 
-#: views/settings/settingscontrols.py:72
+#: views/settings/settingscontrols.py:73
 msgid "F"
 msgstr ""
 
-#: views/settings/settingscontrols.py:72
+#: views/settings/settingscontrols.py:73
 msgid "Ferret"
 msgstr "Frettchen"
 
-#: views/settings/settingscontrols.py:81
+#: views/settings/settingscontrols.py:82
 msgid "Left stick"
 msgstr "Linker Stick"
 
-#: views/settings/settingscontrols.py:82
+#: views/settings/settingscontrols.py:83
 msgid "Right stick"
 msgstr "Rechter Stick"
 
-#: views/settings/settingscontrols.py:82
+#: views/settings/settingscontrols.py:83
 msgid "Look"
 msgstr "Umschauen"
 
-#: views/settings/settingscontrols.py:83
+#: views/settings/settingscontrols.py:84
 msgid "Left trigger"
 msgstr "Linker Trigger"
 
-#: views/settings/settingscontrols.py:84
+#: views/settings/settingscontrols.py:85
 msgid "X"
 msgstr ""
 
-#: views/settings/settingscontrols.py:85
+#: views/settings/settingscontrols.py:86
 msgid "A"
 msgstr ""
 
-#: views/settings/settingscontrols.py:86
+#: views/settings/settingscontrols.py:87
 msgid "Y"
 msgstr ""
 
-#: views/settings/settingscontrols.py:87
+#: views/settings/settingscontrols.py:88
 msgid "B"
 msgstr ""
 
-#: views/settings/settingscontrols.py:88
+#: views/settings/settingscontrols.py:89
 msgid "Left Bumper, Right Bumper"
 msgstr "Linker Bumper, Rechter Bumper"
 
-#: views/settings/settingscontrols.py:89
+#: views/settings/settingscontrols.py:90
 msgid "Start"
 msgstr "Starttaste"
 
-#: views/settings/settingscontrols.py:113
+#: views/settings/settingscontrols.py:114
 msgid "Controller"
 msgstr "Controller"
 
-#: views/settings/settingscontrols.py:115
+#: views/settings/settingscontrols.py:116
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:57 window/launcherwindow.py:60
+#: views/settings/settingsmenu.py:56 window/launcherwindow.py:65
 msgid "Video"
 msgstr ""
 
-#: views/settings/settingsmenu.py:64 window/launcherwindow.py:61
+#: views/settings/settingsmenu.py:63 window/launcherwindow.py:66
 msgid "Audio"
 msgstr ""
 
-#: views/settings/settingsmenu.py:71 views/settings/settingsvideo.py:56
+#: views/settings/settingsmenu.py:70 views/settings/settingsvideo.py:55
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsvideo.py:63 window/launcherwindow.py:74
+#: views/settings/settingsvideo.py:62 window/launcherwindow.py:79
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsvideo.py:75 window/launcherwindow.py:81
+#: views/settings/settingsvideo.py:74 window/launcherwindow.py:98
 msgid "V-Sync"
 msgstr ""
 
-#: window/launcherwindow.py:39
+#: window/launcherwindow.py:42
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:64
+#: window/launcherwindow.py:69
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:89
-msgid "Enable Sound"
-msgstr "Sound aktivieren"
+#: window/launcherwindow.py:87
+msgid "Borderless"
+msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:95
+#: window/launcherwindow.py:104
+msgid "Audio Backend:"
+msgstr ""
+
+#: window/launcherwindow.py:113
 msgid "Launch Game"
 msgstr "Spiel starten"
 

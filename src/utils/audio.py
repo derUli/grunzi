@@ -6,6 +6,8 @@ import random
 
 import arcade
 
+from utils.path import is_windows
+
 AUDIO_EXTENSIONS = ['.ogg']
 
 
@@ -88,7 +90,7 @@ class MusicQueue:
         if len(self.queue) == 0:
             return
 
-        self.music = arcade.load_sound(self.queue[0], streaming=True)
+        self.music = arcade.load_sound(self.queue[0], streaming=streaming_enabled())
         self.player = self.music.play(volume=self.state.settings.music_volume)
         self.queue = self.queue[1:]
 
@@ -121,3 +123,8 @@ def normalize_volume(volume: float) -> float:
         volume = 0.0
 
     return volume
+
+
+def streaming_enabled() -> bool:
+    """ Linux OGG playback with streaming has timing issues """
+    return is_windows()

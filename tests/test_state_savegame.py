@@ -23,7 +23,6 @@ class SaveGameStateTest(unittest.TestCase):
 
         self.assertEqual(['map01', 'map02', 'map03'], state.get_selectable())
 
-
     def test_load(self):
         self.assertIsInstance(SaveGameState.load(), SaveGameState)
 
@@ -33,4 +32,4 @@ class SaveGameStateTest(unittest.TestCase):
         self.assertTrue(os.path.exists(get_settings_path()))
 
     def test_new_savegame(self):
-        self.assertIsInstance(new_savegame('map01'), SaveGameState)
+        self.assertIsInstance(new_savegame('map01', 2), SaveGameState)

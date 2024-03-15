@@ -5,13 +5,11 @@ import arcade
 from constants.fonts import FONT_DEFAULT
 
 MARGIN = 10
-DEBUG_COLOR = arcade.csscolor.GHOST_WHITE
 
 MEDIUM_FONT_SIZE = 14
-LARGE_FONT_SIZE = 16
-LOGO_FONT_SIZE = 80
 
-DEBUG_FONT_SIZE = 12
+HEADLINE_FONT_SIZE = 40
+LOGO_FONT_SIZE = 80
 
 
 def create_text(

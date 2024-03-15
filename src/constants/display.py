@@ -1,3 +1,4 @@
 """ Display constants """
+
 UNLIMITED_FRAMERATE = 10000
 FRAMERATE_LIMIT = [30, 60, 90, 120, 144, 240, 360]

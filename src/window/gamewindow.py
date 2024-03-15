@@ -11,6 +11,7 @@ SCREEN_TITLE = "Grunzi"
 
 UPDATE_RATE = 1 / 60
 
+
 class GameWindow(arcade.Window):
     """
     Main application class.
@@ -23,7 +24,8 @@ class GameWindow(arcade.Window):
             height=SCREEN_HEIGHT,
             update_rate=UPDATE_RATE,
             draw_rate=UNLIMITED_FRAMERATE,
-            vsync=False
+            vsync=False,
+            borderless=False
     ):
         default_screen = pyglet.canvas.get_display().get_default_screen()
         native_mode = default_screen.get_mode()
@@ -31,7 +33,7 @@ class GameWindow(arcade.Window):
         style = pyglet.window.Window.WINDOW_STYLE_DEFAULT
         self.is_native = native_resolution == (width, height)
 
-        if not window and self.is_native:
+        if borderless:
             style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
 
         logging.debug('Refresh rate ', draw_rate)
@@ -75,13 +77,6 @@ class GameWindow(arcade.Window):
 
         return super().set_fullscreen(fullscreen=fullscreen, screen=screen, mode=mode)
 
-    @property
-    def size(self) -> tuple:
-        """
-        Size tuple of the window
-        @return:
-        """
-        return self.width, self.height
 
     def init_controllers(self):
         try:

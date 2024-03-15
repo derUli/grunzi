@@ -1,4 +1,13 @@
-def center_camera_to_player(player_sprite, camera, size):
+""" Center camera to player """
+
+
+def center_camera_to_player(player_sprite, camera, size) -> None:
+    """
+    Center camera to play
+    @param player_sprite: The player
+    @param camera: The camera
+    @param size: The size of the tilemap
+    """
     # Find where player is, then calculate lower left corner from that
     screen_center_x = player_sprite.center_x - (camera.viewport_width / 2)
     screen_center_y = player_sprite.center_y - (camera.viewport_height / 2)

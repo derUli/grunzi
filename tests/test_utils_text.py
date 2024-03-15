@@ -4,8 +4,8 @@ import unittest
 import arcade
 
 from state.viewstate import ViewState
-from utils.text import label_value, create_text
 from utils.gui import get_button_style
+from utils.text import label_value, create_text
 from window.gamewindow import GameWindow
 
 

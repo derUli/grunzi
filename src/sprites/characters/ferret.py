@@ -11,7 +11,7 @@ from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
 from utils.sprite import random_position
 
-FADE_SPEED = 5
+FADE_SPEED = 4
 DEFAULT_FACE = FACE_RIGHT
 MOVE_DAMPING = 0.01
 

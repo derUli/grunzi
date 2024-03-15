@@ -1,4 +1,5 @@
 """ User path utils """
+
 import os
 
 GAMEDIR_NAME_WINDOWS = 'Grunzi'
