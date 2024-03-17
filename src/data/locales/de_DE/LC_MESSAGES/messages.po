@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-17 14:26+0100\n"
+"POT-Creation-Date: 2024-03-17 15:14+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -54,43 +54,43 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
-#: views/difficultyselection.py:53 views/mapselection.py:53
+#: views/difficultyselection.py:56 views/mapselection.py:60
 #: views/settings/settingsaudio.py:50 views/settings/settingscontrols.py:108
 #: views/settings/settingsmenu.py:76 views/settings/settingsvideo.py:97
 msgid "Back"
 msgstr "Zurück"
 
-#: views/difficultyselection.py:59
+#: views/difficultyselection.py:62
 msgid "Easy"
 msgstr "Sauleicht"
 
-#: views/difficultyselection.py:65
+#: views/difficultyselection.py:68
 msgid "Medium"
 msgstr "Versaut"
 
-#: views/difficultyselection.py:71
+#: views/difficultyselection.py:74
 msgid "High"
 msgstr "Sauschwer"
 
-#: views/difficultyselection.py:77
+#: views/difficultyselection.py:80
 msgid "Pig Stuff Mode"
 msgstr "Schweinkram Modus"
 
-#: views/difficultyselection.py:104
+#: views/difficultyselection.py:107
 msgid "Difficulty"
 msgstr "Schwierigkeit"
 
-#: views/difficultyselection.py:194 views/mapselection.py:151
+#: views/difficultyselection.py:200 views/mapselection.py:198
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/difficultyselection.py:196 views/difficultyselection.py:207
-#: views/mapselection.py:153 views/mapselection.py:164 views/pausemenu.py:122
+#: views/difficultyselection.py:202 views/difficultyselection.py:213
+#: views/mapselection.py:200 views/mapselection.py:211 views/pausemenu.py:122
 #: views/pausemenu.py:137
 msgid "Yes"
 msgstr "Ja"
 
-#: views/difficultyselection.py:197 views/mapselection.py:154
+#: views/difficultyselection.py:203 views/mapselection.py:201
 #: views/pausemenu.py:123
 msgid "No"
 msgstr "Nein"
@@ -111,7 +111,7 @@ msgstr "Neues Spiel"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/mainmenu.py:52 views/mapselection.py:65
+#: views/mainmenu.py:52 views/mapselection.py:72
 msgid "Select Map"
 msgstr "Map auswählen"
 

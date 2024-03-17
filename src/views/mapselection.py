@@ -27,14 +27,9 @@ class MapSelection(Fading):
         self.time = 0
 
         self.difficulty = None
-
-    def on_hide_view(self):
-        # Disable the UIManager when the view is hidden.
-        self.pop_controller_handlers()
-        self.manager.disable()
-
-        if self.previous_view.player:
-            self.previous_view.player.pause()
+        self.maps = []
+        self.select_button = None
+        self.selected = 0
 
     def on_show_view(self):
         """ This is run once when we switch to this view """
@@ -48,9 +43,18 @@ class MapSelection(Fading):
 
         self.setup()
 
+    def on_hide_view(self):
+        # Disable the UIManager when the view is hidden.
+        self.pop_controller_handlers()
+        self.manager.disable()
+
+        if self.previous_view.player:
+            self.previous_view.player.pause()
+
     def setup(self):
         self.manager.clear()
         self.manager.disable()
+        self.maps = SaveGameState.load().get_selectable()
 
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
@@ -72,9 +76,47 @@ class MapSelection(Fading):
             align='center'
         )
 
+        buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False)
+
+        button_prev = arcade.gui.UITextureButton(
+            texture=arcade.load_texture(":resources:onscreen_controls/flat_dark/left.png")
+        )
+
+        button_next = arcade.gui.UITextureButton(
+            texture=arcade.load_texture(":resources:onscreen_controls/flat_dark/right.png")
+        )
+
+        @button_prev.event('on_click')
+        def on_click_button_prev(event):
+            if self.selected > 0:
+                self.selected -= 1
+            else:
+                self.selected = len(self.maps) - 1
+
+            self.setup()
+
+        @button_next.event('on_click')
+        def on_click_button_next(event):
+            if self.selected < len(self.maps) - 1:
+                self.selected += 1
+            else:
+                self.selected = 0
+
+            self.setup()
+        self.select_button = arcade.gui.UIFlatButton(
+            text=self.maps[self.selected],
+            width=BUTTON_WIDTH,
+            style=utils.gui.get_button_style()
+        )
+
+        buttons.add(button_prev)
+        buttons.add(self.select_button)
+        buttons.add(button_next)
+
         widgets = [
+            back_button,
             title,
-            back_button
+            buttons
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
