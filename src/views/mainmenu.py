@@ -87,6 +87,18 @@ class MainMenu(Fading):
             self.next_view = Game(self.window, self.state)
             self.fade_out()
 
+        @select_map_button.event("on_click")
+        def on_click_select_map_button(event):
+            # Pass already created view because we are resuming.
+
+            from views.mapselection import MapSelection
+            savegame = SaveGameState.load()
+            self.state.map_name = savegame.current
+            self.state.difficulty = Difficulty(savegame.difficulty)
+
+            self.next_view = MapSelection(self.window, self.state, previous_view=self)
+            self.fade_out()
+
         @options_button.event("on_click")
         def on_click_options_button(event):
             # Pass already created view because we are resuming.

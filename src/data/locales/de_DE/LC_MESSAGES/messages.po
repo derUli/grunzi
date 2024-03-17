@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-14 21:44+0100\n"
+"POT-Creation-Date: 2024-03-17 14:26+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -54,9 +54,9 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
-#: views/difficultyselection.py:53 views/settings/settingsaudio.py:50
-#: views/settings/settingscontrols.py:108 views/settings/settingsmenu.py:76
-#: views/settings/settingsvideo.py:97
+#: views/difficultyselection.py:53 views/mapselection.py:53
+#: views/settings/settingsaudio.py:50 views/settings/settingscontrols.py:108
+#: views/settings/settingsmenu.py:76 views/settings/settingsvideo.py:97
 msgid "Back"
 msgstr "Zurück"
 
@@ -80,20 +80,22 @@ msgstr "Schweinkram Modus"
 msgid "Difficulty"
 msgstr "Schwierigkeit"
 
-#: views/difficultyselection.py:194
+#: views/difficultyselection.py:194 views/mapselection.py:151
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
 #: views/difficultyselection.py:196 views/difficultyselection.py:207
-#: views/pausemenu.py:122 views/pausemenu.py:137
+#: views/mapselection.py:153 views/mapselection.py:164 views/pausemenu.py:122
+#: views/pausemenu.py:137
 msgid "Yes"
 msgstr "Ja"
 
-#: views/difficultyselection.py:197 views/pausemenu.py:123
+#: views/difficultyselection.py:197 views/mapselection.py:154
+#: views/pausemenu.py:123
 msgid "No"
 msgstr "Nein"
 
-#: views/game.py:210
+#: views/game.py:212
 msgid "Loading..."
 msgstr "Wird geladen..."
 
@@ -109,11 +111,15 @@ msgstr "Neues Spiel"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/mainmenu.py:52 views/pausemenu.py:35
+#: views/mainmenu.py:52 views/mapselection.py:65
+msgid "Select Map"
+msgstr "Map auswählen"
+
+#: views/mainmenu.py:58 views/pausemenu.py:35
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: views/mainmenu.py:58
+#: views/mainmenu.py:64
 msgid "Quit game"
 msgstr "Beenden"
 
