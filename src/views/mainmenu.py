@@ -48,6 +48,12 @@ class MainMenu(Fading):
             style=utils.gui.get_button_style(),
         )
 
+        select_map_button = arcade.gui.UIFlatButton(
+            text=_("Select Map"),
+            width=BUTTON_WIDTH,
+            style=utils.gui.get_button_style(),
+        )
+
         options_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
@@ -99,7 +105,7 @@ class MainMenu(Fading):
         ]
 
         if SaveGameState.exists():
-            widgets += [continue_button]
+            widgets += [continue_button, select_map_button]
 
         widgets += [
             options_button,
