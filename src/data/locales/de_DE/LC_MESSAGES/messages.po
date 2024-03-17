@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-17 15:14+0100\n"
+"POT-Creation-Date: 2024-03-17 15:20+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -80,17 +80,17 @@ msgstr "Schweinkram Modus"
 msgid "Difficulty"
 msgstr "Schwierigkeit"
 
-#: views/difficultyselection.py:200 views/mapselection.py:198
+#: views/difficultyselection.py:200 views/mapselection.py:199
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
 #: views/difficultyselection.py:202 views/difficultyselection.py:213
-#: views/mapselection.py:200 views/mapselection.py:211 views/pausemenu.py:122
+#: views/mapselection.py:201 views/mapselection.py:212 views/pausemenu.py:122
 #: views/pausemenu.py:137
 msgid "Yes"
 msgstr "Ja"
 
-#: views/difficultyselection.py:203 views/mapselection.py:201
+#: views/difficultyselection.py:203 views/mapselection.py:202
 #: views/pausemenu.py:123
 msgid "No"
 msgstr "Nein"

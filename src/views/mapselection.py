@@ -9,6 +9,7 @@ from constants.difficulty import Difficulty
 from constants.fonts import FONT_DEFAULT
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
+from views.game import Game
 
 BUTTON_WIDTH = 250
 
@@ -103,19 +104,32 @@ class MapSelection(Fading):
                 self.selected = 0
 
             self.setup()
-        self.select_button = arcade.gui.UIFlatButton(
+
+        select_button = arcade.gui.UIFlatButton(
             text=self.maps[self.selected],
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
 
+        @select_button.event('on_click')
+        def on_start_map(event):
+            map = event.source.text
+
+            savegame = SaveGameState.load()
+            self.state.map_name = map
+            self.state.difficulty = Difficulty(savegame.difficulty)
+
+            self.next_view = Game(self.window, self.state)
+            self.fade_out()
+            # self.on_start_map()
+
         buttons.add(button_prev)
-        buttons.add(self.select_button)
+        buttons.add(select_button)
         buttons.add(button_next)
 
         widgets = [
-            back_button,
             title,
+            back_button,
             buttons
         ]
 
