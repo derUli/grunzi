@@ -1,4 +1,5 @@
 import logging
+import os
 
 import arcade.gui
 
@@ -80,11 +81,15 @@ class MapSelection(Fading):
         buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False)
 
         button_prev = arcade.gui.UITextureButton(
-            texture=arcade.load_texture(":resources:onscreen_controls/flat_dark/left.png")
+            texture=arcade.load_texture(
+                os.path.join(self.state.image_dir, 'ui', 'arrows', 'left.png')
+            )
         )
 
         button_next = arcade.gui.UITextureButton(
-            texture=arcade.load_texture(":resources:onscreen_controls/flat_dark/right.png")
+            texture=arcade.load_texture(
+                os.path.join(self.state.image_dir, 'ui', 'arrows', 'right.png')
+            )
         )
 
         @button_prev.event('on_click')
