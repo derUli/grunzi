@@ -3,6 +3,8 @@
 # Alpha 009 (Unreleased)
 
 * Schwierigkeitsgrad Auswahl hinzugefügt
+* Level-Auswahl hinzugefügt
+
 * Intro-Video für map02 hinzugefügt
 * Checkbox "Rahmenlos" zum Launcher hinzugefügt
 * Musikwiedergabe auf Linux korrigiert

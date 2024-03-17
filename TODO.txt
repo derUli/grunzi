@@ -1,5 +1,5 @@
 * Hühner NPCs
-* Level-Auswahl
+
 * Dropdown "FPS beschränken" im Launcher
 * Autofahr-Animation am Levelende
 * Punkte
