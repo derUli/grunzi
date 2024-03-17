@@ -304,6 +304,12 @@ class Game(Fading):
     def on_button_release(self, controller, key):
         logging.info(f"Controller button {key} released")
 
+        if not self.initialized:
+            return
+
+        if self.video and self.video.active:
+            return
+
         if key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
 
@@ -336,6 +342,9 @@ class Game(Fading):
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
 
         if not self.initialized:
+            return
+
+        if self.video and self.video.active:
             return
 
         x_value = round(x_value)
@@ -375,6 +384,9 @@ class Game(Fading):
         logging.info(f"{trigger_name}, {value}")
 
         if not self.initialized:
+            return
+
+        if self.video and self.video.active:
             return
 
         value = round(value)
@@ -433,6 +445,9 @@ class Game(Fading):
         super().on_key_release(key, modifiers)
 
         if not self.initialized:
+            return
+
+        if self.video and self.video.active:
             return
 
         if key in constants.controls.keyboard.KEY_SPRINT:
