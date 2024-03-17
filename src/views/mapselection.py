@@ -33,6 +33,9 @@ class MapSelection(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
+        if self.previous_view.player:
+            self.previous_view.player.pause()
+
     def on_show_view(self):
         """ This is run once when we switch to this view """
         super().on_show_view()
@@ -86,6 +89,9 @@ class MapSelection(Fading):
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
         self.manager.enable()
+
+        if self.previous_view.player:
+            self.previous_view.player.play()
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
