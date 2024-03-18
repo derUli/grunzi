@@ -172,7 +172,6 @@ class StartUp:
             args.audio_backend = 'silent'
 
         if args.audio_backend and args.audio_backend != 'auto':
-            print(args.audio_backend)
             pyglet.options['audio'] = (args.audio_backend,)
 
         logging.debug(label_value('Audio backend', args.audio_backend))
