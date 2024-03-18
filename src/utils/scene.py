@@ -13,5 +13,7 @@ def get_layer(name: str, scene: Scene) -> SpriteList:
         sprites = scene.get_sprite_list(name)
     except KeyError:
         sprites = SpriteList()
+    except AttributeError:
+        sprites = SpriteList()
 
     return sprites

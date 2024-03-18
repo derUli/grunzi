@@ -9,6 +9,7 @@ from sprites.items.item import Fence, PiggyBank, Jeep
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.sounds.highway import Highway
+from sprites.sprite import Sprite
 
 LAYER_WALL = 'Walls'
 LAYER_PLIER = 'Plier'
@@ -28,6 +29,7 @@ LAYER_CAR_RIGHT = 'Cars Right'
 LAYER_CAR_KEY = 'Car Key'
 LAYER_JEEP = 'Jeep'
 LAYER_HIGHWAY = 'Highway'
+LAYER_WATER = 'Water'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -84,6 +86,9 @@ LAYER_OPTIONS = {
     },
     LAYER_JEEP: {
         'custom_class': Jeep
+    },
+    LAYER_WATER: {
+        'custom_class': Sprite
     }
 }
 

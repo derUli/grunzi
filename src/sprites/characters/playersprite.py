@@ -5,9 +5,10 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 import utils.text
-from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER
+from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_WATER, all_layers
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
+from utils.scene import get_layer
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -55,6 +56,8 @@ class PlayerSprite(Character, SpriteHealth):
 
         self.state = None
         self.gameover_text = None
+
+        self.water = False
 
     def setup(self, state, scene):
         self.state = state
@@ -134,6 +137,7 @@ class PlayerSprite(Character, SpriteHealth):
                 self.item.top = self.bottom - INVENTORY_MARGIN
 
             self.item.draw()
+
 
     def draw_overlay(self):
         window = arcade.get_window()

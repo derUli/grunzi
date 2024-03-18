@@ -159,6 +159,7 @@ class Game(Fading):
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = PlayerSprite(filename)
+
         self.player_sprite.setup(state=self.state, scene=self.scene)
 
         # Create the physics engine
@@ -586,7 +587,7 @@ class Game(Fading):
             return self.update_fade(self.next_view)
 
         # Move the player with the physics engine
-        self.update_player()
+        self.update_player_speed()
         self.physics_engine.step()
         self.call_update(delta_time)
 
@@ -607,10 +608,6 @@ class Game(Fading):
                     delta_time=delta_time,
                     map_size=self.tilemap_size
                 )
-
-    def update_player(self):
-        self.update_player_speed()
-        self.player_sprite.update()
 
     def update_enemies(self, delta_time):
         enemies = get_layer(LAYER_ENEMIES, self.scene)

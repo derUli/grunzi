@@ -69,6 +69,9 @@ class ViewState:
             },
             'car': {
                 'start': arcade.load_sound(os.path.join(self.sound_dir, 'car', 'car_start.ogg'))
+            },
+            'water': {
+                'splash': arcade.load_sound(os.path.join(self.sound_dir, 'water', 'splash.ogg'))
             }
         }
 
