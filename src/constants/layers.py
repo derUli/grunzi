@@ -5,11 +5,10 @@ from arcade import SpriteList, Scene
 import sprites.decoration.car
 from sprites.items.carkey import CarKey
 from sprites.items.hammer import Hammer
-from sprites.items.item import Fence, PiggyBank, Jeep
+from sprites.items.item import Fence, PiggyBank, Jeep, Water
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.sounds.highway import Highway
-from sprites.sprite import Sprite
 
 LAYER_WALL = 'Walls'
 LAYER_PLIER = 'Plier'
@@ -88,7 +87,7 @@ LAYER_OPTIONS = {
         'custom_class': Jeep
     },
     LAYER_WATER: {
-        'custom_class': Sprite
+        'custom_class': Water
     }
 }
 

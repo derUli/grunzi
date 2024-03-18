@@ -57,3 +57,6 @@ class PiggyBank(Sprite, Useable):
 
 class Jeep(Sprite, Useable):
     pass
+
+class Water(Sprite):
+    pass

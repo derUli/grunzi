@@ -5,10 +5,10 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 import utils.text
-from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_WATER, all_layers
+from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
-from utils.scene import get_layer
+from sprites.items.item import Water
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -138,6 +138,7 @@ class PlayerSprite(Character, SpriteHealth):
 
             self.item.draw()
 
+        self.check_water(scene, state)
 
     def draw_overlay(self):
         window = arcade.get_window()
@@ -182,3 +183,18 @@ class PlayerSprite(Character, SpriteHealth):
 
     def on_die(self):
         self.state.squeak()
+
+    def check_water(self, scene, state):
+        collides = arcade.check_for_collision_with_lists(
+            self, scene.sprite_lists
+        )
+
+        for collide in collides:
+            if isinstance(collide, Water):
+                if not self.water:
+                    self.water = True
+                    state.play_sound('water', 'splash')
+
+                return
+
+        self.water = False
