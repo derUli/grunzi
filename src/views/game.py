@@ -590,7 +590,6 @@ class Game(Fading):
         self.update_player_speed()
         self.physics_engine.step()
         self.call_update(delta_time)
-
         self.update_enemies(delta_time)
         self.update_fade(self.next_view)
 

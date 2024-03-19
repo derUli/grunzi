@@ -87,7 +87,7 @@ LAYER_OPTIONS = {
         'custom_class': Jeep
     },
     LAYER_WATER: {
-        'custom_class': Water
+        # 'custom_class': Water # TODO
     }
 }
 

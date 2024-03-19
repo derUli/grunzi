@@ -7,6 +7,7 @@ import utils.gui
 import utils.text
 from constants.difficulty import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, Difficulty
 from constants.fonts import FONT_DEFAULT
+from constants.layers import LAYER_WATER
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
 
@@ -152,6 +153,7 @@ class DifficultySelection(Fading):
         self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()
+        self.scene[LAYER_WATER].update_animation(self, delta_time)
 
     def on_draw(self):
         """ Render the screen. """
