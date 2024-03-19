@@ -33,7 +33,7 @@ class MainMenu(Fading):
             font_name=FONT_ADRIP,
             font_size=utils.text.LOGO_FONT_SIZE,
             text_color=arcade.csscolor.HOTPINK,
-            align='center'
+            align='center',
         )
 
         newgame_button = arcade.gui.UIFlatButton(
@@ -131,8 +131,6 @@ class MainMenu(Fading):
             widget_layout.add(widget)
 
         frame = self.manager.add(arcade.gui.UIAnchorLayout())
-        frame.with_padding(bottom=20)
-
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
     def on_show_view(self):
