@@ -77,7 +77,6 @@ class GameWindow(arcade.Window):
 
         return super().set_fullscreen(fullscreen=fullscreen, screen=screen, mode=mode)
 
-
     def init_controllers(self):
         try:
             self.controller_manager = pyglet.input.ControllerManager()

@@ -8,7 +8,6 @@ import pyglet
 from arcade.experimental import Shadertoy
 
 from constants.maps import FIRST_MAP
-from utils.audio import streaming_enabled
 
 
 class ViewState:

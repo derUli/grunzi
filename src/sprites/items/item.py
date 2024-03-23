@@ -3,6 +3,7 @@ from typing import Optional
 
 import PIL
 import arcade
+from arcade import AnimatedTimeBasedSprite
 
 from sprites.sprite import Sprite
 
@@ -58,5 +59,7 @@ class PiggyBank(Sprite, Useable):
 class Jeep(Sprite, Useable):
     pass
 
-class Water(Sprite):
+
+
+class Water(AnimatedTimeBasedSprite):
     pass

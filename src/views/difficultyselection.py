@@ -7,7 +7,6 @@ import utils.gui
 import utils.text
 from constants.difficulty import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, Difficulty
 from constants.fonts import FONT_DEFAULT
-from constants.layers import LAYER_WATER
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
 

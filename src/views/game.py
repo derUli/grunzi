@@ -592,6 +592,7 @@ class Game(Fading):
         self.call_update(delta_time)
         self.update_enemies(delta_time)
         self.update_fade(self.next_view)
+        self.scene.update_animation(delta_time)
 
     def call_update(self, delta_time):
         for sprite_list in self.scene.sprite_lists:
