@@ -153,7 +153,6 @@ class DifficultySelection(Fading):
         self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()
-        self.scene[LAYER_WATER].update_animation(self, delta_time)
 
     def on_draw(self):
         """ Render the screen. """
