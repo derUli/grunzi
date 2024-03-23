@@ -12,173 +12,169 @@
    <image width="64" height="64" source="../images/sprites/gras/beach.jpg"/>
   </tile>
  </tileset>
- <tileset firstgid="4" name="Water" tilewidth="64" tileheight="64" tilecount="41" columns="0">
+ <tileset firstgid="4" name="Water" tilewidth="64" tileheight="64" tilecount="40" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
-  <tile id="2">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-0.png"/>
+  <tile id="43">
+   <image width="64" height="64" source="../images/sprites/water/frame-001.jpg"/>
   </tile>
-  <tile id="3">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-1.png"/>
+  <tile id="44">
+   <image width="64" height="64" source="../images/sprites/water/frame-002.jpg"/>
   </tile>
-  <tile id="4">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-2.png"/>
+  <tile id="45">
+   <image width="64" height="64" source="../images/sprites/water/frame-003.jpg"/>
   </tile>
-  <tile id="5">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-3.png"/>
+  <tile id="46">
+   <image width="64" height="64" source="../images/sprites/water/frame-004.jpg"/>
   </tile>
-  <tile id="6">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-4.png"/>
+  <tile id="47">
+   <image width="64" height="64" source="../images/sprites/water/frame-005.jpg"/>
   </tile>
-  <tile id="7">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-5.png"/>
+  <tile id="48">
+   <image width="64" height="64" source="../images/sprites/water/frame-006.jpg"/>
   </tile>
-  <tile id="8">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-6.png"/>
+  <tile id="49">
+   <image width="64" height="64" source="../images/sprites/water/frame-007.jpg"/>
   </tile>
-  <tile id="9">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-7.png"/>
+  <tile id="50">
+   <image width="64" height="64" source="../images/sprites/water/frame-008.jpg"/>
   </tile>
-  <tile id="10">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-8.png"/>
+  <tile id="51">
+   <image width="64" height="64" source="../images/sprites/water/frame-009.jpg"/>
   </tile>
-  <tile id="11">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-9.png"/>
+  <tile id="52">
+   <image width="64" height="64" source="../images/sprites/water/frame-010.jpg"/>
   </tile>
-  <tile id="12">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-10.png"/>
+  <tile id="53">
+   <image width="64" height="64" source="../images/sprites/water/frame-011.jpg"/>
   </tile>
-  <tile id="13">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-11.png"/>
+  <tile id="54">
+   <image width="64" height="64" source="../images/sprites/water/frame-012.jpg"/>
   </tile>
-  <tile id="14">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-12.png"/>
+  <tile id="55">
+   <image width="64" height="64" source="../images/sprites/water/frame-013.jpg"/>
   </tile>
-  <tile id="15">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-13.png"/>
+  <tile id="56">
+   <image width="64" height="64" source="../images/sprites/water/frame-014.jpg"/>
   </tile>
-  <tile id="16">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-14.png"/>
+  <tile id="57">
+   <image width="64" height="64" source="../images/sprites/water/frame-015.jpg"/>
   </tile>
-  <tile id="17">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-15.png"/>
+  <tile id="58">
+   <image width="64" height="64" source="../images/sprites/water/frame-016.jpg"/>
   </tile>
-  <tile id="18">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-16.png"/>
+  <tile id="59">
+   <image width="64" height="64" source="../images/sprites/water/frame-017.jpg"/>
   </tile>
-  <tile id="19">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-17.png"/>
+  <tile id="60">
+   <image width="64" height="64" source="../images/sprites/water/frame-018.jpg"/>
   </tile>
-  <tile id="20">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-18.png"/>
+  <tile id="61">
+   <image width="64" height="64" source="../images/sprites/water/frame-019.jpg"/>
   </tile>
-  <tile id="21">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-19.png"/>
+  <tile id="62">
+   <image width="64" height="64" source="../images/sprites/water/frame-020.jpg"/>
   </tile>
-  <tile id="22">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-20.png"/>
+  <tile id="63">
+   <image width="64" height="64" source="../images/sprites/water/frame-021.jpg"/>
   </tile>
-  <tile id="23">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-21.png"/>
+  <tile id="64">
+   <image width="64" height="64" source="../images/sprites/water/frame-022.jpg"/>
   </tile>
-  <tile id="24">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-22.png"/>
+  <tile id="65">
+   <image width="64" height="64" source="../images/sprites/water/frame-023.jpg"/>
   </tile>
-  <tile id="25">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-23.png"/>
+  <tile id="66">
+   <image width="64" height="64" source="../images/sprites/water/frame-024.jpg"/>
   </tile>
-  <tile id="26">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-24.png"/>
+  <tile id="67">
+   <image width="64" height="64" source="../images/sprites/water/frame-025.jpg"/>
   </tile>
-  <tile id="27">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-25.png"/>
+  <tile id="68">
+   <image width="64" height="64" source="../images/sprites/water/frame-026.jpg"/>
   </tile>
-  <tile id="28">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-26.png"/>
+  <tile id="69">
+   <image width="64" height="64" source="../images/sprites/water/frame-027.jpg"/>
   </tile>
-  <tile id="29">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-27.png"/>
+  <tile id="70">
+   <image width="64" height="64" source="../images/sprites/water/frame-028.jpg"/>
   </tile>
-  <tile id="30">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-28.png"/>
+  <tile id="71">
+   <image width="64" height="64" source="../images/sprites/water/frame-029.jpg"/>
   </tile>
-  <tile id="31">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-29.png"/>
+  <tile id="72">
+   <image width="64" height="64" source="../images/sprites/water/frame-030.jpg"/>
   </tile>
-  <tile id="32">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-30.png"/>
-  </tile>
-  <tile id="33">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-31.png"/>
-  </tile>
-  <tile id="34">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-32.png"/>
-  </tile>
-  <tile id="35">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-33.png"/>
-  </tile>
-  <tile id="36">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-34.png"/>
+  <tile id="73">
+   <image width="64" height="64" source="../images/sprites/water/frame-031.jpg"/>
    <animation>
-    <frame tileid="2" duration="50"/>
-    <frame tileid="3" duration="50"/>
-    <frame tileid="4" duration="50"/>
-    <frame tileid="5" duration="50"/>
-    <frame tileid="6" duration="50"/>
-    <frame tileid="7" duration="50"/>
-    <frame tileid="8" duration="50"/>
-    <frame tileid="9" duration="50"/>
-    <frame tileid="10" duration="50"/>
-    <frame tileid="11" duration="50"/>
-    <frame tileid="12" duration="50"/>
-    <frame tileid="13" duration="50"/>
-    <frame tileid="14" duration="50"/>
-    <frame tileid="15" duration="50"/>
-    <frame tileid="16" duration="50"/>
-    <frame tileid="17" duration="50"/>
-    <frame tileid="18" duration="50"/>
-    <frame tileid="19" duration="50"/>
-    <frame tileid="20" duration="50"/>
-    <frame tileid="21" duration="50"/>
-    <frame tileid="22" duration="50"/>
-    <frame tileid="23" duration="50"/>
-    <frame tileid="24" duration="50"/>
-    <frame tileid="25" duration="50"/>
-    <frame tileid="26" duration="50"/>
-    <frame tileid="27" duration="50"/>
-    <frame tileid="28" duration="50"/>
-    <frame tileid="29" duration="50"/>
-    <frame tileid="30" duration="50"/>
-    <frame tileid="31" duration="50"/>
-    <frame tileid="32" duration="50"/>
-    <frame tileid="33" duration="50"/>
-    <frame tileid="34" duration="50"/>
-    <frame tileid="35" duration="50"/>
-    <frame tileid="36" duration="50"/>
-    <frame tileid="37" duration="50"/>
-    <frame tileid="38" duration="50"/>
-    <frame tileid="39" duration="50"/>
-    <frame tileid="40" duration="50"/>
-    <frame tileid="41" duration="50"/>
-    <frame tileid="42" duration="50"/>
+    <frame tileid="43" duration="50"/>
+    <frame tileid="44" duration="50"/>
+    <frame tileid="45" duration="50"/>
+    <frame tileid="46" duration="50"/>
+    <frame tileid="47" duration="50"/>
+    <frame tileid="48" duration="50"/>
+    <frame tileid="49" duration="50"/>
+    <frame tileid="50" duration="50"/>
+    <frame tileid="51" duration="50"/>
+    <frame tileid="52" duration="50"/>
+    <frame tileid="53" duration="50"/>
+    <frame tileid="54" duration="50"/>
+    <frame tileid="55" duration="50"/>
+    <frame tileid="56" duration="50"/>
+    <frame tileid="57" duration="50"/>
+    <frame tileid="58" duration="50"/>
+    <frame tileid="59" duration="50"/>
+    <frame tileid="60" duration="50"/>
+    <frame tileid="61" duration="50"/>
+    <frame tileid="62" duration="50"/>
+    <frame tileid="63" duration="50"/>
+    <frame tileid="64" duration="50"/>
+    <frame tileid="65" duration="50"/>
+    <frame tileid="66" duration="50"/>
+    <frame tileid="67" duration="50"/>
+    <frame tileid="68" duration="50"/>
+    <frame tileid="69" duration="50"/>
+    <frame tileid="70" duration="50"/>
+    <frame tileid="71" duration="50"/>
+    <frame tileid="72" duration="50"/>
+    <frame tileid="73" duration="50"/>
+    <frame tileid="74" duration="50"/>
+    <frame tileid="75" duration="50"/>
+    <frame tileid="76" duration="50"/>
+    <frame tileid="77" duration="50"/>
+    <frame tileid="78" duration="50"/>
+    <frame tileid="79" duration="50"/>
+    <frame tileid="80" duration="50"/>
+    <frame tileid="81" duration="50"/>
+    <frame tileid="82" duration="50"/>
    </animation>
   </tile>
-  <tile id="37">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-35.png"/>
+  <tile id="74">
+   <image width="64" height="64" source="../images/sprites/water/frame-032.jpg"/>
   </tile>
-  <tile id="38">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-36.png"/>
+  <tile id="75">
+   <image width="64" height="64" source="../images/sprites/water/frame-033.jpg"/>
   </tile>
-  <tile id="39">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-37.png"/>
+  <tile id="76">
+   <image width="64" height="64" source="../images/sprites/water/frame-034.jpg"/>
   </tile>
-  <tile id="40">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-38.png"/>
+  <tile id="77">
+   <image width="64" height="64" source="../images/sprites/water/frame-035.jpg"/>
   </tile>
-  <tile id="41">
-   <image width="64" height="64" source="../images/sprites/water/099a94266980485ea1aeef2800c603faT9enruqG118k7Pv6-39.png"/>
+  <tile id="78">
+   <image width="64" height="64" source="../images/sprites/water/frame-036.jpg"/>
   </tile>
-  <tile id="42">
-   <image width="64" height="64" source="../images/sprites/water/water.gif"/>
+  <tile id="79">
+   <image width="64" height="64" source="../images/sprites/water/frame-037.jpg"/>
+  </tile>
+  <tile id="80">
+   <image width="64" height="64" source="../images/sprites/water/frame-038.jpg"/>
+  </tile>
+  <tile id="81">
+   <image width="64" height="64" source="../images/sprites/water/frame-039.jpg"/>
+  </tile>
+  <tile id="82">
+   <image width="64" height="64" source="../images/sprites/water/frame-040.jpg"/>
   </tile>
  </tileset>
  <layer id="1" name="Grass" width="100" height="100">
@@ -376,17 +372,17 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,
-40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77
 </data>
  </layer>
  <objectgroup id="2" name="Spawn Point" offsetx="-638" offsety="722">
