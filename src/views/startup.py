@@ -141,12 +141,18 @@ class StartUp:
         args = self.parse_args()
 
         LOG_LEVEL = logging.INFO
+        LOG_LEVEL_ARCADE = logging.ERROR
 
         if args.verbose >= 1:
-            LOG_LEVEL = logging.DEBUG
+            LOG_LEVEL_ARCADE = logging.INFO
 
         if args.verbose >= 2:
+            LOG_LEVEL = logging.DEBUG
+            LOG_LEVEL_ARCADE = logging.DEBUG
+
+        if args.verbose >= 3:
             LOG_LEVEL = logging.NOTSET
+            LOG_LEVEL_ARCADE = logging.NOTSET
 
         pyglet.options['win32_disable_shaping'] = True
 
@@ -177,6 +183,8 @@ class StartUp:
         logging.debug(label_value('Audio backend', args.audio_backend))
 
         import arcade
+
+        arcade.configure_logging(level=LOG_LEVEL_ARCADE)
 
         logging.info(label_value('Arguments', args))
         logging.info(label_value('Pyglet options', pyglet.options))
