@@ -10,6 +10,7 @@ from constants.layers import all_layers, LAYER_ENEMIES
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
+from utils.positional_sound import PositionalSound
 from utils.sprite import random_position
 
 FADE_SPEED = 4
@@ -37,6 +38,7 @@ class Chicken(Character, Useable):
         self._died = False
 
         self.damping = MOVE_DAMPING
+        self.sound = None
 
     def draw_overlay(self):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
@@ -55,6 +57,9 @@ class Chicken(Character, Useable):
     ):
 
         if self.dead:
+            if self.sound:
+                self.sound.pause()
+
             alpha = self.alpha - FADE_SPEED
 
             if alpha <= 0:
@@ -83,6 +88,21 @@ class Chicken(Character, Useable):
             self.texture = self.textures[self.face_horizontal - 1]
 
         physics_engine.apply_force(self, (move_x, move_y))
+
+        # randomize play sound
+        if random.randint(1, 50) == 30:
+            self.play_sound(player=player, state=state)
+
+        if self.sound:
+            self.sound.update()
+
+    def play_sound(self, player, state):
+        if self.sound and self.sound.playing:
+            return
+
+        audio = state.play_sound('chicken' + str(random.randint(1, 6)))
+        self.sound = PositionalSound(player, self, audio, state)
+        self.sound.play()
 
 
 def spawn_chicken(state, tilemap, scene, physics_engine):

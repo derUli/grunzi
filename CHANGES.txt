@@ -1,5 +1,9 @@
 # Changelog
 
+# Alpha 010 (Unreleased)
+
+* Hühner hinzugefügt
+
 # Alpha 009 (29.03.2024)
 
 * Schwierigkeitsgrad Auswahl hinzugefügt

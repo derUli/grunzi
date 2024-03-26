@@ -1,4 +1,3 @@
-* Hühner NPCs
 * Hund Gegner
 * Skelett Gegner
 * Dropdown "FPS beschränken" im Launcher

@@ -53,3 +53,10 @@ class PositionalSound:
             return
 
         self.player.play()
+
+    @property
+    def playing(self):
+        if not self.player:
+            return False
+
+        return self.player.playing
