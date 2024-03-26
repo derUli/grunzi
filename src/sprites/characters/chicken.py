@@ -68,9 +68,9 @@ class Chicken(Character, Useable):
         move_x = 0
         move_y = 0
 
-        if random.randint(1, 100) == 50:
+        if random.randint(1, 80) == 50:
             move_x = random.choice([-self.force_move, self.force_move])
-        if random.randint(1, 100) == 50:
+        if random.randint(1, 80) == 50:
             move_y = random.choice([-self.force_move, self.force_move])
 
         if move_x > 0:
