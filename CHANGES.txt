@@ -7,7 +7,7 @@
 * Intro-Video für map02 hinzugefügt
 * Checkbox "Rahmenlos" zum Launcher hinzugefügt
 * Musikwiedergabe auf Linux korrigiert
-* Map-Ladegeschwindigkeit drastisch reduziert
+* Map-Ladedauer drastisch reduziert
 
 # Alpha 008 (15.03.2024)
 
