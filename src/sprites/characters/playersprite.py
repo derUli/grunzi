@@ -8,7 +8,6 @@ import utils.text
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
-from sprites.items.item import Water
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -45,7 +44,7 @@ class PlayerSprite(Character, SpriteHealth):
         self.textures = arcade.load_texture_pair(filename)
 
         self.health = HEALTH_FULL
-
+        self.textures = arcade.load_texture_pair(filename)
         self.face = DEFAULT_FACE
         self.face_horizontal = DEFAULT_FACE
         self.texture = self.textures[self.face - 1]
@@ -179,5 +178,6 @@ class PlayerSprite(Character, SpriteHealth):
 
         self.face = face
 
-    def on_die(self):
+    def on_die(self) -> None:
+        """ Called when the player dies """
         self.state.squeak()

@@ -2,7 +2,7 @@ import arcade
 from arcade import SpriteSolidColor
 
 from constants.collisions import COLLISION_BULLET, COLLISION_WALL, COLLISION_SKULL_BULLET, COLLISION_PLAYER, \
-    COLLISION_FERRET
+    COLLISION_FERRET, COLLISION_CHICKEN
 from constants.layers import LAYER_ENEMIES
 from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
@@ -185,6 +185,12 @@ class SkullBullet(Bullet):
         physics_engine.add_collision_handler(
             COLLISION_SKULL_BULLET,
             COLLISION_FERRET,
+            post_handler=self.on_hit_ferret
+        )
+
+        physics_engine.add_collision_handler(
+            COLLISION_SKULL_BULLET,
+            COLLISION_CHICKEN,
             post_handler=self.on_hit_ferret
         )
 
