@@ -1,5 +1,6 @@
 * Hühner NPCs
-
+* Hund Gegner
+* Skelett Gegner
 * Dropdown "FPS beschränken" im Launcher
 * Autofahr-Animation am Levelende
 * Punkte

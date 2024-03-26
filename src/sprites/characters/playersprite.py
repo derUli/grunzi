@@ -138,8 +138,6 @@ class PlayerSprite(Character, SpriteHealth):
 
             self.item.draw()
 
-        self.check_water(scene, state)
-
     def draw_overlay(self):
         window = arcade.get_window()
 
@@ -183,18 +181,3 @@ class PlayerSprite(Character, SpriteHealth):
 
     def on_die(self):
         self.state.squeak()
-
-    def check_water(self, scene, state):
-        collides = arcade.check_for_collision_with_lists(
-            self, scene.sprite_lists
-        )
-
-        for collide in collides:
-            if isinstance(collide, Water):
-                if not self.water:
-                    self.water = True
-                    state.play_sound('water', 'splash')
-
-                return
-
-        self.water = False
