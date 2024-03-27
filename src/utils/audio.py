@@ -69,7 +69,7 @@ class MusicQueue:
 
         self.next()
 
-    def pause(self):
+    def pause(self) -> None:
         """
         Pause the queue
         """

@@ -1,4 +1,5 @@
 """ Player sprite class """
+import logging
 import os
 
 import arcade
@@ -69,9 +70,11 @@ def spawn_ferret(state, tilemap, scene, physics_engine):
         center_x=rand_x,
         center_y=rand_y
     )
-
-    if arcade.check_for_collision_with_list(ferret, all_layers(scene)):
-        return spawn_ferret(state, tilemap, scene, physics_engine)
+    try:
+        if arcade.check_for_collision_with_list(ferret, all_layers(scene)):
+            return spawn_ferret(state, tilemap, scene, physics_engine)
+    except AttributeError as e:
+        logging.error(e)
 
     scene.add_sprite(LAYER_ENEMIES, ferret)
     physics_engine.add_sprite(

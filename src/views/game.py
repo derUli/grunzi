@@ -124,12 +124,6 @@ class Game(Fading):
             self.state.settings.music_volume
         )
 
-        # Loading a video will open a ffmpeg console window.
-        # Which will disappear after a second.
-        # The game window lose it's focus.
-        # Activate the window again.
-        self.window.activate()
-
         threading.Thread(target=self.async_load).start()
 
     def async_load(self):
@@ -185,7 +179,6 @@ class Game(Fading):
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
 
     def wait_for_video(self, delta_time=0):
-
         if not self.initialized:
             return
 
@@ -208,6 +201,12 @@ class Game(Fading):
         """Render the screen."""
 
         if self.video and self.video.active:
+            # Loading a video will open a ffmpeg console window.
+            # Which will disappear after a second.
+            # The game window lose it's focus.
+            # Activate the window again.
+            self.window.activate()
+
             self.video.draw((0, 0), force_draw=False)
             return self.draw_debug()
 
