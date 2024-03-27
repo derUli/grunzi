@@ -28,14 +28,6 @@ class DifficultySelection(Fading):
 
         self.difficulty = None
 
-    def on_hide_view(self):
-        # Disable the UIManager when the view is hidden.
-        self.pop_controller_handlers()
-        self.manager.disable()
-
-        if self.previous_view.player:
-            self.previous_view.player.pause()
-
     def on_show_view(self):
         """ This is run once when we switch to this view """
         super().on_show_view()
@@ -47,6 +39,14 @@ class DifficultySelection(Fading):
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
 
         self.setup()
+
+    def on_hide_view(self) -> None:
+        # Disable the UIManager when the view is hidden.
+        self.pop_controller_handlers()
+        self.manager.disable()
+
+        if self.previous_view.player:
+            self.previous_view.player.pause()
 
     def setup(self):
         self.manager.clear()
