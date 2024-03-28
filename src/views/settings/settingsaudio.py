@@ -25,11 +25,6 @@ class SettingsAudio(Fading):
         self.previous_view = previous_view
         self._fade_in = None
 
-    def on_hide_view(self):
-        # Disable the UIManager when the view is hidden.
-        self.pop_controller_handlers()
-        self.manager.disable()
-
     def on_show_view(self):
         """ This is run once when we switch to this view """
         super().on_show_view()
@@ -41,6 +36,11 @@ class SettingsAudio(Fading):
         arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
 
         self.setup()
+
+    def on_hide_view(self):
+        """ Disable the UIManager when the view is hidden. """
+        self.pop_controller_handlers()
+        self.manager.disable()
 
     def setup(self):
         self.manager.clear()
