@@ -18,6 +18,7 @@ import constants.controls.controller
 import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
+from constants.controls.joystick import JOYSTICK_BUTTON_MAPPING
 from constants.layers import *
 from constants.maps import MAPS
 from sprites.bullet.bullet import Bullet
@@ -308,6 +309,11 @@ class Game(Fading):
         if key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
 
+    def on_joybutton_press(self, controller, key):
+        if str(key) in JOYSTICK_BUTTON_MAPPING:
+            button = JOYSTICK_BUTTON_MAPPING[str(key)]
+            self.on_button_press(controller, button)
+
     def on_button_release(self, controller, key):
         logging.info(f"Controller button {key} released")
 
@@ -319,6 +325,12 @@ class Game(Fading):
 
         if key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
+
+    def on_joybutton_release(self, controller, key):
+
+        if str(key) in JOYSTICK_BUTTON_MAPPING:
+            button = JOYSTICK_BUTTON_MAPPING[str(key)]
+            self.on_button_release(controller, button)
 
     def on_item_previous(self):
         self.on_select_item(index=self.inventory.previous())
