@@ -81,6 +81,7 @@ Die Steuerung über Controller kann im Hauptmenü unter "Einstellungen" - "Steue
 Derzeit werden die folgenden Controller unterstützt:
 
 * Xbox 360 Controller
+* Rii USB Classic Controller
 
 Weitere Modelle können funktionieren, wurden von mir aber nicht getestet.
 
