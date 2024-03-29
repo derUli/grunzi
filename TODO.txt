@@ -3,4 +3,4 @@
 * Dropdown "FPS beschränken" im Launcher
 * Autofahr-Animation am Levelende
 * Punkte
-* Rii USB Classic Controller Support
+* Ausdauer
