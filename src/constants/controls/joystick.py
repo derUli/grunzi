@@ -12,5 +12,6 @@ JOYSTICK_BUTTON_MAPPING = {
     '2': 'b',
     '0': 'x',
     '3': 'y',
-    '8': 'rightshoulder'
+    '8': 'rightshoulder', # "Select" to select next inventory item
+    '4': 'lefttrigger' # Left trigger to sprint
 }
