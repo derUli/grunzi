@@ -60,6 +60,5 @@ class Jeep(Sprite, Useable):
     pass
 
 
-
 class Water(AnimatedTimeBasedSprite):
     pass
