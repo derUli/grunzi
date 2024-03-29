@@ -18,7 +18,7 @@ import constants.controls.controller
 import constants.controls.keyboard
 import sprites.characters.playersprite
 import utils.audio
-from constants.controls.joystick import JOYSTICK_BUTTON_MAPPING
+from constants.controls.joystick import JOYSTICK_BUTTON_MAPPING, AXIS_X, AXIS_Y
 from constants.layers import *
 from constants.maps import MAPS
 from sprites.bullet.bullet import Bullet
@@ -398,6 +398,20 @@ class Game(Fading):
                 face = FACE_UP
 
             self.player_sprite.set_face(face)
+
+    def on_joyaxis_motion(self, joystick, axis, value):
+        value = round(value)
+
+        x_value = 0
+        y_value = 0
+
+        if axis == AXIS_X:
+            x_value = round(value)
+
+        if axis == AXIS_Y:
+            y_value = round(value) * - 1
+
+        self.on_stick_motion(joystick, constants.controls.controller.LEFTSTICK, x_value, y_value)
 
     def on_trigger_motion(self, controller, trigger_name, value):
         logging.info(f"{trigger_name}, {value}")

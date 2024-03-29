@@ -11,5 +11,6 @@ JOYSTICK_BUTTON_MAPPING = {
     '1': 'a',
     '2': 'b',
     '0': 'x',
-    '3': 'y'
+    '3': 'y',
+    '8': 'rightshoulder'
 }
