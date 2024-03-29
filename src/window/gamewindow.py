@@ -88,6 +88,17 @@ class GameWindow(arcade.Window):
         except FileNotFoundError as e:
             logging.error(e)
             self.controllers = []
-        finally:
-            if not any(self.controllers):
-                logging.info(f"No controllers detected")
+
+        try:
+            joysticks = pyglet.input.get_joysticks()
+
+            for joystick in joysticks:
+                joystick.open(self)
+                logging.info(f'Controller: {joystick.device.name}')
+                self.controllers.append(joystick)
+        except FileNotFoundError as e:
+            logging.error(e)
+            self.controllers = []
+
+        if not any(self.controllers):
+            logging.info(f"No controllers detected")

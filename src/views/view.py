@@ -6,6 +6,7 @@ import mouse
 
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
+from constants.controls.joystick import AXIS_X, AXIS_Y
 from state.settingsstate import SettingsState
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
@@ -128,9 +129,26 @@ class View(arcade.View):
 
         self.move_pointer = move_pointer
 
-    def on_button_press(self, controller, key):
+    def on_joyaxis_motion(self, joystick, axis, value):
+        value = round(value)
+
+        x_value = 0
+        y_value = 0
+
+        if axis == AXIS_X:
+            x_value = round(value)
+
+        if axis == AXIS_Y:
+            y_value = round(value) * - 1
+
+        self.on_stick_motion(joystick, axis, x_value, y_value)
+
+    def on_button_press(self, joystick, key):
         logging.info(f"Controller button {key} pressed")
         mouse.click()
+
+    def on_joybutton_press(self, controller, key):
+        self.on_button_press(controller, key)
 
     def push_controller_handlers(self):
         for controller in self.window.controllers:
