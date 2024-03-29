@@ -3,6 +3,7 @@
 # Alpha 010 (Unreleased)
 
 * Hühner hinzugefügt
+* Unterstützung für Rii USB Classic Controller hinzugefügt
 
 # Alpha 009 (29.03.2024)
 
