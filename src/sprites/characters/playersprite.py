@@ -12,7 +12,7 @@ from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-MOVE_FORCE = 1700
+MOVE_FORCE = 2000
 
 MODIFIER_DEFAULT = 1
 MODIFIER_SPRINT = 1.5
