@@ -37,6 +37,8 @@ class View(arcade.View):
         self.move_pointer = None
         self.perf_graph = None
 
+        self.build_number_text = None
+
     def on_key_press(self, key, modifiers):
 
         super().on_key_press(key, modifiers)
@@ -102,7 +104,10 @@ class View(arcade.View):
                 with open(version_file, 'r') as f:
                     self.build_version = f.read()
 
-        create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='left').draw()
+        if not self.build_number_text:
+            self.build_number_text = create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='left')
+        self.build_number_text.draw()
+
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
