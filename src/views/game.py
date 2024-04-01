@@ -461,8 +461,6 @@ class Game(Fading):
             self.on_shoot()
         if key in constants.controls.keyboard.KEY_GRUNT:
             self.on_grunt()
-        if key in constants.controls.keyboard.KEY_SPAWN_FERRET:
-            spawn_ferret(self.state, self.tilemap, self.scene, self.physics_engine)
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
             self.left_key_pressed = True
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:

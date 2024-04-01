@@ -69,8 +69,7 @@ class SettingsControls(Fading):
                 (_("ESC"), _("Open the pause menu")),
                 (_('F3'), _('Show FPS')),
                 (_("F12"), _("Make screenshot")),
-                (_("Alt + Enter"), _("Toggle fullscreen")),
-                (_('F'), _('Ferret'))
+                (_("Alt + Enter"), _("Toggle fullscreen"))
             ]
 
         if self.show_controls == CONTROLS_CONTROLLER:
