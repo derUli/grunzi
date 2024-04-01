@@ -1,3 +1,4 @@
+""" Grunzi game Startup """
 import argparse
 import gettext
 import locale
@@ -20,11 +21,18 @@ from window.launcherwindow import LauncherWindow
 
 
 class StartUp:
-    def __init__(self, root_dir):
+    def __init__(self, root_dir: str):
+        """
+        Constructor
+        @param root_dir: Root directory of the game
+        """
         self.root_dir = root_dir
 
-    def parse_args(self):
-
+    def parse_args(self) -> argparse.Namespace:
+        """
+        Parse CLI args
+        @return: parsed arguments
+        """
         parser = argparse.ArgumentParser()
         parser.add_argument(
             '--window',
