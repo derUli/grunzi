@@ -4,6 +4,7 @@
 
 * Hühner hinzugefügt
 * Unterstützung für Rii USB Classic Controller hinzugefügt
+* Änderungen an map02 durchgeführt
 
 # Alpha 009 (29.03.2024)
 
