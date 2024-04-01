@@ -27,7 +27,7 @@ LAYER_CAR_LEFT = 'Cars Left'
 LAYER_CAR_RIGHT = 'Cars Right'
 LAYER_CAR_KEY = 'Car Key'
 LAYER_JEEP = 'Jeep'
-LAYER_HIGHWAY = 'Highway'
+LAYER_HIGHWAY = 'Sound:Highway'
 LAYER_WATER = 'Water'
 
 ALL_LAYERS = [
