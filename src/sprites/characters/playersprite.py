@@ -55,7 +55,7 @@ class PlayerSprite(Character, SpriteHealth):
 
         self.state = None
         self.gameover_text = None
-
+        self.gameover_text_rendered = None
         self.water = False
 
     def setup(self, state, scene):
@@ -153,10 +153,13 @@ class PlayerSprite(Character, SpriteHealth):
             return
 
         # TODO: Implement real game over screen
-        utils.text.create_text(
+        if not self.gameover_text_rendered:
+            self.gameover_text_rendered = utils.text.create_text(
             self.gameover_text,
             width=window.width - (utils.text.MARGIN * 2),
-            align='left').draw()
+            align='left')
+
+        self.gameover_text_rendered.draw()
 
     def set_item(self, item):
         if self.item:
