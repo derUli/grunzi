@@ -23,7 +23,7 @@ class DifficultySelection(Fading):
         self.state = state
         self.previous_view = previous_view
         self.manager = arcade.gui.UIManager(window)
-        self.shadertoy = self.state.load_shader(window.size, 'pigs2')
+        self.shadertoy = self.state.load_shader(window.size, 'pink')
         self.time = 0
 
         self.difficulty = None

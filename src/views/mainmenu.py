@@ -69,7 +69,7 @@ class MainMenu(Fading):
         self.player = None
 
         size = self.window.size
-        self.shadertoy = self.state.load_shader(size, 'pigs1')
+        self.shadertoy = self.state.load_shader(size, 'pigs')
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
@@ -191,7 +191,6 @@ class MainMenu(Fading):
         """ Render the screen. """
 
         # Clear the screen
-        self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
 
