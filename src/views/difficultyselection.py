@@ -28,7 +28,7 @@ class DifficultySelection(Fading):
 
         self.difficulty = None
 
-    def on_show_view(self):
+    def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
         super().on_show_view()
 
@@ -48,7 +48,7 @@ class DifficultySelection(Fading):
         if self.previous_view.player:
             self.previous_view.player.pause()
 
-    def setup(self):
+    def setup(self) -> None:
         self.manager.clear()
         self.manager.disable()
 
