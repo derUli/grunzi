@@ -53,8 +53,6 @@ WALL_LAYERS = [
 ]
 
 LAYER_OPTIONS = {
-    LAYER_WALL: {
-    },
     LAYER_FENCE: {
         'custom_class': Fence
     },
