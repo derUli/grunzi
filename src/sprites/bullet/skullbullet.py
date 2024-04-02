@@ -174,6 +174,7 @@ class SkullBullet(Bullet):
             COLLISION_BULLET,
             post_handler=on_hit_destroy
         )
+
         physics_engine.apply_force(self, (force_x, force_y))
 
         physics_engine.add_collision_handler(

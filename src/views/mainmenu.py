@@ -189,7 +189,7 @@ class MainMenu(Fading):
 
     def on_draw(self):
         """ Render the screen. """
-
+        self.clear()
         # Clear the screen
         self.camera_gui.use()
         self.render_shadertoy()
