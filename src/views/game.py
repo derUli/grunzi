@@ -140,7 +140,8 @@ class Game(Fading):
             self.tilemap = arcade.load_tilemap(
                 map_name,
                 layer_options=LAYER_OPTIONS,
-                use_spatial_hash=True
+                use_spatial_hash=True,
+                hit_box_algorithm='None'
             )
 
             self.tilemap_size = tilemap_size(self.tilemap)
