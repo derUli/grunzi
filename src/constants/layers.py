@@ -73,7 +73,8 @@ LAYER_OPTIONS = {
         'custom_class': Highway
     },
     LAYER_BEACH: {
-        'custom_class': Beach
+        'custom_class': Beach,
+        'use_spatial_hash': False
     },
     LAYER_CAR_RIGHT: {
         'custom_class': sprites.decoration.car.CarRight
@@ -82,7 +83,8 @@ LAYER_OPTIONS = {
         'custom_class': sprites.decoration.car.CarLeft
     },
     LAYER_FEATHER: {
-        'custom_class': Feather
+        'custom_class': Feather,
+        'use_spatial_hash': True
     },
     LAYER_VASE: {
         'custom_class': Vase
@@ -94,7 +96,8 @@ LAYER_OPTIONS = {
         'custom_class': Jeep
     },
     LAYER_WATER: {
-        'custom_class': Water
+        'custom_class': Water,
+        'use_spatial_hash': False
     }
 }
 

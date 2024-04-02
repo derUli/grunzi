@@ -4,3 +4,5 @@
 * Autofahr-Animation am Levelende
 * Punkte
 * Ausdauer
+* Aufgabe mit Metalldetektor
+* Game Over screen (Option Level Neustarten, Zurück zum Hauptmenü

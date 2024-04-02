@@ -1,3 +1,4 @@
+""" Difficulty selection """
 import logging
 
 import arcade.gui
@@ -14,7 +15,7 @@ BUTTON_WIDTH = 250
 
 
 class DifficultySelection(Fading):
-    """Main menu view class."""
+    """ Difficulty selection """
 
     def __init__(self, window, state, previous_view):
         super().__init__(window)
@@ -41,7 +42,7 @@ class DifficultySelection(Fading):
         self.setup()
 
     def on_hide_view(self) -> None:
-        # Disable the UIManager when the view is hidden.
+        """ This is run before this view is hidden """
         self.pop_controller_handlers()
         self.manager.disable()
 
@@ -49,6 +50,7 @@ class DifficultySelection(Fading):
             self.previous_view.player.pause()
 
     def setup(self) -> None:
+        """ Setup the view """
         self.manager.clear()
         self.manager.disable()
 
@@ -76,11 +78,11 @@ class DifficultySelection(Fading):
             style=utils.gui.get_button_style()
         )
 
-        difficulty_hardcore = arcade.gui.UIFlatButton(
-            text=_("Pig Stuff Mode"),
-            width=BUTTON_WIDTH,
-            style=utils.gui.get_button_style()
-        )
+        #difficulty_hardcore = arcade.gui.UIFlatButton(
+        #    text=_("Pig Stuff Mode"),
+        #    width=BUTTON_WIDTH,
+        #    style=utils.gui.get_button_style()
+        # )
 
         @difficulty_easy.event("on_click")
         def on_click_easy(event):
