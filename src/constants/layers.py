@@ -54,10 +54,8 @@ WALL_LAYERS = [
 
 LAYER_OPTIONS = {
     LAYER_WALL: {
-        'use_spatial_hash': True
     },
     LAYER_FENCE: {
-        'use_spatial_hash': True,
         'custom_class': Fence
     },
     LAYER_PLIER: {
@@ -83,8 +81,7 @@ LAYER_OPTIONS = {
         'custom_class': sprites.decoration.car.CarLeft
     },
     LAYER_FEATHER: {
-        'custom_class': Feather,
-        'use_spatial_hash': True
+        'custom_class': Feather
     },
     LAYER_VASE: {
         'custom_class': Vase
