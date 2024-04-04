@@ -1,3 +1,4 @@
+""" View base class """
 import logging
 import os
 
@@ -19,6 +20,7 @@ PERFORMANCE_GRAPH_BACKGROUND = (0, 0, 0, 80)
 
 
 class View(arcade.View):
+    """ View base class """
 
     def __init__(self, window):
         # Call the parent class and set up the window
