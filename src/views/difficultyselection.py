@@ -78,12 +78,6 @@ class DifficultySelection(Fading):
             style=utils.gui.get_button_style()
         )
 
-        #difficulty_hardcore = arcade.gui.UIFlatButton(
-        #    text=_("Pig Stuff Mode"),
-        #    width=BUTTON_WIDTH,
-        #    style=utils.gui.get_button_style()
-        # )
-
         @difficulty_easy.event("on_click")
         def on_click_easy(event):
             # Pass already created view because we are resuming.
@@ -118,8 +112,7 @@ class DifficultySelection(Fading):
             back_button,
             difficulty_easy,
             difficulty_medium,
-            difficulty_high,
-            # difficulty_hardcore
+            difficulty_high
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -145,8 +138,8 @@ class DifficultySelection(Fading):
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, delta_time):
-
+    def on_update(self, delta_time) -> None:
+        """ Update the screen """
         super().on_update(delta_time)
 
         self.time += delta_time
