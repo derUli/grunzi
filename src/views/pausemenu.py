@@ -85,7 +85,7 @@ class PauseMenu(Fading):
         frame.with_padding(bottom=20)
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key, modifiers) -> None:
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
