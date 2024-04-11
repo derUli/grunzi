@@ -84,7 +84,8 @@ class View(arcade.View):
         settings.vsync = self.window.vsync
         settings.save()
 
-    def on_toggle_fps(self):
+    def on_toggle_fps(self) -> None:
+        """ On toggle fps """
         self.state.settings.show_fps = not self.state.settings.show_fps
         self.state.settings.save()
 
