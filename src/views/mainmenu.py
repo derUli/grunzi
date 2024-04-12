@@ -175,7 +175,8 @@ class MainMenu(Fading):
 
         self.fade_out()
 
-    def on_update(self, delta_time):
+    def on_update(self, delta_time: float) -> None:
+        """ on update """
 
         super().on_update(delta_time=delta_time)
         self.time += delta_time
