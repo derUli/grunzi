@@ -188,7 +188,7 @@ class MainMenu(Fading):
         if self.player and self.player.volume != self.state.settings.music_volume:
             self.player.volume = self.state.settings.music_volume
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """ Render the screen. """
         self.clear()
         # Clear the screen
