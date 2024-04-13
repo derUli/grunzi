@@ -166,7 +166,8 @@ class MainMenu(Fading):
             if self.player:
                 self.player.pause()
 
-    def on_new_game(self):
+    def on_new_game(self) -> None:
+        """ On click "New Game" show difficulty selection """
         self.next_view = DifficultySelection(
             self.window,
             self.state,
@@ -190,6 +191,7 @@ class MainMenu(Fading):
 
     def on_draw(self) -> None:
         """ on draw """
+
         self.clear()
         # Clear the screen
         self.camera_gui.use()
