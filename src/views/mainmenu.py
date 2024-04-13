@@ -189,7 +189,7 @@ class MainMenu(Fading):
             self.player.volume = self.state.settings.music_volume
 
     def on_draw(self) -> None:
-        """ Render the screen. """
+        """ on draw """
         self.clear()
         # Clear the screen
         self.camera_gui.use()
