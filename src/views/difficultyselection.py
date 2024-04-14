@@ -189,7 +189,8 @@ class DifficultySelection(Fading):
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
-    def on_confirm_overwrite_savegame(self):
+    def on_confirm_overwrite_savegame(self) -> None:
+        """ Show confirm overwrite savegame dialog """
         message_box = arcade.gui.UIMessageBox(
             width=300,
             height=200,
