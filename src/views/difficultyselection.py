@@ -131,7 +131,7 @@ class DifficultySelection(Fading):
         if self.previous_view.player:
             self.previous_view.player.play()
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key, modifiers) -> None:
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
