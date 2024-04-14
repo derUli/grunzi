@@ -1,6 +1,6 @@
 """ Difficulty selection """
-import logging
 
+import logging
 import arcade.gui
 
 import constants.controls.keyboard
