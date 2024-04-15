@@ -54,6 +54,7 @@ class Fading(View):
                                          self.window.width, self.window.height,
                                          (0, 0, 0, self._fade_in))
 
-    def fade_quit(self):
+    def fade_quit(self) -> None:
+        """ Fade to quit """
         self.fade_out()
         self._do_quit = True
