@@ -119,7 +119,8 @@ class Game(Fading):
         self.state.settings.mute()
         self.call_update(0)
 
-    def setup(self):
+    def setup(self) -> None:
+        """ Setup game """
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
         self.video = load_video(
             video_file,
@@ -127,6 +128,7 @@ class Game(Fading):
             self.state.settings.music_volume
         )
 
+        # Load map
         threading.Thread(target=self.async_load).start()
 
     def async_load(self):
