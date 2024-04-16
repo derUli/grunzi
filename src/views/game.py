@@ -94,7 +94,8 @@ class Game(Fading):
 
         self.video = None
 
-    def on_show_view(self):
+    def on_show_view(self) -> None:
+        """ On show view """
         super().on_show_view()
         self.window.set_mouse_visible(False)
 
@@ -109,7 +110,8 @@ class Game(Fading):
 
         self.setup()
 
-    def on_hide_view(self):
+    def on_hide_view(self) -> None:
+        """ On hide view """
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
         self.pop_controller_handlers()
