@@ -131,7 +131,8 @@ class Game(Fading):
         # Load map
         threading.Thread(target=self.async_load).start()
 
-    def async_load(self):
+    def async_load(self) -> None:
+        """ Async load map """
         start_time = time.time()
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
