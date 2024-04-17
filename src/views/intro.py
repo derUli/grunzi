@@ -27,8 +27,8 @@ class Intro(Fading):
         self.wait_for = fps_second * WAIT_FOR
         self.wait_since = 0
 
-    def on_show_view(self):
-        """ This is run once when we switch to this view """
+    def on_show_view(self) -> None:
+        """ On show view """
         super().on_show_view()
         self.window.set_mouse_visible(False)
 
@@ -56,8 +56,11 @@ class Intro(Fading):
 
         self.scene.add_sprite(LAYER_UI, logo)
 
-    def on_update(self, delta_time):
-
+    def on_update(self, delta_time: float) -> None:
+        """
+        On update
+        @param delta_time: Delta Time
+        """
         super().on_update(delta_time=delta_time)
 
         self.update_fade(self.next_view)
@@ -72,8 +75,8 @@ class Intro(Fading):
             self.next_view = MainMenu(self.window, self.state)
             self.fade_out()
 
-    def on_draw(self):
-        """ Render the screen. """
+    def on_draw(self) -> None:
+        """ On draw """
 
         # Clear the screen
         self.clear()
