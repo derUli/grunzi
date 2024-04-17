@@ -162,8 +162,6 @@ class StartUp:
             LOG_LEVEL = logging.NOTSET
             LOG_LEVEL_ARCADE = logging.NOTSET
 
-        pyglet.options['win32_disable_shaping'] = True
-
         configure_logger(LOG_LEVEL)
 
         if args.fullscreen:
