@@ -148,8 +148,8 @@ class DifficultySelection(Fading):
         self.update_fade(self.next_view)
         self.scene.update()
 
-    def on_draw(self):
-        """ Render the screen. """
+    def on_draw(self) -> None:
+        """ On draw """
 
         # Clear the screen
         self.clear()
