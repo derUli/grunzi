@@ -109,9 +109,9 @@ class View(arcade.View):
                     self.build_version = f.read()
 
         if not self.build_number_text:
-            self.build_number_text = create_text(self.build_version, width=self.window.width - (MARGIN * 2), align='left')
+            self.build_number_text = create_text(self.build_version, width=self.window.width - (MARGIN * 2),
+                                                 align='left')
         self.build_number_text.draw()
-
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")

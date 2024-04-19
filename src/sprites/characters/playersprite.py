@@ -155,9 +155,9 @@ class PlayerSprite(Character, SpriteHealth):
         # TODO: Implement real game over screen
         if not self.gameover_text_rendered:
             self.gameover_text_rendered = utils.text.create_text(
-            self.gameover_text,
-            width=window.width - (utils.text.MARGIN * 2),
-            align='left')
+                self.gameover_text,
+                width=window.width - (utils.text.MARGIN * 2),
+                align='left')
 
         self.gameover_text_rendered.draw()
 

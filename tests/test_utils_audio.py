@@ -36,7 +36,7 @@ class AudioTest(unittest.TestCase):
         queue.from_directory(
             os.path.join(self.state.sound_dir, 'atmos'))
 
-        self.assertIn('highway.ogg', queue.files[0])
+        self.assertIn('beach.ogg', queue.files[0])
 
     def test_shuffle(self):
         queue = MusicQueue(self.state)
