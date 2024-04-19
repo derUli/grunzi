@@ -33,8 +33,9 @@ def random_position(tilemap: TileMap) -> tuple:
 
     return rand_x, rand_y
 
-def animated_in_sight(scene, player_sprite):
 
+def animated_in_sight(scene, player_sprite) -> list:
+    """ Get animated sprites in sight"""
     layers = [LAYER_WATER]
 
     animated = []
@@ -49,4 +50,3 @@ def animated_in_sight(scene, player_sprite):
                 animated.append(sprite)
 
     return animated
-
