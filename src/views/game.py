@@ -629,7 +629,12 @@ class Game(Fading):
         self.call_update(delta_time)
         self.update_enemies(delta_time)
         self.update_fade(self.next_view)
-        self.scene.update_animation(delta_time)
+
+        # Animated water
+        try:
+            self.scene.update_animation(delta_time, [LAYER_WATER])
+        except KeyError:
+            pass
 
     def call_update(self, delta_time):
         for sprite_list in self.scene.sprite_lists:
