@@ -36,7 +36,7 @@ from utils.callbackhandler import CallbackHandler
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
-from utils.sprite import tilemap_size
+from utils.sprite import tilemap_size, animated_in_sight
 from utils.video import load_video
 from views.camera import center_camera_to_player
 from views.fading import Fading
@@ -630,11 +630,10 @@ class Game(Fading):
         self.update_enemies(delta_time)
         self.update_fade(self.next_view)
 
-        # Animated water
-        try:
-            self.scene.update_animation(delta_time, [LAYER_WATER])
-        except KeyError:
-            pass
+        # Animate only visible
+        animated = animated_in_sight(self.scene, self.player_sprite)
+        for sprite in animated:
+            sprite.update_animation(delta_time)
 
     def call_update(self, delta_time):
         for sprite_list in self.scene.sprite_lists:
