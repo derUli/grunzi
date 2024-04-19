@@ -36,7 +36,8 @@ from utils.callbackhandler import CallbackHandler
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
-from utils.sprite import tilemap_size, animated_in_sight
+from utils.sprite import animated_in_sight
+from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
 from views.fading import Fading
@@ -59,7 +60,6 @@ class Game(Fading):
 
         # Our TileMap Object
         self.tilemap = None
-        self.tilemap_size = (0, 0)
 
         # Separate variable that holds the player sprite
         self.player_sprite = None
@@ -142,21 +142,17 @@ class Game(Fading):
 
         # Read in the tiled map
         try:
-            self.tilemap = arcade.load_tilemap(
+            self.tilemap = TileMap(
                 map_name,
-                layer_options=LAYER_OPTIONS,
-                use_spatial_hash=True,
-                hit_box_algorithm='None'
+                layer_options=LAYER_OPTIONS
             )
-
-            self.tilemap_size = tilemap_size(self.tilemap)
         except FileNotFoundError as e:
             logging.error(e)
             return arcade.exit()
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
-        self.scene = arcade.Scene.from_tilemap(self.tilemap)
+        self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -172,10 +168,10 @@ class Game(Fading):
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
         # Spawn NPCs
-        spawn_ferret(self.state, self.tilemap, self.scene, self.physics_engine)
+        spawn_ferret(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
         for i in range(random.randint(1, 4)):
-            spawn_chicken(self.state, self.tilemap, self.scene, self.physics_engine)
+            spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
         self.inventory = InventoryContainer()
         self.inventory.setup(state=self.state, size=self.window.size)
@@ -228,7 +224,7 @@ class Game(Fading):
                 align='left').draw()
             return self.draw_debug()
 
-        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap_size)
+        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
 
         self.camera_sprites.use()
         self.scene.draw()
@@ -647,7 +643,7 @@ class Game(Fading):
                     physics_engine=self.physics_engine,
                     state=self.state,
                     delta_time=delta_time,
-                    map_size=self.tilemap_size
+                    map_size=self.tilemap.size
                 )
 
     def update_enemies(self, delta_time):
@@ -656,7 +652,7 @@ class Game(Fading):
         if len(enemies) < self.state.difficulty.max_skulls:
             a, b = self.state.difficulty.skull_spawn_range
             if random.randint(a, b) == 50:
-                spawn_skull(self.state, self.tilemap, self.scene, self.physics_engine)
+                spawn_skull(self.state, self.tilemap.map, self.scene, self.physics_engine)
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
 
     def update_collectable(self):
