@@ -1,14 +1,17 @@
+""" Positional sound """
 import logging
+
+import arcade
 
 from utils.audio import normalize_volume
 
 MAX_DISTANCE = 800
 FADE_SPEED = 0.1
 
-import arcade
-
 
 class PositionalSound:
+    """ Positional sound """
+
     def __init__(self, listener, source, player, state):
         self.listener = listener
         self.source = source
