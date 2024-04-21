@@ -100,9 +100,6 @@ class SettingsControls(Fading):
 
         text = text.strip()
 
-        # Makes the background darker
-        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
-
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,

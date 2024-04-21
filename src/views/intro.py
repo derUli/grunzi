@@ -32,9 +32,6 @@ class Intro(Fading):
         super().on_show_view()
         self.window.set_mouse_visible(False)
 
-        # Makes the background darker
-        arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
-
         image = PIL.Image.open(
             os.path.join(self.state.image_dir, 'ui', 'logo.png')
         ).convert('RGBA').crop()

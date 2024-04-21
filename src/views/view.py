@@ -62,8 +62,6 @@ class View(arcade.View):
             self.alt_key_pressed = False
 
     def on_show_view(self):
-        # Set the background color
-        arcade.set_background_color(arcade.csscolor.BLACK)
         self.perf_graph = arcade.PerfGraph(
             PERFORMANCE_GRAPH_WIDTH,
             PERFORMANCE_GRAPH_HEIGHT,

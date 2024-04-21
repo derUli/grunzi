@@ -40,9 +40,6 @@ class MapSelection(Fading):
         self.push_controller_handlers()
         self.window.set_mouse_visible(True)
 
-        # Makes the background darker
-        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
-
         self.setup()
 
     def on_hide_view(self):

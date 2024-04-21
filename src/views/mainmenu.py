@@ -140,9 +140,6 @@ class MainMenu(Fading):
         self.window.set_mouse_visible(True)
         self.push_controller_handlers()
 
-        # Makes the background darker
-        arcade.set_background_color([rgb - 50 for rgb in arcade.color.DARK_BLUE_GRAY])
-
         music = None
 
         try:
