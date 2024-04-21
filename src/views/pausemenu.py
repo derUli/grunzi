@@ -133,7 +133,7 @@ class PauseMenu(Fading):
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
-    def on_confirm_exit(self, button):
+    def on_confirm_exit(self, button) -> None:
         if button.action == _('Yes'):
             self.on_exit(confirm=True)
 
