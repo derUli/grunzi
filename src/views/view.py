@@ -41,6 +41,16 @@ class View(arcade.View):
 
         self.build_number_text = None
 
+    def on_show_view(self) -> None:
+        """ On show view """
+        self.perf_graph = arcade.PerfGraph(
+            PERFORMANCE_GRAPH_WIDTH,
+            PERFORMANCE_GRAPH_HEIGHT,
+            background_color=PERFORMANCE_GRAPH_BACKGROUND
+        )
+        self.perf_graph.left = self.window.width - MARGIN - self.perf_graph.width
+        self.perf_graph.bottom = MARGIN
+
     def on_key_press(self, key, modifiers):
 
         super().on_key_press(key, modifiers)
@@ -60,15 +70,6 @@ class View(arcade.View):
     def on_key_release(self, key, modifiers):
         if key == arcade.key.LALT:
             self.alt_key_pressed = False
-
-    def on_show_view(self):
-        self.perf_graph = arcade.PerfGraph(
-            PERFORMANCE_GRAPH_WIDTH,
-            PERFORMANCE_GRAPH_HEIGHT,
-            background_color=PERFORMANCE_GRAPH_BACKGROUND
-        )
-        self.perf_graph.left = self.window.width - MARGIN - self.perf_graph.width
-        self.perf_graph.bottom = MARGIN
 
     def on_toggle_fullscreen(self):
         self.window.set_fullscreen(not self.window.fullscreen)
