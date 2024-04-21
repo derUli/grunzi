@@ -95,6 +95,7 @@ class PauseMenu(Fading):
         """ On hide view """
         self.pop_controller_handlers()
         self.manager.disable()
+
     def on_key_press(self, key, modifiers) -> None:
         """ on Key press """
         super().on_key_press(key, modifiers)
