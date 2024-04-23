@@ -134,7 +134,7 @@ class MainMenu(Fading):
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
     def on_show_view(self):
-        """ This is run once when we switch to this view """
+        """ On show view """
         super().on_show_view()
         self.state.settings.unmute()
         self.window.set_mouse_visible(True)
@@ -154,8 +154,8 @@ class MainMenu(Fading):
             self.player = music.play(loop=True, volume=self.state.settings.music_volume)
         self.manager.enable()
 
-    def on_hide_view(self):
-        # Disable the UIManager when the view is hidden.
+    def on_hide_view(self) -> None:
+        """ On hide view """
         self.pop_controller_handlers()
         self.manager.disable()
 
