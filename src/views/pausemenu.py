@@ -134,6 +134,7 @@ class PauseMenu(Fading):
         self.fade_out()
 
     def on_confirm_exit(self, button) -> None:
+        """ On confirm exit """
         if button.action == _('Yes'):
             self.on_exit(confirm=True)
 
