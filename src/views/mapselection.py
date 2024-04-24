@@ -33,8 +33,8 @@ class MapSelection(Fading):
         self.select_button = None
         self.selected = 0
 
-    def on_show_view(self):
-        """ This is run once when we switch to this view """
+    def on_show_view(self) -> None:
+        """ On show view """
         super().on_show_view()
 
         self.push_controller_handlers()
@@ -50,7 +50,8 @@ class MapSelection(Fading):
         if self.previous_view.player:
             self.previous_view.player.pause()
 
-    def setup(self):
+    def setup(self) -> None:
+        """ Setup UI """
         self.manager.clear()
         self.manager.disable()
         self.maps = SaveGameState.load().get_selectable()
