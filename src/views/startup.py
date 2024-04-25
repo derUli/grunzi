@@ -130,8 +130,8 @@ class StartUp:
 
         return parser.parse_args()
 
-    def setup_locale(self):
-        # Set locale
+    def setup_locale(self) -> None:
+        """ setup locale """
         locale_path = os.path.join(self.root_dir, 'data', 'locales')
         os.environ['LANG'] = ':'.join(locale.getlocale())
         gettext.install('messages', locale_path)
