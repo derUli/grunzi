@@ -201,7 +201,7 @@ class Game(Fading):
 
         self.video = None
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """Render the screen."""
 
         if self.video and self.video.active:
@@ -271,8 +271,8 @@ class Game(Fading):
 
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
-    def reset_keys(self):
-        # What key is pressed down?
+    def reset_keys(self) -> None:
+        """ Reset key pressed vars """
         self.up_key_pressed = False
         self.right_key_pressed = False
         self.down_key_pressed = False
