@@ -162,6 +162,7 @@ class DifficultySelection(Fading):
 
     def on_select_difficulty(self, difficulty, overwrite=False) -> None:
         """ On select difficulty """
+
         self.difficulty = difficulty
 
         if SaveGameState.exists() and not overwrite:

@@ -1,3 +1,5 @@
+""" Main menu """
+
 import logging
 import os
 
@@ -18,7 +20,7 @@ BUTTON_MARGIN_BOTTOM = 20
 
 
 class MainMenu(Fading):
-    """Main menu view class."""
+    """ Main menu """
 
     def __init__(self, window, state):
         super().__init__(window)

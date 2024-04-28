@@ -42,8 +42,8 @@ class MapSelection(Fading):
 
         self.setup()
 
-    def on_hide_view(self):
-        # Disable the UIManager when the view is hidden.
+    def on_hide_view(self) -> None:
+        """ On hide view """
         self.pop_controller_handlers()
         self.manager.disable()
 
@@ -159,7 +159,8 @@ class MapSelection(Fading):
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, delta_time):
+    def on_update(self, delta_time) -> None:
+        """ On update """
 
         super().on_update(delta_time)
 
