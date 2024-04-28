@@ -153,7 +153,7 @@ class MapSelection(Fading):
             self.previous_view.player.play()
 
     def on_key_press(self, key, modifiers):
-        """Called whenever a key is pressed."""
+        """ Called whenever a key is pressed. """
         super().on_key_press(key, modifiers)
 
         if key in constants.controls.keyboard.KEY_PAUSE:
@@ -184,7 +184,12 @@ class MapSelection(Fading):
         self.draw_fading()
         self.draw_debug()
 
-    def on_select_difficulty(self, difficulty, overwrite=False):
+    def on_select_difficulty(self, difficulty, overwrite=False) -> None:
+        """
+        On select difficulty
+        @param difficulty: int
+        @param overwrite: bool
+        """
         self.difficulty = difficulty
 
         if SaveGameState.exists() and not overwrite:
@@ -205,12 +210,14 @@ class MapSelection(Fading):
         self.next_view = Game(self.window, self.state)
         self.fade_out()
 
-    def on_back(self):
+    def on_back(self) -> None:
+        """ On back """
         from views.mainmenu import MainMenu
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
-    def on_confirm_overwrite_savegame(self):
+    def on_confirm_overwrite_savegame(self) -> None:
+        """ On confirm overwrite savegame """
         message_box = arcade.gui.UIMessageBox(
             width=300,
             height=200,
