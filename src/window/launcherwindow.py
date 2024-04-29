@@ -2,6 +2,7 @@ import os
 import tkinter as tk
 import tkinter.ttk as ttk
 
+import pyglet.canvas
 from PIL.ImageTk import PhotoImage
 from ttkthemes import ThemedTk
 
@@ -141,6 +142,11 @@ class LauncherWindow(ThemedTk):
         self.state.fullscreen = self.fullscreen.get()
         self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
+
+        if self.state.vsync:
+            mode = pyglet.canvas.get_display().get_default_screen().get_mode()
+            self.args.limit_fps = mode.rate
+
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.audio_backend = self.audio_backend.get()
