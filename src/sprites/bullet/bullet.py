@@ -1,3 +1,5 @@
+""" Pig bullet """
+
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
