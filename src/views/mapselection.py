@@ -232,7 +232,8 @@ class MapSelection(Fading):
 
         self.manager.add(message_box)
 
-    def on_overwrite_savegame(self, event):
+    def on_overwrite_savegame(self, event) -> None:
+        """ On overwrite savegame """
         action = event.action
         if action == _('Yes'):
             self.on_select_difficulty(self.difficulty, overwrite=True)
