@@ -56,7 +56,8 @@ class Intro(Fading):
        # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
 
-    def on_hide_view(self):
+    def on_hide_view(self) -> None:
+        """ On hide view """
         arcade.set_background_color(arcade.csscolor.BLACK)
 
     def on_update(self, delta_time: float) -> None:
