@@ -28,14 +28,11 @@ Die Tests des Linux-Build erfolgen in der WSL und einer VirtualBox Maschine.
 
 ## Was ist neu?
 
-In diesem Build kann das bisher einzige Level abgeschlossen werden.
-Ein Intro-Video, welches zur Überbrückung der Ladezeit dient, wurde hinzugefügt.
-Bei jedem Spielstand wird ein friedliches Frettchen, welches bisher noch keine KI hat, zufällig auf der Karte positioniert.
-Mit der Taste "F" können weitere Frettchen gespawnt werden.
-Ein Spielstandsystem, welches zum Ende jedes Levels speichert, wurde hinzugefügt.
-Der Launcher wurde überarbeitet.
-In-Game Einstellungsmöglichkeiten wurden hinzugefügt.
-Einige Bugs wurden behoben.
+In diesem Build wurden die Hühner als friedliche NPCs erneut hinzugefügt.
+Rii USB Classic Controller werden jetzt unterstützt.
+Teile des zweiten Levels wurden entwickelt.
+Die Shader-Hintergründe im Hauptmenü wurden geändert.
+Zudem wurden einige Fehler korrigiert.
 
 # Spiel starten
 
@@ -46,8 +43,11 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
 ```
   --window              Run in windowed mode
   --fullscreen          Run in fullscreen mode
+  --borderless          Borderless window
   --width WIDTH         Window width in pixels
   --height HEIGHT       Window height in pixels
+  --limit-fps LIMIT_FPS
+                        Limit maximum fps
   --map MAP             Name of the map
   --silent              Mute the sound
   --audio-backend {auto,xaudio2,directsound,openal,pulse,silent}
@@ -56,7 +56,6 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   -v, --verbose         Make the operation more talkative
   -l, --skip-logo       Skip the logo screen and go straight to main menu
   --skip-launcher       Skip launcher
-
 
 ```
 
