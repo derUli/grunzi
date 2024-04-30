@@ -1,8 +1,10 @@
 # Beschreibung
 
-Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufers und erkundest einer Welt voller Action,
-Monster und friedlicher Zeitgenossen.
-Das Spiel befindet sich noch in einem sehr frühen Zustand der Entwicklung.
+Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufers und erkundest einer Welt voller Action, Monster und friedlicher Zeitgenossen.
+
+Das Spiel befindet sich noch in einem frühen Zustand der Entwicklung.
+Bis jetzt ist das erste Level vollständig umgesetzt und das zweite Level befindet sich in Entwicklung.
+Das fertige Spiel sollen 4 verschiedene Levels enthalten.
 
 ## Systemvoraussetzungen
 
@@ -21,6 +23,8 @@ CPU: Intel Pentium Gold 7505
 GPU: Intel UHD Graphics
 RAM: 8 GB
 OS: Windows 11 64-Bit
+
+Die Tests des Linux-Build erfolgen in der WSL und einer VirtualBox Maschine.
 
 ## Was ist neu?
 
