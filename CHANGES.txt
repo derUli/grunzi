@@ -8,8 +8,7 @@
 * Musik-Tracks zu map02 hinzugefügt
 * Meer-Soundeffekt zu map02 hinzugefügt
 * Shader-Hintergründe im Menü geändert
-* "Steuerung" Button unter "Einstellungen" > "Video" entfernt
-
+* "Steuerung" Menüpunkt unter "Einstellungen" > "Video" entfernt
 
 # Alpha 009 (29.03.2024)
 
