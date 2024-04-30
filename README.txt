@@ -76,6 +76,7 @@ Die Steuerung über Tastatur kann im Hauptmenü unter "Einstellungen" - "Steueru
 ## Controller
 
 Angeschlossene Controller werden beim Spielstart automatisch erkannt.
+Der Controller muss bereits vor dem Start des Spiels mit dem Computer verbunden sein.
 
 Die Steuerung über Controller kann im Hauptmenü unter "Einstellungen" - "Steuerung" eingesehen werden.
 
@@ -91,6 +92,7 @@ Weitere Modelle können funktionieren, wurden von mir aber nicht getestet.
 Beim Start des Spiels öffnet sich ein Dialog, wo die folgenden Einstellungen konfiguriert werden können:
 
 * Vollbild
+* Rahmenlos
 * V-Sync
 * Bildschirmauflösung
 * Audio Backend
