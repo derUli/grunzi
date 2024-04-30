@@ -73,13 +73,15 @@ class View(arcade.View):
         if key == arcade.key.LALT:
             self.alt_key_pressed = False
 
-    def on_toggle_fullscreen(self):
+    def on_toggle_fullscreen(self) -> None:
+        """ On toggle fullscreen """
         self.window.set_fullscreen(not self.window.fullscreen)
         settings = SettingsState().load()
         settings.fullscreen = self.window.fullscreen
         settings.save()
 
-    def on_toggle_vsync(self):
+    def on_toggle_vsync(self) -> None:
+        """ On toggle vsync """
         self.window.set_vsync(not self.window.vsync)
         settings = SettingsState().load()
         settings.vsync = self.window.vsync
