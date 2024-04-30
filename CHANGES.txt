@@ -6,6 +6,7 @@
 * Unterstützung für Rii USB Classic Controller hinzugefügt
 * Änderungen an map02 durchgeführt
 * Shader-Hintergründe im Menü geändert
+* "Steuerung" Button unter "Einstellungen" > "Video" entfernt
 
 # Alpha 009 (29.03.2024)
 

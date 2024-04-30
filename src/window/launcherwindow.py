@@ -118,7 +118,7 @@ class LauncherWindow(ThemedTk):
         self.resizable(False, False)
         button_launch.focus_set()
 
-    def bind_keyevents(self):
+    def bind_keyevents(self) -> None:
         """ Bind keyboard events"""
 
         # ESC key will quit the app
