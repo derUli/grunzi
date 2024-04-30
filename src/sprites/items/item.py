@@ -3,7 +3,7 @@ from typing import Optional
 
 import PIL
 import arcade
-from arcade import AnimatedTimeBasedSprite
+from arcade import AnimatedTimeBasedSprite, FACE_RIGHT
 
 from sprites.sprite import Sprite
 
@@ -28,9 +28,26 @@ class Item(Sprite):
         self.filename = filename
         self.image = PIL.Image.open(filename).convert('RGBA').crop()
 
-        texture = arcade.texture.Texture(name=filename, image=self.image)
+        self.images = [
+            self.image,
+            PIL.ImageOps.mirror(self.image),
+            self.image,
+            self.image
+        ]
+
+        self._the_textures = []
+
+        i = 0
+        for image in self.images:
+            self._the_textures.append(
+                arcade.texture.Texture(name=str(filename) + str(i), image=image)
+            )
+
+            i += 1
+
+
         super().__init__(
-            texture=texture,
+            texture= self._the_textures[FACE_RIGHT - 1],
             scale=scale,
             image_x=image_x,
             image_y=image_y,
@@ -42,6 +59,10 @@ class Item(Sprite):
     def copy(self):
         logging.debug('Copy not implemented')
         return self
+
+    def draw_item(self, face):
+        self.texture = self._the_textures[face - 1]
+        self.draw()
 
 
 class Useable:

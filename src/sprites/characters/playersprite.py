@@ -135,7 +135,7 @@ class PlayerSprite(Character, SpriteHealth):
                 self.item.center_x = self.center_x
                 self.item.top = self.bottom - INVENTORY_MARGIN
 
-            self.item.draw()
+            self.item.draw_item(self.face)
 
     def draw_overlay(self):
         window = arcade.get_window()
