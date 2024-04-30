@@ -23,6 +23,11 @@ class MainMenu(Fading):
     """ Main menu """
 
     def __init__(self, window, state):
+        """
+        Constructor
+        @param window: arcade.Window
+        @param state: SettingsState
+        """
         super().__init__(window)
 
         self.window = window
@@ -135,7 +140,7 @@ class MainMenu(Fading):
         frame = self.manager.add(arcade.gui.UIAnchorLayout())
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
-    def on_show_view(self):
+    def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
         self.state.settings.unmute()

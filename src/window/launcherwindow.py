@@ -143,10 +143,6 @@ class LauncherWindow(ThemedTk):
         self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
 
-        if self.state.vsync:
-            mode = pyglet.canvas.get_display().get_default_screen().get_mode()
-            self.args.limit_fps = mode.rate
-
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.audio_backend = self.audio_backend.get()
