@@ -68,7 +68,6 @@ https://www.microsoft.com/de-de/download/details.aspx?id=48145
 # Steuerung
 
 Das Spiel unterstützt Steuerung per Tastatur und per Controller.
-Das Hauptmenü kann aktuell nur per Maus bedient werden.
 
 ## Tastatur
 
@@ -76,7 +75,6 @@ Die Steuerung über Tastatur kann im Hauptmenü unter "Einstellungen" - "Steueru
 
 ## Controller
 
-Der Controller muss bereits vor dem Spielstart mit dem Computer verbunden sein.
 Angeschlossene Controller werden beim Spielstart automatisch erkannt.
 
 Die Steuerung über Controller kann im Hauptmenü unter "Einstellungen" - "Steuerung" eingesehen werden.
