@@ -4,6 +4,7 @@ from arcade import SpriteList, Scene
 
 import sprites.decoration.car
 from sprites.items.carkey import CarKey
+from sprites.items.chainsaw import Chainsaw
 from sprites.items.hammer import Hammer
 from sprites.items.item import Fence, PiggyBank, Jeep, Water
 from sprites.items.plier import Plier
@@ -27,6 +28,7 @@ LAYER_SPAWN_POINT = 'Spawn Point'
 LAYER_CAR_LEFT = 'Cars Left'
 LAYER_CAR_RIGHT = 'Cars Right'
 LAYER_CAR_KEY = 'Car Key'
+LAYER_CHAINSAW = 'Chainsaw'
 LAYER_JEEP = 'Jeep'
 LAYER_HIGHWAY = 'Sound:Highway'
 LAYER_BEACH = 'Sound:Beach'
@@ -85,6 +87,9 @@ LAYER_OPTIONS = {
     },
     LAYER_CAR_KEY: {
         'custom_class': CarKey
+    },
+    LAYER_CHAINSAW: {
+        'custom_class': Chainsaw
     },
     LAYER_JEEP: {
         'custom_class': Jeep
