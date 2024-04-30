@@ -1,0 +1,19 @@
+{
+  "default": {
+    "1": {
+      "maxSkulls": 10,
+      "skullSpawnRange": [0, 100],
+      "skullHurt": 10
+    },
+    "2": {
+      "maxSkulls": 15,
+      "skullSpawnRange": [0, 80],
+      "skullHurt": 15
+    },
+    "3": {
+      "maxSkulls": 20,
+      "skullSpawnRange": [0, 80],
+      "skullHurt": 20
+    }
+  }
+}

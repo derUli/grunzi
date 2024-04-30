@@ -53,7 +53,7 @@ class Intro(Fading):
 
         self.scene.add_sprite(LAYER_UI, logo)
 
-       # Makes the background darker
+        # Makes the background darker
         arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
 
     def on_hide_view(self) -> None:

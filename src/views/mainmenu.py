@@ -89,7 +89,7 @@ class MainMenu(Fading):
             from views.game import Game
             savegame = SaveGameState.load()
             self.state.map_name = savegame.current
-            self.state.difficulty = Difficulty(savegame.difficulty)
+            self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
             self.next_view = Game(self.window, self.state)
             self.fade_out()
@@ -101,7 +101,7 @@ class MainMenu(Fading):
             from views.mapselection import MapSelection
             savegame = SaveGameState.load()
             self.state.map_name = savegame.current
-            self.state.difficulty = Difficulty(savegame.difficulty)
+            self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
             self.next_view = MapSelection(self.window, self.state, previous_view=self)
             self.fade_out()

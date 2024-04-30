@@ -176,7 +176,7 @@ class DifficultySelection(Fading):
         new_savegame(self.state.map_name_first, difficulty)
 
         self.state.map_name = self.state.map_name_first
-        self.state.difficulty = Difficulty(difficulty)
+        self.state.difficulty = Difficulty(difficulty, self.state.map_name, self.state.map_dir)
 
         from views.game import Game
 

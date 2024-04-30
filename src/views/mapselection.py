@@ -120,7 +120,7 @@ class MapSelection(Fading):
 
             savegame = SaveGameState.load()
             self.state.map_name = map
-            self.state.difficulty = Difficulty(savegame.difficulty)
+            self.state.difficulty = Difficulty(savegame.difficulty, map, self.state.map_dir)
 
             self.next_view = Game(self.window, self.state)
             self.fade_out()
@@ -203,7 +203,7 @@ class MapSelection(Fading):
         new_savegame(self.state.map_name_first, difficulty)
 
         self.state.map_name = self.state.map_name_first
-        self.state.difficulty = Difficulty(difficulty)
+        self.state.difficulty = Difficulty(difficulty, self.state.map_name, self.state.map_dir)
 
         from views.game import Game
 
