@@ -7,8 +7,8 @@ class Hammer(Item):
         from sprites.characters.skullsprite import SkullSprite
 
         if isinstance(b, PiggyBank):
-            b.fade_destroy()
-            state.play_sound('piggybank', 'destroy')
+            if b.fade_destroy():
+                state.play_sound('piggybank', 'destroy')
             return
 
         if isinstance(b, SkullSprite):

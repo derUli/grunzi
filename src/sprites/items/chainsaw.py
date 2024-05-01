@@ -9,10 +9,9 @@ class Chainsaw(Item):
         from sprites.characters.skullsprite import SkullSprite
 
         if isinstance(b, Tree):
-            b.fade_destroy()
-            # TODO: Chainsaw sound
-            sound_number = random.randint(1, 4)
-            state.play_sound('chainsaw' + str(sound_number))
+            if b.fade_destroy():
+                sound_number = random.randint(1, 4)
+                state.play_sound('chainsaw' + str(sound_number))
             return
 
         if isinstance(b, SkullSprite):
