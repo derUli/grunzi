@@ -1,6 +1,6 @@
 # Changelog
 
-# Alpha 010 (Unreleased)
+# Alpha 010 (2024-05-03)
 
 * Hühner hinzugefügt
 * Unterstützung für Rii USB Classic Controller hinzugefügt
