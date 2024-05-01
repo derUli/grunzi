@@ -25,7 +25,6 @@ from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.character import Character
 from sprites.characters.chicken import spawn_chicken
-from sprites.characters.ferret import spawn_ferret
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import spawn_skull
 from sprites.items.item import Item, Useable
@@ -166,9 +165,6 @@ class Game(Fading):
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
-
-        # Spawn NPCs
-        spawn_ferret(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
         for i in range(random.randint(1, 4)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)

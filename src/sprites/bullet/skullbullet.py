@@ -2,13 +2,11 @@ import arcade
 from arcade import SpriteSolidColor
 
 from constants.collisions import COLLISION_BULLET, COLLISION_WALL, COLLISION_SKULL_BULLET, COLLISION_PLAYER, \
-    COLLISION_FERRET, COLLISION_CHICKEN
+    COLLISION_CHICKEN
 from constants.layers import LAYER_ENEMIES
 from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
 from utils.physics import on_hit_destroy
-
-HURT_FERRET = 25
 
 MASS = 0.1
 DAMPING = 1
@@ -183,17 +181,6 @@ class SkullBullet(Bullet):
             post_handler=self.on_hit_player
         )
 
-        physics_engine.add_collision_handler(
-            COLLISION_SKULL_BULLET,
-            COLLISION_FERRET,
-            post_handler=self.on_hit_ferret
-        )
-
-        physics_engine.add_collision_handler(
-            COLLISION_SKULL_BULLET,
-            COLLISION_CHICKEN,
-            post_handler=self.on_hit_ferret
-        )
 
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
@@ -202,8 +189,3 @@ class SkullBullet(Bullet):
             return
 
         _hit_sprite.hurt(self.hurt)
-
-    def on_hit_ferret(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
-        """ Called for bullet/wall collision """
-        bullet_sprite.remove_from_sprite_lists()
-        _hit_sprite.hurt(HURT_FERRET)

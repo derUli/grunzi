@@ -3,7 +3,7 @@
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN, COLLISION_FERRET
+from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN
 from constants.layers import LAYER_ENEMIES
 from utils.physics import on_hit_destroy
 
@@ -61,7 +61,6 @@ class Bullet(arcade.sprite.SpriteCircle):
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_WALL, post_handler=on_hit_destroy)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_BULLET, post_handler=on_hit_destroy)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_ENEMY, post_handler=self.on_hit)
-        physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_FERRET, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_CHICKEN, post_handler=self.on_hit)
 
         physics_engine.apply_force(self, (self.force_move, 0))

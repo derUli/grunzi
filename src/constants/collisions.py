@@ -8,6 +8,5 @@ COLLISION_SKULL_BULLET = "skull_bullet"
 COLLISION_WATER = "water"
 COLLISION_WALL = "wall"
 COLLISION_PLAYER = "player"
-COLLISION_FERRET = 'ferret'
 COLLISION_CHICKEN = 'chicken'
 COLLISION_DUCK = 'duck'
