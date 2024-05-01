@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="153" height="117" tilewidth="64" tileheight="64" infinite="0" nextlayerid="21" nextobjectid="28">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="153" height="117" tilewidth="64" tileheight="64" infinite="0" nextlayerid="22" nextobjectid="40">
  <tileset firstgid="1" name="Chars" tilewidth="60" tileheight="46" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -292,6 +292,12 @@
   </tile>
   <tile id="4">
    <image width="64" height="25" source="../images/sprites/tools/chainsaw.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="136" name="Ducks" tilewidth="64" tileheight="52" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="64" height="52" source="../images/sprites/char/duck_swimming.png"/>
   </tile>
  </tileset>
  <layer id="1" name="Grass" width="153" height="117">
@@ -1528,5 +1534,13 @@
  </objectgroup>
  <objectgroup id="18" name="Hammer">
   <object id="17" gid="133" x="7985.67" y="2076" width="25" height="64"/>
+ </objectgroup>
+ <objectgroup id="21" name="Ducks">
+  <object id="28" gid="136" x="146.667" y="7082.67" width="64" height="52"/>
+  <object id="31" gid="136" x="1880.12" y="7332.06" width="64" height="52"/>
+  <object id="32" gid="136" x="2946.79" y="7062.36" width="64" height="52"/>
+  <object id="33" gid="136" x="5622.55" y="6892.67" width="64" height="52"/>
+  <object id="36" gid="136" x="1136.97" y="6991.45" width="64" height="52"/>
+  <object id="39" gid="136" x="4168" y="7142" width="64" height="52"/>
  </objectgroup>
 </map>

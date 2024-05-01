@@ -3,6 +3,7 @@
 from arcade import SpriteList, Scene
 
 import sprites.decoration.car
+from sprites.characters.duck import Duck
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
 from sprites.items.hammer import Hammer
@@ -30,6 +31,7 @@ LAYER_CAR_LEFT = 'Cars Left'
 LAYER_CAR_RIGHT = 'Cars Right'
 LAYER_CAR_KEY = 'Car Key'
 LAYER_CHAINSAW = 'Chainsaw'
+LAYER_DUCK = 'Ducks'
 LAYER_JEEP = 'Jeep'
 LAYER_HIGHWAY = 'Sound:Highway'
 LAYER_BEACH = 'Sound:Beach'
@@ -100,6 +102,9 @@ LAYER_OPTIONS = {
     },
     LAYER_WATER: {
         'custom_class': Water
+    },
+    LAYER_DUCK: {
+        'custom_class' : Duck
     }
 }
 

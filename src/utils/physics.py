@@ -3,14 +3,14 @@
 import arcade
 from arcade import PymunkPhysicsEngine, Scene
 
-from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR
+from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR, COLLISION_DUCK
 from constants.layers import (
     LAYER_MOVEABLE,
     LAYER_CAR_RIGHT,
     LAYER_CAR_LEFT,
     LAYER_WALL,
     LAYER_FENCE,
-    LAYER_PIGGYBANK, LAYER_JEEP, LAYER_WATER, LAYER_TREE
+    LAYER_PIGGYBANK, LAYER_JEEP, LAYER_WATER, LAYER_TREE, LAYER_DUCK
 )
 from sprites.characters.playersprite import PlayerSprite
 
@@ -94,6 +94,19 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
             mass=2,
             damping=0.01,
             collision_type=COLLISION_CAR,
+            moment_of_intertia=arcade.PymunkPhysicsEngine.MOMENT_INF
+        )
+
+    npc_layers =[
+        LAYER_DUCK
+    ]
+
+    for layer in npc_layers:
+        if layer not in scene.name_mapping:
+            scene.add_sprite_list(layer)
+        physics_engine.add_sprite_list(
+            scene[layer],
+            collision_type=COLLISION_DUCK,
             moment_of_intertia=arcade.PymunkPhysicsEngine.MOMENT_INF
         )
 

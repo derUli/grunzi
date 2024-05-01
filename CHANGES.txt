@@ -3,6 +3,7 @@
 ## Alpha 011 (Unreleased)
 
 * Kettensäge und Bäume hinzugefügt
+* Enten hinzugefügt
 
 ## Alpha 010 (2024-05-03)
 
