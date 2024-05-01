@@ -181,6 +181,11 @@ class SkullBullet(Bullet):
             post_handler=self.on_hit_player
         )
 
+        physics_engine.add_collision_handler(
+            COLLISION_SKULL_BULLET,
+            COLLISION_CHICKEN,
+            post_handler=self.on_hit_player
+        )
 
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
