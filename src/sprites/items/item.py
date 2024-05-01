@@ -30,9 +30,9 @@ class Item(Sprite):
 
         self.images = [
             self.image,
-            PIL.ImageOps.mirror(self.image),
+            PIL.ImageOps.mirror(self.image.copy()),
             self.image,
-            self.image
+            self.image,
         ]
 
         self._the_textures = []
@@ -45,9 +45,8 @@ class Item(Sprite):
 
             i += 1
 
-
         super().__init__(
-            texture= self._the_textures[FACE_RIGHT - 1],
+            texture=self._the_textures[FACE_RIGHT - 1],
             scale=scale,
             image_x=image_x,
             image_y=image_y,
