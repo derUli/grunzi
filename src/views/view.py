@@ -100,7 +100,11 @@ class View(arcade.View):
         """ On toggle debug """
         self.window.debug = not self.window.debug
 
-    def on_make_screenshot(self):
+    def on_make_screenshot(self) -> str:
+        """
+        On make screenshot
+        @return: path
+        """
         screenshot = make_screenshot()
         self.state.play_sound('screenshot')
 
