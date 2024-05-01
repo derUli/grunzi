@@ -1,4 +1,6 @@
-from sprites.items.item import Item, PiggyBank
+import random
+
+from sprites.items.item import Item, Tree
 
 
 class Chainsaw(Item):
@@ -6,15 +8,17 @@ class Chainsaw(Item):
         from sprites.characters.ferret import Ferret
         from sprites.characters.skullsprite import SkullSprite
 
-        if isinstance(b, PiggyBank):
+        if isinstance(b, Tree):
             b.fade_destroy()
             # TODO: Chainsaw sound
-            state.play_sound('piggybank', 'destroy')
+            sound_number = random.randint(1, 4)
+            state.play_sound('chainsaw' + str(sound_number))
             return
 
         if isinstance(b, SkullSprite):
             b.hurt(50)
             return
+
         if isinstance(b, Ferret):
             b.hurt(100)
             return

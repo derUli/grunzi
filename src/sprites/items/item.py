@@ -76,6 +76,10 @@ class PiggyBank(Sprite, Useable):
     pass
 
 
+class Tree(Sprite, Useable):
+    pass
+
+
 class Jeep(Sprite, Useable):
     pass
 

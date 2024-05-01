@@ -86,6 +86,11 @@ class ViewState:
                 os.path.join(self.sound_dir, 'pig', f"grunt{i}.ogg")
             )
 
+        for i in range(1, 4):
+            self.sounds[f"chainsaw{i}"] = arcade.load_sound(
+                os.path.join(self.sound_dir, 'chainsaw', f"chainsaw{i}.ogg")
+            )
+
         for i in range(1, 6):
             self.sounds[f"chicken{i}"] = arcade.load_sound(
                 os.path.join(self.sound_dir, 'chicken', f"chicken{i}.ogg")

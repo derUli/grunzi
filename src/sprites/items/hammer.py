@@ -14,6 +14,7 @@ class Hammer(Item):
         if isinstance(b, SkullSprite):
             b.hurt(40)
             return
+
         if isinstance(b, Ferret):
             b.hurt(80)
             return

@@ -6,7 +6,7 @@ import sprites.decoration.car
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
 from sprites.items.hammer import Hammer
-from sprites.items.item import Fence, PiggyBank, Jeep, Water
+from sprites.items.item import Fence, PiggyBank, Jeep, Water, Tree
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.sounds.beach import Beach
@@ -14,6 +14,7 @@ from sprites.sounds.highway import Highway
 
 LAYER_WALL = 'Walls'
 LAYER_PLIER = 'Plier'
+LAYER_TREE = 'Tree'
 LAYER_HAMMER = 'Hammer'
 LAYER_FEATHER = 'Feathers'
 LAYER_VASE = 'Vase'
@@ -90,6 +91,9 @@ LAYER_OPTIONS = {
     },
     LAYER_CHAINSAW: {
         'custom_class': Chainsaw
+    },
+    LAYER_TREE: {
+        'custom_class': Tree
     },
     LAYER_JEEP: {
         'custom_class': Jeep
