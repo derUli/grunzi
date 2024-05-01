@@ -4,6 +4,7 @@
 
 * Kettensäge und Bäume hinzugefügt
 * Enten hinzugefügt
+* Game Over View hinzugefügt
 
 ## Alpha 010 (03.05.2024)
 

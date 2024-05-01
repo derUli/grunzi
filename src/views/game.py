@@ -40,6 +40,7 @@ from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
 from views.fading import Fading
+from views.gameover import GameOver
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
@@ -291,7 +292,7 @@ class Game(Fading):
 
         if self.player_sprite.dead:
             if key in constants.controls.controller.KEY_DISCARD:
-                self._call_method = self.on_main_menu
+                self._call_method = self.on_gameover
             return
 
         if key in constants.controls.controller.KEY_PAUSE:
@@ -312,7 +313,6 @@ class Game(Fading):
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
 
     def on_joybutton_press(self, controller, key):
-        print(key)
         if str(key) in JOYSTICK_BUTTON_MAPPING:
             button = JOYSTICK_BUTTON_MAPPING[str(key)]
             self.on_button_press(controller, button)
@@ -343,6 +343,10 @@ class Game(Fading):
 
     def on_main_menu(self):
         self.next_view = MainMenu(self.window, self.state)
+        self.fade_out()
+
+    def on_gameover(self):
+        self.next_view = GameOver(self.window, self.state)
         self.fade_out()
 
     def on_next_level(self):
@@ -446,7 +450,7 @@ class Game(Fading):
 
         if self.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
-                self.on_main_menu()
+                self.on_gameover()
             return
 
         if key in constants.controls.keyboard.KEY_PAUSE:
