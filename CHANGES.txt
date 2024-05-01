@@ -1,10 +1,10 @@
 # Changelog
 
-# Alpha 011 (Unreleased)
+## Alpha 011 (Unreleased)
 
 * Kettensäge und Bäume hinzugefügt
 
-# Alpha 010 (Unreleased)
+## Alpha 010 (2024-05-03)
 
 * Hühner hinzugefügt
 * Unterstützung für Rii USB Classic Controller hinzugefügt
@@ -14,7 +14,7 @@
 * Shader-Hintergründe im Menü geändert
 * "Steuerung" Menüpunkt unter "Einstellungen" > "Video" entfernt
 
-# Alpha 009 (29.03.2024)
+## Alpha 009 (29.03.2024)
 
 * Schwierigkeitsgrad Auswahl hinzugefügt
 * Level-Auswahl hinzugefügt
@@ -23,7 +23,7 @@
 * Musikwiedergabe auf Linux korrigiert
 * Map-Ladedauer drastisch reduziert
 
-# Alpha 008 (15.03.2024)
+## Alpha 008 (15.03.2024)
 
 * Aufgabe mit Autoschlüssel hinzugefügt
 * Intro Video für Level hinzugefügt
