@@ -78,21 +78,25 @@ class DifficultySelection(Fading):
 
         @difficulty_easy.event("on_click")
         def on_click_easy(event):
+            logging.debug(event)
             # Pass already created view because we are resuming.
             self.on_select_difficulty(DIFFICULTY_EASY)
 
         @difficulty_medium.event("on_click")
         def on_click_medium(event):
+            logging.debug(event)
             # Pass already created view because we are resuming.
             self.on_select_difficulty(DIFFICULTY_MEDIUM)
 
         @difficulty_high.event("on_click")
         def on_click_hard(event):
+            logging.debug(event)
             # Pass already created view because we are resuming.
             self.on_select_difficulty(DIFFICULTY_HARD)
 
         @back_button.event("on_click")
         def on_click_back_button(event):
+            logging.debug(event)
             # Pass already created view because we are resuming.
 
             self.on_back()
