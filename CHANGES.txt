@@ -5,6 +5,8 @@
 * Kettensäge und Bäume hinzugefügt
 * Enten hinzugefügt
 * Game Over View hinzugefügt
+* Fußschritte Sound-Effekt hinzugefügt
+* Atmo Sound für Map 02 hinzugefügt
 
 ## Alpha 010 (03.05.2024)
 
