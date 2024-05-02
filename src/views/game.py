@@ -269,6 +269,12 @@ class Game(Fading):
             force_x = move_force
             self.player_sprite.change_x = 1
 
+        if force_x != 0 or force_y != 0:
+            sprint = self.player_sprite.modifier == sprites.characters.playersprite.MODIFIER_SPRINT
+            self.player_sprite.start_walk(sprint=sprint)
+        else:
+            self.player_sprite.stop_walk()
+
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
     def reset_keys(self) -> None:

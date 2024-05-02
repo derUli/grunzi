@@ -58,6 +58,9 @@ class PlayerSprite(Character, SpriteHealth):
         self.gameover_text_rendered = None
         self.water = False
 
+        self.footsteps_default = None
+        self.footsteps_sprint = None
+
     def setup(self, state, scene):
         self.state = state
         self.scene = scene
@@ -85,6 +88,12 @@ class PlayerSprite(Character, SpriteHealth):
         self.gameover_text = _('You are') + ' ' + random.choice(sausages) + '!'
 
         scene.add_sprite(LAYER_PLAYER, self)
+
+        self.footsteps_default = state.play_sound('footsteps', loop=True, speed=MODIFIER_DEFAULT)
+        self.footsteps_default.pause()
+
+        self.footsteps_sprint = state.play_sound('footsteps', loop=True, speed=MODIFIER_SPRINT)
+        self.footsteps_sprint.pause()
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
@@ -184,3 +193,26 @@ class PlayerSprite(Character, SpriteHealth):
     def on_die(self) -> None:
         """ Called when the player dies """
         self.state.squeak()
+
+    def start_walk(self, sprint=False):
+        volume = 1
+        self.footsteps_default.volume = volume * self.state.settings.sound_volume
+        self.footsteps_sprint.volume = volume * self.state.settings.sound_volume
+
+        if sprint:
+
+            if self.footsteps_default.playing:
+                self.footsteps_default.pause()
+
+            if not self.footsteps_sprint.playing:
+                self.footsteps_sprint.play()
+                return
+
+        if self.footsteps_sprint.playing:
+            self.footsteps_sprint.pause()
+
+        if not self.footsteps_default.playing:
+            self.footsteps_default.play()
+
+    def stop_walk(self):
+        self.footsteps_default.pause()
