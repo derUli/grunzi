@@ -1,5 +1,7 @@
 import random
 
+from arcade import FACE_DOWN, FACE_UP
+
 from sprites.items.item import Item, Tree
 
 
@@ -18,3 +20,13 @@ class Chainsaw(Item):
             return
 
         state.beep()
+
+
+    def generate_rotated(self, image):
+        rotated = super().generate_rotated(image)
+
+        rotated[FACE_UP - 1] = image.copy().rotate(90, expand=True)
+
+        rotated[FACE_DOWN - 1] = image.copy().rotate(270, expand=True)
+
+        return rotated

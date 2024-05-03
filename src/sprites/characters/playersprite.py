@@ -139,10 +139,21 @@ class PlayerSprite(Character, SpriteHealth):
                 self.item.center_y = self.center_y
             elif self.face == FACE_UP:
                 self.item.center_x = self.center_x
-                self.item.bottom = self.top + INVENTORY_MARGIN
+                bottom = self.top + INVENTORY_MARGIN
+
+                if self.item.height > self.item.width:
+                    bottom += INVENTORY_MARGIN
+
+                self.item.bottom = bottom
+
             elif self.face == FACE_DOWN:
                 self.item.center_x = self.center_x
-                self.item.top = self.bottom - INVENTORY_MARGIN
+                top = self.bottom - INVENTORY_MARGIN
+
+                if self.item.height > self.item.width:
+                    top -= INVENTORY_MARGIN
+
+                self.item.top = top
 
             self.item.draw_item(self.face)
 
