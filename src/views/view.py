@@ -1,4 +1,5 @@
 """ View base class """
+
 import logging
 import os
 
@@ -51,8 +52,12 @@ class View(arcade.View):
         self.perf_graph.left = self.window.width - MARGIN - self.perf_graph.width
         self.perf_graph.bottom = MARGIN
 
-    def on_key_press(self, key, modifiers):
-
+    def on_key_press(self, key: int, modifiers: int) -> None:
+        """
+        On key press
+        @param key: Key
+        @param modifiers: Modifiers
+        """
         super().on_key_press(key, modifiers)
 
         if key == arcade.key.LALT:
@@ -69,7 +74,12 @@ class View(arcade.View):
         if key in constants.controls.keyboard.KEY_SCREENSHOT:
             self.on_make_screenshot()
 
-    def on_key_release(self, key, modifiers):
+    def on_key_release(self, key: int, modifiers: int) -> None:
+        """
+        On key release
+        @param key: Key
+        @param modifiers: Modifier
+        """
         if key == arcade.key.LALT:
             self.alt_key_pressed = False
 
