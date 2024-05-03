@@ -68,16 +68,12 @@ class GameOver(Fading):
 
         super().on_update(delta_time)
 
-
         self.time += delta_time
 
         self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()
 
-    def on_main_menu(self):
-        self.next_view = MainMenu(self.window, self.state)
-        self.fade_out()
     def on_draw(self):
         """ Render the screen. """
 
@@ -90,3 +86,8 @@ class GameOver(Fading):
 
         self.draw_fading()
         self.draw_debug()
+
+    def on_main_menu(self) -> None:
+        """ On main menu """
+        self.next_view = MainMenu(self.window, self.state)
+        self.fade_out()
