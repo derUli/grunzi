@@ -1515,7 +1515,6 @@
  </objectgroup>
  <objectgroup id="19" name="Chainsaw">
   <object id="19" gid="135" x="7798" y="2475" width="64" height="25"/>
-  <object id="40" gid="135" x="1858" y="6730.33" width="64" height="25"/>
  </objectgroup>
  <objectgroup id="20" name="Tree">
   <object id="20" gid="126" x="7360.67" y="1281.33" width="160" height="196"/>

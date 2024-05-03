@@ -1,5 +1,5 @@
 import PIL
-from arcade import FACE_DOWN
+from arcade import FACE_DOWN, FACE_RIGHT, FACE_LEFT
 
 from sprites.items.item import Item, Fence
 
@@ -18,5 +18,7 @@ class Plier(Item):
         rotated = super().generate_rotated(image)
 
         rotated[FACE_DOWN - 1] = PIL.ImageOps.flip(image.copy())
+        rotated[FACE_LEFT - 1] = image.copy().rotate(90, expand=False)
+        rotated[FACE_RIGHT - 1] = image.copy().rotate(270, expand=False)
 
         return rotated
