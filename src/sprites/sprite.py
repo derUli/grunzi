@@ -5,8 +5,9 @@ from arcade import Texture
 
 FADE_SPEED = 255 / 20
 
-
-class Sprite(arcade.sprite.Sprite):
+class AbstractSprite:
+    pass
+class Sprite(arcade.sprite.Sprite, AbstractSprite):
     def __init__(
             self,
             filename: str = None,

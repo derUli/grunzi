@@ -5,7 +5,7 @@ import PIL
 import arcade
 from arcade import AnimatedTimeBasedSprite, FACE_RIGHT
 
-from sprites.sprite import Sprite
+from sprites.sprite import Sprite, AbstractSprite
 
 
 class Item(Sprite):
@@ -86,5 +86,5 @@ class Jeep(Sprite, Useable):
     pass
 
 
-class Water(AnimatedTimeBasedSprite):
+class Water(AnimatedTimeBasedSprite, AbstractSprite):
     pass

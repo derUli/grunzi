@@ -120,6 +120,7 @@ def spawn_chicken(state, tilemap, scene, physics_engine):
             return spawn_chicken(state, tilemap, scene, physics_engine)
     except AttributeError as e:
         logging.error(e)
+        return
 
     scene.add_sprite(LAYER_ENEMIES, chicken)
     physics_engine.add_sprite(
