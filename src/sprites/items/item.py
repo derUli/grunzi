@@ -28,12 +28,7 @@ class Item(Sprite):
         self.filename = filename
         self.image = PIL.Image.open(filename).convert('RGBA').crop()
 
-        self.images = [
-            self.image,
-            PIL.ImageOps.mirror(self.image.copy()),
-            self.image,
-            self.image,
-        ]
+        self.images = self.generate_rotated(self.image)
 
         self._the_textures = []
 
@@ -63,6 +58,13 @@ class Item(Sprite):
         self.texture = self._the_textures[face - 1]
         self.draw()
 
+    def generate_rotated(sel, image):
+        return [
+            image,
+            PIL.ImageOps.mirror(image.copy()),
+            image,
+            image,
+        ]
 
 class Useable:
     pass

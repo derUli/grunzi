@@ -1,3 +1,6 @@
+import PIL
+from arcade import FACE_DOWN
+
 from sprites.items.item import Item, Fence
 
 
@@ -9,3 +12,11 @@ class Plier(Item):
             return
 
         state.beep()
+
+
+    def generate_rotated(self, image):
+        rotated = super().generate_rotated(image)
+
+        rotated[FACE_DOWN - 1] = PIL.ImageOps.flip(image.copy())
+
+        return rotated
