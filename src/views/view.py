@@ -121,9 +121,7 @@ class View(arcade.View):
         return screenshot
 
     def draw_build_version(self) -> None:
-        """
-        Draw build version
-        """
+        """ Draw build version """
 
         # Read version number from version file
         if not self.build_version:
@@ -202,7 +200,8 @@ class View(arcade.View):
             x, y = self.move_pointer
             mouse.move(x, y, absolute=False)
 
-    def render_shadertoy(self):
+    def render_shadertoy(self) -> None:
+        """ Render Shadertoy shader """
         if self.shadertoy:
             self.shadertoy.render(time=self.time)
 
