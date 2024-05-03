@@ -130,7 +130,8 @@ class ViewState:
             sound = self.sounds[name1]
             if name2:
                 sound = sound[name2]
-        except KeyError:
+        except KeyError as e:
+            logging.error(e)
             return
 
         return sound.play(volume=self.settings.sound_volume, loop=loop, speed=speed)
