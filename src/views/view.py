@@ -120,7 +120,12 @@ class View(arcade.View):
 
         return screenshot
 
-    def draw_build_version(self):
+    def draw_build_version(self) -> None:
+        """
+        Draw build version
+        """
+
+        # Read version number from version file
         if not self.build_version:
             self.build_version = _('Unknown build')
             version_file = os.path.join(self.state.root_dir, 'VERSION.txt')
@@ -129,9 +134,13 @@ class View(arcade.View):
                 with open(version_file, 'r') as f:
                     self.build_version = f.read()
 
+        # Render the build number text
         if not self.build_number_text:
-            self.build_number_text = create_text(self.build_version, width=self.window.width - (MARGIN * 2),
-                                                 align='left')
+            self.build_number_text = create_text(
+                self.build_version,
+                width=self.window.width - (MARGIN * 2),
+                align='left'
+            )
         self.build_number_text.draw()
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
