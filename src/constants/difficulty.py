@@ -14,11 +14,20 @@ class Difficulty:
         with open(maps, 'r') as f:
             jsond = json.load(f)
 
-        difficulty = jsond['default'][str(difficulty)]
+        difficulty_data = jsond['default'][str(difficulty)]
 
         if map in jsond:
-            difficulty = jsond[map][str(difficulty)]
+            difficulty_data = jsond[map][str(difficulty)]
 
-        self.max_skulls = difficulty['maxSkulls']
-        self.skull_spawn_range = tuple(difficulty['skullSpawnRange'])
-        self.skull_hurt = difficulty['skullHurt']
+        self.max_skulls = 0
+        self.skull_spawn_range = 0
+        self.skull_hurt = 0
+
+        if 'maxSkulls' in difficulty_data:
+            self.max_skulls = difficulty_data['maxSkulls']
+
+        if 'skullSpawnRange' in difficulty_data:
+            self.skull_spawn_range = tuple(difficulty_data['skullSpawnRange'])
+
+        if 'skullHurt' in difficulty_data:
+            self.skull_hurt = difficulty_data['skullHurt']

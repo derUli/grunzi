@@ -32,7 +32,7 @@ class SettingsControls(Fading):
         self.next_view = None
 
         size = window.width, window.height
-        self.shadertoy = self.state.load_shader(size, 'grass')
+        self.shadertoy = self.state.load_shader(size, 'meadow')
 
         self.previous_view = previous_view
 
