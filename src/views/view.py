@@ -8,7 +8,7 @@ import mouse
 
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
-from constants.controls.joystick import AXIS_X, AXIS_Y
+from constants.controls.joystick import AXIS_X, AXIS_Y, joystick_button_to_controller
 from state.settingsstate import SettingsState
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
@@ -187,7 +187,10 @@ class View(arcade.View):
             mouse.click()
 
     def on_joybutton_press(self, controller, key):
-        self.on_button_press(controller, key)
+        self.on_button_press(
+            controller,
+            joystick_button_to_controller(key)
+        )
 
     def push_controller_handlers(self):
         for controller in self.window.controllers:

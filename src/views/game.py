@@ -336,7 +336,6 @@ class Game(Fading):
             self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
 
     def on_joybutton_release(self, controller, key):
-
         if str(key) in JOYSTICK_BUTTON_MAPPING:
             button = JOYSTICK_BUTTON_MAPPING[str(key)]
             self.on_button_release(controller, button)

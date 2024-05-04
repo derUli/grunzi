@@ -14,3 +14,11 @@ JOYSTICK_BUTTON_MAPPING = {
     '8': 'rightshoulder',  # "Select" to select next inventory item
     '4': 'leftstick'  # Left trigger to sprint
 }
+
+
+def joystick_button_to_controller(key):
+    button = str(key)
+    if button in JOYSTICK_BUTTON_MAPPING:
+        return JOYSTICK_BUTTON_MAPPING[button]
+
+    return None
