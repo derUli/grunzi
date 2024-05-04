@@ -3,7 +3,7 @@
 import arcade
 from arcade import PymunkPhysicsEngine, Scene
 
-from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR, COLLISION_DUCK
+from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR, COLLISION_DUCK, COLLISION_MOVEABLE
 from constants.layers import (
     LAYER_MOVEABLE,
     LAYER_CAR_RIGHT,
@@ -116,6 +116,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
     if 'Moveable' in scene.name_mapping:
         physics_engine.add_sprite_list(
             scene[LAYER_MOVEABLE],
+            collision_type=COLLISION_MOVEABLE,
             mass=2,
             damping=0.01,
         )

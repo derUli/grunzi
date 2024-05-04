@@ -10,3 +10,4 @@ COLLISION_WALL = "wall"
 COLLISION_PLAYER = "player"
 COLLISION_CHICKEN = 'chicken'
 COLLISION_DUCK = 'duck'
+COLLISION_MOVEABLE = 'moveable'

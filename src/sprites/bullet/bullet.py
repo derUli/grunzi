@@ -5,8 +5,10 @@ import time
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
-from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN
+from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN, \
+    COLLISION_MOVEABLE
 from constants.layers import LAYER_ENEMIES
+from sprites.characters.character import Character
 from utils.physics import on_hit_destroy
 
 HURT = 20
@@ -42,9 +44,8 @@ class Bullet(arcade.sprite.SpriteCircle):
 
     def draw_overlay(self):
         if time.time() >= self.created_at + DESTROY_TIME:
-            logging.debug('Remove bullet from scene' )
+            logging.debug('Remove bullet from scene')
             self.remove_from_sprite_lists()
-
 
     def setup(self, source, physics_engine, scene, state):
 
@@ -72,6 +73,7 @@ class Bullet(arcade.sprite.SpriteCircle):
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_BULLET, post_handler=on_hit_destroy)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_ENEMY, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_CHICKEN, post_handler=self.on_hit)
+        physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_MOVEABLE, post_handler=self.on_hit)
 
         physics_engine.apply_force(self, (self.force_move, 0))
 
@@ -80,5 +82,8 @@ class Bullet(arcade.sprite.SpriteCircle):
     def on_hit(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
         bullet_sprite.remove_from_sprite_lists()
+
+        if not isinstance(_hit_sprite, Character):
+            return
 
         _hit_sprite.hurt(15)
