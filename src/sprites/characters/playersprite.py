@@ -61,9 +61,10 @@ class PlayerSprite(Character, SpriteHealth):
         self.footsteps_default = None
         self.footsteps_sprint = None
 
-    def setup(self, state, scene):
+    def setup(self, state, scene, callbacks):
         self.state = state
         self.scene = scene
+        self.callbacks = callbacks
 
         self.center_x, self.center_y = SPAWN_POINT
 
@@ -172,7 +173,6 @@ class PlayerSprite(Character, SpriteHealth):
         if not self.dead:
             return
 
-        # TODO: Implement real game over screen
         if not self.gameover_text_rendered:
             self.gameover_text_rendered = utils.text.create_text(
                 self.gameover_text,
@@ -227,7 +227,6 @@ class PlayerSprite(Character, SpriteHealth):
 
     def stop_walk(self):
         self.footsteps_default.pause()
-
 
     @property
     def sprinting(self):

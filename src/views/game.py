@@ -158,7 +158,13 @@ class Game(Fading):
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = PlayerSprite(filename)
 
-        self.player_sprite.setup(state=self.state, scene=self.scene)
+        self.player_sprite.setup(
+            state=self.state,
+            scene=self.scene,
+            callbacks=CallbackHandler(
+                on_complete=self.on_next_level
+            )
+        )
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
@@ -357,7 +363,12 @@ class Game(Fading):
 
         old_map = self.state.map_name
         index = MAPS.index(old_map)
-        next_map = MAPS[index + 1]
+        try:
+            next_map = MAPS[index + 1]
+        except IndexError as e:
+            logging.error(e)
+            return
+
         self.state.map_name = next_map
 
         savegame = SaveGameState.load()
