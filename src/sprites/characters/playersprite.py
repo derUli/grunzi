@@ -227,3 +227,8 @@ class PlayerSprite(Character, SpriteHealth):
 
     def stop_walk(self):
         self.footsteps_default.pause()
+
+
+    @property
+    def sprinting(self):
+        return self.modifier == MODIFIER_SPRINT

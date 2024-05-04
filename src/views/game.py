@@ -270,8 +270,7 @@ class Game(Fading):
             self.player_sprite.change_x = 1
 
         if force_x != 0 or force_y != 0:
-            sprint = self.player_sprite.modifier == sprites.characters.playersprite.MODIFIER_SPRINT
-            self.player_sprite.start_walk(sprint=sprint)
+            self.player_sprite.start_walk(sprint=self.player_sprite.sprinting)
         else:
             self.player_sprite.stop_walk()
 
@@ -511,6 +510,8 @@ class Game(Fading):
 
         if movement:
             self.update_player_speed()
+        else:
+            self.player_sprite.stop_walk()
 
     def on_select_item(self, key=None, index=None):
         old_item = self.player_sprite.get_item()
