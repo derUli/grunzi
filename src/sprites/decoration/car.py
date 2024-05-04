@@ -3,7 +3,9 @@ from sprites.sprite import Sprite
 
 CAR_SPEED = 10
 FORCE_MOVE = 4000
-HURT = 2
+
+# Hurt NPCs on collide with car
+HURT = 34
 
 
 class Car:
