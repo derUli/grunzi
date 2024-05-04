@@ -13,7 +13,7 @@ from state.settingsstate import SettingsState
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 
-MOUSE_POINTER_SPEED = 10
+MOUSE_POINTER_SPEED = 5
 PERFORMANCE_GRAPH_WIDTH = 160
 PERFORMANCE_GRAPH_HEIGHT = 90
 
