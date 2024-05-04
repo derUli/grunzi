@@ -232,7 +232,7 @@ class Game(Fading):
 
         for sprite in get_layer(LAYER_ENEMIES, self.scene):
 
-            if not isinstance(sprite, Character):
+            if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
                 continue
 
             sprite.draw_overlay()

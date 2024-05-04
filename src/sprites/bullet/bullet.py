@@ -1,4 +1,6 @@
 """ Pig bullet """
+import logging
+import time
 
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
@@ -15,6 +17,9 @@ FRICTION = 1
 ELASTICITY = 0.1
 FORCE_MOVE = 6000
 
+# Destroy after X seconds
+DESTROY_TIME = 3
+
 
 class Bullet(arcade.sprite.SpriteCircle):
     def __init__(
@@ -30,11 +35,16 @@ class Bullet(arcade.sprite.SpriteCircle):
         self.force_move = force_move
         self.hurt = hurt
 
+        self.created_at = time.time()
+
     def draw_debug(self):
         pass
 
     def draw_overlay(self):
-        pass
+        if time.time() >= self.created_at + DESTROY_TIME:
+            logging.debug('Remove bullet from scene' )
+            self.remove_from_sprite_lists()
+
 
     def setup(self, source, physics_engine, scene, state):
 
