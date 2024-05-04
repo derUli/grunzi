@@ -107,6 +107,13 @@ class StartUp:
         )
 
         parser.add_argument(
+            '--debug',
+            action='store_true',
+            default=False,
+            help='Enable OpenGL debugging'
+        )
+
+        parser.add_argument(
             '-v',
             '--verbose',
             default=0,
@@ -187,6 +194,8 @@ class StartUp:
             pyglet.options['audio'] = (args.audio_backend,)
 
         logging.debug(label_value('Audio backend', args.audio_backend))
+
+        pyglet.options['debug_gl'] = args.debug
 
         import arcade
 
