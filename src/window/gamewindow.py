@@ -9,7 +9,7 @@ SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 SCREEN_TITLE = "Grunzi"
 
-UPDATE_RATE = 1 / 72
+UPDATE_RATE = 1 / 64
 
 
 class GameWindow(arcade.Window):
