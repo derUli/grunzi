@@ -182,7 +182,9 @@ class View(arcade.View):
 
     def on_button_press(self, joystick, key):
         logging.info(f"Controller button {key} pressed")
-        mouse.click()
+
+        if key in constants.controls.controller.KEY_MENU_ITEM:
+            mouse.click()
 
     def on_joybutton_press(self, controller, key):
         self.on_button_press(controller, key)
