@@ -1,3 +1,4 @@
+""" Sprite classes """
 from typing import Optional
 
 import arcade.sprite
@@ -5,8 +6,12 @@ from arcade import Texture
 
 FADE_SPEED = 255 / 20
 
+
 class AbstractSprite:
+    """ Abstract sprite class """
     pass
+
+
 class Sprite(arcade.sprite.Sprite, AbstractSprite):
     def __init__(
             self,
