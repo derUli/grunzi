@@ -227,7 +227,7 @@ class SkullSprite(Character, Useable):
                 state=state,
                 target=player
             )
-            self.update_barrier_list(scene)
+
             self.shoot_time = 0
 
     def update_barrier_list(self, scene):

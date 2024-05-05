@@ -134,3 +134,4 @@ def on_hit_destroy(bullet_sprite, _hit_sprite, _arbiter, _space, _data):
     @param _data: TODO: What is this?
     """
     bullet_sprite.remove_from_sprite_lists()
+

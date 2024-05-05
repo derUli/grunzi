@@ -168,8 +168,8 @@ class SkullBullet(Bullet):
         )
 
         physics_engine.add_collision_handler(
-            COLLISION_SKULL_BULLET,
             COLLISION_BULLET,
+            COLLISION_SKULL_BULLET,
             post_handler=on_hit_destroy
         )
 
