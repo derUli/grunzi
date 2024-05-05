@@ -15,7 +15,7 @@ DEFAULT_FACE = FACE_RIGHT
 MOVE_FORCE = 1500
 
 MODIFIER_DEFAULT = 1
-MODIFIER_SPRINT = 1.5
+MODIFIER_SPRINT = 2
 
 MOVE_DAMPING = 0.01
 
@@ -29,6 +29,9 @@ PLACE_ITEM_ALPHA = 100
 INVENTORY_MARGIN = 15
 
 SPAWN_POINT = (0, 0)
+
+STAMINA_INCREMENTOR = 0.5
+STAMINA_DECREMENTOR = 0.8
 
 
 class PlayerSprite(Character, SpriteHealth):
@@ -57,6 +60,8 @@ class PlayerSprite(Character, SpriteHealth):
         self.gameover_text = None
         self.gameover_text_rendered = None
         self.water = False
+
+        self.stamina = 100
 
         self.footsteps_default = None
         self.footsteps_sprint = None
@@ -111,6 +116,7 @@ class PlayerSprite(Character, SpriteHealth):
             delta_time=None,
             map_size=None
     ):
+
         if self.dead:
             return
 
@@ -119,6 +125,15 @@ class PlayerSprite(Character, SpriteHealth):
 
         if self.health > HEALTH_FULL:
             self.health = HEALTH_FULL
+
+        if self.sprinting:
+            self.stamina -= STAMINA_DECREMENTOR
+        elif self.stamina < 100:
+            self.stamina += STAMINA_INCREMENTOR
+
+        if self.stamina <= 0:
+            self.stamina = 0
+            self.modifier = MODIFIER_DEFAULT
 
         # Figure out if we should face left or right
         if self.change_x < 0:
