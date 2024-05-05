@@ -1,4 +1,5 @@
 """ Player sprite class """
+import logging
 import os
 
 import arcade
@@ -74,6 +75,8 @@ class SkullSprite(Character, Useable):
         if self.fade_in:
             self.alpha = 0
 
+            self.player_pos = (0, 0)
+
     def update_texture(self):
         if self.chasing:
             self.textures = self.skull_on
@@ -109,6 +112,7 @@ class SkullSprite(Character, Useable):
             delta_time=None,
             map_size=None
     ):
+
         if self.dead:
             alpha = self.alpha - FADE_SPEED
 
@@ -144,6 +148,13 @@ class SkullSprite(Character, Useable):
         self.playing_field_top_boundary = self.top + SIGHT_DISTANCE
         self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
 
+        player_pos = (player.center_x, player.center_y)
+
+        if self.player_pos == player_pos:
+            return
+
+        self.player_pos = player_pos
+
         difference = arcade.get_distance_between_sprites(self, player)
 
         self.insight = difference < SIGHT_DISTANCE
@@ -151,17 +162,19 @@ class SkullSprite(Character, Useable):
         if not self.insight:
             return
 
-        if arcade.has_line_of_sight(
+        if not self.chasing and arcade.has_line_of_sight(
                 player.position,
                 self.position,
                 walls=scene[LAYER_WALL],
                 check_resolution=SIGHT_CHECK_RESOLUTION,
                 max_distance=SIGHT_DISTANCE
         ):
+            logging.debug('Line of sight ' + str(self) + ' ' + str(player))
             self.chasing = player
 
             if not self.chased:
                 state.play_sound('screech')
+
             self.chased = True
             self.update_texture()
 
