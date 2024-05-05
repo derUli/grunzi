@@ -75,7 +75,7 @@ class SkullSprite(Character, Useable):
         if self.fade_in:
             self.alpha = 0
 
-            self.player_pos = (0, 0)
+            self.old_pos = (0, 0, 0, 0)
 
     def update_texture(self):
         if self.chasing:
@@ -148,12 +148,12 @@ class SkullSprite(Character, Useable):
         self.playing_field_top_boundary = self.top + SIGHT_DISTANCE
         self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
 
-        player_pos = (player.center_x, player.center_y)
+        old_pos = (player.center_x, player.center_y, self.center_x, self.center_y)
 
-        if self.player_pos == player_pos:
+        if self.old_pos == old_pos:
             return
 
-        self.player_pos = player_pos
+        self.old_pos = old_pos
 
         difference = arcade.get_distance_between_sprites(self, player)
 
