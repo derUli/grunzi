@@ -1,4 +1,5 @@
 """ Sprite classes """
+
 from typing import Optional
 
 import arcade.sprite
