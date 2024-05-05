@@ -20,6 +20,8 @@ class LauncherWindow(ThemedTk):
     def __init__(self, theme=TTK_THEME, args=None, state=None):
         super().__init__(theme=theme)
 
+        self.eval('tk::PlaceWindow . center')
+
         self.path_state = state
         self.args = args
 
