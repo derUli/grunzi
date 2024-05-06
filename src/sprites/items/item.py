@@ -66,7 +66,9 @@ class Item(Sprite):
             image,
         ]
 
+
 class Useable:
+    """ Useable item"""
     pass
 
 
