@@ -8,7 +8,10 @@ Das fertige Spiel sollen 4 verschiedene Levels enthalten.
 
 ## Systemvoraussetzungen
 
-Das Spiel benötigt OpenGL.
+Das Spiel benötigt ein 64-Bit Windows oder Linux Betriebssystem und eine Grafikkarte,
+die mindestens OpenGL 3.3 unterstützt.
+Es sollte auf jeder Hardware, die in den letzten 10 Jahren auf den Markt gebracht wurde, funktionieren.
+Falls es doch zu Performance-Problemen kommen sollte, kannst du die Bildschirmauflösung reduzieren.
 
 Ich habe es auf meinem Desktop PC und meinem Laptop getestet, welche folgende Specs haben.
 
