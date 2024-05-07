@@ -5,7 +5,7 @@
 * Kettensäge und Bäume hinzugefügt
 * Enten hinzugefügt
 * Ausdauer hinzugefügt
-* Game Over View hinzugefügt
+* Nach einem Game Over wird das aktuelle Level neu gestartet
 * Fußschritte Sound-Effekt hinzugefügt
 * Atmo Sound für Map 02 hinzugefügt
 * Geschosse werden 3 Sekunden nach dem Schuss aus der Szene entfernt

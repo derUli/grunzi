@@ -40,7 +40,6 @@ from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
 from views.fading import Fading
-from views.gameover import GameOver
 from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
@@ -51,7 +50,7 @@ class Game(Fading):
     Main application class.
     """
 
-    def __init__(self, window, state):
+    def __init__(self, window, state, skip_intro=False):
 
         # Call the parent class and set up the window
         super().__init__(window)
@@ -94,6 +93,10 @@ class Game(Fading):
 
         self.video = None
 
+        self.skip_intro = skip_intro
+
+        self.shadertoy = None
+
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
@@ -120,13 +123,20 @@ class Game(Fading):
         self.call_update(0)
 
     def setup(self) -> None:
+
+        self.shadertoy = self.state.load_shader(self.window.size, 'gameover')
+
         """ Setup game """
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
-        self.video = load_video(
-            video_file,
-            self.window.size,
-            self.state.settings.music_volume
-        )
+
+        self.video = None
+
+        if not self.skip_intro:
+            self.video = load_video(
+                video_file,
+                self.window.size,
+                self.state.settings.music_volume
+            )
 
         # Load map
         threading.Thread(target=self.async_load).start()
@@ -223,6 +233,7 @@ class Game(Fading):
         self.clear()
 
         if not self.initialized:
+            self.render_shadertoy()
             # Loading screen fallback if there is no intro video
             # or the intro video is already completed
             utils.text.create_text(
@@ -356,15 +367,18 @@ class Game(Fading):
         self.fade_out()
 
     def on_gameover(self):
-        self.next_view = GameOver(self.window, self.state)
-        self.fade_out()
+        self.on_next_level(same=True)
 
-    def on_next_level(self):
+    def on_next_level(self, same=False):
 
         old_map = self.state.map_name
         index = MAPS.index(old_map)
+
+        if not same:
+            index += 1
+
         try:
-            next_map = MAPS[index + 1]
+            next_map = MAPS[index]
         except IndexError as e:
             logging.error(e)
             return
@@ -376,7 +390,7 @@ class Game(Fading):
         savegame.completed += [old_map]
         savegame.save()
 
-        self.next_view = Game(self.window, self.state)
+        self.next_view = Game(self.window, self.state, skip_intro=same)
         self.fade_out()
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
@@ -614,6 +628,9 @@ class Game(Fading):
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
 
     def on_update(self, delta_time):
+
+        self.time += delta_time
+
         """Movement and game logic"""
         if not self.initialized:
             return
