@@ -1,5 +1,4 @@
 """ Player sprite class """
-import logging
 import os
 import time
 
@@ -32,6 +31,7 @@ FADE_SPEED = 4
 SHOOT_DELTA = UPDATE_RATE * 10
 
 PATHFINDING_DELAY = 2
+
 
 class SkullSprite(Character, Useable):
     def __init__(
@@ -78,7 +78,6 @@ class SkullSprite(Character, Useable):
 
         if self.fade_in:
             self.alpha = 0
-
 
     def update_texture(self):
         if self.chasing:
