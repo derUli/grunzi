@@ -206,7 +206,7 @@ class View(arcade.View):
             if fps not in self.fps_text:
                 fps_text = create_text(
                     fps,
-                    color=arcade.csscolor.LIME,
+                    color=arcade.csscolor.LIME_GREEN,
                     font_name=FONT_MONOTYPE,
                     font_size=MEDIUM_FONT_SIZE
                 )
