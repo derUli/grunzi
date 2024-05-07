@@ -27,15 +27,15 @@ target = cx_Freeze.Executable(
     target_name=target_name
 )
 
-optimize = 0
+OPTIMIZE = 0
 
 if sys.platform == 'win32':
-    optimize = 2
+    OPTIMIZE = 1
 
 options = {
     'build_exe': {
         # "include_msvcr": True, Not allowed to legal reasons
-        'optimize': optimize,
+        'optimize': OPTIMIZE,
         'include_files': [
             'data/',
             '../CREDITS.txt',
