@@ -154,18 +154,10 @@ class SkullSprite(Character, Useable):
         if not self.insight:
             return
 
-        if not self.chasing and arcade.has_line_of_sight(
-                player.position,
-                self.position,
-                walls=scene[LAYER_WALL],
-                check_resolution=SIGHT_CHECK_RESOLUTION,
-                max_distance=SIGHT_DISTANCE
-        ):
-            logging.debug('Line of sight ' + str(self) + ' ' + str(player))
-            self.chasing = player
+        self.chasing = player
 
-            if not self.chased:
-                state.play_sound('screech')
+        if not self.chased:
+            state.play_sound('screech')
 
             self.chased = True
             self.update_texture()
@@ -205,6 +197,9 @@ class SkullSprite(Character, Useable):
             self.shoot_time += delta_time
 
             if self.shoot_time < SHOOT_DELTA:
+                return
+
+            if not move_path:
                 return
 
             bullet = SkullBullet(
