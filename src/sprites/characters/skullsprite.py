@@ -75,6 +75,7 @@ class SkullSprite(Character, Useable):
         if self.fade_in:
             self.alpha = 0
 
+
     def update_texture(self):
         if self.chasing:
             self.textures = self.skull_on
