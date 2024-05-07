@@ -9,9 +9,10 @@ import mouse
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
 from constants.controls.joystick import AXIS_X, AXIS_Y, joystick_button_to_controller
+from constants.fonts import FONT_MONOTYPE
 from state.settingsstate import SettingsState
 from utils.screenshot import make_screenshot
-from utils.text import MARGIN, create_text
+from utils.text import MARGIN, create_text, MEDIUM_FONT_SIZE
 
 MOUSE_POINTER_SPEED = 5
 PERFORMANCE_GRAPH_WIDTH = 160
@@ -38,19 +39,13 @@ class View(arcade.View):
         self.view = None
         self.time = 0
         self.move_pointer = None
-        self.perf_graph = None
-
         self.build_number_text = None
+
+        self.fps_text = {}
 
     def on_show_view(self) -> None:
         """ On show view """
-        self.perf_graph = arcade.PerfGraph(
-            PERFORMANCE_GRAPH_WIDTH,
-            PERFORMANCE_GRAPH_HEIGHT,
-            background_color=PERFORMANCE_GRAPH_BACKGROUND
-        )
-        self.perf_graph.left = self.window.width - MARGIN - self.perf_graph.width
-        self.perf_graph.bottom = MARGIN
+        self.fps_text = {}
 
     def on_key_press(self, key: int, modifiers: int) -> None:
         """
@@ -212,4 +207,19 @@ class View(arcade.View):
 
     def draw_debug(self):
         if self.state.settings.show_fps:
-            self.perf_graph.draw()
+            fps = str(round(arcade.get_fps()))
+
+            if fps not in self.fps_text:
+                fps_text = create_text(
+                    fps,
+                    color=arcade.csscolor.LIME,
+                    font_name=FONT_MONOTYPE,
+                    font_size=MEDIUM_FONT_SIZE
+                )
+
+                fps_text.x = self.window.width - MARGIN - fps_text.content_width
+                fps_text.y = self.window.height - fps_text.content_height
+
+                self.fps_text[fps] = fps_text
+
+            self.fps_text[fps].draw()
