@@ -56,9 +56,11 @@ class Sprite(arcade.sprite.Sprite, AbstractSprite):
         self.fadeout = False  #
 
     def draw_debug(self):
+        """ Draw debug """
         pass
 
     def draw_overlay(self):
+        """ Draw overlay """
         pass
 
     def update(
