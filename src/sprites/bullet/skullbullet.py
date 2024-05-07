@@ -6,6 +6,7 @@ from constants.collisions import COLLISION_BULLET, COLLISION_WALL, COLLISION_SKU
 from constants.layers import LAYER_ENEMIES
 from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
+from sprites.characters.chicken import Chicken
 from utils.physics import on_hit_destroy
 
 MASS = 0.1
@@ -16,6 +17,7 @@ FORCE_MOVE = 4000
 
 SIGHT_DISTANCE = 10000
 
+HURT_CHICKEN = 35
 
 class SkullBullet(Bullet):
 
@@ -193,4 +195,9 @@ class SkullBullet(Bullet):
         if not isinstance(_hit_sprite, Character):
             return
 
-        _hit_sprite.hurt(self.hurt)
+        hurt = self.hurt
+
+        if isinstance(_hit_sprite, Chicken):
+            hurt = HURT_CHICKEN
+
+        _hit_sprite.hurt(hurt)

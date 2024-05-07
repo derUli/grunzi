@@ -9,9 +9,11 @@ from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WA
     COLLISION_MOVEABLE
 from constants.layers import LAYER_ENEMIES
 from sprites.characters.character import Character
+from sprites.characters.chicken import Chicken
 from utils.physics import on_hit_destroy
 
-HURT = 20
+HURT_DEFAULT = 15
+HURT_CHICKEN = 35
 
 MASS = 0.1
 DAMPING = 1
@@ -30,7 +32,7 @@ class Bullet(arcade.sprite.SpriteCircle):
             color=arcade.csscolor.BLACK,
             soft=False,
             force_move=FORCE_MOVE,
-            hurt=HURT
+            hurt=HURT_DEFAULT
     ):
         super().__init__(radius, color=color, soft=soft)
 
@@ -86,4 +88,9 @@ class Bullet(arcade.sprite.SpriteCircle):
         if not isinstance(_hit_sprite, Character):
             return
 
-        _hit_sprite.hurt(15)
+        hurt = self.hurt
+
+        if isinstance(_hit_sprite, Chicken):
+            hurt = HURT_CHICKEN
+
+        _hit_sprite.hurt(hurt)
