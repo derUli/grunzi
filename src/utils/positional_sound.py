@@ -6,7 +6,7 @@ import arcade
 from utils.audio import normalize_volume
 
 MAX_DISTANCE = 800
-FADE_SPEED = 0.1
+FADE_SPEED = 0.05
 
 
 class PositionalSound:
