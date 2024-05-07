@@ -97,7 +97,7 @@ def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhys
             moment_of_intertia=arcade.PymunkPhysicsEngine.MOMENT_INF
         )
 
-    npc_layers =[
+    npc_layers = [
         LAYER_DUCK
     ]
 
@@ -134,4 +134,3 @@ def on_hit_destroy(bullet_sprite, _hit_sprite, _arbiter, _space, _data):
     @param _data: TODO: What is this?
     """
     bullet_sprite.remove_from_sprite_lists()
-

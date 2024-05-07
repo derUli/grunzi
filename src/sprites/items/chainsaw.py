@@ -21,7 +21,6 @@ class Chainsaw(Item):
 
         state.beep()
 
-
     def generate_rotated(self, image):
         rotated = super().generate_rotated(image)
 

@@ -1,4 +1,3 @@
-
 import random
 
 import arcade
@@ -18,7 +17,7 @@ MOVE_FORCE = 2000
 class Duck(Character, Useable):
     def __init__(
             self,
-            filename: str|None = None,
+            filename: str | None = None,
             image_x=0,
             image_y=0,
             image_width=None,
@@ -45,7 +44,6 @@ class Duck(Character, Useable):
 
         self.damping = MOVE_DAMPING
         self.sound = None
-
 
     def draw_overlay(self):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)

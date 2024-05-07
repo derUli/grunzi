@@ -104,7 +104,7 @@ LAYER_OPTIONS = {
         'custom_class': Water
     },
     LAYER_DUCK: {
-        'custom_class' : Duck
+        'custom_class': Duck
     }
 }
 

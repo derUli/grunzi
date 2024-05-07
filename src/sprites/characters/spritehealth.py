@@ -42,6 +42,7 @@ class SpriteHealth:
             return True
 
         self._died = self._dead()
+        
         if self._died:
             self.on_die()
 

@@ -19,6 +19,7 @@ SIGHT_DISTANCE = 10000
 
 HURT_CHICKEN = 35
 
+
 class SkullBullet(Bullet):
 
     def __init__(

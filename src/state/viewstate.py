@@ -125,7 +125,7 @@ class ViewState:
 
         return self.shaders[name]
 
-    def play_sound(self, name1, name2=None, loop=False, speed = 1):
+    def play_sound(self, name1, name2=None, loop=False, speed=1):
         try:
             sound = self.sounds[name1]
             if name2:
