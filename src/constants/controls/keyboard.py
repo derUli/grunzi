@@ -31,4 +31,3 @@ KEY_SELECT_INVENTORY = [
 KEY_SCREENSHOT = [arcade.key.F12]
 KEY_TOGGLE_FPS = [arcade.key.F3]
 KEY_TOGGLE_DEBUG = [arcade.key.F4]
-KEY_LOG_FPS = [arcade.key.F5]
