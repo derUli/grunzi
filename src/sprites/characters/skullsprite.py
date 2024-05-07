@@ -178,8 +178,10 @@ class SkullSprite(Character, Useable):
                     diagonal_movement=True
                 )
 
-                if move_path:
-                    self.move_path = move_path
+                self.move_path = move_path
+
+            if not self.move_path:
+                self.move_path = []
 
             for path in self.move_path:
 
@@ -201,6 +203,9 @@ class SkullSprite(Character, Useable):
 
             self.shoot_time += delta_time
 
+            if len(self.move_path) == 0:
+                return
+
             if self.shoot_time < SHOOT_DELTA:
                 return
 
@@ -209,6 +214,7 @@ class SkullSprite(Character, Useable):
                 color=arcade.csscolor.RED,
                 hurt=state.difficulty.skull_hurt
             )
+
             bullet.setup(
                 source=self,
                 physics_engine=physics_engine,
