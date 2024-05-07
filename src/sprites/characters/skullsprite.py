@@ -22,7 +22,6 @@ MOVE_FORCE = 400
 MOVE_DAMPING = 0.01
 
 SIGHT_DISTANCE = 1000
-SIGHT_CHECK_RESOLUTION = 64
 GRID_SIZE = 64
 
 FADE_IN_MAX = 255
@@ -167,17 +166,16 @@ class SkullSprite(Character, Useable):
 
         if self.chasing:
             if time.time() >= self.last_pathfinding + PATHFINDING_DELAY:
-                self.last_pathfinding = time.time()
                 self.update_barrier_list(scene)
 
-                move_path = arcade.astar_calculate_path(
+                self.move_path = arcade.astar_calculate_path(
                     self.position,
                     (player.center_x, player.center_y),
                     self.astar_barrier_list,
                     diagonal_movement=True
                 )
 
-                self.move_path = move_path
+                self.last_pathfinding = time.time()
 
             if not self.move_path:
                 self.move_path = []
