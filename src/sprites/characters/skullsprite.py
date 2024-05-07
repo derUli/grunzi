@@ -1,6 +1,7 @@
 """ Player sprite class """
 import logging
 import os
+import time
 
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
@@ -30,6 +31,7 @@ FADE_SPEED = 4
 
 SHOOT_DELTA = UPDATE_RATE * 10
 
+PATHFINDING_DELAY = 2
 
 class SkullSprite(Character, Useable):
     def __init__(
@@ -61,6 +63,8 @@ class SkullSprite(Character, Useable):
         self.playing_field_right_boundary = 0
         self.playing_field_top_boundary = 0
         self.playing_field_bottom_boundary = 0
+
+        self.last_pathfinding = 0
 
         self.friction = DEFAULT_FRICTION
         self.move_path = []
@@ -163,18 +167,19 @@ class SkullSprite(Character, Useable):
             self.update_texture()
 
         if self.chasing:
-            if not self.astar_barrier_list:
+            if time.time() >= self.last_pathfinding + PATHFINDING_DELAY:
+                self.last_pathfinding = time.time()
                 self.update_barrier_list(scene)
 
-            move_path = arcade.astar_calculate_path(
-                self.position,
-                (player.center_x, player.center_y),
-                self.astar_barrier_list,
-                diagonal_movement=True
-            )
+                move_path = arcade.astar_calculate_path(
+                    self.position,
+                    (player.center_x, player.center_y),
+                    self.astar_barrier_list,
+                    diagonal_movement=True
+                )
 
-            if move_path:
-                self.move_path = move_path
+                if move_path:
+                    self.move_path = move_path
 
             for path in self.move_path:
 
@@ -197,9 +202,6 @@ class SkullSprite(Character, Useable):
             self.shoot_time += delta_time
 
             if self.shoot_time < SHOOT_DELTA:
-                return
-
-            if not move_path:
                 return
 
             bullet = SkullBullet(

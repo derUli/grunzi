@@ -142,6 +142,7 @@ class SkullBullet(Bullet):
             force_x = -self.force_move
             force_y = -self.force_move
         else:
+            self.remove_from_sprite_lists()
             return
 
         scene.add_sprite(LAYER_ENEMIES, self)
