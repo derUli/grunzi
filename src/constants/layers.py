@@ -4,6 +4,7 @@ from arcade import SpriteList, Scene
 
 import sprites.decoration.car
 from sprites.characters.duck import Duck
+from sprites.items.Cone import Cone
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
 from sprites.items.hammer import Hammer
@@ -36,6 +37,7 @@ LAYER_JEEP = 'Jeep'
 LAYER_HIGHWAY = 'Sound:Highway'
 LAYER_BEACH = 'Sound:Beach'
 LAYER_WATER = 'Water'
+LAYER_CONES = 'Cones'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -90,6 +92,9 @@ LAYER_OPTIONS = {
     },
     LAYER_CAR_KEY: {
         'custom_class': CarKey
+    },
+    LAYER_CONES: {
+        'custom_class': Cone
     },
     LAYER_CHAINSAW: {
         'custom_class': Chainsaw

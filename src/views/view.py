@@ -201,7 +201,7 @@ class View(arcade.View):
 
     def draw_debug(self):
         if self.state.settings.show_fps:
-            fps = str(round(arcade.get_fps()))
+            fps = str(int(arcade.get_fps()))
 
             if fps not in self.fps_text:
                 fps_text = create_text(
