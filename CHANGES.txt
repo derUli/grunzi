@@ -7,7 +7,7 @@
 * Ausdauer hinzugefügt
 * Nach einem Game Over wird das aktuelle Level neu gestartet
 * Fußschritte Sound-Effekt hinzugefügt
-* Atmo Sound für Map 02 hinzugefügt
+* Atmo Sound für map02 hinzugefügt
 * Geschosse werden 3 Sekunden nach dem Schuss aus der Szene entfernt
 * Hühner sterben jetzt, wenn sie von einem Auto überfahren werden
 * FPS Graph durch FPS Text ersetzt
