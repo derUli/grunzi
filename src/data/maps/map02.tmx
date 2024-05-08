@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="160" height="117" tilewidth="64" tileheight="64" infinite="0" nextlayerid="24" nextobjectid="58">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="160" height="117" tilewidth="64" tileheight="64" infinite="0" nextlayerid="25" nextobjectid="58">
  <tileset firstgid="1" name="Chars" tilewidth="60" tileheight="46" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1513,9 +1513,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="2" name="Spawn Point" offsetx="-638" offsety="722">
-  <object id="41" gid="1" x="2380.67" y="6018.33" width="60" height="46"/>
- </objectgroup>
+ <objectgroup id="24" name="Feathers"/>
  <objectgroup id="19" name="Chainsaw">
   <object id="19" gid="135" x="7798" y="2475" width="64" height="25"/>
  </objectgroup>
@@ -1552,5 +1550,8 @@
   <object id="33" gid="137" x="5622.55" y="6892.67" width="64" height="52"/>
   <object id="36" gid="137" x="1136.97" y="6991.45" width="64" height="52"/>
   <object id="39" gid="137" x="4168" y="7142" width="64" height="52"/>
+ </objectgroup>
+ <objectgroup id="2" name="Spawn Point" offsetx="-638" offsety="722">
+  <object id="41" gid="1" x="2380.67" y="6018.33" width="60" height="46"/>
  </objectgroup>
 </map>

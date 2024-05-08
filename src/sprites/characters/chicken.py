@@ -7,10 +7,11 @@ import arcade
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
 
 from constants.collisions import COLLISION_CHICKEN
-from constants.layers import all_layers, LAYER_ENEMIES
+from constants.layers import all_layers, LAYER_ENEMIES, LAYER_FEATHER
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
+from sprites.items.redherring import Feather
 from utils.positional_sound import PositionalSound
 from utils.sprite import random_position
 
@@ -65,6 +66,15 @@ class Chicken(Character, Useable):
 
             if alpha <= 0:
                 alpha = 0
+
+                feather = Feather(
+                    filename=os.path.join(state.sprite_dir, 'tools', 'feather.png')
+                )
+                feather.center_x = self.center_x
+                feather.center_y = self.center_y
+
+                scene.add_sprite(LAYER_FEATHER, feather)
+
                 self.remove_from_sprite_lists()
 
             self.alpha = alpha
