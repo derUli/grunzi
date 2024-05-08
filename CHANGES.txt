@@ -10,6 +10,7 @@
 * Atmo Sound für map02 hinzugefügt
 * Geschosse werden 3 Sekunden nach dem Schuss aus der Szene entfernt
 * Hühner sterben jetzt, wenn sie von einem Auto überfahren werden
+* Wenn Hühner sterben, werden sie durch eine Feder ersetzt
 * FPS Graph durch FPS Text ersetzt
 
 ## Alpha 010 (03.05.2024)
