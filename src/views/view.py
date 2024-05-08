@@ -23,6 +23,7 @@ PERFORMANCE_GRAPH_BACKGROUND = (0, 0, 0, 80)
 
 FPS_UPDATE_INTERVAL = 1
 
+
 class View(arcade.View):
     """ View base class """
 
@@ -208,7 +209,6 @@ class View(arcade.View):
         if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
             self.last_fps_update = time.time()
             self.current_fps = arcade.get_fps()
-
 
         if self.state.settings.show_fps:
             fps = str(int(self.current_fps))

@@ -1,4 +1,4 @@
-from sprites.items.item import Item, Jeep
+from sprites.items.item import Item
 from utils.callbackhandler import CallbackHandler
 
 
