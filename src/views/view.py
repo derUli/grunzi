@@ -2,6 +2,7 @@
 
 import logging
 import os
+import time
 
 import arcade
 import mouse
@@ -20,6 +21,7 @@ PERFORMANCE_GRAPH_HEIGHT = 90
 
 PERFORMANCE_GRAPH_BACKGROUND = (0, 0, 0, 80)
 
+FPS_UPDATE_INTERVAL = 1
 
 class View(arcade.View):
     """ View base class """
@@ -42,6 +44,9 @@ class View(arcade.View):
         self.build_number_text = None
 
         self.fps_text = {}
+
+        self.current_fps = None
+        self.last_fps_update = 0
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -200,8 +205,13 @@ class View(arcade.View):
             self.shadertoy.render(time=self.time)
 
     def draw_debug(self):
+        if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
+            self.last_fps_update = time.time()
+            self.current_fps = arcade.get_fps()
+
+
         if self.state.settings.show_fps:
-            fps = str(int(arcade.get_fps()))
+            fps = str(int(self.current_fps))
 
             if fps not in self.fps_text:
                 fps_text = create_text(
