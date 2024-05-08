@@ -1,4 +1,5 @@
 """ Used to store launcher settings """
+
 import logging
 import os
 
@@ -44,6 +45,10 @@ class SettingsState:
 
     @staticmethod
     def load():
+        """
+        Loads the settings state
+        @return: bool
+        """
         try:
             return SettingsState._load()
         except ValueError as e:
