@@ -30,7 +30,7 @@ OS: Windows 11 64-Bit
 
 ## Was ist neu?
 
-...
+Siehe Changelog.
 
 # Spiel starten
 
