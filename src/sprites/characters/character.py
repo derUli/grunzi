@@ -1,11 +1,8 @@
 """ Player sprite class """
 
-from arcade import FACE_RIGHT
-
 from sprites.characters.spritehealth import SpriteHealth
 from sprites.sprite import Sprite
 
-DEFAULT_FACE = FACE_RIGHT
 DAMAGE = 0
 HEALTH_FULL = 100
 
@@ -22,4 +19,5 @@ class Character(Sprite, SpriteHealth):
         self.health = HEALTH_FULL
 
     def draw_debug(self):
+        """ Draw debug overlays """
         return
