@@ -12,8 +12,8 @@ class Chainsaw(Item):
 
 
         if isinstance(b, Tree):
-            b.fade_destroy()
-            self.play_sound(state)
+            if b.fade_destroy():
+                self.play_sound(state)
             return
 
         if isinstance(b, SkullSprite):
