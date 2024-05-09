@@ -1656,7 +1656,7 @@
 </data>
  </layer>
  <objectgroup id="35" name="Sun">
-  <object id="160" gid="159" x="593" y="668" width="191" height="191"/>
+  <object id="160" gid="159" x="538" y="741" width="191" height="191"/>
  </objectgroup>
  <objectgroup id="27" name="Clouds">
   <object id="140" gid="155" x="-570.03" y="932.909" width="1139" height="499"/>
