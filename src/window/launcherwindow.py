@@ -31,6 +31,7 @@ class LauncherWindow(ThemedTk):
         )
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
         self.borderless = tk.BooleanVar(value=args.borderless)
+        self.sky = tk.BooleanVar(value=not args.no_sky)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
@@ -42,7 +43,7 @@ class LauncherWindow(ThemedTk):
         Set up the UI
         """
         self.title(_('Grunzi Launcher'))
-        self.geometry('320x240')
+        self.geometry('320x320')
         self.bind_keyevents()
         self.set_icon()
 
@@ -52,6 +53,7 @@ class LauncherWindow(ThemedTk):
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
             self.borderless.set(self.state.borderless)
+            self.sky.set(self.state.sky)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -85,12 +87,13 @@ class LauncherWindow(ThemedTk):
                         command=self.on_toggle_fullscreen
                         ).pack(expand=True)
 
-        self.borderless_check = ttk.Checkbutton(tab_video,
-                                                text=_('Borderless'),
-                                                variable=self.borderless,
-                                                onvalue=True,
-                                                offvalue=False,
-                                                )
+        self.borderless_check = ttk.Checkbutton(
+            tab_video,
+            text=_('Borderless'),
+            variable=self.borderless,
+            onvalue=True,
+            offvalue=False,
+        )
 
         self.borderless_check.pack(expand=True)
 
@@ -99,6 +102,13 @@ class LauncherWindow(ThemedTk):
         ttk.Checkbutton(tab_video,
                         text=_('V-Sync'),
                         variable=self.vsync,
+                        onvalue=True,
+                        offvalue=False
+                        ).pack(expand=True)
+
+        ttk.Checkbutton(tab_video,
+                        text=_('Animated Sky'),
+                        variable=self.sky,
                         onvalue=True,
                         offvalue=False
                         ).pack(expand=True)
@@ -143,6 +153,7 @@ class LauncherWindow(ThemedTk):
         self.state.fullscreen = self.fullscreen.get()
         self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
+        self.state.sky = self.sky.get()
 
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
@@ -154,6 +165,7 @@ class LauncherWindow(ThemedTk):
         self.args.window = not self.fullscreen.get()
         self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
+        self.args.no_sky = not self.sky.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
 

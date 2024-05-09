@@ -107,6 +107,13 @@ class StartUp:
         )
 
         parser.add_argument(
+            '--no-sky',
+            action='store_true',
+            default=False,
+            help='Disable animated sky'
+        )
+
+        parser.add_argument(
             '--debug',
             action='store_true',
             default=False,

@@ -9,7 +9,7 @@ from constants.audio import DEFAULT_AUDIO_BACKEND
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 4
+SETTINGS_STATE_VERSION = 5
 
 
 class SettingsState:
@@ -21,6 +21,7 @@ class SettingsState:
         self.vsync = True
         self.show_fps = False
         self.sky = True
+        self.shaders = True
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND
