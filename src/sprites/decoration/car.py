@@ -41,16 +41,13 @@ class CarLeft(Sprite, Car):
             state=None,
             delta_time=None,
             map_size=None
-    , COLLISION_FEATHER=None):
+    ):
         physics_engine.apply_force(self, (-FORCE_MOVE, 0))
 
         w, h = map_size
         if self.right < 0:
             self.left = w + 1
 
-        from utils.physics import on_hit_destroy
-
         physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_CHICKEN, post_handler=self.on_hit)
-        physics_engine.add_collision_handler(COLLISION_FEATHER, COLLISION_CAR, post_handler=on_hit_destroy)
