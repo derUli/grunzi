@@ -4,3 +4,4 @@
 * Punkte
 * Aufgabe mit Metalldetektor
 * Benzin-Kanister zum aufladen der Kettensäge zum Aufladen
+* Schädel versuchen jetzt nicht mehr durch feste Objekte zu schießen
