@@ -123,10 +123,10 @@ class Game(Fading):
         self.call_update(0)
 
     def setup(self) -> None:
+        """ Setup game """
 
         self.shadertoy = self.state.load_shader(self.window.size, 'gameover')
 
-        """ Setup game """
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
         self.video = None
