@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="160" height="117" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#81b1d9" nextlayerid="31" nextobjectid="157">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="160" height="117" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#81b1d9" nextlayerid="32" nextobjectid="157">
  <tileset firstgid="1" name="Chars" tilewidth="60" tileheight="46" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1656,20 +1656,20 @@
 </data>
  </layer>
  <objectgroup id="30" name="Sun">
-  <object id="155" gid="159" x="6145.67" y="655.333" width="191" height="191"/>
+  <object id="155" gid="159" x="6151.67" y="647.333" width="191" height="191"/>
  </objectgroup>
  <objectgroup id="27" name="Clouds">
-  <object id="140" gid="155" x="-576.03" y="940.909" width="1139" height="499"/>
-  <object id="141" gid="156" x="589.97" y="932.909" width="935" height="500"/>
-  <object id="142" gid="157" x="1536.97" y="936.909" width="1129" height="500"/>
-  <object id="143" gid="158" x="2660.97" y="908.909" width="697" height="500"/>
-  <object id="144" gid="157" x="3368.97" y="900.909" width="1129" height="500"/>
-  <object id="145" gid="156" x="4529.97" y="896.909" width="935" height="500"/>
-  <object id="146" gid="155" x="5367.97" y="908.909" width="1139" height="499"/>
-  <object id="147" gid="156" x="6501.97" y="928.909" width="935" height="500"/>
-  <object id="148" gid="157" x="7448.97" y="924.909" width="1129" height="500"/>
-  <object id="150" gid="158" x="8568.97" y="880.909" width="697" height="500"/>
-  <object id="151" gid="157" x="9256.97" y="864.909" width="1129" height="500"/>
+  <object id="140" gid="155" x="-570.03" y="932.909" width="1139" height="499"/>
+  <object id="141" gid="156" x="595.97" y="924.909" width="935" height="500"/>
+  <object id="142" gid="157" x="1542.97" y="928.909" width="1129" height="500"/>
+  <object id="143" gid="158" x="2666.97" y="900.909" width="697" height="500"/>
+  <object id="144" gid="157" x="3374.97" y="892.909" width="1129" height="500"/>
+  <object id="145" gid="156" x="4535.97" y="888.909" width="935" height="500"/>
+  <object id="146" gid="155" x="5373.97" y="900.909" width="1139" height="499"/>
+  <object id="147" gid="156" x="6507.97" y="920.909" width="935" height="500"/>
+  <object id="148" gid="157" x="7454.97" y="916.909" width="1129" height="500"/>
+  <object id="150" gid="158" x="8574.97" y="872.909" width="697" height="500"/>
+  <object id="151" gid="157" x="9262.97" y="856.909" width="1129" height="500"/>
  </objectgroup>
  <objectgroup id="26" name="Feathers"/>
  <objectgroup id="19" name="Chainsaw">
@@ -1712,4 +1712,5 @@
  <objectgroup id="2" name="Spawn Point" offsetx="-638" offsety="722">
   <object id="41" gid="1" x="2380.67" y="6018.33" width="60" height="46"/>
  </objectgroup>
+ <objectgroup id="31" name="Player"/>
 </map>

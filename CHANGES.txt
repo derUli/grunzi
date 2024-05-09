@@ -1,5 +1,11 @@
 # Changelog
 
+
+## Alpha 012 (Unreleased)
+
+* Sonne ist jetzt Sticky
+* Schädel versuchen jetzt nicht mehr durch feste Objekte zu schießen
+
 ## Alpha 011 (Unreleased)
 
 * Kettensäge und Bäume hinzugefügt
