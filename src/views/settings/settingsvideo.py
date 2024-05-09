@@ -140,14 +140,17 @@ class SettingsVideo(Fading):
 
         # Other video settings
         widgets += [
-            vsync_button,
-            fps_button
+            vsync_button
         ]
 
         if not game_running:
             widgets += [
                 sky_button
             ]
+
+        widgets += [
+            fps_button
+        ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')

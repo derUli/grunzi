@@ -1,5 +1,7 @@
 import os
 import tkinter as tk
+import tkinter.messagebox as messagebox
+
 import tkinter.ttk as ttk
 
 from PIL.ImageTk import PhotoImage
@@ -32,6 +34,7 @@ class LauncherWindow(ThemedTk):
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
         self.borderless = tk.BooleanVar(value=args.borderless)
         self.sky = tk.BooleanVar(value=not args.no_sky)
+        self.shaders = tk.BooleanVar(value=not args.no_shaders)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
@@ -54,6 +57,7 @@ class LauncherWindow(ThemedTk):
             self.vsync.set(self.state.vsync)
             self.borderless.set(self.state.borderless)
             self.sky.set(self.state.sky)
+            self.shaders.set(self.state.shaders)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -113,6 +117,14 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).pack(expand=True)
 
+        # ttk.Checkbutton(tab_video,
+        #                 text=_('Shaders'),
+        #                 variable=self.shaders,
+        #                 onvalue=True,
+        #                 offvalue=False,
+        #                 command=self.on_toggle_shaders,
+        #                 ).pack(expand=True)
+
         ttk.Label(tab_audio, text=_('Audio Backend:')).pack()
 
         ttk.Combobox(
@@ -154,6 +166,7 @@ class LauncherWindow(ThemedTk):
         self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
         self.state.sky = self.sky.get()
+        self.state.shaders = self.shaders.get()
 
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
@@ -166,6 +179,7 @@ class LauncherWindow(ThemedTk):
         self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
         self.args.no_sky = not self.sky.get()
+        self.args.no_shaders = not self.shaders.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
 
@@ -190,3 +204,7 @@ class LauncherWindow(ThemedTk):
             self.borderless.set(False)
         else:
             self.borderless_check.configure(state='enabled')
+
+    def on_toggle_shaders(self):
+        self.shaders.set(True)
+        messagebox.showerror(title=_('Error'), message=_('This option isn\'t available yet.'))

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-09 15:19+0200\n"
+"POT-Creation-Date: 2024-05-09 16:55+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -81,17 +81,17 @@ msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
 #: views/difficultyselection.py:203 views/difficultyselection.py:215
-#: views/mapselection.py:226 views/mapselection.py:238 views/pausemenu.py:122
-#: views/pausemenu.py:138
+#: views/mapselection.py:226 views/mapselection.py:238 views/pausemenu.py:135
+#: views/pausemenu.py:152
 msgid "Yes"
 msgstr "Ja"
 
 #: views/difficultyselection.py:204 views/mapselection.py:227
-#: views/pausemenu.py:123
+#: views/pausemenu.py:136
 msgid "No"
 msgstr "Nein"
 
-#: views/game.py:244
+#: views/game.py:245
 msgid "Loading..."
 msgstr "Wird geladen..."
 
@@ -103,7 +103,7 @@ msgstr "Grunzi"
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:53 views/pausemenu.py:29
+#: views/mainmenu.py:53 views/pausemenu.py:34
 msgid "Continue"
 msgstr "Fortsetzen"
 
@@ -111,7 +111,7 @@ msgstr "Fortsetzen"
 msgid "Select Map"
 msgstr "Map auswählen"
 
-#: views/mainmenu.py:65 views/pausemenu.py:35
+#: views/mainmenu.py:65 views/pausemenu.py:40
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -119,15 +119,15 @@ msgstr "Einstellungen"
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/pausemenu.py:41
+#: views/pausemenu.py:46
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/pausemenu.py:117
+#: views/pausemenu.py:130
 msgid "Leave to main menu?"
 msgstr "Zurück zum Hauptmenü?"
 
-#: views/pausemenu.py:118
+#: views/pausemenu.py:131
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
@@ -287,11 +287,11 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:53 window/launcherwindow.py:67
+#: views/settings/settingsmenu.py:53 window/launcherwindow.py:73
 msgid "Video"
 msgstr ""
 
-#: views/settings/settingsmenu.py:60 window/launcherwindow.py:68
+#: views/settings/settingsmenu.py:60 window/launcherwindow.py:74
 msgid "Audio"
 msgstr ""
 
@@ -299,35 +299,47 @@ msgstr ""
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsvideo.py:61 window/launcherwindow.py:81
+#: views/settings/settingsvideo.py:61 window/launcherwindow.py:87
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsvideo.py:73 window/launcherwindow.py:100
+#: views/settings/settingsvideo.py:73 window/launcherwindow.py:107
 msgid "V-Sync"
 msgstr ""
 
-#: views/settings/settingsvideo.py:84
+#: views/settings/settingsvideo.py:84 window/launcherwindow.py:114
 msgid "Animated Sky"
 msgstr "Animierter Himmel"
 
-#: window/launcherwindow.py:44
+#: window/launcherwindow.py:48
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:71
+#: window/launcherwindow.py:77
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:89
+#: window/launcherwindow.py:96
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:106
+#: window/launcherwindow.py:121
+msgid "Shaders"
+msgstr "Shader"
+
+#: window/launcherwindow.py:128
 msgid "Audio Backend:"
 msgstr ""
 
-#: window/launcherwindow.py:115
+#: window/launcherwindow.py:137
 msgid "Launch Game"
 msgstr "Spiel starten"
+
+#: window/launcherwindow.py:210
+msgid "Error"
+msgstr "Fehler"
+
+#: window/launcherwindow.py:210
+msgid "This option isn't available yet."
+msgstr "Diese Option ist noch nicht verfügbar."
 
