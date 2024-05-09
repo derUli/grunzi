@@ -44,7 +44,6 @@ LAYER_CLOUDS = 'Clouds'
 LAYER_SKY = 'Sky'
 LAYER_SUN = 'Sun'
 
-
 ALL_LAYERS = [
     LAYER_WALL,
     LAYER_ENEMIES,

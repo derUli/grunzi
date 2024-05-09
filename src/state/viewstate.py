@@ -113,7 +113,7 @@ class ViewState:
 
         if not self.settings.shaders:
             return None
-        
+
         path = os.path.join(self.shader_dir, name + '.glsl')
 
         if name in self.shaders:

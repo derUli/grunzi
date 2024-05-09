@@ -32,7 +32,6 @@ class SettingsState:
         # SettingState
         self.version = SETTINGS_STATE_VERSION
 
-
     @staticmethod
     def exists() -> bool:
         """

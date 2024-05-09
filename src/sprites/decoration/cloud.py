@@ -1,8 +1,6 @@
-from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER, COLLISION_CHICKEN
 from sprites.sprite import Sprite
 
 MOVE_SPEED = 0.25
-
 
 
 class Cloud(Sprite):
@@ -15,7 +13,6 @@ class Cloud(Sprite):
             delta_time=None,
             map_size=None
     ):
-
         w, h = map_size
 
         self.center_x -= MOVE_SPEED

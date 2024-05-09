@@ -5,7 +5,7 @@ import random
 import arcade
 from arcade import TileMap
 
-from constants.layers import LAYER_WATER, ANIMATED_LAYERS
+from constants.layers import ANIMATED_LAYERS
 from utils.scene import get_layer
 
 

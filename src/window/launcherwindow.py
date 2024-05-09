@@ -1,7 +1,6 @@
 import os
 import tkinter as tk
 import tkinter.messagebox as messagebox
-
 import tkinter.ttk as ttk
 
 from PIL.ImageTk import PhotoImage
