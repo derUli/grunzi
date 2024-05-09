@@ -5,7 +5,7 @@ import random
 import arcade
 from arcade import TileMap
 
-from constants.layers import LAYER_WATER
+from constants.layers import LAYER_WATER, ANIMATED_LAYERS
 from utils.scene import get_layer
 
 
@@ -36,7 +36,7 @@ def random_position(tilemap: TileMap) -> tuple:
 
 def animated_in_sight(scene, player_sprite) -> list:
     """ Get animated sprites in sight"""
-    layers = [LAYER_WATER]
+    layers = ANIMATED_LAYERS
 
     animated = []
 

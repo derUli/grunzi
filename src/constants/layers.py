@@ -68,6 +68,14 @@ WALL_LAYERS = [
     LAYER_SKY
 ]
 
+SKY_LAYERS = [
+    'Clouds',
+    'Sun'
+]
+ANIMATED_LAYERS = [
+    LAYER_WATER
+]
+
 LAYER_OPTIONS = {
     LAYER_FENCE: {
         'custom_class': Fence

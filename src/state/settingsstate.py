@@ -9,31 +9,28 @@ from constants.audio import DEFAULT_AUDIO_BACKEND
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 3
+SETTINGS_STATE_VERSION = 4
 
 
 class SettingsState:
     def __init__(self):
-        # Screen resolution
+        # Video
         self.screen_resolution = [1280, 720]
-
-        # Is fullscreen mode
         self.fullscreen = True
         self.borderless = False
-
-        # Vertical synchronisation
         self.vsync = True
-
-        # Is sound disabled
-        self.audio_backend = DEFAULT_AUDIO_BACKEND
-
         self.show_fps = False
+        self.sky = True
 
-        self.version = SETTINGS_STATE_VERSION
-
+        # Audio
+        self.audio_backend = DEFAULT_AUDIO_BACKEND
         self._music_volume = 1
         self._sound_volume = 1
         self._muted = False
+
+        # SettingState
+        self.version = SETTINGS_STATE_VERSION
+
 
     @staticmethod
     def exists() -> bool:
