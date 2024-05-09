@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-01 00:34+0200\n"
+"POT-Creation-Date: 2024-05-09 15:19+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,45 +18,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/characters/playersprite.py:75
+#: sprites/characters/playersprite.py:84
 msgid "bacon"
 msgstr "Schinken"
 
-#: sprites/characters/playersprite.py:76
+#: sprites/characters/playersprite.py:85
 msgid "salami"
 msgstr "Salami"
 
-#: sprites/characters/playersprite.py:77
+#: sprites/characters/playersprite.py:86
 msgid "schnitzel"
 msgstr "Schnitzel"
 
-#: sprites/characters/playersprite.py:78
+#: sprites/characters/playersprite.py:87
 msgid "Cutlet"
 msgstr "Kotelett"
 
-#: sprites/characters/playersprite.py:79
+#: sprites/characters/playersprite.py:88
 msgid "Mett"
 msgstr "Mett"
 
-#: sprites/characters/playersprite.py:80
+#: sprites/characters/playersprite.py:89
 msgid "Suckling pig"
 msgstr "Spanferkel"
 
-#: sprites/characters/playersprite.py:81
+#: sprites/characters/playersprite.py:90
 msgid "Pulled Pork"
 msgstr "Pulled Pork"
 
-#: sprites/characters/playersprite.py:82
+#: sprites/characters/playersprite.py:91
 msgid "Spare ribs"
 msgstr "Spareribs"
 
-#: sprites/characters/playersprite.py:85
+#: sprites/characters/playersprite.py:94
 msgid "You are"
 msgstr "Du bist"
 
 #: views/difficultyselection.py:56 views/mapselection.py:60
 #: views/settings/settingsaudio.py:47 views/settings/settingscontrols.py:104
-#: views/settings/settingsmenu.py:73 views/settings/settingsvideo.py:50
+#: views/settings/settingsmenu.py:73 views/settings/settingsvideo.py:54
 msgid "Back"
 msgstr "Zurück"
 
@@ -72,26 +72,26 @@ msgstr "Versaut"
 msgid "High"
 msgstr "Sauschwer"
 
-#: views/difficultyselection.py:101
+#: views/difficultyselection.py:105
 msgid "Difficulty"
 msgstr "Schwierigkeit"
 
-#: views/difficultyselection.py:197 views/mapselection.py:224
+#: views/difficultyselection.py:201 views/mapselection.py:224
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/difficultyselection.py:199 views/difficultyselection.py:210
+#: views/difficultyselection.py:203 views/difficultyselection.py:215
 #: views/mapselection.py:226 views/mapselection.py:238 views/pausemenu.py:122
 #: views/pausemenu.py:138
 msgid "Yes"
 msgstr "Ja"
 
-#: views/difficultyselection.py:200 views/mapselection.py:227
+#: views/difficultyselection.py:204 views/mapselection.py:227
 #: views/pausemenu.py:123
 msgid "No"
 msgstr "Nein"
 
-#: views/game.py:226
+#: views/game.py:244
 msgid "Loading..."
 msgstr "Wird geladen..."
 
@@ -131,7 +131,7 @@ msgstr "Zurück zum Hauptmenü?"
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
-#: views/view.py:111
+#: views/view.py:123
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
@@ -219,7 +219,7 @@ msgstr "Pausenmenü öffnen"
 msgid "F3"
 msgstr ""
 
-#: views/settings/settingscontrols.py:70 views/settings/settingsvideo.py:81
+#: views/settings/settingscontrols.py:70 views/settings/settingsvideo.py:95
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
@@ -287,11 +287,11 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:53 window/launcherwindow.py:66
+#: views/settings/settingsmenu.py:53 window/launcherwindow.py:67
 msgid "Video"
 msgstr ""
 
-#: views/settings/settingsmenu.py:60 window/launcherwindow.py:67
+#: views/settings/settingsmenu.py:60 window/launcherwindow.py:68
 msgid "Audio"
 msgstr ""
 
@@ -299,31 +299,35 @@ msgstr ""
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsvideo.py:57 window/launcherwindow.py:80
+#: views/settings/settingsvideo.py:61 window/launcherwindow.py:81
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsvideo.py:69 window/launcherwindow.py:99
+#: views/settings/settingsvideo.py:73 window/launcherwindow.py:100
 msgid "V-Sync"
 msgstr ""
 
-#: window/launcherwindow.py:43
+#: views/settings/settingsvideo.py:84
+msgid "Animated Sky"
+msgstr "Animierter Himmel"
+
+#: window/launcherwindow.py:44
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:70
+#: window/launcherwindow.py:71
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:88
+#: window/launcherwindow.py:89
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:105
+#: window/launcherwindow.py:106
 msgid "Audio Backend:"
 msgstr ""
 
-#: window/launcherwindow.py:114
+#: window/launcherwindow.py:115
 msgid "Launch Game"
 msgstr "Spiel starten"
 

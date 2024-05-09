@@ -46,6 +46,10 @@ class SettingsVideo(Fading):
         self.manager.clear()
         self.manager.disable()
 
+        # Check if this is running from pause menu
+        from views.pausemenu import PauseMenu
+        game_running = isinstance(self.previous_view.previous_view, PauseMenu)
+
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
@@ -76,7 +80,17 @@ class SettingsVideo(Fading):
             style=utils.gui.get_button_style()
         )
 
-        # Video settings
+        sky_button = arcade.gui.UITextureButton(
+            text=_("Animated Sky"),
+            width=BUTTON_WIDTH,
+            texture=get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state.settings.sky
+            ),
+            style=utils.gui.get_button_style()
+        )
+
         fps_button = arcade.gui.UITextureButton(
             text=_("Show FPS"),
             width=BUTTON_WIDTH,
@@ -103,6 +117,11 @@ class SettingsVideo(Fading):
             self.on_toggle_fps()
             self.setup()
 
+        @sky_button.event('on_click')
+        def on_click_sky_button(event):
+            self.on_toggle_sky()
+            self.setup()
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
@@ -124,6 +143,11 @@ class SettingsVideo(Fading):
             vsync_button,
             fps_button
         ]
+
+        if not game_running:
+            widgets += [
+                sky_button
+            ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
@@ -176,3 +200,8 @@ class SettingsVideo(Fading):
     def on_toggle_fullscreen(self):
         super().on_toggle_fullscreen()
         self.setup()
+
+    def on_toggle_sky(self) -> None:
+        """ On toggle fps """
+        self.state.settings.sky = not self.state.settings.sky
+        self.state.settings.save()
