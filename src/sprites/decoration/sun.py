@@ -2,6 +2,7 @@ from sprites.sprite import Sprite
 
 MARGIN_RIGHT = 20
 
+
 class Sun(Sprite):
     def update_sun(self, camera):
         camera_x, camera_y = camera.position

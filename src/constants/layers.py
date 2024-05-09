@@ -72,6 +72,7 @@ SKY_LAYERS = [
     'Clouds',
     'Sun'
 ]
+
 ANIMATED_LAYERS = [
     LAYER_WATER
 ]
