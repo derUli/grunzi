@@ -2,13 +2,14 @@ import random
 
 from arcade import FACE_DOWN, FACE_UP
 
-from sprites.characters.chicken import Chicken
 from sprites.items.item import Item, Tree
 
 
 class Chainsaw(Item):
     def on_use(self, b, state=None, handlers=None):
         from sprites.characters.skullsprite import SkullSprite
+        from sprites.characters.chicken import Chicken
+
 
         if isinstance(b, Tree):
             b.fade_destroy()
