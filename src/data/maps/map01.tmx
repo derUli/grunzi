@@ -1152,5 +1152,4 @@
  <objectgroup id="22" name="Spawn Point" locked="1">
   <object id="7" name="Spawn Point" gid="74" x="1538.38" y="1143.41" width="60" height="46"/>
  </objectgroup>
- <objectgroup id="38" name="Player"/>
 </map>

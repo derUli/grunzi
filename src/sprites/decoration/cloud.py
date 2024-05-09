@@ -1,7 +1,7 @@
 from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER, COLLISION_CHICKEN
 from sprites.sprite import Sprite
 
-MOVE_SPEED = 0.5
+MOVE_SPEED = 0.25
 
 
 
