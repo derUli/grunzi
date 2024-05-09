@@ -45,7 +45,7 @@ class LauncherWindow(ThemedTk):
         Set up the UI
         """
         self.title(_('Grunzi Launcher'))
-        self.geometry('320x320')
+        self.geometry('320x240')
         self.bind_keyevents()
         self.set_icon()
 
@@ -109,12 +109,12 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).pack(expand=True)
 
-        ttk.Checkbutton(tab_video,
-                        text=_('Animated Sky'),
-                        variable=self.sky,
-                        onvalue=True,
-                        offvalue=False
-                        ).pack(expand=True)
+        # ttk.Checkbutton(tab_video,
+        #                 text=_('Animated Sky'),
+        #                 variable=self.sky,
+        #                 onvalue=True,
+        #                 offvalue=False
+        #                 ).pack(expand=True)
 
         # ttk.Checkbutton(tab_video,
         #                 text=_('Shaders'),

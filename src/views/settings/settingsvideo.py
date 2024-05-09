@@ -143,10 +143,10 @@ class SettingsVideo(Fading):
             vsync_button
         ]
 
-        if not game_running:
-            widgets += [
-                sky_button
-            ]
+        # if not game_running:
+        #     widgets += [
+        #         sky_button
+        #     ]
 
         widgets += [
             fps_button
