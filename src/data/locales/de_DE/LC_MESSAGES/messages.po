@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-09 16:55+0200\n"
+"POT-Creation-Date: 2024-05-09 16:59+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -323,10 +323,6 @@ msgstr "Bildschirmauflösung:"
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:121
-msgid "Shaders"
-msgstr "Shader"
-
 #: window/launcherwindow.py:128
 msgid "Audio Backend:"
 msgstr ""
@@ -342,4 +338,7 @@ msgstr "Fehler"
 #: window/launcherwindow.py:210
 msgid "This option isn't available yet."
 msgstr "Diese Option ist noch nicht verfügbar."
+
+#~ msgid "Shaders"
+#~ msgstr "Shader"
 
