@@ -164,6 +164,7 @@ class Game(Fading):
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
 
+        # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
             for layer in SKY_LAYERS:
                 self.scene.remove_sprite_list_by_name(layer)
