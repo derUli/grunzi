@@ -5,6 +5,7 @@ from arcade import SpriteList, Scene
 import sprites.decoration.car
 from sprites.characters.duck import Duck
 from sprites.decoration.cloud import Cloud
+from sprites.decoration.sun import Sun
 from sprites.items.Cone import Cone
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
@@ -41,6 +42,8 @@ LAYER_WATER = 'Water'
 LAYER_CONES = 'Cones'
 LAYER_CLOUDS = 'Clouds'
 LAYER_SKY = 'Sky'
+LAYER_SUN = 'Sun'
+
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -53,7 +56,8 @@ ALL_LAYERS = [
     LAYER_CAR_LEFT,
     LAYER_CAR_RIGHT,
     LAYER_WATER,
-    LAYER_SKY
+    LAYER_SKY,
+    LAYER_SUN
 ]
 
 WALL_LAYERS = [
@@ -118,6 +122,9 @@ LAYER_OPTIONS = {
     },
     LAYER_CLOUDS: {
         'custom_class': Cloud
+    },
+    LAYER_SUN: {
+        'custom_class': Sun
     }
 }
 

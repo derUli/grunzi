@@ -628,10 +628,10 @@ class Game(Fading):
         logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
 
     def on_update(self, delta_time):
+        """Movement and game logic"""
 
         self.time += delta_time
 
-        """Movement and game logic"""
         if not self.initialized:
             return
 
@@ -662,6 +662,7 @@ class Game(Fading):
         self.physics_engine.step()
         self.call_update(delta_time)
         self.update_enemies(delta_time)
+        self.update_sun()
         self.update_fade(self.next_view)
 
         # Animate only visible
@@ -692,6 +693,10 @@ class Game(Fading):
             if random.randint(a, b) == 50:
                 spawn_skull(self.state, self.tilemap.map, self.scene, self.physics_engine)
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
+
+    def update_sun(self):
+        for sprite in get_layer(LAYER_SUN, self.scene):
+            sprite.update_sun(self.camera_sprites)
 
     def update_collectable(self):
         items = arcade.check_for_collision_with_lists(self.player_sprite, self.scene.sprite_lists)

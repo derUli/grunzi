@@ -9,11 +9,9 @@ def get_layer(name: str, scene: Scene) -> SpriteList:
     @param scene: Scene
     @return: List of sprites
     """
-    try:
-        sprites = scene[name].sprite_list
-    except KeyError:
-        sprites = SpriteList()
-    except AttributeError:
-        sprites = SpriteList()
+
+    sprites = SpriteList()
+    if name in scene.name_mapping:
+        sprites = scene[name]
 
     return sprites
