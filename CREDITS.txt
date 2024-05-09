@@ -3,6 +3,9 @@ Nennung der Quelle frei, auch für kommerzielle Zwecke verwendet werden.
 
 Im Folgenden eine Auflistung der Quellen, wo dies erforderlich ist:
 
+Grafik:
+https://opengameart.org/content/fluffy-clouds
+
 Musik:
 https://audionautix.com/creative-commons-music
 https://www.audiotool.com/track/level_99_boss/

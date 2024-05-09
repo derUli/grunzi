@@ -4,6 +4,7 @@ from arcade import SpriteList, Scene
 
 import sprites.decoration.car
 from sprites.characters.duck import Duck
+from sprites.decoration.cloud import Cloud
 from sprites.items.Cone import Cone
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
@@ -38,6 +39,7 @@ LAYER_HIGHWAY = 'Sound:Highway'
 LAYER_BEACH = 'Sound:Beach'
 LAYER_WATER = 'Water'
 LAYER_CONES = 'Cones'
+LAYER_CLOUDS = 'Clouds'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -110,6 +112,9 @@ LAYER_OPTIONS = {
     },
     LAYER_DUCK: {
         'custom_class': Duck
+    },
+    LAYER_CLOUDS: {
+        'custom_class': Cloud
     }
 }
 

@@ -8,6 +8,7 @@
 * Nach einem Game Over wird das aktuelle Level neu gestartet
 * Fußschritte Sound-Effekt hinzugefügt
 * Atmo Sound für map02 hinzugefügt
+* Himmel in map02 animiert
 * Geschosse werden 3 Sekunden nach dem Schuss aus der Szene entfernt
 * Hühner sterben jetzt, wenn sie von einem Auto überfahren werden
 * Wenn Hühner sterben, werden sie durch eine Feder ersetzt
