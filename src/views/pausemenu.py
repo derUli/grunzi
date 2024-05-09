@@ -1,8 +1,11 @@
+import os
+
 import arcade.gui
 
 import constants.controls.keyboard
 import utils
 import utils.gui
+from utils.audio import streaming_enabled
 from utils.gui import get_button_style
 from views.fading import Fading
 from views.mainmenu import MainMenu
@@ -22,6 +25,8 @@ class PauseMenu(Fading):
         self.time = 0
         self.state = state
         self.previous_view = previous_view
+
+        self.player = None
 
     def setup(self) -> None:
         """ Set up the pause menu """
@@ -85,6 +90,13 @@ class PauseMenu(Fading):
         frame.with_padding(bottom=20)
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
+        music = arcade.load_sound(
+            os.path.join(self.state.music_dir, 'pause.ogg'),
+            streaming=streaming_enabled()
+        )
+
+        self.player = music.play(loop=True, volume=self.state.settings.music_volume)
+
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
@@ -104,6 +116,7 @@ class PauseMenu(Fading):
             self.on_toggle()
 
     def on_toggle(self) -> None:
+        self.player.pause()
         self.window.show_view(self.previous_view)
 
     def on_exit(self, confirm=False):
@@ -130,12 +143,14 @@ class PauseMenu(Fading):
 
         self.manager.clear()
 
+        self.player.pause()
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
 
     def on_confirm_exit(self, button) -> None:
         """ On confirm exit """
         if button.action == _('Yes'):
+            self.player.pause()
             self.on_exit(confirm=True)
 
     def on_update(self, delta_time):

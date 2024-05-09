@@ -148,16 +148,11 @@ class SettingsAudio(Fading):
         else:
             self.state.settings._music_volume = 1.0
 
-        # We can't import this at the beginning of the
-        # file because it would be a circular import
-        from views.mainmenu import MainMenu
-
         # Main Menu or game
         main_menu = self.previous_view.previous_view
 
         # Update volume of main menu music
-        if isinstance(main_menu, MainMenu):
-            main_menu.player.volume = self.state.settings._music_volume
+        main_menu.player.volume = self.state.settings._music_volume
 
         self.state.settings.save()
 

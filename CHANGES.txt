@@ -18,6 +18,7 @@
 * Hühner sterben jetzt, wenn sie von einem Auto überfahren werden
 * Wenn Hühner sterben, werden sie durch eine Feder ersetzt
 * FPS Graph durch FPS Text ersetzt
+* Ambient Musik zum Pausenmenü hinzugefügt
 
 ## Alpha 010 (03.05.2024)
 
