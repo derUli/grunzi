@@ -46,7 +46,7 @@ class CarLeft(Sprite, Car):
 
         w, h = map_size
         if self.right < 0:
-            physics_engine.set_position(self, (w, self.center_y))
+            self.left = w + 1
 
         from utils.physics import on_hit_destroy
 
