@@ -9,6 +9,7 @@ MARGIN_RIGHT = 20
 
 class Sun(Sprite):
     """ Sun """
+
     def update_sun(self, camera: Camera):
         """ Update sun position """
         camera_x, camera_y = camera.position

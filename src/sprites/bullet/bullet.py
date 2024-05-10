@@ -27,6 +27,7 @@ DESTROY_TIME = 3
 SCORE_HURT_CHICKEN = 25
 SCORE_HURT_SKULL = 50
 
+
 class Bullet(arcade.sprite.SpriteCircle):
     def __init__(
             self,
@@ -43,6 +44,7 @@ class Bullet(arcade.sprite.SpriteCircle):
 
         self.created_at = time.time()
         self.state = None
+
     def draw_debug(self):
         pass
 

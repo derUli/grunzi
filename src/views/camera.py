@@ -1,6 +1,6 @@
 """ Center camera to player """
 import arcade
-from arcade import Camera, SpriteSolidColor
+from arcade import SpriteSolidColor
 
 
 def center_camera_to_player(player_sprite, camera, size) -> None:

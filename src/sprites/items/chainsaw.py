@@ -8,11 +8,11 @@ SCORE_DESTROY_TREE = 200
 SCORE_KILL_SKULL = 100
 SCORE_KILL_CHICKEN = 50
 
+
 class Chainsaw(Item):
     def on_use(self, b, state=None, handlers=None):
         from sprites.characters.skullsprite import SkullSprite
         from sprites.characters.chicken import Chicken
-
 
         if isinstance(b, Tree):
             if b.fade_destroy():

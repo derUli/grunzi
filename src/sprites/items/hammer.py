@@ -1,8 +1,8 @@
 from sprites.items.item import Item, PiggyBank
 
-
 SCORE_DESTROY_PIGGYBANK = 100
 SCORE_HURT_SKULLSPRITE = 50
+
 
 class Hammer(Item):
     def on_use(self, b, state=None, handlers=None):

@@ -11,6 +11,7 @@ MARGIN = 10
 FILL_COUNT = 6
 FILL_CHAR = '0'
 
+
 class UIContainer:
     def __init__(self):
         """ Constructor """

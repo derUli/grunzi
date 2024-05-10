@@ -3,8 +3,8 @@ from arcade import FACE_DOWN, FACE_RIGHT, FACE_LEFT
 
 from sprites.items.item import Item, Fence
 
-
 SCORE_DESTROY_FENCE = 100
+
 
 class Plier(Item):
     def on_use(self, b, state=None, handlers=None):

@@ -197,7 +197,6 @@ class Game(Fading):
 
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
 
-
     def wait_for_video(self, delta_time=0) -> None:
         """ Wait until video playback completed """
 
