@@ -33,6 +33,7 @@ from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
+from utils.keypressed import KeyPressed
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
@@ -71,10 +72,7 @@ class Game(Fading):
         self.camera_sprites = None
 
         # What key is pressed down?
-        self.up_key_pressed = False
-        self.right_key_pressed = False
-        self.down_key_pressed = False
-        self.left_key_pressed = False
+        self.keypressed = KeyPressed()
 
         # Music queue
         self.music_queue = None
@@ -279,16 +277,16 @@ class Game(Fading):
 
         force_x, force_y = 0, 0
 
-        if self.up_key_pressed and not self.down_key_pressed:
+        if self.keypressed.key_up and not self.keypressed.key_down:
             force_y = move_force
             self.player_sprite.change_y = -1
-        elif self.down_key_pressed and not self.up_key_pressed:
+        elif self.keypressed.key_down and not self.keypressed.key_up:
             force_y = -move_force
             self.player_sprite.change_y = 1
-        if self.left_key_pressed and not self.right_key_pressed:
+        if self.keypressed.key_left and not self.keypressed.key_right:
             force_x = -move_force
             self.player_sprite.change_x = -1
-        elif self.right_key_pressed and not self.left_key_pressed:
+        elif self.keypressed.key_right and not self.keypressed.key_left:
             force_x = move_force
             self.player_sprite.change_x = 1
 
@@ -301,10 +299,7 @@ class Game(Fading):
 
     def reset_keys(self) -> None:
         """ Reset key pressed vars """
-        self.up_key_pressed = False
-        self.right_key_pressed = False
-        self.down_key_pressed = False
-        self.left_key_pressed = False
+        self.keypressed.reset()
         self.player_sprite.reset()
 
     def on_button_press(self, controller, key):
@@ -413,20 +408,20 @@ class Game(Fading):
 
         if stick_name == constants.controls.controller.LEFTSTICK:
             if x_value == constants.controls.controller.AXIS_RIGHT:
-                self.right_key_pressed = True
+                self.keypressed.key_right = True
             elif x_value == constants.controls.controller.AXIS_LEFT:
-                self.left_key_pressed = True
+                self.keypressed.key_left = True
             else:
-                self.right_key_pressed = False
-                self.left_key_pressed = False
+                self.keypressed.key_right = False
+                self.keypressed.key_left = False
 
             if y_value == constants.controls.controller.AXIS_DOWN:
-                self.down_key_pressed = True
+                self.keypressed.key_down = True
             elif y_value == constants.controls.controller.AXIS_UP:
-                self.up_key_pressed = True
+                self.keypressed.key_up = True
             else:
-                self.down_key_pressed = False
-                self.up_key_pressed = False
+                self.keypressed.key_down = False
+                self.keypressed.key_up = False
 
         if stick_name == constants.controls.controller.RIGHTSTICK:
             face = self.player_sprite.face
@@ -503,13 +498,13 @@ class Game(Fading):
         if key in constants.controls.keyboard.KEY_GRUNT:
             self.on_grunt()
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
-            self.left_key_pressed = True
+            self.keypressed.key_left = True
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
-            self.right_key_pressed = True
+            self.keypressed.key_right = True
         elif key in constants.controls.keyboard.KEY_MOVE_UP:
-            self.up_key_pressed = True
+            self.keypressed.key_up = True
         elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
-            self.down_key_pressed = True
+            self.keypressed.key_down = True
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             self.on_select_item(key=key)
 
@@ -529,13 +524,13 @@ class Game(Fading):
         movement = True
 
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
-            self.left_key_pressed = False
+            self.keypressed.key_left = False
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
-            self.right_key_pressed = False
+            self.keypressed.key_right = False
         elif key in constants.controls.keyboard.KEY_MOVE_UP:
-            self.up_key_pressed = False
+            self.keypressed.key_up = False
         elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
-            self.down_key_pressed = False
+            self.keypressed.key_down = False
         else:
             movement = False
 
