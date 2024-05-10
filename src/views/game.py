@@ -366,16 +366,19 @@ class Game(Fading):
             return
 
         old_map = self.state.map_name
+        next_map = old_map
         index = MAPS.index(old_map)
 
         if not same:
             index += 1
 
+        completed = False
+
         try:
             next_map = MAPS[index]
         except IndexError as e:
             logging.error(e)
-            return
+            completed = True
 
         self.state.map_name = next_map
 
@@ -384,6 +387,11 @@ class Game(Fading):
         savegame.completed += [old_map]
         savegame.score[old_map] = self.state.score
         savegame.save()
+
+        if completed:
+            logging.info('Game Completed')
+            logging.info('TODO: Implement outro')
+            return
 
         self.next_view = Game(self.window, self.state, skip_intro=same)
         self.fade_out()
