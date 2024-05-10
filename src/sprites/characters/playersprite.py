@@ -243,6 +243,7 @@ class PlayerSprite(Character, SpriteHealth):
 
     def stop_walk(self):
         self.footsteps_default.pause()
+        self.footsteps_sprint.pause()
 
     @property
     def sprinting(self):
