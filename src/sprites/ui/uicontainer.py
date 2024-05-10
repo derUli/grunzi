@@ -8,3 +8,6 @@ class UIContainer:
     def setup(self, state, size):
         self.inventory = InventoryContainer()
         self.inventory.setup(state=state, size=size)
+
+    def draw(self):
+        self.inventory.draw()
