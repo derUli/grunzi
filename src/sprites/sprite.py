@@ -7,13 +7,35 @@ from arcade import Texture
 
 FADE_SPEED = 255 / 20
 
+class AbstractSprite:
+    def draw_debug(self):
+        """ Draw debug """
+        pass
 
-class AbstractSprite(arcade.sprite.Sprite):
+    def draw_overlay(self):
+        """ Draw overlay """
+        pass
+
+    def update(
+            self,
+            player=None,
+            scene=None,
+            physics_engine=None,
+            state=None,
+            delta_time=None,
+            map_size=None
+    ):
+        pass
+
+class AbstractStaticSprite(AbstractSprite, arcade.sprite.Sprite):
     """ Abstract sprite class """
     pass
 
+class AbstractAnimatedSprite(AbstractSprite, arcade.sprite.AnimatedTimeBasedSprite):
+    """ Abstract sprite class """
+    pass
 
-class Sprite(AbstractSprite):
+class Sprite(AbstractStaticSprite):
     def __init__(
             self,
             filename: str = None,
@@ -53,15 +75,7 @@ class Sprite(AbstractSprite):
         )
 
         self.insight = False
-        self.fadeout = False  #
-
-    def draw_debug(self):
-        """ Draw debug """
-        pass
-
-    def draw_overlay(self):
-        """ Draw overlay """
-        pass
+        self.fadeout = False
 
     def update(
             self,

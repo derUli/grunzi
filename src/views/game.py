@@ -28,7 +28,7 @@ from sprites.characters.playersprite import PlayerSprite, MODIFIER_SPRINT, MODIF
 from sprites.characters.skullsprite import spawn_skull
 from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
-from sprites.sprite import Sprite
+from sprites.sprite import AbstractSprite
 from sprites.ui.uicontainer import UIContainer
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
@@ -669,7 +669,8 @@ class Game(Fading):
     def call_update(self, delta_time):
         for sprite_list in self.scene.sprite_lists:
             for sprite in sprite_list:
-                if not isinstance(sprite, Sprite):
+
+                if not isinstance(sprite, AbstractSprite):
                     continue
 
                 sprite.update(

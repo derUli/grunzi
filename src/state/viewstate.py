@@ -77,6 +77,9 @@ class ViewState:
             },
             'water': {
                 'splash': arcade.load_sound(os.path.join(self.sound_dir, 'water', 'splash.ogg'))
+            },
+            'electric': {
+                'on': arcade.load_sound(os.path.join(self.sound_dir, 'electric', 'on.ogg'))
             }
         }
 
