@@ -1894,10 +1894,10 @@
   <object id="146" gid="150" x="7933.97" y="900.909" width="1139" height="499"/>
   <object id="147" gid="151" x="9067.97" y="920.909" width="935" height="500"/>
   <object id="148" gid="152" x="10015" y="916.909" width="1129" height="500"/>
-  <object id="150" gid="153" x="11135" y="872.909" width="697" height="500"/>
-  <object id="151" gid="152" x="11823" y="856.909" width="1129" height="500"/>
-  <object id="186" gid="151" x="1101" y="930" width="935" height="500"/>
-  <object id="187" gid="152" x="-12" y="954" width="1129" height="500"/>
+  <object id="150" gid="153" x="11111" y="876.909" width="697" height="500"/>
+  <object id="151" gid="152" x="11799" y="880.909" width="1129" height="500"/>
+  <object id="186" gid="151" x="1125" y="866" width="935" height="500"/>
+  <object id="187" gid="152" x="8" y="874" width="1129" height="500"/>
  </objectgroup>
  <objectgroup id="26" name="Feathers"/>
  <objectgroup id="19" name="Chainsaw">

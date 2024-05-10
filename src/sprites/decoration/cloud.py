@@ -18,4 +18,4 @@ class Cloud(Sprite):
         self.center_x -= MOVE_SPEED
 
         if self.right < 0:
-            self.left = w + 1
+            self.right = w

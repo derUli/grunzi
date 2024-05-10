@@ -55,6 +55,7 @@ class PositionalSound:
         if not self.player:
             return
 
+        self.update()
         self.player.play()
 
     @property

@@ -362,6 +362,8 @@ class Game(Fading):
         self.on_next_level(same=True)
 
     def on_next_level(self, same=False):
+        self.player_sprite.reset()
+
         if self.next_view:
             return
 
@@ -651,6 +653,7 @@ class Game(Fading):
             self._call_method = None
 
         if self.player_sprite.dead:
+            self.player_sprite.reset()
             return self.update_fade(self.next_view)
 
         # Move the player with the physics engine
