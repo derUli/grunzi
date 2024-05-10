@@ -625,6 +625,7 @@ class Game(Fading):
     def on_update(self, delta_time):
         """Movement and game logic"""
 
+
         self.time += delta_time
 
         if not self.initialized:
