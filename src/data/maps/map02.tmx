@@ -1882,7 +1882,7 @@
   <object id="191" gid="11" x="1280" y="4932" width="128" height="16"/>
  </objectgroup>
  <objectgroup id="35" name="Sun">
-  <object id="160" gid="154" x="3098" y="741" width="191" height="191"/>
+  <object id="160" gid="154" x="3098" y="745" width="191" height="191"/>
  </objectgroup>
  <objectgroup id="27" name="Clouds">
   <object id="140" gid="150" x="1989.97" y="932.909" width="1139" height="499"/>
