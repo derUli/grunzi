@@ -14,19 +14,49 @@ die mindestens OpenGL 3.3 unterstützt.
 Es sollte auf jeder Hardware, die in den letzten 10 Jahren auf den Markt gebracht wurde, funktionieren.
 Falls es doch zu Performance-Problemen kommt, kannst du die Bildschirmauflösung reduzieren.
 
-Ich habe es auf meinem Desktop PC und meinem Laptop getestet, welche folgende Specs haben.
+### Testsysteme
 
-Desktop PC:
-CPU: Intel Core i7-10700F
-GPU: Nvidia GeForce GT 1030
-RAM: 32 GB
-OS: Windows 11 64-Bit
+Ich teste das Spiel während der entwicklung auf meinem Desktop PC und meinem Laptop.
 
-Laptop:
-CPU: Intel Pentium Gold 7505
-GPU: Intel UHD Graphics
-RAM: 8 GB
-OS: Windows 11 64-Bit
+Im Folgenden die Hardware-Specs und die erwartete Performance.
+
+Die erwartete Performance bezieht sich auf folgende Grafikeinstellungen und wurde mit
+der RivaTuner Software gemessen.
+
+| Einstellung         | Wert        |
+|---------------------|-------------|
+| Bildschirmauflösung | 1920 x 1080 |
+| Vollbild            | An          |
+| V-Sync              | Aus         |
+| Rahmenlos           | Aus         |
+
+#### Desktop PC
+
+| Hardware-Art    | Hersteller | Modell                 |
+|-----------------|------------|------------------------|
+| Prozessor       | Intel      | Core i7-10700F         |
+| Grafikkarte     | NVIDIA     | GeForce GT 1030 (DDR5) |
+| Arbeitsspeicher | Unbekannt  | 32 GB                  |
+| Betriebssystem  | Microsoft  | Windows 11 (64-Bit)    |
+
+**Erwartete Performance:** ⌀ XXX FPS
+
+#### Laptop
+
+| Hardware-Art    | Hersteller | Modell              |
+|-----------------|------------|---------------------|
+| Prozessor       | Intel      | Pentium Gold 7505   |
+| Grafikkarte     | Intel      | UHD Graphics        |
+| Arbeitsspeicher | Unbekannt  | 8 GB                |
+| Betriebssystem  | Microsoft  | Windows 11 (64-Bit) |
+
+**Erwartete Performance:** ⌀ 100 FPS
+
+| Einstellung         | Wert        |
+|---------------------|-------------|
+| Bildschirmauflösung | 1920 x 1080 |
+| V-Sync              | Aus         |
+| Rahmenlos           | Aus         |
 
 ## Was ist neu?
 

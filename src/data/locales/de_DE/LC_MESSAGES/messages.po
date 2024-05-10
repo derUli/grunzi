@@ -18,39 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/characters/playersprite.py:84
+#: sprites/characters/player.py:84
 msgid "bacon"
 msgstr "Schinken"
 
-#: sprites/characters/playersprite.py:85
+#: sprites/characters/player.py:85
 msgid "salami"
 msgstr "Salami"
 
-#: sprites/characters/playersprite.py:86
+#: sprites/characters/player.py:86
 msgid "schnitzel"
 msgstr "Schnitzel"
 
-#: sprites/characters/playersprite.py:87
+#: sprites/characters/player.py:87
 msgid "Cutlet"
 msgstr "Kotelett"
 
-#: sprites/characters/playersprite.py:88
+#: sprites/characters/player.py:88
 msgid "Mett"
 msgstr "Mett"
 
-#: sprites/characters/playersprite.py:89
+#: sprites/characters/player.py:89
 msgid "Suckling pig"
 msgstr "Spanferkel"
 
-#: sprites/characters/playersprite.py:90
+#: sprites/characters/player.py:90
 msgid "Pulled Pork"
 msgstr "Pulled Pork"
 
-#: sprites/characters/playersprite.py:91
+#: sprites/characters/player.py:91
 msgid "Spare ribs"
 msgstr "Spareribs"
 
-#: sprites/characters/playersprite.py:94
+#: sprites/characters/player.py:94
 msgid "You are"
 msgstr "Du bist"
 

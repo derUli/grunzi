@@ -34,7 +34,7 @@ STAMINA_INCREMENTOR = 0.5
 STAMINA_DECREMENTOR = 0.8
 
 
-class PlayerSprite(Character, SpriteHealth):
+class Player(Character, SpriteHealth):
     def __init__(
             self,
             filename: str = None,

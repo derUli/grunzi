@@ -24,7 +24,7 @@ from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.character import Character
 from sprites.characters.chicken import spawn_chicken
-from sprites.characters.playersprite import PlayerSprite, MODIFIER_SPRINT, MODIFIER_DEFAULT
+from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.characters.skullsprite import spawn_skull
 from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
@@ -169,7 +169,7 @@ class Game(Fading):
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
-        self.player_sprite = PlayerSprite(filename)
+        self.player_sprite = Player(filename)
 
         self.player_sprite.setup(
             state=self.state,

@@ -17,7 +17,7 @@ from constants.layers import (
     LAYER_DUCK,
     LAYER_SKY
 )
-from sprites.characters.playersprite import PlayerSprite
+from sprites.characters.player import Player
 
 DEFAULT_FRICTION = 1
 
@@ -25,7 +25,7 @@ DAMPING = 0.5
 GRAVITY = (0, 0)
 
 
-def make_physics_engine(player_sprite: PlayerSprite, scene: Scene) -> PymunkPhysicsEngine:
+def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEngine:
     """
     Initializes a physics engine
     @param player_sprite: The player sprite
