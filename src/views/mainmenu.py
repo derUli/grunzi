@@ -9,6 +9,7 @@ import utils.gui
 import utils.text
 from constants.difficulty import Difficulty
 from constants.fonts import FONT_ADRIP
+from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
 from utils.audio import streaming_enabled
 from views.difficultyselection import DifficultySelection
@@ -88,6 +89,9 @@ class MainMenu(Fading):
 
             from views.game import Game
             savegame = SaveGameState.load()
+
+            if not savegame.current:
+                savegame.current = FIRST_MAP
             self.state.map_name = savegame.current
             self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
 

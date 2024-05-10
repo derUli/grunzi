@@ -41,7 +41,7 @@ class UIContainer:
                 multiline=True,
                 width=100,
                 color=arcade.csscolor.HOTPINK,
-                align='center',
+                align='left',
                 bold=True,
                 font_name=FONT_MONOTYPE,
             )

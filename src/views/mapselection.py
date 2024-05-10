@@ -54,6 +54,7 @@ class MapSelection(Fading):
         """ Setup UI """
         self.manager.clear()
         self.manager.disable()
+
         self.maps = SaveGameState.load().get_selectable()
 
         back_button = arcade.gui.UIFlatButton(

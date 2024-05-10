@@ -6,6 +6,7 @@ import os
 import jsonpickle
 
 from constants.difficulty import DIFFICULTY_MEDIUM
+from constants.maps import FIRST_MAP
 from constants.savegames import SAVEGAME_DEFAULT
 from utils.path import get_savegame_path
 from utils.utils import natural_keys
@@ -23,7 +24,12 @@ class SaveGameState:
     def get_selectable(self) -> list:
         """ Get selectable maps """
 
-        maps = set(self.completed + [self.current])
+        current = [FIRST_MAP]
+
+        if self.current:
+            current = [self.current]
+
+        maps = set(self.completed + current)
 
         return sorted(maps, key=natural_keys)
 
