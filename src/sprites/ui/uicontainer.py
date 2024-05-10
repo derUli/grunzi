@@ -1,5 +1,6 @@
 import arcade
 
+from constants.fonts import FONT_MONOTYPE
 from sprites.ui.inventorycontainer import InventoryContainer
 from utils.text import create_text
 
@@ -7,7 +8,8 @@ r, g, b, a = arcade.csscolor.HOTPINK
 BACKGROUND_COLOR = (r, g, b, 10)
 HEIGHT = 84
 MARGIN = 10
-ZFILL_COUNT = 5
+FILL_COUNT = 5
+FILL_CHAR = '0'
 
 class UIContainer:
     def __init__(self):
@@ -33,14 +35,15 @@ class UIContainer:
         # self.background.draw()
 
         if str(self.state.score) not in self.rendered_score_text:
-            formatted_score = str(self.state.score).zfill(ZFILL_COUNT)
+            formatted_score = str(self.state.score).rjust(FILL_COUNT, FILL_CHAR)
             text = create_text(
-                "Score:\n" + str(formatted_score),
+                _("Score") + ":\n" + str(formatted_score),
                 multiline=True,
                 width=100,
                 color=arcade.csscolor.HOTPINK,
                 align='center',
-                bold=True
+                bold=True,
+                font_name=FONT_MONOTYPE,
             )
             w, h = self.size
             text.y = (h - MARGIN - text.content_height)

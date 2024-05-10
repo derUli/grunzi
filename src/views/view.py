@@ -218,7 +218,8 @@ class View(arcade.View):
                     fps,
                     color=arcade.csscolor.LIME_GREEN,
                     font_name=FONT_MONOTYPE,
-                    font_size=MEDIUM_FONT_SIZE
+                    font_size=MEDIUM_FONT_SIZE,
+                    bold=True
                 )
 
                 fps_text.x = self.window.width - MARGIN - fps_text.content_width
