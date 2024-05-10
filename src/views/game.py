@@ -243,8 +243,6 @@ class Game(Fading):
                 align='left').draw()
             return self.draw_debug()
 
-        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
-
         self.camera_sprites.use()
         self.scene.draw()
 
@@ -292,6 +290,8 @@ class Game(Fading):
             self.player_sprite.stop_walk()
 
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
+
+        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
 
     def on_button_press(self, controller, key):
         logging.info(f"Controller button {key} pressed")
