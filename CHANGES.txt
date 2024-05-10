@@ -1,5 +1,10 @@
 # Changelog
 
+## Alpha 012 (Unreleased)
+
+* Strom-Hindernis hinzugefügt
+* Intro-Videos können jetzt übersprungen werden, obwohl der Ladevorgang noch nicht fertig ist
+
 ## Alpha 011 (17.05.2024)
 
 * Kettensäge und Bäume hinzugefügt
