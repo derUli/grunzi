@@ -143,6 +143,8 @@ class Game(Fading):
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
 
+        self.state.reset()
+
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
 
@@ -361,6 +363,8 @@ class Game(Fading):
         self.on_next_level(same=True)
 
     def on_next_level(self, same=False):
+        if self.next_view:
+            return
 
         old_map = self.state.map_name
         index = MAPS.index(old_map)
@@ -379,6 +383,7 @@ class Game(Fading):
         savegame = SaveGameState.load()
         savegame.current = next_map
         savegame.completed += [old_map]
+        savegame.score[old_map] = self.state.score
         savegame.save()
 
         self.next_view = Game(self.window, self.state, skip_intro=same)

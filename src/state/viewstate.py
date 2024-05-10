@@ -32,6 +32,9 @@ class ViewState:
         self.score = 0
         self.settings = settings
 
+    def reset(self):
+        self.score = 0
+
     def preload(self):
         self.preload_sounds()
         self.preload_fonts()

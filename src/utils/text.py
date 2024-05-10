@@ -23,7 +23,8 @@ def create_text(
         anchor_y='bottom',
         align='left',
         width=None,
-        multiline=False
+        multiline=False,
+        bold=False
 ):
     return arcade.Text(
         text=text,
@@ -36,7 +37,8 @@ def create_text(
         anchor_y=anchor_y,
         width=width,
         multiline=multiline,
-        font_name=font_name
+        font_name=font_name,
+        bold=bold
     )
 
 

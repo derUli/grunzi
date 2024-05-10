@@ -14,6 +14,7 @@
 * Wenn Hühner sterben, werden sie durch eine Feder ersetzt
 * FPS Graph durch FPS Text ersetzt
 * Ambient Musik zum Pausenmenü hinzugefügt
+* Punktestand für das aktuelle Level wird angezeigt
 
 ## Alpha 010 (03.05.2024)
 

@@ -4,6 +4,9 @@ from arcade import FACE_DOWN, FACE_UP
 
 from sprites.items.item import Item, Tree
 
+SCORE_DESTROY_TREE = 200
+SCORE_KILL_SKULL = 100
+SCORE_KILL_CHICKEN = 50
 
 class Chainsaw(Item):
     def on_use(self, b, state=None, handlers=None):
@@ -14,16 +17,19 @@ class Chainsaw(Item):
         if isinstance(b, Tree):
             if b.fade_destroy():
                 self.play_sound(state)
+                state.score += SCORE_DESTROY_TREE
             return
 
         if isinstance(b, SkullSprite):
             b.hurt(50)
             self.play_sound(state)
+            state.score += SCORE_KILL_SKULL
             return
 
         if isinstance(b, Chicken):
             b.hurt(100)
             self.play_sound(state)
+            state.score += SCORE_KILL_CHICKEN
             return
 
         state.beep()

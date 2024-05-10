@@ -16,9 +16,9 @@ class SaveGameState:
         # Screen resolution
         self.completed = []
         self.current = None
-        self.score = 0
+        self.score = {}
         self.difficulty = DIFFICULTY_MEDIUM
-        self.version = 1
+        self.version = 2
 
     def get_selectable(self) -> list:
         """ Get selectable maps """

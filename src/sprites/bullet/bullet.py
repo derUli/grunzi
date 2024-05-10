@@ -24,6 +24,8 @@ FORCE_MOVE = 6000
 # Destroy after X seconds
 DESTROY_TIME = 3
 
+SCORE_HURT_CHICKEN = 25
+SCORE_HURT_SKULL = 50
 
 class Bullet(arcade.sprite.SpriteCircle):
     def __init__(
@@ -40,7 +42,7 @@ class Bullet(arcade.sprite.SpriteCircle):
         self.hurt = hurt
 
         self.created_at = time.time()
-
+        self.state = None
     def draw_debug(self):
         pass
 
@@ -51,6 +53,7 @@ class Bullet(arcade.sprite.SpriteCircle):
 
     def setup(self, source, physics_engine, scene, state):
 
+        self.state = state
         self.center_y = source.center_y
 
         if source.face_horizontal == FACE_RIGHT:
@@ -90,7 +93,12 @@ class Bullet(arcade.sprite.SpriteCircle):
 
         hurt = self.hurt
 
+        score = SCORE_HURT_SKULL
+
         if isinstance(_hit_sprite, Chicken):
             hurt = HURT_CHICKEN
+            score = SCORE_HURT_CHICKEN
+
+        self.state.score += score
 
         _hit_sprite.hurt(hurt)
