@@ -27,6 +27,7 @@ from sprites.characters.character import Character
 from sprites.characters.chicken import spawn_chicken
 from sprites.characters.playersprite import PlayerSprite
 from sprites.characters.skullsprite import spawn_skull
+from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
 from sprites.ui.inventorycontainer import InventoryContainer
@@ -667,7 +668,7 @@ class Game(Fading):
         self.physics_engine.step()
         self.call_update(delta_time)
         self.update_enemies(delta_time)
-        self.update_sun()
+        update_sun(self.scene, self.camera_sprites)
         self.update_fade(self.next_view)
 
         # Animate only visible
@@ -698,10 +699,6 @@ class Game(Fading):
             if random.randint(a, b) == 50:
                 spawn_skull(self.state, self.tilemap.map, self.scene, self.physics_engine)
                 logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
-
-    def update_sun(self):
-        for sprite in get_layer(LAYER_SUN, self.scene):
-            sprite.update_sun(self.camera_sprites)
 
     def update_collectable(self):
         items = arcade.check_for_collision_with_lists(self.player_sprite, self.scene.sprite_lists)
