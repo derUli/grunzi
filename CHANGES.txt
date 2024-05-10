@@ -1,6 +1,6 @@
 # Changelog
 
-## Alpha 011 (Unreleased)
+## Alpha 011 (17.05.2024)
 
 * Kettensäge und Bäume hinzugefügt
 * Enten hinzugefügt
