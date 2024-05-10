@@ -8,7 +8,7 @@ r, g, b, a = arcade.csscolor.HOTPINK
 BACKGROUND_COLOR = (r, g, b, 10)
 HEIGHT = 84
 MARGIN = 10
-FILL_COUNT = 5
+FILL_COUNT = 6
 FILL_CHAR = '0'
 
 class UIContainer:
