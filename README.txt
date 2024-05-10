@@ -7,18 +7,18 @@ Das Spiel befindet sich noch in einem frühen Zustand der Entwicklung.
 Bis jetzt ist das erste Level vollständig umgesetzt und das zweite Level befindet sich in Entwicklung.
 Das fertige Spiel sollen 4 verschiedene Levels enthalten.
 
-## Systemvoraussetzungen
+# Systemvoraussetzungen
 
 Das Spiel benötigt ein 64-Bit Windows oder Linux Betriebssystem und eine Grafikkarte,
 die mindestens OpenGL 3.3 unterstützt.
 Es sollte auf jeder Hardware, die in den letzten 10 Jahren auf den Markt gebracht wurde, funktionieren.
 Falls es doch zu Performance-Problemen kommt, kannst du die Bildschirmauflösung reduzieren.
 
-### Testsysteme
+## Testsysteme
 
 Ich teste das Spiel während der entwicklung auf meinem Desktop PC und meinem Laptop.
 
-Im Folgenden die Hardware-Specs und die erwartete Performance.
+Im Folgenden die Hardware-Specs der beiden Systeme und die erwartete Performance.
 
 Die erwartete Performance bezieht sich auf folgende Grafikeinstellungen und wurde mit
 der RivaTuner Software gemessen.
@@ -30,7 +30,7 @@ der RivaTuner Software gemessen.
 | V-Sync              | Aus         |
 | Rahmenlos           | Aus         |
 
-#### Desktop PC
+### Desktop PC
 
 | Hardware-Art    | Hersteller | Modell                 |
 |-----------------|------------|------------------------|
@@ -41,7 +41,7 @@ der RivaTuner Software gemessen.
 
 **Erwartete Performance:** ⌀ XXX FPS
 
-#### Laptop
+### Laptop
 
 | Hardware-Art    | Hersteller | Modell              |
 |-----------------|------------|---------------------|
@@ -52,13 +52,7 @@ der RivaTuner Software gemessen.
 
 **Erwartete Performance:** ⌀ 100 FPS
 
-| Einstellung         | Wert        |
-|---------------------|-------------|
-| Bildschirmauflösung | 1920 x 1080 |
-| V-Sync              | Aus         |
-| Rahmenlos           | Aus         |
-
-## Was ist neu?
+# Was ist neu?
 
 Siehe Changelog.
 
@@ -81,6 +75,8 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --audio-backend {auto,xaudio2,directsound,openal,pulse,silent}
                         The audio backend
   --no-vsync            Disable V-Sync
+  --no-sky              Disable animated sky
+  --no-shaders          Disable menu shaders
   --debug               Enable OpenGL debugging
   -v, --verbose         Make the operation more talkative
   -l, --skip-logo       Skip the logo screen and go straight to main menu
@@ -116,10 +112,25 @@ Weitere Modelle können funktionieren, wurden von mir aber nicht getestet.
 
 # Einstellungen
 
-Beim Start des Spiels öffnet sich ein Dialog, wo die folgenden Einstellungen konfiguriert werden können:
+Das Spiel bietet die folgenden Einstellungsmöglichkeiten:
 
-* Vollbild
-* Rahmenlos
-* V-Sync
-* Bildschirmauflösung
-* Audio Backend
+## Video
+
+| Einstellung         | Mögliche Werte | Auswirkung auf die Performance | Im Launcher | Im Spiel |
+|---------------------|----------------|--------------------------------|-------------|----------|
+| Bildschirmauflösung | Systemabhängig | Sehr Hoch                      | ✓           | ✘        |
+| Vollbild            | An/Aus         | Sehr Gering                    | ✓           | ✓        |
+| Rahmenlos           | An/Aus         | Sehr Gering                    | ✓           | ✘        |
+| V-Sync              | An/Aus         | Hoch                           | ✓           | ✓        |
+
+## Audio
+
+| Einstellung   | Mögliche Werte                                    | Im Launcher | Im Spiel |
+|---------------|---------------------------------------------------|-------------|----------|
+| Audio Backend | auto, xaudio2, directsound, openal, pulse, silent | ✓           | ✘        |
+| Musik         | An/Aus                                            | ✘           | ✓        |
+| Sound         | An/Aus                                            | ✘           | ✓        |
+
+## Steuerung
+
+Hier kann die Steuerung per Tastatur und Controller eingesehen werden.
