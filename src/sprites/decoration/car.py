@@ -47,8 +47,10 @@ class CarRight(Sprite, Car):
             delta_time=None,
             map_size=None
     ):
-        physics_engine.apply_force(self, (FORCE_MOVE, 0))
 
         w, h = map_size
         if self.left > w:
             physics_engine.set_position(self, (0 - self.width / 2, self.center_y))
+            return
+
+        physics_engine.apply_force(self, (FORCE_MOVE, 0))
