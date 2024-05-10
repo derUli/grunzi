@@ -16,7 +16,6 @@ from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
 import constants.controls.keyboard
-import sprites.characters.playersprite
 import utils.audio
 from constants.controls.joystick import JOYSTICK_BUTTON_MAPPING, AXIS_X, AXIS_Y
 from constants.layers import *
@@ -25,7 +24,7 @@ from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.character import Character
 from sprites.characters.chicken import spawn_chicken
-from sprites.characters.playersprite import PlayerSprite
+from sprites.characters.playersprite import PlayerSprite, MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.characters.skullsprite import spawn_skull
 from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
@@ -199,10 +198,10 @@ class Game(Fading):
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
 
     def wait_for_video(self, delta_time=0) -> None:
+        """ Wait until video playback completed """
 
         self.window.set_mouse_visible(False)
 
-        """ Wait until video playback completed """
         if not self.initialized:
             return
 
@@ -219,8 +218,6 @@ class Game(Fading):
 
         pyglet.clock.unschedule(self.wait_for_video)
 
-        self.video = None
-
     def on_draw(self) -> None:
         """Render the screen."""
 
@@ -231,7 +228,7 @@ class Game(Fading):
             # Activate the window again.
             self.window.activate()
 
-            self.video.draw((0, 0), force_draw=False)
+            self.video.draw((0, 0), force_draw=True)
             return self.draw_debug()
 
         self.clear()
@@ -270,8 +267,7 @@ class Game(Fading):
     def update_player_speed(self) -> None:
         """ Update player sprite """
         # Calculate speed based on the keys pressed
-        self.player_sprite.change_x = 0
-        self.player_sprite.change_y = 0
+        self.player_sprite.change_x, self.player_sprite.change_y = 0, 0
 
         move_force = self.player_sprite.move_force * self.player_sprite.modifier
 
@@ -296,11 +292,6 @@ class Game(Fading):
             self.player_sprite.stop_walk()
 
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
-
-    def reset_keys(self) -> None:
-        """ Reset key pressed vars """
-        self.keypressed.reset()
-        self.player_sprite.reset()
 
     def on_button_press(self, controller, key):
         logging.info(f"Controller button {key} pressed")
@@ -333,7 +324,7 @@ class Game(Fading):
         if key in constants.controls.controller.NEXT_ITEM:
             self._call_method = self.on_item_next
         if key in constants.controls.controller.KEY_SPRINT:
-            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
+            self.player_sprite.modifier = MODIFIER_SPRINT
 
     def on_joybutton_press(self, controller, key):
         if str(key) in JOYSTICK_BUTTON_MAPPING:
@@ -350,7 +341,7 @@ class Game(Fading):
             return
 
         if key in constants.controls.controller.KEY_SPRINT:
-            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
+            self.player_sprite.modifier = MODIFIER_DEFAULT
 
     def on_joybutton_release(self, controller, key):
         if str(key) in JOYSTICK_BUTTON_MAPPING:
@@ -403,8 +394,7 @@ class Game(Fading):
         if self.video and self.video.active:
             return
 
-        x_value = round(x_value)
-        y_value = round(y_value)
+        x_value, y_value = round(x_value), round(y_value)
 
         if stick_name == constants.controls.controller.LEFTSTICK:
             if x_value == constants.controls.controller.AXIS_RIGHT:
@@ -439,8 +429,7 @@ class Game(Fading):
     def on_joyaxis_motion(self, joystick, axis, value):
         value = round(value)
 
-        x_value = 0
-        y_value = 0
+        x_value, y_value = 0, 0
 
         if axis == AXIS_X:
             x_value = round(value)
@@ -463,9 +452,9 @@ class Game(Fading):
 
         if trigger_name in constants.controls.controller.LEFT_TRIGGER:
             if value == constants.controls.controller.TRIGGER_ON:
-                self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
+                self.player_sprite.modifier = MODIFIER_SPRINT
             if value == constants.controls.controller.TRIGGER_OFF:
-                self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
+                self.player_sprite.modifier = MODIFIER_DEFAULT
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
@@ -480,13 +469,12 @@ class Game(Fading):
 
         if self.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
-                self.on_gameover()
-            return
+                return self.on_gameover()
 
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.keyboard.KEY_SPRINT:
-            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_SPRINT
+            self.player_sprite.modifier = MODIFIER_SPRINT
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
         if key == arcade.key.F2:
@@ -519,7 +507,7 @@ class Game(Fading):
             return
 
         if key in constants.controls.keyboard.KEY_SPRINT:
-            self.player_sprite.modifier = sprites.characters.playersprite.MODIFIER_DEFAULT
+            self.player_sprite.modifier = MODIFIER_DEFAULT
 
         movement = True
 
@@ -604,7 +592,10 @@ class Game(Fading):
         """
         On show pause menu
         """
-        self.reset_keys()
+
+        self.keypressed.reset()
+        self.player_sprite.reset()
+
         menu = PauseMenu(self.window, self.state, self)
         menu.setup()
         self.window.show_view(menu)
