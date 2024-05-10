@@ -7,6 +7,7 @@ from arcade import Texture
 
 FADE_SPEED = 255 / 20
 
+
 class AbstractSprite:
     def draw_debug(self):
         """ Draw debug """
@@ -27,13 +28,16 @@ class AbstractSprite:
     ):
         pass
 
+
 class AbstractStaticSprite(AbstractSprite, arcade.sprite.Sprite):
     """ Abstract sprite class """
     pass
 
+
 class AbstractAnimatedSprite(AbstractSprite, arcade.sprite.AnimatedTimeBasedSprite):
     """ Abstract sprite class """
     pass
+
 
 class Sprite(AbstractStaticSprite):
     def __init__(

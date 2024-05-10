@@ -291,8 +291,6 @@ class Game(Fading):
 
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
-        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
-
     def on_button_press(self, controller, key):
         logging.info(f"Controller button {key} pressed")
 
@@ -627,7 +625,6 @@ class Game(Fading):
     def on_update(self, delta_time):
         """Movement and game logic"""
 
-
         self.time += delta_time
 
         if not self.initialized:
@@ -661,6 +658,7 @@ class Game(Fading):
         self.physics_engine.step()
         self.call_update(delta_time)
         self.update_enemies(delta_time)
+        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         update_sun(self.scene, self.camera_sprites)
         self.update_fade(self.next_view)
 

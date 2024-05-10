@@ -3,9 +3,9 @@ from typing import Optional
 
 import PIL
 import arcade
-from arcade import AnimatedTimeBasedSprite, FACE_RIGHT
+from arcade import FACE_RIGHT
 
-from sprites.sprite import Sprite, AbstractStaticSprite, AbstractAnimatedSprite
+from sprites.sprite import Sprite, AbstractAnimatedSprite
 from utils.positional_sound import PositionalSound
 
 
@@ -95,6 +95,7 @@ class Water(AbstractAnimatedSprite):
 FORCE_MOVE = 8000
 HURT_PLAYER = 5
 
+
 class Electric(AbstractAnimatedSprite):
     def __init__(
             self,
@@ -131,13 +132,16 @@ class Electric(AbstractAnimatedSprite):
     ):
         if not self.sound:
             audio = state.play_sound('electric', 'on', loop=True)
-            print(audio)
             self.sound = PositionalSound(player, self, audio, state)
             self.sound.play()
 
         self.sound.update()
 
         if arcade.check_for_collision(self, player):
-            player.hurt(HURT_PLAYER)
+            audio = state.play_sound('electric', 'push')
+            sound = PositionalSound(player, self, audio, state)
+            sound.update()
+            sound.play()
 
+            player.hurt(HURT_PLAYER)
             physics_engine.apply_force(player, (FORCE_MOVE, 0))
