@@ -29,7 +29,7 @@ from sprites.characters.skullsprite import spawn_skull
 from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
 from sprites.sprite import Sprite
-from sprites.ui.inventorycontainer import InventoryContainer
+from sprites.ui.uicontainer import UIContainer
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
 from utils.keypressed import KeyPressed
@@ -77,9 +77,6 @@ class Game(Fading):
         self.music_queue = None
         self.atmo = None
 
-        # Inventory
-        self.inventory = None
-
         self.initialized = False
 
         self.scene = None
@@ -93,6 +90,7 @@ class Game(Fading):
 
         self.skip_intro = skip_intro
 
+        self.ui = None
         self.shadertoy = None
 
     def on_show_view(self) -> None:
@@ -189,13 +187,14 @@ class Game(Fading):
         for i in range(random.randint(1, 4)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
-        self.inventory = InventoryContainer()
-        self.inventory.setup(state=self.state, size=self.window.size)
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
+        self.ui = UIContainer()
+        self.ui.setup(self.state, self.window.size)
 
         self.initialized = True
 
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
+
 
     def wait_for_video(self, delta_time=0) -> None:
         """ Wait until video playback completed """
@@ -259,7 +258,7 @@ class Game(Fading):
                 sprite.draw_debug()
 
         self.camera_gui.use()
-        self.inventory.draw()
+        self.ui.inventory.draw()
         self.player_sprite.draw_overlay()
         self.draw_fading()
         self.draw_debug()
@@ -349,10 +348,10 @@ class Game(Fading):
             self.on_button_release(controller, button)
 
     def on_item_previous(self):
-        self.on_select_item(index=self.inventory.previous())
+        self.on_select_item(index=self.ui.inventory.previous())
 
     def on_item_next(self):
-        self.on_select_item(index=self.inventory.next())
+        self.on_select_item(index=self.ui.inventory.next())
 
     def on_main_menu(self):
         self.next_view = MainMenu(self.window, self.state)
@@ -534,7 +533,7 @@ class Game(Fading):
             index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
             index -= 1
 
-        item = self.inventory.select(index)
+        item = self.ui.inventory.select(index)
         self.player_sprite.set_item(item)
 
         if old_item:
@@ -563,7 +562,7 @@ class Game(Fading):
 
     def on_drop(self):
         item = self.player_sprite.get_item()
-        selected, index = self.inventory.get_selected()
+        selected, index = self.ui.inventory.get_selected()
         if not item:
             logging.info('No item selected')
             return self.state.beep()
@@ -584,7 +583,7 @@ class Game(Fading):
 
             if quantity == 0:
                 self.player_sprite.set_item(None)
-                self.inventory.unselect()
+                self.ui.inventory.unselect()
 
         self.scene.add_sprite(layer, new_item)
 
@@ -692,7 +691,7 @@ class Game(Fading):
             if isinstance(item, Item):
                 item.remove_from_sprite_lists()
 
-                self.inventory.add_item(item)
+                self.ui.inventory.add_item(item)
                 self.state.play_sound('coin')
                 self.on_select_item(index=-1)
                 return True
