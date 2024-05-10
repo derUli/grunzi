@@ -191,9 +191,12 @@ class Player(Character, SpriteHealth):
 
         if not self.gameover_text_rendered:
             self.gameover_text_rendered = utils.text.create_text(
-                self.gameover_text,
-                width=window.width - (utils.text.MARGIN * 2),
-                align='left')
+                text=self.gameover_text,
+                bold=True
+            )
+
+            self.gameover_text_rendered.x = window.width / 2 - self.gameover_text_rendered.content_width / 2
+            self.gameover_text_rendered.y = window.height / 2 - self.gameover_text_rendered.content_height / 2
 
         self.gameover_text_rendered.draw()
 
