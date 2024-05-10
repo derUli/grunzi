@@ -463,12 +463,12 @@ class Game(Fading):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
-        if not self.initialized:
-            return
-
         if self.video and self.video.active:
             if key in constants.controls.keyboard.KEY_DISCARD:
                 return self.video.stop()
+
+        if not self.initialized:
+            return
 
         if self.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
