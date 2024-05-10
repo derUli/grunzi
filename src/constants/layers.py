@@ -10,7 +10,7 @@ from sprites.items.Cone import Cone
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
 from sprites.items.hammer import Hammer
-from sprites.items.item import Fence, PiggyBank, Jeep, Water, Tree
+from sprites.items.item import Fence, PiggyBank, Jeep, Water, Tree, Electric
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.sounds.beach import Beach
@@ -43,6 +43,7 @@ LAYER_CONES = 'Cones'
 LAYER_CLOUDS = 'Clouds'
 LAYER_SKY = 'Sky'
 LAYER_SUN = 'Sun'
+LAYER_ELECTRIC = 'Electric'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -56,7 +57,8 @@ ALL_LAYERS = [
     LAYER_CAR_RIGHT,
     LAYER_WATER,
     LAYER_SKY,
-    LAYER_SUN
+    LAYER_SUN,
+    LAYER_ELECTRIC
 ]
 
 WALL_LAYERS = [
@@ -73,7 +75,8 @@ SKY_LAYERS = [
 ]
 
 ANIMATED_LAYERS = [
-    LAYER_WATER
+    LAYER_WATER,
+    LAYER_ELECTRIC
 ]
 
 LAYER_OPTIONS = {
@@ -133,6 +136,9 @@ LAYER_OPTIONS = {
     },
     LAYER_SUN: {
         'custom_class': Sun
+    },
+    LAYER_ELECTRIC: {
+        'custom_class': Electric
     }
 }
 

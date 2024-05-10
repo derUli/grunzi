@@ -90,3 +90,7 @@ class Jeep(Sprite, Useable):
 
 class Water(AnimatedTimeBasedSprite, AbstractSprite):
     pass
+
+
+class Electric(AnimatedTimeBasedSprite, AbstractSprite):
+    pass
