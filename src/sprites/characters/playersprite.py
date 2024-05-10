@@ -106,6 +106,7 @@ class PlayerSprite(Character, SpriteHealth):
 
     def reset(self):
         self.modifier = MODIFIER_DEFAULT
+        self.stop_walk()
 
     def update(
             self,
