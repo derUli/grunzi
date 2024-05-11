@@ -45,7 +45,7 @@ class LauncherWindow(ThemedTk):
         Set up the UI
         """
         self.title(_('Grunzi Launcher'))
-        self.geometry('320x240')
+        self.geometry('320x320')
         self.bind_keyevents()
         self.set_icon()
 
@@ -109,20 +109,20 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).pack(expand=True)
 
-        # ttk.Checkbutton(tab_video,
-        #                 text=_('Animated Sky'),
-        #                 variable=self.sky,
-        #                 onvalue=True,
-        #                 offvalue=False
-        #                 ).pack(expand=True)
+        ttk.Checkbutton(tab_video,
+                        text=_('Shaders'),
+                        variable=self.shaders,
+                        onvalue=True,
+                        offvalue=False,
+                        ).pack(expand=True)
 
-        # ttk.Checkbutton(tab_video,
-        #                 text=_('Shaders'),
-        #                 variable=self.shaders,
-        #                 onvalue=True,
-        #                 offvalue=False,
-        #                 command=self.on_toggle_shaders,
-        #                 ).pack(expand=True)
+        ttk.Checkbutton(tab_video,
+                        text=_('Animated Sky'),
+                        variable=self.sky,
+                        onvalue=True,
+                        offvalue=False
+                        ).pack(expand=True)
+
 
         ttk.Label(tab_audio, text=_('Audio Backend:')).pack()
 
@@ -203,7 +203,3 @@ class LauncherWindow(ThemedTk):
             self.borderless.set(False)
         else:
             self.borderless_check.configure(state='enabled')
-
-    def on_toggle_shaders(self):
-        self.shaders.set(True)
-        messagebox.showerror(title=_('Error'), message=_('This option isn\'t available yet.'))
