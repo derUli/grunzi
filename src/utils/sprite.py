@@ -45,7 +45,7 @@ def animated_in_sight(scene, player_sprite) -> list:
         for sprite in layer:
             w, h = arcade.get_window().get_size()
 
-            diff = arcade.get_distance_between_sprites(player_sprite, sprite)
+            diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
             if diff <= w:
                 animated.append(sprite)
 
