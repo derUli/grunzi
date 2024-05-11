@@ -43,7 +43,7 @@ der RivaTuner Software gemessen.
 | Arbeitsspeicher | Unbekannt  | 32 GB                  |
 | Betriebssystem  | Microsoft  | Windows 11 (64-Bit)    |
 
-**Erwartete Performance:** ⌀ XXX FPS
+**Erwartete Performance:** ⌀ 450 FPS
 
 ### Laptop
 
