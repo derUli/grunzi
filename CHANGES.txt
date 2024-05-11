@@ -4,6 +4,7 @@
 
 * map01: Autos kollidieren nicht mehr nach einiger Spielzeit
 * map02: Strom-Hindernis hinzugefügt
+* map02: Neuer Musik-Track hinzugefügt
 * Intro-Videos können nun, auch wenn der Ladevorgang noch nicht fertig ist, übersprungen werden.
 * Mehrfach im Inventar befindliche Gegenstände können jetzt korrekt gedroppt werden
 * Game Over Bildschirm überarbeitet

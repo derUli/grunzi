@@ -1,0 +1,19 @@
+Gameplay Element:
+Essen random in den Maps verteilen.
+Wenn man das isst, werden für eine begrenzte Zeit die Geschosse größer und sie machen mehr Schaden
+
+Nach dem ersten Durchspielen soll ein neuer Modus freigeschaltet werden, wo einige Sachen anders sind.
+Man könnte z.B. einige Puzzles randomizen, die beim ersten Durchlauf statisch waren
+
+Level 3: Gebirge
+
+* Feuer-Animation einbauen
+
+Roadmap:
+
+* Alpha 10 bis 20: map02 umsetzen
+* Alpha 21 bis Alpha 39: map03 umsetzen
+* Alpha 40 bis Alpha 60: map04 umsetzen
+* Alpha 61 bis 79: Zusätzliche Gameplay Mechaniken
+* Alpha 80 bis 100: Polishing
+* Alpha 101 bis XXX: Weitere Game Modi
