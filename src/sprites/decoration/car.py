@@ -51,7 +51,7 @@ class CarRight(Sprite, Car):
 
         w, h = map_size
         if self.right > w:
-            physics_engine.set_position(self, (0 - self.width, self.center_y))
+            physics_engine.set_position(self, (0 - self.width / 2, self.center_y))
 
         physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
