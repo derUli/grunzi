@@ -165,7 +165,8 @@ class Game(Fading):
         # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
             for layer in SKY_LAYERS:
-                self.scene.remove_sprite_list_by_name(layer)
+                if layer in self.scene:
+                    sself.scene.remove_sprite_list_by_name(layer)
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
