@@ -157,19 +157,19 @@ class LauncherWindow(ThemedTk):
         ttk.Button(tab_graphics, text=_('Low'), command=self.on_low).grid(
             row=1,
             column=0,
-            pady=SPACE_BETWEEN
+            pady=SPACE_BETWEEN * 2
         )
 
         ttk.Button(tab_graphics, text=_('Medium'), command=self.on_medium).grid(
             row=1,
             column=1,
-            pady=SPACE_BETWEEN
+            pady=SPACE_BETWEEN * 2
         )
 
         ttk.Button(tab_graphics, text=_('High'), command=self.on_high).grid(
             row=1,
             column=2,
-            pady=SPACE_BETWEEN
+            pady=SPACE_BETWEEN * 2
         )
 
         ttk.Checkbutton(tab_graphics,

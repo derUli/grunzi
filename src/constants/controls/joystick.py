@@ -5,6 +5,7 @@
 AXIS_X = 'x'
 AXIS_Y = 'y'
 
+# Mapping button codes of old Joystick API to controller API
 JOYSTICK_BUTTON_MAPPING = {
     '9': 'start',
     '1': 'a',
@@ -16,7 +17,8 @@ JOYSTICK_BUTTON_MAPPING = {
 }
 
 
-def joystick_button_to_controller(key):
+def joystick_button_to_controller(key) -> str | None:
+    """ Map joystick button to controller"""
     button = str(key)
     if button in JOYSTICK_BUTTON_MAPPING:
         return JOYSTICK_BUTTON_MAPPING[button]
