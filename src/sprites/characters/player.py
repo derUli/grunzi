@@ -32,6 +32,8 @@ SPAWN_POINT = (0, 0)
 STAMINA_INCREMENTOR = 0.5
 STAMINA_DECREMENTOR = 0.8
 
+COLOR_BLOOD = (152, 23, 27)
+
 
 class Player(Character, SpriteHealth):
     def __init__(
@@ -161,16 +163,18 @@ class Player(Character, SpriteHealth):
             self.item.draw_item(self.face)
 
     def draw_overlay(self):
-        window = arcade.get_window()
-
         if self.health >= HEALTH_FULL:
             return
 
-        alpha = FULL_ALPHA - self.health * ONE_PERCENT_ALPHA
+        window = arcade.get_window()
+
+        a = FULL_ALPHA - self.health * ONE_PERCENT_ALPHA
+
+        r, g, b = COLOR_BLOOD
 
         arcade.draw_rectangle_filled(window.width / 2, window.height / 2,
                                      window.width, window.height,
-                                     (255, 0, 0, alpha))
+                                     (r, g, b, a))
 
         if not self.dead:
             return
