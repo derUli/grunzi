@@ -8,7 +8,20 @@ DIFFICULTY_HARD = 3
 
 
 class Difficulty:
-    def __init__(self, difficulty, map, level_dir):
+    """ Difficulty class"""
+
+    def __init__(self, difficulty, map_name, level_dir):
+        """ Constructor """
+
+        self.max_skulls = 0
+        self.skull_spawn_range = 0
+        self.skull_hurt = 0
+
+        self.setup(difficulty, map_name, level_dir)
+
+    def setup(self, difficulty, map_name, level_dir) -> None:
+        """ Setup difficulty """
+
         maps = os.path.join(level_dir, 'maps.json')
 
         with open(maps, 'r') as f:
@@ -16,8 +29,8 @@ class Difficulty:
 
         difficulty_data = jsond['default'][str(difficulty)]
 
-        if map in jsond:
-            difficulty_data = jsond[map][str(difficulty)]
+        if map_name in jsond:
+            difficulty_data = jsond[map_name][str(difficulty)]
 
         self.max_skulls = 0
         self.skull_spawn_range = 0
