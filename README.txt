@@ -73,17 +73,14 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --height HEIGHT       Window height in pixels
   --limit-fps LIMIT_FPS
                         Limit maximum fps
-  --map MAP             Name of the map
   --silent              Mute the sound
   --audio-backend {auto,xaudio2,directsound,openal,pulse,silent}
                         The audio backend
   --no-vsync            Disable V-Sync
-  --no-traffic          Disable menu shaders
-  --no-sky              Disable animated sky
-  --no-shaders          Disable menu shaders
   --debug               Enable OpenGL debugging
   -v, --verbose         Make the operation more talkative
-  -l, --skip-logo       Skip the logo screen and go straight to main men
+  -l, --skip-logo       Skip the logo screen and go straight to main menu
+  --skip-launcher       Skip launcher
 ```
 
 Wenn der Start des Spiels mit der Fehlermeldung, dass die Datei "VCRUNTIME140.dll" fehlt, fehlschlägt, muss das
