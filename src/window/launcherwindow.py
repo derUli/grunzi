@@ -67,28 +67,30 @@ class LauncherWindow(ThemedTk):
 
         tab_control = ttk.Notebook(self)
 
-        tab_video = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
+        tab_display = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
+        tab_graphics = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
         tab_audio = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
 
-        tab_control.add(tab_video, text=_('Video'))
+        tab_control.add(tab_display, text=_('Display'))
+        tab_control.add(tab_graphics, text=_('Graphics'))
         tab_control.add(tab_audio, text=_('Audio'))
         tab_control.pack(expand=True, fill=tk.BOTH)
 
-        ttk.Label(tab_video, text=_('Screen resolution:') + ' ').grid(
+        ttk.Label(tab_display, text=_('Screen resolution:') + ' ').grid(
             row=0,
             column=0,
             padx=SPACE_BETWEEN,
-            pady=LARGE_SPACE_BETWEEN
+            pady=SPACE_BETWEEN
         )
 
         ttk.Combobox(
-            tab_video,
+            tab_display,
             values=supported_screen_resolutions(),
             textvariable=self.screen_resolution,
             state='readonly'
-        ).grid(row=0, column=1, pady=LARGE_SPACE_BETWEEN)
+        ).grid(row=0, column=1, pady=SPACE_BETWEEN)
 
-        ttk.Checkbutton(tab_video,
+        ttk.Checkbutton(tab_display,
                         text=_('Fullscreen'),
                         variable=self.fullscreen,
                         onvalue=True,
@@ -97,7 +99,7 @@ class LauncherWindow(ThemedTk):
                         ).grid(row=1, column=1, sticky='nw', pady=SPACE_BETWEEN)
 
         self.borderless_check = ttk.Checkbutton(
-            tab_video,
+            tab_display,
             text=_('Borderless'),
             variable=self.borderless,
             onvalue=True,
@@ -108,28 +110,28 @@ class LauncherWindow(ThemedTk):
 
         self.on_toggle_fullscreen()
 
-        ttk.Checkbutton(tab_video,
+        ttk.Checkbutton(tab_display,
                         text=_('V-Sync'),
                         variable=self.vsync,
                         onvalue=True,
                         offvalue=False
                         ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
-        ttk.Checkbutton(tab_video,
+        ttk.Checkbutton(tab_graphics,
                         text=_('Shaders'),
                         variable=self.shaders,
                         onvalue=True,
                         offvalue=False,
                         ).grid(row=4, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
-        ttk.Checkbutton(tab_video,
+        ttk.Checkbutton(tab_graphics,
                         text=_('Traffic'),
                         variable=self.traffic,
                         onvalue=True,
                         offvalue=False
                         ).grid(row=5, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
-        ttk.Checkbutton(tab_video,
+        ttk.Checkbutton(tab_graphics,
                         text=_('Animated Sky'),
                         variable=self.sky,
                         onvalue=True,
@@ -140,7 +142,7 @@ class LauncherWindow(ThemedTk):
             row=0,
             column=0,
             padx=SPACE_BETWEEN,
-            pady=LARGE_SPACE_BETWEEN
+            pady=SPACE_BETWEEN
         )
 
         ttk.Combobox(
@@ -148,7 +150,7 @@ class LauncherWindow(ThemedTk):
             values=AUDIO_BACKENDS,
             textvariable=self.audio_backend,
             state='readonly'
-        ).grid(row=0, column=2, pady=LARGE_SPACE_BETWEEN, sticky='e')
+        ).grid(row=0, column=2, pady=SPACE_BETWEEN, sticky='e')
 
         button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
 
