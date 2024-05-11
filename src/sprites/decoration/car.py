@@ -1,7 +1,7 @@
 from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER, COLLISION_CHICKEN
 from sprites.sprite import Sprite
 
-CAR_SPEED = 10
+# MOVE_SPEED
 FORCE_MOVE = 4000
 
 # Hurt NPCs on collide with car

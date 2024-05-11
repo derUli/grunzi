@@ -25,7 +25,7 @@ from sprites.bullet.grunt import Grunt
 from sprites.characters.character import Character
 from sprites.characters.chicken import spawn_chicken
 from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
-from sprites.characters.skullsprite import spawn_skull
+from sprites.characters.skull import spawn_skull
 from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
 from sprites.sprite import AbstractSprite

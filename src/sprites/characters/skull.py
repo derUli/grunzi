@@ -32,7 +32,7 @@ SHOOT_DELTA = UPDATE_RATE * 10
 PATHFINDING_DELAY = 2
 
 
-class SkullSprite(Character, Useable):
+class Skull(Character, Useable):
     def __init__(
             self,
             filename: str = None,
@@ -237,7 +237,7 @@ class SkullSprite(Character, Useable):
 def spawn_skull(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
 
-    skull = SkullSprite(
+    skull = Skull(
         filename=os.path.join(
             state.sprite_dir,
             'monster',
