@@ -19,6 +19,7 @@ from views.settings.settingsmenu import SettingsMenu
 BUTTON_WIDTH = 250
 BUTTON_MARGIN_BOTTOM = 20
 
+COLOR_BACKGROUND = (123, 84, 148)
 
 class MainMenu(Fading):
     """ Main menu """
@@ -150,6 +151,7 @@ class MainMenu(Fading):
         self.state.settings.unmute()
         self.window.set_mouse_visible(True)
         self.push_controller_handlers()
+        arcade.set_background_color(COLOR_BACKGROUND)
 
         music = None
 
@@ -166,6 +168,7 @@ class MainMenu(Fading):
         self.manager.enable()
 
     def on_hide_view(self) -> None:
+        super().on_hide_view()
         """ On hide view """
         self.pop_controller_handlers()
         self.manager.disable()

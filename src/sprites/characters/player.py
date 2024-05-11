@@ -32,7 +32,7 @@ SPAWN_POINT = (0, 0)
 STAMINA_INCREMENTOR = 0.5
 STAMINA_DECREMENTOR = 0.8
 
-COLOR_BLOOD = (152, 23, 27)
+COLOR_BLOOD = (156, 28, 28)
 
 
 class Player(Character, SpriteHealth):
