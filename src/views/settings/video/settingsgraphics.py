@@ -82,15 +82,29 @@ class SettingsGraphics(Fading):
             style=utils.gui.get_button_style()
         )
 
+        videos_button = arcade.gui.UITextureButton(
+            text=_("Videos"),
+            width=BUTTON_WIDTH,
+            texture=get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state.settings.videos
+            ),
+            style=utils.gui.get_button_style()
+        )
+
+        @traffic_button.event('on_click')
+        def on_click_traffic_button(event):
+            self.on_toggle_traffic()
+            self.setup()
 
         @sky_button.event('on_click')
         def on_click_sky_button(event):
             self.on_toggle_sky()
             self.setup()
-
-        @traffic_button.event('on_click')
+        @videos_button.event('on_click')
         def on_click_traffic_button(event):
-            self.on_toggle_traffic()
+            self.on_toggle_videos()
             self.setup()
 
         @back_button.event("on_click")
@@ -106,7 +120,8 @@ class SettingsGraphics(Fading):
         if not game_running:
             widgets += [
                 traffic_button,
-                sky_button
+                sky_button,
+                videos_button
             ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -157,6 +172,10 @@ class SettingsGraphics(Fading):
     def on_toggle_sky(self) -> None:
         """ On toggle sky """
         self.state.settings.sky = not self.state.settings.sky
+        self.state.settings.save()
+
+    def on_toggle_videos(self) -> None:
+        self.state.settings.videos = not self.state.settings.videos
         self.state.settings.save()
 
     def on_toggle_traffic(self) -> None:

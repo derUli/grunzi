@@ -46,7 +46,7 @@ class LauncherWindow(ThemedTk):
         """
         Set up the UI
         """
-        self.title(_('Grunzi Launcher'))
+        self.title(_('Grunzi'))
         self.bind_keyevents()
         self.set_icon()
 

@@ -77,13 +77,6 @@ class StartUp:
         )
 
         parser.add_argument(
-            '--map',
-            type=str,
-            default=FIRST_MAP,
-            help='Name of the map'
-        )
-
-        parser.add_argument(
             '--silent',
             default=False,
             action='store_true',
@@ -217,7 +210,7 @@ class StartUp:
 
         window.setup()
 
-        state = ViewState(self.root_dir, map_name=args.map, settings=SettingsState.load())
+        state = ViewState(self.root_dir, map_name=FIRST_MAP, settings=SettingsState.load())
         state.preload()
         icon_path = os.path.join(state.image_dir, 'ui', 'icon.ico')
         icon = pyglet.image.load(icon_path)
