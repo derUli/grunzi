@@ -14,8 +14,8 @@ from views.game import Game
 
 BUTTON_WIDTH = 250
 
-
 COLOR_BACKGROUND = (217, 102, 157)
+
 
 class MapSelection(Fading):
     """Main menu view class."""

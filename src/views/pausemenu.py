@@ -15,6 +15,7 @@ BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (74, 146, 182)
 
+
 class PauseMenu(Fading):
     """ Main menu view class."""
 

@@ -11,6 +11,7 @@ BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (123, 84, 148)
 
+
 class SettingsAudio(Fading):
     """ Settings > Audio """
 

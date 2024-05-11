@@ -47,6 +47,7 @@ from window.gamewindow import UPDATE_RATE
 
 COLOR_BACKGROUND = (70, 27, 27)
 
+
 class Game(Fading):
     """
     Main application class.

@@ -115,17 +115,23 @@ Weitere Modelle können funktionieren, wurden von mir aber nicht getestet.
 
 Das Spiel bietet die folgenden Einstellungsmöglichkeiten:
 
-## Video
+## Bildschirm
 
 | Einstellung         | Mögliche Werte | Auswirkung auf die Performance | Im Launcher | Im Spiel |
 |---------------------|----------------|--------------------------------|-------------|----------|
 | Bildschirmauflösung | Systemabhängig | Hoch                           | ✓           | ✘        |
 | Vollbild            | An/Aus         | Keine                          | ✓           | ✓        |
 | Rahmenlos           | An/Aus         | Keine                          | ✓           | ✘        |
-| V-Sync              | An/Aus         | Hoch                           | ✓           | ✓        |
-| Shader              | An/Aus         | Hoch                           | ✓           | ✘        |
-| Verkehr             | An/Aus         | Mittel                         | ✓           | ✓        |
-| Animierter Himmel   | An/Aus         | Mittel                         | ✓           | ✓        |
+| V-Sync              | An/Aus         | Keine                          | ✓           | ✓        |
+
+## Grafik
+
+| Einstellung       | Mögliche Werte | Auswirkung auf die Performance | Im Launcher | Im Spiel |
+|-------------------|----------------|--------------------------------|-------------|----------|
+| Shader            | An/Aus         | Hoch                           | ✓           | ✘        |
+| Verkehr           | An/Aus         | Mittel                         | ✓           | ✓        |
+| Animierter Himmel | An/Aus         | Niedrig                        | ✓           | ✓        |
+| Videos            | An/Aus         | Mittel                         | ✓           | ✓        |
 
 ## Audio
 

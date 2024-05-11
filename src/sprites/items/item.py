@@ -92,6 +92,7 @@ class Jeep(Sprite, Useable):
 class Water(AbstractAnimatedSprite):
     pass
 
+
 FORCE_MOVE = 8000
 HURT_PLAYER = 5
 

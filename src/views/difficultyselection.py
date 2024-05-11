@@ -16,6 +16,7 @@ BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (217, 102, 157)
 
+
 class DifficultySelection(Fading):
     """ Difficulty selection """
 

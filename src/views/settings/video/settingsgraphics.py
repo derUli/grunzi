@@ -9,6 +9,7 @@ from views.fading import Fading
 BUTTON_WIDTH = 250
 COLOR_BACKGROUND = (123, 84, 148)
 
+
 class SettingsGraphics(Fading):
     """Main menu view class."""
 
@@ -38,7 +39,6 @@ class SettingsGraphics(Fading):
         super().on_hide_view()
         self.pop_controller_handlers()
         self.manager.disable()
-
 
     def on_back(self):
         self.previous_view.time = self.time
@@ -102,6 +102,7 @@ class SettingsGraphics(Fading):
         def on_click_sky_button(event):
             self.on_toggle_sky()
             self.setup()
+
         @videos_button.event('on_click')
         def on_click_traffic_button(event):
             self.on_toggle_videos()

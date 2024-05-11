@@ -21,6 +21,7 @@ BUTTON_MARGIN_BOTTOM = 20
 
 COLOR_BACKGROUND = (123, 84, 148)
 
+
 class MainMenu(Fading):
     """ Main menu """
 

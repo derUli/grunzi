@@ -21,6 +21,7 @@ LOWEST_FITTING_RESOLUTION = (1440, 900)
 
 COLOR_BACKGROUND = (25, 95, 31)
 
+
 class SettingsControls(Fading):
     """Main menu view class."""
 

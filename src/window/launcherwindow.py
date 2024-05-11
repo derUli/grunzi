@@ -163,7 +163,7 @@ class LauncherWindow(ThemedTk):
 
         button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
 
-        button_launch.pack(expand=True, fill=tk.BOTH, ipady = 10)
+        button_launch.pack(expand=True, fill=tk.BOTH, ipady=10)
 
         self.eval('tk::PlaceWindow . center')
         self.resizable(False, False)

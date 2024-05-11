@@ -4,8 +4,8 @@ import arcade
 
 from utils.text import create_text, LARGE_FONT_SIZE, EXTRA_LARGE_FONT_SIZE
 
-
 MARGIN = 10
+
 
 class GameOverText:
     def __init__(self):
