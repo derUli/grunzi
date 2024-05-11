@@ -48,7 +48,7 @@ der RivaTuner Software gemessen.
 ### Laptop
 
 | Hardware-Art    | Hersteller | Modell              |
-|-----------------|------------|---------------------|
+|-----------------|------------|---------------------|f
 | Prozessor       | Intel      | Pentium Gold 7505   |
 | Grafikkarte     | Intel      | UHD Graphics        |
 | Arbeitsspeicher | Unbekannt  | 8 GB                |
