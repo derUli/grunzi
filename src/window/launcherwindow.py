@@ -7,6 +7,7 @@ from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
 from state.settingsstate import SettingsState
+from utils.path import is_windows
 from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 20
@@ -165,11 +166,17 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).grid(row=2, column=1, sticky='nw')
 
+        videos_state = tk.NORMAL
+
+        if not is_windows():
+            videos_state = tk.DISABLED
+
         ttk.Checkbutton(tab_graphics,
                         text=_('Videos'),
                         variable=self.videos,
                         onvalue=True,
-                        offvalue=False
+                        offvalue=False,
+                        state=videos_state
                         ).grid(row=3, column=1, sticky='nw')
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(

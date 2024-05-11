@@ -4,6 +4,7 @@ import constants.controls.keyboard
 import utils.gui
 import utils.text
 from utils.gui import get_texture_by_value
+from utils.path import is_windows
 from views.fading import Fading
 
 BUTTON_WIDTH = 250
@@ -121,7 +122,11 @@ class SettingsGraphics(Fading):
         if not game_running:
             widgets += [
                 traffic_button,
-                sky_button,
+                sky_button
+            ]
+
+        if is_windows():
+            widgets += [
                 videos_button
             ]
 
