@@ -6,11 +6,13 @@ import utils.text
 from views.fading import Fading
 from views.settings.settingsaudio import SettingsAudio
 from views.settings.settingscontrols import SettingsControls
-from views.settings.settingsvideo import SettingsVideo
+from views.settings.video.settingsdisplay import SettingsDisplay
+from views.settings.video.settingsgraphics import SettingsGraphics
 
 BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (123, 84, 148)
+
 
 class SettingsMenu(Fading):
     """Main menu view class."""
@@ -53,8 +55,15 @@ class SettingsMenu(Fading):
         self.manager.disable()
 
         # Video settings
-        video_button = arcade.gui.UIFlatButton(
-            text=_("Video"),
+        button_display = arcade.gui.UIFlatButton(
+            text=_("Display"),
+            width=BUTTON_WIDTH,
+            style=utils.gui.get_button_style()
+        )
+
+        # Video settings
+        button_graphics = arcade.gui.UIFlatButton(
+            text=_("Graphics"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
@@ -87,10 +96,22 @@ class SettingsMenu(Fading):
             self.next_view = SettingsControls(self.window, self.state, comeback_view)
             self.fade_out()
 
-        @video_button.event("on_click")
-        def on_click_video_button(event):
+        @button_display.event("on_click")
+        def on_click_display_button(event):
             self.window.show_view(
-                SettingsVideo(
+                SettingsDisplay(
+                    self.window,
+                    self.state,
+                    previous_view=self,
+                    shadertoy=self.shadertoy,
+                    time=self.time
+                ),
+            )
+
+        @button_graphics.event("on_click")
+        def on_click_graphics_button(event):
+            self.window.show_view(
+                SettingsGraphics(
                     self.window,
                     self.state,
                     previous_view=self,
@@ -118,8 +139,15 @@ class SettingsMenu(Fading):
 
         widgets = [
             back_button,
-            video_button
+            button_display
         ]
+
+        # Check if this is running from pause menu
+        from views.pausemenu import PauseMenu
+        game_running = isinstance(self.previous_view, PauseMenu)
+
+        if not game_running:
+            widgets += [button_graphics]
 
         if not self.state.settings.is_silent():
             widgets += [audio_button]

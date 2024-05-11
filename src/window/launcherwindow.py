@@ -12,7 +12,6 @@ from utils.screen import supported_screen_resolutions
 NOTEBOOK_PADDING = 20
 
 SPACE_BETWEEN = 2
-LARGE_SPACE_BETWEEN = 10
 
 TTK_THEME = 'equilux'
 
@@ -45,7 +44,6 @@ class LauncherWindow(ThemedTk):
         Set up the UI
         """
         self.title(_('Grunzi Launcher'))
-        self.minsize(350, 380)
         self.bind_keyevents()
         self.set_icon()
 
@@ -154,7 +152,7 @@ class LauncherWindow(ThemedTk):
 
         button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
 
-        button_launch.pack(expand=True, fill=tk.BOTH)
+        button_launch.pack(expand=True, fill=tk.BOTH, ipady = 10)
 
         self.eval('tk::PlaceWindow . center')
         self.resizable(False, False)

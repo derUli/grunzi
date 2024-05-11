@@ -9,7 +9,8 @@ from views.fading import Fading
 BUTTON_WIDTH = 250
 COLOR_BACKGROUND = (123, 84, 148)
 
-class SettingsVideo(Fading):
+
+class SettingsDisplay(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view, shadertoy, time=0):
@@ -39,7 +40,6 @@ class SettingsVideo(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
-
     def on_back(self):
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
@@ -51,17 +51,12 @@ class SettingsVideo(Fading):
         self.manager.clear()
         self.manager.disable()
 
-        # Check if this is running from pause menu
-        from views.pausemenu import PauseMenu
-        game_running = isinstance(self.previous_view.previous_view, PauseMenu)
-
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
 
-        # Video settings
         fullscreen_button = arcade.gui.UITextureButton(
             text=_("Fullscreen"),
             width=BUTTON_WIDTH,
@@ -81,28 +76,6 @@ class SettingsVideo(Fading):
                 width=BUTTON_WIDTH,
                 height=back_button.height,
                 value=self.window.vsync
-            ),
-            style=utils.gui.get_button_style()
-        )
-
-        traffic_button = arcade.gui.UITextureButton(
-            text=_("Traffic"),
-            width=BUTTON_WIDTH,
-            texture=get_texture_by_value(
-                width=BUTTON_WIDTH,
-                height=back_button.height,
-                value=self.state.settings.traffic
-            ),
-            style=utils.gui.get_button_style()
-        )
-
-        sky_button = arcade.gui.UITextureButton(
-            text=_("Animated Sky"),
-            width=BUTTON_WIDTH,
-            texture=get_texture_by_value(
-                width=BUTTON_WIDTH,
-                height=back_button.height,
-                value=self.state.settings.sky
             ),
             style=utils.gui.get_button_style()
         )
@@ -133,16 +106,6 @@ class SettingsVideo(Fading):
             self.on_toggle_fps()
             self.setup()
 
-        @sky_button.event('on_click')
-        def on_click_sky_button(event):
-            self.on_toggle_sky()
-            self.setup()
-
-        @traffic_button.event('on_click')
-        def on_click_traffic_button(event):
-            self.on_toggle_traffic()
-            self.setup()
-
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
@@ -161,19 +124,9 @@ class SettingsVideo(Fading):
 
         # Other video settings
         widgets += [
-            vsync_button
-        ]
-
-        if not game_running:
-            widgets += [
-                traffic_button,
-                sky_button
-            ]
-
-        widgets += [
+            vsync_button,
             fps_button
         ]
-
         # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
 
@@ -225,13 +178,3 @@ class SettingsVideo(Fading):
     def on_toggle_fullscreen(self):
         super().on_toggle_fullscreen()
         self.setup()
-
-    def on_toggle_sky(self) -> None:
-        """ On toggle sky """
-        self.state.settings.sky = not self.state.settings.sky
-        self.state.settings.save()
-
-    def on_toggle_traffic(self) -> None:
-        """ On toggle traffic """
-        self.state.settings.traffic = not self.state.settings.traffic
-        self.state.settings.save()
