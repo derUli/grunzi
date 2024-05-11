@@ -166,7 +166,7 @@ class Game(Fading):
         if not self.state.settings.sky:
             for layer in SKY_LAYERS:
                 if layer in self.scene:
-                    sself.scene.remove_sprite_list_by_name(layer)
+                    self.scene.remove_sprite_list_by_name(layer)
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
