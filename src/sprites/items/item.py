@@ -56,7 +56,6 @@ class Item(Sprite):
     def on_use(self, state, handlers):
         state.beep()
 
-
     def copy(self):
         logging.info('Copy not implemented')
         return self

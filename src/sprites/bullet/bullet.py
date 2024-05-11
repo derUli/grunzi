@@ -12,7 +12,7 @@ from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
 from utils.physics import on_hit_destroy
 
-HURT_DEFAULT = 15
+HURT_DEFAULT = 20
 HURT_CHICKEN = 35
 
 MASS = 0.1

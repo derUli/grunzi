@@ -9,7 +9,7 @@ from constants.audio import DEFAULT_AUDIO_BACKEND
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 7
+SETTINGS_STATE_VERSION = 8
 
 
 class SettingsState:
@@ -30,6 +30,7 @@ class SettingsState:
         self._music_volume = 1
         self._sound_volume = 1
         self._muted = False
+        self.first_start = False
 
         # SettingState
         self.version = SETTINGS_STATE_VERSION

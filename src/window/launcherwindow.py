@@ -1,10 +1,9 @@
 import os
 import tkinter as tk
-import tkinter.ttk as ttk
 import tkinter.messagebox as messagebox
+import tkinter.ttk as ttk
 
 from PIL.ImageTk import PhotoImage
-from pygments.lexers import q
 from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
@@ -236,6 +235,10 @@ class LauncherWindow(ThemedTk):
         self.resizable(False, False)
         button_launch.focus_set()
 
+        if not self.state.first_start:
+            if self.ask_for_autodetect_settings():
+                self.autodetect_settings()
+
     def bind_keyevents(self) -> None:
         """ Bind keyboard events"""
 
@@ -268,6 +271,7 @@ class LauncherWindow(ThemedTk):
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.audio_backend = self.audio_backend.get()
+        self.state.first_start = True
         self.state.save()
 
         # Apply settings to args
@@ -300,14 +304,13 @@ class LauncherWindow(ThemedTk):
         else:
             self.borderless_check.configure(state='enabled')
 
-
-    def on_low(self, event = None):
+    def on_low(self, event=None):
         self.apply_preset(SETTINGS_LOW)
 
     def on_medium(self, event=None):
         self.apply_preset(SETTINGS_MEDIUM)
 
-    def on_high(self, event = None):
+    def on_high(self, event=None):
         self.apply_preset(SETTINGS_HIGH)
 
     def apply_preset(self, setting):
@@ -319,3 +322,25 @@ class LauncherWindow(ThemedTk):
         self.videos.set(settings['videos'])
 
         messagebox.showinfo(_('Success'), _('The settings have been set.'))
+
+    def ask_for_autodetect_settings(self) -> bool:
+        return messagebox.askyesno(
+            title=_('Question'),
+            message=
+            "\n".join(
+                [
+                    _("You start the game for the first time."),
+                    _("Möchten Sie automatisch die besten Grafikeinstellungen für Ihr System festlegen?")
+                ]
+            )
+
+        )
+
+    def autodetect_settings(self):
+        screen_resolutions = supported_screen_resolutions()
+        screen_resolutions = screen_resolutions[-1:]
+        if len(screen_resolutions) >= 1:
+            self.screen_resolution.set(screen_resolutions[0])
+
+        # TODO: Do real autodetection
+        self.on_high()

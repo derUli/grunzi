@@ -26,4 +26,3 @@ class Vase(RedHerring):
             center_x=self.center_x,
             center_y=self.center_y
         )
-

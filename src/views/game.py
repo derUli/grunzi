@@ -684,14 +684,12 @@ class Game(Fading):
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         update_sun(self.scene, self.camera_sprites)
 
-
         # Animate only visible
         animated = animated_in_sight(self.scene, self.player_sprite)
         for sprite in animated:
             sprite.update_animation(delta_time)
 
         self.update_fade(self.next_view)
-
 
     def call_update(self, delta_time):
         for sprite_list in self.scene.sprite_lists:
