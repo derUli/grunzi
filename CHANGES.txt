@@ -5,6 +5,7 @@
 * Strom-Hindernis hinzugefügt
 * Intro-Videos können jetzt übersprungen werden, obwohl der Ladevorgang noch nicht fertig ist
 * Game Over Bildschirm überarbeitet
+* Mehrfach im Inventar befindliche Gegenstände können jetzt korrekt gedroppt werden
 * Grafik-Einstellung "Shader" hinzugefügt
 * Grafik-Einstellung "Verkehr" hinzugefügt
 * Grafik-Einstellung "Animierter Himmel" hinzugefügt
