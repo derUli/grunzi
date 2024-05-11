@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-11 02:14+0200\n"
+"POT-Creation-Date: 2024-05-11 02:42+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,43 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/ui/gameovertext.py:30
+#: sprites/ui/gameovertext.py:32
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
 
-#: sprites/ui/gameovertext.py:39
+#: sprites/ui/gameovertext.py:43
 msgid "bacon"
 msgstr "Schinken"
 
-#: sprites/ui/gameovertext.py:40
+#: sprites/ui/gameovertext.py:44
 msgid "salami"
 msgstr "Salami"
 
-#: sprites/ui/gameovertext.py:41
+#: sprites/ui/gameovertext.py:45
 msgid "schnitzel"
 msgstr "Schnitzel"
 
-#: sprites/ui/gameovertext.py:42
+#: sprites/ui/gameovertext.py:46
 msgid "Cutlet"
 msgstr "Kotelett"
 
-#: sprites/ui/gameovertext.py:43
+#: sprites/ui/gameovertext.py:47
 msgid "Mett"
 msgstr "Mett"
 
-#: sprites/ui/gameovertext.py:44
+#: sprites/ui/gameovertext.py:48
 msgid "Suckling pig"
 msgstr "Spanferkel"
 
-#: sprites/ui/gameovertext.py:45
+#: sprites/ui/gameovertext.py:49
 msgid "Pulled Pork"
 msgstr "Pulled Pork"
 
-#: sprites/ui/gameovertext.py:46
+#: sprites/ui/gameovertext.py:50
 msgid "Spare ribs"
 msgstr "Spareribs"
 
-#: sprites/ui/gameovertext.py:49
+#: sprites/ui/gameovertext.py:53
 msgid "You are"
 msgstr "Du bist"
 
