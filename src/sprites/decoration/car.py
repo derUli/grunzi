@@ -1,7 +1,7 @@
 from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER, COLLISION_CHICKEN
 from sprites.sprite import Sprite
 
-# MOVE_SPEED
+# MOV_
 FORCE_MOVE = 4000
 
 # Hurt NPCs on collide with car
@@ -30,7 +30,7 @@ class CarLeft(Sprite, Car):
         physics_engine.apply_force(self, (-FORCE_MOVE, 0))
 
         if self.right < 0:
-            physics_engine.set_position(self, (w, self.center_y))
+            physics_engine.set_position(self, (w - self.width / 2, self.center_y))
 
         physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
