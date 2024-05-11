@@ -2,7 +2,7 @@ from sprites.items.item import Item
 
 
 class RedHerring(Item):
-    def on_use(self, b, state=None, handlers=None):
+    def on_use_with(self, b, state=None, handlers=None):
         state.beep()
 
 

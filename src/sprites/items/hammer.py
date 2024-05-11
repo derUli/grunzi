@@ -5,7 +5,7 @@ SCORE_HURT_SKULLSPRITE = 50
 
 
 class Hammer(Item):
-    def on_use(self, b, state=None, handlers=None):
+    def on_use_with(self, b, state=None, handlers=None):
         from sprites.characters.skull import Skull
 
         if isinstance(b, PiggyBank):

@@ -10,7 +10,7 @@ SCORE_KILL_CHICKEN = 50
 
 
 class Chainsaw(Item):
-    def on_use(self, b, state=None, handlers=None):
+    def on_use_with(self, b, state=None, handlers=None):
         from sprites.characters.skull import Skull
         from sprites.characters.chicken import Chicken
 

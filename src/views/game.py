@@ -633,15 +633,17 @@ class Game(Fading):
 
         for sprite in sprites:
             if isinstance(sprite, Useable):
-                item.on_use(
+                item.on_use_with(
                     sprite,
                     state=self.state,
                     handlers=CallbackHandler(on_complete=self.on_next_level)
                 )
                 return
 
-        self.state.beep()
-        logging.info('Nothing to use at ' + str(self.player_sprite.get_item().position))
+        item.on_use(
+            state=self.state,
+            handlers=CallbackHandler(on_complete=self.on_next_level)
+        )
 
     def on_update(self, delta_time):
         """Movement and game logic"""

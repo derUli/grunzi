@@ -50,8 +50,12 @@ class Item(Sprite):
             center_y=center_y
         )
 
-    def on_use(self, b, state=None, handlers=None):
+    def on_use_with(self, b, state=None, handlers=None):
         logging.info(f"Use item {self} with {b}")
+
+    def on_use(self, state, handlers):
+        state.beep()
+
 
     def copy(self):
         logging.info('Copy not implemented')

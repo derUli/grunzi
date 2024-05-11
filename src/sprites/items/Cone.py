@@ -3,7 +3,7 @@ from utils.callbackhandler import CallbackHandler
 
 
 class Cone(Item):
-    def on_use(self, b, state=None, handlers: CallbackHandler | None = None):
+    def on_use_with(self, b, state=None, handlers: CallbackHandler | None = None):
         state.beep()
 
     def copy(self):
