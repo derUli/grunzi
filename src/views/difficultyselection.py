@@ -71,13 +71,13 @@ class DifficultySelection(Fading):
         )
 
         difficulty_medium = arcade.gui.UIFlatButton(
-            text=_("Medium"),
+            text=_("Normal"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
 
         difficulty_high = arcade.gui.UIFlatButton(
-            text=_("High"),
+            text=_("Hard"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )

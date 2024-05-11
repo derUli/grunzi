@@ -1,8 +1,10 @@
 import os
 import tkinter as tk
 import tkinter.ttk as ttk
+import tkinter.messagebox as messagebox
 
 from PIL.ImageTk import PhotoImage
+from pygments.lexers import q
 from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
@@ -25,23 +27,20 @@ SETTINGS_PRESETS = {
         'shaders': False,
         'traffic': False,
         'sky': False,
-        'videos': False,
-        'full_hd': False
+        'videos': False
     },
     SETTINGS_MEDIUM: {
         'shaders': False,
         'traffic': True,
         'sky': True,
-        'videos': True,
-        'full_hd': True
+        'videos': True
     },
     SETTINGS_HIGH: {
         'shaders': True,
         'traffic': True,
         'sky': True,
         'videos': True,
-        'screen_resolution': True,
-        'full_hd': True
+        'screen_resolution': True
     }
 }
 
@@ -149,26 +148,58 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
+        ttk.Label(tab_graphics, text=_('Graphics Details') + ' ').grid(
+            row=0,
+            column=0,
+            padx=SPACE_BETWEEN,
+            pady=SPACE_BETWEEN
+        )
+
+        ttk.Button(tab_graphics, text=_('Low'), command=self.on_low).grid(
+            row=1,
+            column=0,
+            pady=SPACE_BETWEEN
+        )
+
+        ttk.Button(tab_graphics, text=_('Medium'), command=self.on_medium).grid(
+            row=1,
+            column=1,
+            pady=SPACE_BETWEEN
+        )
+
+        ttk.Button(tab_graphics, text=_('High'), command=self.on_high).grid(
+            row=1,
+            column=2,
+            pady=SPACE_BETWEEN
+        )
+
         ttk.Checkbutton(tab_graphics,
                         text=_('Shaders'),
                         variable=self.shaders,
                         onvalue=True,
                         offvalue=False,
-                        ).grid(row=0, column=1, pady=SPACE_BETWEEN, sticky='nw')
+                        ).grid(row=2, column=1, pady=SPACE_BETWEEN, sticky='nw')
+
+        ttk.Checkbutton(tab_graphics,
+                        text=_('Shaders'),
+                        variable=self.shaders,
+                        onvalue=True,
+                        offvalue=False,
+                        ).grid(row=2, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
         ttk.Checkbutton(tab_graphics,
                         text=_('Traffic'),
                         variable=self.traffic,
                         onvalue=True,
                         offvalue=False
-                        ).grid(row=1, column=1, pady=SPACE_BETWEEN, sticky='nw')
+                        ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
         ttk.Checkbutton(tab_graphics,
                         text=_('Animated Sky'),
                         variable=self.sky,
                         onvalue=True,
                         offvalue=False
-                        ).grid(row=2, column=1, sticky='nw')
+                        ).grid(row=4, column=1, sticky='nw')
 
         videos_state = tk.NORMAL
 
@@ -181,7 +212,7 @@ class LauncherWindow(ThemedTk):
                         onvalue=True,
                         offvalue=False,
                         state=videos_state
-                        ).grid(row=3, column=1, sticky='nw')
+                        ).grid(row=5, column=1, sticky='nw')
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
@@ -268,3 +299,23 @@ class LauncherWindow(ThemedTk):
             self.borderless.set(False)
         else:
             self.borderless_check.configure(state='enabled')
+
+
+    def on_low(self, event = None):
+        self.apply_preset(SETTINGS_LOW)
+
+    def on_medium(self, event=None):
+        self.apply_preset(SETTINGS_MEDIUM)
+
+    def on_high(self, event = None):
+        self.apply_preset(SETTINGS_HIGH)
+
+    def apply_preset(self, setting):
+        settings = SETTINGS_PRESETS[setting]
+
+        self.shaders.set(settings['shaders'])
+        self.traffic.set(settings['traffic'])
+        self.sky.set(settings['sky'])
+        self.videos.set(settings['videos'])
+
+        messagebox.showinfo(_('Success'), _('The settings have been set.'))

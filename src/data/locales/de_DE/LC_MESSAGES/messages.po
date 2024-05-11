@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-11 19:25+0200\n"
+"POT-Creation-Date: 2024-05-11 21:25+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -65,7 +65,7 @@ msgstr "Punkte"
 #: views/difficultyselection.py:62 views/mapselection.py:69
 #: views/settings/settingsaudio.py:54 views/settings/settingscontrols.py:109
 #: views/settings/settingsmenu.py:86 views/settings/video/settingsdisplay.py:55
-#: views/settings/video/settingsgraphics.py:58
+#: views/settings/video/settingsgraphics.py:59
 msgid "Back"
 msgstr "Zurück"
 
@@ -74,11 +74,11 @@ msgid "Easy"
 msgstr "Sauleicht"
 
 #: views/difficultyselection.py:74
-msgid "Medium"
+msgid "Normal"
 msgstr "Versaut"
 
 #: views/difficultyselection.py:80
-msgid "High"
+msgid "Hard"
 msgstr "Sauschwer"
 
 #: views/difficultyselection.py:111
@@ -104,7 +104,7 @@ msgstr "Nein"
 msgid "Loading..."
 msgstr "Wird geladen..."
 
-#: views/mainmenu.py:42 window/launcherwindow.py:74
+#: views/mainmenu.py:42 window/launcherwindow.py:78
 msgid "Grunzi"
 msgstr "Grunzi"
 
@@ -297,15 +297,15 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:59 window/launcherwindow.py:101
+#: views/settings/settingsmenu.py:59 window/launcherwindow.py:105
 msgid "Display"
 msgstr "Bildschirm"
 
-#: views/settings/settingsmenu.py:66 window/launcherwindow.py:102
+#: views/settings/settingsmenu.py:66 window/launcherwindow.py:106
 msgid "Graphics"
 msgstr "Grafik"
 
-#: views/settings/settingsmenu.py:73 window/launcherwindow.py:103
+#: views/settings/settingsmenu.py:73 window/launcherwindow.py:107
 msgid "Audio"
 msgstr "Audio"
 
@@ -313,43 +313,67 @@ msgstr "Audio"
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/video/settingsdisplay.py:61 window/launcherwindow.py:121
+#: views/settings/video/settingsdisplay.py:61 window/launcherwindow.py:125
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/video/settingsdisplay.py:73 window/launcherwindow.py:141
+#: views/settings/video/settingsdisplay.py:73 window/launcherwindow.py:145
 msgid "V-Sync"
 msgstr ""
 
-#: views/settings/video/settingsgraphics.py:64 window/launcherwindow.py:155
+#: views/settings/video/settingsgraphics.py:65 window/launcherwindow.py:191
 msgid "Traffic"
 msgstr "Verkehr"
 
-#: views/settings/video/settingsgraphics.py:75 window/launcherwindow.py:162
+#: views/settings/video/settingsgraphics.py:76 window/launcherwindow.py:198
 msgid "Animated Sky"
 msgstr "Animierter Himmel"
 
-#: views/settings/video/settingsgraphics.py:86 window/launcherwindow.py:169
+#: views/settings/video/settingsgraphics.py:87 window/launcherwindow.py:210
 msgid "Videos"
 msgstr "Videos"
 
-#: window/launcherwindow.py:106
+#: window/launcherwindow.py:110
 msgid "Screen resolution"
 msgstr "Bildschirmauflösung"
 
-#: window/launcherwindow.py:130
+#: window/launcherwindow.py:134
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:148
+#: window/launcherwindow.py:151
+msgid "Graphics Details"
+msgstr "Grafik Details"
+
+#: window/launcherwindow.py:158
+msgid "Low"
+msgstr "Niedrig"
+
+#: window/launcherwindow.py:164
+msgid "Medium"
+msgstr "Mittel"
+
+#: window/launcherwindow.py:170
+msgid "High"
+msgstr "Hoch"
+
+#: window/launcherwindow.py:177 window/launcherwindow.py:184
 msgid "Shaders"
 msgstr "Shader"
 
-#: window/launcherwindow.py:175
+#: window/launcherwindow.py:217
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:189
+#: window/launcherwindow.py:231
 msgid "Launch Game"
 msgstr "Spiel starten"
+
+#: window/launcherwindow.py:321
+msgid "Success"
+msgstr "Erfolg"
+
+#: window/launcherwindow.py:321
+msgid "The settings have been set."
+msgstr "Die Einstellungen wurden gesetzt."
 
