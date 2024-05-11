@@ -25,19 +25,23 @@ SETTINGS_PRESETS = {
         'shaders': False,
         'traffic': False,
         'sky': False,
-        'videos': False
+        'videos': False,
+        'full_hd': False
     },
     SETTINGS_MEDIUM: {
         'shaders': False,
         'traffic': True,
         'sky': True,
-        'videos': True
+        'videos': True,
+        'full_hd': True
     },
     SETTINGS_HIGH: {
         'shaders': True,
         'traffic': True,
         'sky': True,
-        'videos': True
+        'videos': True,
+        'screen_resolution': True,
+        'full_hd': True
     }
 }
 
