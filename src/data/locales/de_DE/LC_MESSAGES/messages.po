@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-10 15:54+0200\n"
+"POT-Creation-Date: 2024-05-11 02:08+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,43 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/characters/player.py:84
+#: sprites/ui/gameovertext.py:31
 msgid "bacon"
 msgstr "Schinken"
 
-#: sprites/characters/player.py:85
+#: sprites/ui/gameovertext.py:32
 msgid "salami"
 msgstr "Salami"
 
-#: sprites/characters/player.py:86
+#: sprites/ui/gameovertext.py:33
 msgid "schnitzel"
 msgstr "Schnitzel"
 
-#: sprites/characters/player.py:87
+#: sprites/ui/gameovertext.py:34
 msgid "Cutlet"
 msgstr "Kotelett"
 
-#: sprites/characters/player.py:88
+#: sprites/ui/gameovertext.py:35
 msgid "Mett"
 msgstr "Mett"
 
-#: sprites/characters/player.py:89
+#: sprites/ui/gameovertext.py:36
 msgid "Suckling pig"
 msgstr "Spanferkel"
 
-#: sprites/characters/player.py:90
+#: sprites/ui/gameovertext.py:37
 msgid "Pulled Pork"
 msgstr "Pulled Pork"
 
-#: sprites/characters/player.py:91
+#: sprites/ui/gameovertext.py:38
 msgid "Spare ribs"
 msgstr "Spareribs"
 
-#: sprites/characters/player.py:94
+#: sprites/ui/gameovertext.py:41
 msgid "You are"
 msgstr "Du bist"
 
-#: sprites/ui/uicontainer.py:40
+#: sprites/ui/uicontainer.py:41
 msgid "Score"
 msgstr "Punkte"
 
@@ -95,7 +95,7 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: views/game.py:242
+#: views/game.py:241
 msgid "Loading..."
 msgstr "Wird geladen..."
 

@@ -1,13 +1,12 @@
 """ Player sprite class """
-import random
 
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
-import utils.text
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
+from sprites.ui.gameovertext import GameOverText
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -57,14 +56,14 @@ class Player(Character, SpriteHealth):
         self._died = False
 
         self.state = None
-        self.gameover_text = None
-        self.gameover_text_rendered = None
         self.water = False
 
         self.stamina = 100
 
         self.footsteps_default = None
         self.footsteps_sprint = None
+
+        self.gameover_text = None
 
     def setup(self, state, scene, callbacks):
         self.state = state
@@ -79,19 +78,6 @@ class Player(Character, SpriteHealth):
         for sprite in self.scene.get_sprite_list(LAYER_SPAWN_POINT):
             self.center_x, self.center_y = sprite.center_x, sprite.center_y
             sprite.remove_from_sprite_lists()
-
-        sausages = [
-            _('bacon'),
-            _('salami'),
-            _('schnitzel'),
-            _('Cutlet'),
-            _('Mett'),
-            _('Suckling pig'),
-            _('Pulled Pork'),
-            _('Spare ribs')
-        ]
-
-        self.gameover_text = _('You are') + ' ' + random.choice(sausages) + '!'
 
         scene.add_sprite(LAYER_PLAYER, self)
 
@@ -189,16 +175,11 @@ class Player(Character, SpriteHealth):
         if not self.dead:
             return
 
-        if not self.gameover_text_rendered:
-            self.gameover_text_rendered = utils.text.create_text(
-                text=self.gameover_text,
-                bold=True
-            )
+        if not self.gameover_text:
+            self.gameover_text = GameOverText()
+            self.gameover_text.setup()
 
-            self.gameover_text_rendered.x = window.width / 2 - self.gameover_text_rendered.content_width / 2
-            self.gameover_text_rendered.y = window.height / 2 - self.gameover_text_rendered.content_height / 2
-
-        self.gameover_text_rendered.draw()
+        self.gameover_text.draw()
 
     def set_item(self, item):
         if self.item:
