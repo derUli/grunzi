@@ -2,11 +2,12 @@
 
 ## Alpha 012 (Unreleased)
 
-* Strom-Hindernis hinzugefügt
-* Intro-Videos können jetzt übersprungen werden, obwohl der Ladevorgang noch nicht fertig ist
-* Game Over Bildschirm überarbeitet
+* map01: Autos kollidieren nicht mehr nach einiger Spielzeit
+* map02: Strom-Hindernis hinzugefügt
+* Intro-Videos können nun, auch wenn der Ladevorgang noch nicht fertig ist, übersprungen werden.
 * Mehrfach im Inventar befindliche Gegenstände können jetzt korrekt gedroppt werden
-* Grafik-Einstellungen überarbeitet
+* Game Over Bildschirm überarbeitet
+* Grafik-Einstellungen erweitert
 
 ## Alpha 011 (17.05.2024)
 
