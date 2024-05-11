@@ -74,7 +74,7 @@ class LauncherWindow(ThemedTk):
         tab_control.add(tab_audio, text=_('Audio'))
         tab_control.pack(expand=True, fill=tk.BOTH)
 
-        ttk.Label(tab_video, text=_('Screen resolution:')).grid(
+        ttk.Label(tab_video, text=_('Screen resolution:') + ' ').grid(
             row=0,
             column=0,
             padx=SPACE_BETWEEN,
@@ -136,7 +136,7 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).grid(row=6, column=1, sticky='nw')
 
-        ttk.Label(tab_audio, text=_('Audio Backend:')).grid(
+        ttk.Label(tab_audio, text=_('Audio Backend:') + ' ').grid(
             row=0,
             column=0,
             padx=SPACE_BETWEEN,
