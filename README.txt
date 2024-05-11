@@ -29,6 +29,9 @@ der RivaTuner Software gemessen.
 | Vollbild            | An          |
 | V-Sync              | Aus         |
 | Rahmenlos           | Aus         |
+| Shader              | An          |
+| Verkehr             | An          |
+| Animierter Himmel   | An          |
 
 ### Desktop PC
 
