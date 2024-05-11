@@ -32,6 +32,7 @@ der RivaTuner Software gemessen.
 | Shader              | An          |
 | Verkehr             | An          |
 | Animierter Himmel   | An          |
+| Videos              | An          |
 
 ### Desktop PC
 
