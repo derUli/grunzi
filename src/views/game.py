@@ -172,6 +172,10 @@ class Game(Fading):
             for layer in SKY_LAYERS:
                 self.scene.remove_sprite_list_by_name(layer)
 
+        if not self.state.settings.traffic:
+            for layer in TRAFFIC_LAYERS:
+                self.scene.remove_sprite_list_by_name(layer)
+
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = Player(filename)

@@ -32,6 +32,8 @@ class LauncherWindow(ThemedTk):
         )
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
         self.borderless = tk.BooleanVar(value=args.borderless)
+
+        self.traffic = tk.BooleanVar(value=not args.no_traffic)
         self.sky = tk.BooleanVar(value=not args.no_sky)
         self.shaders = tk.BooleanVar(value=not args.no_shaders)
 
@@ -45,7 +47,7 @@ class LauncherWindow(ThemedTk):
         Set up the UI
         """
         self.title(_('Grunzi Launcher'))
-        self.geometry('320x320')
+        self.geometry('280x380')
         self.bind_keyevents()
         self.set_icon()
 
@@ -56,6 +58,7 @@ class LauncherWindow(ThemedTk):
             self.vsync.set(self.state.vsync)
             self.borderless.set(self.state.borderless)
             self.sky.set(self.state.sky)
+            self.traffic.set(self.state.traffic)
             self.shaders.set(self.state.shaders)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
@@ -117,6 +120,13 @@ class LauncherWindow(ThemedTk):
                         ).pack(expand=True)
 
         ttk.Checkbutton(tab_video,
+                        text=_('Traffic'),
+                        variable=self.traffic,
+                        onvalue=True,
+                        offvalue=False
+                        ).pack(expand=True)
+
+        ttk.Checkbutton(tab_video,
                         text=_('Animated Sky'),
                         variable=self.sky,
                         onvalue=True,
@@ -165,6 +175,7 @@ class LauncherWindow(ThemedTk):
         self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
         self.state.sky = self.sky.get()
+        self.state.traffic = self.traffic.get()
         self.state.shaders = self.shaders.get()
 
         w, h = self.screen_resolution.get().split('x')
@@ -178,6 +189,7 @@ class LauncherWindow(ThemedTk):
         self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
         self.args.no_sky = not self.sky.get()
+        self.args.no_traffic = not self.traffic.get()
         self.args.no_shaders = not self.shaders.get()
 
         screen_resolution = self.screen_resolution.get().split('x')

@@ -70,8 +70,13 @@ WALL_LAYERS = [
 ]
 
 SKY_LAYERS = [
-    'Clouds',
-    'Sun'
+    LAYER_CLOUDS,
+    LAYER_SUN
+]
+
+TRAFFIC_LAYERS = [
+    LAYER_CAR_LEFT,
+    LAYER_CAR_RIGHT
 ]
 
 ANIMATED_LAYERS = [
