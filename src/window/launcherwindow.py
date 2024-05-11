@@ -1,6 +1,5 @@
 import os
 import tkinter as tk
-import tkinter.messagebox as messagebox
 import tkinter.ttk as ttk
 
 from PIL.ImageTk import PhotoImage
@@ -12,7 +11,8 @@ from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 20
 
-SPACE_BETWEEN = 5
+SPACE_BETWEEN = 2
+LARGE_SPACE_BETWEEN = 10
 
 TTK_THEME = 'equilux'
 
@@ -20,7 +20,6 @@ TTK_THEME = 'equilux'
 class LauncherWindow(ThemedTk):
     def __init__(self, theme=TTK_THEME, args=None, state=None):
         super().__init__(theme=theme)
-
 
         self.path_state = state
         self.args = args
@@ -46,7 +45,7 @@ class LauncherWindow(ThemedTk):
         Set up the UI
         """
         self.title(_('Grunzi Launcher'))
-        self.minsize(350, 400)
+        self.minsize(350, 380)
         self.bind_keyevents()
         self.set_icon()
 
@@ -75,14 +74,19 @@ class LauncherWindow(ThemedTk):
         tab_control.add(tab_audio, text=_('Audio'))
         tab_control.pack(expand=True, fill=tk.BOTH)
 
-        ttk.Label(tab_video, text=_('Screen resolution:')).pack(expand=True)
+        ttk.Label(tab_video, text=_('Screen resolution:')).grid(
+            row=0,
+            column=0,
+            padx=SPACE_BETWEEN,
+            pady=LARGE_SPACE_BETWEEN
+        )
 
         ttk.Combobox(
             tab_video,
             values=supported_screen_resolutions(),
             textvariable=self.screen_resolution,
             state='readonly'
-        ).pack(expand=True)
+        ).grid(row=0, column=1, pady=LARGE_SPACE_BETWEEN)
 
         ttk.Checkbutton(tab_video,
                         text=_('Fullscreen'),
@@ -90,7 +94,7 @@ class LauncherWindow(ThemedTk):
                         onvalue=True,
                         offvalue=False,
                         command=self.on_toggle_fullscreen
-                        ).pack(expand=True)
+                        ).grid(row=1, column=1, sticky='nw', pady=SPACE_BETWEEN)
 
         self.borderless_check = ttk.Checkbutton(
             tab_video,
@@ -100,7 +104,7 @@ class LauncherWindow(ThemedTk):
             offvalue=False,
         )
 
-        self.borderless_check.pack(expand=True)
+        self.borderless_check.grid(row=2, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
         self.on_toggle_fullscreen()
 
@@ -109,38 +113,42 @@ class LauncherWindow(ThemedTk):
                         variable=self.vsync,
                         onvalue=True,
                         offvalue=False
-                        ).pack(expand=True)
+                        ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
         ttk.Checkbutton(tab_video,
                         text=_('Shaders'),
                         variable=self.shaders,
                         onvalue=True,
                         offvalue=False,
-                        ).pack(expand=True)
+                        ).grid(row=4, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
         ttk.Checkbutton(tab_video,
                         text=_('Traffic'),
                         variable=self.traffic,
                         onvalue=True,
                         offvalue=False
-                        ).pack(expand=True)
+                        ).grid(row=5, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
         ttk.Checkbutton(tab_video,
                         text=_('Animated Sky'),
                         variable=self.sky,
                         onvalue=True,
                         offvalue=False
-                        ).pack(expand=True)
+                        ).grid(row=6, column=1, sticky='nw')
 
-
-        ttk.Label(tab_audio, text=_('Audio Backend:')).pack()
+        ttk.Label(tab_audio, text=_('Audio Backend:')).grid(
+            row=0,
+            column=0,
+            padx=SPACE_BETWEEN,
+            pady=LARGE_SPACE_BETWEEN
+        )
 
         ttk.Combobox(
             tab_audio,
             values=AUDIO_BACKENDS,
             textvariable=self.audio_backend,
             state='readonly'
-        ).pack()
+        ).grid(row=0, column=2, pady=LARGE_SPACE_BETWEEN, sticky='e')
 
         button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
 
