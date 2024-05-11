@@ -170,7 +170,8 @@ class Game(Fading):
         # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
             for layer in SKY_LAYERS:
-                self.scene.remove_sprite_list_by_name(layer)
+                if layer in self.scene.name_mapping:
+                    self.scene.remove_sprite_list_by_name(layer)
 
         if not self.state.settings.traffic:
             for layer in TRAFFIC_LAYERS:
