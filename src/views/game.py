@@ -286,6 +286,7 @@ class Game(Fading):
 
         if force_x != 0 or force_y != 0:
             self.player_sprite.start_walk(sprint=self.player_sprite.sprinting)
+            self.window.set_mouse_visible(False)
         else:
             self.player_sprite.stop_walk()
 
