@@ -27,12 +27,15 @@ class LauncherWindow(ThemedTk):
         self.screen_resolution = tk.StringVar(
             value=str(args.width) + 'x' + str(args.height)
         )
+
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
         self.borderless = tk.BooleanVar(value=args.borderless)
 
-        self.traffic = tk.BooleanVar(value=not args.no_traffic)
-        self.sky = tk.BooleanVar(value=not args.no_sky)
-        self.shaders = tk.BooleanVar(value=not args.no_shaders)
+        true_val = True
+        self.traffic = tk.BooleanVar(value=true_val)
+        self.sky = tk.BooleanVar(value=true_val)
+        self.shaders = tk.BooleanVar(value=true_val)
+        self.videos = tk.BooleanVar(value=true_val)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
@@ -56,6 +59,7 @@ class LauncherWindow(ThemedTk):
             self.sky.set(self.state.sky)
             self.traffic.set(self.state.traffic)
             self.shaders.set(self.state.shaders)
+            self.videos.set(self.state.videos)
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -120,21 +124,28 @@ class LauncherWindow(ThemedTk):
                         variable=self.shaders,
                         onvalue=True,
                         offvalue=False,
-                        ).grid(row=4, column=1, pady=SPACE_BETWEEN, sticky='nw')
+                        ).grid(row=0, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
         ttk.Checkbutton(tab_graphics,
                         text=_('Traffic'),
                         variable=self.traffic,
                         onvalue=True,
                         offvalue=False
-                        ).grid(row=5, column=1, pady=SPACE_BETWEEN, sticky='nw')
+                        ).grid(row=1, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
         ttk.Checkbutton(tab_graphics,
                         text=_('Animated Sky'),
                         variable=self.sky,
                         onvalue=True,
                         offvalue=False
-                        ).grid(row=6, column=1, sticky='nw')
+                        ).grid(row=2, column=1, sticky='nw')
+
+        ttk.Checkbutton(tab_graphics,
+                        text=_('Videos'),
+                        variable=self.videos,
+                        onvalue=True,
+                        offvalue=False
+                        ).grid(row=3, column=1, sticky='nw')
 
         ttk.Label(tab_audio, text=_('Audio Backend:') + ' ').grid(
             row=0,
@@ -185,6 +196,7 @@ class LauncherWindow(ThemedTk):
         self.state.sky = self.sky.get()
         self.state.traffic = self.traffic.get()
         self.state.shaders = self.shaders.get()
+        self.state.videos = self.videos.get()
 
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
@@ -196,9 +208,6 @@ class LauncherWindow(ThemedTk):
         self.args.window = not self.fullscreen.get()
         self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
-        self.args.no_sky = not self.sky.get()
-        self.args.no_traffic = not self.traffic.get()
-        self.args.no_shaders = not self.shaders.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
 

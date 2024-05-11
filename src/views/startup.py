@@ -107,27 +107,6 @@ class StartUp:
         )
 
         parser.add_argument(
-            '--no-traffic',
-            action='store_true',
-            default=False,
-            help='Disable menu shaders'
-        )
-
-        parser.add_argument(
-            '--no-sky',
-            action='store_true',
-            default=False,
-            help='Disable animated sky'
-        )
-
-        parser.add_argument(
-            '--no-shaders',
-            action='store_true',
-            default=False,
-            help='Disable menu shaders'
-        )
-
-        parser.add_argument(
             '--debug',
             action='store_true',
             default=False,

@@ -132,7 +132,7 @@ class Game(Fading):
 
         self.video = None
 
-        if not self.skip_intro:
+        if not self.skip_intro and self.state.settings.videos:
             self.video = load_video(
                 video_file,
                 self.window.size,

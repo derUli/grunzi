@@ -9,7 +9,7 @@ from constants.audio import DEFAULT_AUDIO_BACKEND
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 6
+SETTINGS_STATE_VERSION = 7
 
 
 class SettingsState:
@@ -23,6 +23,7 @@ class SettingsState:
         self.sky = True
         self.shaders = True
         self.traffic = True
+        self.videos = True
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND
