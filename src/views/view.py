@@ -53,6 +53,11 @@ class View(arcade.View):
         """ On show view """
         self.fps_text = {}
 
+        arcade.set_background_color(arcade.csscolor.BLACK)
+
+    def on_draw(self) -> None:
+        arcade.set_background_color(arcade.csscolor.BLACK)
+
     def on_key_press(self, key: int, modifiers: int) -> None:
         """
         On key press
