@@ -4,7 +4,7 @@
 
 * Strom-Hindernis hinzugefügt
 * Intro-Videos können jetzt übersprungen werden, obwohl der Ladevorgang noch nicht fertig ist
-* Game Over Text ist jetzt zentriert und fett
+* Game Over Bildschirm überarbeitet
 
 ## Alpha 011 (17.05.2024)
 
