@@ -121,10 +121,13 @@ Das Spiel bietet die folgenden Einstellungsmöglichkeiten:
 
 | Einstellung         | Mögliche Werte | Auswirkung auf die Performance | Im Launcher | Im Spiel |
 |---------------------|----------------|--------------------------------|-------------|----------|
-| Bildschirmauflösung | Systemabhängig | Sehr Hoch                      | ✓           | ✘        |
-| Vollbild            | An/Aus         | Sehr Gering                    | ✓           | ✓        |
-| Rahmenlos           | An/Aus         | Sehr Gering                    | ✓           | ✘        |
+| Bildschirmauflösung | Systemabhängig | Hoch                           | ✓           | ✘        |
+| Vollbild            | An/Aus         | Gering                         | ✓           | ✓        |
+| Rahmenlos           | An/Aus         | Gering                         | ✓           | ✘        |
 | V-Sync              | An/Aus         | Hoch                           | ✓           | ✓        |
+| Shader              | An/Aus         | Hoch                           | ✓           | ✘        |
+| Verkehr             | An/Aus         | Mittel                         | ✓           | ✓        |
+| Animierter Himmel   | An/Aus         | Mittel                         | ✓           | ✓        |
 
 ## Audio
 
