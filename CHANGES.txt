@@ -5,6 +5,9 @@
 * Strom-Hindernis hinzugefügt
 * Intro-Videos können jetzt übersprungen werden, obwohl der Ladevorgang noch nicht fertig ist
 * Game Over Bildschirm überarbeitet
+* Grafik-Einstellung "Shader" hinzugefügt
+* Grafik-Einstellung "Verkehr" hinzugefügt
+* Grafik-Einstellung "Animierter Himmel" hinzugefügt
 
 ## Alpha 011 (17.05.2024)
 
