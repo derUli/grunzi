@@ -710,7 +710,7 @@ class Game(Fading):
     def update_enemies(self, delta_time):
         enemies = get_layer(LAYER_ENEMIES, self.scene)
 
-        if len(enemies) < self.state.difficulty.max_skulls:
+        if len(enemies) <= self.state.difficulty.max_skulls:
             a, b = self.state.difficulty.skull_spawn_range
             if random.randint(a, b) == 50:
                 spawn_skull(self.state, self.tilemap.map, self.scene, self.physics_engine)
