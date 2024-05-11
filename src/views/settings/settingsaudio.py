@@ -9,6 +9,7 @@ from views.fading import Fading
 
 BUTTON_WIDTH = 250
 
+COLOR_BACKGROUND = (123, 84, 148)
 
 class SettingsAudio(Fading):
     """ Settings > Audio """
@@ -36,10 +37,15 @@ class SettingsAudio(Fading):
 
     def on_hide_view(self):
         """ Disable the UIManager when the view is hidden. """
+
+        super().on_hide_view()
         self.pop_controller_handlers()
         self.manager.disable()
 
     def setup(self):
+
+        arcade.set_background_color(COLOR_BACKGROUND)
+
         self.manager.clear()
         self.manager.disable()
 

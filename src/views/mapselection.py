@@ -15,6 +15,8 @@ from views.game import Game
 BUTTON_WIDTH = 250
 
 
+COLOR_BACKGROUND = (217, 102, 157)
+
 class MapSelection(Fading):
     """Main menu view class."""
 
@@ -44,6 +46,9 @@ class MapSelection(Fading):
 
     def on_hide_view(self) -> None:
         """ On hide view """
+
+        super().on_hide_view()
+
         self.pop_controller_handlers()
         self.manager.disable()
 
@@ -52,6 +57,9 @@ class MapSelection(Fading):
 
     def setup(self) -> None:
         """ Setup UI """
+
+        arcade.set_background_color(COLOR_BACKGROUND)
+
         self.manager.clear()
         self.manager.disable()
 

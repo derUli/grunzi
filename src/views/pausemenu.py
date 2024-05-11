@@ -13,6 +13,7 @@ from views.settings.settingsmenu import SettingsMenu
 
 BUTTON_WIDTH = 250
 
+COLOR_BACKGROUND = (74, 146, 182)
 
 class PauseMenu(Fading):
     """ Main menu view class."""
@@ -30,6 +31,7 @@ class PauseMenu(Fading):
 
     def setup(self) -> None:
         """ Set up the pause menu """
+
         continue_button = arcade.gui.UIFlatButton(
             text=_("Continue"),
             width=BUTTON_WIDTH,
@@ -100,11 +102,17 @@ class PauseMenu(Fading):
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
+
+        arcade.set_background_color(COLOR_BACKGROUND)
+
         self.push_controller_handlers()
         self.manager.enable()
 
     def on_hide_view(self) -> None:
         """ On hide view """
+
+        super().on_hide_view()
+
         self.pop_controller_handlers()
         self.manager.disable()
 

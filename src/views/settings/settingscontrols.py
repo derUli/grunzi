@@ -19,6 +19,7 @@ CONTROLS_CONTROLLER = 'controller'
 
 LOWEST_FITTING_RESOLUTION = (1440, 900)
 
+COLOR_BACKGROUND = (25, 95, 31)
 
 class SettingsControls(Fading):
     """Main menu view class."""
@@ -44,6 +45,9 @@ class SettingsControls(Fading):
 
     def show_scene(self):
         super().on_show_view()
+
+        arcade.set_background_color(COLOR_BACKGROUND)
+
         self.scene = arcade.Scene()
         self.manager.clear()
 

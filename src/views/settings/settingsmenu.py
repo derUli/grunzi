@@ -10,6 +10,7 @@ from views.settings.settingsvideo import SettingsVideo
 
 BUTTON_WIDTH = 250
 
+COLOR_BACKGROUND = (123, 84, 148)
 
 class SettingsMenu(Fading):
     """Main menu view class."""
@@ -26,15 +27,6 @@ class SettingsMenu(Fading):
         self.previous_view = previous_view
         self._fade_in = None
 
-    def on_hide_view(self):
-        # Disable the UIManager when the view is hidden.
-        self.pop_controller_handlers()
-        self.manager.disable()
-
-    def on_back(self):
-        self.previous_view.time = self.time
-        self.window.show_view(self.previous_view)
-
     def on_show_view(self):
         """ This is run once when we switch to this view """
         super().on_show_view()
@@ -44,7 +36,19 @@ class SettingsMenu(Fading):
 
         self.setup()
 
+    def on_hide_view(self):
+        super().on_hide_view()
+        # Disable the UIManager when the view is hidden.
+        self.pop_controller_handlers()
+        self.manager.disable()
+
+    def on_back(self):
+        self.previous_view.time = self.time
+        self.window.show_view(self.previous_view)
+
     def setup(self):
+
+        arcade.set_background_color(COLOR_BACKGROUND)
         self.manager.clear()
         self.manager.disable()
 

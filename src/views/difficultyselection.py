@@ -14,6 +14,7 @@ from views.fading import Fading
 
 BUTTON_WIDTH = 250
 
+COLOR_BACKGROUND = (217, 102, 157)
 
 class DifficultySelection(Fading):
     """ Difficulty selection """
@@ -40,6 +41,7 @@ class DifficultySelection(Fading):
         self.setup()
 
     def on_hide_view(self) -> None:
+        super().on_hide_view()
         """ This is run before this view is hidden """
         self.pop_controller_handlers()
         self.manager.disable()
@@ -49,6 +51,9 @@ class DifficultySelection(Fading):
 
     def setup(self) -> None:
         """ Setup the view """
+
+        arcade.set_background_color(COLOR_BACKGROUND)
+
         self.manager.clear()
         self.manager.disable()
 

@@ -45,6 +45,7 @@ from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
 
+COLOR_BACKGROUND = (70, 27, 27)
 
 class Game(Fading):
     """
@@ -96,6 +97,9 @@ class Game(Fading):
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
+
+        arcade.set_background_color(COLOR_BACKGROUND)
+
         self.window.set_mouse_visible(False)
 
         self.push_controller_handlers()
@@ -111,6 +115,7 @@ class Game(Fading):
 
     def on_hide_view(self) -> None:
         """ On hide view """
+        super().on_hide_view()
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
         self.pop_controller_handlers()
