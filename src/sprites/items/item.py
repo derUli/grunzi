@@ -98,7 +98,7 @@ class Water(AbstractAnimatedSprite):
     pass
 
 
-FORCE_MOVE = 8000
+FORCE_MOVE = 30000
 HURT_PLAYER = 5
 
 
