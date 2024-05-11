@@ -85,6 +85,17 @@ class SettingsVideo(Fading):
             style=utils.gui.get_button_style()
         )
 
+        traffic_button = arcade.gui.UITextureButton(
+            text=_("Traffic"),
+            width=BUTTON_WIDTH,
+            texture=get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state.settings.traffic
+            ),
+            style=utils.gui.get_button_style()
+        )
+
         sky_button = arcade.gui.UITextureButton(
             text=_("Animated Sky"),
             width=BUTTON_WIDTH,
@@ -127,6 +138,11 @@ class SettingsVideo(Fading):
             self.on_toggle_sky()
             self.setup()
 
+        @traffic_button.event('on_click')
+        def on_click_traffic_button(event):
+            self.on_toggle_traffic()
+            self.setup()
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
@@ -150,6 +166,7 @@ class SettingsVideo(Fading):
 
         if not game_running:
             widgets += [
+                traffic_button,
                 sky_button
             ]
 
@@ -210,6 +227,11 @@ class SettingsVideo(Fading):
         self.setup()
 
     def on_toggle_sky(self) -> None:
-        """ On toggle fps """
+        """ On toggle sky """
         self.state.settings.sky = not self.state.settings.sky
+        self.state.settings.save()
+
+    def on_toggle_traffic(self) -> None:
+        """ On toggle traffic """
+        self.state.settings.traffic = not self.state.settings.traffic
         self.state.settings.save()

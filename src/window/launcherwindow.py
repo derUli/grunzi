@@ -21,7 +21,6 @@ class LauncherWindow(ThemedTk):
     def __init__(self, theme=TTK_THEME, args=None, state=None):
         super().__init__(theme=theme)
 
-        self.eval('tk::PlaceWindow . center')
 
         self.path_state = state
         self.args = args
@@ -47,7 +46,7 @@ class LauncherWindow(ThemedTk):
         Set up the UI
         """
         self.title(_('Grunzi Launcher'))
-        self.geometry('280x380')
+        self.minsize(350, 400)
         self.bind_keyevents()
         self.set_icon()
 
@@ -147,6 +146,7 @@ class LauncherWindow(ThemedTk):
 
         button_launch.pack(expand=True, fill=tk.BOTH)
 
+        self.eval('tk::PlaceWindow . center')
         self.resizable(False, False)
         button_launch.focus_set()
 

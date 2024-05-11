@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-11 03:22+0200\n"
+"POT-Creation-Date: 2024-05-11 03:54+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -99,7 +99,7 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: views/game.py:246
+#: views/game.py:250
 msgid "Loading..."
 msgstr "Wird geladen..."
 
@@ -227,7 +227,7 @@ msgstr "Pausenmenü öffnen"
 msgid "F3"
 msgstr ""
 
-#: views/settings/settingscontrols.py:74 views/settings/settingsvideo.py:100
+#: views/settings/settingscontrols.py:74 views/settings/settingsvideo.py:111
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
@@ -295,11 +295,11 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:57 window/launcherwindow.py:72
+#: views/settings/settingsmenu.py:57 window/launcherwindow.py:74
 msgid "Video"
 msgstr ""
 
-#: views/settings/settingsmenu.py:64 window/launcherwindow.py:73
+#: views/settings/settingsmenu.py:64 window/launcherwindow.py:75
 msgid "Audio"
 msgstr ""
 
@@ -307,39 +307,43 @@ msgstr ""
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsvideo.py:66 window/launcherwindow.py:86
+#: views/settings/settingsvideo.py:66 window/launcherwindow.py:88
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsvideo.py:78 window/launcherwindow.py:106
+#: views/settings/settingsvideo.py:78 window/launcherwindow.py:108
 msgid "V-Sync"
 msgstr ""
 
-#: views/settings/settingsvideo.py:89 window/launcherwindow.py:120
+#: views/settings/settingsvideo.py:89 window/launcherwindow.py:122
+msgid "Traffic"
+msgstr "Verkehr"
+
+#: views/settings/settingsvideo.py:100 window/launcherwindow.py:129
 msgid "Animated Sky"
 msgstr "Animierter Himmel"
 
-#: window/launcherwindow.py:47
+#: window/launcherwindow.py:48
 msgid "Grunzi Launcher"
 msgstr ""
 
-#: window/launcherwindow.py:76
+#: window/launcherwindow.py:78
 msgid "Screen resolution:"
 msgstr "Bildschirmauflösung:"
 
-#: window/launcherwindow.py:95
+#: window/launcherwindow.py:97
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:113
+#: window/launcherwindow.py:115
 msgid "Shaders"
 msgstr "Shader"
 
-#: window/launcherwindow.py:127
+#: window/launcherwindow.py:136
 msgid "Audio Backend:"
 msgstr ""
 
-#: window/launcherwindow.py:136
+#: window/launcherwindow.py:145
 msgid "Launch Game"
 msgstr "Spiel starten"
 
