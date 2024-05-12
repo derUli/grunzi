@@ -35,6 +35,8 @@ class MapSelection(Fading):
         self.select_button = None
         self.selected = 0
 
+        self.background = COLOR_BACKGROUND
+
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
@@ -57,8 +59,6 @@ class MapSelection(Fading):
 
     def setup(self) -> None:
         """ Setup UI """
-
-        arcade.set_background_color(COLOR_BACKGROUND)
 
         self.manager.clear()
         self.manager.disable()

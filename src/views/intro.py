@@ -15,6 +15,8 @@ WAIT_FOR = 3
 MARGIN = 10
 
 
+COLOR_BACKGROUND = [rgb - 50 for rgb in arcade.csscolor.WHITE]
+
 class Intro(Fading):
     """Main menu view class."""
 
@@ -26,6 +28,7 @@ class Intro(Fading):
 
         self.wait_for = fps_second * WAIT_FOR
         self.wait_since = 0
+        self.background = COLOR_BACKGROUND
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -52,13 +55,6 @@ class Intro(Fading):
         )
 
         self.scene.add_sprite(LAYER_UI, logo)
-
-        # Makes the background darker
-        arcade.set_background_color([rgb - 50 for rgb in arcade.csscolor.WHITE])
-
-    def on_hide_view(self) -> None:
-        """ On hide view """
-        arcade.set_background_color(arcade.csscolor.BLACK)
 
     def on_update(self, delta_time: float) -> None:
         """

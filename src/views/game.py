@@ -96,11 +96,11 @@ class Game(Fading):
 
         self.loading_screen = None
 
+        self.background = COLOR_BACKGROUND
+
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
-
-        arcade.set_background_color(COLOR_BACKGROUND)
 
         self.window.set_mouse_visible(False)
 

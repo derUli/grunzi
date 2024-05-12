@@ -37,6 +37,7 @@ class MainMenu(Fading):
         self.state = state
         self.time = 0
         self.manager = arcade.gui.UIManager(window)
+        self.background = COLOR_BACKGROUND
 
         label = arcade.gui.UILabel(
             text=_('Grunzi'),
@@ -152,7 +153,6 @@ class MainMenu(Fading):
         self.state.settings.unmute()
         self.window.set_mouse_visible(True)
         self.push_controller_handlers()
-        arcade.set_background_color(COLOR_BACKGROUND)
 
         music = None
 

@@ -39,15 +39,14 @@ class SettingsControls(Fading):
         self.previous_view = previous_view
 
         self.show_controls = CONTROLS_KEYBOARD
+        self.background = COLOR_BACKGROUND
 
     def on_show_view(self):
+        super().on_show_view()
         """ This is run once when we switch to this view """
         self.show_scene()
 
     def show_scene(self):
-        super().on_show_view()
-
-        arcade.set_background_color(COLOR_BACKGROUND)
 
         self.scene = arcade.Scene()
         self.manager.clear()

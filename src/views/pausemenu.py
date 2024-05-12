@@ -27,7 +27,7 @@ class PauseMenu(Fading):
         self.time = 0
         self.state = state
         self.previous_view = previous_view
-
+        self.background = COLOR_BACKGROUND
         self.player = None
 
     def setup(self) -> None:
@@ -103,8 +103,6 @@ class PauseMenu(Fading):
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
-
-        arcade.set_background_color(COLOR_BACKGROUND)
 
         self.push_controller_handlers()
         self.manager.enable()

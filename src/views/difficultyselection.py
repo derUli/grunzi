@@ -29,7 +29,7 @@ class DifficultySelection(Fading):
         self.manager = arcade.gui.UIManager(window)
         self.shadertoy = self.state.load_shader(window.size, 'pink')
         self.time = 0
-
+        self.background = COLOR_BACKGROUND
         self.difficulty = None
 
     def on_show_view(self) -> None:
@@ -52,8 +52,6 @@ class DifficultySelection(Fading):
 
     def setup(self) -> None:
         """ Setup the view """
-
-        arcade.set_background_color(COLOR_BACKGROUND)
 
         self.manager.clear()
         self.manager.disable()
