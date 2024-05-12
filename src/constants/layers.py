@@ -16,7 +16,7 @@ from sprites.items.redherring import Feather, Vase
 from sprites.sounds.beach import Beach
 from sprites.sounds.highway import Highway
 
-LAYER_WALL = 'Walls'
+LAYER_WALL = 'Wall'
 LAYER_PLIER = 'Plier'
 LAYER_TREE = 'Tree'
 LAYER_HAMMER = 'Hammer'
