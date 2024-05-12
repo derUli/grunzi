@@ -1778,8 +1778,8 @@
   <object id="186" gid="151" x="1125" y="866" width="935" height="500"/>
   <object id="187" gid="152" x="8" y="874" width="1129" height="500"/>
  </objectgroup>
- <objectgroup id="26" name="Feathers"/>
- <objectgroup id="19" name="Chainsaws">
+ <objectgroup id="26" name="Feather"/>
+ <objectgroup id="19" name="Chainsaw">
   <object id="19" gid="130" x="10358" y="2475" width="64" height="25"/>
  </objectgroup>
  <objectgroup id="20" name="Tree">
@@ -1788,20 +1788,20 @@
   <object id="26" gid="121" x="10784" y="1524" width="160" height="196"/>
   <object id="27" gid="121" x="10782.7" y="1308" width="160" height="196"/>
  </objectgroup>
- <objectgroup id="16" name="Pliers">
+ <objectgroup id="16" name="Plier">
   <object id="7" gid="126" x="4633" y="2983.52" width="54" height="64"/>
  </objectgroup>
- <objectgroup id="17" name="Piggybanks">
+ <objectgroup id="17" name="PiggyBank">
   <object id="10" gid="127" x="8896" y="1168" width="56" height="64"/>
   <object id="12" gid="127" x="8897" y="1245" width="56" height="64"/>
   <object id="13" gid="127" x="8896" y="1321" width="56" height="64"/>
   <object id="14" gid="127" x="8894" y="1397" width="56" height="64"/>
   <object id="16" gid="127" x="8897" y="1469" width="56" height="64"/>
  </objectgroup>
- <objectgroup id="18" name="Hammers">
+ <objectgroup id="18" name="Hammer">
   <object id="17" gid="128" x="10545.7" y="2076" width="25" height="64"/>
  </objectgroup>
- <objectgroup id="23" name="Cones">
+ <objectgroup id="23" name="Cone">
   <object id="51" gid="131" x="3926.85" y="1313.82" width="36" height="64"/>
   <object id="52" gid="131" x="5351.09" y="3613.82" width="36" height="64"/>
   <object id="53" gid="131" x="10311.7" y="5377.45" width="36" height="64"/>

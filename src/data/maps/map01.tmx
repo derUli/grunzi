@@ -534,21 +534,21 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="26" name="Hammers" locked="1">
+ <objectgroup id="26" name="Hammer" locked="1">
   <object id="13" gid="68" x="850" y="1919.73" width="25" height="64"/>
  </objectgroup>
- <objectgroup id="19" name="Pliers" locked="1">
+ <objectgroup id="19" name="Plier" locked="1">
   <object id="5" name="Plier" gid="67" x="6210.33" y="5005.33" width="54" height="64"/>
  </objectgroup>
- <objectgroup id="36" name="Car Keys">
+ <objectgroup id="36" name="CarKey">
   <object id="59" gid="73" x="3284.32" y="4480.64" width="23" height="64"/>
  </objectgroup>
- <objectgroup id="29" name="Piggybanks" locked="1">
+ <objectgroup id="29" name="PiggyBank" locked="1">
   <object id="19" gid="75" x="1284.59" y="1664.08" width="56" height="64"/>
   <object id="33" gid="75" x="3269" y="4481.5" width="56" height="64"/>
  </objectgroup>
- <objectgroup id="28" name="Feathers"/>
- <objectgroup id="35" name="Vases">
+ <objectgroup id="28" name="Feather"/>
+ <objectgroup id="35" name="Vase">
   <object id="54" gid="72" x="6484" y="2050.67" width="25" height="64"/>
   <object id="55" gid="72" x="6482.67" y="1920" width="25" height="64"/>
   <object id="56" gid="72" x="3416" y="4666.67" width="25" height="64"/>
