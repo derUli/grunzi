@@ -7,7 +7,7 @@ from utils.sprite import tilemap_size
 class TileMap:
     """ Tilemap class """
 
-    def __init__(self, filename, layer_options, use_spatial_hash=True, hit_box_algorithm='None'):
+    def __init__(self, filename, layer_options, use_spatial_hash=True, hit_box_algorithm='Detailed'):
         """
         Constructor
         @param filename: filename

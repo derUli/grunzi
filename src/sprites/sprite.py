@@ -35,8 +35,31 @@ class AbstractStaticSprite(AbstractSprite, arcade.sprite.Sprite):
 
 
 class AbstractAnimatedSprite(AbstractSprite, arcade.sprite.AnimatedTimeBasedSprite):
-    """ Abstract sprite class """
-    pass
+    """ Abstract animated sprite class """
+
+    def __init__(
+            self,
+            filename: Optional[str] = None,
+            image_x=0,
+            image_y=0,
+            image_width=None,
+            image_height=None,
+            flipped_horizontally=False,
+            flipped_vertically=False,
+            flipped_diagonally=False,
+            hit_box_algorithm=None,
+            hit_box_detail=None,
+            scale=1.0,
+            center_x=None,
+            center_y=None
+    ):
+        self.sound = None
+
+        super().__init__(
+            filename=filename,
+            image_x=image_x,
+            image_y=image_y,
+        )
 
 
 class Sprite(AbstractStaticSprite):
