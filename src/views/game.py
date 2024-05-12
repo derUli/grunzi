@@ -58,6 +58,8 @@ class Game(Fading):
         # Call the parent class and set up the window
         super().__init__(window)
 
+        self.initialized = False
+
         self.state = state
 
         # Our TileMap Object
@@ -79,23 +81,16 @@ class Game(Fading):
         self.music_queue = None
         self.atmo = None
 
-        self.initialized = False
-
         self.scene = None
-
-        self.message_box = None
 
         # This method is called in next call of on_update
         self._call_method = None
 
         self.video = None
-
         self.skip_intro = skip_intro
 
         self.ui = None
-
         self.loading_screen = None
-
         self.background = COLOR_BACKGROUND
 
     def on_show_view(self) -> None:
