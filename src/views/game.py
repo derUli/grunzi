@@ -37,6 +37,7 @@ from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
 from utils.sprite import animated_in_sight
+from utils.text import label_value
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -308,6 +309,7 @@ class Game(Fading):
 
         # Performance workaround
         if arcade.get_fps() <= 20:
+            logging.debug(label_value('Low framerate', str(arcade.get_fps())))
             self.low_fps += 1
 
         if self.low_fps >= 100:
