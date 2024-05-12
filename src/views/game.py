@@ -147,11 +147,16 @@ class Game(Fading):
 
     def async_load(self) -> None:
         """ Async load map """
+
         start_time = time.time()
+
+        self.loading_screen.percent = 0
+
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
-
         self.state.reset()
+
+        self.loading_screen.percent = 20
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
@@ -166,9 +171,13 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
+        self.loading_screen.percent = 40
+
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
+
+        self.loading_screen.percent = 60
 
         # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
@@ -176,10 +185,14 @@ class Game(Fading):
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
 
+        self.loading_screen.percent = 70
+
         if not self.state.settings.traffic:
             for layer in TRAFFIC_LAYERS:
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
+
+        self.loading_screen.percent = 80
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -192,6 +205,8 @@ class Game(Fading):
                 on_complete=self.on_next_level
             )
         )
+
+        self.loading_screen.percent = 90
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
@@ -206,6 +221,8 @@ class Game(Fading):
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
+
+        self.loading_screen.percent = 100
 
         self.initialized = True
 

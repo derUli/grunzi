@@ -1,3 +1,5 @@
+import time
+
 import arcade
 
 from state.viewstate import ViewState
@@ -15,7 +17,7 @@ class LoadingScreen:
         self.time = 0
 
         self.onepercent = None
-        self._percent = 100
+        self._percent = 0
         # TODO: Progress bar
 
     def setup(self, state: ViewState, size: tuple):
@@ -34,18 +36,32 @@ class LoadingScreen:
             align='left'
         )
 
+        self._percent = 0
         self.loading_text.x = w / 2 - self.loading_text.content_width / 2
         self.loading_text.y = h / 2 - self.loading_text.content_height / 2
+
+    @property
+    def percent(self):
+        return self._percent
+
+    @percent.setter
+    def percent(self, value):
+        if value <= 0:
+            value = 0
+
+        if value > 100:
+            value = 100
+
+        self._percent = value
 
     def draw(self, time=None):
         if self.shadertoy:
             self.shadertoy.render(time=time)
 
         bar_width = self._percent * self.onepercent
-        w, h = self.size
 
         arcade.draw_rectangle_filled(
-            w / 2,
+            bar_width / 2,
             BAR_HEIGHT / 2,
             bar_width,
             BAR_HEIGHT,
