@@ -1,15 +1,18 @@
+import logging
 import os
+import sys
 import tkinter as tk
 import tkinter.messagebox as messagebox
 import tkinter.ttk as ttk
 
 from PIL.ImageTk import PhotoImage
+from shell import shell
 from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
-from constants.settings import SETTINGS_LOW, SETTINGS_MEDIUM, SETTINGS_HIGH, SETTINGS_PRESETS
+from constants.settings import SETTINGS_LOW, SETTINGS_MEDIUM, SETTINGS_HIGH, SETTINGS_PRESETS, SETTINGS_ALL
 from state.settingsstate import SettingsState
-from utils.path import is_windows
+from utils.path import is_windows, get_autodetect_path
 from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 20
@@ -17,7 +20,6 @@ NOTEBOOK_PADDING = 20
 SPACE_BETWEEN = 2
 
 TTK_THEME = 'equilux'
-
 
 
 class LauncherWindow(ThemedTk):
@@ -290,6 +292,10 @@ class LauncherWindow(ThemedTk):
         self.apply_preset(SETTINGS_HIGH)
 
     def apply_preset(self, setting):
+        if setting not in SETTINGS_ALL:
+            messagebox.showinfo(_('Error'), _('Unable to apply the settings.'))
+            return
+
         settings = SETTINGS_PRESETS[setting]
 
         self.shaders.set(settings['shaders'])
@@ -318,5 +324,25 @@ class LauncherWindow(ThemedTk):
         if len(screen_resolutions) >= 1:
             self.screen_resolution.set(screen_resolutions[0])
 
-        # TODO: Do real autodetection
-        self.on_high()
+        logging.info(sys.argv)
+
+        frozen = getattr(sys, "frozen", False)
+
+        if frozen:
+            logging.info(sys.argv)
+            logging.info(sys.executable)
+            shell([sys.argv[0], '--autodetect'])
+        else:
+            shell([sys.executable, sys.argv[0], '--autodetect'])
+
+
+
+
+
+        settings = ''
+
+        if get_autodetect_path():
+            with open(get_autodetect_path(), 'r') as f:
+                settings = f.read().strip()
+
+        self.apply_preset(settings)

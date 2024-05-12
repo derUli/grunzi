@@ -2,6 +2,12 @@ SETTINGS_LOW = 'low'
 SETTINGS_MEDIUM = 'medium'
 SETTINGS_HIGH = 'high'
 
+SETTINGS_ALL = {
+    SETTINGS_LOW,
+    SETTINGS_MEDIUM,
+    SETTINGS_HIGH
+}
+
 SETTINGS_PRESETS = {
     SETTINGS_LOW: {
         'shaders': False,
