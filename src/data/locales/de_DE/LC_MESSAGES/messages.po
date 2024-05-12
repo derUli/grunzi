@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-12 20:53+0200\n"
+"POT-Creation-Date: 2024-05-12 21:16+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -58,7 +58,7 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
-#: sprites/ui/loadingscreen.py:35
+#: sprites/ui/loadingscreen.py:34
 msgid "Loading..."
 msgstr "Wird geladen..."
 
@@ -371,11 +371,11 @@ msgstr "Spiel starten"
 
 #: window/launcherwindow.py:296
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: window/launcherwindow.py:296
 msgid "Unable to apply the settings."
-msgstr ""
+msgstr "Anwenden der Einstellungen fehlgeschlagen."
 
 #: window/launcherwindow.py:306
 msgid "Success"
@@ -387,7 +387,7 @@ msgstr "Die Einstellungen wurden gesetzt."
 
 #: window/launcherwindow.py:310
 msgid "Question"
-msgstr ""
+msgstr "Frage"
 
 #: window/launcherwindow.py:314
 msgid "You start the game for the first time."
@@ -398,5 +398,6 @@ msgid ""
 "Would you like to automatically set the best graphics settings for your "
 "system?"
 msgstr ""
-"Möchten Sie automatisch die besten Grafikeinstellungen für Ihr System festlegen?"
+"Möchten Sie automatisch die besten Grafikeinstellungen für Ihr System "
+"festlegen?"
 
