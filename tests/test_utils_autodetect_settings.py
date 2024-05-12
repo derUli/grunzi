@@ -2,6 +2,7 @@ import unittest
 
 from constants.settings import SETTINGS_HIGH, SETTINGS_MEDIUM, SETTINGS_LOW
 from utils.autodetectsettings.AutodetectSettings import AutodetectSettings
+from utils.path import get_autodetect_path
 
 
 class AutoDetectSettingsTest(unittest.TestCase):
@@ -100,3 +101,14 @@ class AutoDetectSettingsTest(unittest.TestCase):
         )
 
         self.assertEqual(SETTINGS_LOW, detector.detect())
+
+    def test_save(self):
+        detector = AutodetectSettings(
+            vendor='NVIDIA Corporation',
+            model='GeForce GTX 460/PCIe/SSE2'
+        )
+
+        detector.save()
+
+        with open(get_autodetect_path(), 'r') as f:
+            self.assertEqual('medium', f.read().strip())

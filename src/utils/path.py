@@ -65,3 +65,6 @@ def get_savegame_path(name: str) -> str:
 
     os.makedirs(os.path.dirname(path), exist_ok=True)
     return path
+
+def get_autodetect_path():
+    return os.path.join(get_userdata_path(), 'autodetect.txt')

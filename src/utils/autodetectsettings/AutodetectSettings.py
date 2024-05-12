@@ -2,6 +2,7 @@ import logging
 import re
 
 from constants.settings import SETTINGS_HIGH, SETTINGS_LOW, SETTINGS_MEDIUM
+from utils.path import get_autodetect_path
 
 # NVIDiA
 MODEL_TYPE_RTX = 'RTX'
@@ -36,6 +37,11 @@ class AutodetectSettings:
             return self.detect_amd()
 
         return SETTINGS_LOW
+
+    def save(self) -> str:
+
+        with open(get_autodetect_path(), 'w') as f:
+            f.write(self.detect())
 
     def detect_nvidia(self):
         model_parts = re.findall("(GT|GTX|GTS|RTX)? (\d{3,4})", self.model)
