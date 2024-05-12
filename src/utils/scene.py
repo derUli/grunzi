@@ -10,8 +10,7 @@ def get_layer(name: str, scene: Scene) -> SpriteList:
     @return: List of sprites
     """
 
-    sprites = SpriteList()
     if name in scene.name_mapping:
-        sprites = scene[name]
+        return scene[name]
 
-    return sprites
+    return SpriteList(use_spatial_hash=True)
