@@ -232,7 +232,7 @@ class Game(Fading):
 
         # Sleep some seconds to wait until the 100 Percent is shown
         while not self.loading_screen.completed:
-            time.sleep(0.01)
+            time.sleep(0.05)
 
         self.initialized = True
 
@@ -673,8 +673,6 @@ class Game(Fading):
         """Movement and game logic"""
 
         super().on_update(delta_time)
-
-        self.time += delta_time
 
         self.loading_screen.update()
 

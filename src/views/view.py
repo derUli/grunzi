@@ -26,6 +26,7 @@ FPS_UPDATE_INTERVAL = 1
 
 DEFAULT_BACKGROUND = arcade.csscolor.BLACK
 
+
 class View(arcade.View):
     """ View base class """
 
@@ -53,12 +54,14 @@ class View(arcade.View):
 
         self.background = DEFAULT_BACKGROUND
 
-
     def on_show_view(self) -> None:
         """ On show view """
         self.fps_text = {}
 
         arcade.set_background_color(self.background)
+
+    def on_update(self, delta_time: float):
+        self.time += delta_time
 
     def on_draw(self) -> None:
         arcade.set_background_color(DEFAULT_BACKGROUND)

@@ -25,7 +25,8 @@ class TileMap:
             filename,
             layer_options=layer_options,
             use_spatial_hash=use_spatial_hash,
-            hit_box_algorithm=hit_box_algorithm
+            hit_box_algorithm=hit_box_algorithm,
+            lazy=True
         )
 
         self._size = tilemap_size(self._map)

@@ -191,7 +191,6 @@ class MainMenu(Fading):
         """ on update """
 
         super().on_update(delta_time=delta_time)
-        self.time += delta_time
 
         self.update_mouse()
         self.update_fade(self.next_view)

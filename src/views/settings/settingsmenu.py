@@ -179,8 +179,6 @@ class SettingsMenu(Fading):
 
         super().on_update(delta_time)
 
-        self.time += delta_time
-
         self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()

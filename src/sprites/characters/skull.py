@@ -29,7 +29,7 @@ FADE_SPEED = 4
 
 SHOOT_DELTA = UPDATE_RATE * 10
 
-PATHFINDING_DELAY = 2
+PATHFINDING_DELAY = 1
 
 
 class Skull(Character, Useable):

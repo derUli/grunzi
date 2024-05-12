@@ -14,8 +14,8 @@ WAIT_FOR = 3
 
 MARGIN = 10
 
-
 COLOR_BACKGROUND = [rgb - 50 for rgb in arcade.csscolor.WHITE]
+
 
 class Intro(Fading):
     """Main menu view class."""

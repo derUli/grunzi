@@ -153,9 +153,6 @@ class SettingsGraphics(Fading):
     def on_update(self, delta_time):
 
         super().on_update(delta_time)
-
-        self.time += delta_time
-
         self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()
