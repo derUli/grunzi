@@ -10,7 +10,6 @@ import random
 import threading
 import time
 
-import arcade
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -597,12 +596,10 @@ class Game(Fading):
         new_item = item.copy()
 
         # TODO: Make a method for collision checks with multiple players
-        for layer in WALL_LAYERS:
-            if layer in self.scene.name_mapping:
-                if arcade.check_for_collision_with_list(new_item, self.scene[layer]):
-                    logging.info("Can't drop item on wall.")
-                    self.state.beep()
-                    return
+        if check_collision_with_layers(self.scene, new_item, WALL_LAYERS):
+            logging.info("Can't drop item on wall.")
+            self.state.beep()
+            return
 
         if selected:
             quantity = selected.pop()

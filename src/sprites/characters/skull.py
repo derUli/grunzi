@@ -6,7 +6,7 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
-from constants.layers import LAYER_WALL, all_layers, LAYER_ENEMIES
+from constants.layers import LAYER_WALL, LAYER_ENEMIES, check_collision_with_layers
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
@@ -248,7 +248,7 @@ def spawn_skull(state, tilemap, scene, physics_engine):
         center_y=rand_y
     )
 
-    if arcade.check_for_collision_with_list(skull, all_layers(scene)):
+    if check_collision_with_layers(scene, skull):
         return
 
     scene.add_sprite(LAYER_ENEMIES, skull)

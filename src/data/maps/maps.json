@@ -12,7 +12,7 @@
       "maxSkulls": 10,
       "skullSpawnRange": [
         0,
-        125
+        150
       ],
       "skullHurt": 15
     },
@@ -20,7 +20,7 @@
       "maxSkulls": 15,
       "skullSpawnRange": [
         0,
-        125
+        200
       ],
       "skullHurt": 20
     }

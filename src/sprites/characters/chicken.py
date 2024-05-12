@@ -7,7 +7,7 @@ import arcade
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
 
 from constants.collisions import COLLISION_CHICKEN
-from constants.layers import all_layers, LAYER_ENEMIES, LAYER_FEATHER
+from constants.layers import LAYER_ENEMIES, LAYER_FEATHER, check_collision_with_layers
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
@@ -126,7 +126,7 @@ def spawn_chicken(state, tilemap, scene, physics_engine):
     )
 
     try:
-        if arcade.check_for_collision_with_list(chicken, all_layers(scene)):
+        if check_collision_with_layers(scene, chicken):
             return spawn_chicken(state, tilemap, scene, physics_engine)
     except AttributeError as e:
         logging.error(e)

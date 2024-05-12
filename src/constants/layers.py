@@ -1,6 +1,6 @@
 """ Layer constants """
-
-from arcade import SpriteList, Scene
+import arcade
+from arcade import Scene
 
 import sprites.decoration.car
 from sprites.characters.duck import Duck
@@ -148,24 +148,21 @@ LAYER_OPTIONS = {
 }
 
 
-# TODO: Remove this and its usages
-# Instead implement a method which does a collision check directly on the scene
-def all_layers(scene: Scene, layer_names: list | None = None):
+def check_collision_with_layers(scene: Scene, sprite, layer_names: list | None = None):
     """ Returns all layers except background and decoration
-    @param scene: The scene
-    @param layer_names: the layer names
-    @return:
-    """
+       @param scene: The scene
+       @param sprite: The sprite
+       @param layer_names: the layer names
+       @return:
+       """
     if layer_names is None:
         layer_names = ALL_LAYERS
 
-    sprite_list = SpriteList(use_spatial_hash=False)
+    for layer in layer_names:
+        if layer not in scene.name_mapping:
+            continue
 
-    for layer in scene.name_mapping:
-        if layer not in layer_names:
-            scene.add_sprite_list(layer)
+        if arcade.check_for_collision_with_list(sprite, scene[layer]):
+            return True
 
-        for sprite in scene.get_sprite_list(layer):
-            sprite_list.append(sprite)
-
-    return sprite_list
+    return False
