@@ -312,7 +312,7 @@ class LauncherWindow(ThemedTk):
             "\n".join(
                 [
                     _("You start the game for the first time."),
-                    _("Möchten Sie automatisch die besten Grafikeinstellungen für Ihr System festlegen?")
+                    _("Would you like to automatically set the best graphics settings for your system?")
                 ]
             )
 
