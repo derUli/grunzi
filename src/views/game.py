@@ -231,6 +231,10 @@ class Game(Fading):
 
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
 
+        # Sleep some seconds to wait until the 100 Percent is shown
+        while not self.loading_screen.completed:
+            time.sleep(0.01)
+
         self.initialized = True
 
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")

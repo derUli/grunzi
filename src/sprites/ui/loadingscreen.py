@@ -1,9 +1,9 @@
 import arcade
 
 from state.viewstate import ViewState
-from utils.text import create_text, MARGIN, EXTRA_LARGE_FONT_SIZE
+from utils.text import create_text, MEDIUM_FONT_SIZE
 
-BAR_HEIGHT = 30
+MARGIN = 5
 PERCENTAGE_SPEED = 1
 
 
@@ -19,7 +19,7 @@ class LoadingScreen:
         self._percent = 0
         self._display_percentage = 0
 
-        # TODO: Progress bar
+        self.bar_height = 0
 
     def setup(self, state: ViewState, size: tuple):
         if state.settings.shaders:
@@ -32,16 +32,18 @@ class LoadingScreen:
 
         self.loading_text = create_text(
             _("Loading..."),
-            width=w - (MARGIN * 2),
-            font_size=EXTRA_LARGE_FONT_SIZE,
+            font_size=MEDIUM_FONT_SIZE,
+            color=arcade.color.BLACK,
             align='left'
         )
+
+        self.bar_height = self.loading_text.content_height + (MARGIN * 2)
 
         self._percent = 0
         self._display_percentage = 0
 
         self.loading_text.x = w / 2 - self.loading_text.content_width / 2
-        self.loading_text.y = h / 2 - self.loading_text.content_height / 2
+        self.loading_text.y = MARGIN
 
     @property
     def percent(self):
@@ -75,9 +77,9 @@ class LoadingScreen:
 
         arcade.draw_rectangle_filled(
             w / 2,
-            BAR_HEIGHT / 2,
+            self.bar_height / 2,
             w,
-            BAR_HEIGHT,
+            self.bar_height,
             arcade.csscolor.PINK
         )
 
@@ -85,9 +87,9 @@ class LoadingScreen:
 
         arcade.draw_rectangle_filled(
             bar_width / 2,
-            BAR_HEIGHT / 2,
+            self.bar_height / 2,
             bar_width,
-            BAR_HEIGHT,
+            self.bar_height,
             arcade.csscolor.HOTPINK
         )
 
