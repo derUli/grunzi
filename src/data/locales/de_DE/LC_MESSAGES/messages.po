@@ -398,6 +398,5 @@ msgid ""
 "Would you like to automatically set the best graphics settings for your "
 "system?"
 msgstr ""
-"Would you like to automatically set the best graphics settings for your "
-"system?"
+"Möchten Sie automatisch die besten Grafikeinstellungen für Ihr System festlegen?"
 
