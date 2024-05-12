@@ -1,6 +1,7 @@
 """ View base class """
 
 import logging
+import math
 import os
 import time
 
@@ -213,7 +214,7 @@ class View(arcade.View):
     def draw_debug(self):
         if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
             self.last_fps_update = time.time()
-            self.current_fps = arcade.get_fps()
+            self.current_fps = math.floor(arcade.get_fps())
 
         if self.state.settings.show_fps:
             fps = str(int(self.current_fps))
