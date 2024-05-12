@@ -2,7 +2,8 @@ import random
 
 from arcade import FACE_DOWN, FACE_UP
 
-from sprites.items.item import Item, Tree
+from sprites.items.item import Item
+from sprites.items.tree import Tree
 
 SCORE_DESTROY_TREE = 200
 SCORE_KILL_SKULL = 100
