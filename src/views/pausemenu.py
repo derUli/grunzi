@@ -24,7 +24,6 @@ class PauseMenu(Fading):
 
         self.window = window
         self.manager = arcade.gui.UIManager(window)
-        self.time = 0
         self.state = state
         self.previous_view = previous_view
         self.background = COLOR_BACKGROUND

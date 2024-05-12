@@ -35,7 +35,6 @@ class MainMenu(Fading):
 
         self.window = window
         self.state = state
-        self.time = 0
         self.manager = arcade.gui.UIManager(window)
         self.background = COLOR_BACKGROUND
 
