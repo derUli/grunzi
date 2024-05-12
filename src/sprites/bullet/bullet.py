@@ -7,7 +7,7 @@ from arcade import FACE_RIGHT, FACE_LEFT
 
 from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN, \
     COLLISION_MOVEABLE
-from constants.layers import LAYER_ENEMIES
+from constants.layers import LAYER_NPC
 from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
 from utils.physics import on_hit_destroy
@@ -19,7 +19,7 @@ MASS = 0.1
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
-FORCE_MOVE = 6000
+FORCE_MOVE = 8000
 
 # Destroy after X seconds
 DESTROY_TIME = 3
@@ -66,7 +66,7 @@ class Bullet(arcade.sprite.SpriteCircle):
 
         state.play_sound('shot')
 
-        scene.add_sprite(LAYER_ENEMIES, self)
+        scene.add_sprite(LAYER_NPC, self)
         physics_engine.add_sprite(
             self,
             mass=MASS,

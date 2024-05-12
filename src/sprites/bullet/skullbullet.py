@@ -3,7 +3,7 @@ from arcade import SpriteSolidColor
 
 from constants.collisions import COLLISION_BULLET, COLLISION_WALL, COLLISION_SKULL_BULLET, COLLISION_PLAYER, \
     COLLISION_CHICKEN
-from constants.layers import LAYER_ENEMIES
+from constants.layers import LAYER_NPC
 from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
@@ -13,7 +13,7 @@ MASS = 0.1
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
-FORCE_MOVE = 4000
+FORCE_MOVE = 8000
 
 SIGHT_DISTANCE = 10000
 
@@ -146,7 +146,7 @@ class SkullBullet(Bullet):
             self.remove_from_sprite_lists()
             return
 
-        scene.add_sprite(LAYER_ENEMIES, self)
+        scene.add_sprite(LAYER_NPC, self)
 
         state.play_sound('shot')
 

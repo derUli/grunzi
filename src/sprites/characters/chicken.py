@@ -7,7 +7,7 @@ import arcade
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
 
 from constants.collisions import COLLISION_CHICKEN
-from constants.layers import LAYER_ENEMIES, LAYER_FEATHER, check_collision_with_layers
+from constants.layers import LAYER_NPC, LAYER_FEATHER, check_collision_with_layers
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
@@ -132,7 +132,7 @@ def spawn_chicken(state, tilemap, scene, physics_engine):
         logging.error(e)
         return
 
-    scene.add_sprite(LAYER_ENEMIES, chicken)
+    scene.add_sprite(LAYER_NPC, chicken)
     physics_engine.add_sprite(
         chicken,
         moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,

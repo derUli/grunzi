@@ -257,7 +257,7 @@ class Game(Fading):
         self.camera_sprites.use()
         self.scene.draw()
 
-        for sprite in get_layer(LAYER_ENEMIES, self.scene):
+        for sprite in get_layer(LAYER_NPC, self.scene):
 
             if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
                 continue
@@ -707,13 +707,12 @@ class Game(Fading):
                 )
 
     def update_enemies(self, delta_time):
-        enemies = get_layer(LAYER_ENEMIES, self.scene)
+        enemies = get_layer(LAYER_NPC, self.scene)
 
         if len(enemies) < self.state.difficulty.max_skulls:
             a, b = self.state.difficulty.skull_spawn_range
             if random.randint(a, b) == 50:
                 spawn_skull(self.state, self.tilemap.map, self.scene, self.physics_engine)
-                logging.info(f'Spawn enemy, new total enemy count: {len(self.scene[LAYER_ENEMIES])}')
 
     def update_collectable(self):
         items = arcade.check_for_collision_with_lists(self.player_sprite, self.scene.sprite_lists)
