@@ -90,10 +90,6 @@ class Tree(Sprite, Useable):
     pass
 
 
-class Jeep(Sprite, Useable):
-    pass
-
-
 class Water(AbstractAnimatedSprite):
     pass
 
