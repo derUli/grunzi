@@ -86,10 +86,6 @@ class PiggyBank(Sprite, Useable):
     pass
 
 
-class Water(AbstractAnimatedSprite):
-    pass
-
-
 FORCE_MOVE = 30000
 HURT_PLAYER = 5
 

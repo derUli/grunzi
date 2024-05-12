@@ -6,11 +6,12 @@ import sprites.decoration.car
 from sprites.characters.duck import Duck
 from sprites.decoration.cloud import Cloud
 from sprites.decoration.sun import Sun
+from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
 from sprites.items.hammer import Hammer
-from sprites.items.item import Fence, PiggyBank, Water, Electric
+from sprites.items.item import Fence, PiggyBank, Electric
 from sprites.items.jeep import Jeep
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
