@@ -28,6 +28,7 @@ from sprites.characters.skull import spawn_skull
 from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
 from sprites.sprite import AbstractSprite
+from sprites.ui.loadingscreen import LoadingScreen
 from sprites.ui.uicontainer import UIContainer
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
@@ -36,7 +37,6 @@ from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
 from utils.sprite import animated_in_sight
-from utils.text import EXTRA_LARGE_FONT_SIZE, LARGE_FONT_SIZE
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -93,7 +93,8 @@ class Game(Fading):
         self.skip_intro = skip_intro
 
         self.ui = None
-        self.shadertoy = None
+
+        self.loading_screen = None
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -127,8 +128,6 @@ class Game(Fading):
     def setup(self) -> None:
         """ Setup game """
 
-        self.shadertoy = self.state.load_shader(self.window.size, 'gameover')
-
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
         self.video = None
@@ -139,6 +138,9 @@ class Game(Fading):
                 self.window.size,
                 self.state.settings.music_volume
             )
+
+        self.loading_screen = LoadingScreen()
+        self.loading_screen.setup(self.state, self.window.size)
 
         # Load map
         threading.Thread(target=self.async_load).start()
@@ -246,15 +248,8 @@ class Game(Fading):
         self.clear()
 
         if not self.initialized:
-            self.render_shadertoy()
-            # Loading screen fallback if there is no intro video
-            # or the intro video is already completed
-            utils.text.create_text(
-                _("Loading..."),
-                width=self.window.width - (utils.text.MARGIN * 2),
-                font_size=LARGE_FONT_SIZE,
-                align='left'
-            ).draw()
+            self.loading_screen.draw(time=self.time)
+
             return self.draw_debug()
 
         self.camera_sprites.use()

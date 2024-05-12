@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-11 22:55+0200\n"
+"POT-Creation-Date: 2024-05-12 13:19+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -58,6 +58,10 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
+#: sprites/ui/loadingscreen.py:22
+msgid "Loading..."
+msgstr "Wird geladen..."
+
 #: sprites/ui/uicontainer.py:41
 msgid "Score"
 msgstr "Punkte"
@@ -100,10 +104,6 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: views/game.py:253
-msgid "Loading..."
-msgstr "Wird geladen..."
-
 #: views/mainmenu.py:42 window/launcherwindow.py:77
 msgid "Grunzi"
 msgstr "Grunzi"
@@ -140,7 +140,7 @@ msgstr "Zurück zum Hauptmenü?"
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
-#: views/view.py:128
+#: views/view.py:129
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 

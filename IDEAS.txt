@@ -7,7 +7,6 @@ Man könnte z.B. einige Puzzles randomizen, die beim ersten Durchlauf statisch w
 
 UI:
 Ladebildschirm bearbeiten.
-Ladebildschirm in Klasse auslagern.
 Prozent-Balken am unteren Bildschirmrand
 Text "Wird geladen..." zentriert in diesem Prozentbalken.
 
