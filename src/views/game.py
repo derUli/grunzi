@@ -156,7 +156,7 @@ class Game(Fading):
         self.camera_sprites = arcade.Camera()
         self.state.reset()
 
-        self.loading_screen.percent = 20
+        self.loading_screen.percent = 10
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
@@ -171,13 +171,13 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
-        self.loading_screen.percent = 40
+        self.loading_screen.percent = 20
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
 
-        self.loading_screen.percent = 60
+        self.loading_screen.percent = 30
 
         # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
@@ -185,14 +185,14 @@ class Game(Fading):
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
 
-        self.loading_screen.percent = 70
+        self.loading_screen.percent = 40
 
         if not self.state.settings.traffic:
             for layer in TRAFFIC_LAYERS:
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
 
-        self.loading_screen.percent = 80
+        self.loading_screen.percent = 50
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -206,23 +206,30 @@ class Game(Fading):
             )
         )
 
-        self.loading_screen.percent = 90
+        self.loading_screen.percent = 60
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
+
+        self.loading_screen.percent = 70
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
+        self.loading_screen.percent = 80
+
         for i in range(random.randint(1, 4)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
-        pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
+        self.loading_screen.percent = 90
+
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
 
         self.loading_screen.percent = 100
+
+        pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
 
         self.initialized = True
 
@@ -264,7 +271,7 @@ class Game(Fading):
 
         self.clear()
 
-        if not self.initialized:
+        if not self.initialized or not self.loading_screen.completed:
             self.loading_screen.draw(time=self.time)
 
             return self.draw_debug()
@@ -662,15 +669,18 @@ class Game(Fading):
     def on_update(self, delta_time):
         """Movement and game logic"""
 
+        super().on_update(delta_time)
+
         self.time += delta_time
+
+        self.loading_screen.update()
 
         if not self.initialized:
             return
 
-        super().on_update(delta_time)
-
         if self.video and self.video.active:
             return
+
 
         if self.atmo:
             self.atmo.update()
