@@ -156,7 +156,7 @@ class Game(Fading):
         self.camera_sprites = arcade.Camera()
         self.state.reset()
 
-        self.loading_screen.percent = 10
+        self.loading_screen.percent = 25
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
@@ -171,13 +171,13 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
-        self.loading_screen.percent = 20
+        self.loading_screen.percent = 10
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
 
-        self.loading_screen.percent = 30
+        self.loading_screen.percent = 20
 
         # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
