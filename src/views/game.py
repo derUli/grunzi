@@ -307,7 +307,7 @@ class Game(Fading):
         self.update_fade(self.next_view)
 
         # Performance workaround
-        if arcade.get_fps() < 20:
+        if arcade.get_fps() <= 20:
             self.low_fps += 1
 
         if self.low_fps >= 100:
