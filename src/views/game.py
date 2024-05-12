@@ -113,6 +113,10 @@ class Game(Fading):
     def on_hide_view(self) -> None:
         """ On hide view """
         super().on_hide_view()
+
+        if self.player_sprite:
+            self.player_sprite.stop_walk()
+
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
         self.pop_controller_handlers()
