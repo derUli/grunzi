@@ -92,6 +92,7 @@ class Game(Fading):
         self.ui = None
         self.loading_screen = None
         self.background = COLOR_BACKGROUND
+        self.low_fps = 0
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -258,6 +259,62 @@ class Game(Fading):
         self.atmo = PositionalSound(self.player_sprite, self.player_sprite, atmo, self.state)
 
         pyglet.clock.unschedule(self.wait_for_video)
+
+    def on_update(self, delta_time):
+        """Movement and game logic"""
+
+        super().on_update(delta_time)
+
+        self.loading_screen.update()
+
+        if not self.initialized:
+            return
+
+        if self.video and self.video.active:
+            return
+
+        if self.atmo:
+            self.atmo.update()
+
+        if self.music_queue:
+            self.music_queue.update()
+
+        # There is an OpenGL error happens when a sprite is added by an controller event handler
+        # which seems to happen because the controller events are handled in a different thread.
+        # To work around this we have the _call_method class variable which can be set to a class method
+        # Which is called in next execution of on_update
+        if self._call_method:
+            self._call_method()
+            self._call_method = None
+
+        if self.player_sprite.dead:
+            self.player_sprite.reset()
+            return self.update_fade(self.next_view)
+
+        # Move the player with the physics engine
+        self.update_player_speed()
+        self.physics_engine.step()
+        self.call_update(delta_time)
+        self.update_enemies(delta_time)
+        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
+        update_sun(self.scene, self.camera_sprites)
+
+        # Animate only visible
+        animated = animated_in_sight(self.scene, self.player_sprite)
+        for sprite in animated:
+            sprite.update_animation(delta_time)
+
+        self.update_fade(self.next_view)
+
+        # Performance workaround
+        if arcade.get_fps() < 20:
+            self.low_fps += 1
+
+        if self.low_fps >= 100:
+            logging.error('Performance is too low, clearing NPC layer')
+            self.low_fps = 0
+            layer = get_layer(LAYER_NPC, self.scene)
+            layer.clear()
 
     def on_draw(self) -> None:
         """Render the screen."""
@@ -668,52 +725,6 @@ class Game(Fading):
             state=self.state,
             handlers=CallbackHandler(on_complete=self.on_next_level)
         )
-
-    def on_update(self, delta_time):
-        """Movement and game logic"""
-
-        super().on_update(delta_time)
-
-        self.loading_screen.update()
-
-        if not self.initialized:
-            return
-
-        if self.video and self.video.active:
-            return
-
-        if self.atmo:
-            self.atmo.update()
-
-        if self.music_queue:
-            self.music_queue.update()
-
-        # There is an OpenGL error happens when a sprite is added by an controller event handler
-        # which seems to happen because the controller events are handled in a different thread.
-        # To work around this we have the _call_method class variable which can be set to a class method
-        # Which is called in next execution of on_update
-        if self._call_method:
-            self._call_method()
-            self._call_method = None
-
-        if self.player_sprite.dead:
-            self.player_sprite.reset()
-            return self.update_fade(self.next_view)
-
-        # Move the player with the physics engine
-        self.update_player_speed()
-        self.physics_engine.step()
-        self.call_update(delta_time)
-        self.update_enemies(delta_time)
-        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
-        update_sun(self.scene, self.camera_sprites)
-
-        # Animate only visible
-        animated = animated_in_sight(self.scene, self.player_sprite)
-        for sprite in animated:
-            sprite.update_animation(delta_time)
-
-        self.update_fade(self.next_view)
 
     def call_update(self, delta_time):
         for sprite_list in self.scene.sprite_lists:
