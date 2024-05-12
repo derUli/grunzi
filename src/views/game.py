@@ -681,7 +681,6 @@ class Game(Fading):
         if self.video and self.video.active:
             return
 
-
         if self.atmo:
             self.atmo.update()
 

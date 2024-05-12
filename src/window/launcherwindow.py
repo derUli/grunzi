@@ -335,10 +335,6 @@ class LauncherWindow(ThemedTk):
         else:
             shell([sys.executable, sys.argv[0], '--autodetect'])
 
-
-
-
-
         settings = ''
 
         if get_autodetect_path():

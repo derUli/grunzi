@@ -11,10 +11,10 @@ from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
 from sprites.items.hammer import Hammer
 from sprites.items.item import Fence, PiggyBank, Water, Electric
-from sprites.items.tree import Tree
 from sprites.items.jeep import Jeep
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
+from sprites.items.tree import Tree
 from sprites.sounds.beach import Beach
 from sprites.sounds.highway import Highway
 

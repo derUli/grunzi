@@ -85,6 +85,7 @@ class Fence(Sprite, Useable):
 class PiggyBank(Sprite, Useable):
     pass
 
+
 class Water(AbstractAnimatedSprite):
     pass
 

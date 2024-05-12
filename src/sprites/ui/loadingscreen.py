@@ -1,5 +1,3 @@
-import time
-
 import arcade
 
 from state.viewstate import ViewState
@@ -7,6 +5,7 @@ from utils.text import create_text, MARGIN, EXTRA_LARGE_FONT_SIZE
 
 BAR_HEIGHT = 30
 PERCENTAGE_SPEED = 1
+
 
 class LoadingScreen:
     def __init__(self):
