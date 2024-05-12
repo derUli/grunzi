@@ -57,6 +57,15 @@ class LoadingScreen:
     def draw(self, time=None):
         if self.shadertoy:
             self.shadertoy.render(time=time)
+        w, h = self.size
+
+        arcade.draw_rectangle_filled(
+            w / 2,
+            BAR_HEIGHT / 2,
+            w,
+            BAR_HEIGHT,
+            arcade.csscolor.PINK
+        )
 
         bar_width = self._percent * self.onepercent
 
@@ -67,5 +76,7 @@ class LoadingScreen:
             BAR_HEIGHT,
             arcade.csscolor.HOTPINK
         )
+
+
 
         self.loading_text.draw()
