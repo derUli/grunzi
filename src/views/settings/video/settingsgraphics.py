@@ -25,6 +25,7 @@ class SettingsGraphics(Fading):
 
         self.previous_view = previous_view
         self._fade_in = None
+        self.background = COLOR_BACKGROUND
 
     def on_show_view(self):
         """ This is run once when we switch to this view """
@@ -46,8 +47,6 @@ class SettingsGraphics(Fading):
         self.window.show_view(self.previous_view)
 
     def setup(self):
-        arcade.set_background_color(COLOR_BACKGROUND)
-
         self.manager.clear()
         self.manager.disable()
 

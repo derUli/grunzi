@@ -50,8 +50,6 @@ class SettingsMenu(Fading):
         self.window.show_view(self.previous_view)
 
     def setup(self):
-
-        arcade.set_background_color(COLOR_BACKGROUND)
         self.manager.clear()
         self.manager.disable()
 
