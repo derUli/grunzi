@@ -45,14 +45,6 @@ class AutoDetectSettingsTest(unittest.TestCase):
 
         self.assertEqual(SETTINGS_HIGH, detector.detect())
 
-    def test_nvidia_gtx_1650(self):
-        detector = AutodetectSettings(
-            vendor='NVIDIA Corporation',
-            model='NVIDIA GeForce GTX 1650/PCIe/SSE2'
-        )
-
-        self.assertEqual(SETTINGS_HIGH, detector.detect())
-
     def test_gtx_460(self):
         detector = AutodetectSettings(
             vendor='NVIDIA Corporation',
@@ -65,6 +57,46 @@ class AutoDetectSettingsTest(unittest.TestCase):
         detector = AutodetectSettings(
             vendor='NVIDIA Corporation',
             model='Foobar'
+        )
+
+        self.assertEqual(SETTINGS_LOW, detector.detect())
+
+    def test_arc(self):
+        detector = AutodetectSettings(
+            vendor='Intel',
+            model='Mesa Intel(R) Arc(tm) A770 Graphics (DG2)'
+        )
+
+        self.assertEqual(SETTINGS_HIGH, detector.detect())
+
+    def test_uhd(self):
+        detector = AutodetectSettings(
+            vendor='Intel',
+            model='Intel(R) UHD Graphics'
+        )
+
+        self.assertEqual(SETTINGS_MEDIUM, detector.detect())
+
+    def test_hd(self):
+        detector = AutodetectSettings(
+            vendor='Intel',
+            model='Intel(R) HD Graphics'
+        )
+
+        self.assertEqual(SETTINGS_LOW, detector.detect())
+
+    def test_radeon_6700(self):
+        detector = AutodetectSettings(
+            vendor='ATI Technologies Inc.',
+            model='AMD Radeon RX 6700'
+        )
+
+        self.assertEqual(SETTINGS_HIGH, detector.detect())
+
+    def test_unknown(self):
+        detector = AutodetectSettings(
+            vendor='Compu-Global-Hyper-Mega-Net',
+            model='Potato'
         )
 
         self.assertEqual(SETTINGS_LOW, detector.detect())
