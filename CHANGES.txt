@@ -8,6 +8,7 @@
 * Intro-Videos können nun, auch wenn der Ladevorgang noch nicht fertig ist, übersprungen werden.
 * Mehrfach im Inventar befindliche Gegenstände können jetzt korrekt gedroppt werden
 * Game Over Bildschirm überarbeitet
+* Ladebildschirm überarbeitet
 * Grafik-Einstellungen erweitert
 
 ## Alpha 011 (17.05.2024)
