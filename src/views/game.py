@@ -592,6 +592,7 @@ class Game(Fading):
             return self.state.beep()
 
         klass = item.__class__
+        # FIXME: Layer names should match the class names
         layer = klass.__name__ + 's'
         new_item = item.copy()
 
