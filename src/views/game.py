@@ -156,7 +156,7 @@ class Game(Fading):
         self.camera_sprites = arcade.Camera()
         self.state.reset()
 
-        self.loading_screen.percent = 25
+        self.loading_screen.percent = 10
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
@@ -171,13 +171,13 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
-        self.loading_screen.percent = 10
+        self.loading_screen.percent = 50
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
 
-        self.loading_screen.percent = 20
+        self.loading_screen.percent = 60
 
         # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
@@ -185,14 +185,14 @@ class Game(Fading):
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
 
-        self.loading_screen.percent = 40
+        self.loading_screen.percent = 65
 
         if not self.state.settings.traffic:
             for layer in TRAFFIC_LAYERS:
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
 
-        self.loading_screen.percent = 50
+        self.loading_screen.percent = 70
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -206,18 +206,18 @@ class Game(Fading):
             )
         )
 
-        self.loading_screen.percent = 60
+        self.loading_screen.percent = 75
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
-        self.loading_screen.percent = 70
+        self.loading_screen.percent = 80
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
-        self.loading_screen.percent = 80
+        self.loading_screen.percent = 85
 
         for i in range(random.randint(1, 4)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
