@@ -596,12 +596,13 @@ class Game(Fading):
         layer = klass.__name__ + 's'
         new_item = item.copy()
 
-        wall_layers = all_layers(self.scene, layer_names=WALL_LAYERS)
-
-        if arcade.check_for_collision_with_list(new_item, wall_layers):
-            logging.info("Can't drop item on wall.")
-            self.state.beep()
-            return
+        # TODO: Make a method for collision checks with multiple players
+        for layer in WALL_LAYERS:
+            if layer in self.scene.name_mapping:
+                if arcade.check_for_collision_with_list(new_item, self.scene[layer]):
+                    logging.info("Can't drop item on wall.")
+                    self.state.beep()
+                    return
 
         if selected:
             quantity = selected.pop()

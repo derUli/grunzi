@@ -148,6 +148,8 @@ LAYER_OPTIONS = {
 }
 
 
+# TODO: Remove this and its usages
+# Instead implement a method which does a collision check directly on the scene
 def all_layers(scene: Scene, layer_names: list | None = None):
     """ Returns all layers except background and decoration
     @param scene: The scene
