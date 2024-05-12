@@ -5,6 +5,14 @@ Wenn man das isst, werden für eine begrenzte Zeit die Geschosse größer und si
 Nach dem ersten Durchspielen soll ein neuer Modus freigeschaltet werden, wo einige Sachen anders sind.
 Man könnte z.B. einige Puzzles randomizen, die beim ersten Durchlauf statisch waren
 
+UI:
+Ladebildschirm bearbeiten.
+Ladebildschirm in Klasse auslagern.
+Prozent-Balken am unteren Bildschirmrand
+Text "Wird geladen..." zentriert in diesem Prozentbalken.
+
+Hintergrund in Dunkel
+
 Level 3: Gebirge
 
 * Feuer-Animation einbauen
