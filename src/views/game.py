@@ -593,7 +593,7 @@ class Game(Fading):
 
         klass = item.__class__
         # FIXME: Layer names should match the class names
-        layer = klass.__name__ + 's'
+        layer = klass.__name__
         new_item = item.copy()
 
         # TODO: Make a method for collision checks with multiple players
