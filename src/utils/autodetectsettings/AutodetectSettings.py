@@ -1,4 +1,3 @@
-import logging
 import re
 
 from constants.settings import SETTINGS_HIGH, SETTINGS_LOW, SETTINGS_MEDIUM
@@ -21,7 +20,7 @@ VENDOR_ATI = 'ATI'
 
 
 class AutodetectSettings:
-    def __init__(self, vendor, model):
+    def __init__(self, vendor=None, model=None):
         self.vendor = str(vendor).upper()
         self.model = str(model).upper()
 
@@ -61,8 +60,6 @@ class AutodetectSettings:
 
             if model_parts[1].isnumeric():
                 model_number = int(model_parts[1])
-
-        logging.info((model_type, model_number))
 
         # All RTX GPUs are strong enough to run this game
         if model_type == MODEL_TYPE_RTX:

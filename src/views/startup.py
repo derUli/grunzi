@@ -12,6 +12,7 @@ from constants.display import UNLIMITED_FRAMERATE
 from constants.maps import FIRST_MAP
 from state.settingsstate import SettingsState
 from state.viewstate import ViewState
+from utils.autodetectsettings.AutodetectSettings import AutodetectSettings
 from utils.log import log_hardware_info, configure_logger
 from utils.text import label_value
 from views.intro import Intro
@@ -128,6 +129,13 @@ class StartUp:
             help='Skip launcher'
         )
 
+        parser.add_argument(
+            '--autodetect',
+            action='store_true',
+            default=False,
+            help='Autodetect video settings'
+        )
+
         return parser.parse_args()
 
     def setup_locale(self) -> None:
@@ -170,6 +178,23 @@ class StartUp:
             args.fullscreen = False
         else:
             args.fullscreen = True
+
+        if args.autodetect:
+            import arcade
+
+            window = arcade.Window(visible=False)
+
+            vendor = window.ctx.info.VENDOR
+            model = window.ctx.info.RENDERER
+
+            detector = AutodetectSettings(vendor=vendor, model=model)
+            detector.save()
+            logging.info(
+                label_value('settings detected', detector.detect())
+            )
+
+            arcade.exit()
+            return
 
         if not args.skip_launcher:
             launcher = LauncherWindow(args=args, state=ViewState(self.root_dir))
