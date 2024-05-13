@@ -213,6 +213,8 @@ class Skull(Character, Useable):
             self.shoot_time = 0
 
     def update_move_path(self, player):
+        if not self.insight:
+            return
 
         self.move_path = arcade.astar_calculate_path(
             self.position,
@@ -221,7 +223,6 @@ class Skull(Character, Useable):
             diagonal_movement=True
         )
 
-        print(self.astar_barrier_list)
 
 
 def spawn_skull(state, tilemap, scene, physics_engine):
