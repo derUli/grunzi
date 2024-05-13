@@ -1,3 +1,5 @@
+""" FPS counter """
+
 import logging
 import time
 
@@ -14,6 +16,7 @@ FPS_UPDATE_INTERVAL = 1
 
 class FPSCounter:
     def __init__(self):
+        """ FPS counter class """
         self.fps = []
         self.current_fps = -1
         self.last_fps_update = 0
