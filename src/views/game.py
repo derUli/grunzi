@@ -37,7 +37,6 @@ from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
 from utils.sprite import animated_in_sight
-from utils.text import label_value
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player

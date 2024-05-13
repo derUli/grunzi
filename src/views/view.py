@@ -15,7 +15,7 @@ from constants.fonts import FONT_MONOTYPE
 from state.settingsstate import SettingsState
 from utils.fpscounter import FPSCounter
 from utils.screenshot import make_screenshot
-from utils.text import MARGIN, create_text, MEDIUM_FONT_SIZE
+from utils.text import MARGIN, create_text
 
 MOUSE_POINTER_SPEED = 5
 PERFORMANCE_GRAPH_WIDTH = 160
@@ -44,14 +44,13 @@ class View(arcade.View):
         self.move_pointer = None
         self.build_number_text = None
 
-        self.fps_text = {}
         self.fps_counter = FPSCounter()
 
         self.background = DEFAULT_BACKGROUND
 
     def on_show_view(self) -> None:
         """ On show view """
-        self.fps_text = {}
+        self.fps_counter = FPSCounter()
 
         arcade.set_background_color(self.background)
 
@@ -217,21 +216,5 @@ class View(arcade.View):
 
     def draw_debug(self):
 
-        if self.state.settings.show_fps and self.fps_counter.current_fps != -1:
-            fps = str(int(self.fps_counter.current_fps))
-
-            if fps not in self.fps_text:
-                fps_text = create_text(
-                    fps,
-                    color=arcade.csscolor.LIME_GREEN,
-                    font_name=FONT_MONOTYPE,
-                    font_size=MEDIUM_FONT_SIZE,
-                    bold=True
-                )
-
-                fps_text.x = self.window.width - MARGIN - fps_text.content_width
-                fps_text.y = self.window.height - fps_text.content_height
-
-                self.fps_text[fps] = fps_text
-
-            self.fps_text[fps].draw()
+        if self.state.settings.show_fps:
+            self.fps_counter.draw(size=self.window.size)
