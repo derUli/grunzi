@@ -1,13 +1,11 @@
 """ Player sprite class """
 import os
-import time
 
 import arcade
-import pyglet
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
-from constants.layers import LAYER_WALL, LAYER_NPC, check_collision_with_layers
+from constants.layers import LAYER_NPC, check_collision_with_layers
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
@@ -222,7 +220,6 @@ class Skull(Character, Useable):
             self.astar_barrier_list,
             diagonal_movement=True
         )
-
 
 
 def spawn_skull(state, tilemap, scene, physics_engine):

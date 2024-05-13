@@ -10,7 +10,6 @@ import random
 import threading
 import time
 
-import arcade
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -209,10 +208,10 @@ class Game(Fading):
         self.loading_screen.percent = 60
 
         sprite = arcade.SpriteSolidColor(
-                width=64,
-                height=64,
-                color=COLOR_BACKGROUND
-            )
+            width=64,
+            height=64,
+            color=COLOR_BACKGROUND
+        )
 
         sprite.left = 0
         sprite.top = 0
@@ -225,7 +224,7 @@ class Game(Fading):
             grid_size=64,
             left=0,
             right=w,
-            top=h, # Top and bottom is switched in this dev version of arcade
+            top=h,  # Top and bottom is switched in this dev version of arcade
             bottom=0
         )
 
@@ -329,7 +328,7 @@ class Game(Fading):
 
         self.update_fade(self.next_view)
 
-        self.fps_counter.low_performance_workaround(self.scene)
+        # self.fps_counter.low_performance_workaround(self.scene)
 
     def on_draw(self) -> None:
         """Render the screen."""
@@ -758,7 +757,6 @@ class Game(Fading):
                     delta_time=delta_time,
                     map_size=self.tilemap.size
                 )
-
 
     def update_enemies(self, delta_time):
         enemies = get_layer(LAYER_NPC, self.scene)

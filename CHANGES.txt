@@ -1,32 +1,32 @@
 # Changelog
 
-## Alpha 012 (Unreleased)
+## Alpha 012 (17.05.2024)
 
 * map01: Autos kollidieren nicht mehr nach einiger Spielzeit
+* map02: Hühner sterben jetzt, wenn sie von einem Auto überfahren werden
+* map02: Kettensäge und Bäume hinzugefügt
 * map02: Strom-Hindernis hinzugefügt
 * map02: Neuer Musik-Track hinzugefügt
-* Intro-Videos können nun, auch wenn der Ladevorgang noch nicht fertig ist, übersprungen werden.
-* Mehrfach im Inventar befindliche Gegenstände können jetzt korrekt gedroppt werden
-* Game Over Bildschirm überarbeitet
-* Ladebildschirm überarbeitet
-* Grafik-Einstellungen erweitert
-* Kollisionsabfrage optimiert
+* map02: Atmosphären Sound hinzugefügt
+* map02: Enten hinzugefügt
+* map02: Himmel animiert
+* Global: Ausdauer hinzugefügt
+* Global: Wenn Hühner sterben, werden sie durch eine Feder ersetzt
+* Global: Fußschritte Sound-Effekt hinzugefügt
+* Global: Punktestand für das aktuelle Level wird angezeigt
+* Global Mehrfach im Inventar befindliche Gegenstände können jetzt korrekt gedroppt werden
+* UI: Nach einem Game Over wird das aktuelle Level neu gestartet
+* UI: FPS Graph durch FPS Text ersetzt
+* UI: Grafik-Einstellungen erweitert
+* UI: Ambient Musik zum Pausenmenü hinzugefügt
+* UI: Intro-Videos können nun, auch wenn der Ladevorgang noch nicht fertig ist, übersprungen werden
+* UI: Ladebildschirm überarbeitet
+* Performance: Kollisionsabfragen optimiert
+* Performance: Geschosse werden 3 Sekunden nach dem Schuss aus der Szene entfernt
 
-## Alpha 011 (17.05.2024)
+## Alpha 011 (Unreleased)
 
-* Kettensäge und Bäume hinzugefügt
-* Enten hinzugefügt
-* Ausdauer hinzugefügt
-* Nach einem Game Over wird das aktuelle Level neu gestartet
-* Fußschritte Sound-Effekt hinzugefügt
-* Atmo Sound für map02 hinzugefügt
-* Himmel in map02 animiert
-* Geschosse werden 3 Sekunden nach dem Schuss aus der Szene entfernt
-* Hühner sterben jetzt, wenn sie von einem Auto überfahren werden
-* Wenn Hühner sterben, werden sie durch eine Feder ersetzt
-* FPS Graph durch FPS Text ersetzt
-* Ambient Musik zum Pausenmenü hinzugefügt
-* Punktestand für das aktuelle Level wird angezeigt
+* Alle Änderungen die für diesen Build vorgesehen waren, sind in Alpha 012 enthalten
 
 ## Alpha 010 (03.05.2024)
 

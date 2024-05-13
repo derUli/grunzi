@@ -201,6 +201,7 @@ class SettingsControls(Fading):
 
         self.manager.draw()
         self.draw_fading()
+        self.draw_build_version()
         self.draw_debug()
 
     def on_back(self) -> None:
