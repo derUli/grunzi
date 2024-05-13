@@ -224,6 +224,9 @@ class Skull(Character, Useable):
         )
 
     def update_move_path(self, dt, scene, player):
+        if not self.insight:
+            return
+
         self.update_barrier_list(scene)
 
         self.move_path = arcade.astar_calculate_path(
