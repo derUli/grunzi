@@ -93,7 +93,6 @@ class Game(Fading):
         self.ui = None
         self.loading_screen = None
         self.background = COLOR_BACKGROUND
-        self.low_fps = 0
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -308,13 +307,8 @@ class Game(Fading):
         self.update_fade(self.next_view)
 
         # Performance workaround
-        if arcade.get_fps() <= 20:
-            logging.debug(label_value('Low framerate', str(arcade.get_fps())))
-            self.low_fps += 1
-
-        if self.low_fps >= 100:
+        if self.fps_counter.avg(50) < 20:
             logging.error('Performance is too low, clearing NPC layer')
-            self.low_fps = 0
             layer = get_layer(LAYER_NPC, self.scene)
             layer.clear()
 

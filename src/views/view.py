@@ -13,16 +13,13 @@ from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS
 from constants.controls.joystick import AXIS_X, AXIS_Y, joystick_button_to_controller
 from constants.fonts import FONT_MONOTYPE
 from state.settingsstate import SettingsState
+from utils.fpscounter import FPSCounter
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text, MEDIUM_FONT_SIZE
 
 MOUSE_POINTER_SPEED = 5
 PERFORMANCE_GRAPH_WIDTH = 160
 PERFORMANCE_GRAPH_HEIGHT = 90
-
-PERFORMANCE_GRAPH_BACKGROUND = (0, 0, 0, 80)
-
-FPS_UPDATE_INTERVAL = 1
 
 DEFAULT_BACKGROUND = arcade.csscolor.BLACK
 
@@ -48,9 +45,7 @@ class View(arcade.View):
         self.build_number_text = None
 
         self.fps_text = {}
-
-        self.current_fps = None
-        self.last_fps_update = 0
+        self.fps_counter = FPSCounter()
 
         self.background = DEFAULT_BACKGROUND
 
@@ -62,6 +57,8 @@ class View(arcade.View):
 
     def on_update(self, delta_time: float):
         self.time += delta_time
+
+        self.fps_counter.update()
 
     def on_draw(self) -> None:
         arcade.set_background_color(DEFAULT_BACKGROUND)
@@ -219,12 +216,9 @@ class View(arcade.View):
             self.shadertoy.render(time=self.time)
 
     def draw_debug(self):
-        if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
-            self.last_fps_update = time.time()
-            self.current_fps = math.floor(arcade.get_fps())
 
-        if self.state.settings.show_fps:
-            fps = str(int(self.current_fps))
+        if self.state.settings.show_fps and self.fps_counter.current_fps != -1:
+            fps = str(int(self.fps_counter.current_fps))
 
             if fps not in self.fps_text:
                 fps_text = create_text(
