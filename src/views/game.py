@@ -310,7 +310,7 @@ class Game(Fading):
         if self.fps_counter.avg(50) < 20:
             logging.error('Performance is too low, clearing NPC layer')
             layer = get_layer(LAYER_NPC, self.scene)
-            logging.info(label_value('NPC count', len(layer)))
+            logging.info(label_value('NPC layer sprite count', len(layer)))
             layer.clear()
 
     def on_draw(self) -> None:
