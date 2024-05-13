@@ -4,7 +4,7 @@
       "maxSkulls": 5,
       "skullSpawnRange": [
         0,
-        800
+        80
       ],
       "skullHurt": 10
     },
