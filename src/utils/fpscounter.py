@@ -23,11 +23,13 @@ class FPSCounter:
         self.fps = []
         self.current_fps = -1
         self.last_fps_update = 0
-        self.current_fps = -1
         self.fps_text = {}
 
     def update(self, fps):
         self.fps.append(fps)
+
+        if numpy.max(self.fps) == 0:
+            return
 
         if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
             self.last_fps_update = time.time()
@@ -41,10 +43,11 @@ class FPSCounter:
         return numpy.average(self.fps[-count:])
 
     def draw(self, size):
+
         if self.current_fps == -1:
             return
 
-        fps = str(int(self.current_fps))
+        fps = str(self.current_fps)
 
         if fps not in self.fps_text:
             fps_text = create_text(

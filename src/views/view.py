@@ -208,6 +208,7 @@ class View(arcade.View):
 
     def render_shadertoy(self) -> None:
         """ Render Shadertoy shader """
+
         if self.shadertoy:
             self.shadertoy.render(time=self.time)
 

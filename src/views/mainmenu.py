@@ -168,8 +168,9 @@ class MainMenu(Fading):
         self.manager.enable()
 
     def on_hide_view(self) -> None:
-        super().on_hide_view()
         """ On hide view """
+
+        super().on_hide_view()
         self.pop_controller_handlers()
         self.manager.disable()
 
@@ -194,7 +195,6 @@ class MainMenu(Fading):
 
         self.update_mouse()
         self.update_fade(self.next_view)
-        self.scene.update()
 
         if self.player and self.player.volume != self.state.settings.music_volume:
             self.player.volume = self.state.settings.music_volume
