@@ -216,7 +216,7 @@ class Skull(Character, Useable):
         self.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=self,
             blocking_sprites=scene[LAYER_WALL],
-            grid_size=64,
+            grid_size=GRID_SIZE,
             left=int(self.playing_field_left_boundary),
             right=int(self.playing_field_right_boundary),
             bottom=int(self.playing_field_bottom_boundary),
