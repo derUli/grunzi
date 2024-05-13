@@ -315,7 +315,7 @@ class Game(Fading):
 
         # Move the player with the physics engine
         self.update_player_speed()
-        self.physics_engine.step()
+        self.physics_engine.step(UPDATE_RATE)
         self.call_update(delta_time)
         self.update_enemies(delta_time)
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
