@@ -40,10 +40,11 @@ class FPSCounter:
         return numpy.average(self.fps[-count:])
 
     def draw(self, size):
-        if self.current_fps != -1:
+        if self.current_fps == -1:
             return
 
         fps = str(int(self.current_fps))
+
 
         if fps not in self.fps_text:
             fps_text = create_text(
