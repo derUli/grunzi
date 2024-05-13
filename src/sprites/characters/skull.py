@@ -143,10 +143,12 @@ class Skull(Character, Useable):
             self.face = FACE_RIGHT
             self.update_texture()
 
-        self.playing_field_left_boundary = self.left - SIGHT_DISTANCE
-        self.playing_field_right_boundary = self.right + SIGHT_DISTANCE
-        self.playing_field_top_boundary = self.top + SIGHT_DISTANCE
-        self.playing_field_bottom_boundary = self.bottom - SIGHT_DISTANCE
+        w, h = map_size
+
+        self.playing_field_left_boundary = self.left - w
+        self.playing_field_right_boundary = self.right + w
+        self.playing_field_top_boundary = self.top + h
+        self.playing_field_bottom_boundary = self.bottom - h
 
         difference = arcade.get_distance_between_sprites(self, player)
 
@@ -159,14 +161,12 @@ class Skull(Character, Useable):
 
         if not self.chased:
             state.play_sound('screech')
-            self.update_move_path(0, scene, player)
 
-            pyglet.clock.schedule_interval_soft(self.update_move_path, PATH_FINDING_INTERVAL, scene, player)
             self.chased = True
             self.update_texture()
 
         if self.chasing:
-
+            self.update_move_path(player)
             if not self.move_path:
                 self.move_path = []
 
@@ -212,22 +212,7 @@ class Skull(Character, Useable):
 
             self.shoot_time = 0
 
-    def update_barrier_list(self, scene):
-        self.astar_barrier_list = arcade.AStarBarrierList(
-            moving_sprite=self,
-            blocking_sprites=scene[LAYER_WALL],
-            grid_size=GRID_SIZE,
-            left=int(self.playing_field_left_boundary),
-            right=int(self.playing_field_right_boundary),
-            bottom=int(self.playing_field_bottom_boundary),
-            top=int(self.playing_field_top_boundary)
-        )
-
-    def update_move_path(self, dt, scene, player):
-        if not self.insight:
-            return
-
-        self.update_barrier_list(scene)
+    def update_move_path(self, player):
 
         self.move_path = arcade.astar_calculate_path(
             self.position,
@@ -235,6 +220,8 @@ class Skull(Character, Useable):
             self.astar_barrier_list,
             diagonal_movement=True
         )
+
+        print(self.astar_barrier_list)
 
 
 def spawn_skull(state, tilemap, scene, physics_engine):

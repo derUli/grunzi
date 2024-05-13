@@ -10,6 +10,7 @@ import random
 import threading
 import time
 
+import arcade
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -37,7 +38,6 @@ from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
 from utils.sprite import animated_in_sight
-from utils.text import label_value
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -93,6 +93,8 @@ class Game(Fading):
         self.ui = None
         self.loading_screen = None
         self.background = COLOR_BACKGROUND
+
+        self.astar_barrier_list = None
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -171,13 +173,13 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
-        self.loading_screen.percent = 50
+        self.loading_screen.percent = 20
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
 
-        self.loading_screen.percent = 60
+        self.loading_screen.percent = 40
 
         # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
@@ -185,14 +187,12 @@ class Game(Fading):
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
 
-        self.loading_screen.percent = 65
+        self.loading_screen.percent = 50
 
         if not self.state.settings.traffic:
             for layer in TRAFFIC_LAYERS:
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
-
-        self.loading_screen.percent = 70
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -206,23 +206,46 @@ class Game(Fading):
             )
         )
 
-        self.loading_screen.percent = 75
+        self.loading_screen.percent = 60
+
+        sprite = arcade.SpriteSolidColor(
+                width=64,
+                height=64,
+                color=COLOR_BACKGROUND
+            )
+
+        sprite.left = 0
+        sprite.top = 0
+
+        w, h = self.tilemap.size
+
+        self.astar_barrier_list = arcade.AStarBarrierList(
+            moving_sprite=sprite,
+            blocking_sprites=self.scene[LAYER_WALL],
+            grid_size=64,
+            left=0,
+            right=w,
+            top=h, # Top and bottom is switched in this dev version of arcade
+            bottom=0
+        )
+
+        self.loading_screen.percent = 70
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
-        self.loading_screen.percent = 80
+        self.loading_screen.percent = 85
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
-        self.loading_screen.percent = 85
+        self.loading_screen.percent = 90
 
         for i in range(random.randint(1, 4)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
-        self.loading_screen.percent = 90
+        self.loading_screen.percent = 95
 
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
@@ -725,6 +748,8 @@ class Game(Fading):
                 if not isinstance(sprite, AbstractSprite):
                     continue
 
+                # TODO: add as arg to update method
+                sprite.astar_barrier_list = self.astar_barrier_list
                 sprite.update(
                     player=self.player_sprite,
                     scene=self.scene,
@@ -733,6 +758,7 @@ class Game(Fading):
                     delta_time=delta_time,
                     map_size=self.tilemap.size
                 )
+
 
     def update_enemies(self, delta_time):
         enemies = get_layer(LAYER_NPC, self.scene)

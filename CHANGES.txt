@@ -10,6 +10,7 @@
 * Game Over Bildschirm überarbeitet
 * Ladebildschirm überarbeitet
 * Grafik-Einstellungen erweitert
+* Kollisionsabfrage optimiert
 
 ## Alpha 011 (17.05.2024)
 
