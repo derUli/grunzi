@@ -45,7 +45,6 @@ class FPSCounter:
 
         fps = str(int(self.current_fps))
 
-
         if fps not in self.fps_text:
             fps_text = create_text(
                 fps,

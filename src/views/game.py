@@ -307,7 +307,7 @@ class Game(Fading):
         self.update_fade(self.next_view)
 
         # Performance workaround
-        if self.fps_counter.avg(50) < 20:
+        if self.fps_counter.avg(100) < 20:
             logging.error('Performance is too low, clearing NPC layer')
             layer = get_layer(LAYER_NPC, self.scene)
             logging.info(label_value('NPC layer sprite count', len(layer)))
