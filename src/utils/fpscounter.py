@@ -26,9 +26,7 @@ class FPSCounter:
         self.current_fps = -1
         self.fps_text = {}
 
-    def update(self):
-        fps = arcade.get_fps()
-
+    def update(self, fps):
         self.fps.append(fps)
 
         if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
