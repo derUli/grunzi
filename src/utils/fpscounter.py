@@ -1,10 +1,13 @@
+import logging
 import time
 
 import arcade
 import numpy
 
 from constants.fonts import FONT_MONOTYPE
-from utils.text import create_text, MEDIUM_FONT_SIZE, MARGIN
+from constants.layers import LAYER_NPC
+from utils.scene import get_layer
+from utils.text import create_text, MEDIUM_FONT_SIZE, MARGIN, label_value
 
 FPS_UPDATE_INTERVAL = 1
 
@@ -62,3 +65,17 @@ class FPSCounter:
             self.fps_text[fps] = fps_text
 
         self.fps_text[fps].draw()
+
+    def low_performance_workaround(self, scene):
+        """
+        There is a weird bug that happens sometimes in map02.
+        When there are a lot of shooting enemies while the water is in viewport
+        there are drastically increasing framedrops.
+        Couldn't figure out the cause of this yet.
+        As a workaround if the framerate drops below 20 just clear the NPC layer.
+        """
+        if self.avg(100) < 20:
+            logging.error('Performance is too low, clearing NPC layer')
+            layer = get_layer(LAYER_NPC, scene)
+            logging.info(label_value('NPC layer sprite count', len(layer)))
+            layer.clear()
