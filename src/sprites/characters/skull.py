@@ -3,6 +3,7 @@ import os
 import time
 
 import arcade
+import pyglet
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
@@ -29,7 +30,7 @@ FADE_SPEED = 4
 
 SHOOT_DELTA = UPDATE_RATE * 10
 
-PATHFINDING_DELAY = 1
+PATH_FINDING_INTERVAL = 1
 
 
 class Skull(Character, Useable):
@@ -62,8 +63,6 @@ class Skull(Character, Useable):
         self.playing_field_right_boundary = 0
         self.playing_field_top_boundary = 0
         self.playing_field_bottom_boundary = 0
-
-        self.last_pathfinding = 0
 
         self.friction = DEFAULT_FRICTION
         self.move_path = []
@@ -160,22 +159,13 @@ class Skull(Character, Useable):
 
         if not self.chased:
             state.play_sound('screech')
+            self.update_move_path(0, scene, player)
 
+            pyglet.clock.schedule_interval_soft(self.update_move_path, PATH_FINDING_INTERVAL, scene, player)
             self.chased = True
             self.update_texture()
 
         if self.chasing:
-            if time.time() >= self.last_pathfinding + PATHFINDING_DELAY:
-                self.update_barrier_list(scene)
-
-                self.move_path = arcade.astar_calculate_path(
-                    self.position,
-                    (player.center_x, player.center_y),
-                    self.astar_barrier_list,
-                    diagonal_movement=True
-                )
-
-                self.last_pathfinding = time.time()
 
             if not self.move_path:
                 self.move_path = []
@@ -226,11 +216,21 @@ class Skull(Character, Useable):
         self.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=self,
             blocking_sprites=scene[LAYER_WALL],
-            grid_size=GRID_SIZE,
+            grid_size=64,
             left=int(self.playing_field_left_boundary),
             right=int(self.playing_field_right_boundary),
             bottom=int(self.playing_field_bottom_boundary),
             top=int(self.playing_field_top_boundary)
+        )
+
+    def update_move_path(self, dt, scene, player):
+        self.update_barrier_list(scene)
+
+        self.move_path = arcade.astar_calculate_path(
+            self.position,
+            (player.center_x, player.center_y),
+            self.astar_barrier_list,
+            diagonal_movement=True
         )
 
 
