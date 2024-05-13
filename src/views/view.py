@@ -1,9 +1,7 @@
 """ View base class """
 
 import logging
-import math
 import os
-import time
 
 import arcade
 import mouse
@@ -11,7 +9,6 @@ import mouse
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
 from constants.controls.joystick import AXIS_X, AXIS_Y, joystick_button_to_controller
-from constants.fonts import FONT_MONOTYPE
 from state.settingsstate import SettingsState
 from utils.fpscounter import FPSCounter
 from utils.screenshot import make_screenshot
