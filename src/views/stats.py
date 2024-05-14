@@ -5,10 +5,17 @@ import logging
 import constants.controls.controller as controller
 import constants.controls.keyboard as keyboard
 from constants.controls.joystick import joystick_button_to_controller
-from utils.text import create_text, LARGE_FONT_SIZE, MARGIN
+from constants.fonts import FONT_MONOTYPE
+from state.savegamestate import SaveGameState
+from utils.text import create_text, LARGE_FONT_SIZE, MARGIN, EXTRA_LARGE_FONT_SIZE
 from views.fading import Fading
 
-COLOR_BACKGROUND = (217, 102, 157)
+MARGIN_SCORE = 50
+
+COLOR_BACKGROUND = (84, 110, 16)
+
+FILL_COUNT = 6
+FILL_CHAR = '0'
 
 
 class Stats(Fading):
@@ -23,6 +30,8 @@ class Stats(Fading):
         self.shadertoy = self.state.load_shader(window.size, 'hills')
         self.background = COLOR_BACKGROUND
         self.texts = []
+
+        self.savegame = SaveGameState.load()
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
@@ -42,6 +51,8 @@ class Stats(Fading):
     def setup(self) -> None:
         """ Setup the view """
 
+        self.window.set_mouse_visible(False)
+
         self.texts = []
 
         press_button_text = create_text(
@@ -54,7 +65,43 @@ class Stats(Fading):
 
         self.texts.append(press_button_text)
 
-        self.window.set_mouse_visible(False)
+        labels = list(self.savegame.score.keys())
+        labels.append('')
+        labels.append(_('Total Score'))
+        scores = []
+
+        for score in self.savegame.score.values():
+            scores.append(str(score).rjust(FILL_COUNT, FILL_CHAR))
+
+        total_score = sum(self.savegame.score.values())
+        scores.append('')
+        scores.append(
+            str(total_score).rjust(FILL_COUNT, FILL_CHAR)
+        )
+
+        score_text_left = create_text(
+            text="\n\n".join(labels),
+            font_size=EXTRA_LARGE_FONT_SIZE,
+            font_name=FONT_MONOTYPE,
+            width=self.window.width / 2,
+            multiline=True
+        )
+
+        score_text_right = create_text(
+            text="\n\n".join(scores),
+            font_size=EXTRA_LARGE_FONT_SIZE,
+            font_name=FONT_MONOTYPE,
+            width=self.window.width / 2,
+            multiline=True
+        )
+
+        score_text_left.x = MARGIN
+        score_text_left.y = self.window.height - score_text_left.content_height - MARGIN_SCORE
+        self.texts.append(score_text_left)
+
+        score_text_right.x = self.window.width - MARGIN - score_text_right.content_width
+        score_text_right.y = score_text_left.y
+        self.texts.append(score_text_right)
 
     def on_key_press(self, key, modifiers) -> None:
         """Called whenever a key is pressed."""

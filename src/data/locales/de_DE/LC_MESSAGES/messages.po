@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-14 23:16+0200\n"
+"POT-Creation-Date: 2024-05-15 00:20+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/ui/gameovertext.py:32 views/stats.py:48
+#: sprites/ui/gameovertext.py:32 views/stats.py:59
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
 
@@ -143,6 +143,10 @@ msgstr "Zurück zum Hauptmenü?"
 #: views/pausemenu.py:137
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
+
+#: views/stats.py:71
+msgid "Total Score"
+msgstr "Punkte Gesamt"
 
 #: views/view.py:129
 msgid "Unknown build"
