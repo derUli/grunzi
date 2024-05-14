@@ -34,7 +34,7 @@ from utils.callbackhandler import CallbackHandler
 from utils.keypressed import KeyPressed
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
-from utils.scene import get_layer
+from utils.scene import get_layer, Scene
 from utils.sprite import animated_in_sight
 from utils.tilemap import TileMap
 from utils.video import load_video
@@ -176,7 +176,7 @@ class Game(Fading):
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
-        self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
+        self.scene = Scene.from_tilemap(self.tilemap.map)
 
         self.ui.loading_screen.percent = 40
 
@@ -314,7 +314,7 @@ class Game(Fading):
         self.update_player_speed()
         self.physics_engine.step(UPDATE_RATE)
         self.call_update(delta_time)
-        self.update_enemies(delta_time)
+        self.scene.update_scene(self.state, self.scene, self.tilemap, self.physics_engine)
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         update_sun(self.scene, self.camera_sprites)
 
@@ -749,14 +749,6 @@ class Game(Fading):
                     delta_time=delta_time,
                     map_size=self.tilemap.size
                 )
-
-    def update_enemies(self, delta_time):
-        enemies = get_layer(LAYER_NPC, self.scene)
-
-        if len(enemies) < self.state.difficulty.max_skulls:
-            a, b = self.state.difficulty.skull_spawn_range
-            if random.randint(a, b) == 50:
-                spawn_skull(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
     def update_collectable(self):
         items = arcade.check_for_collision_with_lists(self.player_sprite, self.scene.sprite_lists)
