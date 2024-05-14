@@ -21,7 +21,7 @@ class PositionalSound:
         if self.player:
             self.player.volume = 0
 
-    def update(self):
+    def update(self, init=False):
         if not self.player:
             return
 
@@ -36,8 +36,12 @@ class PositionalSound:
 
         if distance <= MAX_DISTANCE:
             volume = min(volume + FADE_SPEED, 1.0)
+            if init:
+                volume = 1.0
         else:
             volume = max(volume - FADE_SPEED, 0)
+            if init:
+                volume = 0.0
 
         volume = normalize_volume(volume * self.state.settings.sound_volume)
 
@@ -55,7 +59,7 @@ class PositionalSound:
         if not self.player:
             return
 
-        self.update()
+        self.update(init=True)
         self.player.play()
 
     @property

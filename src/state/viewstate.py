@@ -135,7 +135,7 @@ class ViewState:
 
         return self.shaders[name]
 
-    def play_sound(self, name1, name2=None, loop=False, speed=1):
+    def play_sound(self, name1, name2=None, loop=False, speed=1, volume=1):
         try:
             sound = self.sounds[name1]
             if name2:
@@ -144,7 +144,7 @@ class ViewState:
             logging.error(e)
             return
 
-        return sound.play(volume=self.settings.sound_volume, loop=loop, speed=speed)
+        return sound.play(volume=volume * self.settings.sound_volume, loop=loop, speed=speed)
 
     def grunt(self):
         rand = random.randint(1, 5)

@@ -295,9 +295,7 @@ class Game(Fading):
 
         super().on_update(delta_time)
 
-        start_time = time.time()
         self.loading_screen.update()
-        self.measurement.append(time.time() - start_time)
 
         if not self.initialized:
             return
@@ -305,8 +303,10 @@ class Game(Fading):
         if self.video and self.video.active:
             return
 
+        start_time = time.time()
         if self.atmo:
             self.atmo.update()
+        self.measurement.append(time.time() - start_time)
 
         if self.music_queue:
             self.music_queue.update()

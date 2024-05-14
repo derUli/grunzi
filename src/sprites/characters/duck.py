@@ -71,6 +71,6 @@ class Duck(Character, Useable):
         if self.sound and self.sound.playing:
             return
 
-        audio = state.play_sound('duck' + str(random.randint(1, 3)))
+        audio = state.play_sound('duck' + str(random.randint(1, 3)), volume=0)
         self.sound = PositionalSound(player, self, audio, state)
         self.sound.play()
