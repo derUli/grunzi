@@ -5,6 +5,9 @@ import arcade
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
+from sprites.items.item import Item
+
+
 class Scene(BaseScene):
 
     @classmethod
@@ -46,6 +49,14 @@ class Scene(BaseScene):
             if random.randint(a, b) == 50:
                 spawn_skull(state, tilemap.map, scene, physics_engine)
 
+    def get_collectable(self, player_sprite):
+        items = arcade.check_for_collision_with_lists(player_sprite, self.sprite_lists)
+
+        for item in reversed(items):
+            if isinstance(item, Item):
+                return item
+
+        return None
 
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """
@@ -66,6 +77,7 @@ def animated_in_sight(size, scene, player_sprite) -> list:
                 animated.append(sprite)
 
     return animated
+
 
 def get_layer(name: str, scene: Scene) -> SpriteList:
     """

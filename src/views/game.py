@@ -667,12 +667,12 @@ class Game(Fading):
         )
 
     def on_grunt(self):
-        return Grunt(8).setup(
-            source=self.player_sprite,
-            physics_engine=self.physics_engine,
-            scene=self.scene,
-            state=self.state
-        )
+            return Grunt(8).setup(
+                source=self.player_sprite,
+                physics_engine=self.physics_engine,
+                scene=self.scene,
+                state=self.state
+            )
 
     def on_drop(self):
         item = self.player_sprite.get_item()
@@ -750,15 +750,16 @@ class Game(Fading):
                 )
 
     def update_collectable(self):
-        items = arcade.check_for_collision_with_lists(self.player_sprite, self.scene.sprite_lists)
-        for item in items:
-            if isinstance(item, Item):
-                item.remove_from_sprite_lists()
+        item = self.scene.get_collectable(self.player_sprite)
 
-                self.ui.inventory.add_item(item)
-                self.state.play_sound('coin')
-                self.on_select_item(index=-1)
-                return True
+        if not item:
+            self.state.beep()
+            return False
 
-        self.state.beep()
-        return False
+        item.remove_from_sprite_lists()
+        self.ui.inventory.add_item(item)
+
+        self.state.play_sound('coin')
+        self.on_select_item(index=-1)
+
+        return True
