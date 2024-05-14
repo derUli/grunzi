@@ -1,4 +1,5 @@
 """ Tilemap """
+
 import arcade
 
 from utils.sprite import tilemap_size
@@ -12,7 +13,8 @@ class TileMap:
             filename,
             layer_options,
             use_spatial_hash=True,
-            hit_box_algorithm='Detailed'
+            hit_box_algorithm='Detailed',
+            lazy=True
     ):
         """
         Constructor
@@ -26,7 +28,7 @@ class TileMap:
             layer_options=layer_options,
             use_spatial_hash=use_spatial_hash,
             hit_box_algorithm=hit_box_algorithm,
-            lazy=True
+            lazy=lazy
         )
 
         self._size = tilemap_size(self._map)

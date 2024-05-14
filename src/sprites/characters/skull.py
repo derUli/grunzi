@@ -198,11 +198,11 @@ class Skull(Character, Useable):
                 return
 
             if not arcade.has_line_of_sight(
-                self.position,
-                player.position,
-                get_layer(LAYER_WALL, scene),
-                SIGHT_DISTANCE,
-                GRID_SIZE
+                    self.position,
+                    player.position,
+                    get_layer(LAYER_WALL, scene),
+                    SIGHT_DISTANCE,
+                    GRID_SIZE
             ):
                 self.shoot_time = 0
                 return

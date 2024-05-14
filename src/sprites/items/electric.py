@@ -14,6 +14,7 @@ ALPHA_SPEED = 8.5
 POWER_ON = 1
 POWER_OFF = 0
 
+
 class Electric(AbstractAnimatedSprite):
     def __init__(
             self,
@@ -39,6 +40,7 @@ class Electric(AbstractAnimatedSprite):
             image_x=image_x,
             image_y=image_y,
         )
+
     def update(
             self,
             player=None,
@@ -51,8 +53,6 @@ class Electric(AbstractAnimatedSprite):
         if not self.check_initialized:
             self.check_initialized = True
             pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 3, scene)
-
-
 
         if not self.sound:
             audio = state.play_sound('electric', 'on', loop=True)
@@ -92,10 +92,9 @@ class Electric(AbstractAnimatedSprite):
             player.hurt(HURT_PLAYER)
             physics_engine.apply_force(player, (FORCE_MOVE, 0))
 
-
     def check_cone(self, dt, scene):
 
-        from constants.layers import LAYER_CONES, LAYER_ELECTRIC_SWITCH
+        from constants.layers import LAYER_ELECTRIC_SWITCH
 
         for switch in scene[LAYER_ELECTRIC_SWITCH]:
 

@@ -10,7 +10,6 @@ import random
 import threading
 import time
 
-import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -38,7 +37,6 @@ from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
 from utils.sprite import animated_in_sight
-from utils.text import label_value
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -228,7 +226,7 @@ class Game(Fading):
             grid_size=64,
             left=0,
             right=w,
-            top=h,  #FIXME: Top and bottom is switched in this dev version of arcade
+            top=h,  # FIXME: Top and bottom is switched in this dev version of arcade
             bottom=0
         )
 
@@ -334,7 +332,6 @@ class Game(Fading):
 
         self.update_fade(self.next_view)
 
-
     def on_draw(self) -> None:
         """Render the screen."""
 
@@ -395,7 +392,6 @@ class Game(Fading):
         elif self.keypressed.key_right and not self.keypressed.key_left:
             force_x = move_force
             self.player_sprite.change_x = 1
-
 
         if force_x != 0 or force_y != 0:
             self.player_sprite.start_walk(sprint=self.player_sprite.sprinting)

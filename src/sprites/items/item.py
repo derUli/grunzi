@@ -5,8 +5,7 @@ import PIL
 import arcade
 from arcade import FACE_RIGHT
 
-from sprites.sprite import Sprite, AbstractAnimatedSprite
-from utils.positional_sound import PositionalSound
+from sprites.sprite import Sprite
 
 
 class Item(Sprite):

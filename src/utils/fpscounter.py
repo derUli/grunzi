@@ -3,12 +3,12 @@
 import time
 
 import arcade
-import numpy
 
 from constants.fonts import FONT_MONOTYPE
 from utils.text import create_text, MEDIUM_FONT_SIZE, MARGIN
 
 FPS_UPDATE_INTERVAL = 1
+
 
 class FPSCounter:
     def __init__(self):
