@@ -38,6 +38,7 @@ from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer
 from utils.sprite import animated_in_sight
+from utils.text import label_value
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -95,7 +96,6 @@ class Game(Fading):
         self.background = COLOR_BACKGROUND
 
         self.astar_barrier_list = None
-
 
         self.measurement = []
 
@@ -303,13 +303,16 @@ class Game(Fading):
         if self.video and self.video.active:
             return
 
-        start_time = time.time()
         if self.atmo:
             self.atmo.update()
-        self.measurement.append(time.time() - start_time)
+
+
+        start_time = time.time()
 
         if self.music_queue:
             self.music_queue.update()
+
+        self.measurement.append(time.time() - start_time)
 
         # There is an OpenGL error happens when a sprite is added by an controller event handler
         # which seems to happen because the controller events are handled in a different thread.
@@ -338,7 +341,6 @@ class Game(Fading):
 
         self.update_fade(self.next_view)
 
-        # self.fps_counter.low_performance_workaround(self.scene)
 
     def on_draw(self) -> None:
         """Render the screen."""
@@ -400,6 +402,7 @@ class Game(Fading):
         elif self.keypressed.key_right and not self.keypressed.key_left:
             force_x = move_force
             self.player_sprite.change_x = 1
+
 
         if force_x != 0 or force_y != 0:
             self.player_sprite.start_walk(sprint=self.player_sprite.sprinting)
@@ -601,7 +604,11 @@ class Game(Fading):
                 return self.on_gameover()
 
         if key == arcade.key.F6:
-            print(numpy.average(self.measurement))
+            print(label_value('Average', numpy.mean(numpy.array(self.measurement))))
+            print(label_value('Min', numpy.min(self.measurement)))
+            print(label_value('Max', numpy.max(self.measurement)))
+        if key == arcade.key.F7:
+            self.measurement.clear()
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.keyboard.KEY_SPRINT:
