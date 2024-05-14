@@ -24,8 +24,6 @@ from sprites.bullet.grunt import Grunt
 from sprites.characters.character import Character
 from sprites.characters.chicken import spawn_chicken
 from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
-from sprites.characters.skull import spawn_skull
-from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
 from sprites.sprite import AbstractSprite
 from sprites.ui.uicontainer import UIContainer
@@ -35,7 +33,6 @@ from utils.keypressed import KeyPressed
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer, Scene
-from utils.sprite import animated_in_sight
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -314,15 +311,17 @@ class Game(Fading):
         self.update_player_speed()
         self.physics_engine.step(UPDATE_RATE)
         self.call_update(delta_time)
-        self.scene.update_scene(self.state, self.scene, self.tilemap, self.physics_engine)
+        self.scene.update_scene(
+            delta_time,
+            self.window.size,
+            self.state,
+            self.scene,
+            self.tilemap,
+            self.physics_engine,
+            self.camera_sprites,
+            self.player_sprite
+        )
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
-        update_sun(self.scene, self.camera_sprites)
-
-        # Animate only visible
-        animated = animated_in_sight(self.scene, self.player_sprite)
-        for sprite in animated:
-            sprite.update_animation(delta_time)
-
         self.update_fade(self.next_view)
 
     def on_draw(self) -> None:

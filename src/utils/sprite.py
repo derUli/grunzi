@@ -2,12 +2,7 @@
 
 import random
 
-import arcade
 from arcade import TileMap
-
-from constants.layers import ANIMATED_LAYERS
-from utils.scene import get_layer
-
 
 def tilemap_size(tilemap: TileMap) -> tuple:
     """
@@ -33,20 +28,3 @@ def random_position(tilemap: TileMap) -> tuple:
 
     return rand_x, rand_y
 
-
-def animated_in_sight(scene, player_sprite) -> list:
-    """ Get animated sprites in sight"""
-    layers = ANIMATED_LAYERS
-
-    animated = []
-
-    for name in layers:
-        layer = get_layer(name, scene)
-        for sprite in layer:
-            w, h = arcade.get_window().get_size()
-
-            diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
-            if diff <= h:
-                animated.append(sprite)
-
-    return animated
