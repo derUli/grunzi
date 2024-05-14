@@ -30,13 +30,14 @@ class Stats(Fading):
         self.shadertoy = self.state.load_shader(window.size, 'hills')
         self.background = COLOR_BACKGROUND
         self.texts = []
+        self._call_method = None
 
         self.savegame = SaveGameState.load()
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
         super().on_show_view()
-        self.push_controller_handlers()
+
         self.setup()
 
     def on_hide_view(self) -> None:
@@ -50,6 +51,12 @@ class Stats(Fading):
 
     def setup(self) -> None:
         """ Setup the view """
+
+        self._call_method = None
+        self.push_controller_handlers()
+
+        if self.previous_view.player:
+            self.previous_view.player.play()
 
         self.window.set_mouse_visible(False)
 
@@ -84,7 +91,8 @@ class Stats(Fading):
             font_size=EXTRA_LARGE_FONT_SIZE,
             font_name=FONT_MONOTYPE,
             width=self.window.width / 2,
-            multiline=True
+            multiline=True,
+            bold=True
         )
 
         score_text_right = create_text(
@@ -92,7 +100,8 @@ class Stats(Fading):
             font_size=EXTRA_LARGE_FONT_SIZE,
             font_name=FONT_MONOTYPE,
             width=self.window.width / 2,
-            multiline=True
+            multiline=True,
+            bold=True
         )
 
         score_text_left.x = MARGIN
@@ -114,7 +123,7 @@ class Stats(Fading):
         logging.info(f"Controller button {key} pressed")
 
         if key in controller.KEY_DISCARD:
-            self.on_back()
+            self._call_method = self.on_back
 
     def on_joybutton_press(self, controller, key):
         self.on_button_press(
@@ -125,6 +134,10 @@ class Stats(Fading):
     def on_update(self, delta_time) -> None:
         """ Update the screen """
         super().on_update(delta_time)
+
+        if self._call_method:
+            self._call_method()
+            self._call_method = None
 
         self.update_fade(self.next_view)
 

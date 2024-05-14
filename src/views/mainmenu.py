@@ -124,10 +124,6 @@ class MainMenu(Fading):
             # Pass already created view because we are resuming.
             from views.stats import Stats
 
-            savegame = SaveGameState.load()
-            self.state.map_name = savegame.current
-            self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
-
             self.next_view = Stats(self.window, self.state, previous_view=self)
             self.fade_out()
 

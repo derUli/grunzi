@@ -5,6 +5,7 @@ import arcade.gui
 import constants.controls.keyboard
 import utils
 import utils.gui
+from state.savegamestate import SaveGameState
 from utils.audio import streaming_enabled
 from utils.gui import get_button_style
 from views.fading import Fading
@@ -38,6 +39,12 @@ class PauseMenu(Fading):
             style=get_button_style()
         )
 
+        statistic_button = arcade.gui.UIFlatButton(
+            text=_("Statistic"),
+            width=BUTTON_WIDTH,
+            style=utils.gui.get_button_style(),
+        )
+
         settings_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
@@ -57,6 +64,14 @@ class PauseMenu(Fading):
         def on_click_continue_button(event):
             # Pass already created view because we are resuming.
             self.on_toggle()
+
+        @statistic_button.event("on_click")
+        def on_click_statistic_button(event):
+            # Pass already created view because we are resuming.
+            from views.stats import Stats
+
+            self.next_view = Stats(self.window, self.state, previous_view=self)
+            self.fade_out()
 
         @settings_button.event("on_click")
         def on_click_settings_button(event):
@@ -78,6 +93,7 @@ class PauseMenu(Fading):
 
         widgets = [
             continue_button,
+            statistic_button,
             settings_button,
             quit_button
         ]
