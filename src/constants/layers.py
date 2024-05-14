@@ -10,8 +10,9 @@ from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
+from sprites.items.electric import Electric
 from sprites.items.hammer import Hammer
-from sprites.items.item import Fence, PiggyBank, Electric
+from sprites.items.item import Fence, PiggyBank
 from sprites.items.jeep import Jeep
 from sprites.items.electricswitch import ElectricSwitch
 from sprites.items.plier import Plier

@@ -71,7 +71,7 @@ class ElectricSwitch(Sprite):
     ):
         if not self.check_initialized:
             self.check_initialized = True
-            pyglet.clock.schedule_interval_soft(self.check_cone, 1, scene)
+            pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 5, scene)
 
     def check_cone(self, dt, scene):
         from constants.layers import LAYER_CONES

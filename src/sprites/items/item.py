@@ -84,36 +84,3 @@ class Fence(Sprite, Useable):
 
 class PiggyBank(Sprite, Useable):
     pass
-
-
-FORCE_MOVE = 30000
-HURT_PLAYER = 5
-
-
-class Electric(AbstractAnimatedSprite):
-    pass
-
-    def update(
-            self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
-    ):
-        if not self.sound:
-            audio = state.play_sound('electric', 'on', loop=True)
-            self.sound = PositionalSound(player, self, audio, state)
-            self.sound.play()
-
-        self.sound.update()
-
-        if arcade.check_for_collision(self, player):
-            audio = state.play_sound('electric', 'push')
-            sound = PositionalSound(player, self, audio, state)
-            sound.update()
-            sound.play()
-
-            player.hurt(HURT_PLAYER)
-            physics_engine.apply_force(player, (FORCE_MOVE, 0))
