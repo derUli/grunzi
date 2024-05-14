@@ -28,7 +28,6 @@ from sprites.characters.skull import spawn_skull
 from sprites.decoration.sun import update_sun
 from sprites.items.item import Item, Useable
 from sprites.sprite import AbstractSprite
-from sprites.ui.loadingscreen import LoadingScreen
 from sprites.ui.uicontainer import UIContainer
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
@@ -90,7 +89,6 @@ class Game(Fading):
         self.skip_intro = skip_intro
 
         self.ui = None
-        self.loading_screen = None
         self.background = COLOR_BACKGROUND
 
         self.astar_barrier_list = None
@@ -140,8 +138,8 @@ class Game(Fading):
                 self.state.settings.music_volume
             )
 
-        self.loading_screen = LoadingScreen()
-        self.loading_screen.setup(self.state, self.window.size, show=True)
+        self.ui = UIContainer()
+        self.ui.setup(self.state, self.window.size)
 
         # Load map
         threading.Thread(target=self.async_load).start()
@@ -151,15 +149,15 @@ class Game(Fading):
 
         start_time = time.time()
 
-        self.loading_screen.show = True
+        self.ui.loading_screen.show = True
 
-        self.loading_screen.percent = 0
+        self.ui.loading_screen.percent = 0
 
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
         self.state.reset()
 
-        self.loading_screen.percent = 10
+        self.ui.loading_screen.percent = 10
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
@@ -174,13 +172,13 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
-        self.loading_screen.percent = 20
+        self.ui.loading_screen.percent = 20
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = arcade.Scene.from_tilemap(self.tilemap.map)
 
-        self.loading_screen.percent = 40
+        self.ui.loading_screen.percent = 40
 
         # If the animated sky is disabled remove the sky layers
         if not self.state.settings.sky:
@@ -188,7 +186,7 @@ class Game(Fading):
                 if layer in self.scene.name_mapping:
                     self.scene.remove_sprite_list_by_name(layer)
 
-        self.loading_screen.percent = 50
+        self.ui.loading_screen.percent = 50
 
         if not self.state.settings.traffic:
             for layer in TRAFFIC_LAYERS:
@@ -207,7 +205,7 @@ class Game(Fading):
             )
         )
 
-        self.loading_screen.percent = 60
+        self.ui.loading_screen.percent = 60
 
         sprite = arcade.SpriteSolidColor(
             width=64,
@@ -230,36 +228,31 @@ class Game(Fading):
             bottom=0
         )
 
-        self.loading_screen.percent = 70
+        self.ui.loading_screen.percent = 70
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
-        self.loading_screen.percent = 85
+        self.ui.loading_screen.percent = 85
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
-        self.loading_screen.percent = 90
+        self.ui.loading_screen.percent = 90
 
         for i in range(random.randint(1, 3)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
-        self.loading_screen.percent = 95
-
-        self.ui = UIContainer()
-        self.ui.setup(self.state, self.window.size)
-
-        self.loading_screen.percent = 100
+        self.ui.loading_screen.percent = 100
 
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
 
         # Sleep some seconds to wait until the 100 Percent is shown
-        while not self.loading_screen.completed:
+        while not self.ui.loading_screen.completed:
             time.sleep(0.05)
 
-        self.loading_screen.show = False
+        self.ui.loading_screen.show = False
 
         self.initialized = True
 
@@ -291,7 +284,7 @@ class Game(Fading):
 
         super().on_update(delta_time)
 
-        self.loading_screen.update()
+        self.ui.loading_screen.update()
 
         if not self.initialized:
             return
@@ -347,8 +340,8 @@ class Game(Fading):
 
         self.clear()
 
-        if not self.initialized or not self.loading_screen.completed:
-            self.loading_screen.draw(time=self.time)
+        if not self.initialized or not self.ui.loading_screen.completed:
+            self.ui.loading_screen.draw(time=self.time)
 
             return self.draw_debug()
 

@@ -2,11 +2,9 @@ import arcade
 
 from constants.fonts import FONT_MONOTYPE
 from sprites.ui.inventorycontainer import InventoryContainer
+from sprites.ui.loadingscreen import LoadingScreen
 from utils.text import create_text
 
-r, g, b, a = arcade.csscolor.HOTPINK
-BACKGROUND_COLOR = (r, g, b, 10)
-HEIGHT = 84
 MARGIN = 10
 FILL_COUNT = 6
 FILL_CHAR = '0'
@@ -19,12 +17,16 @@ class UIContainer:
         self.state = None
         self.size = None
         self.rendered_score_text = {}
+        self.loading_screen = None
 
     def setup(self, state, size):
         """ Setup UI """
 
         self.state = state
         self.size = size
+
+        self.loading_screen = LoadingScreen()
+        self.loading_screen.setup(self.state, size, show=True)
 
         self.inventory = InventoryContainer()
         self.inventory.setup(state=state, size=size)
