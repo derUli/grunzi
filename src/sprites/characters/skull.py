@@ -2,6 +2,7 @@
 import os
 
 import arcade
+import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
@@ -163,8 +164,9 @@ class Skull(Character, Useable):
             self.chased = True
             self.update_texture()
 
+            pyglet.clock.schedule_interval_soft(self.update_move_path, 1 / 4, player)
+
         if self.chasing:
-            self.update_move_path(player)
             if not self.move_path:
                 self.move_path = []
 
@@ -210,8 +212,8 @@ class Skull(Character, Useable):
 
             self.shoot_time = 0
 
-    def update_move_path(self, player):
-        if not self.insight:
+    def update_move_path(self, delta, player):
+        if not self.insight or self.dead:
             return
 
         self.move_path = arcade.astar_calculate_path(
