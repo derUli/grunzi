@@ -245,8 +245,8 @@ class Game(Fading):
 
         self.loading_screen.percent = 90
 
-        # for i in range(random.randint(1, 4)):
-            # spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
+        for i in range(random.randint(1, 3)):
+            spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
         self.loading_screen.percent = 95
 

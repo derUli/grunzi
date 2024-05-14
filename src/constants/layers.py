@@ -13,6 +13,7 @@ from sprites.items.chainsaw import Chainsaw
 from sprites.items.hammer import Hammer
 from sprites.items.item import Fence, PiggyBank, Electric
 from sprites.items.jeep import Jeep
+from sprites.items.electricswitch import ElectricSwitch
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.items.tree import Tree
@@ -47,6 +48,7 @@ LAYER_CLOUDS = 'Cloud'
 LAYER_SKY = 'Sky'
 LAYER_SUN = 'Sun'
 LAYER_ELECTRIC = 'Electric'
+LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -61,7 +63,8 @@ ALL_LAYERS = [
     LAYER_WATER,
     LAYER_SKY,
     LAYER_SUN,
-    LAYER_ELECTRIC
+    LAYER_ELECTRIC,
+    LAYER_ELECTRIC_SWITCH
 ]
 
 WALL_LAYERS = [
@@ -147,6 +150,9 @@ LAYER_OPTIONS = {
     },
     LAYER_ELECTRIC: {
         'custom_class': Electric
+    },
+    LAYER_ELECTRIC_SWITCH: {
+        'custom_class': ElectricSwitch
     }
 }
 
