@@ -216,12 +216,15 @@ class Skull(Character, Useable):
         if not self.insight or self.dead:
             return
 
-        self.move_path = arcade.astar_calculate_path(
+        move_path = arcade.astar_calculate_path(
             self.position,
             (player.center_x, player.center_y),
             self.astar_barrier_list,
             diagonal_movement=True
         )
+
+        if move_path:
+            self.move_path = move_path
 
 
 def spawn_skull(state, tilemap, scene, physics_engine):
