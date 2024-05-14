@@ -46,7 +46,7 @@ class SpriteHealth:
         if self._died:
             self.on_die()
 
-            return self._died
+        return self._died
 
     def draw_healthbar(self, color_health=HEALTHBAR_ENEMY_COLOR):
         one_percent = self.width / 100

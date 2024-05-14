@@ -306,13 +306,8 @@ class Game(Fading):
         if self.atmo:
             self.atmo.update()
 
-
-        start_time = time.time()
-
         if self.music_queue:
             self.music_queue.update()
-
-        self.measurement.append(time.time() - start_time)
 
         # There is an OpenGL error happens when a sprite is added by an controller event handler
         # which seems to happen because the controller events are handled in a different thread.
