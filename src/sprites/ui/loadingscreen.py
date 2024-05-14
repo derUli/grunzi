@@ -21,7 +21,10 @@ class LoadingScreen:
 
         self.bar_height = 0
 
-    def setup(self, state: ViewState, size: tuple):
+        self.show = False
+
+    def setup(self, state: ViewState, size: tuple, show):
+        self.show = True
         if state.settings.shaders:
             self.shadertoy = state.load_shader(size, 'gameover')
 
@@ -60,6 +63,9 @@ class LoadingScreen:
         self._percent = value
 
     def update(self):
+        if not self.show:
+            return
+
         if self._percent > self._display_percentage:
             self._display_percentage += PERCENTAGE_SPEED
 
@@ -71,6 +77,10 @@ class LoadingScreen:
         return self._display_percentage >= 100
 
     def draw(self, time=None):
+
+        if not self.show:
+            return
+
         if self.shadertoy:
             self.shadertoy.render(time=time)
         w, h = self.size

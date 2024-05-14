@@ -10,6 +10,7 @@ import random
 import threading
 import time
 
+import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -95,6 +96,9 @@ class Game(Fading):
 
         self.astar_barrier_list = None
 
+
+        self.measurement = []
+
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
@@ -141,7 +145,7 @@ class Game(Fading):
             )
 
         self.loading_screen = LoadingScreen()
-        self.loading_screen.setup(self.state, self.window.size)
+        self.loading_screen.setup(self.state, self.window.size, show=True)
 
         # Load map
         threading.Thread(target=self.async_load).start()
@@ -150,6 +154,8 @@ class Game(Fading):
         """ Async load map """
 
         start_time = time.time()
+
+        self.loading_screen.show = True
 
         self.loading_screen.percent = 0
 
@@ -257,6 +263,8 @@ class Game(Fading):
         while not self.loading_screen.completed:
             time.sleep(0.05)
 
+        self.loading_screen.show = False
+
         self.initialized = True
 
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
@@ -287,7 +295,9 @@ class Game(Fading):
 
         super().on_update(delta_time)
 
+        start_time = time.time()
         self.loading_screen.update()
+        self.measurement.append(time.time() - start_time)
 
         if not self.initialized:
             return
@@ -590,6 +600,8 @@ class Game(Fading):
             if key in constants.controls.keyboard.KEY_DISCARD:
                 return self.on_gameover()
 
+        if key == arcade.key.F6:
+            print(numpy.average(self.measurement))
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.keyboard.KEY_SPRINT:
