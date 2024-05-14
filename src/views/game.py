@@ -596,12 +596,6 @@ class Game(Fading):
             if key in constants.controls.keyboard.KEY_DISCARD:
                 return self.on_gameover()
 
-        if key == arcade.key.F6:
-            print(label_value('Average', numpy.mean(numpy.array(self.fps_counter.fps))))
-            print(label_value('Min', numpy.min(self.fps_counter.fps)))
-            print(label_value('Max', numpy.max(self.fps_counter.fps)))
-        if key == arcade.key.F7:
-            self.fps_counter.fps.clear()
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.keyboard.KEY_SPRINT:

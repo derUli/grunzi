@@ -1,38 +1,28 @@
 """ FPS counter """
 
-import logging
 import time
 
 import arcade
 import numpy
 
 from constants.fonts import FONT_MONOTYPE
-from constants.layers import LAYER_NPC
-from utils.scene import get_layer
-from utils.text import create_text, MEDIUM_FONT_SIZE, MARGIN, label_value
+from utils.text import create_text, MEDIUM_FONT_SIZE, MARGIN
 
 FPS_UPDATE_INTERVAL = 1
-
 
 class FPSCounter:
     def __init__(self):
         """ FPS counter class """
-        self.fps = []
         self.current_fps = -1
-        self.last_fps_update = 0
+        self.last_fps_update = time.time()
         self.fps_text = {}
 
     def reset(self):
-        self.fps = []
         self.current_fps = -1
-        self.last_fps_update = 0
+        self.last_fps_update = time.time()
         self.fps_text = {}
 
     def update(self, fps):
-        self.fps.append(fps)
-
-        if numpy.max(self.fps) == 0:
-            return
 
         if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
             self.last_fps_update = time.time()
