@@ -97,8 +97,6 @@ class Game(Fading):
 
         self.astar_barrier_list = None
 
-        self.measurement = []
-
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
@@ -230,7 +228,7 @@ class Game(Fading):
             grid_size=64,
             left=0,
             right=w,
-            top=h,  # Top and bottom is switched in this dev version of arcade
+            top=h,  #FIXME: Top and bottom is switched in this dev version of arcade
             bottom=0
         )
 
@@ -325,7 +323,7 @@ class Game(Fading):
         self.update_player_speed()
         self.physics_engine.step(UPDATE_RATE)
         self.call_update(delta_time)
-        self.update_enemies(delta_time)
+        # self.update_enemies(delta_time)
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         update_sun(self.scene, self.camera_sprites)
 
@@ -599,11 +597,11 @@ class Game(Fading):
                 return self.on_gameover()
 
         if key == arcade.key.F6:
-            print(label_value('Average', numpy.mean(numpy.array(self.measurement))))
-            print(label_value('Min', numpy.min(self.measurement)))
-            print(label_value('Max', numpy.max(self.measurement)))
+            print(label_value('Average', numpy.mean(numpy.array(self.fps_counter.fps))))
+            print(label_value('Min', numpy.min(self.fps_counter.fps)))
+            print(label_value('Max', numpy.max(self.fps_counter.fps)))
         if key == arcade.key.F7:
-            self.measurement.clear()
+            self.fps_counter.fps.clear()
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.keyboard.KEY_SPRINT:
