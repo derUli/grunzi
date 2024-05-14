@@ -93,7 +93,7 @@ class PauseMenu(Fading):
 
         widgets = [
             continue_button,
-            statistic_button,
+            # statistic_button,
             settings_button,
             quit_button
         ]

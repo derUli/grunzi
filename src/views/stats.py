@@ -37,7 +37,6 @@ class Stats(Fading):
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
         super().on_show_view()
-
         self.setup()
 
     def on_hide_view(self) -> None:
@@ -147,16 +146,16 @@ class Stats(Fading):
         self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
-        self.draw_build_version()
 
         for text in self.texts:
             text.draw()
+
+        self.draw_build_version()
 
         self.draw_fading()
         self.draw_debug()
 
     def on_back(self) -> None:
         """ On click "Back" button """
-        from views.mainmenu import MainMenu
-        self.next_view = MainMenu(self.window, self.state)
+        self.next_view = self.previous_view
         self.fade_out()
