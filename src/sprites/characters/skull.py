@@ -6,12 +6,13 @@ import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
-from constants.layers import LAYER_NPC, check_collision_with_layers
+from constants.layers import LAYER_NPC, check_collision_with_layers, LAYER_WALL
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
 from sprites.items.item import Useable
 from utils.physics import DEFAULT_FRICTION
+from utils.scene import get_layer
 from utils.sprite import random_position
 from window.gamewindow import UPDATE_RATE
 
@@ -194,6 +195,16 @@ class Skull(Character, Useable):
                 return
 
             if self.shoot_time < SHOOT_DELTA:
+                return
+
+            if not arcade.has_line_of_sight(
+                self.position,
+                player.position,
+                get_layer(LAYER_WALL, scene),
+                SIGHT_DISTANCE,
+                GRID_SIZE
+            ):
+                self.shoot_time = 0
                 return
 
             bullet = SkullBullet(
