@@ -245,8 +245,8 @@ class Game(Fading):
 
         self.loading_screen.percent = 90
 
-        for i in range(random.randint(1, 4)):
-            spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
+        # for i in range(random.randint(1, 4)):
+            # spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
         self.loading_screen.percent = 95
 
@@ -323,7 +323,7 @@ class Game(Fading):
         self.update_player_speed()
         self.physics_engine.step(UPDATE_RATE)
         self.call_update(delta_time)
-        # self.update_enemies(delta_time)
+        self.update_enemies(delta_time)
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         update_sun(self.scene, self.camera_sprites)
 
@@ -693,12 +693,9 @@ class Game(Fading):
             logging.info('No item selected')
             return self.state.beep()
 
-        klass = item.__class__
-        # FIXME: Layer names should match the class names
-        layer = klass.__name__
         new_item = item.copy()
+        layer = new_item.__class__.__name__
 
-        # TODO: Make a method for collision checks with multiple players
         if check_collision_with_layers(self.scene, new_item, WALL_LAYERS):
             logging.info("Can't drop item on wall.")
             self.state.beep()
