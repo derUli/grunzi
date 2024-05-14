@@ -132,7 +132,6 @@ class MapSelection(Fading):
 
             self.next_view = Game(self.window, self.state)
             self.fade_out()
-            # self.on_start_map()
 
         buttons.add(button_prev)
         buttons.add(select_button)

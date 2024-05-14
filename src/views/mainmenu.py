@@ -64,6 +64,12 @@ class MainMenu(Fading):
             style=utils.gui.get_button_style(),
         )
 
+        statistic_button = arcade.gui.UIFlatButton(
+            text=_("Statistic"),
+            width=BUTTON_WIDTH,
+            style=utils.gui.get_button_style(),
+        )
+
         options_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
@@ -112,6 +118,19 @@ class MainMenu(Fading):
             self.next_view = MapSelection(self.window, self.state, previous_view=self)
             self.fade_out()
 
+        @statistic_button.event("on_click")
+        def on_click_statistic_button(event):
+
+            # Pass already created view because we are resuming.
+            from views.stats import Stats
+
+            savegame = SaveGameState.load()
+            self.state.map_name = savegame.current
+            self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
+
+            self.next_view = Stats(self.window, self.state, previous_view=self)
+            self.fade_out()
+
         @options_button.event("on_click")
         def on_click_options_button(event):
             # Pass already created view because we are resuming.
@@ -130,7 +149,7 @@ class MainMenu(Fading):
         ]
 
         if SaveGameState.exists():
-            widgets += [continue_button, select_map_button]
+            widgets += [continue_button, select_map_button, statistic_button]
 
         widgets += [
             options_button,
