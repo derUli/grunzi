@@ -53,15 +53,11 @@ class Beach(Sprite):
 
     def update(
             self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
+            delta_time,
+            args
     ):
         if not self.sound:
-            audio = state.play_sound('atmos', 'beach', loop=True)
-            self.sound = PositionalSound(player, self, audio, state)
+            audio = args.state.play_sound('atmos', 'beach', loop=True)
+            self.sound = PositionalSound(args.player, self, audio, args.state)
 
         self.sound.update()

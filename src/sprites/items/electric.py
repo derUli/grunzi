@@ -43,20 +43,16 @@ class Electric(AbstractAnimatedSprite):
 
     def update(
             self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
+            delta_time,
+            args
     ):
         if not self.check_initialized:
             self.check_initialized = True
-            pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 3, scene)
+            pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 3, args.scene)
 
         if not self.sound:
-            audio = state.play_sound('electric', 'on', loop=True)
-            self.sound = PositionalSound(player, self, audio, state)
+            audio = args.state.play_sound('electric', 'on', loop=True)
+            self.sound = PositionalSound(args.player, self, audio, args.state)
             self.sound.play()
 
         if not self.enabled:
@@ -67,7 +63,6 @@ class Electric(AbstractAnimatedSprite):
 
             self.alpha = alpha
 
-            # TODO: Fade
             if self.alpha == 0:
                 self.sound.pause()
 
@@ -83,14 +78,14 @@ class Electric(AbstractAnimatedSprite):
 
         self.alpha = alpha
 
-        if arcade.check_for_collision(self, player):
-            audio = state.play_sound('electric', 'push')
-            sound = PositionalSound(player, self, audio, state)
+        if arcade.check_for_collision(self, args.player):
+            audio = args.state.play_sound('electric', 'push')
+            sound = PositionalSound(args.player, self, audio, args.state)
             sound.update()
             sound.play()
 
-            player.hurt(HURT_PLAYER)
-            physics_engine.apply_force(player, (FORCE_MOVE, 0))
+            args.player.hurt(HURT_PLAYER)
+            args.physics_engine.apply_force(args.player, (FORCE_MOVE, 0))
 
     def check_cone(self, dt, scene):
 

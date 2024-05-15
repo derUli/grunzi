@@ -50,12 +50,8 @@ class Chicken(Character, Useable):
 
     def update(
             self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
+            delta_time,
+            args
     ):
 
         if self.dead:
@@ -68,12 +64,12 @@ class Chicken(Character, Useable):
                 alpha = 0
 
                 feather = Feather(
-                    filename=os.path.join(state.sprite_dir, 'tools', 'feather.png')
+                    filename=os.path.join(args.state.sprite_dir, 'tools', 'feather.png')
                 )
                 feather.center_x = self.center_x
                 feather.center_y = self.center_y
 
-                scene.add_sprite(LAYER_FEATHER, feather)
+                args.scene.add_sprite(LAYER_FEATHER, feather)
 
                 self.remove_from_sprite_lists()
 
@@ -98,11 +94,11 @@ class Chicken(Character, Useable):
             self.face_horizontal = FACE_LEFT
             self.texture = self.textures[self.face_horizontal - 1]
 
-        physics_engine.apply_force(self, (move_x, move_y))
+        args.physics_engine.apply_force(self, (move_x, move_y))
 
         # randomize play sound
         if random.randint(1, 50) == 30:
-            self.play_sound(player=player, state=state)
+            self.play_sound(player=args.player, state=args.state)
 
         if self.sound:
             self.sound.update()

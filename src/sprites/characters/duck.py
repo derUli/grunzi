@@ -53,16 +53,12 @@ class Duck(Character, Useable):
 
     def update(
             self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
+            delta_time,
+            args
     ):
         # randomize play sound
         if random.randint(1, 50) == 30:
-            self.play_sound(player=player, state=state)
+            self.play_sound(player=args.player, state=args.state)
 
         if self.sound:
             self.sound.update()

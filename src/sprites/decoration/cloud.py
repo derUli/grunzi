@@ -6,14 +6,10 @@ MOVE_SPEED = 0.25
 class Cloud(Sprite):
     def update(
             self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
+            delta_time,
+            args
     ):
-        w, h = map_size
+        w, h = args.map_size
 
         self.center_x -= MOVE_SPEED
 

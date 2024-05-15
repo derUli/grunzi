@@ -24,9 +24,10 @@ from sprites.bullet.grunt import Grunt
 from sprites.characters.character import Character
 from sprites.characters.chicken import spawn_chicken
 from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
-from sprites.items.item import Item, Useable
+from sprites.items.item import Useable
 from sprites.sprite import AbstractSprite
 from sprites.ui.uicontainer import UIContainer
+from state.argscontainer import ArgsContainer
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
 from utils.keypressed import KeyPressed
@@ -667,12 +668,12 @@ class Game(Fading):
         )
 
     def on_grunt(self):
-            return Grunt(8).setup(
-                source=self.player_sprite,
-                physics_engine=self.physics_engine,
-                scene=self.scene,
-                state=self.state
-            )
+        return Grunt(8).setup(
+            source=self.player_sprite,
+            physics_engine=self.physics_engine,
+            scene=self.scene,
+            state=self.state
+        )
 
     def on_drop(self):
         item = self.player_sprite.get_item()
@@ -738,15 +739,16 @@ class Game(Fading):
                 if not isinstance(sprite, AbstractSprite):
                     continue
 
-                # TODO: add as arg to update method
-                sprite.astar_barrier_list = self.astar_barrier_list
                 sprite.update(
-                    player=self.player_sprite,
-                    scene=self.scene,
-                    physics_engine=self.physics_engine,
-                    state=self.state,
-                    delta_time=delta_time,
-                    map_size=self.tilemap.size
+                    delta_time,
+                    ArgsContainer(
+                        player=self.player_sprite,
+                        scene=self.scene,
+                        physics_engine=self.physics_engine,
+                        state=self.state,
+                        map_size=self.tilemap.size,
+                        astar_barrier_list=self.astar_barrier_list
+                    )
                 )
 
     def update_collectable(self):

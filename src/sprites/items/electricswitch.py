@@ -62,16 +62,12 @@ class ElectricSwitch(Sprite):
 
     def update(
             self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
+            delta_time,
+            args
     ):
         if not self.check_initialized:
             self.check_initialized = True
-            pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 5, scene)
+            pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 5, args.scene)
 
     def check_cone(self, dt, scene):
         from constants.layers import LAYER_CONES

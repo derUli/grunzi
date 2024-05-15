@@ -98,12 +98,8 @@ class Player(Character, SpriteHealth):
 
     def update(
             self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
+            delta_time,
+            args
     ):
 
         if self.dead:

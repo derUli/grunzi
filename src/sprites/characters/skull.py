@@ -69,7 +69,6 @@ class Skull(Character, Useable):
         self.face = DEFAULT_FACE
         self.textures = None
         self.update_texture()
-        self.astar_barrier_list = None
         self.fade_in = True
 
         self.shoot_time = 0
@@ -105,12 +104,8 @@ class Skull(Character, Useable):
 
     def update(
             self,
-            player=None,
-            scene=None,
-            physics_engine=None,
-            state=None,
-            delta_time=None,
-            map_size=None
+            delta_time,
+            args
     ):
 
         if self.dead:
@@ -143,29 +138,29 @@ class Skull(Character, Useable):
             self.face = FACE_RIGHT
             self.update_texture()
 
-        w, h = map_size
+        w, h = args.map_size
 
         self.playing_field_left_boundary = self.left - w
         self.playing_field_right_boundary = self.right + w
         self.playing_field_top_boundary = self.top + h
         self.playing_field_bottom_boundary = self.bottom - h
 
-        difference = arcade.get_distance_between_sprites(self, player)
+        difference = arcade.get_distance_between_sprites(self, args.player)
 
         self.insight = difference < SIGHT_DISTANCE
 
         if not self.insight:
             return
 
-        self.chasing = player
+        self.chasing = args.player
 
         if not self.chased:
-            state.play_sound('screech')
+            args.state.play_sound('screech')
 
             self.chased = True
             self.update_texture()
 
-            pyglet.clock.schedule_interval_soft(self.update_move_path, 1 / 4, player)
+            pyglet.clock.schedule_interval_soft(self.update_move_path, 1 / 4, args.player, args.astar_barrier_list)
 
         if self.chasing:
             if not self.move_path:
@@ -187,7 +182,7 @@ class Skull(Character, Useable):
                 if x1 > x2:
                     force_x = -self.move_force
 
-                physics_engine.apply_force(self, (force_x, force_y))
+                args.physics_engine.apply_force(self, (force_x, force_y))
 
             self.shoot_time += delta_time
 
@@ -199,8 +194,8 @@ class Skull(Character, Useable):
 
             if not arcade.has_line_of_sight(
                     self.position,
-                    player.position,
-                    get_layer(LAYER_WALL, scene),
+                    args.player.position,
+                    get_layer(LAYER_WALL, args.scene),
                     SIGHT_DISTANCE,
                     GRID_SIZE
             ):
@@ -210,27 +205,27 @@ class Skull(Character, Useable):
             bullet = SkullBullet(
                 6,
                 color=arcade.csscolor.RED,
-                hurt=state.difficulty.skull_hurt
+                hurt=args.state.difficulty.skull_hurt
             )
 
             bullet.setup(
                 source=self,
-                physics_engine=physics_engine,
-                scene=scene,
-                state=state,
-                target=player
+                physics_engine=args.physics_engine,
+                scene=args.scene,
+                state=args.state,
+                target=args.player
             )
 
             self.shoot_time = 0
 
-    def update_move_path(self, delta, player):
+    def update_move_path(self, delta, player, astar_barrier_list):
         if not self.insight or self.dead:
             return
 
         move_path = arcade.astar_calculate_path(
             self.position,
             (player.center_x, player.center_y),
-            self.astar_barrier_list,
+            astar_barrier_list,
             diagonal_movement=True
         )
 

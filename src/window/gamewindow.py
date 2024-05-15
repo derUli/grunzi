@@ -50,7 +50,8 @@ class GameWindow(arcade.Window):
             draw_rate=draw_rate,
             center_window=True,
             style=style,
-            vsync=vsync
+            vsync=vsync,
+            gc_mode='auto'
         )
 
         self.set_fullscreen(not window)
