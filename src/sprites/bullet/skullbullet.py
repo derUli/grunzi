@@ -9,7 +9,8 @@ from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
 from utils.physics import on_hit_destroy
 
-MASS = 0.1
+MASS = 0.05
+
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
