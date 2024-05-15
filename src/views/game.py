@@ -406,7 +406,7 @@ class Game(Fading):
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
     def on_button_press(self, controller, key):
-        logging.info(f"Controller button {key} pressed")
+        logging.debug(f"Controller button {key} pressed")
 
         if not self.initialized:
             return
@@ -444,7 +444,7 @@ class Game(Fading):
             self.on_button_press(controller, button)
 
     def on_button_release(self, controller, key):
-        logging.info(f"Controller button {key} released")
+        logging.debug(f"Controller button {key} released")
 
         if not self.initialized:
             return
@@ -513,7 +513,7 @@ class Game(Fading):
         self.fade_out()
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
-        logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
+        logging.debug(f"Stick motion {stick_name}, {x_value}, {y_value}")
 
         if not self.initialized:
             return
