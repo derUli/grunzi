@@ -3,10 +3,11 @@
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
-from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER
+from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.ui.gameovertext import GameOverText
+from utils.scene import get_layer
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -119,6 +120,11 @@ class Player(Character, SpriteHealth):
         if self.stamina <= 0:
             self.stamina = 0
             self.modifier = MODIFIER_DEFAULT
+
+        exit_layer = get_layer(LAYER_LEVEL_EXIT, args.scene)
+        if len(arcade.check_for_collision_with_list(self, exit_layer)) > 0:
+            args.callbacks.on_complete()
+            return
 
         # Figure out if we should face left or right
         if self.change_x < 0:

@@ -15,6 +15,7 @@ from sprites.items.electricswitch import ElectricSwitch
 from sprites.items.hammer import Hammer
 from sprites.items.item import Fence, PiggyBank
 from sprites.items.jeep import Jeep
+from sprites.items.levelexit import LevelExit
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.items.tree import Tree
@@ -50,6 +51,7 @@ LAYER_SKY = 'Sky'
 LAYER_SUN = 'Sun'
 LAYER_ELECTRIC = 'Electric'
 LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
+LAYER_LEVEL_EXIT = 'LevelExit'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -65,7 +67,8 @@ ALL_LAYERS = [
     LAYER_SKY,
     LAYER_SUN,
     LAYER_ELECTRIC,
-    LAYER_ELECTRIC_SWITCH
+    LAYER_ELECTRIC_SWITCH,
+    LAYER_LEVEL_EXIT
 ]
 
 WALL_LAYERS = [
@@ -155,6 +158,9 @@ LAYER_OPTIONS = {
     },
     LAYER_ELECTRIC_SWITCH: {
         'custom_class': ElectricSwitch
+    },
+    LAYER_LEVEL_EXIT: {
+        'custom_class': LevelExit
     }
 }
 

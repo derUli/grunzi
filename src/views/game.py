@@ -504,7 +504,9 @@ class Game(Fading):
 
         if completed:
             logging.info('Game Completed')
-            logging.info('TODO: Implement outro')
+            # TODO: Outro
+            self.on_main_menu()
+
             return
 
         self.next_view = Game(self.window, self.state, skip_intro=same)
