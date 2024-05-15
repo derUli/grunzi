@@ -6,7 +6,8 @@ class ArgsContainer:
             physics_engine=None,
             state=None,
             map_size=None,
-            astar_barrier_list=None
+            astar_barrier_list=None,
+            wall_spritelist=None
     ):
         self.player = player
         self.scene = scene
@@ -14,3 +15,4 @@ class ArgsContainer:
         self.state = state
         self.map_size = map_size
         self.astar_barrier_list = astar_barrier_list
+        self.wall_spritelist

@@ -90,6 +90,7 @@ class Game(Fading):
         self.background = COLOR_BACKGROUND
 
         self.astar_barrier_list = None
+        self.wall_spritelist = None
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -223,6 +224,8 @@ class Game(Fading):
 
         sprite.left = 0
         sprite.top = 0
+
+        self.wall_spritelist = wall_spritelist
 
         self.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=sprite,
@@ -741,6 +744,17 @@ class Game(Fading):
         )
 
     def call_update(self, delta_time):
+
+        args = ArgsContainer(
+            player=self.player_sprite,
+            scene=self.scene,
+            physics_engine=self.physics_engine,
+            state=self.state,
+            map_size=self.tilemap.size,
+            astar_barrier_list=self.astar_barrier_list,
+            wall_spritelist=self.wall_spritelist
+        )
+
         for sprite_list in self.scene.sprite_lists:
             for sprite in sprite_list:
 
@@ -749,14 +763,7 @@ class Game(Fading):
 
                 sprite.update(
                     delta_time,
-                    ArgsContainer(
-                        player=self.player_sprite,
-                        scene=self.scene,
-                        physics_engine=self.physics_engine,
-                        state=self.state,
-                        map_size=self.tilemap.size,
-                        astar_barrier_list=self.astar_barrier_list
-                    )
+                    args
                 )
 
     def update_collectable(self):
