@@ -65,7 +65,7 @@ class MainMenu(Fading):
         )
 
         highscore_button = arcade.gui.UIFlatButton(
-            text=_("Highscore"),
+            text=_("Online Highscore"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style(),
         )

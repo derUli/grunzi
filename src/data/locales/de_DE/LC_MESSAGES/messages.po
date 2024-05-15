@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-15 10:19+0200\n"
+"POT-Creation-Date: 2024-05-15 11:46+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -125,9 +125,8 @@ msgid "Select Map"
 msgstr "Map auswählen"
 
 #: views/mainmenu.py:68
-#, fuzzy
-msgid "Highscore"
-msgstr "Punkte"
+msgid "Online Highscore"
+msgstr "Online-Bestenliste"
 
 #: views/mainmenu.py:74 views/pausemenu.py:49
 msgid "Settings"
