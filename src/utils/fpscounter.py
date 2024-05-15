@@ -11,24 +11,31 @@ FPS_UPDATE_INTERVAL = 1
 
 
 class FPSCounter:
+    """ FPS counter class """
+
     def __init__(self):
-        """ FPS counter class """
+        """  Constructor """
+
         self.current_fps = -1
         self.last_fps_update = time.time()
         self.fps_text = {}
 
     def reset(self):
+        """ Reset fps counter """
+
         self.current_fps = -1
         self.last_fps_update = time.time()
         self.fps_text = {}
 
     def update(self, fps):
+        """ Update fps counter """
 
         if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
             self.last_fps_update = time.time()
             self.current_fps = int(fps)
 
     def draw(self, size):
+        """ Draw fps counter """
 
         if self.current_fps == -1:
             return
