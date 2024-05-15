@@ -18,6 +18,7 @@ COLOR_BACKGROUND = (217, 102, 157)
 FILL_COUNT = 6
 FILL_CHAR = '0'
 
+
 class Highscore(Fading):
     """ Difficulty selection """
 
@@ -76,7 +77,6 @@ class Highscore(Fading):
 
         storage = HighscoreStorage()
         storage.fetch()
-
 
         for entry in storage.highscore:
             labels.append(str(entry['name']))

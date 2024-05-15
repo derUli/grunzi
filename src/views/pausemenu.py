@@ -5,7 +5,6 @@ import arcade.gui
 import constants.controls.keyboard
 import utils
 import utils.gui
-from state.savegamestate import SaveGameState
 from utils.audio import streaming_enabled
 from utils.gui import get_button_style
 from views.fading import Fading

@@ -58,6 +58,7 @@ class Scene(BaseScene):
 
         return None
 
+
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """
 

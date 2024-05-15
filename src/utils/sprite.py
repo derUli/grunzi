@@ -4,6 +4,7 @@ import random
 
 from arcade import TileMap
 
+
 def tilemap_size(tilemap: TileMap) -> tuple:
     """
     Calculate pixel size of a tilemap
@@ -27,4 +28,3 @@ def random_position(tilemap: TileMap) -> tuple:
     rand_y = random.randint(0, height)
 
     return rand_x, rand_y
-

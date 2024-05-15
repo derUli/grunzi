@@ -13,7 +13,6 @@ from sprites.characters.spritehealth import HEALTH_FULL
 from sprites.items.item import Useable
 from utils.physics import DEFAULT_FRICTION
 from utils.sprite import random_position
-from window.gamewindow import UPDATE_RATE
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -27,7 +26,7 @@ GRID_SIZE = 64
 FADE_IN_MAX = 255
 FADE_SPEED = 4
 
-SHOOT_DELTA = UPDATE_RATE * 10
+SHOOT_DELTA = 1 / 6
 
 PATH_FINDING_INTERVAL = 1
 
