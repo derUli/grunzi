@@ -11,7 +11,7 @@ import threading
 import time
 
 import pyglet.clock
-from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
+from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN, SpriteList
 
 import constants.controls.controller
 import constants.controls.keyboard
@@ -205,6 +205,16 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 60
 
+        w, h = self.tilemap.size
+
+        wall_spritelist = SpriteList(lazy=True, use_spatial_hash=True)
+
+        for name in WALL_LAYERS:
+            layer = get_layer(name, self.scene)
+
+            for item in layer:
+                wall_spritelist.append(item)
+
         sprite = arcade.SpriteSolidColor(
             width=64,
             height=64,
@@ -214,11 +224,9 @@ class Game(Fading):
         sprite.left = 0
         sprite.top = 0
 
-        w, h = self.tilemap.size
-
         self.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=sprite,
-            blocking_sprites=self.scene[LAYER_WALL],
+            blocking_sprites=wall_spritelist,
             grid_size=64,
             left=0,
             right=w,

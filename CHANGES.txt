@@ -1,5 +1,11 @@
 # Changelog
 
+## Alpha 013 (Unreleased)
+
+* map01: Zusätzliche Bäume hinzugefügt
+* map02: Strom-Hindernis kann abgeschaltet werden
+* Global: Gegner KI verbessert
+
 ## Alpha 012 (17.05.2024)
 
 * map01: Autos kollidieren nicht mehr nach einiger Spielzeit

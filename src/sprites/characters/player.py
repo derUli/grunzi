@@ -11,7 +11,7 @@ from sprites.ui.gameovertext import GameOverText
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-MOVE_FORCE = 1800
+MOVE_FORCE = 1900
 
 MODIFIER_DEFAULT = 1
 MODIFIER_SPRINT = 2
