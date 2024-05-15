@@ -14,6 +14,7 @@ class KeyPressed:
 
     def reset(self):
         """ Reset values """
+
         self.key_up = False
         self.key_right = False
         self.key_down = False
