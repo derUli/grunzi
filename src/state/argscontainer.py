@@ -1,4 +1,7 @@
+""" Args Container """
 class ArgsContainer:
+    """ This class is used as an argument container for the """
+
     def __init__(
             self,
             player=None,
@@ -15,4 +18,4 @@ class ArgsContainer:
         self.state = state
         self.map_size = map_size
         self.astar_barrier_list = astar_barrier_list
-        self.wall_spritelist
+        self.wall_spritelist = wall_spritelist
