@@ -1,9 +1,17 @@
 # Changelog
 
+## Alpha 015 (Unreleased)
+* ???
+
+## Alpha 014 (Unreleased)
+
+* map02 kann jetzt durchgespielt werden
+* UI: "Erfolg" Screen nach jedem Level
+
 ## Alpha 013 (Unreleased)
 
 * map01: Zusätzliche Bäume hinzugefügt
-* map02: Strom-Hindernis kann abgeschaltet werden
+* map02: Puzzle mit Strom-Hindernis hinzugefügt
 * Global: Gegner KI verbessert
 * UI: Menüpunkt "Online-Bestenliste" hinzugefügt
 
