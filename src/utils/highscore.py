@@ -28,3 +28,4 @@ class HighscoreStorage:
         logging.error('Submit highscore is not implemented')
 
 HighscoreStorage().fetch()
+
