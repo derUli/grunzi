@@ -1,8 +1,5 @@
 # Changelog
 
-## Alpha 015 (Unreleased)
-* UI im "Erfolg" Screen zeigt jetzt den Punktestand für das aktuelle Level und den gesamten Punktestand
-
 ## Alpha 014 (Unreleased)
 
 * UI: "Erfolg" Screen nach jedem Level
