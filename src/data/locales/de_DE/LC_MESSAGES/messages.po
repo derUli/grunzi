@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-15 00:20+0200\n"
+"POT-Creation-Date: 2024-05-15 10:19+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/ui/gameovertext.py:32 views/stats.py:59
+#: sprites/ui/gameovertext.py:32 views/highscore.py:65 views/stats.py:65
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
 
@@ -94,15 +94,19 @@ msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
 #: views/difficultyselection.py:204 views/difficultyselection.py:216
-#: views/mapselection.py:231 views/mapselection.py:243 views/pausemenu.py:141
-#: views/pausemenu.py:158
+#: views/mapselection.py:231 views/mapselection.py:243 views/pausemenu.py:157
+#: views/pausemenu.py:174
 msgid "Yes"
 msgstr "Ja"
 
 #: views/difficultyselection.py:205 views/mapselection.py:232
-#: views/pausemenu.py:142
+#: views/pausemenu.py:158
 msgid "No"
 msgstr "Nein"
+
+#: views/highscore.py:88
+msgid "No entries yet"
+msgstr "Noch keine Einträge vorhanden"
 
 #: views/mainmenu.py:42 window/launcherwindow.py:55
 msgid "Grunzi"
@@ -112,7 +116,7 @@ msgstr "Grunzi"
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:56 views/pausemenu.py:36
+#: views/mainmenu.py:56 views/pausemenu.py:37
 msgid "Continue"
 msgstr "Fortsetzen"
 
@@ -121,10 +125,11 @@ msgid "Select Map"
 msgstr "Map auswählen"
 
 #: views/mainmenu.py:68
-msgid "Statistic"
-msgstr "Statistik"
+#, fuzzy
+msgid "Highscore"
+msgstr "Punkte"
 
-#: views/mainmenu.py:74 views/pausemenu.py:42
+#: views/mainmenu.py:74 views/pausemenu.py:49
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -132,19 +137,23 @@ msgstr "Einstellungen"
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/pausemenu.py:48
+#: views/pausemenu.py:43
+msgid "Statistic"
+msgstr "Statistik"
+
+#: views/pausemenu.py:55
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/pausemenu.py:136
+#: views/pausemenu.py:152
 msgid "Leave to main menu?"
 msgstr "Zurück zum Hauptmenü?"
 
-#: views/pausemenu.py:137
+#: views/pausemenu.py:153
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
-#: views/stats.py:71
+#: views/stats.py:76
 msgid "Total Score"
 msgstr "Punkte Gesamt"
 

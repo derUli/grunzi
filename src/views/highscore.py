@@ -71,13 +71,21 @@ class Highscore(Fading):
 
         self.texts.append(press_button_text)
 
+        labels = []
+        scores = []
+
         storage = HighscoreStorage()
         storage.fetch()
 
+
+        for entry in storage.highscore:
+            labels.append(str(entry['name']))
+            scores.append(str(entry['score']).rjust(FILL_COUNT, FILL_CHAR))
+
         logging.info(storage.highscore)
 
-        labels = [_('Not implemented yet')]
-        scores = []
+        if len(labels) == 0:
+            labels.append(_('No entries yet'))
 
         # for score in self.savegame.score.values():
         #    scores.append(str(score).rjust(FILL_COUNT, FILL_CHAR))
