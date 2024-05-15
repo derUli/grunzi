@@ -10,7 +10,8 @@ class ArgsContainer:
             state=None,
             map_size=None,
             astar_barrier_list=None,
-            wall_spritelist=None
+            wall_spritelist=None,
+            callbacks=None
     ):
         self.player = player
         self.scene = scene
@@ -19,3 +20,4 @@ class ArgsContainer:
         self.map_size = map_size
         self.astar_barrier_list = astar_barrier_list
         self.wall_spritelist = wall_spritelist
+        self.callbacks = callbacks

@@ -752,7 +752,8 @@ class Game(Fading):
             state=self.state,
             map_size=self.tilemap.size,
             astar_barrier_list=self.astar_barrier_list,
-            wall_spritelist=self.wall_spritelist
+            wall_spritelist=self.wall_spritelist,
+            callbacks=CallbackHandler(on_complete=self.on_next_level)
         )
 
         for sprite_list in self.scene.sprite_lists:
