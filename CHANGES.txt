@@ -5,6 +5,7 @@
 * map01: Zusätzliche Bäume hinzugefügt
 * map02: Strom-Hindernis kann abgeschaltet werden
 * Global: Gegner KI verbessert
+* UI: Menüpunkt "Online-Bestenliste" hinzugefügt
 
 ## Alpha 012 (17.05.2024)
 
