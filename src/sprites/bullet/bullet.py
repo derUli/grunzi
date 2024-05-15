@@ -10,12 +10,13 @@ from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WA
 from constants.layers import LAYER_NPC
 from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
+from sprites.sprite import AbstractSprite
 from utils.physics import on_hit_destroy
 
 HURT_DEFAULT = 20
 HURT_CHICKEN = 35
 
-MASS = 0.1
+MASS = 0.05
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
@@ -28,7 +29,7 @@ SCORE_HURT_CHICKEN = 25
 SCORE_HURT_SKULL = 50
 
 
-class Bullet(arcade.sprite.SpriteCircle):
+class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
     def __init__(
             self,
             radius,
@@ -45,10 +46,11 @@ class Bullet(arcade.sprite.SpriteCircle):
         self.created_at = time.time()
         self.state = None
 
-    def draw_debug(self):
-        pass
-
-    def draw_overlay(self):
+    def update(
+            self,
+            delta_time,
+            args
+    ):
         if time.time() >= self.created_at + DESTROY_TIME:
             logging.debug('Remove bullet from scene')
             self.remove_from_sprite_lists()

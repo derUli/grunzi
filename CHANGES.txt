@@ -5,13 +5,13 @@
 
 ## Alpha 014 (Unreleased)
 
-* map02 kann jetzt durchgespielt werden
 * UI: "Erfolg" Screen nach jedem Level
 
 ## Alpha 013 (Unreleased)
 
 * map01: Zusätzliche Bäume hinzugefügt
 * map02: Puzzle mit Strom-Hindernis hinzugefügt
+* map02 kann jetzt durchgespielt werden
 * Global: Gegner KI verbessert
 * UI: Menüpunkt "Online-Bestenliste" hinzugefügt
 

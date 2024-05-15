@@ -28,12 +28,6 @@ class Grunt(arcade.sprite.SpriteCircle, Character):
         self.sound = None
         self.alpha = 0
 
-    def draw_debug(self):
-        pass
-
-    def draw_overlay(self):
-        pass
-
     def update(
             self,
             delta_time,
