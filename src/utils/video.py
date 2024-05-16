@@ -3,14 +3,10 @@ import logging
 import os
 import shutil
 
-from utils.text import label_value
-
-try:
-    from pyvidplayer2 import VideoPyglet
-except Exception as e:
-    logging.error(e)
+from pyvidplayer2 import VideoPyglet
 
 from utils.path import is_windows
+from utils.text import label_value
 
 
 def has_ffmpeg() -> bool:
