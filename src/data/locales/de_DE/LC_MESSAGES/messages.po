@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-15 11:46+0200\n"
+"POT-Creation-Date: 2024-05-17 21:09+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: sprites/ui/gameovertext.py:32 views/highscore.py:65 views/stats.py:65
+#: sprites/ui/gameovertext.py:32 views/highscore.py:66 views/stats.py:65
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
 
@@ -94,13 +94,13 @@ msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
 #: views/difficultyselection.py:204 views/difficultyselection.py:216
-#: views/mapselection.py:231 views/mapselection.py:243 views/pausemenu.py:157
-#: views/pausemenu.py:174
+#: views/mapselection.py:231 views/mapselection.py:243 views/pausemenu.py:156
+#: views/pausemenu.py:173
 msgid "Yes"
 msgstr "Ja"
 
 #: views/difficultyselection.py:205 views/mapselection.py:232
-#: views/pausemenu.py:158
+#: views/pausemenu.py:157
 msgid "No"
 msgstr "Nein"
 
@@ -108,7 +108,7 @@ msgstr "Nein"
 msgid "No entries yet"
 msgstr "Noch keine Einträge vorhanden"
 
-#: views/mainmenu.py:42 window/launcherwindow.py:55
+#: views/mainmenu.py:42 window/launcherwindow.py:57
 msgid "Grunzi"
 msgstr "Grunzi"
 
@@ -116,7 +116,7 @@ msgstr "Grunzi"
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:56 views/pausemenu.py:37
+#: views/mainmenu.py:56 views/pausemenu.py:36
 msgid "Continue"
 msgstr "Fortsetzen"
 
@@ -128,7 +128,7 @@ msgstr "Map auswählen"
 msgid "Online Highscore"
 msgstr "Online-Bestenliste"
 
-#: views/mainmenu.py:74 views/pausemenu.py:49
+#: views/mainmenu.py:74 views/pausemenu.py:48
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -136,19 +136,19 @@ msgstr "Einstellungen"
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/pausemenu.py:43
+#: views/pausemenu.py:42
 msgid "Statistic"
 msgstr "Statistik"
 
-#: views/pausemenu.py:55
+#: views/pausemenu.py:54
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/pausemenu.py:152
+#: views/pausemenu.py:151
 msgid "Leave to main menu?"
 msgstr "Zurück zum Hauptmenü?"
 
-#: views/pausemenu.py:153
+#: views/pausemenu.py:152
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
@@ -156,7 +156,7 @@ msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 msgid "Total Score"
 msgstr "Punkte Gesamt"
 
-#: views/view.py:129
+#: views/view.py:128
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
@@ -313,15 +313,15 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsmenu.py:58 window/launcherwindow.py:82
+#: views/settings/settingsmenu.py:58 window/launcherwindow.py:87
 msgid "Display"
 msgstr "Bildschirm"
 
-#: views/settings/settingsmenu.py:65 window/launcherwindow.py:83
+#: views/settings/settingsmenu.py:65 window/launcherwindow.py:88
 msgid "Graphics"
 msgstr "Grafik"
 
-#: views/settings/settingsmenu.py:72 window/launcherwindow.py:84
+#: views/settings/settingsmenu.py:72 window/launcherwindow.py:89
 msgid "Audio"
 msgstr "Audio"
 
@@ -329,91 +329,104 @@ msgstr "Audio"
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/video/settingsdisplay.py:59 window/launcherwindow.py:102
+#: views/settings/video/settingsdisplay.py:59 window/launcherwindow.py:107
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/video/settingsdisplay.py:71 window/launcherwindow.py:122
+#: views/settings/video/settingsdisplay.py:71 window/launcherwindow.py:127
 msgid "V-Sync"
 msgstr ""
 
-#: views/settings/video/settingsgraphics.py:64 window/launcherwindow.py:168
+#: views/settings/video/settingsgraphics.py:64 window/launcherwindow.py:188
 msgid "Traffic"
 msgstr "Verkehr"
 
-#: views/settings/video/settingsgraphics.py:75 window/launcherwindow.py:175
+#: views/settings/video/settingsgraphics.py:75 window/launcherwindow.py:195
 msgid "Animated Sky"
 msgstr "Animierter Himmel"
 
-#: views/settings/video/settingsgraphics.py:86 window/launcherwindow.py:187
+#: views/settings/video/settingsgraphics.py:86 window/launcherwindow.py:207
 msgid "Videos"
 msgstr "Videos"
 
-#: window/launcherwindow.py:87
-msgid "Screen resolution"
-msgstr "Bildschirmauflösung"
-
-#: window/launcherwindow.py:111
-msgid "Borderless"
-msgstr "Rahmenlos"
-
-#: window/launcherwindow.py:128
-msgid "Graphics Details"
-msgstr "Grafik Details"
-
-#: window/launcherwindow.py:135
-msgid "Low"
-msgstr "Niedrig"
-
-#: window/launcherwindow.py:141
+#: window/launcherwindow.py:46 window/launcherwindow.py:146
+#: window/launcherwindow.py:390
 msgid "Medium"
 msgstr "Mittel"
 
-#: window/launcherwindow.py:147
+#: window/launcherwindow.py:92
+msgid "Screen resolution"
+msgstr "Bildschirmauflösung"
+
+#: window/launcherwindow.py:116
+msgid "Borderless"
+msgstr "Rahmenlos"
+
+#: window/launcherwindow.py:133
+msgid "Graphics Details"
+msgstr "Grafik Details"
+
+#: window/launcherwindow.py:140 window/launcherwindow.py:389
+msgid "Low"
+msgstr "Niedrig"
+
+#: window/launcherwindow.py:152 window/launcherwindow.py:391
 msgid "High"
 msgstr "Hoch"
 
-#: window/launcherwindow.py:154 window/launcherwindow.py:161
+#: window/launcherwindow.py:158
+msgid "Antialiasing"
+msgstr "Kantenglättung"
+
+#: window/launcherwindow.py:174 window/launcherwindow.py:181
 msgid "Shaders"
 msgstr "Shader"
 
-#: window/launcherwindow.py:194
+#: window/launcherwindow.py:214
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:208
+#: window/launcherwindow.py:228
 msgid "Launch Game"
 msgstr "Spiel starten"
 
-#: window/launcherwindow.py:296
+#: window/launcherwindow.py:317
 msgid "Error"
 msgstr "Fehler"
 
-#: window/launcherwindow.py:296
+#: window/launcherwindow.py:317
 msgid "Unable to apply the settings."
 msgstr "Anwenden der Einstellungen fehlgeschlagen."
 
-#: window/launcherwindow.py:306
+#: window/launcherwindow.py:331
 msgid "Success"
 msgstr "Erfolg"
 
-#: window/launcherwindow.py:306
+#: window/launcherwindow.py:331
 msgid "The settings have been set."
 msgstr "Die Einstellungen wurden gesetzt."
 
-#: window/launcherwindow.py:310
+#: window/launcherwindow.py:335
 msgid "Question"
 msgstr "Frage"
 
-#: window/launcherwindow.py:314
+#: window/launcherwindow.py:339
 msgid "You start the game for the first time."
 msgstr "Sie starten das Spiel zum ersten Mal."
 
-#: window/launcherwindow.py:315
+#: window/launcherwindow.py:340
 msgid ""
 "Would you like to automatically set the best graphics settings for your "
 "system?"
 msgstr ""
 "Möchten Sie automatisch die besten Grafikeinstellungen für Ihr System "
 "festlegen?"
+
+#: window/launcherwindow.py:379 window/launcherwindow.py:388
+msgid "Off"
+msgstr ""
+
+#: window/launcherwindow.py:392
+msgid "Very High"
+msgstr "Sehr Hoch"
 

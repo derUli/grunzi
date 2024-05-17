@@ -222,13 +222,17 @@ class StartUp:
         logging.info(label_value('Arguments', args))
         logging.info(label_value('Pyglet options', pyglet.options))
 
+        settings = SettingsState.load()
+
         window = GameWindow(
             args.window,
             args.width,
             args.height,
             vsync=not args.no_vsync,
             draw_rate=args.limit_fps,
-            borderless=args.borderless
+            borderless=args.borderless,
+            antialiasing=settings.antialiasing > 0,
+            samples=settings.antialiasing
         )
 
         log_hardware_info(window)

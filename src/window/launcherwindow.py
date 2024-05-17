@@ -43,6 +43,8 @@ class LauncherWindow(ThemedTk):
         self.shaders = tk.BooleanVar(value=true_val)
         self.videos = tk.BooleanVar(value=true_val)
 
+        self.antialiasing = tk.StringVar(value=_('Medium'))
+
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
         self.confirmed = False
@@ -62,10 +64,13 @@ class LauncherWindow(ThemedTk):
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
             self.borderless.set(self.state.borderless)
+            self.antialiasing.set(self.value_to_selected_antialiasing(self.state.antialiasing))
+
             self.sky.set(self.state.sky)
             self.traffic.set(self.state.traffic)
             self.shaders.set(self.state.shaders)
             self.videos.set(self.state.videos)
+
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
                 value=str(w) + 'x' + str(h)
@@ -133,24 +138,39 @@ class LauncherWindow(ThemedTk):
         )
 
         ttk.Button(tab_graphics, text=_('Low'), command=self.on_low).grid(
-            row=1,
+            row=0,
             column=0,
             pady=SPACE_BETWEEN * 2
         )
 
         ttk.Button(tab_graphics, text=_('Medium'), command=self.on_medium).grid(
-            row=1,
+            row=0,
             column=1,
             pady=SPACE_BETWEEN * 2
         )
 
         ttk.Button(tab_graphics, text=_('High'), command=self.on_high).grid(
-            row=1,
+            row=0,
             column=2,
             pady=SPACE_BETWEEN * 2
         )
 
-        ttk.Checkbutton(tab_graphics,
+        ttk.Label(tab_graphics, text=_('Antialiasing') + ' ').grid(
+            row=1,
+            column=0,
+            padx=SPACE_BETWEEN,
+            pady=SPACE_BETWEEN
+        )
+
+        ttk.Combobox(
+            tab_graphics,
+            values=list(self.antialiasing_dropdown_items().keys()),
+            textvariable=self.antialiasing,
+            state='readonly'
+        ).grid(row=1, column=1, pady=SPACE_BETWEEN)
+
+        ttk.Checkbutton(
+            tab_graphics,
                         text=_('Shaders'),
                         variable=self.shaders,
                         onvalue=True,
@@ -241,6 +261,7 @@ class LauncherWindow(ThemedTk):
         self.state.fullscreen = self.fullscreen.get()
         self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
+        self.state.antialiasing = self.text_to_selected_antialiasing(self.antialiasing.get())
         self.state.sky = self.sky.get()
         self.state.traffic = self.traffic.get()
         self.state.shaders = self.shaders.get()
@@ -303,6 +324,10 @@ class LauncherWindow(ThemedTk):
         self.sky.set(settings['sky'])
         self.videos.set(settings['videos'])
 
+        self.antialiasing.set(
+            self.value_to_selected_antialiasing(settings['antialiasing'])
+        )
+
         messagebox.showinfo(_('Success'), _('The settings have been set.'))
 
     def ask_for_autodetect_settings(self) -> bool:
@@ -342,3 +367,27 @@ class LauncherWindow(ThemedTk):
                 settings = f.read().strip()
 
         self.apply_preset(settings)
+
+
+    def value_to_selected_antialiasing(self, value):
+        items = self.antialiasing_dropdown_items()
+
+        for key in items:
+            if items[key] == value:
+                return key
+
+        return _('Off')
+
+    def text_to_selected_antialiasing(self, key):
+        items = self.antialiasing_dropdown_items()
+        return items[key]
+
+    def antialiasing_dropdown_items(self):
+
+        return {
+            _('Off'): 0,
+            _('Low'): 2,
+            _('Medium'): 4,
+            _('High'): 8,
+            _('Very High'): 16
+        }

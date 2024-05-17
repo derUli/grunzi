@@ -13,19 +13,22 @@ SETTINGS_PRESETS = {
         'shaders': False,
         'traffic': False,
         'sky': False,
-        'videos': False
+        'videos': False,
+        'antialiasing': 0
     },
     SETTINGS_MEDIUM: {
         'shaders': False,
         'traffic': True,
         'sky': True,
-        'videos': True
+        'videos': True,
+        'antialiasing': 4
     },
     SETTINGS_HIGH: {
         'shaders': True,
         'traffic': True,
         'sky': True,
         'videos': True,
-        'screen_resolution': True
+        'screen_resolution': True,
+        'antialiasing': 16
     }
 }

@@ -25,7 +25,9 @@ class GameWindow(arcade.Window):
             update_rate=UPDATE_RATE,
             draw_rate=UNLIMITED_FRAMERATE,
             vsync=False,
-            borderless=False
+            borderless=False,
+            antialiasing=True,
+            samples=0
     ):
         default_screen = pyglet.canvas.get_display().get_default_screen()
         native_mode = default_screen.get_mode()
@@ -51,7 +53,9 @@ class GameWindow(arcade.Window):
             center_window=True,
             style=style,
             vsync=vsync,
-            gc_mode='auto'
+            gc_mode='auto',
+            antialiasing=antialiasing,
+            samples=samples
         )
 
         self.set_fullscreen(not window)
