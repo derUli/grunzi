@@ -5,6 +5,7 @@ from arcade import Scene
 import sprites.decoration.car
 from sprites.characters.duck import Duck
 from sprites.decoration.cloud import Cloud
+from sprites.decoration.river import River
 from sprites.decoration.sun import Sun
 from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
@@ -52,6 +53,7 @@ LAYER_SUN = 'Sun'
 LAYER_ELECTRIC = 'Electric'
 LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
 LAYER_LEVEL_EXIT = 'LevelExit'
+LAYER_RIVER = 'River'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -68,7 +70,8 @@ ALL_LAYERS = [
     LAYER_SUN,
     LAYER_ELECTRIC,
     LAYER_ELECTRIC_SWITCH,
-    LAYER_LEVEL_EXIT
+    LAYER_LEVEL_EXIT,
+    LAYER_RIVER
 ]
 
 WALL_LAYERS = [
@@ -77,7 +80,8 @@ WALL_LAYERS = [
     LAYER_JEEP,
     LAYER_WATER,
     LAYER_SKY,
-    LAYER_TREE
+    LAYER_TREE,
+    LAYER_RIVER
 ]
 
 SKY_LAYERS = [
@@ -161,6 +165,9 @@ LAYER_OPTIONS = {
     },
     LAYER_LEVEL_EXIT: {
         'custom_class': LevelExit
+    },
+    LAYER_RIVER: {
+        'custom_class': River
     }
 }
 

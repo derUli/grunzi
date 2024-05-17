@@ -15,7 +15,7 @@ from constants.layers import (
     LAYER_WATER,
     LAYER_TREE,
     LAYER_DUCK,
-    LAYER_SKY
+    LAYER_SKY, LAYER_RIVER
 )
 from sprites.characters.player import Player
 
@@ -71,7 +71,8 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
         LAYER_TREE,
         LAYER_JEEP,
         LAYER_WATER,
-        LAYER_SKY
+        LAYER_SKY,
+        LAYER_RIVER
     ]
 
     for layer in wall_layers:

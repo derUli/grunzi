@@ -1,9 +1,9 @@
 from sprites.sprite import Sprite
 
-MOVE_SPEED = 0.25
+MOVE_SPEED = 5
 
 
-class Cloud(Sprite):
+class River(Sprite):
     def update(
             self,
             delta_time,
@@ -15,4 +15,3 @@ class Cloud(Sprite):
 
         if self.right <= 0:
             self.right = w - abs(self.right)
-
