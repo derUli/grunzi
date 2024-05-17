@@ -137,7 +137,6 @@ class Player(Character, SpriteHealth):
             self.set_face(FACE_UP)
 
         if self.item:
-            self.item.alpha = PLACE_ITEM_ALPHA
             if self.face == FACE_RIGHT:
                 self.item.left = self.right + INVENTORY_MARGIN
                 self.item.center_y = self.center_y
@@ -162,6 +161,7 @@ class Player(Character, SpriteHealth):
 
                 self.item.top = top
 
+            self.item.alpha = PLACE_ITEM_ALPHA
             self.item.draw_item(self.face)
 
     def draw_overlay(self):
@@ -189,7 +189,7 @@ class Player(Character, SpriteHealth):
 
     def set_item(self, item):
         if self.item:
-            self.item.alpha = 255
+            self.item.alpha = 0
 
             if item is None:
                 self.item.remove_from_sprite_lists()
