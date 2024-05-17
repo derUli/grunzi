@@ -145,9 +145,10 @@ class MainMenu(Fading):
         ]
 
         if SaveGameState.exists():
-            widgets += [continue_button, select_map_button, highscore_button]
+            widgets += [continue_button, select_map_button]
 
         widgets += [
+            highscore_button,
             options_button,
             quit_button
         ]
