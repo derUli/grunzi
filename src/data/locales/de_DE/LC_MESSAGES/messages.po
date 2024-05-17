@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-17 21:09+0200\n"
+"POT-Creation-Date: 2024-05-17 23:43+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -337,20 +337,19 @@ msgstr "Vollbild"
 msgid "V-Sync"
 msgstr ""
 
-#: views/settings/video/settingsgraphics.py:64 window/launcherwindow.py:188
+#: views/settings/video/settingsgraphics.py:64 window/launcherwindow.py:157
 msgid "Traffic"
 msgstr "Verkehr"
 
-#: views/settings/video/settingsgraphics.py:75 window/launcherwindow.py:195
+#: views/settings/video/settingsgraphics.py:75 window/launcherwindow.py:165
 msgid "Animated Sky"
 msgstr "Animierter Himmel"
 
-#: views/settings/video/settingsgraphics.py:86 window/launcherwindow.py:207
+#: views/settings/video/settingsgraphics.py:86 window/launcherwindow.py:178
 msgid "Videos"
 msgstr "Videos"
 
-#: window/launcherwindow.py:46 window/launcherwindow.py:146
-#: window/launcherwindow.py:390
+#: window/launcherwindow.py:46 window/launcherwindow.py:351
 msgid "Medium"
 msgstr "Mittel"
 
@@ -363,58 +362,46 @@ msgid "Borderless"
 msgstr "Rahmenlos"
 
 #: window/launcherwindow.py:133
-msgid "Graphics Details"
-msgstr "Grafik Details"
-
-#: window/launcherwindow.py:140 window/launcherwindow.py:389
-msgid "Low"
-msgstr "Niedrig"
-
-#: window/launcherwindow.py:152 window/launcherwindow.py:391
-msgid "High"
-msgstr "Hoch"
-
-#: window/launcherwindow.py:158
 msgid "Antialiasing"
 msgstr "Kantenglättung"
 
-#: window/launcherwindow.py:174 window/launcherwindow.py:181
+#: window/launcherwindow.py:149
 msgid "Shaders"
 msgstr "Shader"
 
-#: window/launcherwindow.py:214
+#: window/launcherwindow.py:185
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:228
+#: window/launcherwindow.py:199
 msgid "Launch Game"
 msgstr "Spiel starten"
 
-#: window/launcherwindow.py:317
+#: window/launcherwindow.py:279
 msgid "Error"
 msgstr "Fehler"
 
-#: window/launcherwindow.py:317
+#: window/launcherwindow.py:279
 msgid "Unable to apply the settings."
 msgstr "Anwenden der Einstellungen fehlgeschlagen."
 
-#: window/launcherwindow.py:331
+#: window/launcherwindow.py:293
 msgid "Success"
 msgstr "Erfolg"
 
-#: window/launcherwindow.py:331
+#: window/launcherwindow.py:293
 msgid "The settings have been set."
 msgstr "Die Einstellungen wurden gesetzt."
 
-#: window/launcherwindow.py:335
+#: window/launcherwindow.py:297
 msgid "Question"
 msgstr "Frage"
 
-#: window/launcherwindow.py:339
+#: window/launcherwindow.py:301
 msgid "You start the game for the first time."
 msgstr "Sie starten das Spiel zum ersten Mal."
 
-#: window/launcherwindow.py:340
+#: window/launcherwindow.py:302
 msgid ""
 "Would you like to automatically set the best graphics settings for your "
 "system?"
@@ -422,11 +409,22 @@ msgstr ""
 "Möchten Sie automatisch die besten Grafikeinstellungen für Ihr System "
 "festlegen?"
 
-#: window/launcherwindow.py:379 window/launcherwindow.py:388
+#: window/launcherwindow.py:340 window/launcherwindow.py:349
 msgid "Off"
-msgstr ""
+msgstr "Aus"
 
-#: window/launcherwindow.py:392
+#: window/launcherwindow.py:350
+msgid "Low"
+msgstr "Niedrig"
+
+#: window/launcherwindow.py:352
+msgid "High"
+msgstr "Hoch"
+
+#: window/launcherwindow.py:353
 msgid "Very High"
 msgstr "Sehr Hoch"
+
+#~ msgid "Graphics Details"
+#~ msgstr "Grafik Details"
 

@@ -10,7 +10,6 @@ from shell import shell
 from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
-from constants.settings import SETTINGS_LOW, SETTINGS_MEDIUM, SETTINGS_HIGH, SETTINGS_PRESETS, SETTINGS_ALL
 from state.settingsstate import SettingsState
 from utils.path import is_windows, get_autodetect_path
 from utils.screen import supported_screen_resolutions
@@ -130,33 +129,8 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
-        ttk.Label(tab_graphics, text=_('Graphics Details') + ' ').grid(
-            row=0,
-            column=0,
-            padx=SPACE_BETWEEN,
-            pady=SPACE_BETWEEN
-        )
-
-        ttk.Button(tab_graphics, text=_('Low'), command=self.on_low).grid(
-            row=0,
-            column=0,
-            pady=SPACE_BETWEEN * 2
-        )
-
-        ttk.Button(tab_graphics, text=_('Medium'), command=self.on_medium).grid(
-            row=0,
-            column=1,
-            pady=SPACE_BETWEEN * 2
-        )
-
-        ttk.Button(tab_graphics, text=_('High'), command=self.on_high).grid(
-            row=0,
-            column=2,
-            pady=SPACE_BETWEEN * 2
-        )
-
         ttk.Label(tab_graphics, text=_('Antialiasing') + ' ').grid(
-            row=1,
+            row=0,
             column=0,
             padx=SPACE_BETWEEN,
             pady=SPACE_BETWEEN
@@ -167,49 +141,45 @@ class LauncherWindow(ThemedTk):
             values=list(self.antialiasing_dropdown_items().keys()),
             textvariable=self.antialiasing,
             state='readonly'
-        ).grid(row=1, column=1, pady=SPACE_BETWEEN)
+        ).grid(row=0, column=1, pady=SPACE_BETWEEN)
 
         ttk.Checkbutton(
             tab_graphics,
-                        text=_('Shaders'),
-                        variable=self.shaders,
-                        onvalue=True,
-                        offvalue=False,
-                        ).grid(row=2, column=1, pady=SPACE_BETWEEN, sticky='nw')
+            text=_('Shaders'),
+            variable=self.shaders,
+            onvalue=True,
+            offvalue=False,
+        ).grid(row=1, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
-        ttk.Checkbutton(tab_graphics,
-                        text=_('Shaders'),
-                        variable=self.shaders,
-                        onvalue=True,
-                        offvalue=False,
-                        ).grid(row=2, column=1, pady=SPACE_BETWEEN, sticky='nw')
+        ttk.Checkbutton(
+            tab_graphics,
+            text=_('Traffic'),
+            variable=self.traffic,
+            onvalue=True,
+            offvalue=False
+        ).grid(row=2, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
-        ttk.Checkbutton(tab_graphics,
-                        text=_('Traffic'),
-                        variable=self.traffic,
-                        onvalue=True,
-                        offvalue=False
-                        ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
-
-        ttk.Checkbutton(tab_graphics,
-                        text=_('Animated Sky'),
-                        variable=self.sky,
-                        onvalue=True,
-                        offvalue=False
-                        ).grid(row=4, column=1, sticky='nw')
+        ttk.Checkbutton(
+            tab_graphics,
+            text=_('Animated Sky'),
+            variable=self.sky,
+            onvalue=True,
+            offvalue=False
+        ).grid(row=3, column=1, sticky='nw')
 
         videos_state = tk.NORMAL
 
         if not is_windows():
             videos_state = tk.DISABLED
 
-        ttk.Checkbutton(tab_graphics,
-                        text=_('Videos'),
-                        variable=self.videos,
-                        onvalue=True,
-                        offvalue=False,
-                        state=videos_state
-                        ).grid(row=5, column=1, sticky='nw')
+        ttk.Checkbutton(
+            tab_graphics,
+            text=_('Videos'),
+            variable=self.videos,
+            onvalue=True,
+            offvalue=False,
+            state=videos_state
+        ).grid(row=4, column=1, sticky='nw')
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
@@ -232,10 +202,6 @@ class LauncherWindow(ThemedTk):
         self.eval('tk::PlaceWindow . center')
         self.resizable(False, False)
         button_launch.focus_set()
-
-        if not self.state.first_start:
-            if self.ask_for_autodetect_settings():
-                self.autodetect_settings()
 
     def bind_keyevents(self) -> None:
         """ Bind keyboard events"""
@@ -303,46 +269,6 @@ class LauncherWindow(ThemedTk):
         else:
             self.borderless_check.configure(state='enabled')
 
-    def on_low(self, event=None):
-        self.apply_preset(SETTINGS_LOW)
-
-    def on_medium(self, event=None):
-        self.apply_preset(SETTINGS_MEDIUM)
-
-    def on_high(self, event=None):
-        self.apply_preset(SETTINGS_HIGH)
-
-    def apply_preset(self, setting):
-        if setting not in SETTINGS_ALL:
-            messagebox.showinfo(_('Error'), _('Unable to apply the settings.'))
-            return
-
-        settings = SETTINGS_PRESETS[setting]
-
-        self.shaders.set(settings['shaders'])
-        self.traffic.set(settings['traffic'])
-        self.sky.set(settings['sky'])
-        self.videos.set(settings['videos'])
-
-        self.antialiasing.set(
-            self.value_to_selected_antialiasing(settings['antialiasing'])
-        )
-
-        messagebox.showinfo(_('Success'), _('The settings have been set.'))
-
-    def ask_for_autodetect_settings(self) -> bool:
-        return messagebox.askyesno(
-            title=_('Question'),
-            message=
-            "\n".join(
-                [
-                    _("You start the game for the first time."),
-                    _("Would you like to automatically set the best graphics settings for your system?")
-                ]
-            )
-
-        )
-
     def autodetect_settings(self):
         screen_resolutions = supported_screen_resolutions()
         screen_resolutions = screen_resolutions[-1:]
@@ -367,7 +293,6 @@ class LauncherWindow(ThemedTk):
                 settings = f.read().strip()
 
         self.apply_preset(settings)
-
 
     def value_to_selected_antialiasing(self, value):
         items = self.antialiasing_dropdown_items()

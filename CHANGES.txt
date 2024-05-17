@@ -12,6 +12,7 @@
 * Global: Gegner KI verbessert
 * UI: Menüpunkt "Online-Bestenliste" hinzugefügt
 * UI: Grafikeinstellung "Antialiasing" hinzugefügt
+* UI: Grafikpresets wieder entfernt
 
 ## Alpha 012 (17.05.2024)
 
