@@ -11,6 +11,7 @@
 * map02 kann jetzt durchgespielt werden
 * Global: Gegner KI verbessert
 * UI: Menüpunkt "Online-Bestenliste" hinzugefügt
+* UI: Grafikeinstellung "Antialiasing" hinzugefügt
 
 ## Alpha 012 (17.05.2024)
 
