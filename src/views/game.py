@@ -8,8 +8,6 @@ import logging
 import os
 import random
 import threading
-
-import numpy
 import time
 
 import pyglet.clock
@@ -262,7 +260,7 @@ class Game(Fading):
 
         # Sleep some seconds to wait until the 100 Percent is shown
         while not self.ui.loading_screen.completed:
-            time.sleep(0.05)
+            time.sleep(0.01)
 
         self.ui.loading_screen.show = False
 
