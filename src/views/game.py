@@ -1,9 +1,3 @@
-"""
-Platformer Template
-
-If Python and Arcade are installed, this example can be run from the command line with:
-python -m arcade.examples.template_platformer
-"""
 import logging
 import os
 import random
