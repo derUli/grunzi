@@ -167,12 +167,10 @@ class Game(Fading):
 
         # Read in the tiled map
         try:
-            start1 = time.time()
             self.tilemap = TileMap(
                 map_name,
                 layer_options=LAYER_OPTIONS
             )
-            print(time.time() - start1)
         except FileNotFoundError as e:
             logging.error(e)
             return arcade.exit()
