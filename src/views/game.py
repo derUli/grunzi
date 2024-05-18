@@ -7,7 +7,7 @@ python -m arcade.examples.template_platformer
 import logging
 import os
 import random
-import threading
+import numpy
 import time
 
 import pyglet.clock
@@ -126,27 +126,31 @@ class Game(Fading):
     def setup(self) -> None:
         """ Setup game """
 
-        video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
+        avg = []
 
-        self.video = None
+        for i in range(1, 2):
+            a = time.time()
+            self.async_load()
+            b = time.time() - a
+            avg.append(b)
 
-        if not self.skip_intro and self.state.settings.videos:
-            self.video = load_video(
-                video_file,
-                self.window.size,
-                self.state.settings.music_volume
-            )
+        print("AVG: " + str(numpy.mean(avg)))
+        print("MIN: " + str(numpy.min(avg)))
+        print("MAX: " + str(numpy.max(avg)))
+        print("SUM: " + str(numpy.sum(avg)))
 
-        self.ui = UIContainer()
-        self.ui.setup(self.state, self.window.size)
+        self.ui.loading_screen._display_percentage = 100
 
         # Load map
-        threading.Thread(target=self.async_load).start()
+        #threading.Thread(target=self.async_load).start()
 
     def async_load(self) -> None:
         """ Async load map """
 
         start_time = time.time()
+
+        self.ui = UIContainer()
+        self.ui.setup(self.state, self.window.size)
 
         self.ui.loading_screen.show = True
 
