@@ -1,4 +1,5 @@
 """ GUI utils """
+
 import PIL
 import arcade
 from arcade import Texture

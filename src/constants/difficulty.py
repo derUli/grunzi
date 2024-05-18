@@ -1,4 +1,5 @@
 """ Difficulty constants """
+
 import json
 import os
 

@@ -1,3 +1,5 @@
+""" Online Highscore """
+
 import json
 import logging
 from urllib.error import URLError
@@ -6,6 +8,9 @@ from urllib.request import urlopen
 
 class HighscoreStorage:
     def __init__(self):
+        """
+        Constructor
+        """
         self.url = 'https://grunzi.ulidots.de/highscore.php'
         self.highscore = [{
             'name': 'Timo Sofia',
@@ -29,8 +34,8 @@ class HighscoreStorage:
             logging.error(e)
             return False
 
-    def submit(self):
-        logging.error('Submit highscore is not implemented')
+    def submit(self, name, score):
+        logging.error('Submit highscore is implemented yet')
 
 
 HighscoreStorage().fetch()
