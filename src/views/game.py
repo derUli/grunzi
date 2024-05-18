@@ -141,10 +141,9 @@ class Game(Fading):
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
 
-
         avg = []
 
-        for i in range(1, 10):
+        for i in range(1, 50):
             a = time.time()
             self.async_load()
             b = time.time() - a

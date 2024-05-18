@@ -121,7 +121,7 @@ LAYER_OPTIONS = {
         'custom_class': Beach
     },
     LAYER_CAR_RIGHT: {
-        'custom_class': sprites.decoration.car.CarRight
+        'custom_class': sprites.decoration.car.CarRight,
     },
     LAYER_CAR_LEFT: {
         'custom_class': sprites.decoration.car.CarLeft
@@ -142,13 +142,13 @@ LAYER_OPTIONS = {
         'custom_class': Chainsaw
     },
     LAYER_TREE: {
-        'custom_class': Tree
+        'custom_class': Tree,
     },
     LAYER_JEEP: {
         'custom_class': Jeep
     },
     LAYER_WATER: {
-        'custom_class': Water
+        'custom_class': Water,
     },
     LAYER_DUCK: {
         'custom_class': Duck
