@@ -128,7 +128,7 @@ class Game(Fading):
 
         avg = []
 
-        for i in range(1, 2):
+        for i in range(0, 1):
             a = time.time()
             self.async_load()
             b = time.time() - a
@@ -262,8 +262,8 @@ class Game(Fading):
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
 
         # Sleep some seconds to wait until the 100 Percent is shown
-        while not self.ui.loading_screen.completed:
-            time.sleep(0.05)
+        #while not self.ui.loading_screen.completed:
+        #    time.sleep(0.05)
 
         self.ui.loading_screen.show = False
 
