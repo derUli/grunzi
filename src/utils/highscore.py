@@ -12,10 +12,11 @@ class HighscoreStorage:
         Constructor
         """
         self.url = 'https://grunzi.ulidots.de/highscore.php'
-        self.highscore = [{
-            'name': 'Timo Sofia',
-            'score': 0
-        }
+        self.highscore = [
+            # {
+            # 'name': 'Timo Sofia',
+            # 'score': 0
+            # }
         ]
 
     def fetch(self) -> bool:

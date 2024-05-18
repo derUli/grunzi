@@ -50,12 +50,16 @@ class PositionalSound:
             self.player.volume = volume
 
     def pause(self):
+        """ Pause sound """
+
         if not self.player:
             return
 
         self.player.pause()
 
     def play(self):
+        """ Play sound """
+
         if not self.player:
             return
 
@@ -67,6 +71,7 @@ class PositionalSound:
 
     @property
     def playing(self):
+        """ Check if sound is playing """
         if not self.player:
             return False
 
