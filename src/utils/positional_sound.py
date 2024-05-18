@@ -1,4 +1,5 @@
 """ Positional sound """
+
 import logging
 
 import arcade
@@ -21,7 +22,7 @@ class PositionalSound:
         if self.player:
             self.player.volume = 0
 
-    def update(self, init=False):
+    def update(self, init: bool = False):
         if not self.player:
             return
 
