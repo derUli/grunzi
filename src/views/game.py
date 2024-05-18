@@ -128,6 +128,7 @@ class Game(Fading):
     def setup(self) -> None:
         """ Setup game """
 
+        self.initialized = False
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
         self.video = None
@@ -260,8 +261,8 @@ class Game(Fading):
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
 
         # Sleep some seconds to wait until the 100 Percent is shown
-        #while not self.ui.loading_screen.completed:
-        #    time.sleep(0.05)
+        while not self.ui.loading_screen.completed:
+            time.sleep(0.05)
 
         self.ui.loading_screen.show = False
 
