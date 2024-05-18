@@ -37,6 +37,7 @@ COLOR_BLOOD = (156, 28, 28)
 
 
 DEFAULT_BULLET_SIZE = 6
+BULLET_DECREMENTOR = 0.33
 
 class Player(Character, SpriteHealth):
     def __init__(
@@ -70,7 +71,7 @@ class Player(Character, SpriteHealth):
 
         self.gameover_text = None
 
-        self._bullet_size = 6
+        self._bullet_size = DEFAULT_BULLET_SIZE
 
     def setup(self, state, scene, callbacks):
         self.state = state
@@ -247,9 +248,23 @@ class Player(Character, SpriteHealth):
 
         from sprites.bullet.bullet import Bullet
 
-        Bullet(self._bullet_size, color=arcade.csscolor.HOTPINK).setup(
+        Bullet(int(self.bullet_size), color=arcade.csscolor.HOTPINK).setup(
             source=self,
             physics_engine=physics_engine,
             state=state,
             scene=scene
         )
+
+        self.bullet_size -= BULLET_DECREMENTOR
+
+
+    @property
+    def bullet_size(self) -> int:
+        return self._bullet_size
+
+    @bullet_size.setter
+    def bullet_size(self, value: int):
+        if value < DEFAULT_BULLET_SIZE:
+            value = DEFAULT_BULLET_SIZE
+
+        self._bullet_size = value
