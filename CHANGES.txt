@@ -1,6 +1,6 @@
 # Changelog
 
-## Alpha XX (Unreleased)
+## Alpha XXX (Unreleased)
 
 * map02: Kakteen hinzugefügt
 * map02: Neues Monster hinzugefügt: Slimer
