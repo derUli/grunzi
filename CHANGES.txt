@@ -3,6 +3,7 @@
 ## Alpha 014 (Unreleased)
 
 * map02: Kakteen hinzugefügt
+* map02: Neues Monster
 * UI: "Erfolg" Screen nach jedem Level
 
 ## Alpha 013 (Unreleased)

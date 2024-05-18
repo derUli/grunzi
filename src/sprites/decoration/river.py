@@ -10,7 +10,7 @@ class River(Sprite):
             args
     ):
         w, h = args.map_size
-
+        self.alpha = 200
         self.center_x -= MOVE_SPEED
 
         if self.right <= 0:
