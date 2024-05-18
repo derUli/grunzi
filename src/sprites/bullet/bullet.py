@@ -36,13 +36,14 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
             color=arcade.csscolor.BLACK,
             soft=False,
             force_move=FORCE_MOVE,
-            hurt=HURT_DEFAULT
+            hurt=HURT_DEFAULT,
+            hurt_modifier=1.0
     ):
         super().__init__(radius, color=color, soft=soft)
 
         self.force_move = force_move
         self.hurt = hurt
-
+        self.hurt_modifier = hurt_modifier
         self.created_at = time.time()
         self.state = None
 
@@ -102,6 +103,8 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
         if isinstance(_hit_sprite, Chicken):
             hurt = HURT_CHICKEN
             score = SCORE_HURT_CHICKEN
+
+        hurt = hurt * self.hurt_modifier
 
         self.state.score += score
 

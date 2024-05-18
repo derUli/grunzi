@@ -36,7 +36,7 @@ STAMINA_DECREMENTOR = 0.7
 COLOR_BLOOD = (156, 28, 28)
 
 
-DEFAULT_BULLET_SIZE = 6
+DEFAULT_BULLET_SIZE = 10
 BULLET_DECREMENTOR = 0.33
 
 class Player(Character, SpriteHealth):
@@ -248,7 +248,12 @@ class Player(Character, SpriteHealth):
 
         from sprites.bullet.bullet import Bullet
 
-        Bullet(int(self.bullet_size), color=arcade.csscolor.HOTPINK).setup(
+        hurt_modifier = (self.bullet_size / DEFAULT_BULLET_SIZE)
+        Bullet(
+            int(self.bullet_size),
+            color=arcade.csscolor.HOTPINK,
+            hurt_modifier=hurt_modifier
+        ).setup(
             source=self,
             physics_engine=physics_engine,
             state=state,
