@@ -156,7 +156,6 @@ class Game(Fading):
 
         self.ui.loading_screen._display_percentage = 100
 
-
         # Load map
         #threading.Thread(target=self.async_load).start()
 
