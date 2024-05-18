@@ -18,7 +18,12 @@ class HighscoreStorage:
         }
         ]
 
-    def fetch(self):
+    def fetch(self) -> bool:
+        """
+        Fetch online highscore
+
+        @return: success
+        """
         data = '[]'
         try:
             with urlopen(self.url, timeout=3) as f:
@@ -34,8 +39,17 @@ class HighscoreStorage:
             logging.error(e)
             return False
 
-    def submit(self, name, score):
+    def submit(self, name: str, score: int):
+        """
+        Submit highscore
+
+        @param name: The player name
+        @param score: The score
+
+        @return: success
+        """
         logging.error('Submit highscore is implemented yet')
+        return False
 
 
 HighscoreStorage().fetch()
