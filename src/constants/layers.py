@@ -149,14 +149,12 @@ LAYER_OPTIONS = {
     },
     LAYER_WATER: {
         'custom_class': Water,
-        'hit_box_algorithm': 'Simple'
     },
     LAYER_DUCK: {
         'custom_class': Duck
     },
     LAYER_CLOUDS: {
         'custom_class': Cloud,
-        'hit_box_algorithm': 'None'
     },
     LAYER_SUN: {
         'custom_class': Sun
@@ -173,9 +171,6 @@ LAYER_OPTIONS = {
     LAYER_RIVER: {
         'custom_class': River
     },
-    LAYER_GROUND: {
-        'hit_box_algorithm': 'None'
-    }
 }
 
 

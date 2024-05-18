@@ -143,7 +143,7 @@ class Game(Fading):
 
         avg = []
 
-        for i in range(1, 50):
+        for i in range(1, 2):
             a = time.time()
             self.async_load()
             b = time.time() - a
@@ -154,11 +154,11 @@ class Game(Fading):
         print("MAX: " + str(numpy.max(avg)))
         print("SUM: " + str(numpy.sum(avg)))
 
+        self.ui.loading_screen._display_percentage = 100
+
 
         # Load map
         #threading.Thread(target=self.async_load).start()
-
-        self.initialized = True
 
     def async_load(self) -> None:
         """ Async load map """
@@ -180,7 +180,6 @@ class Game(Fading):
 
         # Read in the tiled map
         try:
-            start1 = time.time()
             self.tilemap = TileMap(
                 map_name,
                 layer_options=LAYER_OPTIONS
