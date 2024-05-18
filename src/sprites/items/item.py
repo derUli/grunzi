@@ -46,7 +46,9 @@ class Item(Sprite):
             image_x=image_x,
             image_y=image_y,
             center_x=center_x,
-            center_y=center_y
+            center_y=center_y,
+            hit_box_detail=hit_box_detail,
+            hit_box_algorithm=hit_box_algorithm
         )
 
     def on_use_with(self, b, state=None, handlers=None):

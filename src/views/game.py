@@ -10,6 +10,7 @@ import random
 import threading
 import time
 
+import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN, SpriteList
 
@@ -140,8 +141,25 @@ class Game(Fading):
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
 
+
+        avg = []
+
+        for i in range(1, 10):
+            a = time.time()
+            self.async_load()
+            b = time.time() - a
+            avg.append(b)
+
+        print("AVG: " + str(numpy.mean(avg)))
+        print("MIN: " + str(numpy.min(avg)))
+        print("MAX: " + str(numpy.max(avg)))
+        print("SUM: " + str(numpy.sum(avg)))
+
+
         # Load map
-        threading.Thread(target=self.async_load).start()
+        #threading.Thread(target=self.async_load).start()
+
+        self.initialized = True
 
     def async_load(self) -> None:
         """ Async load map """
@@ -168,7 +186,6 @@ class Game(Fading):
                 map_name,
                 layer_options=LAYER_OPTIONS
             )
-            print(time.time() - start1)
         except FileNotFoundError as e:
             logging.error(e)
             return arcade.exit()
@@ -257,11 +274,11 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 100
 
-        pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
+        #pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
 
         # Sleep some seconds to wait until the 100 Percent is shown
-        while not self.ui.loading_screen.completed:
-            time.sleep(0.05)
+        #while not self.ui.loading_screen.completed:
+        #    time.sleep(0.05)
 
         self.ui.loading_screen.show = False
 

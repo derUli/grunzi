@@ -38,16 +38,7 @@ class AbstractAnimatedSprite(AbstractSprite, arcade.sprite.AnimatedTimeBasedSpri
             filename: Optional[str] = None,
             image_x=0,
             image_y=0,
-            image_width=None,
-            image_height=None,
-            flipped_horizontally=False,
-            flipped_vertically=False,
-            flipped_diagonally=False,
-            hit_box_algorithm=None,
-            hit_box_detail=None,
-            scale=1.0,
-            center_x=None,
-            center_y=None
+            scale=1.0
     ):
         self.sound = None
 
@@ -55,6 +46,7 @@ class AbstractAnimatedSprite(AbstractSprite, arcade.sprite.AnimatedTimeBasedSpri
             filename=filename,
             image_x=image_x,
             image_y=image_y,
+            scale=scale
         )
 
 
