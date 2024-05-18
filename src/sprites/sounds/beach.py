@@ -22,7 +22,7 @@ class Beach(Sprite):
             flipped_horizontally: bool = False,
             flipped_vertically: bool = False,
             flipped_diagonally: bool = False,
-            hit_box_algorithm: Optional[str] = "Simple",
+            hit_box_algorithm: Optional[str] = "Detailed",
             hit_box_detail: float = 4.5,
             texture: Texture = None,
             angle: float = 0,

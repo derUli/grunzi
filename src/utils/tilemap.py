@@ -13,7 +13,7 @@ class TileMap:
             filename,
             layer_options,
             use_spatial_hash=True,
-            hit_box_algorithm='None',
+            hit_box_algorithm='Detailed',
             lazy=True
     ):
         """
