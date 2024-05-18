@@ -55,6 +55,8 @@ LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
 LAYER_LEVEL_EXIT = 'LevelExit'
 LAYER_RIVER = 'River'
 
+LAYER_GROUND = 'Ground'
+
 ALL_LAYERS = [
     LAYER_WALL,
     LAYER_NPC,
@@ -152,7 +154,8 @@ LAYER_OPTIONS = {
         'custom_class': Duck
     },
     LAYER_CLOUDS: {
-        'custom_class': Cloud
+        'custom_class': Cloud,
+        'hit_box_algorithm': 'None'
     },
     LAYER_SUN: {
         'custom_class': Sun
@@ -168,6 +171,9 @@ LAYER_OPTIONS = {
     },
     LAYER_RIVER: {
         'custom_class': River
+    },
+    LAYER_GROUND: {
+        'hit_box_algorithm': 'None'
     }
 }
 
