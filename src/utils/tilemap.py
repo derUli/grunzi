@@ -13,7 +13,8 @@ class TileMap:
             filename,
             layer_options,
             use_spatial_hash=True,
-            hit_box_algorithm='Detailed',
+            hit_box_algorithm="Simple",
+            hit_box_detail=4.5,
             lazy=True
     ):
         """
@@ -28,6 +29,7 @@ class TileMap:
             layer_options=layer_options,
             use_spatial_hash=use_spatial_hash,
             hit_box_algorithm=hit_box_algorithm,
+            hit_box_detail=hit_box_detail,
             lazy=lazy
         )
 
