@@ -129,7 +129,7 @@ class View(arcade.View):
             version_file = os.path.join(self.state.root_dir, 'VERSION.txt')
 
             if os.path.isfile(version_file):
-                with open(version_file, 'r') as f:
+                with open(version_file, 'r', encoding='utf-8') as f:
                     self.build_version = f.read()
 
         # Render the build number text

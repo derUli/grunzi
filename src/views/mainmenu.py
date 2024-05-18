@@ -218,12 +218,12 @@ class MainMenu(Fading):
     def on_draw(self) -> None:
         """ on draw """
 
-        self.clear()
+        # self.clear()
         # Clear the screen
         self.camera_gui.use()
         self.render_shadertoy()
 
         self.manager.draw()
         self.draw_build_version()
-
+        self.draw_fading()
         self.draw_debug()
