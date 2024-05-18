@@ -44,6 +44,7 @@ class ViewState:
         self.shaders = {}
 
     def preload_fonts(self):
+        """ Preload all fonts """
         pyglet.font.add_directory(self.font_dir)
 
     def preload_sounds(self):
