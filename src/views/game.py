@@ -673,12 +673,7 @@ class Game(Fading):
         self.scene.add_sprite(LAYER_PLACE, item)
 
     def on_shoot(self):
-        return Bullet(6, color=arcade.csscolor.HOTPINK).setup(
-            source=self.player_sprite,
-            physics_engine=self.physics_engine,
-            state=self.state,
-            scene=self.scene
-        )
+        return self.player_sprite.shoot(self.state, self.scene, self.physics_engine)
 
     def on_grunt(self):
         return Grunt(8).setup(

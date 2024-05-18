@@ -36,6 +36,8 @@ STAMINA_DECREMENTOR = 0.7
 COLOR_BLOOD = (156, 28, 28)
 
 
+DEFAULT_BULLET_SIZE = 6
+
 class Player(Character, SpriteHealth):
     def __init__(
             self,
@@ -67,6 +69,8 @@ class Player(Character, SpriteHealth):
         self.footsteps_sprint = None
 
         self.gameover_text = None
+
+        self._bullet_size = 6
 
     def setup(self, state, scene, callbacks):
         self.state = state
@@ -238,3 +242,14 @@ class Player(Character, SpriteHealth):
     @property
     def sprinting(self):
         return self.modifier == MODIFIER_SPRINT
+
+    def shoot(self, state, scene, physics_engine):
+
+        from sprites.bullet.bullet import Bullet
+
+        Bullet(self._bullet_size, color=arcade.csscolor.HOTPINK).setup(
+            source=self,
+            physics_engine=physics_engine,
+            state=state,
+            scene=scene
+        )
