@@ -216,7 +216,7 @@ class StartUp:
 
         state = ViewState(self.root_dir, map_name=FIRST_MAP, settings=SettingsState.load())
         state.preload()
-        icon_path = os.path.join(state.image_dir, 'ui', 'icon.ico')
+        icon_path = os.path.join(state.ui_dir, 'icon.ico')
         icon = pyglet.image.load(icon_path)
         window.set_icon(icon)
 

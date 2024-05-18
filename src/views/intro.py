@@ -36,7 +36,7 @@ class Intro(Fading):
         self.window.set_mouse_visible(False)
 
         image = PIL.Image.open(
-            os.path.join(self.state.image_dir, 'ui', 'logo.png')
+            os.path.join(self.state.ui_dir, 'logo.png')
         ).convert('RGBA').crop()
 
         if image.size > self.window.size:

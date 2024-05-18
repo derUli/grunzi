@@ -88,13 +88,13 @@ class MapSelection(Fading):
 
         button_prev = arcade.gui.UITextureButton(
             texture=arcade.load_texture(
-                os.path.join(self.state.image_dir, 'ui', 'arrows', 'left.png')
+                os.path.join(self.state.ui_dir, 'arrows', 'left.png')
             )
         )
 
         button_next = arcade.gui.UITextureButton(
             texture=arcade.load_texture(
-                os.path.join(self.state.image_dir, 'ui', 'arrows', 'right.png')
+                os.path.join(self.state.ui_dir, 'arrows', 'right.png')
             )
         )
 

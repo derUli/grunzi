@@ -42,7 +42,7 @@ class View(arcade.View):
         self.build_number_text = None
 
         self.fps_counter = FPSCounter()
-
+        self.filmgrain = None
         self.background = DEFAULT_BACKGROUND
 
     def on_show_view(self) -> None:
@@ -50,6 +50,13 @@ class View(arcade.View):
         self.fps_counter = FPSCounter()
 
         arcade.set_background_color(self.background)
+
+        self.filmgrain = arcade.sprite.Sprite(
+            os.path.join(self.state.postprocessing_dir, 'frame_0_delay-0.03s.gif'),
+            scale=100
+        )
+
+        print(self.filmgrain.width)
 
     def on_update(self, delta_time: float):
         self.time += delta_time

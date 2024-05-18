@@ -226,5 +226,4 @@ class MainMenu(Fading):
         self.manager.draw()
         self.draw_build_version()
 
-        self.draw_fading()
         self.draw_debug()

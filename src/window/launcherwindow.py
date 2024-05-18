@@ -216,7 +216,7 @@ class LauncherWindow(ThemedTk):
         """
         Set window icon
         """
-        icon = PhotoImage(file=os.path.join(self.path_state.image_dir, 'ui', 'icon.ico'))
+        icon = PhotoImage(file=os.path.join(self.path_state.ui_dir, 'icon.ico'))
         self.tk.call('wm', 'iconphoto', self._w, icon)
 
     def get_args(self):

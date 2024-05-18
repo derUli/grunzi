@@ -20,7 +20,7 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
     def setup(self, state, size):
         self.clear()
-        file = os.path.join(state.image_dir, 'ui', 'inventory.png')
+        file = os.path.join(state.ui_dir, 'inventory.png')
 
         bottom = BOTTOM
         left = LEFT

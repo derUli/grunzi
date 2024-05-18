@@ -1,9 +1,10 @@
 # Changelog
 
-## Alpha 014 (Unreleased)
+## Alpha XX (Unreleased)
 
 * map02: Kakteen hinzugefügt
-* map02: Neues Monster
+* map02: Neues Monster hinzugefügt: Slimer
+* Neue Spielmechanik: Schwein kann essen
 * UI: "Erfolg" Screen nach jedem Level
 
 ## Alpha 013 (Unreleased)

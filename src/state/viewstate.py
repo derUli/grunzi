@@ -17,6 +17,8 @@ class ViewState:
         self.map_dir = os.path.join(self.data_dir, 'maps')
         self.image_dir = os.path.join(self.data_dir, 'images')
         self.sprite_dir = os.path.join(self.image_dir, 'sprites')
+        self.ui_dir = os.path.join(self.image_dir, 'ui')
+        self.postprocessing_dir = os.path.join(self.image_dir, 'postprocessing')
         self.music_dir = os.path.join(self.data_dir, 'music')
         self.sound_dir = os.path.join(self.data_dir, 'sounds')
         self.font_dir = os.path.join(self.data_dir, 'fonts')
