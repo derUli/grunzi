@@ -149,6 +149,7 @@ LAYER_OPTIONS = {
     },
     LAYER_WATER: {
         'custom_class': Water,
+        'hit_box_algorithm': 'Simple'
     },
     LAYER_DUCK: {
         'custom_class': Duck
