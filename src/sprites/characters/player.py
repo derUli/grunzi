@@ -1,14 +1,12 @@
 """ Player sprite class """
-import os
 
-import PIL
 import arcade
-from PIL.Image import Resampling
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
+from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
 from utils.scene import get_layer
 
@@ -24,8 +22,7 @@ MOVE_DAMPING = 0.01
 
 HEALTH_REGENERATION_SPEED = 0.1
 
-FULL_ALPHA = 255
-ONE_PERCENT_ALPHA = FULL_ALPHA / 100
+
 
 PLACE_ITEM_ALPHA = 255
 
@@ -35,8 +32,6 @@ SPAWN_POINT = (0, 0)
 
 STAMINA_INCREMENTOR = 0.5
 STAMINA_DECREMENTOR = 0.7
-
-COLOR_BLOOD = (156, 28, 28)
 
 DEFAULT_BULLET_SIZE = 6
 BULLET_DECREMENTOR = 0.33
@@ -76,7 +71,7 @@ class Player(Character, SpriteHealth):
 
         self._bullet_size = DEFAULT_BULLET_SIZE
 
-        self.blood = None
+        self.bloody_screen = None
 
     def setup(self, state, scene, callbacks):
         self.state = state
@@ -100,17 +95,7 @@ class Player(Character, SpriteHealth):
         self.footsteps_sprint = state.play_sound('footsteps', loop=True, speed=MODIFIER_SPRINT)
         self.footsteps_sprint.pause()
 
-        window = arcade.get_window()
-
-        image = PIL.Image.open(
-            os.path.join(self.state.ui_dir, 'blood.png')
-        ).convert('RGBA').crop()
-
-        # TODO: Bloody Screen in Klasse auslagern
-        image = image.resize(window.size, resample=Resampling.BILINEAR)
-        texture = arcade.texture.Texture(name='blood', image=image)
-        self.blood = arcade.sprite.Sprite(texture=texture, center_x = window.width / 2, center_y = window.height / 2)
-
+        self.bloody_screen = BloodyScreen().setup(state)
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
@@ -124,6 +109,8 @@ class Player(Character, SpriteHealth):
             delta_time,
             args
     ):
+
+        self.bloody_screen.update(self.health)
 
         if self.dead:
             return
@@ -187,19 +174,8 @@ class Player(Character, SpriteHealth):
             self.item.draw_item(self.face)
 
     def draw_overlay(self):
-        if self.health >= HEALTH_FULL:
-            return
 
-        window = arcade.get_window()
-
-        r, g, b = COLOR_BLOOD
-        a = FULL_ALPHA - self.health * ONE_PERCENT_ALPHA
-
-        if a > 0:
-            arcade.draw_rectangle_filled(window.width / 2, window.height / 2, window.width, window.height,(r, g, b, a))
-            self.blood.alpha = a
-            self.blood.draw()
-
+        self.bloody_screen.draw()
 
         if not self.dead:
             return
