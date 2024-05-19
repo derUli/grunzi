@@ -29,10 +29,10 @@ class Scene(BaseScene):
 
     def update_scene(self, delta_time, size, state, scene, tilemap, physics_engine, camera_sprites, player_sprite):
         self.update_enemies(state, scene, tilemap, physics_engine)
+        self.update_animated(delta_time, size, scene, player_sprite)
 
-        from sprites.decoration.sun import update_sun
-        update_sun(scene, camera_sprites)
 
+    def update_animated(self, delta_time, size, scene, player_sprite):
         # Animate only visible
         animated = animated_in_sight(size, scene, player_sprite)
         for sprite in animated:
