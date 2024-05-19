@@ -52,7 +52,7 @@ class Item(Sprite):
     def on_use_with(self, b, state=None, handlers=None):
         logging.info(f"Use item {self} with {b}")
 
-    def on_use(self, state, handlers):
+    def on_use(self, state, args):
         state.beep()
 
     def copy(self):

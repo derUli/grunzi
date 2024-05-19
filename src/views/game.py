@@ -21,9 +21,9 @@ from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
 from sprites.sprite import AbstractSprite
 from sprites.ui.uicontainer import UIContainer
-from state.argscontainer import ArgsContainer
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
+from utils.getargs import get_args
 from utils.keypressed import KeyPressed
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
@@ -732,21 +732,11 @@ class Game(Fading):
 
         item.on_use(
             state=self.state,
-            handlers=CallbackHandler(on_complete=self.on_next_level)
+            args=get_args(self)
         )
 
     def call_update(self, delta_time):
-
-        args = ArgsContainer(
-            player=self.player_sprite,
-            scene=self.scene,
-            physics_engine=self.physics_engine,
-            state=self.state,
-            map_size=self.tilemap.size,
-            astar_barrier_list=self.astar_barrier_list,
-            wall_spritelist=self.wall_spritelist,
-            callbacks=CallbackHandler(on_complete=self.on_next_level)
-        )
+        args = get_args(self)
 
         for sprite_list in self.scene.sprite_lists:
             for sprite in sprite_list:
