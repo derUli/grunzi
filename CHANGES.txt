@@ -18,7 +18,6 @@
 * UI: Grafikeinstellung "Antialiasing" hinzugefügt
 * UI: Grafikpresets wieder entfernt
 
-
 ## Alpha 012 (17.05.2024)
 
 * map01: Autos kollidieren nicht mehr nach einiger Spielzeit
