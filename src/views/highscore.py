@@ -37,6 +37,7 @@ class Highscore(Fading):
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
+
         super().on_show_view()
         self.setup()
 
@@ -86,9 +87,6 @@ class Highscore(Fading):
 
         if len(labels) == 0:
             labels.append(_('No entries yet'))
-
-        # for score in self.savegame.score.values():
-        #    scores.append(str(score).rjust(FILL_COUNT, FILL_CHAR))
 
         score_text_left = create_text(
             text="\n\n".join(labels),
@@ -162,6 +160,7 @@ class Highscore(Fading):
 
     def on_back(self) -> None:
         """ On click "Back" button """
+
         from views.mainmenu import MainMenu
         self.next_view = MainMenu(self.window, self.state)
         self.fade_out()
