@@ -29,8 +29,6 @@ class Electric(AbstractAnimatedSprite):
             flipped_horizontally=False,
             flipped_vertically=False,
             flipped_diagonally=False,
-            hit_box_algorithm=None,
-            hit_box_detail=None,
             scale=1.0,
             center_x=None,
             center_y=None
