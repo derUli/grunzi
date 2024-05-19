@@ -15,7 +15,8 @@ class ArgsContainer:
             astar_barrier_list=None,
             wall_spritelist=None,
             callbacks=None,
-            camera=None
+            camera=None,
+            tilemap=None
     ):
         self.player = player
         self.scene = scene
@@ -26,6 +27,7 @@ class ArgsContainer:
         self.wall_spritelist = wall_spritelist
         self.callbacks = callbacks
         self.camera = camera
+        self.tilemap = tilemap
 
 def make_args_container(klaas):
     """
@@ -42,5 +44,6 @@ def make_args_container(klaas):
         astar_barrier_list=klaas.astar_barrier_list,
         wall_spritelist=klaas.wall_spritelist,
         callbacks=CallbackHandler(on_complete=klaas.on_next_level),
-        camera = klaas.camera_sprites
+        camera = klaas.camera_sprites,
+        tilemap=klaas.tilemap,
     )

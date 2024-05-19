@@ -6,6 +6,7 @@ from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
 from sprites.items.item import Item
+from sprites.sprite import AbstractSprite
 
 
 class Scene(BaseScene):
@@ -27,10 +28,11 @@ class Scene(BaseScene):
             scene.add_sprite_list(name=name, sprite_list=sprite_list)
         return scene
 
-    def update_scene(self, delta_time, size, state, scene, tilemap, physics_engine, camera_sprites, player_sprite):
-        self.update_enemies(state, scene, tilemap, physics_engine)
-        self.update_animated(delta_time, size, scene, player_sprite)
-
+    def update_scene(self, delta_time, args):
+        size = arcade.get_window().get_size()
+        self.update_enemies(args.state, self, args.tilemap, args.physics_engine)
+        self.update_animated(delta_time, size, self, args.player)
+        self.call_update(delta_time, args)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
         # Animate only visible
@@ -58,6 +60,18 @@ class Scene(BaseScene):
 
         return None
 
+    def call_update(self, delta_time, args):
+
+        for sprite_list in args.scene.sprite_lists:
+            for sprite in sprite_list:
+
+                if not isinstance(sprite, AbstractSprite):
+                    continue
+
+                sprite.update(
+                    delta_time,
+                    args
+                )
 
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """

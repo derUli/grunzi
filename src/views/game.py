@@ -19,7 +19,6 @@ from sprites.characters.character import Character
 from sprites.characters.chicken import spawn_chicken
 from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
-from sprites.sprite import AbstractSprite
 from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
@@ -116,14 +115,13 @@ class Game(Fading):
         self.pop_controller_handlers()
         self.atmo.pause()
         self.state.settings.mute()
-        self.call_update(0)
+        self.scene.update_scene(0, make_args_container(self))
 
     def setup(self) -> None:
         """ Setup game """
 
         self.initialized = False
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
-
 
         if not self.skip_intro:
             self.video = load_video(
@@ -322,16 +320,9 @@ class Game(Fading):
         # Move the player with the physics engine
         self.update_player_speed()
         self.physics_engine.step(UPDATE_RATE)
-        self.call_update(delta_time)
         self.scene.update_scene(
             delta_time,
-            self.window.size,
-            self.state,
-            self.scene,
-            self.tilemap,
-            self.physics_engine,
-            self.camera_sprites,
-            self.player_sprite
+            make_args_container(self)
         )
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         self.update_fade(self.next_view)
@@ -741,20 +732,6 @@ class Game(Fading):
             state=self.state,
             args=make_args_container(self)
         )
-
-    def call_update(self, delta_time):
-        args = make_args_container(self)
-
-        for sprite_list in self.scene.sprite_lists:
-            for sprite in sprite_list:
-
-                if not isinstance(sprite, AbstractSprite):
-                    continue
-
-                sprite.update(
-                    delta_time,
-                    args
-                )
 
     def update_collectable(self):
         item = self.scene.get_collectable(self.player_sprite)
