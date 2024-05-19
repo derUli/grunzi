@@ -24,6 +24,7 @@ class LauncherWindow(ThemedTk):
         self.args = args
 
         self.fullscreen = tk.BooleanVar(value=args.fullscreen)
+
         self.screen_resolution = tk.StringVar(
             value=str(args.width) + 'x' + str(args.height)
         )
@@ -57,6 +58,10 @@ class LauncherWindow(ThemedTk):
             )
 
             self.audio_backend.set(self.state.audio_backend)
+
+        # Detect screen resolution on first start
+        if not self.state.first_start:
+            self.screen_resolution.set(supported_screen_resolutions()[-1])
 
         tab_control = ttk.Notebook(self)
 
