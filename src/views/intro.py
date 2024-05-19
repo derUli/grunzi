@@ -72,8 +72,7 @@ class Intro(Fading):
             self.wait_since += 1
 
         if self.wait_since > self.wait_for and not self.next_view:
-            self.next_view = MainMenu(self.window, self.state)
-            self.fade_out()
+            self.fade_to_view(MainMenu(self.window, self.state))
 
     def on_draw(self) -> None:
         """ On draw """
