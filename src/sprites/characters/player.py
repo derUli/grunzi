@@ -197,12 +197,11 @@ class Player(Character, SpriteHealth):
         r, g, b = COLOR_BLOOD
         a = FULL_ALPHA - self.health * ONE_PERCENT_ALPHA
 
-        self.blood.alpha = a
-        self.blood.draw()
+        if a > 0:
+            arcade.draw_rectangle_filled(window.width / 2, window.height / 2, window.width, window.height,(r, g, b, a))
+            self.blood.alpha = a
+            self.blood.draw()
 
-        # arcade.draw_rectangle_filled(window.width / 2, window.height / 2,
-        #                             window.width, window.height,
-        #                             (r, g, b, a))
 
         if not self.dead:
             return
