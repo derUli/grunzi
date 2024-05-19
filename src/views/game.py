@@ -247,6 +247,10 @@ class Game(Fading):
 
         self.ui.loading_screen.show = False
 
+        savegame = SaveGameState.load()
+        savegame.current = self.state.map_name
+        savegame.save()
+
         self.initialized = True
 
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
@@ -493,7 +497,10 @@ class Game(Fading):
 
         savegame = SaveGameState.load()
         savegame.current = next_map
-        savegame.completed += [old_map]
+
+        if old_map not in savegame.completed:
+            savegame.completed += [old_map]
+
         savegame.score[old_map] = self.state.score
         savegame.save()
 
