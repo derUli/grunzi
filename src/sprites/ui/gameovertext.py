@@ -7,7 +7,7 @@ from utils.text import create_text, LARGE_FONT_SIZE
 MARGIN = 10
 
 FONT_SIZE_TITLE = 30
-FONT_SIZE_SUBTITLE = 24
+FONT_SIZE_SUBTITLE = 22
 
 class GameOverText:
     def __init__(self):
