@@ -35,9 +35,6 @@ from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
 
-COLOR_BACKGROUND = (0, 0, 0)
-
-
 class Game(Fading):
     """
     Main application class.
@@ -72,8 +69,6 @@ class Game(Fading):
         self.atmo = None
         self.loading_music = None
 
-        self.scene = None
-
         # This method is called in next call of on_update
         self._call_method = None
 
@@ -81,7 +76,6 @@ class Game(Fading):
         self.skip_intro = skip_intro
 
         self.ui = None
-        self.background = COLOR_BACKGROUND
 
         self.astar_barrier_list = None
         self.wall_spritelist = None
@@ -187,34 +181,28 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 60
 
-        w, h = self.tilemap.size
-
-        wall_spritelist = SpriteList(lazy=True, use_spatial_hash=True)
+        self.wall_spritelist = SpriteList(lazy=True, use_spatial_hash=True)
 
         for name in WALL_LAYERS:
             layer = get_layer(name, self.scene)
 
             for item in layer:
-                wall_spritelist.append(item)
+                self.wall_spritelist.append(item)
 
         sprite = arcade.SpriteSolidColor(
             width=64,
             height=64,
-            color=COLOR_BACKGROUND
+            color=arcade.color.BLACK
         )
 
-        sprite.left = 0
-        sprite.top = 0
-
-        self.wall_spritelist = wall_spritelist
 
         self.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=sprite,
-            blocking_sprites=wall_spritelist,
+            blocking_sprites=self.wall_spritelist,
             grid_size=64,
             left=0,
-            right=w,
-            top=h,  # FIXME: Top and bottom is switched in this dev version of arcade
+            right=self.tilemap.width,
+            top=self.tilemap.height,  # FIXME: Top and bottom is switched in this dev version of arcade
             bottom=0
         )
 

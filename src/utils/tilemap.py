@@ -34,6 +34,7 @@ class TileMap:
         )
 
         self._size = tilemap_size(self._map)
+        self._width, self._height = self._size
 
     @property
     def map(self) -> arcade.tilemap.TileMap:
@@ -49,3 +50,18 @@ class TileMap:
         @return: size tuple
         """
         return self._size
+
+    @property
+    def width(self) -> int:
+        """ Tilemap width
+        @return: width int
+        """
+        return self._width
+
+
+    @property
+    def height(self) -> int:
+        """ Tilemap height
+        @return: height int
+        """
+        return self._height
