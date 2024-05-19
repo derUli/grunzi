@@ -6,9 +6,6 @@ Nach dem ersten Durchspielen soll ein neuer Modus freigeschaltet werden, wo eini
 Man könnte z.B. einige Puzzles randomizen, die beim ersten Durchlauf statisch waren
 
 UI:
-Ladebildschirm bearbeiten.
-Prozent-Balken am unteren Bildschirmrand
-Text "Wird geladen..." zentriert in diesem Prozentbalken.
 
 Hintergrund in Dunkel
 
