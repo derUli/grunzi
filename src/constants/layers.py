@@ -1,4 +1,5 @@
 """ Layer constants """
+
 import arcade
 from arcade import Scene
 
