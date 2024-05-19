@@ -379,7 +379,7 @@ class Game(Fading):
 
         force_x, force_y = 0, 0
 
-        if self.keypressed.key_up and   not self.keypressed.key_down:
+        if self.keypressed.key_up and not self.keypressed.key_down:
             force_y = move_force
             self.player_sprite.change_y = -1
         elif self.keypressed.key_down and not self.keypressed.key_up:

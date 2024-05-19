@@ -15,4 +15,3 @@ class Cloud(Sprite):
 
         if self.right <= 0:
             self.right = w - abs(self.right)
-

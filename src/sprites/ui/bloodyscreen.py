@@ -9,6 +9,8 @@ ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 COLOR_BLOOD = (156, 28, 28)
 
 FADE_SPEED = 2
+
+
 class BloodyScreen:
     def __init__(self):
         self.state = None

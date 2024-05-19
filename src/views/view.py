@@ -50,7 +50,6 @@ class View(arcade.View):
 
         arcade.set_background_color(self.background)
 
-
     def on_update(self, delta_time: float):
         self.time += delta_time
         self.fps_counter.update(arcade.get_fps())

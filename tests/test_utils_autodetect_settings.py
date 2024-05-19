@@ -2,6 +2,7 @@ import unittest
 
 from constants.settings import SETTINGS_HIGH, SETTINGS_MEDIUM, SETTINGS_LOW
 from utils.autodetectsettings.AutodetectSettings import AutodetectSettings
+
 from utils.path import get_autodetect_path
 
 
