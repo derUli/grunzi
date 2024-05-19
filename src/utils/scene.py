@@ -44,6 +44,8 @@ class Scene(BaseScene):
 
         enemies = get_layer(LAYER_NPC, scene)
 
+        print(state.difficulty.max_skulls)
+
         if len(enemies) < state.difficulty.max_skulls:
             a, b = state.difficulty.skull_spawn_range
             if random.randint(a, b) == 50:
