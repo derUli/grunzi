@@ -1,14 +1,17 @@
+import logging
 from typing import Optional
 
 import arcade
 import pyglet
 
+from sprites.characters.character import Character
 from sprites.sprite import AbstractAnimatedSprite
 from utils.positional_sound import PositionalSound
+from utils.scene import get_layer
 
 FORCE_MOVE = 30000
 HURT_PLAYER = 5
-
+HURT_NPC = 25
 ALPHA_SPEED = 8.5
 
 POWER_ON = 1
@@ -86,6 +89,21 @@ class Electric(AbstractAnimatedSprite):
 
             args.player.hurt(HURT_PLAYER)
             args.physics_engine.apply_force(args.player, (FORCE_MOVE, 0))
+            return
+
+        from constants.layers import LAYER_NPC
+
+        collisions = arcade.check_for_collision_with_list(self, get_layer(LAYER_NPC, args.scene))
+
+        for sprite in collisions:
+            if isinstance(sprite, Character):
+                logging.info(f"Electric hurt {str(sprite)}")
+                sprite.hurt(HURT_NPC)
+
+                audio = args.state.play_sound('electric', 'push')
+                sound = PositionalSound(sprite, self, audio, args.state)
+                sound.update()
+                sound.play()
 
     def check_cone(self, dt, scene):
 
