@@ -106,7 +106,6 @@ class Player(Character, SpriteHealth):
             os.path.join(self.state.ui_dir, 'blood.png')
         ).convert('RGBA').crop()
 
-        # TODO: Bloody screen antialiasing quality
         # TODO: Bloody Screen in Klasse auslagern
         image = image.resize(window.size, resample=Resampling.BILINEAR)
         texture = arcade.texture.Texture(name='blood', image=image)
