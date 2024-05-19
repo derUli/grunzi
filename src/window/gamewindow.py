@@ -101,7 +101,7 @@ class GameWindow(arcade.Window):
                 joystick.open(self)
                 logging.info(f'Controller: {joystick.device.name}')
                 self.controllers.append(joystick)
-                
+
         except FileNotFoundError as e:
             logging.error(e)
             self.controllers = []

@@ -7,7 +7,6 @@ from views.fading import Fading
 from views.settings.settingsaudio import SettingsAudio
 from views.settings.settingscontrols import SettingsControls
 from views.settings.video.settingsdisplay import SettingsDisplay
-from views.settings.video.settingsgraphics import SettingsGraphics
 
 BUTTON_WIDTH = 250
 
@@ -61,13 +60,6 @@ class SettingsMenu(Fading):
         )
 
         # Video settings
-        button_graphics = arcade.gui.UIFlatButton(
-            text=_("Graphics"),
-            width=BUTTON_WIDTH,
-            style=utils.gui.get_button_style()
-        )
-
-        # Video settings
         audio_button = arcade.gui.UIFlatButton(
             text=_("Audio"),
             width=BUTTON_WIDTH,
@@ -107,18 +99,6 @@ class SettingsMenu(Fading):
                 ),
             )
 
-        @button_graphics.event("on_click")
-        def on_click_graphics_button(event):
-            self.window.show_view(
-                SettingsGraphics(
-                    self.window,
-                    self.state,
-                    previous_view=self,
-                    shadertoy=self.shadertoy,
-                    time=self.time
-                ),
-            )
-
         @audio_button.event("on_click")
         def on_click_audio_button(event):
             self.window.show_view(
@@ -140,13 +120,6 @@ class SettingsMenu(Fading):
             back_button,
             button_display
         ]
-
-        # Check if this is running from pause menu
-        from views.pausemenu import PauseMenu
-        game_running = isinstance(self.previous_view, PauseMenu)
-
-        if not game_running:
-            widgets += [button_graphics]
 
         if not self.state.settings.is_silent():
             widgets += [audio_button]

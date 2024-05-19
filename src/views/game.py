@@ -123,14 +123,11 @@ class Game(Fading):
         self.initialized = False
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
-        self.video = None
-
-        if not self.skip_intro and self.state.settings.videos:
-            self.video = load_video(
-                video_file,
-                self.window.size,
-                self.state.settings.music_volume
-            )
+        self.video = load_video(
+            video_file,
+            self.window.size,
+            self.state.settings.music_volume
+        )
 
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
@@ -147,11 +144,13 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 0
 
+        STEP_PERCENTAGE = 12.5
+
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
         self.state.reset()
 
-        self.ui.loading_screen.percent = 10
+        self.ui.loading_screen.percent += STEP_PERCENTAGE
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
@@ -166,26 +165,13 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
-        self.ui.loading_screen.percent = 20
+        self.ui.loading_screen.percent += STEP_PERCENTAGE
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = Scene.from_tilemap(self.tilemap.map)
 
-        self.ui.loading_screen.percent = 40
-
-        # If the animated sky is disabled remove the sky layers
-        if not self.state.settings.sky:
-            for layer in SKY_LAYERS:
-                if layer in self.scene.name_mapping:
-                    self.scene.remove_sprite_list_by_name(layer)
-
-        self.ui.loading_screen.percent = 50
-
-        if not self.state.settings.traffic:
-            for layer in TRAFFIC_LAYERS:
-                if layer in self.scene.name_mapping:
-                    self.scene.remove_sprite_list_by_name(layer)
+        self.ui.loading_screen.percent += STEP_PERCENTAGE
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -199,7 +185,7 @@ class Game(Fading):
             )
         )
 
-        self.ui.loading_screen.percent = 60
+        self.ui.loading_screen.percent += STEP_PERCENTAGE
 
         w, h = self.tilemap.size
 
@@ -232,18 +218,18 @@ class Game(Fading):
             bottom=0
         )
 
-        self.ui.loading_screen.percent = 70
+        self.ui.loading_screen.percent += STEP_PERCENTAGE
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
-        self.ui.loading_screen.percent = 85
+        self.ui.loading_screen.percent += STEP_PERCENTAGE
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
-        self.ui.loading_screen.percent = 90
+        self.ui.loading_screen.percent += STEP_PERCENTAGE
 
         for i in range(random.randint(1, 3)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)

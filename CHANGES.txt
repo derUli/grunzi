@@ -15,8 +15,7 @@
 * Global: Gegner KI verbessert
 * UI: Bloody Screen Effekt hinzugefügt
 * UI: Menüpunkt "Online-Bestenliste" hinzugefügt
-* UI: Grafikeinstellung "Antialiasing" hinzugefügt
-* UI: Grafikpresets wieder entfernt
+* UI: Unnötige Grafikeinstellungen entfernt
 
 ## Alpha 012 (17.05.2024)
 

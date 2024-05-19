@@ -7,7 +7,6 @@ from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
 from state.settingsstate import SettingsState
-from utils.path import is_windows
 from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 20
@@ -32,14 +31,6 @@ class LauncherWindow(ThemedTk):
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
         self.borderless = tk.BooleanVar(value=args.borderless)
 
-        true_val = True
-        self.traffic = tk.BooleanVar(value=true_val)
-        self.sky = tk.BooleanVar(value=true_val)
-        self.shaders = tk.BooleanVar(value=true_val)
-        self.videos = tk.BooleanVar(value=true_val)
-
-        self.antialiasing = tk.StringVar(value=_('Medium'))
-
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
         self.confirmed = False
@@ -59,12 +50,6 @@ class LauncherWindow(ThemedTk):
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
             self.borderless.set(self.state.borderless)
-            self.antialiasing.set(self.value_to_selected_antialiasing(self.state.antialiasing))
-
-            self.sky.set(self.state.sky)
-            self.traffic.set(self.state.traffic)
-            self.shaders.set(self.state.shaders)
-            self.videos.set(self.state.videos)
 
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
@@ -76,11 +61,9 @@ class LauncherWindow(ThemedTk):
         tab_control = ttk.Notebook(self)
 
         tab_display = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
-        tab_graphics = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
         tab_audio = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
 
         tab_control.add(tab_display, text=_('Display'))
-        tab_control.add(tab_graphics, text=_('Graphics'))
         tab_control.add(tab_audio, text=_('Audio'))
         tab_control.pack(expand=True, fill=tk.BOTH)
 
@@ -98,13 +81,14 @@ class LauncherWindow(ThemedTk):
             state='readonly'
         ).grid(row=0, column=1, pady=SPACE_BETWEEN)
 
-        ttk.Checkbutton(tab_display,
-                        text=_('Fullscreen'),
-                        variable=self.fullscreen,
-                        onvalue=True,
-                        offvalue=False,
-                        command=self.on_toggle_fullscreen
-                        ).grid(row=1, column=1, sticky='nw', pady=SPACE_BETWEEN)
+        ttk.Checkbutton(
+            tab_display,
+            text=_('Fullscreen'),
+            variable=self.fullscreen,
+            onvalue=True,
+            offvalue=False,
+            command=self.on_toggle_fullscreen
+        ).grid(row=1, column=1, sticky='nw', pady=SPACE_BETWEEN)
 
         self.borderless_check = ttk.Checkbutton(
             tab_display,
@@ -124,58 +108,6 @@ class LauncherWindow(ThemedTk):
                         onvalue=True,
                         offvalue=False
                         ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
-
-        ttk.Label(tab_graphics, text=_('Antialiasing') + ' ').grid(
-            row=0,
-            column=0,
-            padx=SPACE_BETWEEN,
-            pady=SPACE_BETWEEN
-        )
-
-        ttk.Combobox(
-            tab_graphics,
-            values=list(self.antialiasing_dropdown_items().keys()),
-            textvariable=self.antialiasing,
-            state='readonly'
-        ).grid(row=0, column=1, pady=SPACE_BETWEEN)
-
-        ttk.Checkbutton(
-            tab_graphics,
-            text=_('Shaders'),
-            variable=self.shaders,
-            onvalue=True,
-            offvalue=False,
-        ).grid(row=1, column=1, pady=SPACE_BETWEEN, sticky='nw')
-
-        ttk.Checkbutton(
-            tab_graphics,
-            text=_('Traffic'),
-            variable=self.traffic,
-            onvalue=True,
-            offvalue=False
-        ).grid(row=2, column=1, pady=SPACE_BETWEEN, sticky='nw')
-
-        ttk.Checkbutton(
-            tab_graphics,
-            text=_('Animated Sky'),
-            variable=self.sky,
-            onvalue=True,
-            offvalue=False
-        ).grid(row=3, column=1, sticky='nw')
-
-        videos_state = tk.NORMAL
-
-        if not is_windows():
-            videos_state = tk.DISABLED
-
-        ttk.Checkbutton(
-            tab_graphics,
-            text=_('Videos'),
-            variable=self.videos,
-            onvalue=True,
-            offvalue=False,
-            state=videos_state
-        ).grid(row=4, column=1, sticky='nw')
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
@@ -223,11 +155,6 @@ class LauncherWindow(ThemedTk):
         self.state.fullscreen = self.fullscreen.get()
         self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
-        self.state.antialiasing = self.text_to_selected_antialiasing(self.antialiasing.get())
-        self.state.sky = self.sky.get()
-        self.state.traffic = self.traffic.get()
-        self.state.shaders = self.shaders.get()
-        self.state.videos = self.videos.get()
 
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
@@ -264,26 +191,3 @@ class LauncherWindow(ThemedTk):
             self.borderless.set(False)
         else:
             self.borderless_check.configure(state='enabled')
-
-    def value_to_selected_antialiasing(self, value):
-        items = self.antialiasing_dropdown_items()
-
-        for key in items:
-            if items[key] == value:
-                return key
-
-        return _('Off')
-
-    def text_to_selected_antialiasing(self, key):
-        items = self.antialiasing_dropdown_items()
-        return items[key]
-
-    def antialiasing_dropdown_items(self):
-        """ Items for antialiasing dropdown """
-        return {
-            _('Off'): 0,
-            _('Low'): 2,
-            _('Medium'): 4,
-            _('High'): 8,
-            _('Very High'): 16
-        }

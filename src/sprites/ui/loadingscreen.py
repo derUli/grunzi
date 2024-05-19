@@ -25,8 +25,7 @@ class LoadingScreen:
 
     def setup(self, state: ViewState, size: tuple, show=False):
         self.show = show
-        if state.settings.shaders:
-            self.shadertoy = state.load_shader(size, 'gameover')
+        self.shadertoy = state.load_shader(size, 'gameover')
 
         w, h = size
         self.size = size
