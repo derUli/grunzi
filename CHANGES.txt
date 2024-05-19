@@ -13,9 +13,11 @@
 * map02: Puzzle mit Strom-Hindernis hinzugefügt
 * map02 kann jetzt durchgespielt werden
 * Global: Gegner KI verbessert
+* UI: Bloody Screen Effekt hinzugefügt
 * UI: Menüpunkt "Online-Bestenliste" hinzugefügt
 * UI: Grafikeinstellung "Antialiasing" hinzugefügt
 * UI: Grafikpresets wieder entfernt
+
 
 ## Alpha 012 (17.05.2024)
 

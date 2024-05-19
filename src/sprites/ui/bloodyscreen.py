@@ -8,12 +8,13 @@ FULL_ALPHA = 255
 ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 COLOR_BLOOD = (156, 28, 28)
 
-
+FADE_SPEED = 2
 class BloodyScreen:
     def __init__(self):
         self.state = None
         self.sprite = None
         self._alpha = 0
+        self._target_alpha = 0
 
     def setup(self, state):
         window = arcade.get_window()
@@ -43,8 +44,24 @@ class BloodyScreen:
     def update(self, health):
         # TODO: Fade to alpha value animation
 
-        a = FULL_ALPHA - health * ONE_PERCENT_ALPHA
-        self._alpha = a
+        a = round(FULL_ALPHA - health * ONE_PERCENT_ALPHA, 2)
+        self._target_alpha = a
+
+        new_alpha = self._alpha
+
+        if self._alpha < self._target_alpha:
+            new_alpha += FADE_SPEED
+
+        if self._alpha > self._target_alpha:
+            new_alpha -= FADE_SPEED
+
+        if new_alpha > 255:
+            new_alpha = 255
+
+        if new_alpha < 0:
+            new_alpha = 0
+
+        self._alpha = new_alpha
 
     def draw(self):
         if self._alpha <= 0:
