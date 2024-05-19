@@ -35,6 +35,7 @@ from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
 
+
 class Game(Fading):
     """
     Main application class.
@@ -194,7 +195,6 @@ class Game(Fading):
             height=64,
             color=arcade.color.BLACK
         )
-
 
         self.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=sprite,
@@ -422,13 +422,7 @@ class Game(Fading):
     def on_button_release(self, controller, key):
         logging.debug(f"Controller button {key} released")
 
-        if not self.initialized:
-            return
-
-        if self.video and self.video.active:
-            return
-
-        if key in constants.controls.controller.KEY_SPRINT:
+        if self.player_sprite and key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = MODIFIER_DEFAULT
 
     def on_joybutton_release(self, controller, key):
