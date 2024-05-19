@@ -329,7 +329,7 @@ class Game(Fading):
 
     def on_draw(self) -> None:
         """Render the screen."""
-
+        self.clear()
         self.camera_gui.use()
 
         if self.video and self.video.active:
