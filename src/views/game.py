@@ -329,7 +329,6 @@ class Game(Fading):
     def on_draw(self) -> None:
         """Render the screen."""
         self.clear()
-        self.camera_gui.use()
 
         if self.video and self.video.active:
             # Loading a video will open a ffmpeg console window.
