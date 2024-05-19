@@ -455,8 +455,7 @@ class Game(Fading):
         self.on_select_item(index=self.ui.inventory.next())
 
     def on_main_menu(self):
-        self.next_view = MainMenu(self.window, self.state)
-        self.fade_out()
+        self.fade_to_view(MainMenu(self.window, self.state))
 
     def on_gameover(self):
         self.on_next_level(same=True)
@@ -500,8 +499,7 @@ class Game(Fading):
 
             return
 
-        self.next_view = Game(self.window, self.state, skip_intro=same)
-        self.fade_out()
+        self.fade_to_view(Game(self.window, self.state, skip_intro=same))
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         logging.debug(f"Stick motion {stick_name}, {x_value}, {y_value}")

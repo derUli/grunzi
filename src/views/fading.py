@@ -58,3 +58,8 @@ class Fading(View):
         """ Fade to quit """
         self.fade_out()
         self._do_quit = True
+
+
+    def fade_to_view(self, view):
+        self.next_view = view
+        self.fade_out()
