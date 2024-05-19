@@ -3,6 +3,7 @@ import os
 
 import PIL
 import arcade
+from PIL.Image import Resampling
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
@@ -106,11 +107,9 @@ class Player(Character, SpriteHealth):
         ).convert('RGBA').crop()
 
         # TODO: Bloody screen antialiasing quality
-
-        image = image.resize(window.size)
-
+        # TODO: Bloody Screen in Klasse auslagern
+        image = image.resize(window.size, resample=Resampling.BILINEAR)
         texture = arcade.texture.Texture(name='blood', image=image)
-
         self.blood = arcade.sprite.Sprite(texture=texture, center_x = window.width / 2, center_y = window.height / 2)
 
 
