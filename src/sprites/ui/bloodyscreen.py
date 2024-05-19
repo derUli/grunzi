@@ -25,7 +25,6 @@ class BloodyScreen:
             os.path.join(state.ui_dir, 'blood.png')
         ).convert('RGBA').crop()
 
-        # TODO: Bloody Screen in Klasse auslagern
         image = image.resize(
             window.size,
             resample=Resampling.BILINEAR

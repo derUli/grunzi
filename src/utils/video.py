@@ -3,6 +3,7 @@ import logging
 import os
 import shutil
 
+import cv2
 from pyvidplayer2 import VideoPyglet
 
 from utils.path import is_windows
@@ -33,7 +34,7 @@ def load_video(
         logging.error('Video', f"File {path} not found")
         return None
 
-    video = VideoPyglet(path)
+    video = VideoPyglet(path, interp=cv2.INTER_CUBIC)
 
     if size:
         video.resize(size)
