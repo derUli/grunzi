@@ -2,10 +2,12 @@ import random
 
 import arcade
 
-from utils.text import create_text, LARGE_FONT_SIZE, EXTRA_LARGE_FONT_SIZE
+from utils.text import create_text, LARGE_FONT_SIZE
 
 MARGIN = 10
 
+FONT_SIZE_TITLE = 30
+FONT_SIZE_SUBTITLE = 24
 
 class GameOverText:
     def __init__(self):
@@ -20,7 +22,7 @@ class GameOverText:
 
         gameover_text = create_text(
             text=self.random_text,
-            font_size=EXTRA_LARGE_FONT_SIZE
+            font_size=FONT_SIZE_TITLE
         )
 
         gameover_text.x = window.width / 2 - gameover_text.content_width / 2
@@ -30,7 +32,7 @@ class GameOverText:
 
         press_button_text = create_text(
             text=_('Press any key to continue'),
-            font_size=LARGE_FONT_SIZE
+            font_size=FONT_SIZE_SUBTITLE
         )
 
         press_button_text.x = window.width / 2 - press_button_text.content_width / 2

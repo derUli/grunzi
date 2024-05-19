@@ -144,13 +144,11 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 0
 
-        STEP_PERCENTAGE = 12.5
-
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
         self.state.reset()
 
-        self.ui.loading_screen.percent += STEP_PERCENTAGE
+        self.ui.loading_screen.percent = 12
 
         # Name of map file to load
         map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
@@ -165,13 +163,13 @@ class Game(Fading):
             logging.error(e)
             return arcade.exit()
 
-        self.ui.loading_screen.percent += STEP_PERCENTAGE
+        self.ui.loading_screen.percent = 25
 
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         self.scene = Scene.from_tilemap(self.tilemap.map)
 
-        self.ui.loading_screen.percent += STEP_PERCENTAGE
+        self.ui.loading_screen.percent = 50
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -185,7 +183,7 @@ class Game(Fading):
             )
         )
 
-        self.ui.loading_screen.percent += STEP_PERCENTAGE
+        self.ui.loading_screen.percent = 60
 
         w, h = self.tilemap.size
 
@@ -218,18 +216,18 @@ class Game(Fading):
             bottom=0
         )
 
-        self.ui.loading_screen.percent += STEP_PERCENTAGE
+        self.ui.loading_screen.percent = 70
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
-        self.ui.loading_screen.percent += STEP_PERCENTAGE
+        self.ui.loading_screen.percent = 80
 
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
-        self.ui.loading_screen.percent += STEP_PERCENTAGE
+        self.ui.loading_screen.percent = 90
 
         for i in range(random.randint(1, 3)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
