@@ -24,14 +24,21 @@ def load_video(
         path: str,
         size: tuple[int, int] | None = None,
         volume: float = 1
-):
-    """ Load video from file """
+) -> VideoPyglet | None:
+    """
+    Load video from file
+
+    @param path: The path
+    @param size: The target size
+    @param volume:
+
+    """
     if not video_supported():
         logging.info(label_value('Video', 'Playback not supported on this platform'))
-        return
+        return None
 
     if not os.path.exists(path):
-        logging.error('Video', f"File {path} not found")
+        logging.error(f"File {path} not found")
         return None
 
     video = VideoPyglet(path, interp=cv2.INTER_CUBIC)
