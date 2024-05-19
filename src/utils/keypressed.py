@@ -1,6 +1,5 @@
 """ Used to store pressed keys"""
 
-
 class KeyPressed:
     """ Class to store pressed keys"""
 

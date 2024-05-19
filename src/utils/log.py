@@ -31,7 +31,8 @@ handlers = [file_handler, stdout_handler]
 
 
 def configure_logger(log_level: int | str = logging.INFO) -> None:
-    """ Configure logger
+    """
+    Configure logger
     @param log_level: Log level
     """
     logging.basicConfig(

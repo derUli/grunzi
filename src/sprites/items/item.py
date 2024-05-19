@@ -76,10 +76,5 @@ class Useable:
     """ Useable item"""
     pass
 
-
-class Fence(Sprite, Useable):
-    pass
-
-
 class PiggyBank(Sprite, Useable):
     pass

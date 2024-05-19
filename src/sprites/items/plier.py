@@ -1,7 +1,8 @@
 import PIL
 from arcade import FACE_DOWN, FACE_RIGHT, FACE_LEFT
 
-from sprites.items.item import Item, Fence
+from sprites.items.fence import Fence
+from sprites.items.item import Item
 
 SCORE_DESTROY_FENCE = 100
 
@@ -24,7 +25,6 @@ class Plier(Item):
         rotated[FACE_RIGHT - 1] = image.copy().rotate(270, expand=False)
 
         return rotated
-
 
     def copy(self):
         """ Copy item """
