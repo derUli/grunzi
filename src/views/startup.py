@@ -93,6 +93,14 @@ class StartUp:
         )
 
         parser.add_argument(
+            '--antialiasing',
+            action='store',
+            type=int,
+            help='The antialiasing level',
+            choices=tuple([0, 2, 4, 8, 16])
+        )
+
+        parser.add_argument(
             '--no-vsync',
             action='store_true',
             default=False,
@@ -198,6 +206,10 @@ class StartUp:
         logging.info(label_value('Pyglet options', pyglet.options))
 
         settings = SettingsState.load()
+
+        if args.antialiasing is not None:
+            settings.antialiasing = args.antialiasing
+            settings.save()
 
         window = GameWindow(
             args.window,
