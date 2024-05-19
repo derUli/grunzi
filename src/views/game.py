@@ -71,6 +71,7 @@ class Game(Fading):
         # Music queue
         self.music_queue = None
         self.atmo = None
+        self.loading_music = None
 
         self.scene = None
 
@@ -123,11 +124,15 @@ class Game(Fading):
         self.initialized = False
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
-        self.video = load_video(
-            video_file,
-            self.window.size,
-            self.state.settings.music_volume
-        )
+
+        if not self.skip_intro:
+            self.video = load_video(
+                video_file,
+                self.window.size,
+                self.state.settings.music_volume
+            )
+
+        self.loading_music = None
 
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
@@ -274,11 +279,23 @@ class Game(Fading):
 
         self.ui.loading_screen.update()
 
+        video_playing = self.video and self.video.active
+
         if not self.initialized:
+            if not video_playing and not self.loading_music:
+                self.loading_music = self.state.play_sound(
+                    'loading',
+                    loop=True,
+                    volume=self.state.settings.music_volume
+                )
             return
 
-        if self.video and self.video.active:
+        if video_playing:
             return
+
+        if self.loading_music:
+            self.loading_music.pause()
+            self.loading_music = None
 
         if self.atmo:
             self.atmo.update()

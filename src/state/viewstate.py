@@ -67,8 +67,6 @@ class ViewState:
             'footsteps': arcade.load_sound(
                 os.path.join(self.sound_dir, 'pig', 'footsteps.ogg')
             ),
-            'atmos': {
-            },
             'piggybank': {
                 'destroy': arcade.load_sound(os.path.join(self.sound_dir, 'piggybank', 'destroy.ogg'))
             },
@@ -84,7 +82,9 @@ class ViewState:
             'electric': {
                 'on': arcade.load_sound(os.path.join(self.sound_dir, 'electric', 'on.ogg')),
                 'push': arcade.load_sound(os.path.join(self.sound_dir, 'electric', 'push.ogg'))
-            }
+            },
+            'loading':  arcade.load_sound(os.path.join(self.music_dir, 'loading.ogg')),
+            'atmos': {}
         }
 
         dir = os.path.join(self.sound_dir, 'atmos', '*.ogg')
