@@ -1,7 +1,7 @@
 {
   "default": {
     "1": {
-      "maxSkulls": 5,
+      "maxNPCs": 5,
       "skullSpawnRange": [
         0,
         80
@@ -9,7 +9,7 @@
       "skullHurt": 10
     },
     "2": {
-      "maxSkulls": 10,
+      "maxNPCs": 10,
       "skullSpawnRange": [
         0,
         100
@@ -17,7 +17,7 @@
       "skullHurt": 15
     },
     "3": {
-      "maxSkulls": 15,
+      "maxNPCs": 15,
       "skullSpawnRange": [
         0,
         120
@@ -27,13 +27,13 @@
   },
   "map03": {
     "1": {
-      "maxSkulls": 0
+      "maxNPCs": 0
     },
     "2": {
-      "maxSkulls": 0
+      "maxNPCs": 0
     },
     "3": {
-      "maxSkulls": 0
+      "maxNPCs": 0
     }
   }
 }
