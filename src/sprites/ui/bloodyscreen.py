@@ -44,8 +44,6 @@ class BloodyScreen:
         return self
 
     def update(self, health):
-        # TODO: Fade to alpha value animation
-
         a = round(FULL_ALPHA - health * ONE_PERCENT_ALPHA, 2)
         self._target_alpha = a
 
