@@ -1,16 +1,13 @@
-import logging
 import os
-import sys
 import tkinter as tk
 import tkinter.ttk as ttk
 
 from PIL.ImageTk import PhotoImage
-from shell import shell
 from ttkthemes import ThemedTk
 
 from constants.audio import AUDIO_BACKENDS
 from state.settingsstate import SettingsState
-from utils.path import is_windows, get_autodetect_path
+from utils.path import is_windows
 from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 20
@@ -268,31 +265,6 @@ class LauncherWindow(ThemedTk):
         else:
             self.borderless_check.configure(state='enabled')
 
-    def autodetect_settings(self):
-        screen_resolutions = supported_screen_resolutions()
-        screen_resolutions = screen_resolutions[-1:]
-        if len(screen_resolutions) >= 1:
-            self.screen_resolution.set(screen_resolutions[0])
-
-        logging.info(sys.argv)
-
-        frozen = getattr(sys, "frozen", False)
-
-        if frozen:
-            logging.info(sys.argv)
-            logging.info(sys.executable)
-            shell([sys.argv[0], '--autodetect'])
-        else:
-            shell([sys.executable, sys.argv[0], '--autodetect'])
-
-        settings = ''
-
-        if get_autodetect_path():
-            with open(get_autodetect_path(), 'r') as f:
-                settings = f.read().strip()
-
-        self.apply_preset(settings)
-
     def value_to_selected_antialiasing(self, value):
         items = self.antialiasing_dropdown_items()
 
@@ -307,7 +279,7 @@ class LauncherWindow(ThemedTk):
         return items[key]
 
     def antialiasing_dropdown_items(self):
-
+        """ Items for antialiasing dropdown """
         return {
             _('Off'): 0,
             _('Low'): 2,

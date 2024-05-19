@@ -11,6 +11,7 @@ from views.startup import StartUp
 
 def start() -> None:
     """ Starts the game """
+
     try:
         StartUp(os.path.dirname(__file__)).main()
     except KeyboardInterrupt:

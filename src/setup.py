@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 """ cx_freeze setup file """
+
 import os
 import shutil
 import sys
