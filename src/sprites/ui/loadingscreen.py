@@ -1,11 +1,11 @@
 import arcade
 
 from state.viewstate import ViewState
-from utils.text import create_text, MEDIUM_FONT_SIZE
+from utils.text import create_text
 
 MARGIN = 5
 PERCENTAGE_SPEED = 1
-
+FONT_SIZE = 16
 
 class LoadingScreen:
     def __init__(self):
@@ -34,7 +34,7 @@ class LoadingScreen:
 
         self.loading_text = create_text(
             _("Loading..."),
-            font_size=MEDIUM_FONT_SIZE,
+            font_size=FONT_SIZE,
             color=arcade.color.BLACK,
             align='left'
         )
