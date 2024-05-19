@@ -50,6 +50,7 @@ class Electric(AbstractAnimatedSprite):
         if not self.check_initialized:
             self.check_initialized = True
             pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 3, args.scene)
+            pyglet.clock.schedule_interval_soft(self.check_npcs, 1 / 4, args)
 
         if not self.sound:
             audio = args.state.play_sound('electric', 'on', loop=True)
@@ -89,6 +90,22 @@ class Electric(AbstractAnimatedSprite):
             args.physics_engine.apply_force(args.player, (FORCE_MOVE, 0))
             return
 
+    def check_cone(self, dt, scene):
+
+        from constants.layers import LAYER_ELECTRIC_SWITCH
+
+        for switch in scene[LAYER_ELECTRIC_SWITCH]:
+
+            if not switch.enabled:
+                self.enabled = POWER_ON
+                return
+
+            self.enabled = POWER_OFF
+
+    def check_npcs(self, dt, args):
+        if not self.enabled:
+            return
+
         from constants.layers import LAYER_NPC
 
         collisions = arcade.check_for_collision_with_list(self, get_layer(LAYER_NPC, args.scene))
@@ -102,15 +119,3 @@ class Electric(AbstractAnimatedSprite):
                 sound = PositionalSound(sprite, self, audio, args.state)
                 sound.update()
                 sound.play()
-
-    def check_cone(self, dt, scene):
-
-        from constants.layers import LAYER_ELECTRIC_SWITCH
-
-        for switch in scene[LAYER_ELECTRIC_SWITCH]:
-
-            if not switch.enabled:
-                self.enabled = POWER_ON
-                return
-
-            self.enabled = POWER_OFF
