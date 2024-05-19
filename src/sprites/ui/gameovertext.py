@@ -1,21 +1,30 @@
+""" Game over screen """
+
 import random
 
 import arcade
 
-from utils.text import create_text, LARGE_FONT_SIZE
+from utils.text import create_text
 
 MARGIN = 10
 
 FONT_SIZE_TITLE = 30
 FONT_SIZE_SUBTITLE = 22
 
+
 class GameOverText:
+    """ Game over screen """
+
     def __init__(self):
+        """ Constructor """
+
         self.random_text = None
         self.texts = []
 
     def setup(self):
-        self.random_text = self.generate_random_text()
+        """ Setup game over text """
+
+        self.random_text = GameOverText.generate_random_text()
         self.texts = []
 
         window = arcade.get_window()
@@ -40,7 +49,13 @@ class GameOverText:
 
         self.texts.append(press_button_text)
 
-    def generate_random_text(self) -> str:
+    @staticmethod
+    def generate_random_text() -> str:
+        """
+        Generate random game over text
+        @return: random sentence
+        """
+
         sausages = [
             _('bacon'),
             _('salami'),
@@ -55,5 +70,7 @@ class GameOverText:
         return _('You are') + ' ' + random.choice(sausages) + '!'
 
     def draw(self):
+        """ Draw text """
+
         for text in self.texts:
             text.draw()
