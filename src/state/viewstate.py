@@ -8,6 +8,7 @@ import pyglet
 from arcade.experimental import Shadertoy
 
 from constants.maps import FIRST_MAP
+from utils.keypressed import KeyPressed
 
 
 class ViewState:
@@ -33,6 +34,7 @@ class ViewState:
         self.difficulty = None
         self.score = 0
         self.settings = settings
+        self.keypressed = KeyPressed()
 
     def reset(self):
         self.score = 0

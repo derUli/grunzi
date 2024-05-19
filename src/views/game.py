@@ -62,9 +62,6 @@ class Game(Fading):
         # A Camera that can be used for scrolling the screen
         self.camera_sprites = None
 
-        # What key is pressed down?
-        self.keypressed = KeyPressed()
-
         # Music queue
         self.music_queue = None
         self.atmo = None
@@ -360,16 +357,16 @@ class Game(Fading):
 
         force_x, force_y = 0, 0
 
-        if self.keypressed.key_up and not self.keypressed.key_down:
+        if self.state.keypressed.key_up and not self.state.keypressed.key_down:
             force_y = move_force
             self.player_sprite.change_y = -1
-        elif self.keypressed.key_down and not self.keypressed.key_up:
+        elif self.state.keypressed.key_down and not self.state.keypressed.key_up:
             force_y = -move_force
             self.player_sprite.change_y = 1
-        if self.keypressed.key_left and not self.keypressed.key_right:
+        if self.state.keypressed.key_left and not self.state.keypressed.key_right:
             force_x = -move_force
             self.player_sprite.change_x = -1
-        elif self.keypressed.key_right and not self.keypressed.key_left:
+        elif self.state.keypressed.key_right and not self.state.keypressed.key_left:
             force_x = move_force
             self.player_sprite.change_x = 1
 
@@ -496,20 +493,20 @@ class Game(Fading):
 
         if stick_name == constants.controls.controller.LEFTSTICK:
             if x_value == constants.controls.controller.AXIS_RIGHT:
-                self.keypressed.key_right = True
+                self.state.keypressed.key_right = True
             elif x_value == constants.controls.controller.AXIS_LEFT:
-                self.keypressed.key_left = True
+                self.state.keypressed.key_left = True
             else:
-                self.keypressed.key_right = False
-                self.keypressed.key_left = False
+                self.state.keypressed.key_right = False
+                self.state.keypressed.key_left = False
 
             if y_value == constants.controls.controller.AXIS_DOWN:
-                self.keypressed.key_down = True
+                self.state.keypressed.key_down = True
             elif y_value == constants.controls.controller.AXIS_UP:
-                self.keypressed.key_up = True
+                self.state.keypressed.key_up = True
             else:
-                self.keypressed.key_down = False
-                self.keypressed.key_up = False
+                self.state.keypressed.key_down = False
+                self.state.keypressed.key_up = False
 
         if stick_name == constants.controls.controller.RIGHTSTICK:
             face = self.player_sprite.face
@@ -584,13 +581,13 @@ class Game(Fading):
         if key in constants.controls.keyboard.KEY_GRUNT:
             self.on_grunt()
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
-            self.keypressed.key_left = True
+            self.state.keypressed.key_left = True
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
-            self.keypressed.key_right = True
+            self.state.keypressed.key_right = True
         elif key in constants.controls.keyboard.KEY_MOVE_UP:
-            self.keypressed.key_up = True
+            self.state.keypressed.key_up = True
         elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
-            self.keypressed.key_down = True
+            self.state.keypressed.key_down = True
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             self.on_select_item(key=key)
 
@@ -610,13 +607,13 @@ class Game(Fading):
         movement = True
 
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
-            self.keypressed.key_left = False
+            self.state.keypressed.key_left = False
         elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
-            self.keypressed.key_right = False
+            self.state.keypressed.key_right = False
         elif key in constants.controls.keyboard.KEY_MOVE_UP:
-            self.keypressed.key_up = False
+            self.state.keypressed.key_up = False
         elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
-            self.keypressed.key_down = False
+            self.state.keypressed.key_down = False
         else:
             movement = False
 
@@ -683,7 +680,7 @@ class Game(Fading):
         On show pause menu
         """
 
-        self.keypressed.reset()
+        self.state.keypressed.reset()
         self.player_sprite.reset()
 
         menu = PauseMenu(self.window, self.state, self)
