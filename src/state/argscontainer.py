@@ -1,4 +1,5 @@
 """ Args Container """
+from utils.callbackhandler import CallbackHandler
 
 
 class ArgsContainer:
@@ -23,3 +24,20 @@ class ArgsContainer:
         self.astar_barrier_list = astar_barrier_list
         self.wall_spritelist = wall_spritelist
         self.callbacks = callbacks
+
+def make_args_container(klaas):
+    """
+    Make ArgsContainer
+    @param klaas: Game class
+    @return: The args container
+    """
+    return ArgsContainer(
+        player=klaas.player_sprite,
+        scene=klaas.scene,
+        physics_engine=klaas.physics_engine,
+        state=klaas.state,
+        map_size=klaas.tilemap.size,
+        astar_barrier_list=klaas.astar_barrier_list,
+        wall_spritelist=klaas.wall_spritelist,
+        callbacks=CallbackHandler(on_complete=klaas.on_next_level)
+    )

@@ -21,9 +21,9 @@ from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
 from sprites.sprite import AbstractSprite
 from sprites.ui.uicontainer import UIContainer
+from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
-from utils.getargs import get_args
 from utils.keypressed import KeyPressed
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
@@ -739,11 +739,11 @@ class Game(Fading):
 
         item.on_use(
             state=self.state,
-            args=get_args(self)
+            args=make_args_container(self)
         )
 
     def call_update(self, delta_time):
-        args = get_args(self)
+        args = make_args_container(self)
 
         for sprite_list in self.scene.sprite_lists:
             for sprite in sprite_list:
