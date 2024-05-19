@@ -108,7 +108,10 @@ class Electric(AbstractAnimatedSprite):
 
         from constants.layers import LAYER_NPC
 
-        collisions = arcade.check_for_collision_with_list(self, get_layer(LAYER_NPC, args.scene))
+        collisions = arcade.check_for_collision_with_list(
+            self,
+            get_layer(LAYER_NPC, args.scene)
+        )
 
         for sprite in collisions:
             if isinstance(sprite, Character):
