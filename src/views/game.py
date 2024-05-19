@@ -35,7 +35,7 @@ from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
 
-COLOR_BACKGROUND = (70, 27, 27)
+COLOR_BACKGROUND = (0, 0, 0)
 
 
 class Game(Fading):
@@ -144,7 +144,6 @@ class Game(Fading):
         start_time = time.time()
 
         self.ui.loading_screen.show = True
-
         self.ui.loading_screen.percent = 0
 
         # Set up the Cameras
