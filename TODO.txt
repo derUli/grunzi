@@ -3,3 +3,5 @@
 * Level 1: Autofahr-Animation am Levelende
 * Aufgabe mit Metalldetektor
 * Benzin-Kanister zum Aufladen der Kettensäge zum Aufladen
+* Tretminen
+* Essen macht die Geschosse größer und vergrößert den Schaden
