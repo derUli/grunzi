@@ -31,7 +31,6 @@ class SettingsControls(Fading):
         self.window = window
         self.state = state
         self.manager = arcade.gui.UIManager(window)
-        self.next_view = None
 
         size = window.width, window.height
         self.shadertoy = self.state.load_shader(size, 'meadow')
@@ -200,11 +199,10 @@ class SettingsControls(Fading):
         self.render_shadertoy()
 
         self.manager.draw()
-        self.draw_build_version()
+        self.draw_after()
+
         self.draw_fading()
-        self.draw_debug()
 
     def on_back(self) -> None:
         """ Go back to main menu """
-        self.next_view = self.previous_view
-        self.fade_out()
+        self.fade_to_view(self.next_view)

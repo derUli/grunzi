@@ -214,3 +214,7 @@ class View(arcade.View):
 
         if self.state.settings.show_fps:
             self.fps_counter.draw(size=self.window.size)
+
+    def draw_after(self):
+        self.draw_build_version()
+        self.draw_debug()

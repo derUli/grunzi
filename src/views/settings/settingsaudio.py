@@ -135,10 +135,8 @@ class SettingsAudio(Fading):
         self.render_shadertoy()
 
         self.manager.draw()
-        self.draw_build_version()
-
+        self.draw_after()
         self.draw_fading()
-        self.draw_debug()
 
     def on_back(self) -> None:
         """ Back button clicked """
