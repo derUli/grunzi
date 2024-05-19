@@ -10,7 +10,6 @@
 
 ## Alpha 013 (Unreleased)
 
-* map01: Zusätzliche Bäume hinzugefügt
 * map02: Puzzle mit Strom-Hindernis hinzugefügt
 * map02: kann jetzt durchgespielt werden
 * map03: hinzugefügt
