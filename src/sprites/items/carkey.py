@@ -11,3 +11,11 @@ class CarKey(Item):
             return
 
         state.beep()
+
+    def copy(self):
+        """ Copy item """
+        return CarKey(
+            filename=self.filename,
+            center_x=self.center_x,
+            center_y=self.center_y
+        )

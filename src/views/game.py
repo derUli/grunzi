@@ -341,7 +341,6 @@ class Game(Fading):
             # The game window lose it's focus.
             # Activate the window again.
             self.window.activate()
-
             self.video.draw((0, 0), force_draw=True)
             return self.draw_debug()
 

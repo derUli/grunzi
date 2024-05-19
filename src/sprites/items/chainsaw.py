@@ -47,3 +47,13 @@ class Chainsaw(Item):
         rotated[FACE_DOWN - 1] = image.copy().rotate(270, expand=True)
 
         return rotated
+
+
+    def copy(self):
+        """ Copy item """
+        return Chainsaw(
+            filename=self.filename,
+            center_x=self.center_x,
+            center_y=self.center_y
+        )
+

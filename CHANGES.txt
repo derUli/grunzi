@@ -6,7 +6,6 @@
 * map02: Neues Monster hinzugefügt: Slimer
 * Neue Spielmechanik: Schwein kann essen
 * UI: "Erfolg" Screen nach jedem Level
-
 ## Alpha 013 (Unreleased)
 
 * map01: Zusätzliche Bäume hinzugefügt
@@ -18,6 +17,8 @@
 * UI: Bloody Screen Effekt hinzugefügt
 * UI: Menüpunkt "Online-Bestenliste" hinzugefügt
 * UI: Unnötige Grafikeinstellungen entfernt
+* UI: Neue Hauptmenü Musik
+* UI: Ladebildschirm Musik hinzugefügt
 
 ## Alpha 012 (17.05.2024)
 

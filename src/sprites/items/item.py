@@ -56,7 +56,7 @@ class Item(Sprite):
         state.beep()
 
     def copy(self):
-        logging.info('Copy not implemented')
+        logging.error('Copy not implemented')
         return self
 
     def draw_item(self, face):

@@ -20,3 +20,11 @@ class Hammer(Item):
             return
 
         state.beep()
+
+    def copy(self):
+        """ Copy item """
+        return Hammer(
+            filename=self.filename,
+            center_x=self.center_x,
+            center_y=self.center_y
+        )

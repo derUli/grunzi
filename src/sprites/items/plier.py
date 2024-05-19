@@ -24,3 +24,12 @@ class Plier(Item):
         rotated[FACE_RIGHT - 1] = image.copy().rotate(270, expand=False)
 
         return rotated
+
+
+    def copy(self):
+        """ Copy item """
+        return Plier(
+            filename=self.filename,
+            center_x=self.center_x,
+            center_y=self.center_y
+        )
