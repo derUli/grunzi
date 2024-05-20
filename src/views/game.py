@@ -23,7 +23,7 @@ from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
-from utils.keypressed import KeyPressed
+from utils.npcspawner import NPCSpawner
 from utils.physics import make_physics_engine
 from utils.positional_sound import PositionalSound
 from utils.scene import get_layer, Scene
@@ -77,6 +77,7 @@ class Game(Fading):
 
         self.astar_barrier_list = None
         self.wall_spritelist = None
+        self.npc_spawner = None
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -216,6 +217,8 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 90
 
+        self.npc_spawner = NPCSpawner().setup()
+
         for i in range(random.randint(1, 3)):
             spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
@@ -309,6 +312,7 @@ class Game(Fading):
             make_args_container(self)
         )
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
+        self.npc_spawner.update(make_args_container(self))
         self.update_fade(self.next_view)
 
     def on_draw(self) -> None:

@@ -30,7 +30,6 @@ class Scene(BaseScene):
 
     def update_scene(self, delta_time, args):
         size = arcade.get_window().get_size()
-        self.update_enemies(args.state, self, args.tilemap, args.physics_engine)
         self.update_animated(delta_time, size, self, args.player)
         self.call_update(delta_time, args)
 
@@ -39,17 +38,6 @@ class Scene(BaseScene):
         animated = animated_in_sight(size, scene, player_sprite)
         for sprite in animated:
             sprite.update_animation(delta_time)
-
-    def update_enemies(self, state, scene, tilemap, physics_engine):
-        from constants.layers import LAYER_NPC
-        from sprites.characters.skull import spawn_skull
-
-        enemies = get_layer(LAYER_NPC, scene)
-
-        if len(enemies) < state.difficulty.max_npcs:
-            a, b = state.difficulty.skull_spawn_range
-            if random.randint(a, b) == 50:
-                spawn_skull(state, tilemap.map, scene, physics_engine)
 
     def get_collectable(self, player_sprite):
         items = arcade.check_for_collision_with_lists(player_sprite, self.sprite_lists)

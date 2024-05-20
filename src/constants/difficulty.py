@@ -15,7 +15,6 @@ class Difficulty:
         """ Constructor """
 
         self.max_npcs = 0
-        self.skull_spawn_range = 0
         self.skull_hurt = 0
 
         self.setup(difficulty, map_name, level_dir)
@@ -24,7 +23,6 @@ class Difficulty:
         """ Reset values """
 
         self.max_npcs = 0
-        self.skull_spawn_range = 0
         self.skull_hurt = 0
 
     def setup(self, difficulty, map_name, level_dir) -> None:
@@ -44,9 +42,6 @@ class Difficulty:
 
         if 'maxNPCs' in difficulty_data:
             self.max_npcs = difficulty_data['maxNPCs']
-
-        if 'skullSpawnRange' in difficulty_data:
-            self.skull_spawn_range = tuple(difficulty_data['skullSpawnRange'])
 
         if 'skullHurt' in difficulty_data:
             self.skull_hurt = difficulty_data['skullHurt']

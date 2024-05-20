@@ -246,7 +246,7 @@ def spawn_skull(state, tilemap, scene, physics_engine):
     )
 
     if check_collision_with_layers(scene, skull):
-        return
+        return spawn_skull(state, tilemap, scene, physics_engine)
 
     scene.add_sprite(LAYER_NPC, skull)
     physics_engine.add_sprite(
@@ -257,3 +257,4 @@ def spawn_skull(state, tilemap, scene, physics_engine):
         max_velocity=200,
         damping=skull.damping
     )
+    return
