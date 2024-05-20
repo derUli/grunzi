@@ -68,7 +68,8 @@ class SettingsAudio(Fading):
             text_color=arcade.csscolor.BLACK,
             bold=True,
             font_size=utils.text.MEDIUM_FONT_SIZE,
-            width=BUTTON_WIDTH
+            width=BUTTON_WIDTH,
+            align='center'
         )
 
         music_slider = UISlider(
@@ -84,7 +85,8 @@ class SettingsAudio(Fading):
             text_color=arcade.csscolor.BLACK,
             bold=True,
             font_size=utils.text.MEDIUM_FONT_SIZE,
-            width=BUTTON_WIDTH
+            width=BUTTON_WIDTH,
+            align='center'
         )
 
         sound_slider = UISlider(
