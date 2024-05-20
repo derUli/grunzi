@@ -7,7 +7,7 @@ from sprites.items.food import spawn_food
 from utils.scene import get_layer
 
 
-class NPCSpawner:
+class MapPopulator:
     def __init__(self):
         self.next_spawn = 0
         self.initial_spawn = False
@@ -52,8 +52,8 @@ class NPCSpawner:
             logging.info(f"Spawn chicken {i}")
             spawn_chicken(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
-        for i in range(random.randint(1, 5)):
-            self.spawn_apple(args)
+        self.spawn_food(args)
 
-    def spawn_apple(self, args):
-        spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
+    def spawn_food(self, args):
+        for i in range(random.randint(1, 5)):
+            spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)

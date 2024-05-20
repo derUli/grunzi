@@ -6,7 +6,7 @@ import pyglet
 
 from sprites.characters.character import Character
 from sprites.sprite import AbstractAnimatedSprite
-from utils.positional_sound import PositionalSound
+from utils.positionalsound import PositionalSound
 from utils.scene import get_layer
 
 FORCE_MOVE = 30000

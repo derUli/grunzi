@@ -21,9 +21,9 @@ from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
-from utils.npcspawner import NPCSpawner
+from utils.mappopulator import MapPopulator
 from utils.physics import make_physics_engine
-from utils.positional_sound import PositionalSound
+from utils.positionalsound import PositionalSound
 from utils.scene import get_layer, Scene
 from utils.tilemap import TileMap
 from utils.video import load_video
@@ -75,7 +75,7 @@ class Game(Fading):
 
         self.astar_barrier_list = None
         self.wall_spritelist = None
-        self.npc_spawner = None
+        self.map_populator = None
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -209,7 +209,7 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 90
 
-        self.npc_spawner = NPCSpawner()
+        self.map_populator = MapPopulator()
 
         self.ui.loading_screen.percent = 100
 
@@ -301,7 +301,7 @@ class Game(Fading):
             make_args_container(self)
         )
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
-        self.npc_spawner.update(make_args_container(self))
+        self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
 
     def on_draw(self) -> None:

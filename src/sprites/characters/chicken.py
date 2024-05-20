@@ -12,7 +12,7 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
 from sprites.items.redherring import Feather
-from utils.positional_sound import PositionalSound
+from utils.positionalsound import PositionalSound
 from utils.sprite import random_position
 
 FADE_SPEED = 4

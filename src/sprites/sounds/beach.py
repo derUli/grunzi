@@ -3,7 +3,7 @@ from typing import Optional
 from arcade import Texture
 
 from sprites.sprite import Sprite
-from utils.positional_sound import PositionalSound
+from utils.positionalsound import PositionalSound
 
 
 class Beach(Sprite):
