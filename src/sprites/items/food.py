@@ -25,6 +25,7 @@ class Food(Item):
     def layer_name(self):
         return LAYER_FOOD
 
+
 class Apple(Food):
     def copy(self):
         """ Copy item """
@@ -36,6 +37,7 @@ class Apple(Food):
 
     def on_use(self, state, args):
         return self.eat(state, args, 2)
+
 
 def spawn_food(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)

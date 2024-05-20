@@ -16,9 +16,9 @@ from sprites.items.electric import Electric
 from sprites.items.electricswitch import ElectricSwitch
 from sprites.items.fence import Fence
 from sprites.items.hammer import Hammer
-from sprites.items.piggybank import PiggyBank
 from sprites.items.jeep import Jeep
 from sprites.items.levelexit import LevelExit
+from sprites.items.piggybank import PiggyBank
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.items.tree import Tree
