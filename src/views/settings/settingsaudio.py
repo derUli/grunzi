@@ -55,26 +55,40 @@ class SettingsAudio(Fading):
             style=utils.gui.get_button_style()
         )
 
-        music_button = arcade.gui.UITextureButton(
-            text=_("Music"),
-            width=BUTTON_WIDTH,
-            texture=get_texture_by_value(
-                width=BUTTON_WIDTH,
-                height=back_button.height,
-                value=self.state.settings._music_volume > 0.0
-            ),
-            style=utils.gui.get_button_style()
+
+        default_style = arcade.gui.UISlider.UIStyle(filled_bar=arcade.color.HOT_PINK, unfilled_bar=arcade.color.BLACK)
+        style_dict = {"press": default_style, "normal": default_style, "hover": default_style, "disabled": default_style}
+
+        music_label = arcade.gui.UILabel(
+            text=_('Music'),
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
+            font_size=utils.text.MEDIUM_FONT_SIZE
         )
 
-        sound_button = arcade.gui.UITextureButton(
-            text=_("Sound"),
+        print(int(self.state.settings._music_volume * 100))
+
+        music_slider = arcade.gui.UISlider(
             width=BUTTON_WIDTH,
-            texture=get_texture_by_value(
-                width=BUTTON_WIDTH,
-                height=back_button.height,
-                value=self.state.settings._sound_volume > 0.0
-            ),
-            style=utils.gui.get_button_style()
+            value=int(self.state.settings._music_volume * 100),
+            min_value=0,
+            max_value=100,
+            style=style_dict
+        )
+
+        sound_label = arcade.gui.UILabel(
+            text=_('Sound'),
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
+            font_size=utils.text.MEDIUM_FONT_SIZE
+        )
+
+        sound_slider = arcade.gui.UISlider(
+            width=BUTTON_WIDTH,
+            value=int(self.state.settings._sound_volume * 100),
+            min_value=0,
+            max_value = 100,
+            style=style_dict
         )
 
         @back_button.event("on_click")
@@ -82,20 +96,44 @@ class SettingsAudio(Fading):
             # Pass already created view because we are resuming.
             self.on_back()
 
-        @music_button.event("on_click")
-        def on_click_music_button(event):
+        @music_slider.event("on_change")
+        def on_change_music_volume(event):
             # Pass already created view because we are resuming.
-            self.on_toggle_music()
+            volume = event.new_value
 
-        @sound_button.event("on_click")
-        def on_click_sound_button(event):
+            if volume > 0.0:
+                volume = volume / 100
+            else:
+                volume = 0.0
+
+            volume = round(volume, 2)
+
+            self.state.settings._music_volume = volume
+            self.previous_view.previous_view.player.volume = volume
+
+            self.state.settings.save()
+
+        @sound_slider.event("on_change")
+        def on_change_sound_volume(event):
             # Pass already created view because we are resuming.
-            self.on_toggle_sound()
+            volume = event.new_value
+
+            if volume > 0.0:
+                volume = volume / 100
+            else:
+                volume = 0.0
+
+            volume = round(volume, 2)
+
+            self.state.settings._sound_volume = volume
+            self.state.settings.save()
 
         widgets = [
             back_button,
-            music_button,
-            sound_button
+            music_label,
+            music_slider,
+            sound_label,
+            sound_slider
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -142,33 +180,3 @@ class SettingsAudio(Fading):
         """ Back button clicked """
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
-
-    def on_toggle_music(self):
-        """ Toggle music """
-        if self.state.settings._music_volume > 0.0:
-            self.state.settings._music_volume = 0.0
-        else:
-            self.state.settings._music_volume = 1.0
-
-        # Main Menu or game
-        main_menu = self.previous_view.previous_view
-
-        # Update volume of main menu music
-        main_menu.player.volume = self.state.settings._music_volume
-
-        self.state.settings.save()
-
-        # Update button color
-        self.setup()
-
-    def on_toggle_sound(self) -> None:
-        """
-        Toggle sound effect
-        """
-        if self.state.settings._sound_volume > 0.0:
-            self.state.settings._sound_volume = 0.0
-        else:
-            self.state.settings._sound_volume = 1.0
-
-        self.state.settings.save()
-        self.setup()
