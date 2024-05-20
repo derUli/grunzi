@@ -3,9 +3,10 @@
 ## Alpha XXX (Unreleased)
 
 * map02: Kakteen hinzugefügt
-* map02: Neues Monster hinzugefügt: Slimer
+* mpa03: Nebel hinzugefügt
+* map03: Neues Monster hinzugefügt: Slimer
 * UI: "Erfolg" Screen nach jedem Level
-# Tretmine
+# Tretminen
 
 ## Alpha 014 (Unreleased)
 
