@@ -178,13 +178,7 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 60
 
-        self.wall_spritelist = SpriteList(lazy=True, use_spatial_hash=True)
-
-        for name in WALL_LAYERS:
-            layer = get_layer(name, self.scene)
-
-            for item in layer:
-                self.wall_spritelist.append(item)
+        self.wall_spritelist = self.scene.make_wall_spritelist()
 
         sprite = arcade.SpriteSolidColor(
             width=64,
@@ -301,7 +295,7 @@ class Game(Fading):
 
         # Move the player with the physics engine
         self.update_player_speed()
-        self.physics_engine.step(UPDATE_RATE)
+        self.physics_engine.step(delta_time)
         self.scene.update_scene(
             delta_time,
             make_args_container(self)

@@ -17,7 +17,7 @@ from utils.sprite import random_position
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-MOVE_FORCE = 400
+MOVE_FORCE = 300
 MOVE_DAMPING = 0.01
 
 SIGHT_DISTANCE = 1000
@@ -26,7 +26,7 @@ GRID_SIZE = 64
 FADE_IN_MAX = 255
 FADE_SPEED = 4
 
-SHOOT_DELTA = 1 / 6
+SHOOT_DELTA = 1 / 5
 
 PATH_FINDING_INTERVAL = 1
 

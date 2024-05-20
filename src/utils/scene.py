@@ -1,5 +1,4 @@
 """ Scene utils """
-import random
 
 import arcade
 from arcade import Scene as BaseScene, TileMap
@@ -60,6 +59,18 @@ class Scene(BaseScene):
                     delta_time,
                     args
                 )
+
+    def make_wall_spritelist(self):
+        from constants.layers import WALL_LAYERS
+
+        wall_spritelist = SpriteList(lazy=True, use_spatial_hash=True)
+        for name in WALL_LAYERS:
+            layer = get_layer(name, self)
+
+            for item in layer:
+                wall_spritelist.append(item)
+
+        return wall_spritelist
 
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """
