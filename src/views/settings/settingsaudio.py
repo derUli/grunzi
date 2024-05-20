@@ -66,8 +66,6 @@ class SettingsAudio(Fading):
             font_size=utils.text.MEDIUM_FONT_SIZE
         )
 
-        print(int(self.state.settings._music_volume * 100))
-
         music_slider = arcade.gui.UISlider(
             width=BUTTON_WIDTH,
             value=int(self.state.settings._music_volume * 100),
@@ -75,6 +73,7 @@ class SettingsAudio(Fading):
             max_value=100,
             style=style_dict
         )
+
 
         sound_label = arcade.gui.UILabel(
             text=_('Sound'),
@@ -98,6 +97,7 @@ class SettingsAudio(Fading):
 
         @music_slider.event("on_change")
         def on_change_music_volume(event):
+            music_slider.do_render()
             # Pass already created view because we are resuming.
             volume = event.new_value
 

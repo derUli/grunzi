@@ -1,5 +1,4 @@
 from utils.postprocessing.fog import Fog
-from utils.postprocessing.sun import Sun
 
 
 
@@ -9,7 +8,6 @@ class PostProcessing:
 
     def setup(self, args):
         self.pipeline = []
-        print(args.state.difficulty.options)
         if args.state.difficulty.options['fog']:
             self.pipeline.append(
                 Fog().setup(args)
