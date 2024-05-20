@@ -16,6 +16,7 @@ class Difficulty:
 
         self.max_npcs = 0
         self.skull_hurt = 0
+        self.spawn_what = []
 
         self.setup(difficulty, map_name, level_dir)
 
@@ -24,9 +25,12 @@ class Difficulty:
 
         self.max_npcs = 0
         self.skull_hurt = 0
+        self.spawn_what = []
 
     def setup(self, difficulty, map_name, level_dir) -> None:
         """ Setup difficulty """
+
+        self.reset()
 
         maps = os.path.join(level_dir, 'maps.json')
 
@@ -38,10 +42,14 @@ class Difficulty:
         if 'skullHurt' in difficulty_data:
             self.skull_hurt = difficulty_data['skullHurt']
 
-        if map_name in jsond:
-            difficulty_data = jsond[map_name][str(difficulty)]
+        map_data = {}
 
-        self.reset()
+        if map_name in jsond:
+            map_data = jsond[map_name]
+            difficulty_data = map_data[str(difficulty)]
+
+        if 'spawnWhat' in map_data:
+            self.spawn_what = map_data['spawnWhat']
 
         if 'maxNPCs' in difficulty_data:
             self.max_npcs = difficulty_data['maxNPCs']

@@ -1,7 +1,6 @@
+import logging
 import random
 import time
-
-import logging
 
 from sprites.characters.chicken import spawn_chicken
 from utils.scene import get_layer
@@ -37,13 +36,15 @@ class NPCSpawner:
         self.next_spawn = time.time() + random.randint(1, 6)
 
     def spawn(self, args):
-        what = random.choice([
-            'skull'
-        ])
+
+        if not any(args.state.difficulty.spawn_what):
+            return
+
+        what = random.choice(args.state.difficulty.spawn_what)
 
         logging.info('Spawn ' + what)
 
-        if what == 'skull':
+        if what == 'Skull':
             self.spawn_skull(args)
 
     def spawn_skull(self, args):

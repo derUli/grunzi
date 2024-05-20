@@ -11,6 +11,9 @@
     }
   },
   "map01": {
+    "spawnWhat": [
+      "Skull"
+    ],
     "1": {
       "maxNPCs": 5
     },
@@ -22,6 +25,9 @@
     }
   },
   "map02": {
+    "spawnWhat": [
+      "Skull"
+    ],
     "1": {
       "maxNPCs": 6
     },
