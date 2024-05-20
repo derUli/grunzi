@@ -1,15 +1,7 @@
-import random
-
-import arcade
-from arcade import FACE_RIGHT, FACE_LEFT
-
 from sprites.characters.character import Character
-from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
-from sprites.items.item import Useable
-from utils.positional_sound import PositionalSound
-
 
 MOVE_SPEED = 7
+
 
 class Fish(Character):
     def __init__(
@@ -38,8 +30,7 @@ class Fish(Character):
         return
         self.center_x -= MOVE_SPEED
 
-
         if self.right <= 0:
             self.right = args.tilemap.width + abs(self.right)
 
-        # self.angle += 1
+        self.angle += 1
