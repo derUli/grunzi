@@ -1,6 +1,6 @@
 from sprites.sprite import Sprite
 
-MOVE_SPEED = 0.25
+MOVE_SPEED = 0.24
 
 
 class Cloud(Sprite):
