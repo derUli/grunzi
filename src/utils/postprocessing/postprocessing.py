@@ -1,5 +1,4 @@
 from utils.postprocessing.fog import Fog
-from utils.postprocessing.sun import Sun
 
 
 class PostProcessing:

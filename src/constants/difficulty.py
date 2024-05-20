@@ -63,3 +63,4 @@ class Difficulty:
 
         if 'maxNPCs' in difficulty_data:
             self.max_npcs = difficulty_data['maxNPCs']
+            print(self.max_npcs)
