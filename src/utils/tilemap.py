@@ -58,7 +58,6 @@ class TileMap:
         """
         return self._width
 
-
     @property
     def height(self) -> int:
         """ Tilemap height

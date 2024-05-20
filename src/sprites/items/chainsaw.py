@@ -48,7 +48,6 @@ class Chainsaw(Item):
 
         return rotated
 
-
     def copy(self):
         """ Copy item """
         return Chainsaw(
@@ -56,4 +55,3 @@ class Chainsaw(Item):
             center_x=self.center_x,
             center_y=self.center_y
         )
-

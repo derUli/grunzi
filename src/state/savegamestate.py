@@ -6,7 +6,7 @@ import os
 import jsonpickle
 
 from constants.difficulty import DIFFICULTY_MEDIUM
-from constants.maps import FIRST_MAP, MAPS
+from constants.maps import MAPS
 from constants.savegames import SAVEGAME_DEFAULT
 from utils.path import get_savegame_path
 from utils.utils import natural_keys

@@ -7,6 +7,7 @@ FADE_RATE = 5
 
 COLOR_BACKGROUND = (0, 0, 0)
 
+
 class Fading(View):
     """ Fading view """
 
@@ -61,7 +62,6 @@ class Fading(View):
         """ Fade to quit """
         self.fade_out()
         self._do_quit = True
-
 
     def fade_to_view(self, view):
         self.next_view = view

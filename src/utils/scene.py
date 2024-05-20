@@ -72,6 +72,7 @@ class Scene(BaseScene):
 
         return wall_spritelist
 
+
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """
 

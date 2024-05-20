@@ -29,6 +29,7 @@ class ArgsContainer:
         self.camera = camera
         self.tilemap = tilemap
 
+
 def make_args_container(klaas):
     """
     Make ArgsContainer
@@ -44,6 +45,6 @@ def make_args_container(klaas):
         astar_barrier_list=klaas.astar_barrier_list,
         wall_spritelist=klaas.wall_spritelist,
         callbacks=CallbackHandler(on_complete=klaas.on_next_level),
-        camera = klaas.camera_sprites,
+        camera=klaas.camera_sprites,
         tilemap=klaas.tilemap,
     )

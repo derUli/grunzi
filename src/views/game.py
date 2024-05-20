@@ -4,7 +4,7 @@ import threading
 import time
 
 import pyglet.clock
-from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN, SpriteList
+from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
 import constants.controls.keyboard

@@ -7,6 +7,7 @@ MARGIN = 5
 PERCENTAGE_SPEED = 1
 FONT_SIZE = 16
 
+
 class LoadingScreen:
     def __init__(self):
         self.size = None

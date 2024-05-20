@@ -76,5 +76,6 @@ class Useable:
     """ Useable item"""
     pass
 
+
 class PiggyBank(Sprite, Useable):
     pass
