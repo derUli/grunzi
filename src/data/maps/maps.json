@@ -18,7 +18,7 @@
       "maxNPCs": 7
     },
     "3": {
-      "maxNPCs": 8
+      "maxNPCs": 10
     }
   },
   "map02": {
@@ -29,7 +29,7 @@
       "maxNPCs": 9
     },
     "3": {
-      "maxNPCs": 11
+      "maxNPCs": 13
     }
   },
   "map03": {
