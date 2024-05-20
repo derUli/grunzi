@@ -4,11 +4,15 @@
 
 * map02: Kakteen hinzugefügt
 * map02: Neues Monster hinzugefügt: Slimer
-* Neue Spielmechanik: Schwein kann essen
 * UI: "Erfolg" Screen nach jedem Level
 # Tretmine
 
-## Alpha 013 (Unreleased)
+## Alpha 014 (Unreleased)
+
+* Global: Äpfel hinzugefügt
+* Global: "Beep" Soundeffekt ersetzt
+
+## Global: Alpha 013 (Unreleased)
 
 * map02: Puzzle mit Strom-Hindernis hinzugefügt
 * map02: kann jetzt durchgespielt werden
