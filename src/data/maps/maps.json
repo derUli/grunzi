@@ -29,7 +29,8 @@
   },
   "map02": {
     "options":{
-      "chicken": true
+      "chicken": true,
+      "sun": true
     },
     "spawnWhat": [
       "Skull"

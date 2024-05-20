@@ -42,7 +42,6 @@ class Fog(Effect):
 
             sprite = arcade.sprite.Sprite(texture=texture)
             sprite.center_x = x
-            print(sprite.center_x)
             sprite.center_y = sprite.height / 2
             sprite.alpha = DEFAULT_ALPHA
             self.spritelist.append(sprite)
