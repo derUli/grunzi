@@ -1,4 +1,5 @@
-from sprites.items.item import Item, PiggyBank
+from sprites.items.item import Item
+from sprites.items.piggybank import PiggyBank
 
 SCORE_DESTROY_PIGGYBANK = 100
 SCORE_HURT_SKULLSPRITE = 50
