@@ -71,6 +71,7 @@ class Player(Character, SpriteHealth):
         self._bullet_size = DEFAULT_BULLET_SIZE
 
         self.bloody_screen = None
+        self.walking = False
 
     def setup(self, state, scene, callbacks):
         self.state = state
@@ -210,6 +211,7 @@ class Player(Character, SpriteHealth):
         self.state.squeak()
 
     def start_walk(self, sprint=False):
+        self.walking = True
         volume = 1
         self.footsteps_default.volume = volume * self.state.settings.sound_volume
         self.footsteps_sprint.volume = volume * self.state.settings.sound_volume
@@ -230,6 +232,7 @@ class Player(Character, SpriteHealth):
             self.footsteps_default.play()
 
     def stop_walk(self):
+        self.walking = False
         self.footsteps_default.pause()
         self.footsteps_sprint.pause()
 

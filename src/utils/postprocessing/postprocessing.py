@@ -1,9 +1,17 @@
+from utils.postprocessing.fog import Fog
+
+
 class PostProcessing:
     def __init__(self):
         self.pipeline = []
 
     def setup(self, args):
         self.pipeline = []
+        print(args.state.difficulty.options)
+        if args.state.difficulty.options['fog']:
+            self.pipeline.append(
+                Fog().setup(args)
+            )
         return self
 
     def update(self, delta_time, args):

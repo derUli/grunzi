@@ -28,7 +28,8 @@ class Difficulty:
         self.skull_hurt = 0
         self.spawn_what = []
         self.options = {
-            'chicken': False
+            'chicken': False,
+            'fog': False
         }
 
     def setup(self, difficulty, map_name, level_dir) -> None:
