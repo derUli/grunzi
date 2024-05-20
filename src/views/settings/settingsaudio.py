@@ -1,10 +1,10 @@
 """ Settings > Audio """
 import arcade.gui
+from arcade.gui.widgets.slider import UISlider
 
 import constants.controls.keyboard
 import utils.gui
 import utils.text
-from utils.gui import get_texture_by_value
 from views.fading import Fading
 
 BUTTON_WIDTH = 250
@@ -55,25 +55,29 @@ class SettingsAudio(Fading):
             style=utils.gui.get_button_style()
         )
 
+        default_style = arcade.gui.UISlider.UIStyle(
+            filled_bar=arcade.color.HOT_PINK,
+            unfilled_bar=arcade.color.BLACK
+        )
 
-        default_style = arcade.gui.UISlider.UIStyle(filled_bar=arcade.color.HOT_PINK, unfilled_bar=arcade.color.BLACK)
-        style_dict = {"press": default_style, "normal": default_style, "hover": default_style, "disabled": default_style}
+        style_dict = {"press": default_style, "normal": default_style, "hover": default_style,
+                      "disabled": default_style}
 
         music_label = arcade.gui.UILabel(
             text=_('Music'),
             text_color=arcade.csscolor.BLACK,
             bold=True,
-            font_size=utils.text.MEDIUM_FONT_SIZE
+            font_size=utils.text.MEDIUM_FONT_SIZE,
+            width=BUTTON_WIDTH
         )
 
-        music_slider = arcade.gui.UISlider(
+        music_slider = UISlider(
             width=BUTTON_WIDTH,
             value=int(self.state.settings._music_volume * 100),
             min_value=0,
             max_value=100,
             style=style_dict
         )
-
 
         sound_label = arcade.gui.UILabel(
             text=_('Sound'),
@@ -82,11 +86,11 @@ class SettingsAudio(Fading):
             font_size=utils.text.MEDIUM_FONT_SIZE
         )
 
-        sound_slider = arcade.gui.UISlider(
+        sound_slider = UISlider(
             width=BUTTON_WIDTH,
             value=int(self.state.settings._sound_volume * 100),
             min_value=0,
-            max_value = 100,
+            max_value=100,
             style=style_dict
         )
 
@@ -95,10 +99,11 @@ class SettingsAudio(Fading):
             # Pass already created view because we are resuming.
             self.on_back()
 
-        @music_slider.event("on_change")
+        @music_slider.event('on_change')
         def on_change_music_volume(event):
-            music_slider.do_render()
-            # Pass already created view because we are resuming.
+            # Workaround for visual issue
+            self.manager._do_render(force=True)
+
             volume = event.new_value
 
             if volume > 0.0:
@@ -115,7 +120,10 @@ class SettingsAudio(Fading):
 
         @sound_slider.event("on_change")
         def on_change_sound_volume(event):
-            # Pass already created view because we are resuming.
+
+            # Workaround for visual issue
+            self.manager._do_render(force=True)
+
             volume = event.new_value
 
             if volume > 0.0:
