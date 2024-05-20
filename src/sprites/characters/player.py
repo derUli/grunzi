@@ -1,4 +1,5 @@
 """ Player sprite class """
+import math
 
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
@@ -32,7 +33,7 @@ STAMINA_INCREMENTOR = 0.5
 STAMINA_DECREMENTOR = 0.7
 
 DEFAULT_BULLET_SIZE = 6
-BULLET_DECREMENTOR = 0.1
+BULLET_DECREMENTOR = 0.25
 
 
 class Player(Character, SpriteHealth):
@@ -242,7 +243,7 @@ class Player(Character, SpriteHealth):
 
         hurt_modifier = (self.bullet_size / DEFAULT_BULLET_SIZE)
         Bullet(
-            int(self.bullet_size),
+            int(math.ceil(self.bullet_size)),
             color=arcade.csscolor.HOTPINK,
             hurt_modifier=hurt_modifier
         ).setup(
