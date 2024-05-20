@@ -25,11 +25,14 @@ class Sun(Effect):
         return self
 
     def update(self, delta_time, args):
-        if LAYER_SUN not in args.scene:
+
+
+        try:
+            sun = args.scene[LAYER_SUN][0]
+        except KeyError:
             return
 
         w, h = arcade.get_window().get_size()
-        sun = args.scene[LAYER_SUN][0]
 
         difference = arcade.get_distance_between_sprites(sun, args.player)
 

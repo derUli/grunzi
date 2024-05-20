@@ -63,9 +63,6 @@ class Fog(Effect):
             if args.player.walking:
                 speed = MOVE_SPEED_WALK * args.player.modifier
 
-                if args.player.face_horizontal == FACE_LEFT:
-                    speed *= -1
-
             sprite.center_x -= speed
 
 
