@@ -32,12 +32,12 @@ class ViewState:
         self.map_name = map_name
         self.map_name_first = map_name
         self.difficulty = None
-        self.score = 0
+        self._score = 0
         self.settings = settings
         self.keypressed = KeyPressed()
 
     def reset(self):
-        self.score = 0
+        self._score = 0
 
     def preload(self):
         self.preload_sounds()
@@ -161,3 +161,21 @@ class ViewState:
 
     def beep(self):
         return self.play_sound('beep')
+
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter
+    def score(self, val):
+
+        last_digit = int(str(val)[-1])
+
+        if last_digit >= 5:
+            last_digit = 5
+        else:
+            last_digit = 0
+
+        val = int(str(val)[:-1] + str(last_digit))
+
+        self._score = val

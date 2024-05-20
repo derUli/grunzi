@@ -9,6 +9,7 @@ from utils.sprite import random_position
 class Food(Item):
     def eat(self, state, args, bullet_size):
         args.player.bullet_size += bullet_size
+        args.state.score += (bullet_size * 10)
 
         state.play_sound('smacks')
 

@@ -1,5 +1,6 @@
 """ Pig bullet """
 import logging
+import math
 import time
 
 import arcade
@@ -106,8 +107,6 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
 
         hurt = hurt * self.hurt_modifier
 
-        print(hurt)
-
-        self.state.score += score
+        self.state.score += math.floor(self.hurt_modifier * score)
 
         _hit_sprite.hurt(hurt)
