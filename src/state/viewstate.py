@@ -60,6 +60,9 @@ class ViewState:
             'beep': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'beep.ogg'),
             ),
+            'noaction': arcade.load_sound(
+                os.path.join(self.sound_dir, 'pig', 'noaction.ogg'),
+            ),
             'shot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'weapons', 'shot.ogg'),
             ),
@@ -161,6 +164,9 @@ class ViewState:
 
     def beep(self):
         return self.play_sound('beep')
+
+    def noaction(self):
+        return self.play_sound('noaction')
 
     @property
     def score(self):
