@@ -213,7 +213,6 @@ class Game(Fading):
         self.ui.loading_screen.percent = 90
 
         self.map_populator = MapPopulator()
-        self.postprocessing = PostProcessing().setup(make_args_container(self))
 
         self.ui.loading_screen.percent = 100
 
@@ -230,6 +229,7 @@ class Game(Fading):
         savegame.save()
 
         self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
+        self.postprocessing = PostProcessing().setup(make_args_container(self))
 
         self.initialized = True
 
