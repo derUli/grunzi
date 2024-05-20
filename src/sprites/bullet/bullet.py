@@ -106,6 +106,8 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
 
         hurt = hurt * self.hurt_modifier
 
+        print(hurt)
+
         self.state.score += score
 
         _hit_sprite.hurt(hurt)

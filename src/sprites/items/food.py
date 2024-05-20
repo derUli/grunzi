@@ -20,13 +20,11 @@ class Food(Item):
 
         return True
 
+    @property
+    def layer_name(self):
+        return LAYER_FOOD
 
 class Apple(Food):
-
-    @property
-    def layer(self):
-        return 'Apple'
-
     def copy(self):
         """ Copy item """
         return Apple(

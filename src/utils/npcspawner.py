@@ -1,5 +1,4 @@
 import logging
-import os
 import random
 import time
 
@@ -53,12 +52,8 @@ class NPCSpawner:
             logging.info(f"Spawn chicken {i}")
             spawn_chicken(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
-
         for i in range(random.randint(1, 5)):
             self.spawn_apple(args)
 
-
     def spawn_apple(self, args):
         spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
-
-
