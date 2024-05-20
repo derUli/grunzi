@@ -25,6 +25,9 @@ class Sun(Effect):
         return self
 
     def update(self, delta_time, args):
+        if LAYER_SUN not in args.scene:
+            return
+
         w, h = arcade.get_window().get_size()
         sun = args.scene[LAYER_SUN][0]
 
