@@ -24,6 +24,7 @@
 * UI: Unnötige Grafikeinstellungen entfernt
 * UI: Neue Hauptmenü Musik
 * UI: Ladebildschirm Musik hinzugefügt
+* UI: Lautstärke-Regler zu Audioeinstellungen hinzugefügt
 
 ## Alpha 012 (17.05.2024)
 
