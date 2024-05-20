@@ -14,7 +14,7 @@ class Character(Sprite, SpriteHealth):
             center_x=0,
             center_y=0
     ):
-        super().__init__(center_x=center_x, center_y=center_y)
+        super().__init__(filename, center_x=center_x, center_y=center_y)
         self.damage = DAMAGE
         self.health = HEALTH_FULL
 

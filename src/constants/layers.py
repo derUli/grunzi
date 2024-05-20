@@ -5,6 +5,7 @@ from arcade import Scene
 
 import sprites.decoration.car
 from sprites.characters.duck import Duck
+from sprites.characters.fish import Fish
 from sprites.decoration.cloud import Cloud
 from sprites.decoration.river import River
 from sprites.decoration.sun import Sun
@@ -56,6 +57,7 @@ LAYER_ELECTRIC = 'Electric'
 LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
 LAYER_LEVEL_EXIT = 'LevelExit'
 LAYER_RIVER = 'River'
+LAYER_FISH = 'Fish'
 LAYER_FOOD = 'Food'
 
 ALL_LAYERS = [
@@ -173,6 +175,9 @@ LAYER_OPTIONS = {
     LAYER_RIVER: {
         'custom_class': River
     },
+    LAYER_FISH: {
+        'custom_class': Fish
+    }
 }
 
 

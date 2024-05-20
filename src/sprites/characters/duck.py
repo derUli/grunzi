@@ -14,7 +14,7 @@ MOVE_DAMPING = 0.01
 MOVE_FORCE = 2000
 
 
-class Duck(Character, Useable):
+class Duck(Character):
     def __init__(
             self,
             filename: str | None = None,
@@ -44,12 +44,6 @@ class Duck(Character, Useable):
 
         self.damping = MOVE_DAMPING
         self.sound = None
-
-    def draw_overlay(self):
-        self.draw_healthbar(HEALTHBAR_FREN_COLOR)
-
-    def draw_debug(self):
-        pass
 
     def update(
             self,
