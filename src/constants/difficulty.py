@@ -35,6 +35,9 @@ class Difficulty:
 
         difficulty_data = jsond['default'][str(difficulty)]
 
+        if 'skullHurt' in difficulty_data:
+            self.skull_hurt = difficulty_data['skullHurt']
+
         if map_name in jsond:
             difficulty_data = jsond[map_name][str(difficulty)]
 
@@ -42,6 +45,3 @@ class Difficulty:
 
         if 'maxNPCs' in difficulty_data:
             self.max_npcs = difficulty_data['maxNPCs']
-
-        if 'skullHurt' in difficulty_data:
-            self.skull_hurt = difficulty_data['skullHurt']

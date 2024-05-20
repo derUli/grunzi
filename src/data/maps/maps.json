@@ -1,16 +1,35 @@
 {
   "default": {
     "1": {
-      "maxNPCs": 5,
       "skullHurt": 10
     },
     "2": {
-      "maxNPCs": 10,
       "skullHurt": 15
     },
     "3": {
-      "maxNPCs": 15,
       "skullHurt": 20
+    }
+  },
+  "map01": {
+    "1": {
+      "maxNPCs": 5
+    },
+    "2": {
+      "maxNPCs": 7
+    },
+    "3": {
+      "maxNPCs": 8
+    }
+  },
+  "map02": {
+    "1": {
+      "maxNPCs": 6
+    },
+    "2": {
+      "maxNPCs": 9
+    },
+    "3": {
+      "maxNPCs": 11
     }
   },
   "map03": {

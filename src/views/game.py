@@ -16,7 +16,6 @@ from constants.maps import MAPS
 from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
 from sprites.characters.character import Character
-from sprites.characters.chicken import spawn_chicken
 from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
 from sprites.ui.uicontainer import UIContainer
@@ -218,9 +217,6 @@ class Game(Fading):
         self.ui.loading_screen.percent = 90
 
         self.npc_spawner = NPCSpawner().setup()
-
-        for i in range(random.randint(1, 3)):
-            spawn_chicken(self.state, self.tilemap.map, self.scene, self.physics_engine)
 
         self.ui.loading_screen.percent = 100
 
