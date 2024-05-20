@@ -56,6 +56,7 @@ LAYER_ELECTRIC = 'Electric'
 LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
 LAYER_LEVEL_EXIT = 'LevelExit'
 LAYER_RIVER = 'River'
+LAYER_FOOD = 'Food'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -73,7 +74,8 @@ ALL_LAYERS = [
     LAYER_ELECTRIC,
     LAYER_ELECTRIC_SWITCH,
     LAYER_LEVEL_EXIT,
-    LAYER_RIVER
+    LAYER_RIVER,
+    LAYER_FOOD
 ]
 
 WALL_LAYERS = [
@@ -170,7 +172,7 @@ LAYER_OPTIONS = {
     },
     LAYER_RIVER: {
         'custom_class': River
-    }
+    },
 }
 
 

@@ -16,7 +16,8 @@ class ArgsContainer:
             wall_spritelist=None,
             callbacks=None,
             camera=None,
-            tilemap=None
+            tilemap=None,
+            inventory=None
     ):
         self.player = player
         self.scene = scene
@@ -28,6 +29,7 @@ class ArgsContainer:
         self.callbacks = callbacks
         self.camera = camera
         self.tilemap = tilemap
+        self.inventory = inventory
 
 
 def make_args_container(klaas):
@@ -47,4 +49,5 @@ def make_args_container(klaas):
         callbacks=CallbackHandler(on_complete=klaas.on_next_level),
         camera=klaas.camera_sprites,
         tilemap=klaas.tilemap,
+        inventory=klaas.ui.inventory
     )

@@ -69,6 +69,7 @@ class ViewState:
             'footsteps': arcade.load_sound(
                 os.path.join(self.sound_dir, 'pig', 'footsteps.ogg')
             ),
+            'smacks': arcade.load_sound(os.path.join(self.sound_dir, 'pig', 'smacks.ogg')),
             'piggybank': {
                 'destroy': arcade.load_sound(os.path.join(self.sound_dir, 'piggybank', 'destroy.ogg'))
             },

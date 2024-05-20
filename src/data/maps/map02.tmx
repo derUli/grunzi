@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="200" height="117" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#81b1d9" nextlayerid="44" nextobjectid="200">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="200" height="117" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#81b1d9" nextlayerid="45" nextobjectid="201">
  <tileset firstgid="1" name="Chars" tilewidth="60" tileheight="46" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -2085,6 +2085,9 @@
   <object id="52" gid="140" x="5351.09" y="3613.82" width="36" height="64"/>
   <object id="54" gid="140" x="11508.7" y="4989.58" width="36" height="64"/>
   <object id="57" gid="140" x="9182" y="3224" width="36" height="64"/>
+ </objectgroup>
+ <objectgroup id="44" name="Food">
+  <object id="200" gid="221" x="4095.27" y="1244.12" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="21" name="Duck">
   <object id="28" gid="141" x="2706.67" y="7082.67" width="64" height="52"/>
