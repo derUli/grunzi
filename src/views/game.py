@@ -33,6 +33,7 @@ from views.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
 
+
 class Game(Fading):
     """
     Main application class.
@@ -214,7 +215,7 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 90
 
-        self.npc_spawner = NPCSpawner().setup()
+        self.npc_spawner = NPCSpawner()
 
         self.ui.loading_screen.percent = 100
 

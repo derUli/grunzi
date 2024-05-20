@@ -11,12 +11,6 @@ class NPCSpawner:
         self.next_spawn = 0
         self.initial_spawn = False
 
-    def setup(self):
-        self.next_spawn = 0
-        self.initial_spawn = False
-
-        return self
-
     def update(self, args):
         if time.time() <= self.next_spawn:
             return
@@ -33,19 +27,18 @@ class NPCSpawner:
 
         self.spawn(args)
 
-        self.next_spawn = time.time() + random.randint(1, 6)
-
     def spawn(self, args):
 
         if not any(args.state.difficulty.spawn_what):
             return
 
         what = random.choice(args.state.difficulty.spawn_what)
-
         logging.info('Spawn ' + what)
 
         if what == 'Skull':
             self.spawn_skull(args)
+
+        self.next_spawn = time.time() + random.randint(1, 6)
 
     def spawn_skull(self, args):
         from sprites.characters.skull import spawn_skull
