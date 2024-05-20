@@ -10,6 +10,7 @@ import constants.controls.controller
 import constants.controls.keyboard
 import utils.audio
 from constants.controls.joystick import JOYSTICK_BUTTON_MAPPING, AXIS_X, AXIS_Y
+from constants.difficulty import Difficulty
 from constants.layers import *
 from constants.maps import MAPS
 from sprites.bullet.bullet import Bullet
@@ -227,6 +228,8 @@ class Game(Fading):
         savegame = SaveGameState.load()
         savegame.current = self.state.map_name
         savegame.save()
+
+        self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
         self.initialized = True
 
