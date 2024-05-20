@@ -11,6 +11,9 @@
     }
   },
   "map01": {
+    "options":{
+      "chicken": true
+    },
     "spawnWhat": [
       "Skull"
     ],
@@ -25,6 +28,9 @@
     }
   },
   "map02": {
+    "options":{
+      "chicken": true
+    },
     "spawnWhat": [
       "Skull"
     ],

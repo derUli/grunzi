@@ -48,11 +48,16 @@ class MapPopulator:
     def spawn_initial(self, args):
         self.initial_spawn = True
 
+        self.spawn_chicken(args)
+        self.spawn_food(args)
+
+    def spawn_chicken(self, args):
+        if not args.state.difficulty.options['chicken']:
+            return
+
         for i in range(random.randint(1, 3)):
             logging.info(f"Spawn chicken {i}")
             spawn_chicken(args.state, args.tilemap.map, args.scene, args.physics_engine)
-
-        self.spawn_food(args)
 
     def spawn_food(self, args):
         for i in range(random.randint(1, 5)):
