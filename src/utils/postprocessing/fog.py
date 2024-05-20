@@ -65,6 +65,5 @@ class Fog(Effect):
 
             sprite.center_x -= speed
 
-
     def draw(self):
         self.spritelist.draw()

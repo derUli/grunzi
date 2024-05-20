@@ -41,8 +41,9 @@ class SettingsControls(Fading):
         self.background = COLOR_BACKGROUND
 
     def on_show_view(self):
-        super().on_show_view()
         """ This is run once when we switch to this view """
+
+        super().on_show_view()
         self.show_scene()
 
     def show_scene(self):
@@ -171,6 +172,7 @@ class SettingsControls(Fading):
     def on_hide_view(self) -> None:
         """ Disable the UIManager when the view is hidden. """
 
+        super().on_hide_view()
         self.pop_controller_handlers()
         self.manager.disable()
 
@@ -205,4 +207,4 @@ class SettingsControls(Fading):
 
     def on_back(self) -> None:
         """ Go back to main menu """
-        self.fade_to_view(self.next_view)
+        self.fade_to_view(self.previous_view)
