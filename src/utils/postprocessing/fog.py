@@ -43,6 +43,7 @@ class Fog(Effect):
             sprite = arcade.sprite.Sprite(texture=texture)
             sprite.center_x = x
             sprite.center_y = sprite.height / 2
+
             sprite.alpha = DEFAULT_ALPHA
             self.spritelist.append(sprite)
 
@@ -56,6 +57,7 @@ class Fog(Effect):
 
             if sprite.right <= 0:
                 sprite.left = w + sprite.right
+
             speed = MOVE_SPEED_DEFAULT
 
             if args.player.walking:
@@ -65,6 +67,7 @@ class Fog(Effect):
                     speed *= -1
 
             sprite.center_x -= speed
+
 
     def draw(self):
         self.spritelist.draw()
