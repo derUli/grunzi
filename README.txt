@@ -4,7 +4,7 @@ Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufers und 
 Monster und friedlicher Zeitgenossen.
 
 Das Spiel befindet sich noch in einem frühen Zustand der Entwicklung.
-Bis jetzt ist das erste Level vollständig umgesetzt und das zweite Level befindet sich in Entwicklung.
+Bis jetzt sind die ersten zwei Level vollständig umgesetzt und das dritte Level befindet sich in Entwicklung.
 Das fertige Spiel sollen 4 verschiedene Levels enthalten.
 
 # Systemvoraussetzungen
@@ -29,10 +29,6 @@ der RivaTuner Software gemessen.
 | Vollbild            | An          |
 | V-Sync              | Aus         |
 | Rahmenlos           | Aus         |
-| Shader              | An          |
-| Verkehr             | An          |
-| Animierter Himmel   | An          |
-| Videos              | An          |
 
 ### Desktop PC
 
@@ -104,7 +100,7 @@ Angeschlossene Controller werden beim Spielstart automatisch erkannt.
 Der Controller muss bereits vor dem Start des Spiels mit dem Computer verbunden sein.
 Die Steuerung über Controller kann im Hauptmenü unter "Einstellungen" - "Steuerung" eingesehen werden.
 
-Derzeit werden die folgenden Controller unterstützt:
+Derzeit werden folgende Controller unterstützt:
 
 * Xbox 360 Controller
 * Rii USB Classic Controller
@@ -124,22 +120,13 @@ Das Spiel bietet die folgenden Einstellungsmöglichkeiten:
 | Rahmenlos           | An/Aus         | Keine                          | ✓           | ✘        |
 | V-Sync              | An/Aus         | Keine                          | ✓           | ✓        |
 
-## Grafik
-
-| Einstellung       | Mögliche Werte | Auswirkung auf die Performance | Im Launcher | Im Spiel |
-|-------------------|----------------|--------------------------------|-------------|----------|
-| Shader            | An/Aus         | Hoch                           | ✓           | ✘        |
-| Verkehr           | An/Aus         | Mittel                         | ✓           | ✓        |
-| Animierter Himmel | An/Aus         | Niedrig                        | ✓           | ✓        |
-| Videos            | An/Aus         | Mittel                         | ✓           | ✓        |
-
 ## Audio
 
 | Einstellung   | Mögliche Werte                                    | Im Launcher | Im Spiel |
 |---------------|---------------------------------------------------|-------------|----------|
 | Audio Backend | auto, xaudio2, directsound, openal, pulse, silent | ✓           | ✘        |
-| Musik         | An/Aus                                            | ✘           | ✓        |
-| Sound         | An/Aus                                            | ✘           | ✓        |
+| Musik         | 0 bis 100                                         | ✘           | ✓        |
+| Sound         | 0 bis 100                                         | ✘           | ✓        |
 
 ## Steuerung
 
