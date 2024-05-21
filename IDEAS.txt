@@ -1,6 +1,7 @@
 Nach dem ersten Durchspielen soll ein neuer Modus freigeschaltet werden, wo einige Sachen anders sind.
 Man könnte z.B. einige Puzzles randomizen, die beim ersten Durchlauf statisch waren
 Sprüche in der Welt verstecken.
+Trophäen
 
 * Feuer-Animation einbauen
 

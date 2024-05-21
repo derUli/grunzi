@@ -153,5 +153,4 @@ class Highscore(Fading):
         """ On click "Back" button """
 
         from views.mainmenu import MainMenu
-        self.next_view = MainMenu(self.window, self.state)
-        self.fade_out()
+        self.fade_to_view(MainMenu(self.window, self.state))

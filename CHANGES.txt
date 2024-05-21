@@ -2,17 +2,18 @@
 
 ## Alpha XXX (Unreleased)
 
-* map02: Kakteen hinzugefügt
-* mpa03: Nebel hinzugefügt
 * map03: Neues Monster hinzugefügt: Slimer
+* map03: Laterne hinzugefügt
 * UI: "Erfolg" Screen nach jedem Level
-# Tretminen
+* map02: Kakteen hinzugefügt
+* map02: Tretminen hinzugefügt
+* Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 
 ## Alpha 014 (Unreleased)
 
 * Global: Äpfel hinzugefügt
 * Global: "Beep" Soundeffekt ersetzt
-* Global: Support für Rii USB Classic Controller entfernt
+* Global: Support für Rii USB Classic Controller wieder entfernt
 
 ## Global: Alpha 013 (Unreleased)
 
