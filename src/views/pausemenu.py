@@ -92,8 +92,7 @@ class PauseMenu(Fading):
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
         music = arcade.load_sound(
-            os.path.join(self.state.music_dir, 'pause.ogg'),
-            streaming=streaming_enabled()
+            os.path.join(self.state.music_dir, 'pause.ogg')
         )
 
         self.player = music.play(loop=True, volume=self.state.settings.music_volume)

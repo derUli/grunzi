@@ -173,8 +173,7 @@ class MainMenu(Fading):
 
         try:
             music = arcade.load_sound(
-                os.path.join(self.state.music_dir, 'menu.ogg'),
-                streaming=streaming_enabled()
+                os.path.join(self.state.music_dir, 'menu.ogg')
             )
         except FileNotFoundError as e:
             logging.error(e)
