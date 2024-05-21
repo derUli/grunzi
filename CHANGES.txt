@@ -15,7 +15,7 @@
 * Global: "Beep" Soundeffekt ersetzt
 * Global: Support für Rii USB Classic Controller wieder entfernt
 
-## Global: Alpha 013 (Unreleased)
+## Global: Alpha 013 (24.12.2024)
 
 * map02: Puzzle mit Strom-Hindernis hinzugefügt
 * map02: kann jetzt durchgespielt werden
