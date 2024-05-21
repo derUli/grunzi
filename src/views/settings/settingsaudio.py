@@ -67,6 +67,7 @@ class SettingsAudio(Fading):
             text=_('Music'),
             text_color=arcade.csscolor.BLACK,
             bold=True,
+            font_name=utils.text.FONT_DEFAULT,
             font_size=utils.text.MEDIUM_FONT_SIZE,
             width=BUTTON_WIDTH,
             align='center'
@@ -84,6 +85,7 @@ class SettingsAudio(Fading):
             text=_('Sound'),
             text_color=arcade.csscolor.BLACK,
             bold=True,
+            font_name=utils.text.FONT_DEFAULT,
             font_size=utils.text.MEDIUM_FONT_SIZE,
             width=BUTTON_WIDTH,
             align='center'

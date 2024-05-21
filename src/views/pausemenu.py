@@ -3,8 +3,6 @@ import os
 import arcade.gui
 
 import constants.controls.keyboard
-import utils
-import utils.gui
 from utils.gui import get_button_style
 from views.fading import Fading
 from views.mainmenu import MainMenu
@@ -40,7 +38,7 @@ class PauseMenu(Fading):
         settings_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
-            style=utils.gui.get_button_style()
+            style=get_button_style()
         )
 
         quit_button = arcade.gui.UIFlatButton(

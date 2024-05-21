@@ -11,7 +11,6 @@ from constants.difficulty import Difficulty
 from constants.fonts import FONT_ADRIP
 from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
-from utils.audio import streaming_enabled
 from views.difficultyselection import DifficultySelection
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
