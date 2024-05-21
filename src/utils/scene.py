@@ -1,9 +1,11 @@
 """ Scene utils """
+from typing import Optional, List
 
 import arcade
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
+from sprites.characters.character import Character
 from sprites.items.item import Item
 from sprites.sprite import AbstractSprite
 
@@ -72,6 +74,19 @@ class Scene(BaseScene):
 
         return wall_spritelist
 
+    def draw(self, names: Optional[List[str]] = None, **kwargs):
+
+        from sprites.bullet.bullet import Bullet
+        from constants.layers import LAYER_NPC
+
+        super().draw()
+
+        for sprite in get_layer(LAYER_NPC, self):
+
+            if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
+                continue
+
+            sprite.draw_overlay()
 
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """

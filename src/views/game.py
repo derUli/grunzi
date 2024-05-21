@@ -332,16 +332,6 @@ class Game(Fading):
         self.camera_sprites.use()
         self.scene.draw()
 
-        for sprite in get_layer(LAYER_NPC, self.scene):
-
-            if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
-                continue
-
-            sprite.draw_overlay()
-
-            if self.window.debug:
-                sprite.draw_debug()
-
         self.camera_gui.use()
 
         self.postprocessing.draw()
