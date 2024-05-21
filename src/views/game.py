@@ -304,7 +304,7 @@ class Game(Fading):
         """Render the screen."""
         self.clear()
 
-        if self.video and self.video.active:
+        if self.video_playing:
             # Loading a video will open a ffmpeg console window.
             # Which will disappear after a second.
             # The game window lose it's focus.
@@ -361,9 +361,8 @@ class Game(Fading):
     def on_button_press(self, controller, key):
         logging.debug(f"Controller button {key} pressed")
 
-        if self.video and self.video.active:
-            if key in constants.controls.controller.KEY_DISCARD:
-                self.video.stop()
+        if self.video_playing and key in constants.controls.controller.KEY_DISCARD:
+            self.video.stop()
             return
 
         if not self.initialized:
@@ -490,9 +489,8 @@ class Game(Fading):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
-        if self.video and self.video.active:
-            if key in constants.controls.keyboard.KEY_DISCARD:
-                return self.video.stop()
+        if self.video_playing and key in constants.controls.keyboard.KEY_DISCARD:
+            return self.video.stop()
 
         if not self.initialized:
             return
@@ -667,7 +665,11 @@ class Game(Fading):
         if not self.initialized:
             return False
 
-        if self.video and self.video.active:
+        if self.video_playing:
             return False
 
         return True
+
+    @property
+    def video_playing(self) -> bool:
+        return self.video and self.video.active
