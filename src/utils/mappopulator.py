@@ -51,7 +51,7 @@ class MapPopulator:
 
         self.spawn_chicken(args)
         # Disable food spawning for now
-        self.spawn_food(args)
+        # self.spawn_food(args)
 
     def spawn_chicken(self, args):
         if not args.state.difficulty.options['chicken']:
@@ -62,5 +62,5 @@ class MapPopulator:
             spawn_chicken(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     def spawn_food(self, args):
-        for i in range(random.randint(1, 5)):
+        for i in range(random.randint(1, 10)):
             spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
