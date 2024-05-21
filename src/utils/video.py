@@ -4,7 +4,11 @@ import os
 import shutil
 
 import cv2
-from pyvidplayer2 import VideoPyglet
+
+try:
+    from pyvidplayer2 import VideoPyglet
+except AttributeError as e:
+    logging.error(e)
 
 from utils.path import is_windows
 from utils.text import label_value
