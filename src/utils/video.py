@@ -28,7 +28,7 @@ def load_video(
         path: str,
         size: tuple[int, int] | None = None,
         volume: float = 1
-) -> VideoPyglet | None:
+):
     """
     Load video from file
 
