@@ -610,6 +610,9 @@ class Game(Fading):
     def on_select_item(self, key=None, index=None):
         old_item = self.player_sprite.get_item()
 
+        if old_item:
+            old_item.on_unequip(make_args_container(self))
+
         if key:
             index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
             index -= 1
@@ -624,6 +627,8 @@ class Game(Fading):
             return
 
         self.scene.add_sprite(LAYER_PLACE, item)
+
+        item.on_equip(make_args_container(self))
 
     def on_shoot(self):
         return self.player_sprite.shoot(self.state, self.scene, self.physics_engine)
@@ -692,7 +697,6 @@ class Game(Fading):
                 return
 
         item.on_use(
-            state=self.state,
             args=make_args_container(self)
         )
 

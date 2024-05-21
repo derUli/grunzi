@@ -52,8 +52,14 @@ class Item(Sprite):
     def on_use_with(self, b, state=None, handlers=None):
         logging.info(f"Use item {self} with {b}")
 
-    def on_use(self, state, args):
-        state.noaction()
+    def on_use(self, args):
+        args.state.noaction()
+
+    def on_equip(self, args):
+        logging.info(f"On equip {str(type(self))}")
+
+    def on_unequip(self, args):
+        logging.info(f"On unequip {str(type(self))}")
 
     def copy(self):
         logging.error('Copy not implemented')

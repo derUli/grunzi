@@ -36,8 +36,8 @@ class Apple(Food):
             center_y=self.center_y
         )
 
-    def on_use(self, state, args):
-        return self.eat(state, args, 2)
+    def on_use(self, args):
+        return self.eat(args.state, args, 2)
 
 
 def spawn_food(state, tilemap, scene, physics_engine):
