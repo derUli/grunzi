@@ -3,13 +3,13 @@
  <tileset firstgid="1" name="Background" tilewidth="448" tileheight="448" tilecount="13" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="64" height="64" source="../images/sprites/gras/gras1.jpg"/>
+   <image width="64" height="64" source="../images/sprites/ground/gras1.jpg"/>
   </tile>
   <tile id="2">
-   <image width="64" height="64" source="../images/sprites/gras/gras2.jpg"/>
+   <image width="64" height="64" source="../images/sprites/ground/gras2.jpg"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/gras/gras3.jpg"/>
+   <image width="64" height="64" source="../images/sprites/ground/gras3.jpg"/>
   </tile>
   <tile id="4">
    <image width="64" height="64" source="../images/sprites/street/street1.jpg"/>
@@ -30,13 +30,13 @@
    <image width="98" height="17" source="../images/sprites/street/street6.png"/>
   </tile>
   <tile id="12">
-   <image width="64" height="64" source="../images/sprites/gras/cornfield.jpg"/>
+   <image width="64" height="64" source="../images/sprites/ground/cornfield.jpg"/>
   </tile>
   <tile id="15">
    <image width="448" height="65" source="../images/sprites/fence/fence3.png"/>
   </tile>
   <tile id="16">
-   <image width="64" height="64" source="../images/sprites/gras/dirt.jpg"/>
+   <image width="64" height="64" source="../images/sprites/ground/dirt.jpg"/>
   </tile>
   <tile id="17">
    <image width="65" height="448" source="../images/sprites/fence/fence4.png"/>
@@ -69,7 +69,7 @@
    <image width="64" height="64" source="../images/sprites/wall/bricks.jpg"/>
   </tile>
   <tile id="11">
-   <image width="64" height="64" source="../images/sprites/gras/gravel.jpg"/>
+   <image width="64" height="64" source="../images/sprites/ground/gravel.jpg"/>
   </tile>
  </tileset>
  <tileset firstgid="31" name="Decoration" tilewidth="208" tileheight="196" tilecount="26" columns="0">
