@@ -46,9 +46,11 @@ class MapPopulator:
         spawn_skull(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     def spawn_initial(self, args):
+        """ Spawn some sprites on level load """
         self.initial_spawn = True
 
         self.spawn_chicken(args)
+        # Disable food spawning for now
         self.spawn_food(args)
 
     def spawn_chicken(self, args):

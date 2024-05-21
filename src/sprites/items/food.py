@@ -1,5 +1,6 @@
 import logging
 import os
+import random
 
 from constants.layers import check_collision_with_layers, LAYER_FOOD
 from sprites.items.item import Item
@@ -40,9 +41,14 @@ class Apple(Food):
 
 
 def spawn_food(state, tilemap, scene, physics_engine):
+
+    # For now we have only apples
+    classes = [Apple]
     rand_x, rand_y = random_position(tilemap)
 
-    food = Apple(
+    food_class = random.choice(classes)
+
+    food = food_class(
         filename=os.path.join(state.sprite_dir, 'food', 'apple.png'),
         center_x=rand_x,
         center_y=rand_y
