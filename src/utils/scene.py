@@ -9,37 +9,19 @@ from arcade.experimental.lights import LightLayer, Light
 from sprites.characters.character import Character
 from sprites.items.item import Item
 from sprites.sprite import AbstractSprite
+from utils.lightmanager import LightManager
 
 
 class Scene(BaseScene):
 
     def __init__(self):
         super().__init__()
-
-        self.light_layer = None
-        self.player_light = None
         self.initialized = False
+        self.light_manager = LightManager()
 
     def setup(self, args):
-        # TODO: implement LightManager
-        w, h = arcade.get_window().get_size()
-
-        self.light_layer = LightLayer(w, h)
-        # We can also set the background color that will be lit by lights,
-        # but in this instance we just want a black background
-        self.light_layer.set_background_color(arcade.color.BLACK)
-
-        # Create a light to follow the player around.
-        # We'll position it later, when the player moves.
-        # We'll only add it to the light layer when the player turns the light
-        # on. We start with the light off.
-        radius = w * 2
-        mode = 'hard'
-        color = arcade.csscolor.WHITE
-        self.player_light = Light(args.player.center_x, args.player.center_y, radius, color, mode)
-
-        self.light_layer.add(self.player_light)
-
+        self.light_manager = LightManager()
+        self.light_manager.setup(args)
         self.initialized = True
 
     @classmethod
@@ -60,10 +42,10 @@ class Scene(BaseScene):
         return scene
 
     def update_scene(self, delta_time, args):
-        # if not self.initialized:
-        # self.setup(args)
+        if not self.initialized:
+            self.setup(args)
 
-        # self.player_light.position = args.player.position
+        self.light_manager.update(args)
 
         size = arcade.get_window().get_size()
         self.update_animated(delta_time, size, self, args.player)
@@ -110,14 +92,14 @@ class Scene(BaseScene):
         return wall_spritelist
 
     def draw(self, names: Optional[List[str]] = None, **kwargs):
-        if not self.light_layer:
+        if not self.light_manager.enabled:
             self._draw(names=names, **kwargs)
             return
 
-        with self.light_layer:
+        with self.light_manager.light_layer:
             self._draw(names=names, **kwargs)
 
-        self.light_layer.draw()
+        self.light_manager.draw()
 
     def _draw(self, names: Optional[List[str]] = None, **kwargs):
         from sprites.bullet.bullet import Bullet

@@ -30,7 +30,8 @@ class Difficulty:
         self.options = {
             'chicken': False,
             'fog': False,
-            'sun': False
+            'sun': False,
+            'lighting': None
         }
 
     def setup(self, difficulty, map_name, level_dir) -> None:
