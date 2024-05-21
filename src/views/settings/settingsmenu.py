@@ -165,10 +165,9 @@ class SettingsMenu(Fading):
         self.render_shadertoy()
 
         self.manager.draw()
-        self.draw_build_version()
 
         self.draw_fading()
-        self.draw_debug()
+        self.draw_after(draw_version_number=True)
 
     def on_toggle_fps(self):
         super().on_toggle_fps()

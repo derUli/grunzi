@@ -9,10 +9,6 @@ FADE_SPEED = 255 / 20
 
 
 class AbstractSprite:
-    def draw_debug(self):
-        """ Draw debug """
-        pass
-
     def draw_overlay(self):
         """ Draw overlay """
         pass

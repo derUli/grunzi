@@ -153,10 +153,8 @@ class Highscore(Fading):
         for text in self.texts:
             text.draw()
 
-        self.draw_build_version()
-
         self.draw_fading()
-        self.draw_debug()
+        self.draw_after(draw_version_number=True)
 
     def on_back(self) -> None:
         """ On click "Back" button """

@@ -17,7 +17,3 @@ class Character(Sprite, SpriteHealth):
         super().__init__(filename, center_x=center_x, center_y=center_y)
         self.damage = DAMAGE
         self.health = HEALTH_FULL
-
-    def draw_debug(self):
-        """ Draw debug overlays """
-        return

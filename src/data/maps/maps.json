@@ -11,7 +11,7 @@
     }
   },
   "map01": {
-    "options":{
+    "options": {
       "chicken": true
     },
     "spawnWhat": [
@@ -28,7 +28,7 @@
     }
   },
   "map02": {
-    "options":{
+    "options": {
       "chicken": true,
       "sun": true
     },

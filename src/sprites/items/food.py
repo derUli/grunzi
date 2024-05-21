@@ -41,7 +41,6 @@ class Apple(Food):
 
 
 def spawn_food(state, tilemap, scene, physics_engine):
-
     # For now we have only apples
     classes = [Apple]
     rand_x, rand_y = random_position(tilemap)

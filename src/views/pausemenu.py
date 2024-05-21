@@ -174,9 +174,8 @@ class PauseMenu(Fading):
         self.render_shadertoy()
 
         self.manager.draw()
-        self.draw_build_version()
 
         if self.next_view:
             self.draw_fading()
 
-        self.draw_debug()
+        self.draw_after(draw_version_number=True)

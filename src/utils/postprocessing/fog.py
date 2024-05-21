@@ -4,7 +4,6 @@ import PIL
 import arcade
 from PIL import ImageOps
 from PIL.Image import Resampling
-from arcade import FACE_RIGHT, FACE_LEFT
 
 from utils.postprocessing.effect import Effect
 

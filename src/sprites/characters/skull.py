@@ -85,21 +85,6 @@ class Skull(Character, Useable):
     def draw_overlay(self):
         self.draw_healthbar()
 
-    def draw_debug(self):
-        if not self.insight:
-            return
-
-        arcade.draw_lrtb_rectangle_outline(
-            self.playing_field_left_boundary,
-            self.playing_field_right_boundary,
-            self.playing_field_top_boundary,
-            self.playing_field_bottom_boundary,
-            color=arcade.csscolor.RED
-        )
-
-        if self.move_path:
-            arcade.draw_line_strip(self.move_path, arcade.color.RED, 2)
-
     def update(
             self,
             delta_time,

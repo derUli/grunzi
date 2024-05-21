@@ -72,8 +72,6 @@ class View(arcade.View):
 
         if key in constants.controls.keyboard.KEY_TOGGLE_FPS:
             self.on_toggle_fps()
-        if key in constants.controls.keyboard.KEY_TOGGLE_DEBUG:
-            self.on_toggle_debug()
         if key in constants.controls.keyboard.KEY_SCREENSHOT:
             self.on_make_screenshot()
 
@@ -104,10 +102,6 @@ class View(arcade.View):
         """ On toggle fps """
         self.state.settings.show_fps = not self.state.settings.show_fps
         self.state.settings.save()
-
-    def on_toggle_debug(self) -> None:
-        """ On toggle debug """
-        self.window.debug = not self.window.debug
 
     def on_make_screenshot(self) -> str:
         """
@@ -210,11 +204,13 @@ class View(arcade.View):
         if self.shadertoy:
             self.shadertoy.render(time=self.time)
 
-    def draw_debug(self):
+    def draw_fps(self):
 
         if self.state.settings.show_fps:
             self.fps_counter.draw(size=self.window.size)
 
-    def draw_after(self):
-        self.draw_build_version()
-        self.draw_debug()
+    def draw_after(self, draw_version_number=False):
+        if draw_version_number:
+            self.draw_build_version()
+
+        self.draw_fps()

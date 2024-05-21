@@ -13,9 +13,7 @@ from constants.controls.joystick import JOYSTICK_BUTTON_MAPPING, AXIS_X, AXIS_Y
 from constants.difficulty import Difficulty
 from constants.layers import *
 from constants.maps import MAPS
-from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
-from sprites.characters.character import Character
 from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
 from sprites.ui.uicontainer import UIContainer
@@ -26,7 +24,7 @@ from utils.mappopulator import MapPopulator
 from utils.physics import make_physics_engine
 from utils.positionalsound import PositionalSound
 from utils.postprocessing.postprocessing import PostProcessing
-from utils.scene import get_layer, Scene
+from utils.scene import Scene
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -322,12 +320,12 @@ class Game(Fading):
             # Activate the window again.
             self.window.activate()
             self.video.draw((0, 0), force_draw=True)
-            return self.draw_debug()
+            return self.draw_after()
 
         if not self.initialized or not self.ui.loading_screen.completed:
             self.ui.loading_screen.draw(time=self.time)
 
-            return self.draw_debug()
+            return self.draw_after()
 
         self.camera_sprites.use()
         self.scene.draw()
@@ -337,8 +335,8 @@ class Game(Fading):
         self.postprocessing.draw()
         self.ui.draw()
         self.player_sprite.draw_overlay()
+        self.draw_after()
         self.draw_fading()
-        self.draw_debug()
 
     def update_player_speed(self) -> None:
         """ Update player sprite """

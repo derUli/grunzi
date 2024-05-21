@@ -8,6 +8,7 @@ MOVE_SPEED_X = 7
 MOVE_SPEED_Y_FROM = -3
 MOVE_SPEED_Y_TO = 3
 
+
 class Fish(Character):
     def __init__(
             self,
@@ -67,7 +68,6 @@ class Fish(Character):
             self.move_y = abs(self.move_y)
 
         self.center_y = center_y
-
 
     def randomize_move_y(self):
         self.move_y = random.uniform(MOVE_SPEED_Y_FROM, MOVE_SPEED_Y_TO)

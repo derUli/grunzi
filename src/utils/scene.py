@@ -61,7 +61,7 @@ class Scene(BaseScene):
 
     def update_scene(self, delta_time, args):
         # if not self.initialized:
-            # self.setup(args)
+        # self.setup(args)
 
         # self.player_light.position = args.player.position
 
