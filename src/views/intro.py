@@ -83,4 +83,4 @@ class Intro(Fading):
 
         self.scene.draw()
         self.draw_fading()
-        self.draw_debug()
+        self.draw_after()

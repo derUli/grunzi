@@ -10,7 +10,7 @@ class CarKey(Item):
             handlers.on_complete()
             return
 
-        state.beep()
+        state.noaction()
 
     def copy(self):
         """ Copy item """

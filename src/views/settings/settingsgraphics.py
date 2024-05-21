@@ -10,7 +10,7 @@ BUTTON_WIDTH = 250
 COLOR_BACKGROUND = (123, 84, 148)
 
 
-class SettingsDisplay(Fading):
+class SettingsGraphics(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view, shadertoy, time=0):
@@ -160,12 +160,9 @@ class SettingsDisplay(Fading):
         self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
-
         self.manager.draw()
-        self.draw_build_version()
-
         self.draw_fading()
-        self.draw_debug()
+        self.draw_after(draw_version_number=True)
 
     def on_toggle_fps(self):
         super().on_toggle_fps()

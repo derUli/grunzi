@@ -6,7 +6,7 @@ import utils.text
 from views.fading import Fading
 from views.settings.settingsaudio import SettingsAudio
 from views.settings.settingscontrols import SettingsControls
-from views.settings.video.settingsdisplay import SettingsDisplay
+from views.settings.settingsgraphics import SettingsGraphics
 
 BUTTON_WIDTH = 250
 
@@ -53,8 +53,8 @@ class SettingsMenu(Fading):
         self.manager.disable()
 
         # Video settings
-        button_display = arcade.gui.UIFlatButton(
-            text=_("Display"),
+        button_graphics = arcade.gui.UIFlatButton(
+            text=_("Graphics"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
@@ -87,10 +87,10 @@ class SettingsMenu(Fading):
             self.next_view = SettingsControls(self.window, self.state, comeback_view)
             self.fade_out()
 
-        @button_display.event("on_click")
+        @button_graphics.event("on_click")
         def on_click_display_button(event):
             self.window.show_view(
-                SettingsDisplay(
+                SettingsGraphics(
                     self.window,
                     self.state,
                     previous_view=self,
@@ -118,7 +118,7 @@ class SettingsMenu(Fading):
 
         widgets = [
             back_button,
-            button_display
+            button_graphics
         ]
 
         if not self.state.settings.is_silent():
@@ -165,10 +165,9 @@ class SettingsMenu(Fading):
         self.render_shadertoy()
 
         self.manager.draw()
-        self.draw_build_version()
 
         self.draw_fading()
-        self.draw_debug()
+        self.draw_after(draw_version_number=True)
 
     def on_toggle_fps(self):
         super().on_toggle_fps()

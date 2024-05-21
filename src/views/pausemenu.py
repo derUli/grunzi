@@ -3,9 +3,6 @@ import os
 import arcade.gui
 
 import constants.controls.keyboard
-import utils
-import utils.gui
-from utils.audio import streaming_enabled
 from utils.gui import get_button_style
 from views.fading import Fading
 from views.mainmenu import MainMenu
@@ -41,7 +38,7 @@ class PauseMenu(Fading):
         settings_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
-            style=utils.gui.get_button_style()
+            style=get_button_style()
         )
 
         quit_button = arcade.gui.UIFlatButton(
@@ -92,8 +89,7 @@ class PauseMenu(Fading):
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
         music = arcade.load_sound(
-            os.path.join(self.state.music_dir, 'pause.ogg'),
-            streaming=streaming_enabled()
+            os.path.join(self.state.music_dir, 'pause.ogg')
         )
 
         self.player = music.play(loop=True, volume=self.state.settings.music_volume)
@@ -174,9 +170,8 @@ class PauseMenu(Fading):
         self.render_shadertoy()
 
         self.manager.draw()
-        self.draw_build_version()
 
         if self.next_view:
             self.draw_fading()
 
-        self.draw_debug()
+        self.draw_after(draw_version_number=True)

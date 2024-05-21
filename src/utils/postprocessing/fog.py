@@ -4,7 +4,6 @@ import PIL
 import arcade
 from PIL import ImageOps
 from PIL.Image import Resampling
-from arcade import FACE_RIGHT, FACE_LEFT
 
 from utils.postprocessing.effect import Effect
 
@@ -31,7 +30,7 @@ class Fog(Effect):
 
         x = 0
 
-        for i in range(0, 2):
+        for i in range(0, 1):
             if i == 1:
                 image = ImageOps.mirror(image)
 
@@ -51,19 +50,17 @@ class Fog(Effect):
         return self
 
     def update(self, delta_time, args):
-        w, h = arcade.get_window().get_size()
-
         for sprite in self.spritelist:
+            x, y = args.player.position
+            x1, x2, w, h = args.camera.viewport
 
-            if sprite.right <= 0:
-                sprite.left = w + sprite.right
+            if x < w / 2:
+                x = w / 2
 
-            speed = MOVE_SPEED_DEFAULT
+            if y < h / 2:
+                y = h / 2
 
-            if args.player.walking:
-                speed = MOVE_SPEED_WALK * args.player.modifier
-
-            sprite.center_x -= speed
+            sprite.position = (x, y)
 
     def draw(self):
         self.spritelist.draw()

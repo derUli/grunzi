@@ -1,5 +1,7 @@
 import logging
+
 from arcade import SpriteList
+
 
 class Effect:
     def __init__(self):

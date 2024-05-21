@@ -45,9 +45,6 @@ class Chicken(Character, Useable):
     def draw_overlay(self):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
 
-    def draw_debug(self):
-        pass
-
     def update(
             self,
             delta_time,

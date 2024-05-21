@@ -50,8 +50,7 @@ class MapPopulator:
         self.initial_spawn = True
 
         self.spawn_chicken(args)
-        # Disable food spawning for now
-        # self.spawn_food(args)
+        self.spawn_food(args)
 
     def spawn_chicken(self, args):
         if not args.state.difficulty.options['chicken']:

@@ -11,7 +11,6 @@ from constants.difficulty import Difficulty
 from constants.fonts import FONT_ADRIP
 from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
-from utils.audio import streaming_enabled
 from views.difficultyselection import DifficultySelection
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
@@ -173,8 +172,7 @@ class MainMenu(Fading):
 
         try:
             music = arcade.load_sound(
-                os.path.join(self.state.music_dir, 'menu.ogg'),
-                streaming=streaming_enabled()
+                os.path.join(self.state.music_dir, 'menu.ogg')
             )
         except FileNotFoundError as e:
             logging.error(e)
@@ -228,6 +226,6 @@ class MainMenu(Fading):
         self.render_shadertoy()
 
         self.manager.draw()
-        self.draw_build_version()
+
         self.draw_fading()
-        self.draw_debug()
+        self.draw_after(draw_version_number=True)

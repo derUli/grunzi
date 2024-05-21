@@ -9,13 +9,10 @@ from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 import constants.controls.controller
 import constants.controls.keyboard
 import utils.audio
-from constants.controls.joystick import JOYSTICK_BUTTON_MAPPING, AXIS_X, AXIS_Y
 from constants.difficulty import Difficulty
 from constants.layers import *
 from constants.maps import MAPS
-from sprites.bullet.bullet import Bullet
 from sprites.bullet.grunt import Grunt
-from sprites.characters.character import Character
 from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
 from sprites.ui.uicontainer import UIContainer
@@ -25,8 +22,7 @@ from utils.callbackhandler import CallbackHandler
 from utils.mappopulator import MapPopulator
 from utils.physics import make_physics_engine
 from utils.positionalsound import PositionalSound
-from utils.postprocessing.postprocessing import PostProcessing
-from utils.scene import get_layer, Scene
+from utils.scene import Scene
 from utils.tilemap import TileMap
 from utils.video import load_video
 from views.camera import center_camera_to_player
@@ -74,7 +70,6 @@ class Game(Fading):
         self.skip_intro = skip_intro
 
         self.ui = None
-        self.postprocessing = None
 
         self.astar_barrier_list = None
         self.wall_spritelist = None
@@ -229,7 +224,6 @@ class Game(Fading):
         savegame.save()
 
         self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
-        self.postprocessing = PostProcessing().setup(make_args_container(self))
 
         self.initialized = True
 
@@ -240,11 +234,7 @@ class Game(Fading):
 
         self.window.set_mouse_visible(False)
 
-        if not self.initialized:
-            return
-
-        # Wait until video is completed until playing music
-        if self.video and self.video.active:
+        if not self.input_ready:
             return
 
         self.video = None
@@ -306,7 +296,6 @@ class Game(Fading):
             delta_time,
             make_args_container(self)
         )
-        self.postprocessing.update(delta_time, make_args_container(self))
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
@@ -315,40 +304,29 @@ class Game(Fading):
         """Render the screen."""
         self.clear()
 
-        if self.video and self.video.active:
+        if self.video_playing:
             # Loading a video will open a ffmpeg console window.
             # Which will disappear after a second.
             # The game window lose it's focus.
             # Activate the window again.
             self.window.activate()
             self.video.draw((0, 0), force_draw=True)
-            return self.draw_debug()
+            return self.draw_after()
 
         if not self.initialized or not self.ui.loading_screen.completed:
             self.ui.loading_screen.draw(time=self.time)
 
-            return self.draw_debug()
+            return self.draw_after()
 
         self.camera_sprites.use()
         self.scene.draw()
 
-        for sprite in get_layer(LAYER_NPC, self.scene):
-
-            if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
-                continue
-
-            sprite.draw_overlay()
-
-            if self.window.debug:
-                sprite.draw_debug()
-
         self.camera_gui.use()
 
-        self.postprocessing.draw()
         self.ui.draw()
         self.player_sprite.draw_overlay()
         self.draw_fading()
-        self.draw_debug()
+        self.draw_after()
 
     def update_player_speed(self) -> None:
         """ Update player sprite """
@@ -383,12 +361,11 @@ class Game(Fading):
     def on_button_press(self, controller, key):
         logging.debug(f"Controller button {key} pressed")
 
-        if not self.initialized:
+        if self.video_playing and key in constants.controls.controller.KEY_DISCARD:
+            self.video.stop()
             return
 
-        if self.video and self.video.active:
-            if key in constants.controls.controller.KEY_DISCARD:
-                self.video.stop()
+        if not self.initialized:
             return
 
         if self.player_sprite.dead:
@@ -413,21 +390,11 @@ class Game(Fading):
         if key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = MODIFIER_SPRINT
 
-    def on_joybutton_press(self, controller, key):
-        if str(key) in JOYSTICK_BUTTON_MAPPING:
-            button = JOYSTICK_BUTTON_MAPPING[str(key)]
-            self.on_button_press(controller, button)
-
     def on_button_release(self, controller, key):
         logging.debug(f"Controller button {key} released")
 
         if self.player_sprite and key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = MODIFIER_DEFAULT
-
-    def on_joybutton_release(self, controller, key):
-        if str(key) in JOYSTICK_BUTTON_MAPPING:
-            button = JOYSTICK_BUTTON_MAPPING[str(key)]
-            self.on_button_release(controller, button)
 
     def on_item_previous(self):
         self.on_select_item(index=self.ui.inventory.previous())
@@ -483,12 +450,7 @@ class Game(Fading):
         self.fade_to_view(Game(self.window, self.state, skip_intro=same))
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
-        logging.debug(f"Stick motion {stick_name}, {x_value}, {y_value}")
-
-        if not self.initialized:
-            return
-
-        if self.video and self.video.active:
+        if not self.input_ready:
             return
 
         x_value, y_value = round(x_value), round(y_value)
@@ -523,43 +485,12 @@ class Game(Fading):
 
             self.player_sprite.set_face(face)
 
-    def on_joyaxis_motion(self, joystick, axis, value):
-        value = round(value)
-
-        x_value, y_value = 0, 0
-
-        if axis == AXIS_X:
-            x_value = round(value)
-
-        if axis == AXIS_Y:
-            y_value = round(value) * - 1
-
-        self.on_stick_motion(joystick, constants.controls.controller.LEFTSTICK, x_value, y_value)
-
-    def on_trigger_motion(self, controller, trigger_name, value):
-        logging.info(f"{trigger_name}, {value}")
-
-        if not self.initialized:
-            return
-
-        if self.video and self.video.active:
-            return
-
-        value = round(value)
-
-        if trigger_name in constants.controls.controller.LEFT_TRIGGER:
-            if value == constants.controls.controller.TRIGGER_ON:
-                self.player_sprite.modifier = MODIFIER_SPRINT
-            if value == constants.controls.controller.TRIGGER_OFF:
-                self.player_sprite.modifier = MODIFIER_DEFAULT
-
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
-        if self.video and self.video.active:
-            if key in constants.controls.keyboard.KEY_DISCARD:
-                return self.video.stop()
+        if self.video_playing and key in constants.controls.keyboard.KEY_DISCARD:
+            return self.video.stop()
 
         if not self.initialized:
             return
@@ -574,7 +505,7 @@ class Game(Fading):
             self.player_sprite.modifier = MODIFIER_SPRINT
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
-        if key == arcade.key.F2:
+        if key == arcade.key.F7:
             self.on_next_level()
         if key in constants.controls.keyboard.KEY_DROP:
             self.on_drop()
@@ -597,10 +528,7 @@ class Game(Fading):
         """Called when the user releases a key."""
         super().on_key_release(key, modifiers)
 
-        if not self.initialized:
-            return
-
-        if self.video and self.video.active:
+        if not self.input_ready:
             return
 
         if key in constants.controls.keyboard.KEY_SPRINT:
@@ -627,6 +555,9 @@ class Game(Fading):
     def on_select_item(self, key=None, index=None):
         old_item = self.player_sprite.get_item()
 
+        if old_item:
+            old_item.on_unequip(make_args_container(self))
+
         if key:
             index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
             index -= 1
@@ -641,6 +572,8 @@ class Game(Fading):
             return
 
         self.scene.add_sprite(LAYER_PLACE, item)
+
+        item.on_equip(make_args_container(self))
 
     def on_shoot(self):
         return self.player_sprite.shoot(self.state, self.scene, self.physics_engine)
@@ -658,7 +591,7 @@ class Game(Fading):
         selected, index = self.ui.inventory.get_selected()
         if not item:
             logging.info('No item selected')
-            return self.state.beep()
+            return self.state.noaction()
 
         new_item = item.copy()
         layer = new_item.__class__.__name__
@@ -668,7 +601,7 @@ class Game(Fading):
 
         if check_collision_with_layers(self.scene, new_item, WALL_LAYERS):
             logging.info("Can't drop item on wall.")
-            self.state.beep()
+            self.state.noaction()
             return
 
         if selected:
@@ -709,7 +642,6 @@ class Game(Fading):
                 return
 
         item.on_use(
-            state=self.state,
             args=make_args_container(self)
         )
 
@@ -717,7 +649,7 @@ class Game(Fading):
         item = self.scene.get_collectable(self.player_sprite)
 
         if not item:
-            self.state.beep()
+            self.state.noaction()
             return False
 
         item.remove_from_sprite_lists()
@@ -727,3 +659,17 @@ class Game(Fading):
         self.on_select_item(index=-1)
 
         return True
+
+    @property
+    def input_ready(self) -> bool:
+        if not self.initialized:
+            return False
+
+        if self.video_playing:
+            return False
+
+        return True
+
+    @property
+    def video_playing(self) -> bool:
+        return self.video and self.video.active

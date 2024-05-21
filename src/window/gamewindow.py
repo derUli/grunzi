@@ -63,7 +63,6 @@ class GameWindow(arcade.Window):
         self.update_rate = update_rate
         self.draw_rate = update_rate
         self.controller_manager = None
-        self.debug = False
         self.controllers = []
 
     def setup(self):
@@ -82,26 +81,15 @@ class GameWindow(arcade.Window):
 
         return super().set_fullscreen(fullscreen=fullscreen, screen=screen, mode=mode)
 
-    def init_controllers(self):
+    def init_controllers(self) -> None:
+        """ Initialize the connected controllers """
+
         try:
             self.controller_manager = pyglet.input.ControllerManager()
-
             for controller in self.controller_manager.get_controllers():
                 logging.info(f'Controller: {controller.device.manufacturer} {controller.device.name}')
                 controller.open(self)
                 self.controllers.append(controller)
-        except FileNotFoundError as e:
-            logging.error(e)
-            self.controllers = []
-
-        try:
-            joysticks = pyglet.input.get_joysticks()
-
-            for joystick in joysticks:
-                joystick.open(self)
-                logging.info(f'Controller: {joystick.device.name}')
-                self.controllers.append(joystick)
-
         except FileNotFoundError as e:
             logging.error(e)
             self.controllers = []

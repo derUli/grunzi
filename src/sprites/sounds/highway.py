@@ -48,9 +48,6 @@ class Highway(Sprite):
         self.insight = False
         self.sound = None
 
-    def draw_debug(self):
-        pass
-
     def update(
             self,
             delta_time,

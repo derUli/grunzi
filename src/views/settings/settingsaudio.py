@@ -67,6 +67,7 @@ class SettingsAudio(Fading):
             text=_('Music'),
             text_color=arcade.csscolor.BLACK,
             bold=True,
+            font_name=utils.text.FONT_DEFAULT,
             font_size=utils.text.MEDIUM_FONT_SIZE,
             width=BUTTON_WIDTH,
             align='center'
@@ -84,6 +85,7 @@ class SettingsAudio(Fading):
             text=_('Sound'),
             text_color=arcade.csscolor.BLACK,
             bold=True,
+            font_name=utils.text.FONT_DEFAULT,
             font_size=utils.text.MEDIUM_FONT_SIZE,
             width=BUTTON_WIDTH,
             align='center'
@@ -184,8 +186,8 @@ class SettingsAudio(Fading):
         self.render_shadertoy()
 
         self.manager.draw()
-        self.draw_after()
         self.draw_fading()
+        self.draw_after(draw_version_number=True)
 
     def on_back(self) -> None:
         """ Back button clicked """

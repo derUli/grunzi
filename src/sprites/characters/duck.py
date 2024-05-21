@@ -4,8 +4,7 @@ import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
 from sprites.characters.character import Character
-from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
-from sprites.items.item import Useable
+from sprites.characters.spritehealth import HEALTH_FULL
 from utils.positionalsound import PositionalSound
 
 FADE_SPEED = 4

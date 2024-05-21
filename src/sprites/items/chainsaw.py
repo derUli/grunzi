@@ -33,7 +33,7 @@ class Chainsaw(Item):
             state.score += SCORE_KILL_CHICKEN
             return
 
-        state.beep()
+        state.noaction()
 
     def play_sound(self, state):
         sound_number = random.randint(1, 4)
