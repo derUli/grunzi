@@ -10,6 +10,7 @@ from sprites.characters.character import Character
 from sprites.items.item import Item
 from sprites.sprite import AbstractSprite
 from utils.lightmanager import LightManager
+from utils.postprocessing.postprocessing import PostProcessing
 
 
 class Scene(BaseScene):
@@ -18,10 +19,14 @@ class Scene(BaseScene):
         super().__init__()
         self.initialized = False
         self.light_manager = LightManager()
+        self.postprocessing = PostProcessing()
 
     def setup(self, args):
         self.light_manager = LightManager()
         self.light_manager.setup(args)
+        self.postprocessing = PostProcessing()
+        self.postprocessing.setup(args)
+
         self.initialized = True
 
     @classmethod
@@ -49,6 +54,7 @@ class Scene(BaseScene):
 
         size = arcade.get_window().get_size()
         self.update_animated(delta_time, size, self, args.player)
+        self.postprocessing.update(delta_time, args)
         self.call_update(delta_time, args)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
@@ -94,10 +100,12 @@ class Scene(BaseScene):
     def draw(self, names: Optional[List[str]] = None, **kwargs):
         if not self.light_manager.enabled:
             self._draw(names=names, **kwargs)
+            self.postprocessing.draw()
             return
 
         with self.light_manager.light_layer:
             self._draw(names=names, **kwargs)
+            self.postprocessing.draw()
 
         self.light_manager.draw()
 

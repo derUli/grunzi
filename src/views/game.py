@@ -23,7 +23,6 @@ from utils.callbackhandler import CallbackHandler
 from utils.mappopulator import MapPopulator
 from utils.physics import make_physics_engine
 from utils.positionalsound import PositionalSound
-from utils.postprocessing.postprocessing import PostProcessing
 from utils.scene import Scene
 from utils.tilemap import TileMap
 from utils.video import load_video
@@ -72,7 +71,6 @@ class Game(Fading):
         self.skip_intro = skip_intro
 
         self.ui = None
-        self.postprocessing = None
 
         self.astar_barrier_list = None
         self.wall_spritelist = None
@@ -227,7 +225,6 @@ class Game(Fading):
         savegame.save()
 
         self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
-        self.postprocessing = PostProcessing().setup(make_args_container(self))
 
         self.initialized = True
 
@@ -304,7 +301,6 @@ class Game(Fading):
             delta_time,
             make_args_container(self)
         )
-        self.postprocessing.update(delta_time, make_args_container(self))
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
@@ -332,7 +328,6 @@ class Game(Fading):
 
         self.camera_gui.use()
 
-        self.postprocessing.draw()
         self.ui.draw()
         self.player_sprite.draw_overlay()
         self.draw_after()
