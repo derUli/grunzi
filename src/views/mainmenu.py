@@ -212,6 +212,10 @@ class MainMenu(Fading):
         self.update_mouse()
         self.update_fade(self.next_view)
 
+        # The animation gets distorted after some time
+        if self.time >= 480:
+            self.time = 0
+
         if self.player and self.player.volume != self.state.settings.music_volume:
             self.player.volume = self.state.settings.music_volume
 
