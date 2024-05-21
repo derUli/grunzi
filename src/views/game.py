@@ -641,7 +641,7 @@ class Game(Fading):
         selected, index = self.ui.inventory.get_selected()
         if not item:
             logging.info('No item selected')
-            return self.state.beep()
+            return self.state.noaction()
 
         new_item = item.copy()
         layer = new_item.__class__.__name__
@@ -651,7 +651,7 @@ class Game(Fading):
 
         if check_collision_with_layers(self.scene, new_item, WALL_LAYERS):
             logging.info("Can't drop item on wall.")
-            self.state.beep()
+            self.state.noaction()
             return
 
         if selected:
@@ -700,7 +700,7 @@ class Game(Fading):
         item = self.scene.get_collectable(self.player_sprite)
 
         if not item:
-            self.state.beep()
+            self.state.noaction()
             return False
 
         item.remove_from_sprite_lists()

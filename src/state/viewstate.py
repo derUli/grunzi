@@ -57,8 +57,8 @@ class ViewState:
             'screenshot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'screenshot.ogg'),
             ),
-            'beep': arcade.load_sound(
-                os.path.join(self.sound_dir, 'common', 'beep.ogg'),
+            'noaction': arcade.load_sound(
+                os.path.join(self.sound_dir, 'pig', 'noaction.ogg'),
             ),
             'noaction': arcade.load_sound(
                 os.path.join(self.sound_dir, 'pig', 'noaction.ogg'),
@@ -162,8 +162,8 @@ class ViewState:
         logging.info('Squeak')
         return self.play_sound(f"squeak{rand}")
 
-    def beep(self):
-        return self.play_sound('beep')
+    def noaction(self):
+        return self.play_sound('noaction')
 
     def noaction(self):
         return self.play_sound('noaction')
