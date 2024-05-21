@@ -65,14 +65,14 @@ class LauncherWindow(ThemedTk):
 
         tab_control = ttk.Notebook(self)
 
-        tab_display = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
+        tab_graphics = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
         tab_audio = ttk.Frame(tab_control, padding=NOTEBOOK_PADDING)
 
-        tab_control.add(tab_display, text=_('Display'))
+        tab_control.add(tab_graphics, text=_('Graphics'))
         tab_control.add(tab_audio, text=_('Audio'))
         tab_control.pack(expand=True, fill=tk.BOTH)
 
-        ttk.Label(tab_display, text=_('Screen resolution') + ' ').grid(
+        ttk.Label(tab_graphics, text=_('Screen resolution') + ' ').grid(
             row=0,
             column=0,
             padx=SPACE_BETWEEN,
@@ -80,14 +80,14 @@ class LauncherWindow(ThemedTk):
         )
 
         ttk.Combobox(
-            tab_display,
+            tab_graphics,
             values=supported_screen_resolutions(),
             textvariable=self.screen_resolution,
             state='readonly'
         ).grid(row=0, column=1, pady=SPACE_BETWEEN)
 
         ttk.Checkbutton(
-            tab_display,
+            tab_graphics,
             text=_('Fullscreen'),
             variable=self.fullscreen,
             onvalue=True,
@@ -96,7 +96,7 @@ class LauncherWindow(ThemedTk):
         ).grid(row=1, column=1, sticky='nw', pady=SPACE_BETWEEN)
 
         self.borderless_check = ttk.Checkbutton(
-            tab_display,
+            tab_graphics,
             text=_('Borderless'),
             variable=self.borderless,
             onvalue=True,
@@ -107,7 +107,7 @@ class LauncherWindow(ThemedTk):
 
         self.on_toggle_fullscreen()
 
-        ttk.Checkbutton(tab_display,
+        ttk.Checkbutton(tab_graphics,
                         text=_('V-Sync'),
                         variable=self.vsync,
                         onvalue=True,

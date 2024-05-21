@@ -10,7 +10,7 @@ BUTTON_WIDTH = 250
 COLOR_BACKGROUND = (123, 84, 148)
 
 
-class SettingsDisplay(Fading):
+class SettingsGraphics(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state, previous_view, shadertoy, time=0):
