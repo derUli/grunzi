@@ -60,10 +60,10 @@ class Scene(BaseScene):
         return scene
 
     def update_scene(self, delta_time, args):
-        if not self.initialized:
-            self.setup(args)
+        # if not self.initialized:
+            # self.setup(args)
 
-        self.player_light.position = args.player.position
+        # self.player_light.position = args.player.position
 
         size = arcade.get_window().get_size()
         self.update_animated(delta_time, size, self, args.player)
