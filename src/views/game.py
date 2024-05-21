@@ -9,7 +9,6 @@ from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 import constants.controls.controller
 import constants.controls.keyboard
 import utils.audio
-from constants.controls.joystick import JOYSTICK_BUTTON_MAPPING, AXIS_X, AXIS_Y
 from constants.difficulty import Difficulty
 from constants.layers import *
 from constants.maps import MAPS
@@ -396,21 +395,11 @@ class Game(Fading):
         if key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = MODIFIER_SPRINT
 
-    def on_joybutton_press(self, controller, key):
-        if str(key) in JOYSTICK_BUTTON_MAPPING:
-            button = JOYSTICK_BUTTON_MAPPING[str(key)]
-            self.on_button_press(controller, button)
-
     def on_button_release(self, controller, key):
         logging.debug(f"Controller button {key} released")
 
         if self.player_sprite and key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = MODIFIER_DEFAULT
-
-    def on_joybutton_release(self, controller, key):
-        if str(key) in JOYSTICK_BUTTON_MAPPING:
-            button = JOYSTICK_BUTTON_MAPPING[str(key)]
-            self.on_button_release(controller, button)
 
     def on_item_previous(self):
         self.on_select_item(index=self.ui.inventory.previous())
@@ -466,8 +455,6 @@ class Game(Fading):
         self.fade_to_view(Game(self.window, self.state, skip_intro=same))
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
-        logging.debug(f"Stick motion {stick_name}, {x_value}, {y_value}")
-
         if not self.initialized:
             return
 
@@ -506,36 +493,6 @@ class Game(Fading):
 
             self.player_sprite.set_face(face)
 
-    def on_joyaxis_motion(self, joystick, axis, value):
-        value = round(value)
-
-        x_value, y_value = 0, 0
-
-        if axis == AXIS_X:
-            x_value = round(value)
-
-        if axis == AXIS_Y:
-            y_value = round(value) * - 1
-
-        self.on_stick_motion(joystick, constants.controls.controller.LEFTSTICK, x_value, y_value)
-
-    def on_trigger_motion(self, controller, trigger_name, value):
-        logging.info(f"{trigger_name}, {value}")
-
-        if not self.initialized:
-            return
-
-        if self.video and self.video.active:
-            return
-
-        value = round(value)
-
-        if trigger_name in constants.controls.controller.LEFT_TRIGGER:
-            if value == constants.controls.controller.TRIGGER_ON:
-                self.player_sprite.modifier = MODIFIER_SPRINT
-            if value == constants.controls.controller.TRIGGER_OFF:
-                self.player_sprite.modifier = MODIFIER_DEFAULT
-
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
@@ -557,7 +514,7 @@ class Game(Fading):
             self.player_sprite.modifier = MODIFIER_SPRINT
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
-        if key == arcade.key.F2:
+        if key == arcade.key.F7:
             self.on_next_level()
         if key in constants.controls.keyboard.KEY_DROP:
             self.on_drop()

@@ -4,7 +4,6 @@ import logging
 
 import constants.controls.controller as controller
 import constants.controls.keyboard as keyboard
-from constants.controls.joystick import joystick_button_to_controller
 from constants.fonts import FONT_MONOTYPE
 from state.savegamestate import SaveGameState
 from utils.highscore import HighscoreStorage
@@ -126,12 +125,6 @@ class Highscore(Fading):
 
         if key in controller.KEY_DISCARD:
             self._call_method = self.on_back
-
-    def on_joybutton_press(self, controller, key):
-        self.on_button_press(
-            controller,
-            joystick_button_to_controller(key)
-        )
 
     def on_update(self, delta_time) -> None:
         """ Update the screen """

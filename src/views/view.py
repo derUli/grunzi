@@ -8,7 +8,6 @@ import mouse
 
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
-from constants.controls.joystick import AXIS_X, AXIS_Y, joystick_button_to_controller
 from state.settingsstate import SettingsState
 from utils.fpscounter import FPSCounter
 from utils.screenshot import make_screenshot
@@ -159,31 +158,11 @@ class View(arcade.View):
 
         self.move_pointer = move_pointer
 
-    def on_joyaxis_motion(self, joystick, axis, value):
-        value = round(value)
-
-        x_value = 0
-        y_value = 0
-
-        if axis == AXIS_X:
-            x_value = round(value)
-
-        if axis == AXIS_Y:
-            y_value = round(value) * - 1
-
-        self.on_stick_motion(joystick, axis, x_value, y_value)
-
     def on_button_press(self, joystick, key):
         logging.info(f"Controller button {key} pressed")
 
         if key in constants.controls.controller.KEY_MENU_ITEM:
             mouse.click()
-
-    def on_joybutton_press(self, controller, key):
-        self.on_button_press(
-            controller,
-            joystick_button_to_controller(key)
-        )
 
     def push_controller_handlers(self):
         for controller in self.window.controllers:
