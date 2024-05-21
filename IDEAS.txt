@@ -1,15 +1,6 @@
-Gameplay Element:
-Essen random in den Maps verteilen.
-Wenn man das isst, werden für eine begrenzte Zeit die Geschosse größer und sie machen mehr Schaden
-
 Nach dem ersten Durchspielen soll ein neuer Modus freigeschaltet werden, wo einige Sachen anders sind.
 Man könnte z.B. einige Puzzles randomizen, die beim ersten Durchlauf statisch waren
-
-UI:
-
-Hintergrund in Dunkel
-
-Level 3: Gebirge
+Sprüche in der Welt verstecken.
 
 * Feuer-Animation einbauen
 
