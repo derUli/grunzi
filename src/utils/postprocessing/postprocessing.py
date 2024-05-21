@@ -12,11 +12,6 @@ class PostProcessing:
                 Fog().setup(args)
             )
 
-        # if args.state.difficulty.options['sun']:
-        #     self.pipeline.append(
-        #         Sun().setup(args)
-        #     )
-
         return self
 
     def update(self, delta_time, args):
