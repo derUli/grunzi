@@ -5,3 +5,4 @@
 * Benzin-Kanister zum Aufladen der Kettensäge zum Aufladen
 * Tretminen
 * Essen macht die Geschosse größer und vergrößert den Schaden
+* Level 3: Taschenlampe
