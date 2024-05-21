@@ -330,8 +330,8 @@ class Game(Fading):
 
         self.ui.draw()
         self.player_sprite.draw_overlay()
-        self.draw_after()
         self.draw_fading()
+        self.draw_after()
 
     def update_player_speed(self) -> None:
         """ Update player sprite """
