@@ -81,10 +81,11 @@ class GameWindow(arcade.Window):
 
         return super().set_fullscreen(fullscreen=fullscreen, screen=screen, mode=mode)
 
-    def init_controllers(self):
+    def init_controllers(self) -> None:
+        """ Initialize the connected controllers """
+
         try:
             self.controller_manager = pyglet.input.ControllerManager()
-
             for controller in self.controller_manager.get_controllers():
                 logging.info(f'Controller: {controller.device.manufacturer} {controller.device.name}')
                 controller.open(self)
