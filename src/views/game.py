@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 import threading
 import time
 
@@ -80,9 +81,7 @@ class Game(Fading):
         super().on_show_view()
 
         self.window.set_mouse_visible(False)
-
         self.push_controller_handlers()
-
         self.state.settings.unmute()
 
         if self.initialized:
@@ -152,7 +151,7 @@ class Game(Fading):
             )
         except FileNotFoundError as e:
             logging.error(e)
-            return arcade.exit()
+            sys.exit(1)
 
         self.ui.loading_screen.percent = 25
 
@@ -253,10 +252,8 @@ class Game(Fading):
 
         self.ui.loading_screen.update()
 
-        video_playing = self.video and self.video.active
-
         if not self.initialized:
-            if not video_playing and not self.loading_music:
+            if not self.video_playing and not self.loading_music:
                 self.loading_music = self.state.play_sound(
                     'loading',
                     loop=True,
@@ -264,7 +261,7 @@ class Game(Fading):
                 )
             return
 
-        if video_playing:
+        if self.video_playing:
             return
 
         if self.loading_music:
@@ -359,11 +356,10 @@ class Game(Fading):
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
     def on_button_press(self, controller, key):
-        logging.debug(f"Controller button {key} pressed")
 
         if self.video_playing and key in constants.controls.controller.KEY_DISCARD:
-            self.video.stop()
-            return
+            return self.video.stop()
+
 
         if not self.initialized:
             return
@@ -391,7 +387,6 @@ class Game(Fading):
             self.player_sprite.modifier = MODIFIER_SPRINT
 
     def on_button_release(self, controller, key):
-        logging.debug(f"Controller button {key} released")
 
         if self.player_sprite and key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = MODIFIER_DEFAULT
@@ -589,6 +584,7 @@ class Game(Fading):
     def on_drop(self):
         item = self.player_sprite.get_item()
         selected, index = self.ui.inventory.get_selected()
+
         if not item:
             logging.info('No item selected')
             return self.state.noaction()
@@ -601,8 +597,7 @@ class Game(Fading):
 
         if check_collision_with_layers(self.scene, new_item, WALL_LAYERS):
             logging.info("Can't drop item on wall.")
-            self.state.noaction()
-            return
+            return self.state.noaction()
 
         if selected:
             quantity = selected.pop()
@@ -665,10 +660,7 @@ class Game(Fading):
         if not self.initialized:
             return False
 
-        if self.video_playing:
-            return False
-
-        return True
+        return not self.video_playing
 
     @property
     def video_playing(self) -> bool:
