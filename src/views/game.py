@@ -234,11 +234,7 @@ class Game(Fading):
 
         self.window.set_mouse_visible(False)
 
-        if not self.initialized:
-            return
-
-        # Wait until video is completed until playing music
-        if self.video and self.video.active:
+        if not self.input_ready:
             return
 
         self.video = None
@@ -365,12 +361,12 @@ class Game(Fading):
     def on_button_press(self, controller, key):
         logging.debug(f"Controller button {key} pressed")
 
-        if not self.initialized:
-            return
-
         if self.video and self.video.active:
             if key in constants.controls.controller.KEY_DISCARD:
                 self.video.stop()
+            return
+
+        if not self.initialized:
             return
 
         if self.player_sprite.dead:
@@ -455,10 +451,7 @@ class Game(Fading):
         self.fade_to_view(Game(self.window, self.state, skip_intro=same))
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
-        if not self.initialized:
-            return
-
-        if self.video and self.video.active:
+        if not self.input_ready:
             return
 
         x_value, y_value = round(x_value), round(y_value)
@@ -537,10 +530,7 @@ class Game(Fading):
         """Called when the user releases a key."""
         super().on_key_release(key, modifiers)
 
-        if not self.initialized:
-            return
-
-        if self.video and self.video.active:
+        if not self.input_ready:
             return
 
         if key in constants.controls.keyboard.KEY_SPRINT:
@@ -669,5 +659,15 @@ class Game(Fading):
 
         self.state.play_sound('coin')
         self.on_select_item(index=-1)
+
+        return True
+
+    @property
+    def input_ready(self) -> bool:
+        if not self.initialized:
+            return False
+
+        if self.video and self.video.active:
+            return False
 
         return True
