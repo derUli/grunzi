@@ -73,6 +73,8 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --silent              Mute the sound
   --audio-backend {auto,xaudio2,directsound,openal,pulse,silent}
                         The audio backend
+  --antialiasing {0,2,4,8,16}
+                        The antialiasing level
   --no-vsync            Disable V-Sync
   --debug               Enable OpenGL debugging
   -v, --verbose         Make the operation more talkative
