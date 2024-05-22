@@ -99,6 +99,24 @@ class SettingsAudio(Fading):
             style=style_dict
         )
 
+        atmo_label = arcade.gui.UILabel(
+            text=_('Environment'),
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
+            font_name=utils.text.FONT_DEFAULT,
+            font_size=utils.text.MEDIUM_FONT_SIZE,
+            width=BUTTON_WIDTH,
+            align='center'
+        )
+
+        atmo_slider = UISlider(
+            width=BUTTON_WIDTH,
+            value=int(self.state.settings._atmo_volume * 100),
+            min_value=0,
+            max_value=100,
+            style=style_dict
+        )
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             # Pass already created view because we are resuming.
@@ -141,12 +159,32 @@ class SettingsAudio(Fading):
             self.state.settings._sound_volume = volume
             self.state.settings.save()
 
+        @atmo_slider.event("on_change")
+        def on_change_atmo_volume(event):
+
+            # Workaround for visual issue
+            self.manager._do_render(force=True)
+
+            volume = event.new_value
+
+            if volume > 0.0:
+                volume = volume / 100
+            else:
+                volume = 0.0
+
+            volume = round(volume, 2)
+
+            self.state.settings._atmo_volume = volume
+            self.state.settings.save()
+
         widgets = [
             back_button,
             music_label,
             music_slider,
             sound_label,
-            sound_slider
+            sound_slider,
+            atmo_label,
+            atmo_slider
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.

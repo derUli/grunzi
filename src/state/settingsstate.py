@@ -9,7 +9,7 @@ from constants.audio import DEFAULT_AUDIO_BACKEND
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 11
+SETTINGS_STATE_VERSION = 12
 
 
 class SettingsState:
@@ -25,8 +25,9 @@ class SettingsState:
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND
-        self._music_volume = 1
-        self._sound_volume = 1
+        self._music_volume = 1.0
+        self._sound_volume = 1.0
+        self._atmo_volume = 1.0
         self._muted = False
         self.first_start = False
 
@@ -90,6 +91,7 @@ class SettingsState:
     def music_volume(self, volume):
         volume = normalize_volume(volume)
 
+        logging.info('Music: New volume %s', volume)
         self._music_volume = volume
 
     @property
@@ -110,6 +112,25 @@ class SettingsState:
         volume = round(volume, 2)
         logging.info('Audio: New volume %s', volume)
         self._sound_volume = volume
+
+    @property
+    def atmo_volume(self):
+        if self.is_silent() or self._muted:
+            return 0.0
+
+        return self._atmo_volume
+
+    @atmo_volume.setter
+    def atmo_volume(self, volume):
+        if volume < 0:
+            volume = 0.0
+
+        if volume > 1:
+            volume = 1.0
+
+        volume = round(volume, 2)
+        logging.info('Atmo: New volume %s', volume)
+        self._atmo_volume = volume
 
     def mute(self):
         self._muted = True

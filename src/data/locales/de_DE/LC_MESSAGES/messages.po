@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-21 22:59+0200\n"
+"POT-Creation-Date: 2024-05-22 12:40+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
-#: sprites/ui/gameovertext.py:43 views/highscore.py:67
+#: sprites/ui/gameovertext.py:43 views/highscore.py:66
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
 
@@ -93,61 +93,61 @@ msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
 #: views/difficultyselection.py:202 views/difficultyselection.py:214
-#: views/mapselection.py:229 views/mapselection.py:241 views/pausemenu.py:138
-#: views/pausemenu.py:155
+#: views/mapselection.py:229 views/mapselection.py:241 views/pausemenu.py:136
+#: views/pausemenu.py:153
 msgid "Yes"
 msgstr "Ja"
 
 #: views/difficultyselection.py:203 views/mapselection.py:230
-#: views/pausemenu.py:139
+#: views/pausemenu.py:137
 msgid "No"
 msgstr "Nein"
 
-#: views/highscore.py:89
+#: views/highscore.py:88
 msgid "No entries yet"
 msgstr "Noch keine Einträge vorhanden"
 
-#: views/mainmenu.py:42 window/launcherwindow.py:44
+#: views/mainmenu.py:41 window/launcherwindow.py:44
 msgid "Grunzi"
 msgstr "Grunzi"
 
-#: views/mainmenu.py:50
+#: views/mainmenu.py:49
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:56 views/pausemenu.py:35
+#: views/mainmenu.py:55 views/pausemenu.py:33
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/mainmenu.py:62 views/mapselection.py:80
+#: views/mainmenu.py:61 views/mapselection.py:80
 msgid "Select Map"
 msgstr "Map auswählen"
 
-#: views/mainmenu.py:68
+#: views/mainmenu.py:67
 msgid "Online Highscore"
 msgstr "Online-Bestenliste"
 
-#: views/mainmenu.py:74 views/pausemenu.py:41
+#: views/mainmenu.py:73 views/pausemenu.py:39
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: views/mainmenu.py:80
+#: views/mainmenu.py:79
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/pausemenu.py:47
+#: views/pausemenu.py:45
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/pausemenu.py:133
+#: views/pausemenu.py:131
 msgid "Leave to main menu?"
 msgstr "Zurück zum Hauptmenü?"
 
-#: views/pausemenu.py:134
+#: views/pausemenu.py:132
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
-#: views/view.py:121
+#: views/view.py:120
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
@@ -155,9 +155,13 @@ msgstr "Unbekannter Build"
 msgid "Music"
 msgstr "Musik"
 
-#: views/settings/settingsaudio.py:84
+#: views/settings/settingsaudio.py:85
 msgid "Sound"
 msgstr "Sound"
+
+#: views/settings/settingsaudio.py:103
+msgid "Environment"
+msgstr "Umgebung"
 
 #: views/settings/settingscontrols.py:58
 msgid "Scroll with mousewheel"

@@ -22,7 +22,7 @@ from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
 from utils.mappopulator import MapPopulator
 from utils.physics import make_physics_engine
-from utils.positionalsound import PositionalSound
+from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from utils.scene import Scene
 from utils.tilemap import TileMap
 from utils.video import load_video
@@ -241,7 +241,13 @@ class Game(Fading):
         self.music_queue.play()
 
         atmo = self.state.play_sound('atmos', self.state.map_name, loop=True)
-        self.atmo = PositionalSound(self.player_sprite, self.player_sprite, atmo, self.state)
+        self.atmo = PositionalSound(
+            self.player_sprite,
+            self.player_sprite,
+            atmo,
+            self.state,
+            volume_source=VOLUME_SOURCE_ATMO
+        )
 
         pyglet.clock.unschedule(self.wait_for_video)
 

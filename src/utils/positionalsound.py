@@ -10,11 +10,12 @@ MAX_DISTANCE = 800
 FADE_SPEED = 0.05
 
 VOLUME_SOURCE_SOUND = 'sound'
+VOLUME_SOURCE_ATMO = 'atmo'
 
 class PositionalSound:
     """ Positional sound """
 
-    def __init__(self, listener, source, player, state, volume_source=VOLUME_SOURCE):
+    def __init__(self, listener, source, player, state, volume_source=VOLUME_SOURCE_SOUND):
         self.listener = listener
         self.source = source
         self.state = state
@@ -49,6 +50,8 @@ class PositionalSound:
 
         if self.volume_source == VOLUME_SOURCE_SOUND:
             source_volume = self.state.settings.sound_volume
+        if self.volume_source == VOLUME_SOURCE_ATMO:
+            source_volume = self.state.settings.atmo_volume
 
         volume = normalize_volume(volume * source_volume)
 

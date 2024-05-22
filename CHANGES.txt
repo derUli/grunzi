@@ -8,7 +8,7 @@
 * map02: Kakteen hinzugefügt
 * map02: Tretminen hinzugefügt
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
-* UI: Separater Lautstärkeregler für Atmo-Sounds
+* Audio: Master Lautstärkeregler hinzugefügt
 
 ## Alpha 014 (Unreleased)
 
@@ -16,6 +16,7 @@
 * Global: "Beep" Soundeffekt ersetzt
 * Global: Support für Rii USB Classic Controller wieder entfernt
 * Launcher: Es werden nur noch unterstützte Audio Backend angezeigt
+* Audio: Lautstärke der Umgebungsgeräusche kann jetzt getrennt geregelt werden
 
 ## Global: Alpha 013 (24.12.2024)
 
