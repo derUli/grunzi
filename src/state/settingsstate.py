@@ -6,6 +6,7 @@ import os
 import jsonpickle
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
+from constants.display import DEFAULT_ANTIALIASING
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
@@ -21,7 +22,7 @@ class SettingsState:
         self.vsync = True
         self.show_fps = False
 
-        self.antialiasing = 2
+        self.antialiasing = DEFAULT_ANTIALIASING
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND

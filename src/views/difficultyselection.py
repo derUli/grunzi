@@ -183,8 +183,7 @@ class DifficultySelection(Fading):
 
         from views.game import Game
 
-        self.next_view = Game(self.window, self.state)
-        self.fade_out()
+        self.fade_to_view(Game(self.window, self.state))
 
     def on_back(self) -> None:
         """ On click "Back" button """
