@@ -15,6 +15,7 @@
 * Global: Äpfel hinzugefügt
 * Global: "Beep" Soundeffekt ersetzt
 * Global: Support für Rii USB Classic Controller wieder entfernt
+* Launcher: Es werden nur noch unterstützte Audio Backend angezeigt
 
 ## Global: Alpha 013 (24.12.2024)
 

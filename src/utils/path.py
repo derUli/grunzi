@@ -1,6 +1,6 @@
 """ User path utils """
 
-import os
+import os, platform
 
 GAMEDIR_NAME_WINDOWS = 'Grunzi'
 GAMEDIR_NAME_LINUX = '.grunzi'
@@ -9,6 +9,11 @@ GAMEDIR_NAME_LINUX = '.grunzi'
 def is_windows() -> bool:
     """ Check if we are on Windows """
     return os.name == 'nt'
+
+
+def is_linux() -> bool:
+    """ Check if we are on Linux """
+    return platform.system() == 'Linux'
 
 
 def get_userdata_path() -> str:

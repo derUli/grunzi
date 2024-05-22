@@ -5,7 +5,7 @@ import tkinter.ttk as ttk
 from PIL.ImageTk import PhotoImage
 from ttkthemes import ThemedTk
 
-from constants.audio import AUDIO_BACKENDS
+from constants.audio import audio_backends
 from state.settingsstate import SettingsState
 from utils.screen import supported_screen_resolutions
 
@@ -123,7 +123,7 @@ class LauncherWindow(ThemedTk):
 
         ttk.Combobox(
             tab_audio,
-            values=AUDIO_BACKENDS,
+            values=audio_backends(),
             textvariable=self.audio_backend,
             state='readonly'
         ).grid(row=0, column=2, pady=SPACE_BETWEEN, sticky='e')

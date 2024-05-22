@@ -1,14 +1,27 @@
 """ Audio constants """
+from utils.path import is_windows, is_linux
 
-# Audio backends supported by Pyglet
-AUDIO_BACKENDS = [
-    'auto',
-    'xaudio2',
-    'directsound',
-    'openal',
-    'pulse',
-    'silent'
-]
+
+def audio_backends():
+    backends = [
+        'auto'
+    ]
+
+    if is_windows():
+        backends += [
+            'xaudio2',
+            'directsound'
+        ]
+
+    backends += ['openal']
+
+    if is_linux():
+        backends += ['pulse']
+
+    backends += ['silent']
+
+    return backends
+
 
 # Default is autodetect
-DEFAULT_AUDIO_BACKEND = 'auto'
+DEFAULT_AUDIO_BACKEND = audio_backends()[0]

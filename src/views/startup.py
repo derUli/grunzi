@@ -7,7 +7,7 @@ import os
 
 import pyglet
 
-from constants.audio import DEFAULT_AUDIO_BACKEND, AUDIO_BACKENDS
+from constants.audio import DEFAULT_AUDIO_BACKEND, audio_backends
 from constants.display import UNLIMITED_FRAMERATE
 from constants.maps import FIRST_MAP
 from state.settingsstate import SettingsState
@@ -85,7 +85,7 @@ class StartUp:
 
         parser.add_argument(
             '--audio-backend',
-            choices=tuple(AUDIO_BACKENDS),
+            choices=tuple(audio_backends()),
             default=DEFAULT_AUDIO_BACKEND,
             action='store',
             type=str,
