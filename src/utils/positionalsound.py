@@ -45,8 +45,7 @@ class PositionalSound:
             if init:
                 volume = 0.0
 
-
-        source_volume = 0
+        source_volume = 1.0
 
         if self.volume_source == VOLUME_SOURCE_SOUND:
             source_volume = self.state.settings.sound_volume
