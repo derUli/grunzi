@@ -4,7 +4,6 @@ from typing import Optional, List
 import arcade
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
-from arcade.experimental.lights import LightLayer, Light
 
 from sprites.characters.character import Character
 from sprites.items.item import Item

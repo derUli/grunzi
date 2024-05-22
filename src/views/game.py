@@ -366,7 +366,6 @@ class Game(Fading):
         if self.video_playing and key in constants.controls.controller.KEY_DISCARD:
             return self.video.stop()
 
-
         if not self.initialized:
             return
 

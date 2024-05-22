@@ -5,8 +5,6 @@ from views.view import View
 
 FADE_RATE = 5
 
-COLOR_BACKGROUND = (0, 0, 0)
-
 
 class Fading(View):
     """ Fading view """
@@ -19,8 +17,6 @@ class Fading(View):
         self._fade_out = None
         self._fade_in = 255
         self._do_quit = False
-
-        self.background = COLOR_BACKGROUND
 
     def update_fade(self, next_view: arcade.View | None = None) -> None:
         """ Update fade

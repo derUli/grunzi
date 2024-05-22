@@ -1,6 +1,7 @@
 """ User path utils """
 
-import os, platform
+import os
+import platform
 
 GAMEDIR_NAME_WINDOWS = 'Grunzi'
 GAMEDIR_NAME_LINUX = '.grunzi'

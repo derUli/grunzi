@@ -1,11 +1,6 @@
-import os
 import unittest
 
 from constants.audio import audio_backends, DEFAULT_AUDIO_BACKEND
-from state.settingsstate import SettingsState
-from state.viewstate import ViewState
-from utils.audio import normalize_volume, streaming_enabled, MusicQueue
-from utils.path import is_windows
 
 
 class ConstantsAudioTest(unittest.TestCase):

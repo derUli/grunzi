@@ -3,6 +3,7 @@ from arcade.experimental.lights import LightLayer, Light
 
 LIGHTING_DARK = 'dark'
 
+
 class LightManager:
     def __init__(self):
         self.light_layer = None
@@ -13,6 +14,7 @@ class LightManager:
         self._type = type
         self.lights = {}
         self.light_layer = None
+
     def setup(self, args):
         self.reset()
 
@@ -27,7 +29,6 @@ class LightManager:
 
         if self._type == LIGHTING_DARK:
             self.setup_dark(args)
-
 
     def update(self, args):
         if not self.enabled:

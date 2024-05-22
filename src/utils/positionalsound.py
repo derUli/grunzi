@@ -12,6 +12,7 @@ FADE_SPEED = 0.05
 VOLUME_SOURCE_SOUND = 'sound'
 VOLUME_SOURCE_ATMO = 'atmo'
 
+
 class PositionalSound:
     """ Positional sound """
 
