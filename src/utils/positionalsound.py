@@ -22,10 +22,13 @@ class PositionalSound:
         self.state = state
         self.player = player
         self.volume_source = volume_source
+
         if self.player:
             self.player.volume = 0
 
     def update(self, init: bool = False):
+        """ Update the volume of the positional sound based on the player's position """
+
         if not self.player:
             return
 
