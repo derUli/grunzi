@@ -9,16 +9,17 @@ from utils.audio import normalize_volume
 MAX_DISTANCE = 800
 FADE_SPEED = 0.05
 
+VOLUME_SOURCE = 'sound'
 
 class PositionalSound:
     """ Positional sound """
 
-    def __init__(self, listener, source, player, state):
+    def __init__(self, listener, source, player, state, volume_source=VOLUME_SOURCE):
         self.listener = listener
         self.source = source
         self.state = state
         self.player = player
-
+        self.volume_source = volume_source
         if self.player:
             self.player.volume = 0
 
@@ -44,7 +45,13 @@ class PositionalSound:
             if init:
                 volume = 0.0
 
-        volume = normalize_volume(volume * self.state.settings.sound_volume)
+
+        source_volume = 0
+
+        if self.volume_source == VOLUME_SOURCE:
+            source_volume = self.state.settings.sound_volume
+
+        volume = normalize_volume(volume * source_volume)
 
         if volume != self.player.volume:
             logging.debug('Sound volume at %s', volume)
