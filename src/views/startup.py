@@ -197,6 +197,7 @@ class StartUp:
         logging.debug(label_value('Audio backend', args.audio_backend))
 
         pyglet.options['debug_gl'] = args.debug
+        pyglet.options['debug_trace_flush'] = args.debug
 
         import arcade
 
