@@ -10,7 +10,7 @@ from constants.display import DEFAULT_ANTIALIASING
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 12
+SETTINGS_STATE_VERSION = 13
 
 
 class SettingsState:
