@@ -2,7 +2,11 @@
 from utils.path import is_windows, is_linux
 
 
-def audio_backends():
+def audio_backends() -> list:
+    """
+    Get supported audio backends
+    @return: Supported audio backends
+    """
     backends = [
         'auto'
     ]
