@@ -13,10 +13,10 @@
 ## Alpha 014 (Unreleased)
 
 * Global: Äpfel hinzugefügt
-* Global: "Beep" Soundeffekt ersetzt
+* Audio: "Beep" Soundeffekt ersetzt
 * Global: Support für Rii USB Classic Controller wieder entfernt
 * Launcher: Es werden nur noch unterstützte Audio Backend angezeigt
-* Audio: Lautstärke der Umgebungsgeräusche kann jetzt getrennt geregelt werden
+* UI: Lautstärke-Regler für Umgebungsgeräusche hinzugefügt
 
 ## Global: Alpha 013 (24.12.2024)
 
