@@ -1,4 +1,5 @@
 """ Audio constants """
+
 from utils.path import is_windows, is_linux
 
 
