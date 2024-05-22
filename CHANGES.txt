@@ -8,6 +8,7 @@
 * map02: Kakteen hinzugefügt
 * map02: Tretminen hinzugefügt
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
+* UI: Separater Lautstärkeregler für Atmo-Sounds
 
 ## Alpha 014 (Unreleased)
 
