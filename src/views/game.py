@@ -263,7 +263,7 @@ class Game(Fading):
                 self.loading_music = self.state.play_sound(
                     'loading',
                     loop=True,
-                    volume=self.state.settings.music_volume
+                    volume=self.state.settings.music_volume,
                 )
             return
 

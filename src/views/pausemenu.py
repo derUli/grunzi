@@ -3,6 +3,7 @@ import os
 import arcade.gui
 
 import constants.controls.keyboard
+from utils.audio import streaming_enabled
 from utils.gui import get_button_style
 from views.fading import Fading
 from views.mainmenu import MainMenu
@@ -89,7 +90,8 @@ class PauseMenu(Fading):
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
         music = arcade.load_sound(
-            os.path.join(self.state.music_dir, 'pause.ogg')
+            os.path.join(self.state.music_dir, 'pause.ogg'),
+            streaming=streaming_enabled()
         )
 
         self.player = music.play(loop=True, volume=self.state.settings.music_volume)

@@ -174,10 +174,6 @@ class Player(Character, SpriteHealth):
             self.item.draw_item(self.face)
 
     def draw_overlay(self, args):
-        args.camera.use()
-        self.draw_healthbar(color_health=HEALTHBAR_FREN_COLOR)
-
-        args.camera_gui.use()
         self.bloody_screen.draw()
 
         if not self.dead:

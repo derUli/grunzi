@@ -105,19 +105,6 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
             moment_of_intertia=arcade.PymunkPhysicsEngine.MOMENT_INF
         )
 
-    npc_layers = [
-        LAYER_DUCK
-    ]
-
-    for layer in npc_layers:
-        if layer not in scene.name_mapping:
-            scene.add_sprite_list(layer)
-        physics_engine.add_sprite_list(
-            scene[layer],
-            collision_type=COLLISION_DUCK,
-            moment_of_intertia=arcade.PymunkPhysicsEngine.MOMENT_INF
-        )
-
     # Create some boxes to push around.
     # Mass controls, well, the mass of an object. Defaults to 1.
     if 'Moveable' in scene.name_mapping:

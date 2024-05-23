@@ -2,6 +2,7 @@
 
 import logging
 import os
+import time
 
 import arcade.gui
 
@@ -11,6 +12,7 @@ from constants.mapconfig import MapConfig
 from constants.fonts import FONT_ADRIP
 from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
+from utils.audio import streaming_enabled
 from views.difficultyselection import DifficultySelection
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
@@ -170,15 +172,21 @@ class MainMenu(Fading):
 
         music = None
 
+        a = time.time()
+
         try:
+
             music = arcade.load_sound(
-                os.path.join(self.state.music_dir, 'menu.ogg')
+                os.path.join(self.state.music_dir, 'menu.ogg'),
+                streaming=streaming_enabled()
             )
         except FileNotFoundError as e:
             logging.error(e)
 
         if not self.player and music:
             self.player = music.play(loop=True, volume=self.state.settings.music_volume)
+
+        print(time.time() - a)
         self.manager.enable()
 
     def on_hide_view(self) -> None:
