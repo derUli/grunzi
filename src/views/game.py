@@ -4,15 +4,14 @@ import sys
 import threading
 import time
 
-import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
 import constants.controls.keyboard
 import utils.audio
-from constants.mapconfig import MapConfig
 from constants.layers import *
+from constants.mapconfig import MapConfig
 from constants.maps import MAPS
 from sprites.bullet.grunt import Grunt
 from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
@@ -124,22 +123,6 @@ class Game(Fading):
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
 
-        measurement = []
-        self.skip_intro = True
-
-        for i in range(0, 100):
-            a = time.time()
-            self.async_load()
-
-            measurement.append(time.time() - a)
-
-        print(f"Min: {numpy.min(measurement)}")
-        print(f"Avg: {numpy.average(measurement)}")
-        print(f"Max: {numpy.max(measurement)}")
-        print(f"Sum: {numpy.sum(measurement)}")
-
-        sys.exit(0)
-
         # Load map
         threading.Thread(target=self.async_load).start()
 
@@ -230,8 +213,8 @@ class Game(Fading):
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
 
         # Sleep some seconds to wait until the 100 Percent is shown
-        #while not self.ui.loading_screen.completed:
-        #    time.sleep(0.01)
+        while not self.ui.loading_screen.completed:
+            time.sleep(0.01)
 
         self.ui.loading_screen.show = False
 

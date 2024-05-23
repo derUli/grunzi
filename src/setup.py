@@ -90,9 +90,7 @@ clean_rubbish = [
     glob.glob('build/*/lib/**/tests', recursive=True),
     glob.glob('build/*/lib/**/docs', recursive=True),
     glob.glob('build/*/lib/**/doc', recursive=True),
-    glob.glob('build/*/lib/**/*.wav', recursive=True),
-    glob.glob('build/*/lib/**/*.ogg', recursive=True),
-    glob.glob('build/*/lib/**/*.mp3', recursive=True)
+    glob.glob('build/*/lib/arcade/resources/music', recursive=True),
 ]
 
 for bulk in clean_rubbish:
