@@ -12,6 +12,7 @@ class SpriteHealth:
 
     def __init__(self):
         self._health = HEALTH_FULL
+        self._healthbar_width = None
         self._died = False
 
     def _dead(self):
@@ -26,7 +27,7 @@ class SpriteHealth:
 
     @health.setter
     def health(self, value):
-        self._health = value = value
+        self._health = value
 
     def hurt(self, damage):
         self.health -= damage
@@ -51,11 +52,26 @@ class SpriteHealth:
     def draw_healthbar(self, color_health=HEALTHBAR_ENEMY_COLOR):
         one_percent = self.width / 100
         width = round(one_percent * self.health)
+
+        if not hasattr(self, '_healthbar_width'):
+            self._healthbar_width = one_percent * 100
+
+        if self._healthbar_width > width:
+            self._healthbar_width -= one_percent
+
+        if self._healthbar_width < width:
+            self._healthbar_width += one_percent
+
+        if self._healthbar_width > self.width:
+            self._healthbar_width = width
+        if self._healthbar_width <= 0:
+            return
+
         height = 4
 
         left = self.left
         top = self.top + height * 2
-        right = self.left + width
+        right = self.left + self._healthbar_width
 
         alpha = self.alpha
 
