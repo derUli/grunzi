@@ -2,11 +2,13 @@
 
 """ cx_freeze setup file """
 
+import glob
 import os
 import shutil
 import sys
 
 import cx_Freeze
+import xmlformatter
 
 target_name = 'grunzi'
 base = None
@@ -59,3 +61,12 @@ cx_Freeze.setup(
 if sys.platform != 'win32':
     os.unlink('build/exe.linux-x86_64-3.10/data/3rdparty/ffmpeg.exe')
     shutil.rmtree('build/exe.linux-x86_64-3.10/data/videos')
+
+formatter = xmlformatter.Formatter(compress=True)
+
+# Minify map files
+for file in glob.glob('build/*/data/maps/*.tmx'):
+    output = formatter.format_file(file)
+
+    with open(file, 'wb') as f:
+        f.write(output)
