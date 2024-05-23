@@ -91,6 +91,12 @@ clean_rubbish = [
     glob.glob('build/*/lib/**/docs', recursive=True),
     glob.glob('build/*/lib/**/doc', recursive=True),
     glob.glob('build/*/lib/arcade/resources/music', recursive=True),
+    glob.glob('build/*/lib/arcade/resources/sounds', recursive=True),
+    glob.glob('build/*/lib/arcade/resources/tiled_maps', recursive=True),
+    glob.glob('build/*/lib/arcade/resources/images', recursive=True),
+    glob.glob('build/*/lib/arcade/resources/caches', recursive=True),
+    glob.glob('build/*/lib/arcade/resources/assets', recursive=True),
+    glob.glob('build/*/lib/arcade/resources/onscreen_controls', recursive=True),
 ]
 
 for bulk in clean_rubbish:
