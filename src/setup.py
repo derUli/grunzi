@@ -40,6 +40,7 @@ options = {
     'build_exe': {
         # "include_msvcr": True, Not allowed to legal reasons
         'optimize': OPTIMIZE,
+        'silent_level':  3,
         'include_files': [
             'data/',
             '../CREDITS.txt',
