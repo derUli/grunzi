@@ -17,7 +17,7 @@ def start() -> None:
     except KeyboardInterrupt:
         sys.exit()
     except Exception as e:
-        logging.fatal("Fatal exception", exc_info=e)
+        logging.critical("Fatal exception", exc_info=e)
         sys.exit()
 
 
