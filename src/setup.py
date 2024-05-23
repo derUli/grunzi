@@ -3,6 +3,7 @@
 """ cx_freeze setup file """
 
 import glob
+import json
 import os
 import shutil
 import sys
@@ -62,7 +63,7 @@ if sys.platform != 'win32':
     os.unlink('build/exe.linux-x86_64-3.10/data/3rdparty/ffmpeg.exe')
     shutil.rmtree('build/exe.linux-x86_64-3.10/data/videos')
 
-formatter = xmlformatter.Formatter(compress=True)
+formatter = xmlformatter.Formatter(compress=True, selfclose=True)
 
 # Minify map files
 for file in glob.glob('build/*/data/maps/*.tmx'):
@@ -70,3 +71,34 @@ for file in glob.glob('build/*/data/maps/*.tmx'):
 
     with open(file, 'wb') as f:
         f.write(output)
+
+
+
+# for file in glob.glob('build/*/data/maps/*.json'):
+#
+#     with open(file, 'rb') as f1:
+#         minified = json.dumps(json.loads(f1.read()))
+#         f1.close()
+#
+#         with open(file, 'wb') as f2:
+#             f2.write(bytes(minified))
+
+
+clean_rubbish = [
+    glob.glob('build/*/lib/**/examples', recursive=True),
+    glob.glob('build/*/lib/**/tests', recursive=True),
+    glob.glob('build/*/lib/**/docs', recursive=True),
+    glob.glob('build/*/lib/**/doc', recursive=True),
+    glob.glob('build/*/lib/**/*.wav', recursive=True),
+    glob.glob('build/*/lib/**/*.ogg', recursive=True),
+    glob.glob('build/*/lib/**/*.mp3', recursive=True)
+]
+
+for bulk in clean_rubbish:
+    for file in bulk:
+        if os.path.isdir(file):
+            print(f"Deleting {file}")
+            shutil.rmtree(file)
+        elif os.path.isfile(file):
+            print(f"Deleting {file}")
+            os.unlink(file)
