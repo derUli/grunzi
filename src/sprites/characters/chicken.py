@@ -50,7 +50,6 @@ class Chicken(Character, Useable):
             delta_time,
             args
     ):
-
         if self.dead:
             if self.sound:
                 self.sound.pause()
