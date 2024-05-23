@@ -11,6 +11,7 @@ class LightManager:
         self._type = None
 
     def reset(self):
+        """ Reset light manager """
         self._type = type
         self.lights = {}
         self.light_layer = None
@@ -24,7 +25,6 @@ class LightManager:
             return
 
         w, h = arcade.get_window().get_size()
-
         self.light_layer = LightLayer(w, h)
 
         if self._type == LIGHTING_DARK:
