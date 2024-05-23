@@ -134,6 +134,7 @@ class ViewState:
 
         with open(path, 'r') as f:
             code = f.read()
+
         self.shaders[name] = Shadertoy(size, code)
 
         return self.shaders[name]
@@ -158,9 +159,6 @@ class ViewState:
         rand = random.randint(1, 5)
         logging.info('Squeak')
         return self.play_sound(f"squeak{rand}")
-
-    def noaction(self):
-        return self.play_sound('noaction')
 
     def noaction(self):
         return self.play_sound('noaction')

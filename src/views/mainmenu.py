@@ -172,8 +172,6 @@ class MainMenu(Fading):
 
         music = None
 
-        a = time.time()
-
         try:
 
             music = arcade.load_sound(
@@ -186,7 +184,6 @@ class MainMenu(Fading):
         if not self.player and music:
             self.player = music.play(loop=True, volume=self.state.settings.music_volume)
 
-        print(time.time() - a)
         self.manager.enable()
 
     def on_hide_view(self) -> None:
