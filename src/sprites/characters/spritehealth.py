@@ -65,7 +65,7 @@ class SpriteHealth:
         r, g, b, a = arcade.color.BLACK
         a = alpha
 
-        arcade.draw_line(left, top, right, top, line_width=height, color=(r, g, b, a))
+        arcade.draw_line(left, top, left + self.width, top, line_width=height, color=(r, g, b, a))
 
         if self.health < 1:
             return
