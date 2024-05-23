@@ -327,7 +327,7 @@ class Game(Fading):
         self.camera_gui.use()
 
         self.ui.draw()
-        self.player_sprite.draw_overlay()
+        self.player_sprite.draw_overlay(args=make_args_container(self))
         self.draw_fading()
         self.draw_after()
 

@@ -6,7 +6,7 @@ from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
 from sprites.characters.character import Character
-from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
+from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth, HEALTHBAR_FREN_COLOR
 from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
 from utils.scene import get_layer
@@ -173,8 +173,11 @@ class Player(Character, SpriteHealth):
             self.item.alpha = PLACE_ITEM_ALPHA
             self.item.draw_item(self.face)
 
-    def draw_overlay(self):
+    def draw_overlay(self, args):
+        args.camera.use()
+        self.draw_healthbar(color_health=HEALTHBAR_FREN_COLOR)
 
+        args.camera_gui.use()
         self.bloody_screen.draw()
 
         if not self.dead:

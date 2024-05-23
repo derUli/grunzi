@@ -82,7 +82,7 @@ class Skull(Character, Useable):
 
         self.texture = self.textures[self.face - 1]
 
-    def draw_overlay(self):
+    def draw_overlay(self, args):
         self.draw_healthbar()
 
     def update(

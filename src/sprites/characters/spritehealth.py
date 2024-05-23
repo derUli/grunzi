@@ -53,6 +53,7 @@ class SpriteHealth:
         width = round(one_percent * self.health)
         height = 4
 
+        left = self.left
         top = self.top + height * 2
         right = self.left + width
 
@@ -63,10 +64,11 @@ class SpriteHealth:
 
         r, g, b, a = arcade.color.BLACK
         a = alpha
-        arcade.draw_line(self.left, top, self.right, top, line_width=height, color=(r, g, b, a))
+
+        arcade.draw_line(left, top, right, top, line_width=height, color=(r, g, b, a))
 
         if self.health < 1:
             return
 
         r, g, b, a = color_health
-        arcade.draw_line(self.left, top, right, top, line_width=height, color=(r, g, b, self.alpha))
+        arcade.draw_line(left, top, right, top, line_width=height, color=(r, g, b, a))

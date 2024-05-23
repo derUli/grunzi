@@ -8,6 +8,7 @@ from arcade import SpriteList
 from sprites.characters.character import Character
 from sprites.items.item import Item
 from sprites.sprite import AbstractSprite
+from state.argscontainer import make_args_container
 from utils.lightmanager import LightManager
 from utils.postprocessing.postprocessing import PostProcessing
 
@@ -19,13 +20,14 @@ class Scene(BaseScene):
         self.initialized = False
         self.light_manager = LightManager()
         self.postprocessing = PostProcessing()
+        self.args = None
 
     def setup(self, args):
         self.light_manager = LightManager()
         self.light_manager.setup(args)
         self.postprocessing = PostProcessing()
         self.postprocessing.setup(args)
-
+        self.args = args
         self.initialized = True
 
     @classmethod
@@ -119,7 +121,7 @@ class Scene(BaseScene):
             if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
                 continue
 
-            sprite.draw_overlay()
+            sprite.draw_overlay(self.args)
 
 
 def animated_in_sight(size, scene, player_sprite) -> list:
