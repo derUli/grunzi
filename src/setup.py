@@ -40,7 +40,7 @@ options = {
     'build_exe': {
         # "include_msvcr": True, Not allowed to legal reasons
         'optimize': OPTIMIZE,
-        'silent_level':  3,
+        'silent_level': 3,
         'include_files': [
             'data/',
             '../CREDITS.txt',
@@ -73,17 +73,13 @@ for file in glob.glob('build/*/data/maps/*.tmx'):
     with open(file, 'wb') as f:
         f.write(output)
 
+for file in glob.glob('build/*/data/maps/*.json'):
+    with open(file, 'r') as f1:
+        minified = json.dumps(json.loads(f1.read()))
+        f1.close()
 
-
-# for file in glob.glob('build/*/data/maps/*.json'):
-#
-#     with open(file, 'rb') as f1:
-#         minified = json.dumps(json.loads(f1.read()))
-#         f1.close()
-#
-#         with open(file, 'wb') as f2:
-#             f2.write(bytes(minified))
-
+        with open(file, 'w') as f2:
+            f2.write(minified)
 
 clean_rubbish = [
     glob.glob('build/*/lib/**/examples', recursive=True),
