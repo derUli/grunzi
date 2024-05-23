@@ -10,7 +10,7 @@ from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 import constants.controls.controller
 import constants.controls.keyboard
 import utils.audio
-from constants.difficulty import Difficulty
+from constants.mapconfig import MapConfig
 from constants.layers import *
 from constants.maps import MAPS
 from sprites.bullet.grunt import Grunt
@@ -222,7 +222,7 @@ class Game(Fading):
         savegame.current = self.state.map_name
         savegame.save()
 
-        self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
+        self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
         self.initialized = True
 

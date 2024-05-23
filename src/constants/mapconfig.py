@@ -1,4 +1,4 @@
-""" Difficulty constants """
+""" Map config class """
 
 import json
 import os
@@ -8,8 +8,8 @@ DIFFICULTY_MEDIUM = 2
 DIFFICULTY_HARD = 3
 
 
-class Difficulty:
-    """ Difficulty class"""
+class MapConfig:
+    """ map config class"""
 
     def __init__(self, difficulty, map_name, level_dir):
         """ Constructor """

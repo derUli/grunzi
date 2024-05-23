@@ -7,7 +7,7 @@ import arcade.gui
 import constants.controls.keyboard
 import utils.gui
 import utils.text
-from constants.difficulty import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, Difficulty
+from constants.mapconfig import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, MapConfig
 from constants.fonts import FONT_DEFAULT
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
@@ -179,7 +179,7 @@ class DifficultySelection(Fading):
         new_savegame(self.state.map_name_first, difficulty)
 
         self.state.map_name = self.state.map_name_first
-        self.state.difficulty = Difficulty(difficulty, self.state.map_name, self.state.map_dir)
+        self.state.difficulty = MapConfig(difficulty, self.state.map_name, self.state.map_dir)
 
         from views.game import Game
 

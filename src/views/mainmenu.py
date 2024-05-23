@@ -7,7 +7,7 @@ import arcade.gui
 
 import utils.gui
 import utils.text
-from constants.difficulty import Difficulty
+from constants.mapconfig import MapConfig
 from constants.fonts import FONT_ADRIP
 from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
@@ -100,7 +100,7 @@ class MainMenu(Fading):
             if not savegame.current:
                 savegame.current = FIRST_MAP
             self.state.map_name = savegame.current
-            self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
+            self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
             self.next_view = Game(self.window, self.state)
             self.fade_out()
@@ -112,7 +112,7 @@ class MainMenu(Fading):
             from views.mapselection import MapSelection
             savegame = SaveGameState.load()
             self.state.map_name = savegame.current
-            self.state.difficulty = Difficulty(savegame.difficulty, self.state.map_name, self.state.map_dir)
+            self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
             self.next_view = MapSelection(self.window, self.state, previous_view=self)
             self.fade_out()
