@@ -1,6 +1,6 @@
 """ Map config class """
 
-import json
+import orjson
 import os
 
 DIFFICULTY_EASY = 1
@@ -42,7 +42,7 @@ class MapConfig:
         maps = os.path.join(level_dir, 'maps.json')
 
         with open(maps, 'r', encoding='utf-8') as f:
-            jsond = json.load(f)
+            jsond = orjson.loads(f.read())
 
         difficulty_data = jsond['default'][str(difficulty)]
 
