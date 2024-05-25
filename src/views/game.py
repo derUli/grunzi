@@ -161,6 +161,9 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 50
 
+        self.map_populator = MapPopulator()
+        self.map_populator.spawn_initial(make_args_container(self))
+
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = Player(filename)
@@ -204,10 +207,6 @@ class Game(Fading):
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
-        self.ui.loading_screen.percent = 90
-
-        
-
         self.ui.loading_screen.percent = 100
 
         pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
@@ -223,7 +222,6 @@ class Game(Fading):
         savegame.save()
 
         self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
-        self.map_populator = MapPopulator()
 
         self.initialized = True
 

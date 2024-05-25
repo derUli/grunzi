@@ -18,7 +18,7 @@ class MapPopulator:
             return
 
         if not self.initial_spawn:
-            self.spawn_initial(args)
+            self.spawn_npcs(args)
 
         from constants.layers import LAYER_NPC
 
@@ -49,13 +49,19 @@ class MapPopulator:
 
 
 
-    def spawn_initial(self, args):
+    def spawn_npcs(self, args):
         """ Spawn some sprites on level load """
         self.initial_spawn = True
 
         self.spawn_chicken(args)
+        
+
+    def spawn_initial(self, args):
+        """ Spawn some sprites on level load """
+        
         self.spawn_food(args)
         self.spawn_landmine(args)
+
 
     def spawn_landmine(self, args):
         
