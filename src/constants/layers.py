@@ -25,6 +25,7 @@ from sprites.items.redherring import Feather, Vase
 from sprites.items.tree import Tree
 from sprites.sounds.beach import Beach
 from sprites.sounds.highway import Highway
+from sprites.items.lantern import Lantern
 
 LAYER_WALL = 'Wall'
 LAYER_PLIER = 'Plier'
@@ -58,7 +59,8 @@ LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
 LAYER_LEVEL_EXIT = 'LevelExit'
 LAYER_RIVER = 'River'
 LAYER_FISH = 'Fish'
-LAYER_FOOD = 'Food'
+LAYER_FOOD = 'Food',
+LAYER_LANTERN = 'Lantern'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -177,6 +179,9 @@ LAYER_OPTIONS = {
     },
     LAYER_FISH: {
         'custom_class': Fish
+    },
+    LAYER_LANTERN: {
+        'custom_class': Lantern
     }
 }
 

@@ -652,6 +652,10 @@ class Game(Fading):
             self.state.noaction()
             return False
 
+        if not self.ui.inventory.has_capacity(item):
+            self.state.noaction()
+            return False
+
         item.remove_from_sprite_lists()
         self.ui.inventory.add_item(item)
 
