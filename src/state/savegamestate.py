@@ -10,7 +10,7 @@ from constants.maps import MAPS
 from constants.savegames import SAVEGAME_DEFAULT
 from utils.path import get_savegame_path
 from utils.utils import natural_keys
-
+from constants.mapconfig import MapConfig
 
 class SaveGameState:
     def __init__(self):
@@ -36,6 +36,7 @@ class SaveGameState:
     def exists() -> bool:
         """
         Check if there is an existing savegame file
+
         @return: bool
         """
         return os.path.exists(get_savegame_path(SAVEGAME_DEFAULT))
@@ -44,6 +45,7 @@ class SaveGameState:
     def load():
         """
         Load savegame file
+
         @return: SavegameState
         """
         try:
@@ -79,7 +81,15 @@ class SaveGameState:
             f.write(jsonpickle.encode(self, unpicklable=True))
 
 
-def new_savegame(map, difficulty):
+def new_savegame(map: str, difficulty: MapConfig) -> SaveGameState:
+    """
+    Create new savegame
+
+    @param: Map name
+    @param: Difficulty
+
+    @return: SaveGameState
+    """
     state = SaveGameState()
     state.current = map
     state.difficulty = difficulty
