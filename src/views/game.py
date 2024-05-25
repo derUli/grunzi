@@ -175,6 +175,13 @@ class Game(Fading):
                 on_complete=self.on_next_level
             )
         )
+        
+
+        # Create the physics engine
+        self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
+
+
+        self.map_populator.spawn_npcs(make_args_container(self))
 
         self.ui.loading_screen.percent = 60
 
@@ -197,10 +204,6 @@ class Game(Fading):
         )
 
         self.ui.loading_screen.percent = 70
-
-        # Create the physics engine
-        self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
-
         self.ui.loading_screen.percent = 80
 
         # Create the music queue

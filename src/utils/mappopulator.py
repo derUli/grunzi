@@ -11,14 +11,10 @@ from utils.scene import get_layer
 class MapPopulator:
     def __init__(self):
         self.next_spawn = 0
-        self.initial_spawn = False
 
     def update(self, args):
         if time.time() <= self.next_spawn:
             return
-
-        if not self.initial_spawn:
-            self.spawn_npcs(args)
 
         from constants.layers import LAYER_NPC
 
@@ -48,10 +44,8 @@ class MapPopulator:
         spawn_skull(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
 
-
     def spawn_npcs(self, args):
         """ Spawn some sprites on level load """
-        self.initial_spawn = True
 
         self.spawn_chicken(args)
         
