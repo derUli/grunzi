@@ -30,7 +30,8 @@
   "map02": {
     "options": {
       "chicken": true,
-      "sun": true
+      "sun": true,
+      "landmines": true
     },
     "spawnWhat": [
       "Skull"

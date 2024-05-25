@@ -242,4 +242,4 @@ def spawn_skull(state, tilemap, scene, physics_engine):
         max_velocity=200,
         damping=skull.damping
     )
-    return
+    
