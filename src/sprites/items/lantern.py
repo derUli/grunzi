@@ -11,6 +11,12 @@ SCORE_DESTROY_FENCE = 100
 class Lantern(Item):
     
     def on_equip(self, args):
+        """
+        Toggle light on equip
+
+        @param: ArgsContainer
+        
+        """
         args.scene.light_manager.enable_layer(LIGHT_LAYER_LANTERN)
         
     def on_unequip(self, args):

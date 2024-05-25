@@ -3,7 +3,6 @@
 ## Alpha XXX (Unreleased)
 
 * map03: Neues Monster hinzugefügt: Slimer
-* map03: Laterne hinzugefügt
 * UI: "Erfolg" Screen nach jedem Level
 * map02: Kakteen hinzugefügt
 * map02: Tretminen hinzugefügt
