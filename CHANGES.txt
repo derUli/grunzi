@@ -14,8 +14,9 @@
 
 * Global: Äpfel hinzugefügt
 * Audio: "Beep" Soundeffekt ersetzt
+* map03: Laterne hinzugefügt
 * Global: Support für Rii USB Classic Controller wieder entfernt
-* Launcher: Es werden nur noch unterstützte Audio Backends angezeigt
+* Launcher: Es werden nur noch vom Betriebssystem unterstützte Audio Backends angezeigt
 * UI: Lautstärke-Regler für Umgebungsgeräusche hinzugefügt
 
 ## Global: Alpha 013 (24.12.2024)
