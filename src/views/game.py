@@ -165,10 +165,6 @@ class Game(Fading):
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
         self.player_sprite = Player(filename)
 
-        
-        self.map_populator = MapPopulator()
-        self.map_populator.update(make_args_container(self))
-
         self.player_sprite.setup(
             state=self.state,
             scene=self.scene,
@@ -207,6 +203,9 @@ class Game(Fading):
         # Create the music queue
         self.music_queue = utils.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
+
+        self.ui.loading_screen.percent = 90
+
         
 
         self.ui.loading_screen.percent = 100
@@ -224,6 +223,7 @@ class Game(Fading):
         savegame.save()
 
         self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
+        self.map_populator = MapPopulator()
 
         self.initialized = True
 
@@ -302,6 +302,7 @@ class Game(Fading):
             make_args_container(self)
         )
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
+        
         self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
 
