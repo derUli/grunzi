@@ -289,6 +289,7 @@ class Game(Fading):
             self._call_method = None
 
         if self.player_sprite.dead:
+            self.player_sprite.update(delta_time, make_args_container(self))
             self.player_sprite.reset()
             return self.update_fade(self.next_view)
 
