@@ -38,7 +38,7 @@ class SpriteHealth:
 
     @property
     def dead(self):
-        if self._died:
+        if hasattr(self, '_died') and self._died:
             return True
 
         self._died = self._dead()

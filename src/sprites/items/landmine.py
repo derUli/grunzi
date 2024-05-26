@@ -48,28 +48,21 @@ class Landmine(Character):
             self.spawn_explosion(args)
 
     def explosion_hurt(self, args):
-        hurt_who = None
-        
+        hurt = 100 / (len(self.explosion.frames) * 0.66)
+
         moveable = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_MOVEABLE])
 
         for sprite in moveable:
-            sprite.remove_from_sprite_lists()             
-            break
+            sprite.remove_from_sprite_lists()          
 
         if arcade.check_for_collision(self.explosion, args.player):
-            hurt_who = args.player
+            args.player.hurt(hurt)
+            
+        npcs = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_NPC])
 
-        if hurt_who is None:
-            npcs = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_NPC])
-
-            for sprite in npcs:
-                if isinstance(sprite, Character) and sprite != self:
-                    hurt_who = sprite
-                    break
-
-        if hurt_who:
-            hurt = 100 / (len(self.explosion.frames) * 0.66)
-            hurt_who.hurt(hurt)
+        for sprite in npcs:
+            if isinstance(sprite, Character) and sprite != self:
+                sprite.hurt(hurt)
 
                 
     def spawn_explosion(self, args):
