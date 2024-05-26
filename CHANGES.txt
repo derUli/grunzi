@@ -20,7 +20,7 @@
 * Launcher: Es werden nur noch vom Betriebssystem unterstützte Audio Backends angezeigt
 * UI: Lautstärke-Regler für Umgebungsgeräusche hinzugefügt
 
-## Global: Alpha 013 (24.12.2024)
+## Global: Alpha 013 (24.05.2024)
 
 * map02: Puzzle mit Strom-Hindernis hinzugefügt
 * map02: kann jetzt durchgespielt werden

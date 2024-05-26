@@ -7,7 +7,7 @@ import sprites.decoration.car
 from sprites.characters.duck import Duck
 from sprites.characters.fish import Fish
 from sprites.decoration.cloud import Cloud
-from sprites.decoration.river import River
+from sprites.decoration.river import River, RiverSound
 from sprites.decoration.sun import Sun
 from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
@@ -58,6 +58,7 @@ LAYER_ELECTRIC = 'Electric'
 LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
 LAYER_LEVEL_EXIT = 'LevelExit'
 LAYER_RIVER = 'River'
+LAYER_RIVER_SOUND = 'RiverSound'
 LAYER_FISH = 'Fish'
 LAYER_FOOD = 'Food',
 LAYER_LANTERN = 'Lantern'
@@ -177,6 +178,9 @@ LAYER_OPTIONS = {
     LAYER_RIVER: {
         'custom_class': River
     },
+    LAYER_RIVER_SOUND: {
+        'custom_class': RiverSound
+    },
     LAYER_FISH: {
         'custom_class': Fish
     },
@@ -184,7 +188,6 @@ LAYER_OPTIONS = {
         'custom_class': Lantern
     }
 }
-
 
 def check_collision_with_layers(scene: Scene, sprite, layer_names: list | None = None):
     """ Returns all layers except background and decoration
