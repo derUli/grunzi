@@ -11,6 +11,7 @@
 
 * Menüpunkt "Level neu Starten" zu Pausenmenü hinzugefügt
 * map02: Kakteen hinzugefügt
+* Controller: Vibration hinzugefügt
 
 ## Alpha 014 (Unreleased)
 
