@@ -92,8 +92,7 @@ clean_rubbish = [
     glob.glob('build/*/lib/arcade/resources/images', recursive=True),
     glob.glob('build/*/lib/arcade/resources/cache', recursive=True),
     glob.glob('build/*/lib/arcade/resources/assets', recursive=True),
-    glob.glob('build/*/lib/arcade/resources/onscreen_controls', recursive=True),
-    glob.glob('build/*/lib/arcade/resources/gui_basic_assets', recursive=True),
+    glob.glob('build/*/lib/arcade/resources/onscreen_controls', recursive=True)
 ]
 
 for bulk in clean_rubbish:

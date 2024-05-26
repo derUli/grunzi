@@ -26,6 +26,8 @@ class Landmine(Character):
             self.remove_from_sprite_lists()
 
 def spawn_landmine(state, tilemap, scene, physics_engine):
+    # Not yet implemented in Alpha Build 014
+    return
     rand_x, rand_y = random_position(tilemap)
 
     mine = Landmine(
