@@ -2,5 +2,4 @@
 * Skelett Gegner
 * Level 1: Autofahr-Animation am Levelende
 * Aufgabe mit Metalldetektor
-* Benzin-Kanister zum Aufladen der Kettensäge zum Aufladen
-* Level 3: Taschenlampe
+* Benzin-Kanister zum Aufladen der Kettensäge
