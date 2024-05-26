@@ -40,6 +40,11 @@ class MapPopulator:
         self.next_spawn = time.time() + random.randint(1, 6)
 
     def spawn_skull(self, args):
+        """
+        Spawn a skull
+        
+        @param: ArgsContainer
+        """
         from sprites.characters.skull import spawn_skull
         spawn_skull(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
