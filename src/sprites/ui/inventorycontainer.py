@@ -58,7 +58,7 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
         return self.sprite_list[index].item
 
-    def has_capacity(self, new_item):
+    def has_capacity(self, new_item) -> bool:
         count = 0
         for item in self:
             if item.item is not None:
@@ -67,6 +67,7 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
 
                 if klass1 != klass2:
                     count += 1
+
         return count < CAPACITY
 
 

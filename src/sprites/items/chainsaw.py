@@ -43,7 +43,6 @@ class Chainsaw(Item):
         rotated = super().generate_rotated(image)
 
         rotated[FACE_UP - 1] = image.copy().rotate(90, expand=True)
-
         rotated[FACE_DOWN - 1] = image.copy().rotate(270, expand=True)
 
         return rotated
