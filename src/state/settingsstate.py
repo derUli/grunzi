@@ -1,4 +1,4 @@
-""" Used to store launcher settings """
+""" Used to store game settings """
 
 import logging
 import os
@@ -14,7 +14,11 @@ SETTINGS_STATE_VERSION = 13
 
 
 class SettingsState:
+    """ Game settings """
+
     def __init__(self):
+        """ Constructor """
+
         # Video
         self.screen_resolution = [1280, 720]
         self.fullscreen = True
@@ -30,10 +34,10 @@ class SettingsState:
         self._sound_volume = 1.0
         self._atmo_volume = 1.0
         self._muted = False
-        self.first_start = False
 
         # SettingState
         self.version = SETTINGS_STATE_VERSION
+        self.first_start = False
 
     @staticmethod
     def exists() -> bool:
@@ -133,10 +137,12 @@ class SettingsState:
         logging.info('Atmo: New volume %s', volume)
         self._atmo_volume = volume
 
-    def mute(self):
+    def mute(self) -> None:
+        """ Mute sound """
         self._muted = True
 
-    def unmute(self):
+    def unmute(self) -> None:
+        """ Unmute sound """
         self._muted = False
 
     def is_silent(self):
