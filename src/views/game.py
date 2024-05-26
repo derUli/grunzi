@@ -134,9 +134,14 @@ class Game(Fading):
         self.ui.loading_screen.show = True
         self.ui.loading_screen.percent = 0
 
+        savegame = SaveGameState.load()
+        savegame.current = self.state.map_name
+        savegame.save()
+        
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
         self.state.reset()
+        self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
         self.ui.loading_screen.percent = 10
 
@@ -161,6 +166,7 @@ class Game(Fading):
 
         self.ui.loading_screen.percent = 50
 
+
         self.map_populator = MapPopulator()
         self.map_populator.spawn_initial(make_args_container(self))
 
@@ -175,11 +181,9 @@ class Game(Fading):
                 on_complete=self.on_next_level
             )
         )
-        
 
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
-
 
         self.map_populator.spawn_npcs(make_args_container(self))
 
@@ -219,12 +223,6 @@ class Game(Fading):
             time.sleep(0.01)
 
         self.ui.loading_screen.show = False
-
-        savegame = SaveGameState.load()
-        savegame.current = self.state.map_name
-        savegame.save()
-
-        self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
         self.initialized = True
 

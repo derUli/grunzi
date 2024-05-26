@@ -59,7 +59,7 @@ class MapPopulator:
 
     def spawn_landmine(self, args):
         
-        if not args.state.difficulty.options['chicken']:
+        if not args.state.difficulty.options['landmines']:
             return
 
         for i in range(random.randint(1, 4)):
