@@ -1,8 +1,7 @@
 """ FPS counter """
 
-import time
-
 import arcade
+import time
 
 from constants.fonts import FONT_MONOTYPE
 from utils.text import create_text, MEDIUM_FONT_SIZE, MARGIN

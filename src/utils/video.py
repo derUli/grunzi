@@ -1,9 +1,8 @@
 """ Video playback utils  """
+import cv2
 import logging
 import os
 import shutil
-
-import cv2
 
 try:
     from pyvidplayer2 import VideoPyglet

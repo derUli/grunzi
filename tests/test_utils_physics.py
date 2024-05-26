@@ -1,6 +1,5 @@
 import os
 import unittest
-
 from arcade import Scene, PymunkPhysicsEngine, SpriteList
 
 from sprites.characters.player import Player

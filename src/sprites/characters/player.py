@@ -1,7 +1,6 @@
 """ Player sprite class """
-import math
-
 import arcade
+import math
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT

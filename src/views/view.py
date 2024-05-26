@@ -1,10 +1,9 @@
 """ View base class """
 
-import logging
-import os
-
 import arcade
+import logging
 import mouse
+import os
 
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
@@ -134,7 +133,6 @@ class View(arcade.View):
         self.build_number_text.draw()
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
-        logging.info(f"Stick motion {stick_name}, {x_value}, {y_value}")
 
         x_value = round(x_value)
         y_value = round(y_value)
@@ -159,7 +157,6 @@ class View(arcade.View):
         self.move_pointer = move_pointer
 
     def on_button_press(self, joystick, key):
-        logging.info(f"Controller button {key} pressed")
 
         if key in constants.controls.controller.KEY_MENU_ITEM:
             mouse.click()

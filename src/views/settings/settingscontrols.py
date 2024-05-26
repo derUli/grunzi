@@ -1,8 +1,7 @@
 """ Controls views """
 
-import os
-
 import arcade.gui
+import os
 
 import constants.controls.keyboard
 import utils.gui
@@ -40,7 +39,7 @@ class SettingsControls(Fading):
         self.show_controls = CONTROLS_KEYBOARD
         self.background = COLOR_BACKGROUND
 
-    def on_show_view(self):
+    def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
 
         super().on_show_view()

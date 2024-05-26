@@ -1,6 +1,5 @@
-import random
-
 import arcade
+import random
 from arcade import FACE_RIGHT, FACE_LEFT
 
 from sprites.characters.character import Character

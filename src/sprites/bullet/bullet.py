@@ -1,9 +1,8 @@
 """ Pig bullet """
+import arcade
 import logging
 import math
 import time
-
-import arcade
 from arcade import FACE_RIGHT, FACE_LEFT
 
 from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN, \

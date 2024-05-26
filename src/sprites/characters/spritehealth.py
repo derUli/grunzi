@@ -1,6 +1,5 @@
-import logging
-
 import arcade
+import logging
 
 HEALTH_FULL = 100.0
 HEALTH_EMPTY = 0.0

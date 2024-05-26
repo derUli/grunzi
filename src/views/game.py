@@ -1,10 +1,9 @@
 import logging
 import os
+import pyglet.clock
 import sys
 import threading
 import time
-
-import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
@@ -137,7 +136,7 @@ class Game(Fading):
         savegame = SaveGameState.load()
         savegame.current = self.state.map_name
         savegame.save()
-        
+
         # Set up the Cameras
         self.camera_sprites = arcade.Camera()
         self.state.reset()
@@ -165,7 +164,6 @@ class Game(Fading):
         self.scene = Scene.from_tilemap(self.tilemap.map)
 
         self.ui.loading_screen.percent = 50
-
 
         self.map_populator = MapPopulator()
         self.map_populator.spawn_initial(make_args_container(self))
@@ -301,7 +299,7 @@ class Game(Fading):
             make_args_container(self)
         )
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
-        
+
         self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
 

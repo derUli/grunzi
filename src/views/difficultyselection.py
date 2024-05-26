@@ -1,14 +1,13 @@
 """ Difficulty selection """
 
-import logging
-
 import arcade.gui
+import logging
 
 import constants.controls.keyboard
 import utils.gui
 import utils.text
-from constants.mapconfig import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, MapConfig
 from constants.fonts import FONT_DEFAULT
+from constants.mapconfig import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, MapConfig
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
 

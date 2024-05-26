@@ -1,6 +1,5 @@
-from typing import Optional
-
 from arcade import Texture
+from typing import Optional
 
 from sprites.sprite import Sprite
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO

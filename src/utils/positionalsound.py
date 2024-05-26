@@ -1,8 +1,7 @@
 """ Positional sound """
 
-import logging
-
 import arcade
+import logging
 
 from utils.audio import normalize_volume
 

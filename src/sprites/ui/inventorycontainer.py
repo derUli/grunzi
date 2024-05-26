@@ -1,6 +1,5 @@
-import os
-
 import arcade
+import os
 
 from sprites.ui.inventoryitem import InventoryItem
 
@@ -69,7 +68,6 @@ class InventoryContainer(arcade.sprite_list.SpriteList):
                     count += 1
 
         return count < CAPACITY
-
 
     def unselect(self):
         self.select(index=-1)

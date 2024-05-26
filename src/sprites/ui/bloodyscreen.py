@@ -1,7 +1,6 @@
-import os
-
 import PIL
 import arcade.sprite
+import os
 from PIL.Image import Resampling
 
 FULL_ALPHA = 255

@@ -1,7 +1,6 @@
-import os
-
 import PIL
 import arcade.gui
+import os
 
 from sprites.sprite import Sprite
 from views.fading import Fading

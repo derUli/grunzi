@@ -1,16 +1,16 @@
 """ Used to handle save games """
 
+import jsonpickle
 import logging
 import os
 
-import jsonpickle
-
 from constants.mapconfig import DIFFICULTY_MEDIUM
+from constants.mapconfig import MapConfig
 from constants.maps import MAPS
 from constants.savegames import SAVEGAME_DEFAULT
 from utils.path import get_savegame_path
 from utils.utils import natural_keys
-from constants.mapconfig import MapConfig
+
 
 class SaveGameState:
     def __init__(self):

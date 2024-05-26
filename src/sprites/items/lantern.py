@@ -5,11 +5,12 @@ from arcade import FACE_DOWN, FACE_RIGHT, FACE_LEFT
 from sprites.items.fence import Fence
 from sprites.items.item import Item
 from utils.lightmanager import LIGHT_LAYER_LANTERN
+
 SCORE_DESTROY_FENCE = 100
 
 
 class Lantern(Item):
-    
+
     def on_equip(self, args):
         """
         Toggle light on equip
@@ -18,7 +19,7 @@ class Lantern(Item):
         
         """
         args.scene.light_manager.enable_layer(LIGHT_LAYER_LANTERN)
-        
+
     def on_unequip(self, args):
         args.scene.light_manager.disable_layer(LIGHT_LAYER_LANTERN)
 
@@ -32,4 +33,3 @@ class Lantern(Item):
 
     def update(self, delta_time, args):
         args.scene.light_manager.enable_layer(LIGHT_LAYER_LANTERN)
-

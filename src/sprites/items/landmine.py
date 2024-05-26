@@ -1,11 +1,12 @@
-import os
-import logging
 import arcade
+import logging
 import math
+import os
 
 from constants.layers import check_collision_with_layers, LAYER_NPC, LAYER_PLAYER, LAYER_MOVEABLE
 from sprites.characters.character import Character
 from utils.sprite import random_position
+
 
 class Landmine(Character):
     def update(self, delta_time, args):
@@ -20,7 +21,6 @@ class Landmine(Character):
                 self.remove_from_sprite_lists()
             return
 
-       
         self.check_collision(args)
 
     def check_collision(self, args):
@@ -28,8 +28,7 @@ class Landmine(Character):
         difference = abs(arcade.get_distance_between_sprites(self, args.player))
 
         w, h = arcade.get_window().get_size()
-        
-            
+
         if difference > h:
             return
 
@@ -53,18 +52,17 @@ class Landmine(Character):
         moveable = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_MOVEABLE])
 
         for sprite in moveable:
-            sprite.remove_from_sprite_lists()          
+            sprite.remove_from_sprite_lists()
 
         if arcade.check_for_collision(self.explosion, args.player):
             args.player.hurt(hurt)
-            
+
         npcs = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_NPC])
 
         for sprite in npcs:
             if isinstance(sprite, Character) and sprite != self:
                 sprite.hurt(hurt)
 
-                
     def spawn_explosion(self, args):
         gif = arcade.load_animated_gif(os.path.join(args.state.video_dir, 'explosion.gif'))
         gif.position = self.position
@@ -72,6 +70,7 @@ class Landmine(Character):
         self.explosion = gif
 
         self.explosion.sound = args.state.play_sound('explosion')
+
 
 def spawn_landmine(state, tilemap, scene, physics_engine):
     # Not yet implemented in Alpha Build 014

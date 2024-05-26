@@ -1,7 +1,6 @@
 """ Player sprite class """
-import os
-
 import arcade
+import os
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 
@@ -242,4 +241,3 @@ def spawn_skull(state, tilemap, scene, physics_engine):
         max_velocity=200,
         damping=skull.damping
     )
-    

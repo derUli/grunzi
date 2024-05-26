@@ -1,9 +1,8 @@
-import logging
-from typing import Optional
-
 import PIL
 import arcade
+import logging
 from arcade import FACE_RIGHT
+from typing import Optional
 
 from sprites.sprite import Sprite
 

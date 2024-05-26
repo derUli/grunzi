@@ -1,9 +1,8 @@
-import os
-from typing import Optional
-
 import arcade
+import os
 import pyglet
 from arcade import Texture
+from typing import Optional
 
 from sprites.sprite import Sprite
 

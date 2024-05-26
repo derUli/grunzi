@@ -1,13 +1,12 @@
+import arcade.gui
 import logging
 import os
-
-import arcade.gui
 
 import constants.controls.keyboard
 import utils.gui
 import utils.text
-from constants.mapconfig import MapConfig
 from constants.fonts import FONT_DEFAULT
+from constants.mapconfig import MapConfig
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
 from views.game import Game

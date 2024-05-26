@@ -1,9 +1,8 @@
 """ Player sprite class """
+import arcade
 import logging
 import os
 import random
-
-import arcade
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
 
 from constants.collisions import COLLISION_CHICKEN

@@ -29,7 +29,7 @@ class SettingsAudio(Fading):
 
         self.background = COLOR_BACKGROUND
 
-    def on_show_view(self):
+    def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
         super().on_show_view()
 

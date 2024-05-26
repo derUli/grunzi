@@ -1,6 +1,5 @@
-import logging
-
 import arcade
+import logging
 import pyglet
 
 from constants.display import UNLIMITED_FRAMERATE

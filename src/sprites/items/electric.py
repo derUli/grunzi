@@ -1,8 +1,7 @@
-import logging
-from typing import Optional
-
 import arcade
+import logging
 import pyglet
+from typing import Optional
 
 from sprites.characters.character import Character
 from sprites.sprite import AbstractAnimatedSprite

@@ -1,10 +1,9 @@
+import arcade
 import glob
 import logging
 import os
-import random
-
-import arcade
 import pyglet
+import random
 from arcade.experimental import Shadertoy
 
 from constants.maps import FIRST_MAP

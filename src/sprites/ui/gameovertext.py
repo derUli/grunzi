@@ -1,8 +1,7 @@
 """ Game over screen """
 
-import random
-
 import arcade
+import random
 
 from utils.text import create_text
 

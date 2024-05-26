@@ -1,9 +1,8 @@
 """ Used to store game settings """
 
+import jsonpickle
 import logging
 import os
-
-import jsonpickle
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
 from constants.display import DEFAULT_ANTIALIASING

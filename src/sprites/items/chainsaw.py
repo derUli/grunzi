@@ -1,5 +1,4 @@
 import random
-
 from arcade import FACE_DOWN, FACE_UP
 
 from sprites.items.item import Item

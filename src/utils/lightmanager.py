@@ -4,6 +4,7 @@ from arcade.experimental.lights import LightLayer, Light
 LIGHTING_DARK = 'dark'
 LIGHT_LAYER_LANTERN = 'lantern'
 
+
 class LightManager:
     def __init__(self):
         self.light_layer = None
@@ -39,7 +40,6 @@ class LightManager:
             'soft'
         )
 
-        
     def update(self, args):
         if not self.enabled:
             return
@@ -48,7 +48,7 @@ class LightManager:
             self.update_dark(args)
 
     def update_dark(self, args):
-        
+
         from constants.layers import LAYER_LANTERN
 
         source = arcade.sprite.SpriteSolidColor(1, 1, arcade.csscolor.BLACK)
@@ -63,13 +63,11 @@ class LightManager:
 
         self.lights[LIGHT_LAYER_LANTERN].position = source.position
 
-
     def draw(self):
         if not self.enabled:
             return
 
         self.light_layer.draw()
-
 
     @property
     def enabled(self):

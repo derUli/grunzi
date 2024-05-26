@@ -18,6 +18,7 @@ from sprites.items.electricswitch import ElectricSwitch
 from sprites.items.fence import Fence
 from sprites.items.hammer import Hammer
 from sprites.items.jeep import Jeep
+from sprites.items.lantern import Lantern
 from sprites.items.levelexit import LevelExit
 from sprites.items.piggybank import PiggyBank
 from sprites.items.plier import Plier
@@ -25,7 +26,6 @@ from sprites.items.redherring import Feather, Vase
 from sprites.items.tree import Tree
 from sprites.sounds.beach import Beach
 from sprites.sounds.highway import Highway
-from sprites.items.lantern import Lantern
 
 LAYER_WALL = 'Wall'
 LAYER_PLIER = 'Plier'
@@ -188,6 +188,7 @@ LAYER_OPTIONS = {
         'custom_class': Lantern
     }
 }
+
 
 def check_collision_with_layers(scene: Scene, sprite, layer_names: list | None = None):
     """ Returns all layers except background and decoration

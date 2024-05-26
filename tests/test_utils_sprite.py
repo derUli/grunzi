@@ -1,7 +1,6 @@
+import arcade
 import os
 import unittest
-
-import arcade
 
 from state.viewstate import ViewState
 from utils.sprite import tilemap_size, random_position

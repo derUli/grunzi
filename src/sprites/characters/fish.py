@@ -1,6 +1,5 @@
-import random
-
 import arcade
+import random
 
 from sprites.characters.character import Character
 

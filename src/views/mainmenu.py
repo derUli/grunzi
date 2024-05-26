@@ -1,15 +1,14 @@
 """ Main menu """
 
+import arcade.gui
 import logging
 import os
 import time
 
-import arcade.gui
-
 import utils.gui
 import utils.text
-from constants.mapconfig import MapConfig
 from constants.fonts import FONT_ADRIP
+from constants.mapconfig import MapConfig
 from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
 from utils.audio import streaming_enabled

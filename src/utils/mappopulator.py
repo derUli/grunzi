@@ -35,7 +35,6 @@ class MapPopulator:
 
         if what == 'Skull':
             self.spawn_skull(args)
-            
 
         self.next_spawn = time.time() + random.randint(1, 6)
 
@@ -48,31 +47,25 @@ class MapPopulator:
         from sprites.characters.skull import spawn_skull
         spawn_skull(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
-
     def spawn_npcs(self, args):
         """ Spawn some sprites on level load """
 
         self.spawn_chicken(args)
-        
 
     def spawn_initial(self, args):
         """ Spawn some sprites on level load """
-        
+
         self.spawn_food(args)
         self.spawn_landmine(args)
 
-
     def spawn_landmine(self, args):
-        
+
         if not args.state.difficulty.options['landmines']:
             return
 
         for i in range(random.randint(1, 4)):
             logging.info(f"Spawn landmine {i}")
             spawn_landmine(args.state, args.tilemap.map, args.scene, args.physics_engine)
-
-
-
 
     def spawn_chicken(self, args):
         if not args.state.difficulty.options['chicken']:
