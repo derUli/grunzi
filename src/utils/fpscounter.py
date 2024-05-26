@@ -1,7 +1,8 @@
 """ FPS counter """
 
-import arcade
 import time
+
+import arcade
 
 from constants.fonts import FONT_MONOTYPE
 from utils.text import create_text, MEDIUM_FONT_SIZE, MARGIN
@@ -19,22 +20,30 @@ class FPSCounter:
         self.last_fps_update = time.time()
         self.fps_text = {}
 
-    def reset(self):
+    def reset(self) -> None:
         """ Reset fps counter """
 
         self.current_fps = -1
         self.last_fps_update = time.time()
         self.fps_text = {}
 
-    def update(self, fps):
-        """ Update fps counter """
+    def update(self, fps: float) -> None:
+        """
+        Update fps counter
+
+        @param fps: Current fps
+        """
 
         if time.time() > self.last_fps_update + FPS_UPDATE_INTERVAL:
             self.last_fps_update = time.time()
             self.current_fps = int(fps)
 
-    def draw(self, size):
-        """ Draw fps counter """
+    def draw(self, size: tuple) -> None:
+        """
+        Draw fps counter
+
+        @param size: Size of the screen
+        """
 
         if self.current_fps == -1:
             return
