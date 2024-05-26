@@ -71,6 +71,8 @@ class Landmine(Character):
         args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion = gif
 
+        self.explosion.sound = args.state.play_sound('explosion')
+
 def spawn_landmine(state, tilemap, scene, physics_engine):
     # Not yet implemented in Alpha Build 014
     rand_x, rand_y = random_position(tilemap)

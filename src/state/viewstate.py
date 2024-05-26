@@ -87,7 +87,8 @@ class ViewState:
                 'push': arcade.load_sound(os.path.join(self.sound_dir, 'electric', 'push.ogg'))
             },
             'loading': arcade.load_sound(os.path.join(self.music_dir, 'loading.ogg')),
-            'atmos': {}
+            'atmos': {},
+            'explosion': arcade.load_sound(os.path.join(self.sound_dir, 'weapons', 'explosion.ogg'))
         }
 
         dir = os.path.join(self.sound_dir, 'atmos', '*.ogg')
