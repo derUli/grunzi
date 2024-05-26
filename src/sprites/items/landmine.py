@@ -3,22 +3,15 @@ import logging
 import arcade
 import math
 
-from constants.layers import check_collision_with_layers, LAYER_NPC
+from constants.layers import check_collision_with_layers, LAYER_NPC, LAYER_PLAYER, LAYER_MOVEABLE
 from sprites.characters.character import Character
 from utils.sprite import random_position
 
 class Landmine(Character):
     def update(self, delta_time, args):
 
-       
-        difference = arcade.get_distance_between_sprites(self, args.player)
-
-        w, h = arcade.get_window().get_size()
-            
         if hasattr(self, 'explosion'):
-            if arcade.check_for_collision(self.explosion, self.exploded_by):
-                hurt = 100 / (len(self.explosion.frames) * 0.66)
-                self.exploded_by.hurt(hurt)
+            self.explosion_hurt(args)
 
             self.explosion.update_animation(delta_time)
 
@@ -27,18 +20,63 @@ class Landmine(Character):
                 self.remove_from_sprite_lists()
             return
 
+       
+        self.check_collision(args)
+
+    def check_collision(self, args):
+
+        difference = abs(arcade.get_distance_between_sprites(self, args.player))
+
+        w, h = arcade.get_window().get_size()
+        
+            
         if difference > h:
             return
 
-        # TODO: handle collision with NPCs
-
         if arcade.check_for_collision(self, args.player):
-            gif = arcade.load_animated_gif(os.path.join(args.state.video_dir, 'explosion.gif'))
-            gif.position = self.position
-            args.scene.add_sprite(LAYER_NPC, gif)
-            self.explosion = gif
-            self.exploded_by = args.player
-            
+            return self.spawn_explosion(args)
+
+        npcs = arcade.check_for_collision_with_list(self, args.scene[LAYER_NPC])
+
+        for sprite in npcs:
+            if isinstance(sprite, Character):
+                return self.spawn_explosion(args)
+
+        moveable = arcade.check_for_collision_with_list(self, args.scene[LAYER_MOVEABLE])
+
+        for sprite in moveable:
+            self.spawn_explosion(args)
+
+    def explosion_hurt(self, args):
+        hurt_who = None
+        
+        moveable = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_MOVEABLE])
+
+        for sprite in moveable:
+            sprite.remove_from_sprite_lists()             
+            break
+
+        if arcade.check_for_collision(self.explosion, args.player):
+            hurt_who = args.player
+
+        if hurt_who is None:
+            npcs = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_NPC])
+
+            for sprite in npcs:
+                if isinstance(sprite, Character) and sprite != self:
+                    hurt_who = sprite
+                    break
+
+        if hurt_who:
+            hurt = 100 / (len(self.explosion.frames) * 0.66)
+            hurt_who.hurt(hurt)
+
+                
+    def spawn_explosion(self, args):
+        gif = arcade.load_animated_gif(os.path.join(args.state.video_dir, 'explosion.gif'))
+        gif.position = self.position
+        args.scene.add_sprite(LAYER_NPC, gif)
+        self.explosion = gif
 
 def spawn_landmine(state, tilemap, scene, physics_engine):
     # Not yet implemented in Alpha Build 014
