@@ -368,13 +368,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="11" name="Food">
-  <object id="45" gid="14" x="2318" y="4216" width="64" height="64"/>
- </objectgroup>
- <objectgroup id="10" name="Feather"/>
- <objectgroup id="3" name="SpawnPoint" locked="1">
-  <object id="3" gid="1" x="1024" y="1722.33" width="60" height="46"/>
- </objectgroup>
  <layer id="14" name="RiverSound" width="80" height="69">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -448,4 +441,11 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="11" name="Food">
+  <object id="45" gid="14" x="2318" y="4216" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="10" name="Feather"/>
+ <objectgroup id="3" name="SpawnPoint" locked="1">
+  <object id="3" gid="1" x="1024" y="1722.33" width="60" height="46"/>
+ </objectgroup>
 </map>
