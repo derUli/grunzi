@@ -1,6 +1,7 @@
 """ Text utils """
 
 import arcade
+from arcade import Color
 
 from constants.fonts import FONT_DEFAULT
 
@@ -16,19 +17,35 @@ LOGO_FONT_SIZE = 80
 
 
 def create_text(
-        text,
-        start_x=MARGIN,
-        start_y=MARGIN,
-        color=arcade.csscolor.WHITE,
-        font_size=MEDIUM_FONT_SIZE,
-        font_name=FONT_DEFAULT,
-        anchor_x='left',
-        anchor_y='bottom',
-        align='left',
-        width=None,
-        multiline=False,
-        bold=False
-):
+        text: str,
+        start_x: float = MARGIN,
+        start_y: float = MARGIN,
+        color: Color = arcade.csscolor.WHITE,
+        font_size: int = MEDIUM_FONT_SIZE,
+        font_name: str = FONT_DEFAULT,
+        anchor_x: str = 'left',
+        anchor_y: str = 'bottom',
+        align: str = 'left',
+        width: int | None = None,
+        multiline: bool = False,
+        bold: bool = False
+) -> arcade.Text:
+    """
+
+    @param text: The text
+    @param start_x: The position X
+    @param start_y: The position Y
+    @param color: The text color
+    @param font_size: The font size
+    @param font_name: The font name
+    @param anchor_x: The anchor X
+    @param anchor_y: The anchor Y
+    @param align: The align
+    @param width: The width
+    @param multiline: Is multiline
+    @param bold: Is bolt
+    @return: Text
+    """
     return arcade.Text(
         text=text,
         start_x=start_x,
@@ -49,6 +66,6 @@ def label_value(label: str, value: any) -> str:
     """
     @param label: label text
     @param value: value
-    @return:
+    @return: Label Value string
     """
     return ': '.join([label, str(value)])

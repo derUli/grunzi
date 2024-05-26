@@ -1,8 +1,9 @@
 """ Video playback utils  """
-import cv2
 import logging
 import os
 import shutil
+
+import cv2
 
 try:
     from pyvidplayer2 import VideoPyglet
@@ -33,8 +34,7 @@ def load_video(
 
     @param path: The path
     @param size: The target size
-    @param volume:
-
+    @param volume: The volume
     """
     if not video_supported():
         logging.info(label_value('Video', 'Playback not supported on this platform'))
