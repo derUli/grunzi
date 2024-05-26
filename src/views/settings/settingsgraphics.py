@@ -35,7 +35,7 @@ class SettingsGraphics(Fading):
 
         self.setup()
 
-    def on_hide_view(self):
+    def on_hide_view(self) -> None:
         # Disable the UIManager when the view is hidden.
         super().on_hide_view()
         self.pop_controller_handlers()

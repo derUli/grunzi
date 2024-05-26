@@ -1,9 +1,8 @@
-import arcade
-import logging
-import math
 import os
 
-from constants.layers import check_collision_with_layers, LAYER_NPC, LAYER_PLAYER, LAYER_MOVEABLE
+import arcade
+
+from constants.layers import check_collision_with_layers, LAYER_NPC, LAYER_MOVEABLE
 from sprites.characters.character import Character
 from utils.sprite import random_position
 
@@ -41,9 +40,7 @@ class Landmine(Character):
             if isinstance(sprite, Character):
                 return self.spawn_explosion(args)
 
-        moveable = arcade.check_for_collision_with_list(self, args.scene[LAYER_MOVEABLE])
-
-        for sprite in moveable:
+        if any(arcade.check_for_collision_with_list(self, args.scene[LAYER_MOVEABLE])):
             self.spawn_explosion(args)
 
     def explosion_hurt(self, args):
@@ -66,10 +63,12 @@ class Landmine(Character):
     def spawn_explosion(self, args):
         gif = arcade.load_animated_gif(os.path.join(args.state.video_dir, 'explosion.gif'))
         gif.position = self.position
-        args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion = gif
 
+        args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion.sound = args.state.play_sound('explosion')
+
+        self.alpha = 0
 
 
 def spawn_landmine(state, tilemap, scene, physics_engine):

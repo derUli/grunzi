@@ -396,7 +396,8 @@ class Game(Fading):
         if self.player_sprite and key in constants.controls.controller.KEY_SPRINT:
             self.player_sprite.modifier = MODIFIER_DEFAULT
 
-    def on_item_previous(self):
+    def on_item_previous(self) -> None:
+        """ Select previous item """
         self.on_select_item(index=self.ui.inventory.previous())
 
     def on_item_next(self):
@@ -630,16 +631,14 @@ class Game(Fading):
             return self.update_collectable()
 
         item = self.player_sprite.get_item()
-        sprites = arcade.check_for_collision_with_lists(self.player_sprite.get_item(), self.scene.sprite_lists)
 
-        for sprite in sprites:
+        for sprite in arcade.check_for_collision_with_lists(self.player_sprite.get_item(), self.scene.sprite_lists):
             if isinstance(sprite, Useable):
-                item.on_use_with(
+                return item.on_use_with(
                     sprite,
                     state=self.state,
                     handlers=CallbackHandler(on_complete=self.on_next_level)
                 )
-                return
 
         item.on_use(
             args=make_args_container(self)

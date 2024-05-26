@@ -38,7 +38,7 @@ class SettingsMenu(Fading):
 
         self.setup()
 
-    def on_hide_view(self):
+    def on_hide_view(self) -> None:
         super().on_hide_view()
         # Disable the UIManager when the view is hidden.
         self.pop_controller_handlers()

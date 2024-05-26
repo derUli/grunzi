@@ -1,10 +1,14 @@
+""" Postprocessing effect base class  """
 import logging
 
 from arcade import SpriteList
 
 
 class Effect:
+    """ Postprocessing effect base class  """
+
     def __init__(self):
+        """ Constructor """
         self.spritelist = SpriteList(lazy=True, use_spatial_hash=True)
 
     def setup(self, args):
