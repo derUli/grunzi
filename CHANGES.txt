@@ -4,10 +4,8 @@
 
 * map03: Neues Monster hinzugefügt: Slimer
 * UI: "Erfolg" Screen nach jedem Level
-* map02: Tretminen hinzugefügt
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
-
 
 ## Alpha 015 (Unreleased)
 
