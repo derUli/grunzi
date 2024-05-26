@@ -6,12 +6,12 @@
 * UI: "Erfolg" Screen nach jedem Level
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
+* Controller: Vibration hinzugefügt
 
 ## Alpha 015 (Unreleased)
 
 * Menüpunkt "Level neu Starten" zu Pausenmenü hinzugefügt
 * map02: Kakteen hinzugefügt
-* Controller: Vibration hinzugefügt
 
 ## Alpha 014 (Unreleased)
 
