@@ -63,9 +63,6 @@ class ViewState:
             'noaction': arcade.load_sound(
                 os.path.join(self.sound_dir, 'pig', 'noaction.ogg'),
             ),
-            'noaction': arcade.load_sound(
-                os.path.join(self.sound_dir, 'pig', 'noaction.ogg'),
-            ),
             'shot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'weapons', 'shot.ogg'),
             ),
@@ -155,6 +152,7 @@ class ViewState:
         return sound.play(volume=volume * self.settings.sound_volume, loop=loop, speed=speed)
 
     def grunt(self):
+        """ play random grunt sound """
         rand = random.randint(1, 5)
         logging.info('Grunt')
         return self.play_sound(f"grunt{rand}")
