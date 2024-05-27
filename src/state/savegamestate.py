@@ -60,7 +60,12 @@ class SaveGameState:
         return SaveGameState()
 
     @staticmethod
-    def _load(name):
+    def _load(name: str):
+        """
+        Actually load savegame file
+
+        @return: SavegameState
+        """
         with open(get_savegame_path(SAVEGAME_DEFAULT), 'r') as f:
             state = jsonpickle.decode(f.read())
 
