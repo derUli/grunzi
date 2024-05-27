@@ -1,8 +1,9 @@
 """ Used to store game settings """
 
-import jsonpickle
 import logging
 import os
+
+import jsonpickle
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
 from constants.display import DEFAULT_ANTIALIASING
@@ -42,6 +43,7 @@ class SettingsState:
     def exists() -> bool:
         """
         Check if there is an existing settings file for the launcher
+
         @return: bool
         """
         return os.path.exists(get_settings_path())
@@ -50,7 +52,8 @@ class SettingsState:
     def load():
         """
         Loads the settings state
-        @return: bool
+
+        @return: SettingsState
         """
         try:
             return SettingsState._load()
@@ -65,6 +68,11 @@ class SettingsState:
 
     @staticmethod
     def _load():
+        """
+        Actually loads the settings state
+
+        @return: SettingsState
+        """
         with open(get_settings_path(), 'r') as f:
             state = jsonpickle.decode(f.read())
 

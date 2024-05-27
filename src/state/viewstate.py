@@ -1,9 +1,10 @@
-import arcade
 import glob
 import logging
 import os
-import pyglet
 import random
+
+import arcade
+import pyglet
 from arcade.experimental import Shadertoy
 
 from constants.maps import FIRST_MAP
@@ -36,12 +37,14 @@ class ViewState:
         self.keypressed = KeyPressed()
 
     def reset(self):
+        """ Reset ViewState """
         self._score = 0
+        self.keypressed.reset()
 
     def preload(self):
+        """ Preload stuff """
         self.preload_sounds()
         self.preload_fonts()
-
         self.shaders = {}
 
     def preload_fonts(self):
@@ -49,6 +52,7 @@ class ViewState:
         pyglet.font.add_directory(self.font_dir)
 
     def preload_sounds(self):
+        """ Preload sounds """
         self.sounds = {
             'coin': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'pickup.ogg'),
