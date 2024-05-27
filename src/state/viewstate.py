@@ -12,7 +12,7 @@ from utils.keypressed import KeyPressed
 
 
 class ViewState:
-    def __init__(self, root_dir, map_name=FIRST_MAP, settings=None):
+    def __init__(self, root_dir: str, map_name=FIRST_MAP, settings=None):
         self.root_dir = root_dir
         self.data_dir = os.path.join(root_dir, 'data')
         self.map_dir = os.path.join(self.data_dir, 'maps')

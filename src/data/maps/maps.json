@@ -48,8 +48,7 @@
   },
   "map03": {
     "options": {
-      "fog": true,
-      "lighting": "dark"
+      "fog": true
     },
     "1": {
       "maxNPCs": 0

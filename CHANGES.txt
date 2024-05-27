@@ -18,7 +18,6 @@
 * Global: Äpfel hinzugefügt
 * map02: Tretminen hinzugefügt
 * Audio: "Beep" Soundeffekt ersetzt
-* map03: Laterne hinzugefügt
 * Global: Support für Rii USB Classic Controller wieder entfernt
 * Launcher: Es werden nur noch vom Betriebssystem unterstützte Audio Backends angezeigt
 * UI: Lautstärke-Regler für Umgebungsgeräusche hinzugefügt
