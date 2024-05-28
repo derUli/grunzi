@@ -17,7 +17,9 @@ class LightManager:
         self.lights = {}
         self.light_layer = None
 
-    def setup(self, args):
+    def setup(self, args) -> None:
+        """ Setup light manager """
+
         self.reset()
 
         self._type = args.state.difficulty.options['lighting']
@@ -32,6 +34,8 @@ class LightManager:
             self.setup_dark(args)
 
     def setup_dark(self, args):
+        """ Setup lighting for dark levels """
+
         self.lights[LIGHT_LAYER_LANTERN] = Light(
             args.player.center_x,
             args.player.center_y,
