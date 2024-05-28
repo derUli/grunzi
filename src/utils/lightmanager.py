@@ -45,6 +45,7 @@ class LightManager:
         )
 
     def update(self, args):
+        """ Update light"""
         if not self.enabled:
             return
 
