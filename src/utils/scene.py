@@ -21,7 +21,8 @@ class Scene(BaseScene):
         self.postprocessing = PostProcessing()
         self.args = None
 
-    def setup(self, args):
+    def setup(self, args) -> None:
+        """ Setup scene """
         self.light_manager = LightManager()
         self.light_manager.setup(args)
         self.postprocessing = PostProcessing()
