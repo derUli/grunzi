@@ -12,6 +12,7 @@ class Effect:
         self.spritelist = SpriteList(lazy=True, use_spatial_hash=True)
 
     def setup(self, args):
+        """ Setup effect """
         logging.error('Postprocessing: setup() method not implemented')
         return self
 
