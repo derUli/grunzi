@@ -11,7 +11,7 @@ class HighscoreStorage:
         """
         Constructor
         """
-        self.url = 'https://grunzi.ulidots.de/highscore.php'
+        self.url = 'https://grunzi.ulidots.de/'
         self.highscore = [
             # {
             # 'name': 'Timo Sofia',

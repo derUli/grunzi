@@ -16,8 +16,10 @@ class Effect:
         logging.error('Postprocessing: setup() method not implemented')
         return self
 
-    def update(self, delta_time, args):
+    def update(self, delta_time, args) -> None:
+        """ Update effect"""
         logging.error('Postprocessing: update() method not implemented')
 
-    def draw(self):
+    def draw(self) -> None:
+        """ Draw effect"""
         self.spritelist.draw()
