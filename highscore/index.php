@@ -6,7 +6,7 @@ $data = json_decode(file_get_contents('data.json'), true);
 
 if(!empty($name) && !empty($score)){
     $data[] = [
-        'name' => $name,
+        'name' => substr($name, 0, 20),
         'score' => $score
     ];
 
