@@ -5,7 +5,12 @@ $score = $_GET['score'] ? (int)$_GET['score'] : null;
 $data = json_decode(file_get_contents('data.json'), true);
 
 if(!empty($name) && !empty($score)){
+    $data[] = [
+        'name' => $name,
+        'score' => $score
+    ];
 
+    file_put_contents('data.json', json_encode($data, true));
 }
 
 
