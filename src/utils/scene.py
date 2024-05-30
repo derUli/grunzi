@@ -16,6 +16,7 @@ class Scene(BaseScene):
 
     def __init__(self):
         """ Constructor """
+
         super().__init__()
         self.initialized = False
         self.light_manager = LightManager()
@@ -52,6 +53,7 @@ class Scene(BaseScene):
 
     def update_scene(self, delta_time, args):
         """ Update scene """
+
         if not self.initialized:
             self.setup(args)
 
@@ -63,6 +65,7 @@ class Scene(BaseScene):
         self.call_update(delta_time, args)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
+        """ Update animated """
         # Animate only visible
         animated = animated_in_sight(size, scene, player_sprite)
         for sprite in animated:

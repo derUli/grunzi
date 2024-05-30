@@ -85,6 +85,7 @@ class PositionalSound:
     @property
     def playing(self):
         """ Check if sound is playing """
+
         if not self.player:
             return False
 
