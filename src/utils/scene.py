@@ -72,6 +72,8 @@ class Scene(BaseScene):
             sprite.update_animation(delta_time)
 
     def get_collectable(self, player_sprite):
+        """ Get collectable item """
+
         items = arcade.check_for_collision_with_lists(player_sprite, self.sprite_lists)
 
         for item in reversed(items):
