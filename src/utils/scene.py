@@ -15,6 +15,7 @@ from utils.postprocessing.postprocessing import PostProcessing
 class Scene(BaseScene):
 
     def __init__(self):
+        """ Constructor """
         super().__init__()
         self.initialized = False
         self.light_manager = LightManager()
@@ -23,6 +24,7 @@ class Scene(BaseScene):
 
     def setup(self, args) -> None:
         """ Setup scene """
+
         self.light_manager = LightManager()
         self.light_manager.setup(args)
         self.postprocessing = PostProcessing()
@@ -42,12 +44,14 @@ class Scene(BaseScene):
 
         :param TileMap tilemap: The `TileMap` object to create the scene from.
         """
+
         scene = cls()
         for name, sprite_list in tilemap.sprite_lists.items():
             scene.add_sprite_list(name=name, sprite_list=sprite_list)
         return scene
 
     def update_scene(self, delta_time, args):
+        """ Update scene """
         if not self.initialized:
             self.setup(args)
 
