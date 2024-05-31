@@ -95,7 +95,7 @@ class Scene(BaseScene):
                     args
                 )
 
-    def make_wall_spritelist(self):
+    def make_wall_spritelist(self) -> SpriteList:
         from constants.layers import WALL_LAYERS
 
         wall_spritelist = SpriteList(lazy=True, use_spatial_hash=True)
