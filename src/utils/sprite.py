@@ -7,8 +7,10 @@ from arcade import TileMap
 
 def tilemap_size(tilemap: TileMap) -> tuple:
     """
+
     Calculate pixel size of a tilemap
     @param tilemap: The tile map
+
     @return: (width, height)
     """
     width = tilemap.width * tilemap.tile_width

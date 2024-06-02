@@ -43,7 +43,7 @@ class Fading(View):
         self._fade_in = None
 
     def draw_fading(self) -> None:
-
+        """ Draw fade overlay """
         if self._fade_out is not None:
             arcade.draw_rectangle_filled(self.window.width / 2, self.window.height / 2,
                                          self.window.width, self.window.height,
