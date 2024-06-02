@@ -53,7 +53,7 @@ class LightManager:
             self.update_dark(args)
 
     def update_dark(self, args):
-
+        """ Update dark lighting """
         from constants.layers import LAYER_LANTERN
 
         source = arcade.sprite.SpriteSolidColor(1, 1, arcade.csscolor.BLACK)
