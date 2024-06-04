@@ -71,11 +71,13 @@ class Player(Character, SpriteHealth):
 
         self.bloody_screen = None
         self.walking = False
+        self.controllers = []
 
-    def setup(self, state, scene, callbacks):
+    def setup(self, state, scene, callbacks, controllers):
         self.state = state
         self.scene = scene
         self.callbacks = callbacks
+        self.controllers = controllers
 
         self.center_x, self.center_y = SPAWN_POINT
 
@@ -203,6 +205,12 @@ class Player(Character, SpriteHealth):
             self.update_texture()
 
         self.face = face
+
+    def hurt(self, damage):
+        for controller in self.controllers:
+            controller.rumble_play_strong()
+
+        super().hurt(damage)
 
     def on_die(self) -> None:
         """ Called when the player dies """

@@ -177,7 +177,8 @@ class Game(Fading):
             scene=self.scene,
             callbacks=CallbackHandler(
                 on_complete=self.on_next_level
-            )
+            ),
+            controllers=self.window.controllers
         )
 
         # Create the physics engine
