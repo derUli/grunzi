@@ -37,6 +37,7 @@ class Fading(View):
 
     def fade_out(self) -> None:
         """ Start fadeout """
+
         if self._fade_out is not None:
             return
         self._fade_out = 0
@@ -44,6 +45,7 @@ class Fading(View):
 
     def draw_fading(self) -> None:
         """ Draw fade overlay """
+
         if self._fade_out is not None:
             arcade.draw_rectangle_filled(self.window.width / 2, self.window.height / 2,
                                          self.window.width, self.window.height,
@@ -56,9 +58,11 @@ class Fading(View):
 
     def fade_quit(self) -> None:
         """ Fade to quit """
+
         self.fade_out()
         self._do_quit = True
 
     def fade_to_view(self, view):
+        """ Fade to view """
         self.next_view = view
         self.fade_out()

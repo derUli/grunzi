@@ -84,8 +84,7 @@ class SettingsMenu(Fading):
             comeback_view = SettingsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
 
             # Pass already created view because we are resuming.
-            self.next_view = SettingsControls(self.window, self.state, comeback_view)
-            self.fade_out()
+            self.fade_to_view(SettingsControls(self.window, self.state, comeback_view))
 
         @button_graphics.event("on_click")
         def on_click_display_button(event):
