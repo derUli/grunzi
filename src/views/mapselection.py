@@ -1,13 +1,13 @@
-import arcade.gui
-import logging
 import os
+
+import arcade.gui
 
 import constants.controls.keyboard
 import utils.gui
 import utils.text
 from constants.fonts import FONT_DEFAULT
 from constants.mapconfig import MapConfig
-from state.savegamestate import SaveGameState, new_savegame
+from state.savegamestate import SaveGameState
 from views.fading import Fading
 from views.game import Game
 
@@ -129,8 +129,7 @@ class MapSelection(Fading):
             self.state.map_name = map
             self.state.difficulty = MapConfig(savegame.difficulty, map, self.state.map_dir)
 
-            self.next_view = Game(self.window, self.state)
-            self.fade_out()
+            self.fade_to_view(Game(self.window, self.state))
 
         buttons.add(button_prev)
         buttons.add(select_button)
@@ -186,56 +185,7 @@ class MapSelection(Fading):
         self.draw_fading()
         self.draw_after(draw_version_number=True)
 
-    def on_select_difficulty(self, difficulty, overwrite=False) -> None:
-        """
-        On select difficulty
-        @param difficulty: int
-        @param overwrite: bool
-        """
-        self.difficulty = difficulty
-
-        if SaveGameState.exists() and not overwrite:
-            return self.on_confirm_overwrite_savegame()
-
-        logging.info(utils.text.label_value('Difficulty', difficulty))
-
-        if self.previous_view.player:
-            self.previous_view.player.pause()
-
-        new_savegame(self.state.map_name_first, difficulty)
-
-        self.state.map_name = self.state.map_name_first
-        self.state.difficulty = MapConfig(difficulty, self.state.map_name, self.state.map_dir)
-
-        from views.game import Game
-
-        self.next_view = Game(self.window, self.state)
-        self.fade_out()
-
     def on_back(self) -> None:
         """ On back """
         from views.mainmenu import MainMenu
-        self.next_view = MainMenu(self.window, self.state)
-        self.fade_out()
-
-    def on_confirm_overwrite_savegame(self) -> None:
-        """ On confirm overwrite savegame """
-        message_box = arcade.gui.UIMessageBox(
-            width=300,
-            height=200,
-            message_text=_('Overwrite existing savegame?'),
-            buttons=[
-                _("Yes"),
-                _("No")
-            ]
-        )
-
-        message_box.on_action = self.on_overwrite_savegame
-
-        self.manager.add(message_box)
-
-    def on_overwrite_savegame(self, event) -> None:
-        """ On overwrite savegame """
-        action = event.action
-        if action == _('Yes'):
-            self.on_select_difficulty(self.difficulty, overwrite=True)
+        self.fade_to_view(MainMenu(self.window, self.state))
