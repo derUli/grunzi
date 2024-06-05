@@ -1,9 +1,9 @@
 """ Main menu """
 
-import arcade.gui
 import logging
 import os
-import time
+
+import arcade.gui
 
 import utils.gui
 import utils.text
@@ -103,8 +103,7 @@ class MainMenu(Fading):
             self.state.map_name = savegame.current
             self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
-            self.next_view = Game(self.window, self.state)
-            self.fade_out()
+            self.fade_to_view(Game(self.window, self.state))
 
         @select_map_button.event("on_click")
         def on_click_select_map_button(event):
@@ -115,8 +114,7 @@ class MainMenu(Fading):
             self.state.map_name = savegame.current
             self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
-            self.next_view = MapSelection(self.window, self.state, previous_view=self)
-            self.fade_out()
+            self.fade_to_view(MapSelection(self.window, self.state, previous_view=self))
 
         @highscore_button.event("on_click")
         def on_highscore_button(event):
@@ -124,8 +122,7 @@ class MainMenu(Fading):
             # Pass already created view because we are resuming.
             from views.highscore import Highscore
 
-            self.next_view = Highscore(self.window, self.state, previous_view=self)
-            self.fade_out()
+            self.fade_to_view(Highscore(self.window, self.state, previous_view=self))
 
         @options_button.event("on_click")
         def on_click_options_button(event):
@@ -198,13 +195,14 @@ class MainMenu(Fading):
 
     def on_new_game(self) -> None:
         """ On click "New Game" show difficulty selection """
-        self.next_view = DifficultySelection(
-            self.window,
-            self.state,
-            previous_view=self
-        )
 
-        self.fade_out()
+        self.fade_to_view(
+            DifficultySelection(
+                self.window,
+                self.state,
+                previous_view=self
+            )
+        )
 
     def on_update(self, delta_time: float) -> None:
         """ on update """
