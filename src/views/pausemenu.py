@@ -146,8 +146,7 @@ class PauseMenu(Fading):
         self.manager.clear()
 
         self.player.pause()
-        self.next_view = MainMenu(self.window, self.state)
-        self.fade_out()
+        self.fade_to_view(MainMenu(self.window, self.state))
 
     def on_confirm_exit(self, button) -> None:
         """ On confirm exit """
