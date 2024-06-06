@@ -1,6 +1,4 @@
 """ Center camera to player """
-import arcade
-from arcade import SpriteSolidColor
 
 
 def center_camera_to_player(player_sprite, camera, size) -> None:
@@ -25,18 +23,3 @@ def center_camera_to_player(player_sprite, camera, size) -> None:
     # Here's our center, move to it
     player_centered = screen_center_x, screen_center_y
     camera.move_to(player_centered)
-
-
-def sprites_in_viewport(scene, camera):
-    # Check if should shoot right
-    collision_sprite = SpriteSolidColor(
-        width=camera.viewport_width,
-        height=camera.viewport_width,
-        color=arcade.csscolor.YELLOW
-    )
-
-    collision_sprite.left, collision_sprite.top = camera.position
-
-    collision_sprite.draw()
-
-    return arcade.check_for_collision_with_lists(collision_sprite, scene.sprite_lists)
