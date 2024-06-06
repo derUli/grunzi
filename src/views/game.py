@@ -219,7 +219,7 @@ class Game(Fading):
 
         # Sleep some seconds to wait until the 100 Percent is shown
         while not self.ui.loading_screen.completed:
-            time.sleep(0.01)
+            time.sleep(0.0001)
 
         self.ui.loading_screen.show = False
         self.initialized = True
