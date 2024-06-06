@@ -1,7 +1,5 @@
 """ Difficulty selection """
 
-import logging
-
 import constants.controls.controller as controller
 import constants.controls.keyboard as keyboard
 from constants.fonts import FONT_MONOTYPE
@@ -82,8 +80,6 @@ class Highscore(Fading):
             labels.append(str(entry['name']))
             scores.append(str(entry['score']).rjust(FILL_COUNT, FILL_CHAR))
 
-        logging.info(storage.highscore)
-
         if len(labels) == 0:
             labels.append(_('No entries yet'))
 
@@ -121,7 +117,6 @@ class Highscore(Fading):
             self.on_back()
 
     def on_button_press(self, joystick, key):
-        logging.info(f"Controller button {key} pressed")
 
         if key in controller.KEY_DISCARD:
             self._call_method = self.on_back
