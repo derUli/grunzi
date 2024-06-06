@@ -28,9 +28,7 @@ class MapSelection(Fading):
         self.manager = arcade.gui.UIManager(window)
         self.shadertoy = self.state.load_shader(window.size, 'pink')
 
-        self.difficulty = None
         self.maps = []
-        self.select_button = None
         self.selected = 0
 
         self.background = COLOR_BACKGROUND

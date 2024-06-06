@@ -222,7 +222,6 @@ class Game(Fading):
             time.sleep(0.01)
 
         self.ui.loading_screen.show = False
-
         self.initialized = True
 
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
@@ -236,7 +235,6 @@ class Game(Fading):
             return
 
         self.video = None
-
         self.music_queue.play()
 
         atmo = self.state.play_sound('atmos', self.state.map_name, loop=True)
