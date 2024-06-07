@@ -20,6 +20,7 @@ class Intro(Fading):
     """Main menu view class."""
 
     def __init__(self, window, state):
+        """ Constructor """
         super().__init__(window)
 
         self.state = state
