@@ -1,5 +1,6 @@
-import arcade
 import logging
+
+import arcade
 import pyglet
 
 from constants.display import UNLIMITED_FRAMERATE
@@ -64,7 +65,9 @@ class GameWindow(arcade.Window):
         self.controller_manager = None
         self.controllers = []
 
-    def setup(self):
+    def setup(self) -> None:
+        """ Setup the game window"""
+
         # Enable timings for FPS measurements
         if not arcade.timings_enabled():
             arcade.enable_timings()
