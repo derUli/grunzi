@@ -304,6 +304,7 @@ class Game(Fading):
 
     def on_draw(self) -> None:
         """Render the screen."""
+
         self.clear()
 
         if self.video_playing:
@@ -332,6 +333,7 @@ class Game(Fading):
 
     def update_player_speed(self) -> None:
         """ Update player sprite """
+
         # Calculate speed based on the keys pressed
         self.player_sprite.change_x, self.player_sprite.change_y = 0, 0
 
@@ -361,7 +363,7 @@ class Game(Fading):
         self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
 
     def on_button_press(self, controller, key):
-
+        """ On button press """
         if self.video_playing and key in constants.controls.controller.KEY_DISCARD:
             return self.video.stop()
 
