@@ -116,7 +116,8 @@ class Highscore(Fading):
         if key in keyboard.KEY_DISCARD:
             self.on_back()
 
-    def on_button_press(self, joystick, key):
+    def on_button_press(self, joystick, key) -> None:
+        """ On button press """
 
         if key in controller.KEY_DISCARD:
             self._call_method = self.on_back
