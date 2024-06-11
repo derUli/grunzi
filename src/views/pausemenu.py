@@ -154,14 +154,14 @@ class PauseMenu(Fading):
             self.player.pause()
             self.on_exit(confirm=True)
 
-    def on_update(self, delta_time):
+    def on_update(self, delta_time: float) -> None:
         super().on_update(delta_time)
 
         self.update_mouse()
         self.update_fade(self.next_view)
         self.scene.update()
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """ Render the screen. """
 
         # Clear the screen
