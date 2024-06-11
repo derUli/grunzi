@@ -68,7 +68,7 @@ class MapSelection(Fading):
         )
 
         @back_button.event("on_click")
-        def on_click_back_button(event):
+        def on_click_back_button(event) -> None:
             # Pass already created view because we are resuming.
 
             self.on_back()
