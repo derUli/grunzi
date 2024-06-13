@@ -157,6 +157,7 @@ class MapSelection(Fading):
 
     def on_key_press(self, key, modifiers):
         """ Called whenever a key is pressed. """
+
         super().on_key_press(key, modifiers)
 
         if key in constants.controls.keyboard.KEY_PAUSE:
@@ -185,5 +186,6 @@ class MapSelection(Fading):
 
     def on_back(self) -> None:
         """ On back """
+
         from views.mainmenu import MainMenu
         self.fade_to_view(MainMenu(self.window, self.state))

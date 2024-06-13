@@ -52,7 +52,7 @@ class PauseMenu(Fading):
         @continue_button.event("on_click")
         def on_click_continue_button(event):
             # Pass already created view because we are resuming.
-            self.on_toggle()
+            self.on_continue()
 
         @settings_button.event("on_click")
         def on_click_settings_button(event):
@@ -115,9 +115,12 @@ class PauseMenu(Fading):
         super().on_key_press(key, modifiers)
 
         if key in constants.controls.keyboard.KEY_PAUSE:
-            self.on_toggle()
+            self.on_continue()
 
-    def on_toggle(self) -> None:
+    def on_continue(self) -> None:
+        """
+        On continue
+        """
         self.player.pause()
         self.window.show_view(self.previous_view)
 
