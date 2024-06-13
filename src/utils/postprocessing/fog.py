@@ -1,6 +1,7 @@
+import os
+
 import PIL
 import arcade
-import os
 from PIL import ImageOps
 from PIL.Image import Resampling
 

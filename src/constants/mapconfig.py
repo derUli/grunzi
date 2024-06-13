@@ -1,7 +1,8 @@
 """ Map config class """
 
-import orjson
 import os
+
+import orjson
 
 DIFFICULTY_EASY = 1
 DIFFICULTY_MEDIUM = 2

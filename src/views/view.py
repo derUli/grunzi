@@ -1,9 +1,9 @@
 """ View base class """
 
-import arcade
-import logging
-import mouse
 import os
+
+import arcade
+import mouse
 
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP

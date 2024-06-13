@@ -1,7 +1,8 @@
-import PIL
-import arcade
 import os
 import uuid
+
+import PIL
+import arcade
 from PIL import ImageDraw, ImageFont
 from arcade import get_four_byte_color
 

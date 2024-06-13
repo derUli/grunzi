@@ -1,6 +1,7 @@
 """ Player sprite class """
-import arcade
 import os
+
+import arcade
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 

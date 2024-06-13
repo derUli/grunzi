@@ -3,7 +3,7 @@
 import arcade
 from arcade import PymunkPhysicsEngine, Scene
 
-from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR, COLLISION_DUCK, COLLISION_MOVEABLE
+from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR, COLLISION_MOVEABLE
 from constants.layers import (
     LAYER_MOVEABLE,
     LAYER_CAR_RIGHT,
@@ -14,7 +14,6 @@ from constants.layers import (
     LAYER_JEEP,
     LAYER_WATER,
     LAYER_TREE,
-    LAYER_DUCK,
     LAYER_SKY,
     LAYER_RIVER,
 )

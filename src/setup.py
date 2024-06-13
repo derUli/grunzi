@@ -2,12 +2,13 @@
 
 """ cx_freeze setup file """
 
-import cx_Freeze
 import glob
 import json
 import os
 import shutil
 import sys
+
+import cx_Freeze
 import xmlformatter
 
 target_name = 'grunzi'

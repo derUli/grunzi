@@ -1,8 +1,9 @@
 """ Sprite classes """
 
+from typing import Optional
+
 import arcade.sprite
 from arcade import Texture
-from typing import Optional
 
 FADE_SPEED = 255 / 20
 

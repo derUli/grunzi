@@ -3,10 +3,11 @@
 import logging
 import os
 import platform
-import psutil
-import pyglet
 import sys
 from logging.handlers import RotatingFileHandler
+
+import psutil
+import pyglet
 
 try:
     import sounddevice

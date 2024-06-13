@@ -1,8 +1,3 @@
-import PIL
-import logging
-from arcade import FACE_DOWN, FACE_RIGHT, FACE_LEFT
-
-from sprites.items.fence import Fence
 from sprites.items.item import Item
 from utils.lightmanager import LIGHT_LAYER_LANTERN
 

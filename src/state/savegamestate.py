@@ -1,8 +1,9 @@
 """ Used to handle save games """
 
-import jsonpickle
 import logging
 import os
+
+import jsonpickle
 
 from constants.mapconfig import DIFFICULTY_MEDIUM
 from constants.mapconfig import MapConfig

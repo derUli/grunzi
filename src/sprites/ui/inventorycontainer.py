@@ -1,5 +1,6 @@
-import arcade
 import os
+
+import arcade
 
 from sprites.ui.inventoryitem import InventoryItem
 

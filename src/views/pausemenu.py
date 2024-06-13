@@ -1,5 +1,6 @@
-import arcade.gui
 import os
+
+import arcade.gui
 
 import constants.controls.keyboard
 from utils.audio import streaming_enabled

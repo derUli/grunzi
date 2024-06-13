@@ -4,6 +4,7 @@ import gettext
 import locale
 import logging
 import os
+
 import pyglet
 
 from constants.audio import DEFAULT_AUDIO_BACKEND, audio_backends

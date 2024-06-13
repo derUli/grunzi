@@ -1,7 +1,8 @@
 """ Controls views """
 
-import arcade.gui
 import os
+
+import arcade.gui
 
 import constants.controls.keyboard
 import utils.gui

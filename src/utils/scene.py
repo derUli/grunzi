@@ -1,13 +1,13 @@
 """ Scene utils """
+from typing import Optional, List
+
 import arcade
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
-from typing import Optional, List
 
 from sprites.characters.character import Character
 from sprites.items.item import Item
 from sprites.sprite import AbstractSprite
-from state.argscontainer import make_args_container
 from utils.lightmanager import LightManager
 from utils.postprocessing.postprocessing import PostProcessing
 

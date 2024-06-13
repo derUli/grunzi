@@ -1,9 +1,10 @@
 """ Audio utils """
 
-import arcade
 import logging
 import os
 import random
+
+import arcade
 
 from utils.path import is_windows
 
