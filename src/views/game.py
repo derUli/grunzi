@@ -207,7 +207,6 @@ class Game(Fading):
             bottom=0
         )
 
-        self.ui.loading_screen.percent = 70
         self.ui.loading_screen.percent = 80
 
         # Create the music queue
