@@ -1,3 +1,4 @@
+import argparse
 import os
 import tkinter as tk
 import tkinter.ttk as ttk
@@ -152,7 +153,12 @@ class LauncherWindow(ThemedTk):
         icon = PhotoImage(file=os.path.join(self.path_state.ui_dir, 'icon.ico'))
         self.tk.call('wm', 'iconphoto', self._w, icon)
 
-    def get_args(self):
+    def get_args(self) -> argparse.Namespace | None:
+        """
+        Apply selected settings to args
+        @return: Argparse Namespace
+        """
+
         if not self.confirmed:
             return None
 
