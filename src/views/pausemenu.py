@@ -3,6 +3,8 @@ import os
 import arcade.gui
 
 import constants.controls.keyboard
+from constants.mapconfig import MapConfig
+from state.savegamestate import SaveGameState
 from utils.audio import streaming_enabled
 from utils.gui import get_button_style
 from views.fading import Fading
@@ -124,6 +126,19 @@ class PauseMenu(Fading):
         """
         self.player.pause()
         self.window.show_view(self.previous_view)
+
+    def on_restart_level(self, confirm=False):
+
+        """
+        On restart level
+        """
+        if not confirm:
+            return
+
+        from views.game import Game
+        self.previous_view = None
+        self.fade_to_view(Game(self.window, self.state))
+        self.player.pause()
 
     def on_exit(self, confirm=False):
         if not confirm:
