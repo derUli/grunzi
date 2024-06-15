@@ -155,7 +155,7 @@ class MapSelection(Fading):
         if self.previous_view.player:
             self.previous_view.player.play()
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key, modifiers) -> None:
         """ Called whenever a key is pressed. """
 
         super().on_key_press(key, modifiers)
@@ -172,7 +172,7 @@ class MapSelection(Fading):
         self.update_fade(self.next_view)
         self.scene.update()
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """ Render the screen. """
 
         # Clear the screen
