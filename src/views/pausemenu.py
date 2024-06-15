@@ -36,6 +36,12 @@ class PauseMenu(Fading):
             style=get_button_style()
         )
 
+        restart_button = arcade.gui.UIFlatButton(
+            text=_("Restart Level"),
+            width=BUTTON_WIDTH,
+            style=get_button_style()
+        )
+
         settings_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
@@ -54,6 +60,11 @@ class PauseMenu(Fading):
         def on_click_continue_button(event):
             # Pass already created view because we are resuming.
             self.on_continue()
+
+        @restart_button.event("on_click")
+        def on_click_restart(event):
+            # Pass already created view because we are resuming.
+            self.on_restart_level()
 
         @settings_button.event("on_click")
         def on_click_settings_button(event):
@@ -75,6 +86,7 @@ class PauseMenu(Fading):
 
         widgets = [
             continue_button,
+            restart_button,
             settings_button,
             quit_button
         ]
@@ -125,12 +137,26 @@ class PauseMenu(Fading):
         self.player.pause()
         self.window.show_view(self.previous_view)
 
-    def on_restart_level(self, confirm=False):
+    def on_restart_level(self):
 
         """
         On restart level
         """
-        if not confirm:
+        message_box = arcade.gui.UIMessageBox(
+            width=300,
+            height=200,
+            message_text=_("Restart level?"),
+            buttons=[
+                _("Yes"),
+                _("No")
+            ]
+        )
+
+        message_box.on_action = self.on_confirm_restart
+        self.manager.add(message_box)
+
+    def on_confirm_restart(self, button):
+        if button.action == _('No'):
             return
 
         from views.game import Game

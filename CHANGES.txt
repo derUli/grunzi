@@ -10,7 +10,6 @@
 
 ## Alpha 015 (Unreleased)
 
-* Menüpunkt "Level neu Starten" zu Pausenmenü hinzugefügt
 * map02: Kakteen hinzugefügt
 
 ## Alpha 014 (Unreleased)
@@ -21,6 +20,7 @@
 * Global: Support für Rii USB Classic Controller wieder entfernt
 * Launcher: Es werden nur noch vom Betriebssystem unterstützte Audio Backends angezeigt
 * UI: Lautstärke-Regler für Umgebungsgeräusche hinzugefügt
+* Menüpunkt "Level neu Starten" zu Pausenmenü hinzugefügt
 
 ## Global: Alpha 013 (24.05.2024)
 

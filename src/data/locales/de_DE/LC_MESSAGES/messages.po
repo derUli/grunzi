@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-22 12:40+0200\n"
+"POT-Creation-Date: 2024-06-15 12:58+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
-#: sprites/ui/gameovertext.py:43 views/highscore.py:66
+#: sprites/ui/gameovertext.py:43 views/highscore.py:64
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
 
@@ -66,7 +66,7 @@ msgstr "Wird geladen..."
 msgid "Score"
 msgstr "Punkte"
 
-#: views/difficultyselection.py:59 views/mapselection.py:68
+#: views/difficultyselection.py:59 views/mapselection.py:65
 #: views/settings/settingsaudio.py:53 views/settings/settingscontrols.py:108
 #: views/settings/settingsgraphics.py:53 views/settings/settingsmenu.py:77
 msgid "Back"
@@ -88,66 +88,73 @@ msgstr "Sauschwer"
 msgid "Difficulty"
 msgstr "Schwierigkeit"
 
-#: views/difficultyselection.py:200 views/mapselection.py:227
+#: views/difficultyselection.py:198
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/difficultyselection.py:202 views/difficultyselection.py:214
-#: views/mapselection.py:229 views/mapselection.py:241 views/pausemenu.py:136
-#: views/pausemenu.py:153
+#: views/difficultyselection.py:200 views/difficultyselection.py:212
+#: views/pausemenu.py:150 views/pausemenu.py:180 views/pausemenu.py:196
 msgid "Yes"
 msgstr "Ja"
 
-#: views/difficultyselection.py:203 views/mapselection.py:230
-#: views/pausemenu.py:137
+#: views/difficultyselection.py:201 views/pausemenu.py:151
+#: views/pausemenu.py:159 views/pausemenu.py:181
 msgid "No"
 msgstr "Nein"
 
-#: views/highscore.py:88
+#: views/highscore.py:84
 msgid "No entries yet"
 msgstr "Noch keine Einträge vorhanden"
 
-#: views/mainmenu.py:41 window/launcherwindow.py:44
+#: views/mainmenu.py:42 window/launcherwindow.py:45
 msgid "Grunzi"
 msgstr "Grunzi"
 
-#: views/mainmenu.py:49
+#: views/mainmenu.py:50
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:55 views/pausemenu.py:33
+#: views/mainmenu.py:56 views/pausemenu.py:34
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/mainmenu.py:61 views/mapselection.py:80
+#: views/mainmenu.py:62 views/mapselection.py:77
 msgid "Select Map"
 msgstr "Map auswählen"
 
-#: views/mainmenu.py:67
+#: views/mainmenu.py:68
 msgid "Online Highscore"
 msgstr "Online-Bestenliste"
 
-#: views/mainmenu.py:73 views/pausemenu.py:39
+#: views/mainmenu.py:74 views/pausemenu.py:46
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: views/mainmenu.py:79
+#: views/mainmenu.py:80
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/pausemenu.py:45
+#: views/pausemenu.py:40
+msgid "Restart Level"
+msgstr "Level neu starten"
+
+#: views/pausemenu.py:52
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/pausemenu.py:131
+#: views/pausemenu.py:148
+msgid "Restart level?"
+msgstr "Level neu starten?"
+
+#: views/pausemenu.py:175
 msgid "Leave to main menu?"
 msgstr "Zurück zum Hauptmenü?"
 
-#: views/pausemenu.py:132
+#: views/pausemenu.py:176
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
-#: views/view.py:120
+#: views/view.py:119
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
@@ -307,19 +314,19 @@ msgstr "Controller"
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingsgraphics.py:59 window/launcherwindow.py:91
+#: views/settings/settingsgraphics.py:59 window/launcherwindow.py:92
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsgraphics.py:71 window/launcherwindow.py:111
+#: views/settings/settingsgraphics.py:71 window/launcherwindow.py:112
 msgid "V-Sync"
 msgstr ""
 
-#: views/settings/settingsmenu.py:57 window/launcherwindow.py:71
+#: views/settings/settingsmenu.py:57 window/launcherwindow.py:72
 msgid "Graphics"
 msgstr "Grafik"
 
-#: views/settings/settingsmenu.py:64 window/launcherwindow.py:72
+#: views/settings/settingsmenu.py:64 window/launcherwindow.py:73
 msgid "Audio"
 msgstr "Audio"
 
@@ -327,19 +334,19 @@ msgstr "Audio"
 msgid "Controls"
 msgstr "Steuerung"
 
-#: window/launcherwindow.py:75
+#: window/launcherwindow.py:76
 msgid "Screen resolution"
 msgstr "Bildschirmauflösung"
 
-#: window/launcherwindow.py:100
+#: window/launcherwindow.py:101
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:117
+#: window/launcherwindow.py:118
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:131
+#: window/launcherwindow.py:132
 msgid "Launch Game"
 msgstr "Spiel starten"
 
