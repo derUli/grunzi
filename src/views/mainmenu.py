@@ -89,10 +89,12 @@ class MainMenu(Fading):
 
         @newgame_button.event("on_click")
         def on_click_newgame_button(event):
+            logging.debug(event)
             self.on_new_game()
 
         @continue_button.event("on_click")
         def on_click_continue_button(event):
+            logging.debug(event)
             # Pass already created view because we are resuming.
 
             from views.game import Game
@@ -107,6 +109,8 @@ class MainMenu(Fading):
 
         @select_map_button.event("on_click")
         def on_click_select_map_button(event):
+            logging.debug(event)
+
             # Pass already created view because we are resuming.
 
             from views.mapselection import MapSelection
@@ -118,10 +122,9 @@ class MainMenu(Fading):
 
         @highscore_button.event("on_click")
         def on_highscore_button(event):
+            logging.debug(event)
 
-            # Pass already created view because we are resuming.
             from views.highscore import Highscore
-
             self.fade_to_view(Highscore(self.window, self.state, previous_view=self))
 
         @options_button.event("on_click")
@@ -129,7 +132,12 @@ class MainMenu(Fading):
             # Pass already created view because we are resuming.
 
             self.window.show_view(
-                SettingsMenu(self.window, self.state, previous_view=self, shadertoy=self.shadertoy, time=self.time)
+                SettingsMenu(
+                    self.window,
+                    self.state,
+                    previous_view=self,
+                    shadertoy=self.shadertoy, time=self.time
+                )
             )
 
         @quit_button.event("on_click")
