@@ -1,4 +1,6 @@
 """ Settings > Audio """
+import logging
+
 import arcade.gui
 from arcade.gui.widgets.slider import UISlider
 
@@ -45,7 +47,8 @@ class SettingsAudio(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
-    def setup(self):
+    def setup(self) -> None:
+        """ Setup the audio settings screen """
         self.manager.clear()
         self.manager.disable()
 
@@ -119,6 +122,7 @@ class SettingsAudio(Fading):
 
         @back_button.event("on_click")
         def on_click_back_button(event):
+            logging.debug(event)
             # Pass already created view because we are resuming.
             self.on_back()
 
