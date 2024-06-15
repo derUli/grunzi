@@ -41,11 +41,11 @@ class SettingsGraphics(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
-    def on_back(self):
+    def on_back(self) -> None:
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
 
-    def setup(self):
+    def setup(self) -> None:
         self.manager.clear()
         self.manager.disable()
 
@@ -138,14 +138,14 @@ class SettingsGraphics(Fading):
 
         self.manager.enable()
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key, modifiers) -> None:
         super().on_key_press(key, modifiers)
 
         """Called whenever a key is pressed."""
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, delta_time):
+    def on_update(self, delta_time) -> None:
 
         super().on_update(delta_time)
 
@@ -153,7 +153,7 @@ class SettingsGraphics(Fading):
         self.update_fade(self.next_view)
         self.scene.update()
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """ Render the screen. """
 
         # Clear the screen
@@ -164,10 +164,10 @@ class SettingsGraphics(Fading):
         self.draw_fading()
         self.draw_after(draw_version_number=True)
 
-    def on_toggle_fps(self):
+    def on_toggle_fps(self) -> None:
         super().on_toggle_fps()
         self.setup()
 
-    def on_toggle_fullscreen(self):
+    def on_toggle_fullscreen(self) -> None:
         super().on_toggle_fullscreen()
         self.setup()
