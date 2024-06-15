@@ -160,21 +160,21 @@ class StartUp:
 
         args = self.parse_args()
 
-        LOG_LEVEL = logging.INFO
-        LOG_LEVEL_ARCADE = logging.ERROR
+        log_level = logging.INFO
+        log_level_arcade = logging.ERROR
 
         if args.verbose >= 1:
-            LOG_LEVEL_ARCADE = logging.INFO
+            log_level_arcade = logging.INFO
 
         if args.verbose >= 2:
-            LOG_LEVEL = logging.DEBUG
-            LOG_LEVEL_ARCADE = logging.DEBUG
+            log_level = logging.DEBUG
+            log_level_arcade = logging.DEBUG
 
         if args.verbose >= 3:
-            LOG_LEVEL = logging.NOTSET
-            LOG_LEVEL_ARCADE = logging.NOTSET
+            log_level = logging.NOTSET
+            log_level_arcade = logging.NOTSET
 
-        configure_logger(LOG_LEVEL)
+        configure_logger(log_level)
 
         if args.fullscreen:
             args.window = False
@@ -205,7 +205,7 @@ class StartUp:
 
         import arcade
 
-        arcade.configure_logging(level=LOG_LEVEL_ARCADE)
+        arcade.configure_logging(level=log_level_arcade)
 
         logging.info(label_value('Arguments', args))
         logging.info(label_value('Pyglet options', pyglet.options))
