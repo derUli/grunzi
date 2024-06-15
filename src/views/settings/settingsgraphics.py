@@ -1,3 +1,5 @@
+import logging
+
 import arcade.gui
 
 import constants.controls.keyboard
@@ -91,23 +93,28 @@ class SettingsGraphics(Fading):
 
         @fullscreen_button.event('on_click')
         def on_click_fullscreen_button(event):
+            logging.debug(event)
+
             self.on_toggle_fullscreen()
             self.setup()
 
         @vsync_button.event('on_click')
         def on_click_vsync_button(event):
+            logging.debug(event)
+
             self.on_toggle_vsync()
             self.setup()
 
         @fps_button.event('on_click')
         def on_click_fps_button(event):
+            logging.debug(event)
+
             self.on_toggle_fps()
             self.setup()
 
         @back_button.event("on_click")
         def on_click_back_button(event):
-            # Pass already created view because we are resuming.
-
+            logging.debug(event)
             self.on_back()
 
         widgets = [
