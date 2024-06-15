@@ -193,6 +193,7 @@ class PauseMenu(Fading):
 
     def on_confirm_exit(self, button) -> None:
         """ On confirm exit """
+
         if button.action == _('Yes'):
             self.player.pause()
             self.on_exit(confirm=True)

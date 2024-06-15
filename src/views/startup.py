@@ -140,11 +140,15 @@ class StartUp:
 
     def setup_locale(self) -> None:
         """ setup locale """
+
         locale_path = os.path.join(self.root_dir, 'data', 'locales')
         os.environ['LANG'] = ':'.join(locale.getlocale())
         gettext.install('messages', locale_path)
 
-    def setup_path(self):
+    def setup_path(self) -> None:
+        """
+        Add third party executable directory to PATH
+        """
         thirdparty_path = os.path.join(self.root_dir, 'data', '3rdparty')
         os.environ["PATH"] += os.pathsep + thirdparty_path
 
