@@ -19,9 +19,11 @@ class Fading(View):
         self._do_quit = False
 
     def update_fade(self, next_view: arcade.View | None = None) -> None:
-        """ Update fade
-            @param next_view: View to show after finishing fade
         """
+        Update fade
+        @param next_view: View to show after finishing fade
+        """
+
         if self._fade_out is not None:
             self._fade_out += FADE_RATE
             if self._fade_out is not None and self._fade_out > 255 and next_view is not None:
