@@ -1,5 +1,5 @@
 """ Controls views """
-
+import logging
 import os
 
 import arcade.gui
@@ -123,6 +123,7 @@ class SettingsControls(Fading):
 
         @toggle_button.event('on_click')
         def on_toggle(event):
+            logging.debug(event)
             if self.show_controls == CONTROLS_KEYBOARD:
                 self.show_controls = CONTROLS_CONTROLLER
             else:
@@ -144,6 +145,7 @@ class SettingsControls(Fading):
 
         @back_button.event("on_click")
         def on_back(event):
+            logging.debug(event)
             self.on_back()
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -185,7 +187,7 @@ class SettingsControls(Fading):
 
     def on_update(self, delta_time: float = 0) -> None:
         """ On update
-        @param dt: Delta Time
+        @param delta_time: Delta Time
         """
 
         super().on_update(delta_time=delta_time)
