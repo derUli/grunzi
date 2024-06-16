@@ -1,3 +1,4 @@
+import logging
 import os
 
 import arcade.gui
@@ -69,6 +70,7 @@ class MapSelection(Fading):
 
         @back_button.event("on_click")
         def on_click_back_button(event) -> None:
+            logging.debug(event)
             # Pass already created view because we are resuming.
 
             self.on_back()
@@ -97,6 +99,8 @@ class MapSelection(Fading):
 
         @button_prev.event('on_click')
         def on_click_button_prev(event):
+            logging.debug(event)
+
             if self.selected > 0:
                 self.selected -= 1
             else:
@@ -106,6 +110,8 @@ class MapSelection(Fading):
 
         @button_next.event('on_click')
         def on_click_button_next(event):
+            logging.debug(event)
+
             if self.selected < len(self.maps) - 1:
                 self.selected += 1
             else:

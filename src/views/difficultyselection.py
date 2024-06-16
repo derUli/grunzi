@@ -163,13 +163,14 @@ class DifficultySelection(Fading):
         self.draw_fading()
         self.draw_after(draw_version_number=True)
 
-    def on_select_difficulty(self, difficulty, overwrite=False) -> None:
+    def on_select_difficulty(self, difficulty, overwrite: bool = False) -> None:
         """ On select difficulty """
 
         self.difficulty = difficulty
 
         if SaveGameState.exists() and not overwrite:
-            return self.on_confirm_overwrite_savegame()
+            self.on_confirm_overwrite_savegame()
+            return
 
         logging.info(utils.text.label_value('Difficulty', difficulty))
 
@@ -182,16 +183,17 @@ class DifficultySelection(Fading):
         self.state.difficulty = MapConfig(difficulty, self.state.map_name, self.state.map_dir)
 
         from views.game import Game
-
         self.fade_to_view(Game(self.window, self.state))
 
     def on_back(self) -> None:
         """ On click "Back" button """
+
         from views.mainmenu import MainMenu
         self.fade_to_view(MainMenu(self.window, self.state))
 
     def on_confirm_overwrite_savegame(self) -> None:
         """ Show confirm overwrite savegame dialog """
+
         message_box = arcade.gui.UIMessageBox(
             width=300,
             height=200,
@@ -208,6 +210,7 @@ class DifficultySelection(Fading):
 
     def on_overwrite_savegame(self, event) -> None:
         """ On overwrite savegame """
+
         action = event.action
         if action == _('Yes'):
             self.on_select_difficulty(self.difficulty, overwrite=True)

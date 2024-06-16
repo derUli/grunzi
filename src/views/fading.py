@@ -66,5 +66,6 @@ class Fading(View):
 
     def fade_to_view(self, view):
         """ Fade to view """
+
         self.next_view = view
         self.fade_out()
