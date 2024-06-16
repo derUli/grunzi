@@ -84,7 +84,7 @@ class View(arcade.View):
 
     def on_toggle_fullscreen(self) -> None:
         """ On toggle fullscreen """
-        self.window.set_fullscreen(not self.window.fullscreen)
+        self.window.change_screen_mode(not self.window.fullscreen)
         settings = SettingsState().load()
         settings.fullscreen = self.window.fullscreen
         settings.save()

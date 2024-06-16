@@ -58,7 +58,7 @@ class GameWindow(arcade.Window):
             samples=samples
         )
 
-        self.set_fullscreen(not window)
+        self.change_screen_mode(not window)
 
         self.update_rate = update_rate
         self.draw_rate = update_rate
@@ -75,7 +75,7 @@ class GameWindow(arcade.Window):
         # Init controllers if enabled
         self.init_controllers()
 
-    def set_fullscreen(self, fullscreen=True):
+    def change_screen_mode(self, fullscreen=True):
         if self.is_native:
             return
         screen = pyglet.canvas.get_display().get_default_screen()
