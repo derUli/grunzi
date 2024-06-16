@@ -666,6 +666,7 @@ class Game(Fading):
 
     @property
     def input_ready(self) -> bool:
+        """ Check if the game is ready to handle input """
         if not self.initialized:
             return False
 
@@ -673,4 +674,5 @@ class Game(Fading):
 
     @property
     def video_playing(self) -> bool:
+        """ Check if the intro video is playing """
         return self.video and self.video.active
