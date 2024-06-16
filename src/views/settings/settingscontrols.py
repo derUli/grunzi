@@ -46,7 +46,8 @@ class SettingsControls(Fading):
         super().on_show_view()
         self.show_scene()
 
-    def show_scene(self):
+    def show_scene(self) -> None:
+        """ Show scene """
 
         self.scene = arcade.Scene()
         self.manager.clear()
