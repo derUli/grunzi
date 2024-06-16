@@ -160,19 +160,8 @@ class StartUp:
 
         args = self.parse_args()
 
-        log_level = logging.INFO
-        log_level_arcade = logging.ERROR
-
-        if args.verbose >= 1:
-            log_level_arcade = logging.INFO
-
-        if args.verbose >= 2:
-            log_level = logging.DEBUG
-            log_level_arcade = logging.DEBUG
-
-        if args.verbose >= 3:
-            log_level = logging.NOTSET
-            log_level_arcade = logging.NOTSET
+        log_level = self.get_log_level(args.verbose)
+        log_level_arcade = self.get_log_level_arcade(args.verbose)
 
         configure_logger(log_level)
 
@@ -244,3 +233,37 @@ class StartUp:
 
         window.show_view(view)
         arcade.run()
+
+    @staticmethod
+    def get_log_level(verbose: int) -> int:
+        """
+        Get log level
+        @param verbose: verbose value
+        @return: Log Level
+        """
+
+        if verbose >= 3:
+            return logging.NOTSET
+
+        if verbose >= 2:
+            return logging.DEBUG
+
+        return logging.INFO
+
+    @staticmethod
+    def get_log_level_arcade(verbose: int) -> int:
+        """
+        Get arcade log level
+        @param verbose: verbose value
+        @return: Log Level
+        """
+        if verbose >= 3:
+            return logging.NOTSET
+
+        if verbose >= 2:
+            return logging.DEBUG
+
+        if verbose >= 1:
+            return logging.INFO
+
+        return logging.ERROR
