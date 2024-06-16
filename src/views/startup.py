@@ -187,7 +187,9 @@ class StartUp:
         if args.audio_backend and args.audio_backend != 'auto':
             pyglet.options['audio'] = (args.audio_backend,)
 
-        logging.debug(label_value('Audio backend', args.audio_backend))
+        logging.info(label_value('Audio backend', args.audio_backend))
+        logging.info(label_value('Arguments', args))
+        logging.info(label_value('Pyglet options', pyglet.options))
 
         pyglet.options['debug_gl'] = args.debug
         pyglet.options['debug_trace_flush'] = args.debug
@@ -195,9 +197,6 @@ class StartUp:
         import arcade
 
         arcade.configure_logging(level=log_level_arcade)
-
-        logging.info(label_value('Arguments', args))
-        logging.info(label_value('Pyglet options', pyglet.options))
 
         settings = SettingsState.load()
 
