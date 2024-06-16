@@ -28,7 +28,8 @@ class StartUp:
         """
         self.root_dir = root_dir
 
-    def parse_args(self) -> argparse.Namespace:
+    @staticmethod
+    def parse_args() -> argparse.Namespace:
         """
         Parse CLI args
         @return: parsed arguments
