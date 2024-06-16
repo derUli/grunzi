@@ -12,7 +12,7 @@
 
 * map02: Kakteen hinzugefügt
 
-## Alpha 014 (Unreleased)
+## Alpha 014 (21.06.2024)
 
 * Global: Äpfel hinzugefügt
 * map02: Tretminen hinzugefügt
