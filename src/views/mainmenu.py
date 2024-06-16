@@ -129,6 +129,7 @@ class MainMenu(Fading):
 
         @options_button.event("on_click")
         def on_click_options_button(event):
+            logging.debug(event)
             # Pass already created view because we are resuming.
 
             self.window.show_view(
@@ -142,6 +143,7 @@ class MainMenu(Fading):
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):
+            logging.debug(event)
             self.fade_quit()
 
         widgets = [
