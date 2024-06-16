@@ -19,15 +19,15 @@ class GameWindow(arcade.Window):
 
     def __init__(
             self,
-            window=False,
-            width=SCREEN_WIDTH,
-            height=SCREEN_HEIGHT,
-            update_rate=UPDATE_RATE,
-            draw_rate=UNLIMITED_FRAMERATE,
-            vsync=False,
-            borderless=False,
-            antialiasing=True,
-            samples=0
+            window: bool = False,
+            width: int = SCREEN_WIDTH,
+            height: int = SCREEN_HEIGHT,
+            update_rate: float = UPDATE_RATE,
+            draw_rate: float = UNLIMITED_FRAMERATE,
+            vsync: bool = False,
+            borderless: bool = False,
+            antialiasing: bool = True,
+            samples: int = 0
     ):
         default_screen = pyglet.canvas.get_display().get_default_screen()
         native_mode = default_screen.get_mode()
