@@ -30,6 +30,7 @@ class SettingsGraphics(Fading):
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
+
         super().on_show_view()
 
         self.push_controller_handlers()
@@ -172,9 +173,13 @@ class SettingsGraphics(Fading):
         self.draw_after(draw_version_number=True)
 
     def on_toggle_fps(self) -> None:
+        """ On toggle show FPS """
+
         super().on_toggle_fps()
         self.setup()
 
     def on_toggle_fullscreen(self) -> None:
+        """ On toggle fullscreen """
+
         super().on_toggle_fullscreen()
         self.setup()
