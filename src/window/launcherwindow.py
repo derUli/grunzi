@@ -1,4 +1,5 @@
 import argparse
+import logging
 import os
 import tkinter as tk
 import tkinter.ttk as ttk
@@ -189,6 +190,8 @@ class LauncherWindow(ThemedTk):
         return self.args
 
     def on_launch(self, event=None):
+        logging.debug(event)
+
         self.confirmed = True
         self.state.save()
         self.destroy()
