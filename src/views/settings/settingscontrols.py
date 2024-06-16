@@ -179,15 +179,17 @@ class SettingsControls(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key, modifiers) -> None:
         """Called whenever a key is pressed."""
+
         super().on_key_press(key, modifiers)
 
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
     def on_update(self, delta_time: float = 0) -> None:
-        """ On update
+        """
+        On update
         @param delta_time: Delta Time
         """
 
@@ -199,6 +201,7 @@ class SettingsControls(Fading):
 
     def on_draw(self) -> None:
         """ Render the screen. """
+
         self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
@@ -209,4 +212,5 @@ class SettingsControls(Fading):
 
     def on_back(self) -> None:
         """ Go back to main menu """
+
         self.fade_to_view(self.previous_view)
