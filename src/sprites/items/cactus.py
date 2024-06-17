@@ -1,8 +1,6 @@
-import time
 from typing import Optional
 
 import arcade
-import numpy
 
 from sprites.sprite import Sprite
 from utils.positionalsound import PositionalSound
@@ -48,7 +46,7 @@ class Cactus(Sprite):
 
             audio = args.state.play_sound('cactus')
             sound = PositionalSound(args.player, self, audio, args.state)
-            sound.update()
+            sound.update(True)
             sound.play()
 
             move = FORCE_MOVE
