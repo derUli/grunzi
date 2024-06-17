@@ -51,7 +51,6 @@ class Player(Character, SpriteHealth):
         self.face_horizontal = DEFAULT_FACE
         self.texture = self.textures[self.face - 1]
 
-        self.scale = 1.0
         self.item = None
         self._died = False
 
