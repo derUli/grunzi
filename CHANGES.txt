@@ -10,6 +10,7 @@
 
 ## Alpha 015 (Unreleased)
 
+* Global: Ausdauer entfernt
 * map02: Kakteen hinzugefügt
 
 ## Alpha 014 (21.06.2024)

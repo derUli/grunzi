@@ -29,9 +29,6 @@ INVENTORY_MARGIN = 15
 
 SPAWN_POINT = (0, 0)
 
-STAMINA_INCREMENTOR = 0.2
-STAMINA_DECREMENTOR = 0.3
-
 DEFAULT_BULLET_SIZE = 6
 BULLET_DECREMENTOR = 0.1
 
@@ -60,8 +57,6 @@ class Player(Character, SpriteHealth):
 
         self.state = None
         self.water = False
-
-        self.stamina = 100
 
         self.footsteps_default = None
         self.footsteps_sprint = None
@@ -122,15 +117,6 @@ class Player(Character, SpriteHealth):
 
         if self.health > HEALTH_FULL:
             self.health = HEALTH_FULL
-
-        if self.sprinting:
-            self.stamina -= STAMINA_DECREMENTOR
-        elif self.stamina < 100:
-            self.stamina += STAMINA_INCREMENTOR
-
-        if self.stamina <= 0:
-            self.stamina = 0
-            self.modifier = MODIFIER_DEFAULT
 
         exit_layer = get_layer(LAYER_LEVEL_EXIT, args.scene)
         if len(arcade.check_for_collision_with_list(self, exit_layer)) > 0:
