@@ -11,6 +11,7 @@ from sprites.decoration.river import River, RiverSound
 from sprites.decoration.sun import Sun
 from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
+from sprites.items.cactus import Cactus
 from sprites.items.carkey import CarKey
 from sprites.items.chainsaw import Chainsaw
 from sprites.items.electric import Electric
@@ -62,6 +63,7 @@ LAYER_RIVER_SOUND = 'RiverSound'
 LAYER_FISH = 'Fish'
 LAYER_FOOD = 'Food',
 LAYER_LANTERN = 'Lantern'
+LAYER_CACTUS = 'Cactus'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -80,7 +82,8 @@ ALL_LAYERS = [
     LAYER_ELECTRIC_SWITCH,
     LAYER_LEVEL_EXIT,
     LAYER_RIVER,
-    LAYER_FOOD
+    LAYER_FOOD,
+    LAYER_CACTUS
 ]
 
 WALL_LAYERS = [
@@ -90,7 +93,8 @@ WALL_LAYERS = [
     LAYER_WATER,
     LAYER_SKY,
     LAYER_TREE,
-    LAYER_RIVER
+    LAYER_RIVER,
+    LAYER_CACTUS
 ]
 
 SKY_LAYERS = [
@@ -186,6 +190,9 @@ LAYER_OPTIONS = {
     },
     LAYER_LANTERN: {
         'custom_class': Lantern
+    },
+    LAYER_CACTUS: {
+        'custom_class': Cactus
     }
 }
 
