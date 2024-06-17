@@ -1,13 +1,11 @@
-import logging
+import time
 from typing import Optional
 
 import arcade
-import pyglet
+import numpy
 
-from sprites.characters.character import Character
 from sprites.sprite import Sprite
 from utils.positionalsound import PositionalSound
-from utils.scene import get_layer
 
 FORCE_MOVE = 5000
 HURT = 1
@@ -36,6 +34,8 @@ class Cactus(Sprite):
             image_x=image_x,
             image_y=image_y,
         )
+
+        self.measurements = []
 
     def update(
             self,
