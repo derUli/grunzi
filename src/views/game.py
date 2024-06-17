@@ -297,7 +297,6 @@ class Game(Fading):
             delta_time,
             make_args_container(self)
         )
-        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
 
         self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
@@ -321,6 +320,7 @@ class Game(Fading):
 
             return self.draw_after()
 
+        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
         self.camera_sprites.use()
         self.scene.draw()
 
