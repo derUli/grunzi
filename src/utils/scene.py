@@ -71,6 +71,18 @@ class Scene(BaseScene):
         for sprite in animated:
             sprite.update_animation(delta_time)
 
+
+    def check_collision_insight(self, sprite1, sprite2):
+
+        diff = abs(arcade.get_distance_between_sprites(sprite1, sprite2))
+
+        w, h = arcade.get_window().size
+
+        if diff > h:
+            return False
+
+        return arcade.check_for_collision(sprite1, sprite2)
+
     def get_collectable(self, player_sprite):
         """ Get collectable item """
 
