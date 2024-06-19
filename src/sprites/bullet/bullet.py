@@ -12,6 +12,7 @@ from constants.layers import LAYER_NPC
 from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
 from sprites.sprite import AbstractSprite
+from state.argscontainer import ArgsContainer
 from utils.physics import on_hit_destroy
 
 HURT_DEFAULT = 20
@@ -50,9 +51,14 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
 
     def update(
             self,
-            delta_time,
-            args
-    ):
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
+        """
+        Update bullet
+        @param delta_time: Delta Time
+        @param args: arguments container
+        """
         if time.time() >= self.created_at + DESTROY_TIME:
             logging.debug('Remove bullet from scene')
             self.remove_from_sprite_lists()
