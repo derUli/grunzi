@@ -8,12 +8,14 @@ LIGHT_LAYER_LANTERN = 'lantern'
 class LightManager:
     def __init__(self):
         """ Constructor """
+
         self.light_layer = None
         self.lights = {}
         self._type = None
 
     def reset(self):
         """ Reset light manager """
+
         self._type = type
         self.lights = {}
         self.light_layer = None
@@ -72,6 +74,8 @@ class LightManager:
         self.lights[LIGHT_LAYER_LANTERN].position = source.position
 
     def draw(self):
+        """ Draw light layer """
+
         if not self.enabled:
             return
 
