@@ -7,6 +7,7 @@ LIGHT_LAYER_LANTERN = 'lantern'
 
 class LightManager:
     def __init__(self):
+        """ Constructor """
         self.light_layer = None
         self.lights = {}
         self._type = None
