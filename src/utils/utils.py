@@ -9,6 +9,7 @@ def atoi(text: str) -> int | str:
     @param text: Text
     @return: Int or string
     """
+
     return int(text) if text.isdigit() else text.lower()
 
 
@@ -18,4 +19,5 @@ def natural_keys(text):
     http://nedbatchelder.com/blog/200712/human_sorting.html
     (See Toothy's implementation in the comments)
     """
+
     return [atoi(c) for c in re.split(r"(\d+)", text)]

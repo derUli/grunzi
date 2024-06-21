@@ -204,8 +204,13 @@ class SettingsAudio(Fading):
 
         self.manager.enable()
 
-    def on_key_press(self, key, modifiers):
-        """Called whenever a key is pressed."""
+    def on_key_press(self, key: int, modifiers: int) -> None:
+        """
+        On key press
+        @param key: Key
+        @param modifiers: Modifiers
+        """
+
         super().on_key_press(key, modifiers)
 
         if key in constants.controls.keyboard.KEY_PAUSE:
