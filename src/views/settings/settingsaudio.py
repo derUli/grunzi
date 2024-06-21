@@ -33,6 +33,7 @@ class SettingsAudio(Fading):
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
+
         super().on_show_view()
 
         self.push_controller_handlers()
@@ -49,6 +50,7 @@ class SettingsAudio(Fading):
 
     def setup(self) -> None:
         """ Setup the audio settings screen """
+
         self.manager.clear()
         self.manager.disable()
 
@@ -216,7 +218,11 @@ class SettingsAudio(Fading):
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, delta_time):
+    def on_update(self, delta_time: float):
+        """
+        On update
+        @param delta_time: Delta Time
+        """
 
         super().on_update(delta_time)
 
@@ -224,7 +230,7 @@ class SettingsAudio(Fading):
         self.update_fade(self.next_view)
         self.scene.update()
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """ Render the screen. """
 
         # Clear the screen
@@ -238,5 +244,6 @@ class SettingsAudio(Fading):
 
     def on_back(self) -> None:
         """ Back button clicked """
+
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
