@@ -179,8 +179,12 @@ class SettingsControls(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
-    def on_key_press(self, key, modifiers) -> None:
-        """Called whenever a key is pressed."""
+    def on_key_press(self, key: int, modifiers: int) -> None:
+        """
+        On key press
+        @param key: Key
+        @param modifiers: Modifiers
+        """
 
         super().on_key_press(key, modifiers)
 
