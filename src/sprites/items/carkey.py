@@ -1,6 +1,5 @@
 from sprites.items.item import Item
 from sprites.items.jeep import Jeep
-from utils.callbackhandler import CallbackHandler
 
 
 class CarKey(Item):

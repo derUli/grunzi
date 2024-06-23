@@ -1,5 +1,6 @@
-import arcade
 import unittest
+
+import arcade
 
 from utils.log import configure_logger
 from utils.scene import get_layer

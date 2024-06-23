@@ -1,6 +1,7 @@
-import arcade
 import os
 import unittest
+
+import arcade
 
 from state.viewstate import ViewState
 from utils.gui import get_button_style

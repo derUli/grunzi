@@ -112,7 +112,7 @@ class Sprite(AbstractStaticSprite):
 
     def fade_destroy(self) -> bool:
         """ Fade out and destroy """
-        
+
         if not self.fadeout:
             self.fadeout = True
             return True

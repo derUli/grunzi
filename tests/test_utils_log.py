@@ -1,7 +1,8 @@
-import arcade
 import os
 import time
 import unittest
+
+import arcade
 
 from utils.log import configure_logger, log_hardware_info
 from utils.path import get_log_path

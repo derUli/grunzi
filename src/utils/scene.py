@@ -71,7 +71,6 @@ class Scene(BaseScene):
         for sprite in animated:
             sprite.update_animation(delta_time)
 
-
     def check_collision_insight(self, sprite1, sprite2):
 
         diff = abs(arcade.get_distance_between_sprites(sprite1, sprite2))
