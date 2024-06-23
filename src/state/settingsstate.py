@@ -10,7 +10,7 @@ from constants.display import DEFAULT_ANTIALIASING
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 13
+SETTINGS_STATE_VERSION = 14
 
 
 class SettingsState:
@@ -38,6 +38,7 @@ class SettingsState:
         # SettingState
         self.version = SETTINGS_STATE_VERSION
         self.first_start = False
+        self.vibration = True
 
     @staticmethod
     def exists() -> bool:

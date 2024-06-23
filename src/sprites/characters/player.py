@@ -193,7 +193,11 @@ class Player(Character, SpriteHealth):
         self.face = face
 
     def hurt(self, damage):
+
         for controller in self.controllers:
+            if not self.state.settings.vibration:
+                break
+
             controller.rumble_play_strong()
 
         super().hurt(damage)

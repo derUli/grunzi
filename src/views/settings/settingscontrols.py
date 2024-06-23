@@ -144,6 +144,24 @@ class SettingsControls(Fading):
             multiline=True,
         )
 
+        vibration_button = arcade.gui.UITextureButton(
+            text=_("Vibration"),
+            width=BUTTON_WIDTH,
+            texture=utils.gui.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state.settings.vibration
+            ),
+            style=utils.gui.get_button_style()
+        )
+
+        @vibration_button.event("on_click")
+        def on_toggle_vibration(event):
+            logging.debug(event)
+            self.state.settings.vibration = not self.state.settings.vibration
+            self.state.settings.save()
+            self.show_scene()
+
         @back_button.event("on_click")
         def on_back(event):
             logging.debug(event)
@@ -157,6 +175,9 @@ class SettingsControls(Fading):
 
         if any(self.window.controllers):
             buttons.add(toggle_button)
+
+        if self.show_controls == CONTROLS_CONTROLLER:
+            buttons.add(vibration_button)
 
         widgets = [
             textarea,
