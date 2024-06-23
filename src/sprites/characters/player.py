@@ -202,7 +202,7 @@ class Player(Character, SpriteHealth):
             if not self.state.settings.vibration:
                 break
 
-            controller.rumble_play_strong()
+            controller.rumble_play_weak()
 
         super().hurt(damage)
 
