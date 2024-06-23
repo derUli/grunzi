@@ -192,7 +192,11 @@ class Player(Character, SpriteHealth):
 
         self.face = face
 
-    def hurt(self, damage):
+    def hurt(self, damage: int | float) -> None:
+        """
+        Hurt player
+        @param damage: Damage amount to apply
+        """
 
         for controller in self.controllers:
             if not self.state.settings.vibration:
