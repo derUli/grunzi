@@ -75,7 +75,13 @@ class GameWindow(arcade.Window):
         # Init controllers if enabled
         self.init_controllers()
 
-    def change_screen_mode(self, fullscreen=True):
+    def change_screen_mode(self, fullscreen: bool = True) -> None:
+        """
+        Change the screen mode
+
+        @param fullscreen: Is Fullscreen
+        """
+
         if self.is_native:
             return
         screen = pyglet.canvas.get_display().get_default_screen()
