@@ -18,7 +18,8 @@ class ArgsContainer:
             camera_gui=None,
             camera=None,
             tilemap=None,
-            inventory=None
+            inventory=None,
+            controllers=[]
     ):
         self.player = player
         self.scene = scene
@@ -32,6 +33,7 @@ class ArgsContainer:
         self.camera_gui = camera_gui
         self.tilemap = tilemap
         self.inventory = inventory
+        self.controllers = controllers
 
 
 def make_args_container(klaas):
@@ -52,5 +54,6 @@ def make_args_container(klaas):
         camera=klaas.camera_sprites,
         camera_gui=klaas.camera_gui,
         tilemap=klaas.tilemap,
-        inventory=klaas.ui.inventory
+        inventory=klaas.ui.inventory,
+        controllers=klaas.window.controllers
     )

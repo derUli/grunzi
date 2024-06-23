@@ -18,22 +18,34 @@ class Chainsaw(Item):
         if isinstance(b, Tree):
             if b.fade_destroy():
                 self.play_sound(args.state)
+                self.vibrate(args)
                 args.state.score += SCORE_DESTROY_TREE
             return
 
         if isinstance(b, Skull):
             b.hurt(50)
             self.play_sound(args.state)
+            self.vibrate(args)
             args.state.score += SCORE_KILL_SKULL
             return
 
         if isinstance(b, Chicken):
             b.hurt(100)
             self.play_sound(args.state)
+            self.vibrate(args)
             args.state.score += SCORE_KILL_CHICKEN
             return
 
         args.state.noaction()
+
+    def vibrate(self, args):
+        print(args.state.settings.vibration)
+        print(args.controllers)
+        if not args.state.settings.vibration:
+            return
+
+        for controller in args.controllers:
+            controller.rumble_play_strong()
 
     def play_sound(self, state):
         sound_number = random.randint(1, 4)
