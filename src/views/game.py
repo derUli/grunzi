@@ -633,12 +633,13 @@ class Game(Fading):
 
         item = self.player_sprite.get_item()
 
+        args = make_args_container(self)
+
         for sprite in arcade.check_for_collision_with_lists(self.player_sprite.get_item(), self.scene.sprite_lists):
             if isinstance(sprite, Useable):
                 return item.on_use_with(
                     sprite,
-                    state=self.state,
-                    handlers=CallbackHandler(on_complete=self.on_next_level)
+                    args=args
                 )
 
         item.on_use(

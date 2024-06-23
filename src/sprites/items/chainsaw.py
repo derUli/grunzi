@@ -11,29 +11,29 @@ SCORE_KILL_CHICKEN = 50
 
 
 class Chainsaw(Item):
-    def on_use_with(self, b, state=None, handlers=None):
+    def on_use_with(self, b, args):
         from sprites.characters.skull import Skull
         from sprites.characters.chicken import Chicken
 
         if isinstance(b, Tree):
             if b.fade_destroy():
-                self.play_sound(state)
-                state.score += SCORE_DESTROY_TREE
+                self.play_sound(args.state)
+                args.state.score += SCORE_DESTROY_TREE
             return
 
         if isinstance(b, Skull):
             b.hurt(50)
-            self.play_sound(state)
-            state.score += SCORE_KILL_SKULL
+            self.play_sound(args.state)
+            args.state.score += SCORE_KILL_SKULL
             return
 
         if isinstance(b, Chicken):
             b.hurt(100)
-            self.play_sound(state)
-            state.score += SCORE_KILL_CHICKEN
+            self.play_sound(args.state)
+            args.state.score += SCORE_KILL_CHICKEN
             return
 
-        state.noaction()
+        args.state.noaction()
 
     def play_sound(self, state):
         sound_number = random.randint(1, 4)

@@ -8,14 +8,14 @@ SCORE_DESTROY_FENCE = 100
 
 
 class Plier(Item):
-    def on_use_with(self, b, state=None, handlers=None):
+    def on_use_with(self, b, args):
         if isinstance(b, Fence):
             if b.fade_destroy():
-                state.play_sound('tools', 'plier')
-                state.score += SCORE_DESTROY_FENCE
+                args.state.play_sound('tools', 'plier')
+                args.state.score += SCORE_DESTROY_FENCE
             return
 
-        state.noaction()
+        args.state.noaction()
 
     def generate_rotated(self, image):
         rotated = super().generate_rotated(image)

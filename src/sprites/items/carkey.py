@@ -4,13 +4,13 @@ from utils.callbackhandler import CallbackHandler
 
 
 class CarKey(Item):
-    def on_use_with(self, b, state=None, handlers: CallbackHandler | None = None):
+    def on_use_with(self, b, args):
         if isinstance(b, Jeep):
-            state.play_sound('car', 'start')
-            handlers.on_complete()
+            args.state.play_sound('car', 'start')
+            args.callbacks.on_complete()
             return
 
-        state.noaction()
+        args.state.noaction()
 
     def copy(self):
         """ Copy item """

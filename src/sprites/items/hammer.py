@@ -6,21 +6,21 @@ SCORE_HURT_SKULLSPRITE = 50
 
 
 class Hammer(Item):
-    def on_use_with(self, b, state=None, handlers=None):
+    def on_use_with(self, b, args):
         from sprites.characters.skull import Skull
 
         if isinstance(b, PiggyBank):
             if b.fade_destroy():
-                state.play_sound('piggybank', 'destroy')
-                state.score += SCORE_DESTROY_PIGGYBANK
+                args.state.play_sound('piggybank', 'destroy')
+                args.state.score += SCORE_DESTROY_PIGGYBANK
             return
 
         if isinstance(b, Skull):
             b.hurt(40)
-            state.score += SCORE_HURT_SKULLSPRITE
+            args.state.score += SCORE_HURT_SKULLSPRITE
             return
 
-        state.noaction()
+        args.state.noaction()
 
     def copy(self):
         """ Copy item """

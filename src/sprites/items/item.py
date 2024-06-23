@@ -49,7 +49,7 @@ class Item(Sprite):
             center_y=center_y
         )
 
-    def on_use_with(self, b, state=None, handlers=None):
+    def on_use_with(self, b, args):
         logging.info(f"Use item {self} with {b}")
 
     def on_use(self, args):
