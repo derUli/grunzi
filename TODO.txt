@@ -1,5 +1,7 @@
 * Hund Gegner
 * Skelett Gegner
+* Slimer Gegner
+* Vibration bei Nutzung der Kettensäge
 * Level 1: Autofahr-Animation am Levelende
 * Aufgabe mit Metalldetektor
 * Benzin-Kanister zum Aufladen der Kettensäge
