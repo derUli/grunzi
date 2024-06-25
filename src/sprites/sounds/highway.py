@@ -3,6 +3,7 @@ from typing import Optional
 from arcade import Texture
 
 from sprites.sprite import Sprite
+from state.argscontainer import ArgsContainer
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 
 
@@ -50,9 +51,9 @@ class Highway(Sprite):
 
     def update(
             self,
-            delta_time,
-            args
-    ):
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
         if not self.sound:
             audio = args.state.play_sound('atmos', 'highway', loop=True)
             self.sound = PositionalSound(
