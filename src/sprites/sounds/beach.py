@@ -59,7 +59,7 @@ class Beach(Sprite):
         @param delta_time: Delta time
         @param args: ArgsContainer
         """
-        
+
         if not self.sound:
             audio = args.state.play_sound('atmos', 'beach', loop=True)
             self.sound = PositionalSound(

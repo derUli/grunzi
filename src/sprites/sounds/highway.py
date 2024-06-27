@@ -54,6 +54,11 @@ class Highway(Sprite):
             delta_time: float,
             args: ArgsContainer
     ) -> None:
+        """
+        Update beach sound
+        @param delta_time: Delta time
+        @param args: ArgsContainer
+        """
         if not self.sound:
             audio = args.state.play_sound('atmos', 'highway', loop=True)
             self.sound = PositionalSound(
