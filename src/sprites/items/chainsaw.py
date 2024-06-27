@@ -39,8 +39,6 @@ class Chainsaw(Item):
         args.state.noaction()
 
     def vibrate(self, args):
-        print(args.state.settings.vibration)
-        print(args.controllers)
         if not args.state.settings.vibration:
             return
 

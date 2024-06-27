@@ -98,8 +98,6 @@ clean_rubbish = [
 for bulk in clean_rubbish:
     for file in bulk:
         if os.path.isdir(file):
-            print(f"Deleting {file}")
             shutil.rmtree(file)
         elif os.path.isfile(file):
-            print(f"Deleting {file}")
             os.unlink(file)
