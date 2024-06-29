@@ -12,12 +12,7 @@ class HighscoreStorage:
         Constructor
         """
         self.url = 'https://grunzi.ulidots.de/'
-        self.highscore = [
-            # {
-            # 'name': 'Timo Sofia',
-            # 'score': 0
-            # }
-        ]
+        self.highscore = []
 
     def fetch(self) -> bool:
         """
@@ -25,6 +20,7 @@ class HighscoreStorage:
 
         @return: success
         """
+
         data = '[]'
         try:
             with urlopen(self.url, timeout=3) as f:
@@ -49,6 +45,7 @@ class HighscoreStorage:
 
         @return: success
         """
+
         logging.error('Submit highscore is implemented yet')
         return False
 

@@ -10,6 +10,8 @@ from utils.scene import get_layer
 
 class MapPopulator:
     def __init__(self):
+        """ Constructor """
+
         self.next_spawn = 0
 
     def update(self, args):
