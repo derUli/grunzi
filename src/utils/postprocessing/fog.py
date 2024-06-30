@@ -5,6 +5,7 @@ import arcade
 from PIL import ImageOps
 from PIL.Image import Resampling
 
+from typing import Self
 from utils.postprocessing.effect import Effect
 
 DEFAULT_ALPHA = 180
@@ -13,7 +14,12 @@ MOVE_SPEED_WALK = 1.0
 
 
 class Fog(Effect):
-    def setup(self, args):
+    def setup(self, args) -> Self:
+        """
+        Setup fog effect
+        @param args:
+        @return:
+        """
 
         image = PIL.Image.open(
             os.path.join(args.state.image_dir, 'postprocessing', 'fog.png')

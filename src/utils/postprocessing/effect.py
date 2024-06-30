@@ -2,6 +2,7 @@
 import logging
 
 from arcade import SpriteList
+from typing import Self
 
 
 class Effect:
@@ -9,10 +10,12 @@ class Effect:
 
     def __init__(self):
         """ Constructor """
+
         self.spritelist = SpriteList(lazy=True, use_spatial_hash=True)
 
-    def setup(self, args):
+    def setup(self, args) -> Self:
         """ Setup effect """
+
         logging.error('Postprocessing: setup() method not implemented')
         return self
 
