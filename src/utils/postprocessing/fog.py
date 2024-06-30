@@ -55,7 +55,8 @@ class Fog(Effect):
             x += sprite.width
         return self
 
-    def update(self, delta_time, args):
+    def update(self, delta_time: float, args) -> None:
+
         for sprite in self.spritelist:
             x, y = args.player.position
             x1, x2, w, h = args.camera.viewport
@@ -68,5 +69,5 @@ class Fog(Effect):
 
             sprite.position = (x, y)
 
-    def draw(self):
+    def draw(self) -> None:
         self.spritelist.draw()
