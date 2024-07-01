@@ -288,6 +288,13 @@ class Game(Fading):
         if self.player_sprite.dead:
             self.player_sprite.update(delta_time, make_args_container(self))
             self.player_sprite.reset()
+
+            if not self.player_sprite.bloody_screen.shown:
+                self.scene.update_scene(
+                    delta_time,
+                    make_args_container(self)
+                )
+
             return self.update_fade(self.next_view)
 
         # Move the player with the physics engine

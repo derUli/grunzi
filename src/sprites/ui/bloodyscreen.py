@@ -62,6 +62,10 @@ class BloodyScreen:
 
         self._alpha = new_alpha
 
+    @property
+    def shown(self):
+        return self._alpha >= 255
+
     def draw(self):
         if self._alpha <= 0:
             return
