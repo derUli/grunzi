@@ -44,7 +44,7 @@ class Landmine(Character):
             self.spawn_explosion(args)
 
     def explosion_hurt(self, args):
-        hurt = 100 / (len(self.explosion.frames) * 2.6)
+        hurt = 100 / (len(self.explosion.frames) * 2.5)
 
         moveable = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_MOVEABLE])
 
