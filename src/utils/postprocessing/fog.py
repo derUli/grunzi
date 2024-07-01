@@ -7,6 +7,7 @@ from PIL.Image import Resampling
 
 from typing import Self
 from utils.postprocessing.effect import Effect
+from state.argscontainer import ArgsContainer
 
 DEFAULT_ALPHA = 180
 MOVE_SPEED_DEFAULT = 0.2
@@ -14,11 +15,11 @@ MOVE_SPEED_WALK = 1.0
 
 
 class Fog(Effect):
-    def setup(self, args) -> Self:
+    def setup(self, args: ArgsContainer) -> Self:
         """
         Setup fog effect
-        @param args:
-        @return:
+        @param args: ArgsContainer
+        @return: Self
         """
 
         image = PIL.Image.open(
@@ -55,7 +56,7 @@ class Fog(Effect):
             x += sprite.width
         return self
 
-    def update(self, delta_time: float, args) -> None:
+    def update(self, delta_time: float, args: ArgsContainer) -> None:
 
         for sprite in self.spritelist:
             x, y = args.player.position
@@ -70,4 +71,6 @@ class Fog(Effect):
             sprite.position = (x, y)
 
     def draw(self) -> None:
+        """ Draw fog """
+
         self.spritelist.draw()
