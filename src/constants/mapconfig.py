@@ -33,7 +33,7 @@ class MapConfig:
             'fog': False,
             'sun': False,
             'lighting': None,
-            'landmines': False
+            'landmines': False,
         }
 
     def setup(self, difficulty, map_name, level_dir) -> None:

@@ -69,6 +69,9 @@ class ViewState:
             'screech': arcade.load_sound(
                 os.path.join(self.sound_dir, 'skull', 'screech.ogg'),
             ),
+            'slimer': arcade.load_sound(
+                os.path.join(self.sound_dir, 'slimer', 'slimer.ogg'),
+            ),
             'footsteps': arcade.load_sound(
                 os.path.join(self.sound_dir, 'pig', 'footsteps.ogg')
             ),

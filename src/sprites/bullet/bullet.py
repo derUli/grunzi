@@ -11,12 +11,18 @@ from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WA
 from constants.layers import LAYER_NPC
 from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
+from sprites.characters.slimer import Slimer
 from sprites.sprite import AbstractSprite
 from state.argscontainer import ArgsContainer
 from utils.physics import on_hit_destroy
 
 HURT_DEFAULT = 20
 HURT_CHICKEN = 35
+HURT_SLIMER = 10
+
+SCORE_HURT_CHICKEN = 25
+SCORE_HURT_SKULL = 50
+SCORE_HURT_SLIMER = 60
 
 MASS = 0.05
 DAMPING = 1
@@ -26,9 +32,6 @@ FORCE_MOVE = 3800
 
 # Destroy after X seconds
 DESTROY_TIME = 2
-
-SCORE_HURT_CHICKEN = 25
-SCORE_HURT_SKULL = 50
 
 
 class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
@@ -110,6 +113,10 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
         if isinstance(_hit_sprite, Chicken):
             hurt = HURT_CHICKEN
             score = SCORE_HURT_CHICKEN
+
+        if isinstance(_hit_sprite, Slimer):
+            hurt = HURT_SLIMER
+            score = SCORE_HURT_SLIMER
 
         hurt = hurt * self.hurt_modifier
 

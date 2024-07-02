@@ -48,16 +48,20 @@
   },
   "map03": {
     "options": {
-      "fog": true
+      "fog": true,
+      "landmines": true
     },
+    "spawnWhat": [
+      "Slimer"
+    ],
     "1": {
-      "maxNPCs": 0
+      "maxNPCs": 7
     },
     "2": {
-      "maxNPCs": 0
+      "maxNPCs": 9
     },
     "3": {
-      "maxNPCs": 0
+      "maxNPCs": 12
     }
   }
 }

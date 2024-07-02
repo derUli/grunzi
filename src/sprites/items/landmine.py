@@ -40,14 +40,20 @@ class Landmine(Character):
             if isinstance(sprite, Character):
                 return self.spawn_explosion(args)
 
-        if any(arcade.check_for_collision_with_list(self, args.scene[LAYER_MOVEABLE])):
-            self.spawn_explosion(args)
+        try:
+            if any(arcade.check_for_collision_with_list(self, args.scene[LAYER_MOVEABLE])):
+                self.spawn_explosion(args)
+        except KeyError:
+            pass
 
     def explosion_hurt(self, args):
 
         hurt = 100 / (len(self.explosion.frames) * 0.19)
 
-        moveable = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_MOVEABLE])
+        try:
+            moveable = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_MOVEABLE])
+        except KeyError:
+            moveable = []
 
         for sprite in moveable:
             sprite.remove_from_sprite_lists()
@@ -59,7 +65,6 @@ class Landmine(Character):
 
             args.player.hurt(hurt)
             return
-
 
         npcs = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_NPC])
 

@@ -7,6 +7,7 @@ DAMAGE = 0
 HEALTH_FULL = 100
 MODIFIER_DEFAULT = 1.0
 
+
 class Character(Sprite, SpriteHealth):
     def __init__(
             self,

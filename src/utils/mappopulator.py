@@ -38,6 +38,9 @@ class MapPopulator:
         if what == 'Skull':
             self.spawn_skull(args)
 
+        if what == 'Slimer':
+            self.spawn_slimer(args)
+
         self.next_spawn = time.time() + random.randint(1, 6)
 
     def spawn_skull(self, args):
@@ -48,6 +51,15 @@ class MapPopulator:
         """
         from sprites.characters.skull import spawn_skull
         spawn_skull(args.state, args.tilemap.map, args.scene, args.physics_engine)
+
+    def spawn_slimer(self, args):
+        """
+        Spawn a slimer
+
+        @param: ArgsContainer
+        """
+        from sprites.characters.slimer import spawn_slimer
+        spawn_slimer(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     def spawn_npcs(self, args):
         """ Spawn some sprites on level load """

@@ -13,6 +13,7 @@
 * Global: Kamera-Bewegung optimiert
 * map02: Kakteen hinzugefügt
 * Controller: Vibration hinzugefügt
+* map03: Slimer hinzugefügt (noch ohne AI)
 
 ## Alpha 014 (21.06.2024)
 
