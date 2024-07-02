@@ -3,6 +3,7 @@ import logging
 
 from arcade import SpriteList
 from typing import Self
+from state.argscontainer import ArgsContainer
 
 
 class Effect:
@@ -19,10 +20,12 @@ class Effect:
         logging.error('Postprocessing: setup() method not implemented')
         return self
 
-    def update(self, delta_time, args) -> None:
+    def update(self, delta_time: float, args: ArgsContainer) -> None:
         """ Update effect"""
+
         logging.error('Postprocessing: update() method not implemented')
 
     def draw(self) -> None:
         """ Draw effect"""
+
         self.spritelist.draw()
