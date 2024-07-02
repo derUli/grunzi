@@ -155,6 +155,10 @@ class Slimer(Character, Useable):
         else:
             move_y = MOVE_FORCE * -1
 
+        if arcade.get_distance_between_sprites(self, target) < self.height:
+            move_x *= -1
+            move_y *= -1
+
         physics_engine.apply_force(self, (move_x, move_y))
 
 
