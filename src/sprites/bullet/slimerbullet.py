@@ -15,13 +15,15 @@ FORCE_MOVE = 50000
 
 SIGHT_DISTANCE = 1000
 
+COLOR = (124, 252, 0, 255)
+
 
 class SlimerBullet(Bullet):
 
     def __init__(
             self,
             radius=64,
-            color=arcade.csscolor.GREEN,
+            color=COLOR,
             soft=True,
             force_move=FORCE_MOVE,
             hurt=30
@@ -113,7 +115,6 @@ class SlimerBullet(Bullet):
             COLLISION_PLAYER,
             post_handler=self.on_hit_player
         )
-
 
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
