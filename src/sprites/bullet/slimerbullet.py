@@ -113,7 +113,7 @@ class SlimerBullet(Bullet):
         )
 
     def on_hit_shrink(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
-        scale_sub = 0.25 * _hit_sprite.hurt_modifier
+        scale_sub = 0.2 * _hit_sprite.hurt_modifier
         scale = self.scale - scale_sub
 
         _hit_sprite.remove_from_sprite_lists()
