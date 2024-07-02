@@ -10,8 +10,6 @@ from utils.postprocessing.effect import Effect
 from state.argscontainer import ArgsContainer
 
 DEFAULT_ALPHA = 180
-MOVE_SPEED_DEFAULT = 0.2
-MOVE_SPEED_WALK = 1.0
 
 
 class Fog(Effect):
@@ -35,40 +33,41 @@ class Fog(Effect):
             resample=Resampling.BILINEAR
         )
 
+        image_mirror = ImageOps.mirror(image)
+
         x = 0
 
-        for i in range(0, 1):
-            if i == 1:
-                image = ImageOps.mirror(image)
+        max_x = args.tilemap.width
+
+        i = 0
+
+        while x < max_x:
+            i += 1
+
+            img = image
+            if i % 2 == 0:
+                img = image_mirror
 
             texture = arcade.texture.Texture(
                 name=f"Fog{i}",
-                image=image
+                image=img
             )
 
             sprite = arcade.sprite.Sprite(texture=texture)
-            sprite.center_x = x
+            sprite.left = x
             sprite.center_y = sprite.height / 2
 
             sprite.alpha = DEFAULT_ALPHA
             self.spritelist.append(sprite)
 
             x += sprite.width
+
         return self
 
     def update(self, delta_time: float, args: ArgsContainer) -> None:
-
         for sprite in self.spritelist:
             x, y = args.player.position
-            x1, x2, w, h = args.camera.viewport
-
-            if x < w / 2:
-                x = w / 2
-
-            if y < h / 2:
-                y = h / 2
-
-            sprite.position = (x, y)
+            sprite.center_y = y
 
     def draw(self) -> None:
         """ Draw fog """
