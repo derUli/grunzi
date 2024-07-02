@@ -11,6 +11,7 @@ from state.argscontainer import ArgsContainer
 
 DEFAULT_ALPHA = 180
 
+MOVE_SPEED = 0.33
 
 class Fog(Effect):
     def setup(self, args: ArgsContainer) -> Self:
@@ -37,16 +38,21 @@ class Fog(Effect):
 
         x = 0
 
-        max_x = args.tilemap.width
+        max_x = args.tilemap.width + image.width
 
         i = 0
 
-        while x < max_x:
+        flip = False
+
+        while x < max_x or flip:
             i += 1
 
             img = image
-            if i % 2 == 0:
+
+            if flip:
                 img = image_mirror
+
+            flip = not flip
 
             texture = arcade.texture.Texture(
                 name=f"Fog{i}",
@@ -55,7 +61,7 @@ class Fog(Effect):
 
             sprite = arcade.sprite.Sprite(texture=texture)
             sprite.left = x
-            sprite.center_y = sprite.height / 2
+            sprite.top = 0
 
             sprite.alpha = DEFAULT_ALPHA
             self.spritelist.append(sprite)
@@ -67,7 +73,12 @@ class Fog(Effect):
     def update(self, delta_time: float, args: ArgsContainer) -> None:
         for sprite in self.spritelist:
             x, y = args.player.position
+
+            sprite.left -= MOVE_SPEED
             sprite.center_y = y
+
+            if sprite.right <= 0:
+                sprite.right = ((len(self.spritelist)) * sprite.width) - abs(sprite.right)
 
     def draw(self) -> None:
         """ Draw fog """
