@@ -46,17 +46,11 @@ class Slimer(Character, Useable):
 
         dirname = os.path.join(os.path.dirname(filename))
 
-        self.slimer_off = self.textures = arcade.load_texture_pair(
-            os.path.join(dirname, 'slimer1.png')
-        )
-        self.slimer_on = self.textures = arcade.load_texture_pair(
-            os.path.join(dirname, 'slimer2.png')
-        )
-
         self.chasing = None
         self.friction = DEFAULT_FRICTION
         self.face = DEFAULT_FACE
-        self.textures = None
+        self.textures = arcade.load_texture_pair(os.path.join(dirname, 'slimer.png'))
+
         self.fade_in = True
         self.alpha = 0
         self.update_texture()
@@ -65,11 +59,6 @@ class Slimer(Character, Useable):
         self.bullets = SpriteList()
 
     def update_texture(self):
-        if self.chasing:
-            self.textures = self.slimer_on
-        else:
-            self.textures = self.slimer_off
-
         self.texture = self.textures[self.face - 1]
 
 
@@ -182,7 +171,7 @@ def spawn_slimer(state, tilemap, scene, physics_engine):
             state.sprite_dir,
             'monster',
             'slimer',
-            'slimer1.png'
+            'slimer.png'
         ),
         center_x=rand_x,
         center_y=rand_y
