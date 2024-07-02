@@ -19,7 +19,7 @@ FORCE_MOVE = 50000
 
 SIGHT_DISTANCE = 1000
 DESTROY_TIME = 3
-
+FADE_ALPHA_SPEED = 1
 
 COLOR = (124, 252, 0, 255)
 
@@ -146,6 +146,11 @@ class SlimerBullet(Bullet):
         @param delta_time: Delta Time
         @param args: arguments container
         """
-        if time.time() >= self.created_at + DESTROY_TIME:
+        new_alpha = self.alpha - FADE_ALPHA_SPEED
+        if time.time() >= self.created_at + DESTROY_TIME and self.alpha >= 255:
             logging.debug('Remove slimer bullet from scene')
+
+        if new_alpha > 0:
+            self.alpha = new_alpha
+        else:
             self.remove_from_sprite_lists()

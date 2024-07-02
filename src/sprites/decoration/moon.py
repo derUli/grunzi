@@ -1,15 +1,15 @@
-""" Sun """
+""" Moon """
 
 from sprites.sprite import Sprite
 
 MARGIN_RIGHT = 20
 
 
-class Sun(Sprite):
-    """ Sun """
+class Moon(Sprite):
+    """ Moon """
 
     def update(self, delta_time, args):
-        """ Update sun position """
+        """ Update moon position """
         camera_x, camera_y = args.camera.position
         x, y, viewport_w, viewport_h = args.camera.viewport
 

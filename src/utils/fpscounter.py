@@ -24,7 +24,8 @@ class FPSCounter:
         """ Reset fps counter """
 
         self.current_fps = -1
-        self.fps_text = None
+        self.last_fps_update = time.time()
+        self.fps_text = {}
 
     def update(self, fps: float) -> None:
         """
@@ -32,6 +33,8 @@ class FPSCounter:
 
         @param fps: Current fps
         """
+
+        self.last_fps_update = time.time()
         self.current_fps = int(fps)
 
     def draw(self, size: tuple) -> None:
@@ -46,17 +49,20 @@ class FPSCounter:
 
         fps = str(self.current_fps)
 
-        fps_text = create_text(
-            fps,
-            color=arcade.csscolor.LIME_GREEN,
-            font_name=FONT_MONOTYPE,
-            font_size=MEDIUM_FONT_SIZE,
-            bold=True
-        )
+        if fps not in self.fps_text:
+            fps_text = create_text(
+                fps,
+                color=arcade.csscolor.LIME_GREEN,
+                font_name=FONT_MONOTYPE,
+                font_size=MEDIUM_FONT_SIZE,
+                bold=True
+            )
 
-        w, h = size
+            w, h = size
 
-        fps_text.x = w - MARGIN - fps_text.content_width
-        fps_text.y = h - fps_text.content_height
+            fps_text.x = w - MARGIN - fps_text.content_width
+            fps_text.y = h - fps_text.content_height
 
-        fps_text.draw()
+            self.fps_text[fps] = fps_text
+
+        self.fps_text[fps].draw()
