@@ -17,6 +17,7 @@ class MapConfig:
 
         self.max_npcs = 0
         self.skull_hurt = 0
+        self.slimer_hurt = 0
         self.spawn_what = []
         self.options = {}
 
@@ -27,6 +28,7 @@ class MapConfig:
 
         self.max_npcs = 0
         self.skull_hurt = 0
+        self.slimer_hurt = 0
         self.spawn_what = []
         self.options = {
             'chicken': False,
@@ -50,6 +52,8 @@ class MapConfig:
 
         if 'skullHurt' in difficulty_data:
             self.skull_hurt = difficulty_data['skullHurt']
+        if 'slimerHurt' in difficulty_data:
+            self.slimer_hurt = difficulty_data['slimerHurt']
 
         map_data = {}
 

@@ -36,7 +36,8 @@ class SlimerBullet(Bullet):
     ):
         super().__init__(radius, color, soft, force_move, hurt)
 
-        self.target = None
+        self.radius = radius
+
 
     def setup(self, source, physics_engine, scene, state, target=None):
 
@@ -101,7 +102,7 @@ class SlimerBullet(Bullet):
         physics_engine.add_collision_handler(
             COLLISION_SLIMER_BULLET,
             COLLISION_BULLET,
-            post_handler=on_hit_destroy
+            post_handler=self.on_hit_shrink
         )
 
         physics_engine.apply_force(self, (force_x, force_y))
@@ -111,6 +112,18 @@ class SlimerBullet(Bullet):
             COLLISION_PLAYER,
             post_handler=self.on_hit_player
         )
+
+    def on_hit_shrink(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
+        scale_sub = 0.25 * _hit_sprite.hurt_modifier
+        scale = self.scale - scale_sub
+
+        _hit_sprite.remove_from_sprite_lists()
+
+        if scale <= 0:
+            self.remove_from_sprite_lists()
+            return
+
+        self.scale = scale
 
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """

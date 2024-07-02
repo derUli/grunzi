@@ -24,7 +24,7 @@ GRID_SIZE = 64
 FADE_IN_MAX = 255
 FADE_SPEED = 4
 
-SHOOT_DELTA = 0.33
+SHOOT_DELTA = 1
 
 PATH_FINDING_INTERVAL = 1
 
@@ -145,7 +145,7 @@ class Slimer(Character, Useable):
 
         from sprites.bullet.slimerbullet import SlimerBullet
 
-        bullet = SlimerBullet()
+        bullet = SlimerBullet(hurt=args.state.difficulty.slimer_hurt)
         self.bullets.append(bullet)
         bullet.setup(self, args.physics_engine, args.scene, args.state, target=args.player)
 

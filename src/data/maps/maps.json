@@ -1,13 +1,16 @@
 {
   "default": {
     "1": {
-      "skullHurt": 10
+      "skullHurt": 10,
+      "slimerHurt": 25
     },
     "2": {
-      "skullHurt": 15
+      "skullHurt": 15,
+      "slimerHurt": 30
     },
     "3": {
-      "skullHurt": 20
+      "skullHurt": 20,
+      "slimerHurt": 35
     }
   },
   "map01": {
@@ -55,13 +58,13 @@
       "Slimer"
     ],
     "1": {
-      "maxNPCs": 3
-    },
-    "2": {
       "maxNPCs": 5
     },
-    "3": {
+    "2": {
       "maxNPCs": 7
+    },
+    "3": {
+      "maxNPCs": 9
     }
   }
 }
