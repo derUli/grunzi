@@ -31,7 +31,7 @@ ELASTICITY = 0.1
 FORCE_MOVE = 3800
 
 # Destroy after X seconds
-DESTROY_TIME = 2
+DESTROY_TIME = 3
 
 
 class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):

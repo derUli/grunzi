@@ -128,9 +128,6 @@ class Slimer(Character, Useable):
         if not self.chasing:
             return
 
-        if len(self.bullets) >= 3:
-            return
-
         if self.last_shot < SHOOT_DELTA:
             return
 

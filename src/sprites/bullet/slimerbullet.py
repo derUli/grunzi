@@ -1,9 +1,13 @@
+import logging
+import time
+
 import arcade
 
 from constants.collisions import COLLISION_BULLET, COLLISION_WALL, COLLISION_PLAYER, COLLISION_SLIMER_BULLET
 from constants.layers import LAYER_NPC
 from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
+from state.argscontainer import ArgsContainer
 from utils.physics import on_hit_destroy
 
 MASS = 1
@@ -14,6 +18,8 @@ ELASTICITY = 0.1
 FORCE_MOVE = 50000
 
 SIGHT_DISTANCE = 1000
+DESTROY_TIME = 3
+
 
 COLOR = (124, 252, 0, 255)
 
@@ -90,11 +96,6 @@ class SlimerBullet(Bullet):
             collision_type=COLLISION_SLIMER_BULLET,
             elasticity=ELASTICITY
         )
-        physics_engine.add_collision_handler(
-            COLLISION_SLIMER_BULLET,
-            COLLISION_WALL,
-            post_handler=on_hit_destroy
-        )
 
         physics_engine.add_collision_handler(
             COLLISION_SLIMER_BULLET,
@@ -125,3 +126,18 @@ class SlimerBullet(Bullet):
         hurt = self.hurt
 
         _hit_sprite.hurt(hurt)
+
+    def update(
+            self,
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
+        """
+        Update bullet
+
+        @param delta_time: Delta Time
+        @param args: arguments container
+        """
+        if time.time() >= self.created_at + DESTROY_TIME:
+            logging.debug('Remove slimer bullet from scene')
+            self.remove_from_sprite_lists()
