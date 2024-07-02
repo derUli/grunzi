@@ -47,16 +47,12 @@ class SlimerBullet(Bullet):
         self.center_y = source.center_y
         self.alpha = 0
 
-        self.check_target_x = self.center_x
-
         if target.left > source.right:
             self.left = source.right
             force_x = FORCE_MOVE
-            check_target_x = self.right + 500
         else:
             self.right = source.left
             force_x = FORCE_MOVE * -1
-            check_target_x = self.left - 500
 
         original_center_x = self.center_x
 
@@ -86,8 +82,7 @@ class SlimerBullet(Bullet):
         scene.add_sprite(LAYER_NPC, self)
 
         # TODO: Other sound effect
-        state.play_sound('shot')
-
+        state.play_sound('shot', speed=0.1)
         physics_engine.add_sprite(
             self,
             mass=MASS,

@@ -61,7 +61,7 @@ class Slimer(Character, Useable):
         self.alpha = 0
         self.update_texture()
         self.last_shot = 0
-
+        self.sound = None
         self.bullets = SpriteList()
 
     def update_texture(self):
@@ -106,14 +106,6 @@ class Slimer(Character, Useable):
 
             return
 
-        # Figure out if we should face left or right
-        if args.player.right < self.left:
-            self.face = FACE_LEFT
-            self.update_texture()
-        elif args.player.left > self.right:
-            self.face = FACE_RIGHT
-            self.update_texture()
-
         if not self.chasing and arcade.has_line_of_sight(
                 self.position,
                 args.player.position,
@@ -123,12 +115,30 @@ class Slimer(Character, Useable):
         ):
             self.chasing = True
 
-            args.state.play_sound('slimer')
+            if not self.sound:
+                self.sound = args.state.play_sound('slimer')
+
+            if self.sound and not self.sound.playing:
+                self.sound = None
 
         if not self.chasing:
             return
 
+        if arcade.get_distance_between_sprites(self, args.player) > SIGHT_DISTANCE:
+            self.chasing = False
+            self.update_texture()
+            return
+
+        # Figure out if we should face left or right
+        if args.player.right < self.left:
+            self.face = FACE_LEFT
+            self.update_texture()
+        elif args.player.left > self.right:
+            self.face = FACE_RIGHT
+            self.update_texture()
+
         if self.last_shot < SHOOT_DELTA:
+            self.movement(args.player, args.physics_engine)
             return
 
         self.last_shot = 0
@@ -138,6 +148,30 @@ class Slimer(Character, Useable):
         bullet = SlimerBullet()
         self.bullets.append(bullet)
         bullet.setup(self, args.physics_engine, args.scene, args.state, target=args.player)
+
+
+    def movement(self, target, physics_engine):
+        if not self.chasing:
+            return
+
+        x1, y1 = self.position
+        x2, y2 = target.position
+
+        move_x, move_y = 0, 0
+        if x2 > x1:
+            move_x = MOVE_FORCE
+        else:
+            move_x = MOVE_FORCE * -1
+
+        if y2 > y1:
+            move_y = MOVE_FORCE
+        else:
+            move_y = MOVE_FORCE * -1
+
+        physics_engine.apply_force(self, (move_x, move_y))
+
+
+
 
 
 def spawn_slimer(state, tilemap, scene, physics_engine):
