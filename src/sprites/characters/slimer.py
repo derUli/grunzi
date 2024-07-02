@@ -2,7 +2,7 @@
 import os
 
 import arcade
-from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
+from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine, SpriteList
 
 from constants.collisions import COLLISION_ENEMY
 from constants.layers import LAYER_NPC, check_collision_with_layers
@@ -24,7 +24,7 @@ GRID_SIZE = 64
 FADE_IN_MAX = 255
 FADE_SPEED = 4
 
-SHOOT_DELTA = 1 / 5.5
+SHOOT_DELTA = 0.5
 
 PATH_FINDING_INTERVAL = 1
 
@@ -60,6 +60,9 @@ class Slimer(Character, Useable):
         self.fade_in = True
         self.alpha = 0
         self.update_texture()
+        self.last_shot = 0
+
+        self.bullets = SpriteList()
 
     def update_texture(self):
         if self.chasing:
@@ -69,6 +72,7 @@ class Slimer(Character, Useable):
 
         self.texture = self.textures[self.face - 1]
 
+
     def draw_overlay(self, args):
         self.draw_healthbar()
 
@@ -77,6 +81,8 @@ class Slimer(Character, Useable):
             delta_time,
             args
     ):
+
+        self.last_shot += delta_time
 
         if self.dead:
             alpha = self.alpha - FADE_SPEED
@@ -118,7 +124,23 @@ class Slimer(Character, Useable):
             self.chasing = True
 
             args.state.play_sound('slimer')
-        return
+
+        if not self.chasing:
+            return
+
+        if len(self.bullets) >= 3:
+            return
+
+        if self.last_shot < SHOOT_DELTA:
+            return
+
+        self.last_shot = 0
+
+        from sprites.bullet.slimerbullet import SlimerBullet
+
+        bullet = SlimerBullet()
+        self.bullets.append(bullet)
+        bullet.setup(self, args.physics_engine, args.scene, args.state, target=args.player)
 
 
 def spawn_slimer(state, tilemap, scene, physics_engine):

@@ -49,7 +49,7 @@
   "map03": {
     "options": {
       "fog": true,
-      "landmines": true
+      "landmines": false
     },
     "spawnWhat": [
       "Slimer"
