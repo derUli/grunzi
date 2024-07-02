@@ -18,6 +18,7 @@
 * Controller: Vibration hinzugefügt
 * map03: Slimer hinzugefügt
 * map03: Nebel animiert
+* map03 Map-Aufbau
 
 ## Alpha 014 (21.06.2024)
 
