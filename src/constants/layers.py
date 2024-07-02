@@ -9,6 +9,7 @@ from sprites.characters.fish import Fish
 from sprites.decoration.cloud import Cloud
 from sprites.decoration.river import River, RiverSound
 from sprites.decoration.sun import Sun
+from sprites.decoration.moon import Moon
 from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
 from sprites.items.cactus import Cactus
@@ -55,6 +56,7 @@ LAYER_CONES = 'Cone'
 LAYER_CLOUDS = 'Cloud'
 LAYER_SKY = 'Sky'
 LAYER_SUN = 'Sun'
+LAYER_MOON = 'Moon'
 LAYER_ELECTRIC = 'Electric'
 LAYER_ELECTRIC_SWITCH = 'ElectricSwitch'
 LAYER_LEVEL_EXIT = 'LevelExit'
@@ -78,6 +80,7 @@ ALL_LAYERS = [
     LAYER_WATER,
     LAYER_SKY,
     LAYER_SUN,
+    LAYER_MOON,
     LAYER_ELECTRIC,
     LAYER_ELECTRIC_SWITCH,
     LAYER_LEVEL_EXIT,
@@ -95,16 +98,6 @@ WALL_LAYERS = [
     LAYER_TREE,
     LAYER_RIVER,
     LAYER_CACTUS
-]
-
-SKY_LAYERS = [
-    LAYER_CLOUDS,
-    LAYER_SUN
-]
-
-TRAFFIC_LAYERS = [
-    LAYER_CAR_LEFT,
-    LAYER_CAR_RIGHT
 ]
 
 ANIMATED_LAYERS = [
@@ -169,6 +162,9 @@ LAYER_OPTIONS = {
     },
     LAYER_SUN: {
         'custom_class': Sun
+    },
+    LAYER_MOON: {
+        'custom_class': Moon
     },
     LAYER_ELECTRIC: {
         'custom_class': Electric
