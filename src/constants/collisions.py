@@ -6,6 +6,7 @@ COLLISION_GRUNT = "grunt"
 COLLISION_BULLET = "bullet"
 COLLISION_SKULL_BULLET = "skull_bullet"
 COLLISION_SLIMER_BULLET = "slimer_bullet"
+COLLISION_SLIMER = 'slimer'
 COLLISION_WATER = "water"
 COLLISION_WALL = "wall"
 COLLISION_PLAYER = "player"

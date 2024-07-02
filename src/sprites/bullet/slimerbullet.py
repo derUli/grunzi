@@ -3,7 +3,8 @@ import time
 
 import arcade
 
-from constants.collisions import COLLISION_BULLET, COLLISION_PLAYER, COLLISION_SLIMER_BULLET
+from constants.collisions import COLLISION_BULLET, COLLISION_PLAYER, COLLISION_SLIMER_BULLET, COLLISION_SLIMER, \
+    COLLISION_ENEMY
 from constants.layers import LAYER_NPC
 from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
@@ -47,6 +48,10 @@ class SlimerBullet(Bullet):
         self.center_y = source.center_y
         self.alpha = 0
 
+        if arcade.check_for_collision(source, target):
+            self.remove_from_sprite_lists()
+            return
+
         if target.left > source.right:
             self.left = source.right
             force_x = FORCE_MOVE
@@ -62,14 +67,14 @@ class SlimerBullet(Bullet):
 
         for i in range(1, 1000):
             self.center_x += i
-            if arcade.check_for_collision(self, target):
+            if force_x > 0 and arcade.check_for_collision(self, target):
                 can_hit = True
 
         self.center_x = original_center_x
 
         for i in range(1, 1000):
             self.center_x -= i
-            if arcade.check_for_collision(self, target):
+            if force_x < 0 and arcade.check_for_collision(self, target):
                 can_hit = True
 
         if not can_hit:
@@ -125,6 +130,7 @@ class SlimerBullet(Bullet):
         self.scale = scale
 
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
+
         """ Called for bullet/wall collision """
         bullet_sprite.remove_from_sprite_lists()
         if not isinstance(_hit_sprite, Character):
