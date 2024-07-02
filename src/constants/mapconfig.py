@@ -33,7 +33,6 @@ class MapConfig:
         self.options = {
             'chicken': False,
             'fog': False,
-            'sun': False,
             'lighting': None,
             'landmines': False,
         }
