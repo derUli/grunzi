@@ -1,8 +1,9 @@
 """ Postprocessing effect base class  """
 import logging
+from typing import Self
 
 from arcade import SpriteList
-from typing import Self
+
 from state.argscontainer import ArgsContainer
 
 

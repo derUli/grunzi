@@ -3,7 +3,7 @@ import time
 
 import arcade
 
-from constants.collisions import COLLISION_BULLET, COLLISION_WALL, COLLISION_PLAYER, COLLISION_SLIMER_BULLET
+from constants.collisions import COLLISION_BULLET, COLLISION_PLAYER, COLLISION_SLIMER_BULLET
 from constants.layers import LAYER_NPC
 from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character
@@ -37,7 +37,6 @@ class SlimerBullet(Bullet):
         super().__init__(radius, color, soft, force_move, hurt)
 
         self.radius = radius
-
 
     def setup(self, source, physics_engine, scene, state, target=None):
 

@@ -61,7 +61,6 @@ class Slimer(Character, Useable):
     def update_texture(self):
         self.texture = self.textures[self.face - 1]
 
-
     def draw_overlay(self, args):
         self.draw_healthbar()
 
@@ -138,7 +137,6 @@ class Slimer(Character, Useable):
         self.bullets.append(bullet)
         bullet.setup(self, args.physics_engine, args.scene, args.state, target=args.player)
 
-
     def movement(self, target, physics_engine):
         if not self.chasing:
             return
@@ -158,9 +156,6 @@ class Slimer(Character, Useable):
             move_y = MOVE_FORCE * -1
 
         physics_engine.apply_force(self, (move_x, move_y))
-
-
-
 
 
 def spawn_slimer(state, tilemap, scene, physics_engine):

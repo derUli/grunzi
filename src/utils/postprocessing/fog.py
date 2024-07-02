@@ -1,17 +1,18 @@
 import os
+from typing import Self
 
 import PIL
 import arcade
 from PIL import ImageOps
 from PIL.Image import Resampling
 
-from typing import Self
-from utils.postprocessing.effect import Effect
 from state.argscontainer import ArgsContainer
+from utils.postprocessing.effect import Effect
 
 DEFAULT_ALPHA = 180
 
 MOVE_SPEED = 0.33
+
 
 class Fog(Effect):
     def setup(self, args: ArgsContainer) -> Self:

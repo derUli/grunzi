@@ -7,9 +7,9 @@ import sprites.decoration.car
 from sprites.characters.duck import Duck
 from sprites.characters.fish import Fish
 from sprites.decoration.cloud import Cloud
+from sprites.decoration.moon import Moon
 from sprites.decoration.river import River, RiverSound
 from sprites.decoration.sun import Sun
-from sprites.decoration.moon import Moon
 from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
 from sprites.items.cactus import Cactus
