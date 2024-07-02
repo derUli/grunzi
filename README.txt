@@ -35,7 +35,7 @@ der RivaTuner Software gemessen.
 | Hardware-Art    | Hersteller | Modell                 |
 |-----------------|------------|------------------------|
 | Prozessor       | Intel      | Core i7-10700F         |
-| Grafikkarte     | NVIDIA     | GeForce GT 1030 (DDR5) |
+| Grafikkarte     | NVIDIA     | Quadro T400 (4GB) |
 | Arbeitsspeicher | Unbekannt  | 32 GB                  |
 | Betriebssystem  | Microsoft  | Windows 11 (64-Bit)    |
 
