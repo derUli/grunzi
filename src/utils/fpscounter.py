@@ -34,6 +34,9 @@ class FPSCounter:
         @param fps: Current fps
         """
 
+        if time.time() - self.last_fps_update < FPS_UPDATE_INTERVAL:
+            return
+
         self.last_fps_update = time.time()
         self.current_fps = int(fps)
 
