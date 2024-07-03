@@ -14,10 +14,11 @@ class PostProcessing:
 
         return self
 
-    def update(self, delta_time, args):
+    def update(self, delta_time, args) -> None:
         for effect in self.pipeline:
             effect.update(delta_time, args)
 
-    def draw(self):
+    def draw(self) -> None:
+        """ Draw all postprocessing effects """
         for effect in self.pipeline:
             effect.draw()
