@@ -20,5 +20,6 @@ class PostProcessing:
 
     def draw(self) -> None:
         """ Draw all postprocessing effects """
+
         for effect in self.pipeline:
             effect.draw()
