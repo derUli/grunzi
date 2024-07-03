@@ -23,7 +23,7 @@ class MapConfig:
 
         self.setup(difficulty, map_name, level_dir)
 
-    def reset(self):
+    def reset(self) -> None:
         """ Reset values """
 
         self.max_npcs = 0
