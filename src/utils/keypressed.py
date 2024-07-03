@@ -12,7 +12,7 @@ class KeyPressed:
         self.key_down = False
         self.key_left = False
 
-    def reset(self):
+    def reset(self) -> None:
         """ Reset values """
 
         self.key_up = False
