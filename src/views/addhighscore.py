@@ -34,6 +34,7 @@ class AddHighscore(Fading):
         self.manager = None
         self.input_name = None
         self.message_box = None
+        self.submitting = False
 
     def on_show_view(self) -> None:
         super().on_show_view()
@@ -103,16 +104,22 @@ class AddHighscore(Fading):
         def on_submit(event):
             logging.debug(event)
 
+            if self.submitting:
+                return
+
             self.input_name.text = self.input_name.text.strip()
 
             # TODO: Validation and error handling
             if len(self.input_name.text) == 0:
                 return self.show_confirm()
 
+            self.submitting = True
+
             if not HighscoreStorage().submit(
                     self.input_name.text,
                     SaveGameState().load().total_score
             ):
+                self.submitting = False
                 return self.show_error()
 
             self.fade_to_view(
