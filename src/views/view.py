@@ -45,7 +45,6 @@ class View(arcade.View):
     def on_show_view(self) -> None:
         """ On show view """
         self.fps_counter = FPSCounter()
-
         arcade.set_background_color(self.background)
 
     def on_update(self, delta_time: float):

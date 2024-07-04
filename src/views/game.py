@@ -451,9 +451,8 @@ class Game(Fading):
 
         if completed:
             logging.info('Game Completed')
-            # TODO: Outro
-            self.on_main_menu()
-
+            from views.addhighscore import AddHighscore
+            self.fade_to_view(AddHighscore(self.window, self.state))
             return
 
         self.fade_to_view(Game(self.window, self.state, skip_intro=same))

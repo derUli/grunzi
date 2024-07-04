@@ -4,6 +4,7 @@ import logging
 import os
 
 import jsonpickle
+import numpy
 
 from constants.mapconfig import DIFFICULTY_MEDIUM
 from constants.mapconfig import MapConfig
@@ -32,6 +33,10 @@ class SaveGameState:
                 break
 
         return sorted(selectable, key=natural_keys)
+
+    @property
+    def total_score(self):
+        return numpy.sum(list(self.score.values()))
 
     @staticmethod
     def exists() -> bool:

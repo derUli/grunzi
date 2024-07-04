@@ -46,8 +46,15 @@ class HighscoreStorage:
         @return: success
         """
 
-        logging.error('Submit highscore is implemented yet')
-        return False
+        url = f"{self.url}?name={name}&score={score}"
 
+        try:
+            with urlopen(url, timeout=3) as f:
+                f.read()
+                return True
+
+        except URLError as e:
+            logging.error(e)
+            return False
 
 HighscoreStorage().fetch()

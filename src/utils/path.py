@@ -80,3 +80,6 @@ def get_autodetect_path() -> str:
     @return: filename
     """
     return os.path.join(get_userdata_path(), 'autodetect.txt')
+
+def get_user():
+    return os.environ.get('USER', os.environ.get('USERNAME'))
