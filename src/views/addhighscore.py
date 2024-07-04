@@ -16,7 +16,7 @@ from views.mainmenu import MainMenu
 BUTTON_WIDTH = 250
 MARGIN_SCORE = 50
 
-COLOR_BACKGROUND = (217, 102, 157)
+COLOR_BACKGROUND = (71, 181, 230)
 
 FILL_COUNT = 6
 FILL_CHAR = '0'
@@ -36,22 +36,20 @@ class AddHighscore(Fading):
         self.message_box = None
 
     def on_show_view(self) -> None:
+        super().on_show_view()
         """ This is run once when we switch to this view """
         self.background = COLOR_BACKGROUND
-        super().on_show_view()
+        self.push_controller_handlers()
         self.setup()
 
     def on_hide_view(self) -> None:
         """ This is run before this view is hidden """
-
         super().on_hide_view()
-        self.manager.disable()
         self.pop_controller_handlers()
+        self.manager.disable()
 
     def setup(self) -> None:
         """ Setup the view """
-
-        self.push_controller_handlers()
 
         self.shadertoy = self.state.load_shader(self.window.size, 'waves')
         self.manager = arcade.gui.UIManager(self.window)
@@ -178,7 +176,7 @@ class AddHighscore(Fading):
 
             if event.action == _('Yes'):
                 return self.fade_to_view(MainMenu(self.window, self.state))
-            
+
             return
 
         self.message_box = arcade.gui.UIMessageBox(
@@ -205,7 +203,9 @@ class AddHighscore(Fading):
 
     def on_update(self, delta_time) -> None:
         """ Update the screen """
+
         super().on_update(delta_time)
+        self.update_mouse()
         self.update_fade(self.next_view)
 
     def on_draw(self) -> None:
