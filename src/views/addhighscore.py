@@ -69,7 +69,7 @@ class AddHighscore(Fading):
                 arcade.gui.UILabel(
                     text=_(f"{map_name}: {formatted_score}"),
                     font_name=constants.fonts.FONT_MONOTYPE,
-                    font_size=utils.text.LARGE_FONT_SIZE,
+                    font_size=utils.text.FONT_SIZE_LARGE,
                 )
             ]
 
@@ -79,17 +79,17 @@ class AddHighscore(Fading):
             arcade.gui.UILabel(
                 text=' ',
                 font_name=constants.fonts.FONT_MONOTYPE,
-                font_size=utils.text.MEDIUM_FONT_SIZE,
+                font_size=utils.text.FONT_SIZE_MEDIUM,
             ),
             arcade.gui.UILabel(
                 text=_(f"{total_string}: {formatted_score}"),
                 font_name=constants.fonts.FONT_MONOTYPE,
-                font_size=utils.text.LARGE_FONT_SIZE,
+                font_size=utils.text.FONT_SIZE_LARGE,
             ),
             arcade.gui.UILabel(
                 text=' ',
                 font_name=constants.fonts.FONT_MONOTYPE,
-                font_size=utils.text.LARGE_FONT_SIZE,
+                font_size=utils.text.FONT_SIZE_LARGE,
             )
         ]
 
@@ -127,26 +127,27 @@ class AddHighscore(Fading):
             text="",
             width=BUTTON_WIDTH,
             font_name=constants.fonts.FONT_DEFAULT,
-            font_size=utils.text.INPUT_FONT_SIZE,
+            font_size=utils.text.FONT_SIZE_INPUT,
         ).with_background(color=arcade.csscolor.WHITE)
 
         widgets += [
             arcade.gui.UILabel(
                 text=_('Please enter your name:'),
                 font_name=constants.fonts.FONT_DEFAULT,
-                font_size=utils.text.MEDIUM_FONT_SIZE,
+                font_size=utils.text.FONT_SIZE_EXTRA_LARGE,
                 bold=True
             ),
             self.input_name,
             arcade.gui.UILabel(
                 text=_("Leave blank to skip"),
-                font_name=constants.fonts.FONT_MONOTYPE,
-                font_size=utils.text.SMALL_FONT_SIZE,
+                font_name=constants.fonts.FONT_DEFAULT,
+                font_size=utils.text.FONT_SIZE_SMALL,
+                bold=True
             ),
             arcade.gui.UILabel(
                 text=' ',
-                font_name=constants.fonts.FONT_MONOTYPE,
-                font_size=utils.text.MEDIUM_FONT_SIZE,
+                font_name=constants.fonts.FONT_DEFAULT,
+                font_size=utils.text.FONT_SIZE_MEDIUM,
             ),
             submit_button
         ]

@@ -107,7 +107,7 @@ class DifficultySelection(Fading):
         title = arcade.gui.UILabel(
             text=_('Difficulty'),
             font_name=FONT_DEFAULT,
-            font_size=utils.text.HEADLINE_FONT_SIZE,
+            font_size=utils.text.FONT_SIZE_HEADLINE,
             text_color=arcade.csscolor.HOTPINK,
             align='center'
         )

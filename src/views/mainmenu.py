@@ -41,7 +41,7 @@ class MainMenu(Fading):
         label = arcade.gui.UILabel(
             text=_('Grunzi'),
             font_name=FONT_ADRIP,
-            font_size=utils.text.LOGO_FONT_SIZE,
+            font_size=utils.text.FONT_SIZE_LOGO,
             text_color=arcade.csscolor.HOTPINK,
             align='center',
         )

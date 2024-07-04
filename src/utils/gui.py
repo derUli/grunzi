@@ -6,7 +6,7 @@ from arcade import Texture
 from arcade.gui import UIFlatButton
 
 from constants.fonts import FONT_DEFAULT
-from utils.text import MEDIUM_FONT_SIZE
+from utils.text import FONT_SIZE_MEDIUM
 
 
 def get_texture_by_value(width: int, height: int, value: bool = False) -> Texture:
@@ -38,5 +38,5 @@ def get_button_style() -> dict:
 
     for index in style:
         style[index]['font_name'] = FONT_DEFAULT
-        style[index]['font_size'] = MEDIUM_FONT_SIZE
+        style[index]['font_size'] = FONT_SIZE_MEDIUM
     return style

@@ -7,15 +7,13 @@ from constants.fonts import FONT_DEFAULT
 
 MARGIN = 10
 
-MEDIUM_FONT_SIZE = 14
-
-SMALL_FONT_SIZE = 12
-INPUT_FONT_SIZE = 22
-LARGE_FONT_SIZE = 16
-EXTRA_LARGE_FONT_SIZE = 20
-
-HEADLINE_FONT_SIZE = 40
-LOGO_FONT_SIZE = 80
+FONT_SIZE_MEDIUM = 14
+FONT_SIZE_SMALL = 12
+FONT_SIZE_INPUT = 22
+FONT_SIZE_LARGE = 16
+FONT_SIZE_EXTRA_LARGE = 20
+FONT_SIZE_HEADLINE = 40
+FONT_SIZE_LOGO = 80
 
 
 def create_text(
@@ -23,7 +21,7 @@ def create_text(
         start_x: float = MARGIN,
         start_y: float = MARGIN,
         color: Color = arcade.csscolor.WHITE,
-        font_size: int = MEDIUM_FONT_SIZE,
+        font_size: int = FONT_SIZE_MEDIUM,
         font_name: str = FONT_DEFAULT,
         anchor_x: str = 'left',
         anchor_y: str = 'bottom',

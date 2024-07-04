@@ -5,7 +5,7 @@ import time
 import arcade
 
 from constants.fonts import FONT_MONOTYPE
-from utils.text import create_text, MEDIUM_FONT_SIZE, MARGIN
+from utils.text import create_text, FONT_SIZE_MEDIUM, MARGIN
 
 FPS_UPDATE_INTERVAL = 1
 
@@ -57,7 +57,7 @@ class FPSCounter:
                 fps,
                 color=arcade.csscolor.LIME_GREEN,
                 font_name=FONT_MONOTYPE,
-                font_size=MEDIUM_FONT_SIZE,
+                font_size=FONT_SIZE_MEDIUM,
                 bold=True
             )
 

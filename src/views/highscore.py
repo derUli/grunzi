@@ -5,7 +5,7 @@ import constants.controls.keyboard as keyboard
 from constants.fonts import FONT_MONOTYPE
 from state.savegamestate import SaveGameState
 from utils.highscore import HighscoreStorage
-from utils.text import create_text, LARGE_FONT_SIZE, MARGIN, EXTRA_LARGE_FONT_SIZE
+from utils.text import create_text, FONT_SIZE_LARGE, MARGIN, FONT_SIZE_EXTRA_LARGE
 from views.fading import Fading
 
 MARGIN_SCORE = 50
@@ -62,7 +62,7 @@ class Highscore(Fading):
 
         press_button_text = create_text(
             text=_('Press any key to continue'),
-            font_size=LARGE_FONT_SIZE
+            font_size=FONT_SIZE_LARGE
         )
 
         press_button_text.x = self.window.width / 2 - press_button_text.content_width / 2
@@ -85,7 +85,7 @@ class Highscore(Fading):
 
         score_text_left = create_text(
             text="\n\n".join(labels),
-            font_size=EXTRA_LARGE_FONT_SIZE,
+            font_size=FONT_SIZE_EXTRA_LARGE,
             font_name=FONT_MONOTYPE,
             width=self.window.width / 2,
             multiline=True,
@@ -94,7 +94,7 @@ class Highscore(Fading):
 
         score_text_right = create_text(
             text="\n\n".join(scores),
-            font_size=EXTRA_LARGE_FONT_SIZE,
+            font_size=FONT_SIZE_EXTRA_LARGE,
             font_name=FONT_MONOTYPE,
             width=self.window.width / 2,
             multiline=True,
