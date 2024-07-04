@@ -33,6 +33,7 @@ class AddHighscore(Fading):
         self.state = state
         self.manager = None
         self.input_name = None
+        self.message_box = None
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
@@ -99,14 +100,17 @@ class AddHighscore(Fading):
         def on_submit(event):
             logging.debug(event)
 
-            # TODO: Validation and error handling
-            if len(self.input_name.text) == '':
-                return
+            self.input_name.text = self.input_name.text.strip()
 
-            HighscoreStorage().submit(
-                self.input_name.text,
-                SaveGameState().load().total_score
-            )
+            # TODO: Validation and error handling
+            if len(self.input_name.text) == 0:
+                return self.show_confirm()
+
+            if not HighscoreStorage().submit(
+                    self.input_name.text,
+                    SaveGameState().load().total_score
+            ):
+                return self.show_error()
 
             self.fade_to_view(
                 Highscore(
@@ -148,6 +152,52 @@ class AddHighscore(Fading):
         frame.add(child=widget_layout, anchor_x="center_x", anchor_y="center_y")
 
         self.manager.enable()
+
+    def show_error(self, event=None):
+
+        if event:
+            self.manager.remove(self.message_box)
+            return
+
+        self.message_box = arcade.gui.UIMessageBox(
+            width=300,
+            height=200,
+            message_text=_('Submit failed.'),
+            buttons=[
+                _("OK")
+            ]
+        )
+
+        self.message_box.show_error = self.show_error
+
+        self.manager.add(self.message_box)
+
+    def show_confirm(self, event=None):
+        if event:
+            self.manager.remove(self.message_box)
+
+            if event.action == _('Yes'):
+                return self.fade_to_view(MainMenu(self.window, self.state))
+            
+            return
+
+        self.message_box = arcade.gui.UIMessageBox(
+            width=300,
+            height=200,
+            message_text="\n".join(
+                [
+                    _("You have not entered a name."),
+                    _("Do you not want to transfer your score?")
+                ]
+            ),
+            buttons=[
+                _("Yes"),
+                _('No')
+            ]
+        )
+
+        self.message_box.on_action = self.show_confirm
+        self.manager.add(self.message_box)
 
     def on_key_press(self, key, modifiers) -> None:
         """Called whenever a key is pressed."""

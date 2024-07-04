@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-04 22:14+0200\n"
+"POT-Creation-Date: 2024-07-04 22:43+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -70,7 +70,7 @@ msgstr "Punkte"
 msgid "Total"
 msgstr "Gesamt"
 
-#: views/addhighscore.py:87 views/addhighscore.py:132
+#: views/addhighscore.py:87 views/addhighscore.py:138
 msgid " "
 msgstr ""
 
@@ -78,9 +78,38 @@ msgstr ""
 msgid "Submit Entry"
 msgstr "Eintrag absenden"
 
-#: views/addhighscore.py:126
+#: views/addhighscore.py:132
 msgid "Please enter your name:"
 msgstr "Bitte geben Sie Ihren Namen ein:"
+
+#: views/addhighscore.py:165
+#, fuzzy
+msgid "Submit failed."
+msgstr "Eintrag absenden"
+
+#: views/addhighscore.py:167
+#, fuzzy
+msgid "OK"
+msgstr "Umschauen"
+
+#: views/addhighscore.py:179 views/addhighscore.py:194
+#: views/difficultyselection.py:202 views/difficultyselection.py:215
+#: views/pausemenu.py:150 views/pausemenu.py:180 views/pausemenu.py:197
+msgid "Yes"
+msgstr "Ja"
+
+#: views/addhighscore.py:189
+msgid "You have not entered a name."
+msgstr "Sie haben Ihren Namen nicht eingegeben."
+
+#: views/addhighscore.py:190
+msgid "Do you not want to transfer your score?"
+msgstr "Möchten Sie Ihren Highscore nicht übertragen?"
+
+#: views/addhighscore.py:195 views/difficultyselection.py:203
+#: views/pausemenu.py:151 views/pausemenu.py:159 views/pausemenu.py:181
+msgid "No"
+msgstr "Nein"
 
 #: views/difficultyselection.py:59 views/mapselection.py:66
 #: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
@@ -107,16 +136,6 @@ msgstr "Schwierigkeit"
 #: views/difficultyselection.py:200
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
-
-#: views/difficultyselection.py:202 views/difficultyselection.py:215
-#: views/pausemenu.py:150 views/pausemenu.py:180 views/pausemenu.py:197
-msgid "Yes"
-msgstr "Ja"
-
-#: views/difficultyselection.py:203 views/pausemenu.py:151
-#: views/pausemenu.py:159 views/pausemenu.py:181
-msgid "No"
-msgstr "Nein"
 
 #: views/highscore.py:84
 msgid "No entries yet"
