@@ -159,6 +159,7 @@ class StartUp:
         self.setup_path()
 
         args = self.parse_args()
+        args.skip_logo = True
 
         log_level = self.get_log_level(args.verbose)
         log_level_arcade = self.get_log_level_arcade(args.verbose)
