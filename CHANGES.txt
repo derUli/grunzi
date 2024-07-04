@@ -19,6 +19,7 @@
 * map03: Slimer hinzugefügt
 * map03: Puzzle mit Ventil hinzugefügt
 * map03: Nebel animiert
+* Global: Highscore kann übertragen werden
 
 ## Alpha 014 (21.06.2024)
 
