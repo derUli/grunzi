@@ -28,23 +28,14 @@ class PlacedValve(Interactable):
         args.state.play_sound('valve')
         self.turn_right()
 
-        alpha = None
-
         for water in args.scene[LAYER_RIVER]:
-            if alpha is None:
-                alpha = water.alpha - 50
+            alpha = water.alpha - 50
 
             if alpha <= 0:
                 alpha = 0
+                delete_all = True
 
             water.alpha = alpha
-
-        if alpha <= 0:
-            for water in args.scene[LAYER_RIVER]:
-                water.remove_from_sprite_lists()
-
-        # TODO:
-        # args.state.noaction()
 
     def copy(self):
         """ Copy item """

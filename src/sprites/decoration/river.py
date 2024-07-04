@@ -5,20 +5,23 @@ MOVE_SPEED = 5
 
 
 class River(Sprite):
+    def setup(self, args):
+        self.alpha = 200
+
     def update(
             self,
             delta_time,
             args
     ):
         w, h = args.map_size
-        if self.alpha > 200:
-            self.alpha = 200
 
         self.center_x -= MOVE_SPEED
 
         if self.right <= 0:
             self.right = w - abs(self.right)
 
+        if self.alpha <=0:
+            self.remove_from_sprite_lists()
 
 class RiverSound(Sprite):
     def update(self, delta_time, args):

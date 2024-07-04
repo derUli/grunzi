@@ -19,6 +19,7 @@ class AbstractSprite:
             args
     ):
         pass
+
     def setup(self, args):
         pass
 

@@ -36,12 +36,11 @@ class Scene(BaseScene):
         self.setup_sprites(args)
 
     def setup_sprites(self, args):
-        from constants.layers import ANIMATED_LAYERS
-
-        for name in ANIMATED_LAYERS:
+        for name in self.name_mapping:
             try:
                 for sprite in self[name]:
-                    sprite.setup(args)
+                    if isinstance(sprite, AbstractSprite) and not isinstance(sprite, Character):
+                        sprite.setup(args)
             except KeyError:
                 continue
 
