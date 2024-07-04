@@ -28,6 +28,7 @@ FADE_SPEED = 4
 
 SHOOT_DELTA = 1 / 5.5
 
+
 class Skull(Character, Useable):
     def __init__(
             self,

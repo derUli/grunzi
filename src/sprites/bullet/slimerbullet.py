@@ -3,8 +3,7 @@ import time
 
 import arcade
 
-from constants.collisions import COLLISION_BULLET, COLLISION_PLAYER, COLLISION_SLIMER_BULLET, COLLISION_SLIMER, \
-    COLLISION_ENEMY
+from constants.collisions import COLLISION_BULLET, COLLISION_PLAYER, COLLISION_SLIMER_BULLET
 from constants.layers import LAYER_NPC
 from sprites.bullet.bullet import Bullet
 from sprites.characters.character import Character

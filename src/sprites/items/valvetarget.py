@@ -1,4 +1,4 @@
-from sprites.items.item import Item, Useable
+from sprites.items.item import Useable
 from sprites.sprite import Sprite
 
 
