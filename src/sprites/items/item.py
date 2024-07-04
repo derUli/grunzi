@@ -82,6 +82,6 @@ class Useable:
     """ Useable item"""
     pass
 
-class Interactable:
+class Interactable(arcade.sprite.Sprite):
     def on_interact(self, args):
         args.state.noaction()

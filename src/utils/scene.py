@@ -6,7 +6,7 @@ from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
 from sprites.characters.character import Character
-from sprites.items.item import Item, Useable, Interactable
+from sprites.items.item import Item, Interactable
 from sprites.sprite import AbstractSprite
 from utils.lightmanager import LightManager
 from utils.postprocessing.postprocessing import PostProcessing
@@ -154,10 +154,10 @@ class Scene(BaseScene):
     def get_next_interactable(self):
         for sprite in self.get_next_sprites():
             if isinstance(sprite, Interactable):
-                return sprite
+                if arcade.get_distance_between_sprites(self.args.player, sprite) < 100:
+                    return sprite
 
         return None
-
 
 
 def animated_in_sight(size, scene, player_sprite) -> list:
@@ -179,6 +179,7 @@ def animated_in_sight(size, scene, player_sprite) -> list:
                 animated.append(sprite)
 
     return animated
+
 
 def get_layer(name: str, scene: Scene) -> SpriteList:
     """
