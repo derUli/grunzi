@@ -33,6 +33,18 @@ class Scene(BaseScene):
         self.args = args
         self.initialized = True
 
+        self.setup_sprites(args)
+
+    def setup_sprites(self, args):
+        from constants.layers import ANIMATED_LAYERS
+
+        for name in ANIMATED_LAYERS:
+            try:
+                for sprite in self[name]:
+                    sprite.setup(args)
+            except KeyError:
+                continue
+
     @classmethod
     def from_tilemap(cls, tilemap: TileMap) -> "Scene":
         """

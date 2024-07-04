@@ -19,7 +19,8 @@ class AbstractSprite:
             args
     ):
         pass
-
+    def setup(self, args):
+        pass
 
 class AbstractStaticSprite(AbstractSprite, arcade.sprite.Sprite):
     """ Abstract sprite class """
