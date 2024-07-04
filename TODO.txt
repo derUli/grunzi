@@ -5,4 +5,3 @@
 * Benzin-Kanister zum Aufladen der Kettensäge
 * Pizza-Essen hinzugefügt
 * Zwei weitere Speise hinzufügen
-* Highscore eintragen
