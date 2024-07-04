@@ -7,8 +7,8 @@
 * Audio: Master Lautstärkeregler hinzugefügt
 
 ## Alpha 016 (Unreleased)
-* Puzzle mit Ventil hinzugefügt
 * map03: Post-Processing Effekt "Grünes Licht" hinzugefügt
+
 
 ## Alpha 015 (Unreleased)
 
@@ -17,8 +17,8 @@
 * map02: Kakteen hinzugefügt
 * Controller: Vibration hinzugefügt
 * map03: Slimer hinzugefügt
+* map03: Puzzle mit Ventil hinzugefügt
 * map03: Nebel animiert
-* map03 Map-Aufbau
 
 ## Alpha 014 (21.06.2024)
 

@@ -7,6 +7,7 @@ MOVE_SPEED = 5
 class River(Sprite):
     def setup(self, args):
         self.alpha = 200
+        self.subtract_alpha = 0
 
     def update(
             self,
@@ -20,8 +21,20 @@ class River(Sprite):
         if self.right <= 0:
             self.right = w - abs(self.right)
 
-        if self.alpha <=0:
+        alpha = self.alpha
+
+        if self.subtract_alpha > 0:
+            alpha -= 1
+            self.subtract_alpha -= 1
+
+        if alpha <= 0:
+            alpha = 0
+
+        self.alpha = alpha
+
+        if self.alpha <= 0:
             self.remove_from_sprite_lists()
+
 
 class RiverSound(Sprite):
     def update(self, delta_time, args):

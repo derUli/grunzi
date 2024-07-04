@@ -1,12 +1,13 @@
 from sprites.items.item import Item, Interactable
 from sprites.items.valvetarget import ValveTarget
 
+
 class Valve(Item):
 
     def on_use_with(self, b, args):
         from constants.layers import LAYER_VALVE_TARGET
         if isinstance(b, ValveTarget):
-            placed_valve = PlacedValve(self.filename, center_x = self.center_x, center_y = self.center_y)
+            placed_valve = PlacedValve(self.filename, center_x=self.center_x, center_y=self.center_y)
             placed_valve.position = args.scene[LAYER_VALVE_TARGET][0].position
             args.scene[LAYER_VALVE_TARGET].clear()
             args.scene[LAYER_VALVE_TARGET].append(placed_valve)
@@ -29,13 +30,7 @@ class PlacedValve(Interactable):
         self.turn_right()
 
         for water in args.scene[LAYER_RIVER]:
-            alpha = water.alpha - 50
-
-            if alpha <= 0:
-                alpha = 0
-                delete_all = True
-
-            water.alpha = alpha
+            water.subtract_alpha = 50
 
     def copy(self):
         """ Copy item """
