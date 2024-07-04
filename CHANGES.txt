@@ -9,7 +9,6 @@
 ## Alpha 016 (Unreleased)
 * map03: Post-Processing Effekt "Grünes Licht" hinzugefügt
 
-
 ## Alpha 015 (Unreleased)
 
 * Global: Ausdauer entfernt

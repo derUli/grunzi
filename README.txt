@@ -54,7 +54,12 @@ der RivaTuner Software gemessen.
 
 # Was ist neu?
 
-Siehe Changelog.
+In diesem Build habe ich einen neuen Gegner-Typ und ein neues Puzzle zu map03 hinzugefügt.
+Der Nebel ist jetzt animiert.
+map02 enthält jetzt Kakteen.
+Angeschlossene Gaming Controller vibrieren jetzt.
+Die Vibration kann optional in den Einstellungen deaktiviert werden.
+Der Punktestand kann jetzt nach Abschluss des letzten Levels in die Online-Highscore-Liste eingetragen werden.
 
 # Spiel starten
 

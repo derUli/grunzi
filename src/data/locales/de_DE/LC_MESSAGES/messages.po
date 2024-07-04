@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-04 22:43+0200\n"
+"POT-Creation-Date: 2024-07-04 23:08+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -83,14 +83,12 @@ msgid "Please enter your name:"
 msgstr "Bitte geben Sie Ihren Namen ein:"
 
 #: views/addhighscore.py:165
-#, fuzzy
 msgid "Submit failed."
-msgstr "Eintrag absenden"
+msgstr "Absenden fehlgeschlagen."
 
 #: views/addhighscore.py:167
-#, fuzzy
 msgid "OK"
-msgstr "Umschauen"
+msgstr "OK"
 
 #: views/addhighscore.py:179 views/addhighscore.py:194
 #: views/difficultyselection.py:202 views/difficultyselection.py:215

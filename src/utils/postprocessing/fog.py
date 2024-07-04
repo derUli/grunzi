@@ -9,7 +9,7 @@ from PIL.Image import Resampling
 from state.argscontainer import ArgsContainer
 from utils.postprocessing.effect import Effect
 
-DEFAULT_ALPHA = 180
+DEFAULT_ALPHA = 160
 
 MOVE_SPEED = 0.33
 
