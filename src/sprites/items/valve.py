@@ -7,7 +7,7 @@ class Valve(Item):
 
         from constants.layers import LAYER_RIVER
 
-        self.position = b.position
+        # self.position = b.position
 
         if isinstance(b, ValveTarget):
             # TODO: Animate
