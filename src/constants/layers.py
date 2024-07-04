@@ -30,8 +30,10 @@ from sprites.items.valve import Valve
 from sprites.items.valvetarget import ValveTarget
 from sprites.sounds.beach import Beach
 from sprites.sounds.highway import Highway
+from sprites.sprite import AlphaWall
 
 LAYER_WALL = 'Wall'
+LAYER_ALPHA_WALL = 'AlphaWall'
 LAYER_PLIER = 'Plier'
 LAYER_TREE = 'Tree'
 LAYER_HAMMER = 'Hammer'
@@ -199,6 +201,9 @@ LAYER_OPTIONS = {
     },
     LAYER_CACTUS: {
         'custom_class': Cactus
+    },
+    LAYER_ALPHA_WALL: {
+        'custom_class': AlphaWall
     }
 }
 

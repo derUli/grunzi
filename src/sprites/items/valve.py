@@ -30,7 +30,7 @@ class PlacedValve(Interactable):
         self.turn_right()
 
         for water in args.scene[LAYER_RIVER]:
-            water.subtract_alpha = 50
+            water.subtract_alpha += 50
 
     def copy(self):
         """ Copy item """

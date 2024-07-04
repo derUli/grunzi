@@ -29,6 +29,8 @@ class AbstractStaticSprite(AbstractSprite, arcade.sprite.Sprite):
     pass
 
 
+
+
 class AbstractAnimatedSprite(AbstractSprite, arcade.sprite.AnimatedTimeBasedSprite):
     """ Abstract animated sprite class """
 
@@ -121,3 +123,7 @@ class Sprite(AbstractStaticSprite):
             return True
 
         return False
+
+class AlphaWall(Sprite):
+    def setup(self, args):
+        self.alpha = 0
