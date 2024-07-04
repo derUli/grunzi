@@ -101,6 +101,9 @@ class AddHighscore(Fading):
             logging.debug(event)
 
             # TODO: Validation and error handling
+            if len(self.input_name.text) == '':
+                return
+
             HighscoreStorage().submit(
                 self.input_name.text,
                 SaveGameState().load().total_score
