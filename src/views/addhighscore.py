@@ -1,10 +1,10 @@
 """ Difficulty selection """
 import logging
-import time
 
 import arcade
 import arcade.gui
 
+import constants.controls.keyboard
 import constants.fonts
 import utils.gui
 import utils.text
@@ -105,31 +105,7 @@ class AddHighscore(Fading):
         def on_submit(event):
             logging.debug(event)
 
-            if self.submitting:
-                return
-
-            self.input_name.text = self.input_name.text.strip()
-
-            # TODO: Validation and error handling
-            if len(self.input_name.text) == 0:
-                return self.show_confirm()
-
-            self.submitting = True
-
-            if not HighscoreStorage().submit(
-                    self.input_name.text,
-                    SaveGameState().load().total_score
-            ):
-                self.submitting = False
-                return self.show_error()
-
-            self.fade_to_view(
-                Highscore(
-                    self.window,
-                    self.state,
-                    MainMenu(self.window, self.state)
-                )
-            )
+            self.on_submit()
 
         self.input_name = arcade.gui.UIInputText(
             text="",
@@ -175,6 +151,7 @@ class AddHighscore(Fading):
 
         if event:
             self.manager.remove(self.message_box)
+            self.message_box = None
             return
 
         self.message_box = arcade.gui.UIMessageBox(
@@ -193,6 +170,7 @@ class AddHighscore(Fading):
     def show_confirm(self, event=None):
         if event:
             self.manager.remove(self.message_box)
+            self.message_box = None
 
             if event.action == _('Yes'):
                 return self.fade_to_view(MainMenu(self.window, self.state))
@@ -219,7 +197,38 @@ class AddHighscore(Fading):
 
     def on_key_press(self, key, modifiers) -> None:
         """Called whenever a key is pressed."""
+
         super().on_key_press(key, modifiers)
+
+        if key in constants.controls.keyboard.KEY_CONFIRM:
+            self.on_submit()
+
+    def on_submit(self):
+        if self.submitting:
+            return
+
+        self.input_name.text = self.input_name.text.strip()
+
+        # TODO: Validation and error handling
+        if len(self.input_name.text) == 0:
+            return self.show_confirm()
+
+        self.submitting = True
+
+        if not HighscoreStorage().submit(
+                self.input_name.text,
+                SaveGameState().load().total_score
+        ):
+            self.submitting = False
+            return self.show_error()
+
+        self.fade_to_view(
+            Highscore(
+                self.window,
+                self.state,
+                MainMenu(self.window, self.state)
+            )
+        )
 
     def on_update(self, delta_time) -> None:
         """ Update the screen """
@@ -238,9 +247,3 @@ class AddHighscore(Fading):
         self.manager.draw()
         self.draw_fading()
         self.draw_after(draw_version_number=True)
-
-    def on_back(self) -> None:
-        """ On click "Back" button """
-
-        from views.mainmenu import MainMenu
-        self.fade_to_view(MainMenu(self.window, self.state))
