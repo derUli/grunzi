@@ -57,4 +57,5 @@ class HighscoreStorage:
             logging.error(e)
             return False
 
+
 HighscoreStorage().fetch()

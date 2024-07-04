@@ -9,7 +9,6 @@ import utils.gui
 import utils.text
 from state.savegamestate import SaveGameState
 from utils.highscore import HighscoreStorage
-from utils.path import get_user
 from views.fading import Fading
 from views.highscore import Highscore
 from views.mainmenu import MainMenu
