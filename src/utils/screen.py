@@ -14,6 +14,9 @@ def supported_screen_resolutions() -> list:
     mode_values = []
 
     for mode in modes:
+        if mode.height < 720:
+            continue
+
         item = str(mode.width) + "x" + str(mode.height)
         if item not in mode_values:
             mode_values.append(item)

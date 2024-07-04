@@ -21,6 +21,6 @@ usort($data, function($a, $b){
 });
 
 
-$data = array_slice($data, 0, 5);
+$data = array_slice($data, 0, 10);
 echo json_encode($data);
 exit;

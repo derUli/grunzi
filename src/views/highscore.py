@@ -76,7 +76,12 @@ class Highscore(Fading):
         storage = HighscoreStorage()
         storage.fetch()
 
-        for entry in storage.highscore:
+        highscore = storage.highscore
+
+        if self.window.height <= 768:
+            highscore = highscore[5:]
+
+        for entry in highscore:
             labels.append(str(entry['name']))
             scores.append(str(entry['score']).rjust(FILL_COUNT, FILL_CHAR))
 
