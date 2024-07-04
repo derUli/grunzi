@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-04 23:08+0200\n"
+"POT-Creation-Date: 2024-07-05 00:06+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -66,45 +66,45 @@ msgstr "Wird geladen..."
 msgid "Score"
 msgstr "Punkte"
 
-#: views/addhighscore.py:63
+#: views/addhighscore.py:61
 msgid "Total"
 msgstr "Gesamt"
 
-#: views/addhighscore.py:87 views/addhighscore.py:138
-msgid " "
-msgstr ""
-
-#: views/addhighscore.py:94
+#: views/addhighscore.py:97
 msgid "Submit Entry"
 msgstr "Eintrag absenden"
 
-#: views/addhighscore.py:132
+#: views/addhighscore.py:135
 msgid "Please enter your name:"
 msgstr "Bitte geben Sie Ihren Namen ein:"
 
-#: views/addhighscore.py:165
+#: views/addhighscore.py:142
+msgid "Leave blank to skip"
+msgstr "Leer lassen zum überspringen"
+
+#: views/addhighscore.py:174
 msgid "Submit failed."
 msgstr "Absenden fehlgeschlagen."
 
-#: views/addhighscore.py:167
+#: views/addhighscore.py:176
 msgid "OK"
 msgstr "OK"
 
-#: views/addhighscore.py:179 views/addhighscore.py:194
+#: views/addhighscore.py:188 views/addhighscore.py:203
 #: views/difficultyselection.py:202 views/difficultyselection.py:215
 #: views/pausemenu.py:150 views/pausemenu.py:180 views/pausemenu.py:197
 msgid "Yes"
 msgstr "Ja"
 
-#: views/addhighscore.py:189
+#: views/addhighscore.py:198
 msgid "You have not entered a name."
 msgstr "Sie haben Ihren Namen nicht eingegeben."
 
-#: views/addhighscore.py:190
+#: views/addhighscore.py:199
 msgid "Do you not want to transfer your score?"
 msgstr "Möchten Sie Ihren Highscore nicht übertragen?"
 
-#: views/addhighscore.py:195 views/difficultyselection.py:203
+#: views/addhighscore.py:204 views/difficultyselection.py:203
 #: views/pausemenu.py:151 views/pausemenu.py:159 views/pausemenu.py:181
 msgid "No"
 msgstr "Nein"

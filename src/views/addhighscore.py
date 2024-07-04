@@ -77,12 +77,17 @@ class AddHighscore(Fading):
 
         widgets += [
             arcade.gui.UILabel(
+                text=' ',
+                font_name=constants.fonts.FONT_MONOTYPE,
+                font_size=utils.text.MEDIUM_FONT_SIZE,
+            ),
+            arcade.gui.UILabel(
                 text=_(f"{total_string}: {formatted_score}"),
                 font_name=constants.fonts.FONT_MONOTYPE,
                 font_size=utils.text.LARGE_FONT_SIZE,
             ),
             arcade.gui.UILabel(
-                text=_(" "),
+                text=' ',
                 font_name=constants.fonts.FONT_MONOTYPE,
                 font_size=utils.text.LARGE_FONT_SIZE,
             )
@@ -129,13 +134,19 @@ class AddHighscore(Fading):
             arcade.gui.UILabel(
                 text=_('Please enter your name:'),
                 font_name=constants.fonts.FONT_DEFAULT,
-                font_size=utils.text.EXTRA_LARGE_FONT_SIZE,
+                font_size=utils.text.MEDIUM_FONT_SIZE,
+                bold=True
             ),
             self.input_name,
             arcade.gui.UILabel(
-                text=_(" "),
+                text=_("Leave blank to skip"),
                 font_name=constants.fonts.FONT_MONOTYPE,
-                font_size=utils.text.LARGE_FONT_SIZE,
+                font_size=utils.text.SMALL_FONT_SIZE,
+            ),
+            arcade.gui.UILabel(
+                text=' ',
+                font_name=constants.fonts.FONT_MONOTYPE,
+                font_size=utils.text.MEDIUM_FONT_SIZE,
             ),
             submit_button
         ]
