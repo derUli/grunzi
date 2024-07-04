@@ -26,6 +26,7 @@ from sprites.items.piggybank import PiggyBank
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.items.tree import Tree
+from sprites.items.valve import Valve
 from sprites.sounds.beach import Beach
 from sprites.sounds.highway import Highway
 
@@ -46,6 +47,7 @@ LAYER_SPAWN_POINT = 'SpawnPoint'
 LAYER_CAR_LEFT = 'CarLeft'
 LAYER_CAR_RIGHT = 'CarRight'
 LAYER_CAR_KEY = 'CarKey'
+LAYER_VALVE = 'Valve'
 LAYER_CHAINSAW = 'Chainsaw'
 LAYER_DUCK = 'Duck'
 LAYER_JEEP = 'Jeep'
@@ -138,6 +140,9 @@ LAYER_OPTIONS = {
     },
     LAYER_CAR_KEY: {
         'custom_class': CarKey
+    },
+    LAYER_VALVE: {
+        'custom_class': Valve
     },
     LAYER_CONES: {
         'custom_class': Cone

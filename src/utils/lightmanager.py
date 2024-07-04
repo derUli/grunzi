@@ -36,7 +36,7 @@ class LightManager:
         if self._type == LIGHTING_DARK:
             self.setup_dark(args)
 
-    def setup_dark(self, args):
+    def setup_dark(self, args) -> None:
         """ Setup lighting for dark levels """
 
         self.lights[LIGHT_LAYER_LANTERN] = Light(
