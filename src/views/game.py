@@ -636,7 +636,12 @@ class Game(Fading):
 
     def on_use(self):
         if not self.player_sprite.get_item():
-            return self.update_collectable()
+            if self.update_collectable():
+                self.state.play_sound('coin')
+            else:
+                logging.debug('TODO: Check for useable but not collectable item next to player')
+
+            return
 
         item = self.player_sprite.get_item()
 
@@ -667,7 +672,6 @@ class Game(Fading):
         item.remove_from_sprite_lists()
         self.ui.inventory.add_item(item)
 
-        self.state.play_sound('coin')
         self.on_select_item(index=-1)
 
         return True
