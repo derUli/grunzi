@@ -1,5 +1,6 @@
 """ Difficulty selection """
 import logging
+import time
 
 import arcade
 import arcade.gui
