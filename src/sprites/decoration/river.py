@@ -11,7 +11,9 @@ class River(Sprite):
             args
     ):
         w, h = args.map_size
-        self.alpha = 200
+        if self.alpha > 200:
+            self.alpha = 200
+
         self.center_x -= MOVE_SPEED
 
         if self.right <= 0:
@@ -29,5 +31,12 @@ class RiverSound(Sprite):
                 args.state,
                 volume_source=VOLUME_SOURCE_ATMO
             )
+
+        from constants.layers import LAYER_RIVER
+
+        # TODO: Fade out volume based on water level
+        if not any(args.scene[LAYER_RIVER]):
+            self.sound.pause()
+            return
 
         self.sound.update()

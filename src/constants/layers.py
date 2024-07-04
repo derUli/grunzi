@@ -27,6 +27,7 @@ from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
 from sprites.items.tree import Tree
 from sprites.items.valve import Valve
+from sprites.items.valvetarget import ValveTarget
 from sprites.sounds.beach import Beach
 from sprites.sounds.highway import Highway
 
@@ -48,6 +49,7 @@ LAYER_CAR_LEFT = 'CarLeft'
 LAYER_CAR_RIGHT = 'CarRight'
 LAYER_CAR_KEY = 'CarKey'
 LAYER_VALVE = 'Valve'
+LAYER_VALVE_TARGET = 'ValveTarget'
 LAYER_CHAINSAW = 'Chainsaw'
 LAYER_DUCK = 'Duck'
 LAYER_JEEP = 'Jeep'
@@ -143,6 +145,9 @@ LAYER_OPTIONS = {
     },
     LAYER_VALVE: {
         'custom_class': Valve
+    },
+    LAYER_VALVE_TARGET: {
+        'custom_class': ValveTarget
     },
     LAYER_CONES: {
         'custom_class': Cone

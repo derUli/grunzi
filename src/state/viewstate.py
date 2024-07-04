@@ -90,6 +90,7 @@ class ViewState:
                 'push': arcade.load_sound(os.path.join(self.sound_dir, 'electric', 'push.ogg'))
             },
             'cactus': arcade.load_sound(os.path.join(self.sound_dir, 'cactus', 'cactus.ogg')),
+            'valve': arcade.load_sound(os.path.join(self.sound_dir, 'valve', 'valve.ogg')),
             'loading': arcade.load_sound(os.path.join(self.music_dir, 'loading.ogg')),
             'atmos': {},
             'explosion': arcade.load_sound(os.path.join(self.sound_dir, 'weapons', 'explosion.ogg'))

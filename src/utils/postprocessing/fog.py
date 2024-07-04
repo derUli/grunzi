@@ -76,6 +76,12 @@ class Fog(Effect):
             x, y = args.player.position
 
             sprite.left -= MOVE_SPEED
+
+            w, h = arcade.get_window().get_size()
+
+            if y < h * 0.5:
+                y = h * 0.5
+
             sprite.center_y = y
 
             if sprite.right <= 0:

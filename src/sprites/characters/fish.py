@@ -38,7 +38,6 @@ class Fish(Character):
             delta_time,
             args
     ):
-
         from constants.layers import LAYER_RIVER
 
         if self.river_from is None:
@@ -47,6 +46,12 @@ class Fish(Character):
             # FIXME: This seems to be switched in this arcade version
             self.river_from = (river_parts[0].center_y - river_parts[0].height / 2) + (self.height * 2)
             self.river_to = (river_parts[0].center_y + river_parts[0].height / 2) - (self.height * 2)
+
+
+        if not any(args.scene[LAYER_RIVER]):
+            if self.angle > -180:
+                self.turn_right(5)
+            return
 
         self.center_x -= MOVE_SPEED_X
 
