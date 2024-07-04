@@ -6,7 +6,7 @@ from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
 from sprites.characters.character import Character
-from sprites.items.item import Item
+from sprites.items.item import Item, Useable, Interactable
 from sprites.sprite import AbstractSprite
 from utils.lightmanager import LightManager
 from utils.postprocessing.postprocessing import PostProcessing
@@ -143,6 +143,22 @@ class Scene(BaseScene):
 
             sprite.draw_overlay(self.args)
 
+    def get_next_sprites(self):
+        sprites = []
+        for sprite_list in self.sprite_lists:
+            for sprite in sprite_list:
+                sprites.append(sprite)
+
+        return sprites
+
+    def get_next_interactable(self):
+        for sprite in self.get_next_sprites():
+            if isinstance(sprite, Interactable):
+                return sprite
+
+        return None
+
+
 
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """
@@ -163,7 +179,6 @@ def animated_in_sight(size, scene, player_sprite) -> list:
                 animated.append(sprite)
 
     return animated
-
 
 def get_layer(name: str, scene: Scene) -> SpriteList:
     """

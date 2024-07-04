@@ -81,3 +81,7 @@ class Item(Sprite):
 class Useable:
     """ Useable item"""
     pass
+
+class Interactable:
+    def on_interact(self, args):
+        args.state.noaction()

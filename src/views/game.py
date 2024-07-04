@@ -638,9 +638,14 @@ class Game(Fading):
         if not self.player_sprite.get_item():
             if self.update_collectable():
                 self.state.play_sound('coin')
+                return
             else:
-                logging.debug('TODO: Check for useable but not collectable item next to player')
+                interactable = self.scene.get_next_interactable()
+                if interactable:
+                    interactable.on_interact(args=make_args_container(self))
+                    return
 
+            self.state.noaction()
             return
 
         item = self.player_sprite.get_item()
@@ -662,11 +667,9 @@ class Game(Fading):
         item = self.scene.get_collectable(self.player_sprite)
 
         if not item:
-            self.state.noaction()
             return False
 
         if not self.ui.inventory.has_capacity(item):
-            self.state.noaction()
             return False
 
         item.remove_from_sprite_lists()
