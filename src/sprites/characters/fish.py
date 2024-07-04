@@ -47,7 +47,6 @@ class Fish(Character):
             self.river_from = (river_parts[0].center_y - river_parts[0].height / 2) + (self.height * 2)
             self.river_to = (river_parts[0].center_y + river_parts[0].height / 2) - (self.height * 2)
 
-
         if not any(args.scene[LAYER_RIVER]):
             if self.angle > -180:
                 self.turn_right(5)
