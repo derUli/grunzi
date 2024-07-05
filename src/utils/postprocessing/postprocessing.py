@@ -28,6 +28,9 @@ class PostProcessing:
 
         x, y = args.player.position
 
+        if x < w * 0.5:
+            x = w * 0.5
+
         if y < h * 0.5:
             y = h * 0.5
 
