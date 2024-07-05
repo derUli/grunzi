@@ -253,7 +253,7 @@ class Game(Fading):
 
         super().on_update(delta_time)
 
-        self.ui.loading_screen.update()
+        self.ui.loading_screen.update(delta_time)
 
         if not self.initialized:
             if not self.video_playing and not self.loading_music:

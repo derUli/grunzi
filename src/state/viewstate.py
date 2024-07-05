@@ -25,7 +25,7 @@ class ViewState:
         self.font_dir = os.path.join(self.data_dir, 'fonts')
         self.shader_dir = os.path.join(self.data_dir, 'shaders')
         self.video_dir = os.path.join(self.data_dir, 'videos')
-
+        self.animation_dir = os.path.join(self.data_dir, 'animations')
         self.shaders = {}
         self.sounds = {}
 

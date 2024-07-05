@@ -6,6 +6,7 @@ from PIL import ImageFilter
 from PIL.Image import Resampling
 
 from state.viewstate import ViewState
+from utils.sprite import load_animated_gif
 from utils.text import create_text
 
 MARGIN = 5
@@ -30,6 +31,7 @@ class LoadingScreen:
         self.blur = MAX_BLUR
         self.image = None
         self.original_image = None
+        self.filmgrain = None
 
     def setup(self, state: ViewState, size: tuple, show=False):
         self.show = show
@@ -81,6 +83,13 @@ class LoadingScreen:
 
         self.image = sprite
 
+        self.filmgrain = load_animated_gif(
+            os.path.join(state.animation_dir, 'grain.gif'),
+            (w, h)
+        )
+        self.filmgrain.alpha = 20
+        self.filmgrain.position = (w / 2, h / 2)
+
     @property
     def percent(self):
         return self._percent
@@ -95,19 +104,17 @@ class LoadingScreen:
 
         self._percent = value
 
-    def update(self):
+    def update(self, delta_time: float):
         if not self.show:
             return
 
         if self._percent > self._display_percentage:
             self._display_percentage += PERCENTAGE_SPEED
 
-
         elif self._percent < self._display_percentage:
             self._display_percentage -= PERCENTAGE_SPEED
 
         blur = MAX_BLUR - int(self._display_percentage * (MAX_BLUR / 100))
-        print(blur)
 
         if blur != self.blur:
             self.blur = blur
@@ -122,6 +129,7 @@ class LoadingScreen:
             image.position = self.image.position
             self.image = image
 
+        self.filmgrain.update_animation(delta_time)
     @property
     def completed(self):
         return self._display_percentage >= 100
@@ -134,6 +142,7 @@ class LoadingScreen:
         w, h = self.size
 
         self.image.draw()
+        self.filmgrain.draw()
 
         arcade.draw_rectangle_filled(
             w / 2,
