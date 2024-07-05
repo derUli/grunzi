@@ -209,7 +209,7 @@ class StartUp:
 
         settings = SettingsState.load()
 
-        if args.video_quality is not None and settings.quality != args.video_quality:
+        if args.video_quality is not None:
             settings.quality = args.video_quality
             settings.save()
 
