@@ -14,6 +14,7 @@ PERCENTAGE_SPEED = 1
 FONT_SIZE = 16
 MAX_BLUR = 20
 
+
 class LoadingScreen:
     def __init__(self):
         self.size = None
@@ -87,7 +88,7 @@ class LoadingScreen:
             os.path.join(state.animation_dir, 'grain.gif'),
             (w, h)
         )
-        self.filmgrain.alpha = 20
+        self.filmgrain.alpha = 20 * state.settings.filmgrain
         self.filmgrain.position = (w / 2, h / 2)
 
     @property
@@ -130,6 +131,7 @@ class LoadingScreen:
             self.image = image
 
         self.filmgrain.update_animation(delta_time)
+
     @property
     def completed(self):
         return self._display_percentage >= 100
