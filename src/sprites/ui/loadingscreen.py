@@ -87,7 +87,7 @@ class LoadingScreen:
             os.path.join(state.animation_dir, 'grain.gif'),
             (w, h)
         )
-        self.filmgrain.alpha = 40
+        self.filmgrain.alpha = 20
         self.filmgrain.position = (w / 2, h / 2)
 
     @property
