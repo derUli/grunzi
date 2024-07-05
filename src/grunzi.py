@@ -12,6 +12,10 @@ from views.startup import StartUp
 
 def start() -> None:
     """ Starts the game """
+    frozen = getattr(sys, "frozen", False)
+    if not frozen:
+        StartUp(os.path.dirname(__file__)).main()
+        return
 
     try:
         StartUp(os.path.dirname(__file__)).main()

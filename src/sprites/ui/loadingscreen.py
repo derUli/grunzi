@@ -1,4 +1,9 @@
+import os
+
+import PIL
 import arcade
+from PIL import ImageFilter
+from PIL.Image import Resampling
 
 from state.viewstate import ViewState
 from utils.text import create_text
@@ -6,12 +11,11 @@ from utils.text import create_text
 MARGIN = 5
 PERCENTAGE_SPEED = 1
 FONT_SIZE = 16
-
+MAX_BLUR = 20
 
 class LoadingScreen:
     def __init__(self):
         self.size = None
-        self.shadertoy = None
 
         self.loading_text = None
         self.time = 0
@@ -23,10 +27,12 @@ class LoadingScreen:
         self.bar_height = 0
 
         self.show = False
+        self.blur = MAX_BLUR
+        self.image = None
+        self.original_image = None
 
     def setup(self, state: ViewState, size: tuple, show=False):
         self.show = show
-        self.shadertoy = state.load_shader(size, 'gameover')
 
         w, h = size
         self.size = size
@@ -47,6 +53,33 @@ class LoadingScreen:
 
         self.loading_text.x = w / 2 - self.loading_text.content_width / 2
         self.loading_text.y = MARGIN
+
+        path = os.path.join(state.ui_dir, 'loading.jpg')
+        image = PIL.Image.open(path).convert('RGBA').crop()
+
+        image = image.resize(
+            arcade.get_window().get_size(),
+            resample=Resampling.BILINEAR
+        )
+
+        self.original_image = image
+        self.blur = MAX_BLUR
+
+        image = self.original_image.filter(
+            ImageFilter.GaussianBlur(self.blur)
+        )
+
+        texture = arcade.texture.Texture(
+            name=f"loading-{self.blur}",
+            image=image
+        )
+
+        sprite = arcade.sprite.Sprite(
+            texture=texture
+        )
+        sprite.position = (w / 2, h / 2)
+
+        self.image = sprite
 
     @property
     def percent(self):
@@ -69,8 +102,25 @@ class LoadingScreen:
         if self._percent > self._display_percentage:
             self._display_percentage += PERCENTAGE_SPEED
 
+
         elif self._percent < self._display_percentage:
             self._display_percentage -= PERCENTAGE_SPEED
+
+        blur = MAX_BLUR - int(self._display_percentage * (MAX_BLUR / 100))
+        print(blur)
+
+        if blur != self.blur:
+            self.blur = blur
+            texture = arcade.texture.Texture(
+                image=self.original_image.filter(
+                    ImageFilter.GaussianBlur(self.blur),
+                ),
+                name=f"radius-{self.blur}"
+            )
+
+            image = arcade.sprite.Sprite(texture=texture)
+            image.position = self.image.position
+            self.image = image
 
     @property
     def completed(self):
@@ -81,9 +131,9 @@ class LoadingScreen:
         if not self.show:
             return
 
-        if self.shadertoy:
-            self.shadertoy.render(time=time)
         w, h = self.size
+
+        self.image.draw()
 
         arcade.draw_rectangle_filled(
             w / 2,
