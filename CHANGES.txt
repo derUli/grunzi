@@ -6,7 +6,7 @@
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
 
-## Alpha 015 (Unreleased)
+## Alpha 015 (09.07.2024)
 
 * Global: Ausdauer entfernt
 * Global: Kamera-Bewegung optimiert
