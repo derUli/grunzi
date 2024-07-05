@@ -7,7 +7,7 @@
 * Audio: Master Lautstärkeregler hinzugefügt
 
 ## Alpha 016 (Unreleased)
-* map03: Post-Processing Effekt "Grünes Licht" hinzugefügt
+* map03: Post-Processing Effekte hinzugefügt
 
 ## Alpha 015 (Unreleased)
 
