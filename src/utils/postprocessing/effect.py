@@ -1,6 +1,5 @@
 """ Postprocessing effect base class  """
 import logging
-from typing import Self
 
 from arcade import SpriteList
 
@@ -15,7 +14,7 @@ class Effect:
 
         self.spritelist = SpriteList(lazy=True, use_spatial_hash=True)
 
-    def setup(self, args) -> Self:
+    def setup(self, args):
         """ Setup effect """
 
         logging.error('Postprocessing: setup() method not implemented')

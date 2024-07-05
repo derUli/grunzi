@@ -1,5 +1,3 @@
-from typing import Self
-
 import arcade
 
 from state.argscontainer import ArgsContainer
@@ -15,7 +13,7 @@ INDEX_WHITE = 2
 
 
 class ColorTint(Effect):
-    def setup(self, args: ArgsContainer) -> Self:
+    def setup(self, args: ArgsContainer):
         """
         Setup fog effect
         @param args: ArgsContainer
