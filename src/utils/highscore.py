@@ -5,7 +5,6 @@ import logging
 import ssl
 from urllib.error import URLError
 from urllib.request import urlopen
-
 from utils.path import is_linux
 
 
