@@ -75,6 +75,10 @@ class ColorTint(Effect):
         )
 
     def update_it(self, args, index, layer_name, klass, radius, max_alpha):
+
+        if layer_name not in args.scene.name_mapping:
+            return
+
         w, h = arcade.get_window().get_size()
         x, y = args.player.position
 
@@ -83,11 +87,6 @@ class ColorTint(Effect):
 
         if y < h * 0.5:
             y = h * 0.5
-
-        self.spritelist[index].position = (x, y)
-
-        if layer_name not in args.scene.name_mapping:
-            return
 
         alpha = 0
         one = max_alpha / radius
@@ -115,4 +114,8 @@ class ColorTint(Effect):
             if alpha < 0:
                 alpha = 0
 
+        if self.spritelist[index].alpha == 0 and alpha == 0:
+            return
+
+        self.spritelist[index].position = (x, y)
         self.spritelist[index].alpha = alpha
