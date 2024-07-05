@@ -28,7 +28,7 @@ class PostProcessing:
             os.path.join(args.state.animation_dir, 'grain.gif'),
             (w, h)
         )
-        self.filmgrain.alpha = 20
+        self.filmgrain.alpha = 20 * 0.5
         self.filmgrain.position = args.player.position
 
         return self

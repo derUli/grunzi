@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="170" height="80" tilewidth="64" tileheight="64" infinite="0" nextlayerid="41" nextobjectid="79">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="170" height="80" tilewidth="64" tileheight="64" infinite="0" nextlayerid="42" nextobjectid="81">
  <tileset firstgid="1" name="Background" tilewidth="448" tileheight="448" tilecount="13" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
@@ -543,11 +543,6 @@
  <objectgroup id="19" name="Plier" locked="1">
   <object id="5" name="Plier" gid="67" x="6210.33" y="5005.33" width="54" height="64"/>
  </objectgroup>
- <objectgroup id="39" name="Food">
-  <object id="74" gid="79" x="66" y="122" width="64" height="64"/>
-  <object id="75" gid="79" x="-456" y="-56" width="64" height="64"/>
-  <object id="77" gid="2" x="64" y="128" width="64" height="64"/>
- </objectgroup>
  <objectgroup id="36" name="CarKey">
   <object id="59" gid="73" x="3285.96" y="4480.09" width="22" height="60"/>
  </objectgroup>
@@ -650,6 +645,12 @@
  </layer>
  <objectgroup id="37" name="Jeep">
   <object id="58" gid="70" x="8585" y="2343" width="160" height="82"/>
+ </objectgroup>
+ <objectgroup id="39" name="Food">
+  <object id="74" gid="79" x="66" y="122" width="64" height="64"/>
+  <object id="75" gid="79" x="-456" y="-56" width="64" height="64"/>
+  <object id="77" gid="2" x="64" y="128" width="64" height="64"/>
+  <object id="80" gid="2" x="4736" y="64" width="64" height="64"/>
  </objectgroup>
  <layer id="15" name="CarRight" width="170" height="80">
   <data encoding="csv">
