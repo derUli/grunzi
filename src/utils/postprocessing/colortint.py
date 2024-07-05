@@ -51,7 +51,7 @@ class ColorTint(Effect):
             layer_name=LAYER_SUN,
             klass=Sun,
             radius=h,
-            max_alpha=200
+            max_alpha=240
         )
 
         from constants.layers import LAYER_NPC
@@ -73,7 +73,7 @@ class ColorTint(Effect):
             layer_name=LAYER_MOON,
             klass=Moon,
             radius=h,
-            max_alpha=150
+            max_alpha=240
         )
 
     def update_it(self, args, index, layer_name, klass, radius, max_alpha):
