@@ -1,11 +1,6 @@
-import os
-
-import arcade
-
 from utils.postprocessing.colortint import ColorTint
 from utils.postprocessing.filmgrain import FilmGrain
 from utils.postprocessing.fog import Fog
-from utils.sprite import load_animated_gif
 
 
 class PostProcessing:

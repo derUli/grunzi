@@ -27,7 +27,7 @@ class SettingsState:
         self.show_fps = False
 
         self.antialiasing = DEFAULT_ANTIALIASING
-        self._filmgrain = 0.6
+        self._filmgrain = 0.8
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND
