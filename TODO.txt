@@ -7,4 +7,3 @@
 * Zwei weitere Speise hinzufügen
 * Framerate Limit Slider
 * Qualität-Slider 0-6 einfügen
-* FPS-Limit Slider einfügen
