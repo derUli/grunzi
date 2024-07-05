@@ -4,7 +4,7 @@ import json
 import logging
 from urllib.error import URLError
 from urllib.request import urlopen
-
+import ssl
 
 class HighscoreStorage:
     def __init__(self):
@@ -13,6 +13,8 @@ class HighscoreStorage:
         """
         self.url = 'https://grunzi.ulidots.de/'
         self.highscore = []
+
+        ssl._create_default_https_context = ssl._create_unverified_context
 
     def fetch(self) -> bool:
         """
