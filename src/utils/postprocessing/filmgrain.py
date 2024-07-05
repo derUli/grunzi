@@ -48,12 +48,15 @@ class FilmGrain(Effect):
         if not self.filmgrain:
             return
 
+        self.filmgrain.alpha = 20 * args.state.settings.filmgrain
+
+        if self.filmgrain.alpha <= 0:
+            return
+
         w, h = arcade.get_window().get_size()
 
         self.filmgrain.position = args.player.position
         self.filmgrain.center_x = max(w * 0.5, self.filmgrain.center_x)
         self.filmgrain.center_y = max(h * 0.5, self.filmgrain.center_y)
-
-        self.filmgrain.alpha = 20 * args.state.settings.filmgrain
 
         self.filmgrain.update_animation(delta_time)

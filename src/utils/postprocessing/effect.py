@@ -27,5 +27,15 @@ class Effect:
 
     def draw(self) -> None:
         """ Draw effect"""
+        if not self.should_draw:
+            return
 
         self.spritelist.draw()
+
+    @property
+    def should_draw(self):
+        for sprite in self.spritelist:
+            if sprite.alpha >= 1:
+                return True
+
+        return False
