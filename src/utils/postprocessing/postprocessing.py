@@ -1,6 +1,5 @@
-import arcade.sprite
-from utils.postprocessing.fog import Fog
 from utils.postprocessing.colortint import ColorTint
+from utils.postprocessing.fog import Fog
 
 
 class PostProcessing:

@@ -48,7 +48,7 @@ class Landmine(Character):
 
     def explosion_hurt(self, args):
 
-        hurt = 100 / (len(self.explosion.frames) * 0.19)
+        hurt = 100 / (len(self.explosion.frames) * 0.18)
 
         try:
             moveable = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_MOVEABLE])

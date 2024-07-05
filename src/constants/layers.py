@@ -20,7 +20,6 @@ from sprites.items.electricswitch import ElectricSwitch
 from sprites.items.fence import Fence
 from sprites.items.hammer import Hammer
 from sprites.items.jeep import Jeep
-from sprites.items.lantern import Lantern
 from sprites.items.levelexit import LevelExit
 from sprites.items.piggybank import PiggyBank
 from sprites.items.plier import Plier
@@ -70,7 +69,6 @@ LAYER_RIVER = 'River'
 LAYER_RIVER_SOUND = 'RiverSound'
 LAYER_FISH = 'Fish'
 LAYER_FOOD = 'Food',
-LAYER_LANTERN = 'Lantern'
 LAYER_CACTUS = 'Cactus'
 
 ALL_LAYERS = [
@@ -194,9 +192,6 @@ LAYER_OPTIONS = {
     },
     LAYER_FISH: {
         'custom_class': Fish
-    },
-    LAYER_LANTERN: {
-        'custom_class': Lantern
     },
     LAYER_CACTUS: {
         'custom_class': Cactus

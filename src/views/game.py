@@ -339,6 +339,8 @@ class Game(Fading):
         self.draw_after()
 
     def update_player_speed(self) -> None:
+        self.window.set_mouse_visible(False)
+
         """ Update player sprite """
 
         # Calculate speed based on the keys pressed

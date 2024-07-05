@@ -8,7 +8,6 @@ from arcade import SpriteList
 from sprites.characters.character import Character
 from sprites.items.item import Item, Interactable
 from sprites.sprite import AbstractSprite
-from utils.lightmanager import LightManager
 from utils.postprocessing.postprocessing import PostProcessing
 
 
@@ -19,15 +18,12 @@ class Scene(BaseScene):
 
         super().__init__()
         self.initialized = False
-        self.light_manager = LightManager()
         self.postprocessing = PostProcessing()
         self.args = None
 
     def setup(self, args) -> None:
         """ Setup scene """
 
-        self.light_manager = LightManager()
-        self.light_manager.setup(args)
         self.postprocessing = PostProcessing()
         self.postprocessing.setup(args)
         self.args = args
@@ -68,8 +64,6 @@ class Scene(BaseScene):
         if not self.initialized:
             self.setup(args)
 
-        self.light_manager.update(args)
-
         size = arcade.get_window().get_size()
         self.update_animated(delta_time, size, self, args.player)
         self.postprocessing.update(delta_time, args)
@@ -77,21 +71,11 @@ class Scene(BaseScene):
 
     def update_animated(self, delta_time, size, scene, player_sprite):
         """ Update animated """
+
         # Animate only visible
         animated = animated_in_sight(size, scene, player_sprite)
         for sprite in animated:
             sprite.update_animation(delta_time)
-
-    def check_collision_insight(self, sprite1, sprite2):
-
-        diff = abs(arcade.get_distance_between_sprites(sprite1, sprite2))
-
-        w, h = arcade.get_window().size
-
-        if diff > h:
-            return False
-
-        return arcade.check_for_collision(sprite1, sprite2)
 
     def get_collectable(self, player_sprite):
         """ Get collectable item """
@@ -130,16 +114,8 @@ class Scene(BaseScene):
         return wall_spritelist
 
     def draw(self, names: Optional[List[str]] = None, **kwargs):
-        if not self.light_manager.enabled:
-            self._draw(names=names, **kwargs)
-            self.postprocessing.draw()
-            return
-
-        with self.light_manager.light_layer:
-            self._draw(names=names, **kwargs)
-            self.postprocessing.draw()
-
-        self.light_manager.draw()
+        self._draw(names=names, **kwargs)
+        self.postprocessing.draw()
 
     def _draw(self, names: Optional[List[str]] = None, **kwargs):
         from sprites.bullet.bullet import Bullet

@@ -9,10 +9,10 @@ COLOR_GREEN = (124, 252, 0)
 COLOR_YELLOW = (252, 234, 2)
 COLOR_WHITE = (228, 227, 225)
 
-
 INDEX_YELLOW = 0
 INDEX_GREEN = 1
 INDEX_WHITE = 2
+
 
 class ColorTint(Effect):
     def setup(self, args: ArgsContainer) -> Self:
