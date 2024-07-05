@@ -169,7 +169,7 @@ class Game(Fading):
         self.ui.loading_screen.percent = 50
 
         self.map_populator = MapPopulator()
-        self.map_populator.spawn_initial(make_args_container(self))
+        # self.map_populator.spawn_initial(make_args_container(self))
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
@@ -187,7 +187,7 @@ class Game(Fading):
         # Create the physics engine
         self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
 
-        self.map_populator.spawn_npcs(make_args_container(self))
+        #self.map_populator.spawn_npcs(make_args_container(self))
 
         self.ui.loading_screen.percent = 60
 
@@ -307,7 +307,7 @@ class Game(Fading):
             make_args_container(self)
         )
 
-        self.map_populator.update(make_args_container(self))
+        #self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
 
     def on_draw(self) -> None:

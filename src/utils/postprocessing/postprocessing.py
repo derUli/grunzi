@@ -22,6 +22,8 @@ class PostProcessing:
             FilmGrain().setup(args)
         )
 
+        self.pipeline = []
+
         return self
 
     def update(self, delta_time, args) -> None:
