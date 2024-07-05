@@ -10,6 +10,11 @@ class PostProcessing:
     def setup(self, args):
         self.pipeline = []
 
+        if args.state.difficulty.options['fog']:
+            self.pipeline.append(
+                Fog().setup(args)
+            )
+
         self.pipeline.append(
             ColorTint().setup(args)
         )

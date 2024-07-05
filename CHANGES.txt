@@ -6,9 +6,6 @@
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
 
-## Alpha 016 (Unreleased)
-* map03: Post-Processing Effekte hinzugefügt
-
 ## Alpha 015 (Unreleased)
 
 * Global: Ausdauer entfernt
@@ -19,6 +16,7 @@
 * map03: Puzzle mit Ventil hinzugefügt
 * map03: Nebel animiert
 * Global: Highscore kann übertragen werden
+* map02, map03: Color Tint Post-Processing Effekt hinzugefügt
 
 ## Alpha 014 (21.06.2024)
 
