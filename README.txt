@@ -78,6 +78,10 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --silent              Mute the sound
   --audio-backend {auto,xaudio2,directsound,openal,pulse,silent}
                         The audio backend
+
+  --video-quality {0,1,2,3,4,5,6}
+                        The video quality
+
   --antialiasing {0,2,4,8,16}
                         The antialiasing level
   --no-vsync            Disable V-Sync

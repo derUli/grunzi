@@ -94,6 +94,14 @@ class StartUp:
         )
 
         parser.add_argument(
+            '--video-quality',
+            action='store',
+            type=int,
+            help='The video quality',
+            choices=list(range(0, 7))
+        )
+
+        parser.add_argument(
             '--antialiasing',
             action='store',
             type=int,
@@ -200,6 +208,10 @@ class StartUp:
         arcade.configure_logging(level=log_level_arcade)
 
         settings = SettingsState.load()
+
+        if args.video_quality is not None and settings.quality != args.video_quality:
+            settings.quality = args.video_quality
+            settings.save()
 
         if args.antialiasing is not None:
             settings.antialiasing = args.antialiasing
