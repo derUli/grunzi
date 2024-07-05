@@ -1,6 +1,6 @@
 import arcade.sprite
 from utils.postprocessing.fog import Fog
-from utils.postprocessing.lighting import Lighting
+from utils.postprocessing.colortint import ColorTint
 
 
 class PostProcessing:
@@ -11,7 +11,7 @@ class PostProcessing:
         self.pipeline = []
 
         self.pipeline.append(
-            Lighting().setup(args)
+            ColorTint().setup(args)
         )
 
         return self

@@ -19,7 +19,7 @@ def start() -> None:
         sys.exit()
     except Exception as e:
         logging.critical("Fatal exception", exc_info=e)
-        messagebox.showerror('Error', (str(e)))
+        messagebox.showerror('Error', (repr(e)))
         sys.exit()
 
 
