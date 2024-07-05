@@ -17,6 +17,7 @@
 * map03: Nebel animiert
 * Global: Highscore kann übertragen werden
 * map02, map03: Color Tint Post-Processing Effekt hinzugefügt
+* Global: Filmgrain Post-Processing Effekt hinzugefügt
 * Launcher: Zu kleine Bildschirmauflösungen entfernt
 
 ## Alpha 014 (21.06.2024)
