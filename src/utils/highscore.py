@@ -2,9 +2,12 @@
 
 import json
 import logging
+import ssl
 from urllib.error import URLError
 from urllib.request import urlopen
-import ssl
+
+from utils.path import is_linux
+
 
 class HighscoreStorage:
     def __init__(self):
@@ -14,7 +17,9 @@ class HighscoreStorage:
         self.url = 'https://grunzi.ulidots.de/'
         self.highscore = []
 
-        ssl._create_default_https_context = ssl._create_unverified_context
+        # Required for linux
+        if is_linux():
+            ssl._create_default_https_context = ssl._create_unverified_context
 
     def fetch(self) -> bool:
         """
