@@ -5,10 +5,8 @@ import arcade
 from state.argscontainer import ArgsContainer
 from utils.postprocessing.effect import Effect
 
-DEFAULT_ALPHA = 150
 
-MOVE_SPEED = 0.33
-
+COLOR_GREEN = (124, 252, 0, 255)
 
 class Lighting(Effect):
     def setup(self, args: ArgsContainer) -> Self:
@@ -22,7 +20,7 @@ class Lighting(Effect):
 
         w, h = arcade.get_window().get_size()
 
-        sprite = arcade.sprite.SpriteSolidColor(w, h, color=(124, 252, 0, 255))
+        sprite = arcade.sprite.SpriteSolidColor(w, h, color=COLOR_GREEN)
         sprite.alpha = 0
         self.spritelist.append(sprite)
 
