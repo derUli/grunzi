@@ -10,7 +10,7 @@ from constants.display import DEFAULT_ANTIALIASING
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 16
+SETTINGS_STATE_VERSION = 17
 
 
 class SettingsState:
@@ -28,6 +28,8 @@ class SettingsState:
 
         self.antialiasing = DEFAULT_ANTIALIASING
         self._filmgrain = 0.8
+        self._fog = True
+        self._color_tint = True
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND
@@ -149,6 +151,14 @@ class SettingsState:
     @property
     def filmgrain(self):
         return self._filmgrain
+
+    @property
+    def fog(self):
+        return self._fog
+
+    @property
+    def color_tint(self):
+        return self._color_tint
 
     def mute(self) -> None:
         """ Mute sound """

@@ -15,14 +15,14 @@ class PostProcessing:
                 Fog().setup(args)
             )
 
-        self.pipeline.append(
-            ColorTint().setup(args)
-        )
+        if args.state.settings.color_tint:
+            self.pipeline.append(
+                ColorTint().setup(args)
+            )
+
         self.pipeline.append(
             FilmGrain().setup(args)
         )
-
-        self.pipeline = []
 
         return self
 
