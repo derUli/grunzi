@@ -6,14 +6,9 @@ from utils.postprocessing.lighting import Lighting
 class PostProcessing:
     def __init__(self):
         self.pipeline = []
-        self.sprite = None
 
     def setup(self, args):
         self.pipeline = []
-        if args.state.difficulty.options['fog']:
-            self.pipeline.append(
-                Fog().setup(args)
-            )
 
         self.pipeline.append(
             Lighting().setup(args)
@@ -30,6 +25,3 @@ class PostProcessing:
 
         for effect in self.pipeline:
             effect.draw()
-
-        if self.sprite:
-            self.sprite.draw()

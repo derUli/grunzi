@@ -86,8 +86,3 @@ class Fog(Effect):
 
             if sprite.right <= 0:
                 sprite.right = ((len(self.spritelist)) * sprite.width) - abs(sprite.right)
-
-    def draw(self) -> None:
-        """ Draw fog """
-
-        self.spritelist.draw()
