@@ -35,7 +35,8 @@ class SaveGameState:
         return sorted(selectable, key=natural_keys)
 
     @property
-    def total_score(self):
+    def total_score(self) -> int:
+        """ Calculate total score """
         return numpy.sum(list(self.score.values()))
 
     @staticmethod

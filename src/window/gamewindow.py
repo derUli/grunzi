@@ -27,7 +27,7 @@ class GameWindow(arcade.Window):
             vsync: bool = False,
             borderless: bool = False,
             antialiasing: bool = True,
-            samples: int = 0
+            samples: int = 0,
     ):
         default_screen = pyglet.canvas.get_display().get_default_screen()
         native_mode = default_screen.get_mode()
@@ -53,7 +53,7 @@ class GameWindow(arcade.Window):
             center_window=True,
             style=style,
             vsync=vsync,
-            gc_mode='auto',
+            gc_mode='context_gc',
             antialiasing=antialiasing,
             samples=samples
         )
