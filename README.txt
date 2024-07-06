@@ -29,6 +29,7 @@ der RivaTuner Software gemessen.
 | Vollbild            | An          |
 | V-Sync              | Aus         |
 | Rahmenlos           | Aus         |
+| Qualität            | 4           |
 
 ### Desktop PC
 
