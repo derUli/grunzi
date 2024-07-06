@@ -130,7 +130,7 @@ class LauncherWindow(ThemedTk):
             pady=SPACE_BETWEEN
         )
 
-        (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality,tickinterval=1).
+        (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality).
          grid(row=4, column=1, pady=SPACE_BETWEEN, sticky='nw'))
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
