@@ -6,6 +6,10 @@
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
 
+## Alpha 016 (Unreleased)
+
+* Linux: Spiel kann jetzt auch gestartet werden, wenn libportaudio2 nicht installiert ist.
+
 ## Alpha 015 (09.07.2024)
 
 * Global: Ausdauer entfernt
