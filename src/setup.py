@@ -41,6 +41,7 @@ options = {
         # "include_msvcr": True, Not allowed to legal reasons
         'optimize': OPTIMIZE,
         'silent_level': 3,
+        'includes': ['pyogg'],
         'include_files': [
             'data/',
             '../CREDITS.txt',

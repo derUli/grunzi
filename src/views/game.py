@@ -420,10 +420,10 @@ class Game(Fading):
         self.on_next_level(same=True)
 
     def on_next_level(self, same=False):
-        self.player_sprite.reset()
-
         if self.next_view:
             return
+
+        self.player_sprite.reset()
 
         old_map = self.state.map_name
         next_map = old_map
