@@ -12,7 +12,7 @@ from utils.text import create_text
 MARGIN = 5
 PERCENTAGE_SPEED = 1
 FONT_SIZE = 16
-MAX_BLUR = 20
+MAX_BLUR = 15
 
 
 class LoadingScreen:
