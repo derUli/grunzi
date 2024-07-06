@@ -127,11 +127,11 @@ class LauncherWindow(ThemedTk):
             row=4,
             column=0,
             padx=SPACE_BETWEEN,
-            pady=SPACE_BETWEEN
+            pady=SPACE_BETWEEN,
         )
 
-        (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality).
-         grid(row=4, column=1, pady=SPACE_BETWEEN, sticky='nw'))
+        (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality)
+         .grid(row=4, column=1, pady=SPACE_BETWEEN))
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
@@ -200,7 +200,6 @@ class LauncherWindow(ThemedTk):
         self.args.window = not self.fullscreen.get()
         self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
-
 
         screen_resolution = self.screen_resolution.get().split('x')
 

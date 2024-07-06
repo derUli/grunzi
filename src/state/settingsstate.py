@@ -7,9 +7,9 @@ import jsonpickle
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
 from constants.display import DEFAULT_ANTIALIASING
+from constants.quality import QUALITY_PRESETS
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
-from constants.quality import QUALITY_PRESETS
 
 SETTINGS_STATE_VERSION = 18
 
@@ -162,7 +162,6 @@ class SettingsState:
     @property
     def color_tint(self):
         return self._color_tint
-
 
     @property
     def quality(self):
