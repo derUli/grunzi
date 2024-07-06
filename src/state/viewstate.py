@@ -55,7 +55,7 @@ class ViewState:
         """ Preload sounds """
         self.sounds = {
             'coin': arcade.load_sound(
-                os.path.join(self.sound_dir, 'common', 'pickup.mp3'),
+                os.path.join(self.sound_dir, 'common', 'pickup.ogg'),
             ),
             'screenshot': arcade.load_sound(
                 os.path.join(self.sound_dir, 'common', 'screenshot.ogg'),
