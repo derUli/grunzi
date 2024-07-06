@@ -34,6 +34,12 @@ class LauncherWindow(ThemedTk):
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
         self.borderless = tk.BooleanVar(value=args.borderless)
 
+        quality = args.video_quality
+        if quality is None:
+            quality = 4
+
+        self.quality = tk.IntVar(value=quality)
+
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
         self.confirmed = False
@@ -53,6 +59,7 @@ class LauncherWindow(ThemedTk):
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
             self.borderless.set(self.state.borderless)
+            self.quality.set(self.state.quality)
 
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
@@ -116,6 +123,16 @@ class LauncherWindow(ThemedTk):
                         offvalue=False
                         ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
 
+        ttk.Label(tab_graphics, text=_('Quality') + ' ').grid(
+            row=4,
+            column=0,
+            padx=SPACE_BETWEEN,
+            pady=SPACE_BETWEEN
+        )
+
+        (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality).
+         grid(row=4, column=1, pady=SPACE_BETWEEN, sticky='nw'))
+
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
             column=0,
@@ -168,6 +185,10 @@ class LauncherWindow(ThemedTk):
         self.state.borderless = self.borderless.get()
         self.state.vsync = self.vsync.get()
 
+        if self.state.quality != self.quality.get():
+            self.state.quality = self.quality.get()
+            self.args.video_quality = self.quality.get()
+
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.audio_backend = self.audio_backend.get()
@@ -179,6 +200,7 @@ class LauncherWindow(ThemedTk):
         self.args.window = not self.fullscreen.get()
         self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
+
 
         screen_resolution = self.screen_resolution.get().split('x')
 
