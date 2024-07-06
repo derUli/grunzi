@@ -13,6 +13,8 @@ try:
     import sounddevice
 except ImportError:
     sounddevice = None
+except OSError:
+    sounddevice = None
 
 from .path import get_log_path
 from .text import label_value
