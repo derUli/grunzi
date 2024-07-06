@@ -6,8 +6,9 @@ import os
 import jsonpickle
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
-from constants.display import DEFAULT_ANTIALIASING
-from constants.quality import QUALITY_PRESETS
+from constants.settings import QUALITY_PRESETS, DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_BORDERLESS, DEFAULT_SHOW_FPS, \
+    DEFAULT_FILMGRAIN, DEFAULT_FOG, DEFAULT_COLOR_TINT, DEFAULT_QUALITY, DEFAULT_MUSIC_VOLUME, DEFAULT_SOUND_VOLUME, \
+    DEFAULT_ATMO_VOLUME, DEFAULT_MUTED, DEFAULT_FIRST_START, DEFAULT_VIBRATION, DEFAULT_ANTIALIASING
 from utils.audio import normalize_volume
 from utils.path import get_settings_path
 
@@ -22,29 +23,31 @@ class SettingsState:
 
         # Video
         self.screen_resolution = [1280, 720]
-        self.fullscreen = True
-        self.borderless = False
-        self.vsync = True
-        self.show_fps = False
+        self.fullscreen = DEFAULT_FULLSCREEN
+        self.borderless = DEFAULT_BORDERLESS
+        self.vsync = DEFAULT_VSYNC
+        self.show_fps = DEFAULT_SHOW_FPS
 
         self.antialiasing = DEFAULT_ANTIALIASING
-        self._filmgrain = 0.8
-        self._fog = True
-        self._color_tint = True
+        self._filmgrain = DEFAULT_FILMGRAIN
+        self._fog = DEFAULT_FOG
+        self._color_tint = DEFAULT_COLOR_TINT
 
-        self._quality = 4
+        self._quality = DEFAULT_QUALITY
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND
-        self._music_volume = 1.0
-        self._sound_volume = 1.0
-        self._atmo_volume = 1.0
-        self._muted = False
+        self._music_volume = DEFAULT_MUSIC_VOLUME
+        self._sound_volume = DEFAULT_SOUND_VOLUME
+        self._atmo_volume = DEFAULT_ATMO_VOLUME
+        self._muted = DEFAULT_MUTED
 
-        # SettingState
+        # Controllers
+        self.vibration = DEFAULT_VIBRATION
+
+        # Other
         self.version = SETTINGS_STATE_VERSION
-        self.first_start = False
-        self.vibration = True
+        self.first_start = DEFAULT_FIRST_START
 
     @staticmethod
     def exists() -> bool:

@@ -3,7 +3,7 @@ import logging
 import arcade
 import pyglet
 
-from constants.display import UNLIMITED_FRAMERATE
+from constants.settings import UNLIMITED_FRAMERATE
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720

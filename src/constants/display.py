@@ -1,4 +1,2 @@
 """ Display constants """
 
-UNLIMITED_FRAMERATE = 10000
-DEFAULT_ANTIALIASING = 4
