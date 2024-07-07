@@ -28,6 +28,7 @@ class AddHighscore(Fading):
     """ Difficulty selection """
 
     def __init__(self, window, state):
+        """ Constructor """
         super().__init__(window)
 
         self.window = window
@@ -38,14 +39,17 @@ class AddHighscore(Fading):
         self.submitting = False
 
     def on_show_view(self) -> None:
-        super().on_show_view()
         """ This is run once when we switch to this view """
+
+        super().on_show_view()
+
         self.background = COLOR_BACKGROUND
         self.push_controller_handlers()
         self.setup()
 
     def on_hide_view(self) -> None:
         """ This is run before this view is hidden """
+
         super().on_hide_view()
         self.pop_controller_handlers()
         self.manager.disable()
@@ -102,7 +106,7 @@ class AddHighscore(Fading):
         )
 
         @submit_button.event('on_click')
-        def on_submit(event):
+        def on_submit(event) -> None:
             logging.debug(event)
 
             self.on_submit()
@@ -147,7 +151,7 @@ class AddHighscore(Fading):
 
         self.manager.enable()
 
-    def show_error(self, event=None):
+    def show_error(self, event=None) -> None:
 
         if event:
             self.manager.remove(self.message_box)
@@ -167,7 +171,7 @@ class AddHighscore(Fading):
 
         self.manager.add(self.message_box)
 
-    def show_confirm(self, event=None):
+    def show_confirm(self, event=None) -> None:
         if event:
             self.manager.remove(self.message_box)
             self.message_box = None
@@ -196,14 +200,14 @@ class AddHighscore(Fading):
         self.manager.add(self.message_box)
 
     def on_key_press(self, key, modifiers) -> None:
-        """Called whenever a key is pressed."""
+        """ Called whenever a key is pressed. """
 
         super().on_key_press(key, modifiers)
 
         if key in constants.controls.keyboard.KEY_CONFIRM:
             self.on_submit()
 
-    def on_submit(self):
+    def on_submit(self) -> None:
         if self.submitting:
             return
 

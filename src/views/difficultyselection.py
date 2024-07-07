@@ -33,16 +33,17 @@ class DifficultySelection(Fading):
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
-        super().on_show_view()
 
+        super().on_show_view()
         self.push_controller_handlers()
         self.window.set_mouse_visible(True)
 
         self.setup()
 
     def on_hide_view(self) -> None:
-        super().on_hide_view()
         """ This is run before this view is hidden """
+
+        super().on_hide_view()
         self.pop_controller_handlers()
         self.manager.disable()
 
@@ -80,25 +81,25 @@ class DifficultySelection(Fading):
         )
 
         @difficulty_easy.event("on_click")
-        def on_click_easy(event):
+        def on_click_easy(event) -> None:
             logging.debug(event)
             # Pass already created view because we are resuming.
             self.on_select_difficulty(DIFFICULTY_EASY)
 
         @difficulty_medium.event("on_click")
-        def on_click_medium(event):
+        def on_click_medium(event) -> None:
             logging.debug(event)
             # Pass already created view because we are resuming.
             self.on_select_difficulty(DIFFICULTY_MEDIUM)
 
         @difficulty_high.event("on_click")
-        def on_click_hard(event):
+        def on_click_hard(event) -> None:
             logging.debug(event)
             # Pass already created view because we are resuming.
             self.on_select_difficulty(DIFFICULTY_HARD)
 
         @back_button.event("on_click")
-        def on_click_back_button(event):
+        def on_click_back_button(event) -> None:
             logging.debug(event)
             # Pass already created view because we are resuming.
 
