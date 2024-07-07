@@ -10,11 +10,13 @@ from utils.text import label_value
 
 def has_ffmpeg() -> bool:
     """ Check if ffmpeg is in $PATH """
+
     return shutil.which('ffmpeg') is not None
 
 
 def video_supported() -> bool:
     """ Video playback is currently only supported on Windows """
+
     return has_ffmpeg() and is_windows()
 
 
