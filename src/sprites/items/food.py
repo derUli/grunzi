@@ -43,9 +43,11 @@ class Apple(Food):
 def spawn_food(state, tilemap, scene, physics_engine):
     # For now we have only apples
     classes = [Apple]
+    weights = [1.0]
     rand_x, rand_y = random_position(tilemap)
 
-    food_class = random.choice(classes)
+    food_class = random.choices(
+        classes, weights=weights, k=1)[0]
 
     food = food_class(
         filename=os.path.join(state.sprite_dir, 'food', 'apple.png'),
