@@ -3,7 +3,7 @@ import unittest
 
 from state.settingsstate import SettingsState
 from state.viewstate import ViewState
-from utils.audio import normalize_volume, streaming_enabled, MusicQueue
+from utils.media.audio import normalize_volume, streaming_enabled, MusicQueue
 from utils.path import is_windows
 
 

@@ -9,7 +9,7 @@ from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
 import constants.controls.keyboard
-import utils.audio
+import utils.media.audio
 from constants.layers import *
 from constants.mapconfig import MapConfig
 from constants.maps import MAPS
@@ -212,7 +212,7 @@ class Game(Fading):
         self.ui.loading_screen.percent = 80
 
         # Create the music queue
-        self.music_queue = utils.audio.MusicQueue(state=self.state)
+        self.music_queue = utils.media.audio.MusicQueue(state=self.state)
         self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
 
         self.ui.loading_screen.percent = 100
@@ -250,7 +250,7 @@ class Game(Fading):
 
         pyglet.clock.unschedule(self.wait_for_video)
 
-    def on_update(self, delta_time):
+    def on_update(self, delta_time: float) -> None:
         """Movement and game logic"""
 
         super().on_update(delta_time)

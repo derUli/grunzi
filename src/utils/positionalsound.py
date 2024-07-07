@@ -4,7 +4,7 @@ import logging
 
 import arcade
 
-from utils.audio import normalize_volume
+from utils.media.audio import normalize_volume
 
 MAX_DISTANCE = 800
 FADE_SPEED = 0.05
