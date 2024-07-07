@@ -68,19 +68,6 @@ def get_savegame_path(name: str) -> str:
     @return: userdata path
     """
     path = os.path.join(get_userdata_path(), 'savegames', name + '.json')
-    path = os.path.join(get_userdata_path(), 'savegames', name + '.json')
 
     os.makedirs(os.path.dirname(path), exist_ok=True)
     return path
-
-
-def get_autodetect_path() -> str:
-    """
-    Get path to the file containg the autodetected quality
-    @return: filename
-    """
-    return os.path.join(get_userdata_path(), 'autodetect.txt')
-
-
-def get_user():
-    return os.environ.get('USER', os.environ.get('USERNAME'))
