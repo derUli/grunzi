@@ -21,11 +21,11 @@ from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
 from utils.mappopulator import MapPopulator
+from utils.media.video import load_video, Video
 from utils.physics import make_physics_engine
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from utils.scene import Scene
 from utils.tilemap import TileMap
-from utils.media.video import load_video
 from views.camera import center_camera_to_player
 from views.fading import Fading
 from views.mainmenu import MainMenu
@@ -67,7 +67,7 @@ class Game(Fading):
         # This method is called in next call of on_update
         self._call_method = None
 
-        self.video = None
+        self.video = Video(None)
         self.skip_intro = skip_intro
 
         self.ui = None
@@ -236,7 +236,7 @@ class Game(Fading):
         if not self.input_ready:
             return
 
-        self.video = None
+        self.video = Video(None)
         self.music_queue.play()
 
         atmo = self.state.play_sound('atmos', self.state.map_name, loop=True)
@@ -258,7 +258,7 @@ class Game(Fading):
         self.ui.loading_screen.update(delta_time)
 
         if not self.initialized:
-            if not self.video_playing and not self.loading_music:
+            if not self.video.active and not self.loading_music:
                 self.loading_music = self.state.play_sound(
                     'loading',
                     loop=True,
@@ -266,7 +266,7 @@ class Game(Fading):
                 )
             return
 
-        if self.video_playing:
+        if self.video.active:
             return
 
         if self.loading_music:
@@ -315,7 +315,7 @@ class Game(Fading):
 
         self.clear()
 
-        if self.video_playing:
+        if self.video.active:
             # Loading a video will open a ffmpeg console window.
             # Which will disappear after a second.
             # The game window lose it's focus.
@@ -373,7 +373,7 @@ class Game(Fading):
 
     def on_button_press(self, controller, key):
         """ On button press """
-        if self.video_playing and key in constants.controls.controller.KEY_DISCARD:
+        if self.video.active and key in constants.controls.controller.KEY_DISCARD:
             return self.video.stop()
 
         if not self.initialized:
@@ -499,7 +499,7 @@ class Game(Fading):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
-        if self.video_playing and key in constants.controls.keyboard.KEY_DISCARD:
+        if self.video.active and key in constants.controls.keyboard.KEY_DISCARD:
             return self.video.stop()
 
         if not self.initialized:
@@ -686,9 +686,4 @@ class Game(Fading):
         if not self.initialized:
             return False
 
-        return not self.video_playing
-
-    @property
-    def video_playing(self) -> bool:
-        """ Check if the intro video is playing """
-        return self.video and self.video.active
+        return not self.video.active

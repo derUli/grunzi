@@ -34,11 +34,11 @@ def load_video(
     """
     if not video_supported():
         logging.info(label_value('Video', 'Playback not supported on this platform'))
-        return None
+        return Video(None, interp=cv2.INTER_CUBIC, size=size)
 
     if not os.path.exists(path):
         logging.error(f"File {path} not found")
-        return None
+        return Video(None, interp=cv2.INTER_CUBIC, size=size)
 
     return Video(path, interp=cv2.INTER_CUBIC, size=size)
 
@@ -46,7 +46,7 @@ def load_video(
 class Video(VideoPyglet):
     def __init__(
             self,
-            path: str,
+            path: str = None,
             chunk_size=300,
             max_threads=1,
             max_chunks=1,
@@ -56,7 +56,11 @@ class Video(VideoPyglet):
             size=None,
             volume=None
     ):
-        super().__init__(path, chunk_size, max_threads, max_chunks, post_process, interp, use_pygame_audio)
+        self.path = path
+        self.active = False
+
+        if path:
+            super().__init__(path, chunk_size, max_threads, max_chunks, post_process, interp, use_pygame_audio)
 
         if size is not None:
             self.resize(size)
