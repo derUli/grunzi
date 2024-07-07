@@ -3,8 +3,8 @@ import os
 import arcade.gui
 
 import constants.controls.keyboard
-from utils.media.audio import streaming_enabled
 from utils.gui import get_button_style
+from utils.media.audio import streaming_enabled
 from views.fading import Fading
 from views.mainmenu import MainMenu
 from views.settings.settingsmenu import SettingsMenu

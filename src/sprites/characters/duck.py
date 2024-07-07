@@ -5,6 +5,7 @@ from arcade import FACE_RIGHT, FACE_LEFT
 
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
+from state.argscontainer import ArgsContainer
 from utils.positionalsound import PositionalSound
 
 FADE_SPEED = 4
@@ -46,10 +47,12 @@ class Duck(Character):
 
     def update(
             self,
-            delta_time,
-            args
-    ):
-        # randomize play sound
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
+        """ Update duck """
+
+        # Play random "quack" sound
         if random.randint(1, 50) == 30:
             self.play_sound(player=args.player, state=args.state)
 

@@ -2,8 +2,10 @@
 import logging
 import os
 import shutil
+
 import cv2
 from pyvidplayer2 import VideoPyglet, PostProcessing
+
 from utils.path import is_windows
 from utils.text import label_value
 

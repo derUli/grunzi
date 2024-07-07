@@ -5,10 +5,10 @@ from utils.path import is_windows, get_userdata_path, get_settings_path, get_sav
 
 class PathTest(unittest.TestCase):
     def test_is_windows(self):
-        self.assertTrue(isinstance(is_windows(), bool))
+        self.assertIsInstance(is_windows(), bool)
 
     def test_is_linux(self):
-        self.assertTrue(isinstance(is_linux(), bool))
+        self.assertIsInstance(is_linux(), bool)
         self.assertNotEqual(is_windows(), is_linux())
 
     def test_get_userdata_path(self):
