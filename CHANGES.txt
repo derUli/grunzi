@@ -10,6 +10,7 @@
 
 * Linux: Spiel kann jetzt auch gestartet werden, wenn libportaudio2 nicht installiert ist.
 * Neues Essen: Pizza
+* Menü: Option "Qualität" jetzt auch in den In-Game-Grafikeinstellungen
 
 ## Alpha 015 (09.07.2024)
 
