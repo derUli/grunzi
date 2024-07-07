@@ -11,7 +11,7 @@ import utils.text
 from state.savegamestate import SaveGameState
 from utils.highscore import HighscoreStorage
 from views.fading import Fading
-from views.highscore import Highscore
+from views.highscore.highscorelist import HighscoreList
 from views.mainmenu import MainMenu
 
 BUTTON_WIDTH = 250
@@ -24,7 +24,7 @@ FILL_CHAR = '0'
 FILL_CHAR_NAME = ' '
 
 
-class AddHighscore(Fading):
+class HighscoreAdd(Fading):
     """ Difficulty selection """
 
     def __init__(self, window, state):
@@ -227,7 +227,7 @@ class AddHighscore(Fading):
             return self.show_error()
 
         self.fade_to_view(
-            Highscore(
+            HighscoreList(
                 self.window,
                 self.state,
                 MainMenu(self.window, self.state)

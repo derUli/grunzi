@@ -16,7 +16,7 @@ FILL_COUNT = 6
 FILL_CHAR = '0'
 
 
-class Highscore(Fading):
+class HighscoreList(Fading):
     """ Difficulty selection """
 
     def __init__(self, window, state, previous_view):
