@@ -107,7 +107,7 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
 
     # Create some boxes to push around.
     # Mass controls, well, the mass of an object. Defaults to 1.
-    if 'Moveable' in scene.name_mapping:
+    if LAYER_MOVEABLE in scene.name_mapping:
         physics_engine.add_sprite_list(
             scene[LAYER_MOVEABLE],
             collision_type=COLLISION_MOVEABLE,
