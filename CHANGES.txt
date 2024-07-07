@@ -9,6 +9,7 @@
 ## Alpha 016 (Unreleased)
 
 * Linux: Spiel kann jetzt auch gestartet werden, wenn libportaudio2 nicht installiert ist.
+* Neues Essen: Pizza
 
 ## Alpha 015 (09.07.2024)
 
