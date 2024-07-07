@@ -24,7 +24,7 @@ UNLIMITED_FRAMERATE = 10000
 
 
 class QualityPreset:
-    def __init__(self, val):
+    def __init__(self, val: int):
         self.filmgrain = 0.0
         self.fog = False
         self.color_tint = False
