@@ -11,9 +11,11 @@ import pyglet
 
 try:
     import sounddevice
-except ImportError:
+except ImportError as e:
+    logging.error(e)
     sounddevice = None
-except OSError:
+except OSError as e:
+    logging.error(e)
     sounddevice = None
 
 from .path import get_log_path
