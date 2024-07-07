@@ -51,9 +51,6 @@ options = {
             '../CHANGES.txt',
             '../VERSION.txt'
         ],
-        'excludes': [
-            'pygame'
-        ]
     }
 }
 

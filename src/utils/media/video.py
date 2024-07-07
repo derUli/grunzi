@@ -2,13 +2,8 @@
 import logging
 import os
 import shutil
-
 import cv2
-
-pygame = None
 from pyvidplayer2 import VideoPyglet, PostProcessing
-
-
 from utils.path import is_windows
 from utils.text import label_value
 
@@ -43,7 +38,7 @@ def load_video(
         logging.error(f"File {path} not found")
         return Video(None, interp=cv2.INTER_CUBIC, size=size)
 
-    return Video(path, interp=cv2.INTER_CUBIC, size=size)
+    return Video(path, interp=cv2.INTER_CUBIC, size=size, volume=volume)
 
 
 class Video(VideoPyglet):
