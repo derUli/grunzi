@@ -23,7 +23,7 @@ DEFAULT_ANTIALIASING = 4
 UNLIMITED_FRAMERATE = 10000
 
 
-class Quality:
+class QualityPreset:
     def __init__(self, val):
         self.filmgrain = 0.0
         self.fog = False
@@ -51,9 +51,3 @@ class Quality:
 
         if val >= 6:
             self.antialiasing = 16
-
-
-QUALITY_PRESETS = []
-
-for i in range(0, 7):
-    QUALITY_PRESETS.append(Quality(i))

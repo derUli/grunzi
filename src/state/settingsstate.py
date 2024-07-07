@@ -6,9 +6,9 @@ import os
 import jsonpickle
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
-from constants.settings import QUALITY_PRESETS, DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_BORDERLESS, DEFAULT_SHOW_FPS, \
+from constants.settings import DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_BORDERLESS, DEFAULT_SHOW_FPS, \
     DEFAULT_FILMGRAIN, DEFAULT_FOG, DEFAULT_COLOR_TINT, DEFAULT_QUALITY, DEFAULT_MUSIC_VOLUME, DEFAULT_SOUND_VOLUME, \
-    DEFAULT_ATMO_VOLUME, DEFAULT_MUTED, DEFAULT_FIRST_START, DEFAULT_VIBRATION, DEFAULT_ANTIALIASING
+    DEFAULT_ATMO_VOLUME, DEFAULT_MUTED, DEFAULT_FIRST_START, DEFAULT_VIBRATION, DEFAULT_ANTIALIASING, QualityPreset
 from utils.media.audio import normalize_volume
 from utils.path import get_settings_path
 
@@ -173,12 +173,12 @@ class SettingsState:
     @quality.setter
     def quality(self, quality):
         self._quality = quality
-        quality = QUALITY_PRESETS[self.quality]
+        preset = QualityPreset(self.quality)
 
-        self._filmgrain = quality.filmgrain
-        self._fog = quality.fog
-        self._color_tint = quality.color_tint
-        self.antialiasing = quality.antialiasing
+        self._filmgrain = preset.filmgrain
+        self._fog = preset.fog
+        self._color_tint = preset.color_tint
+        self.antialiasing = preset.antialiasing
 
     def mute(self) -> None:
         """ Mute sound """

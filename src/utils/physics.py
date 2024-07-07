@@ -37,8 +37,7 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
     # Set the gravity. (0, 0) is good for outer space and top-down.
     gravity = GRAVITY
 
-    physics_engine = PymunkPhysicsEngine(damping=damping,
-                                         gravity=gravity)
+    physics_engine = PymunkPhysicsEngine(damping=damping, gravity=gravity)
 
     # Add the player.
     # For the player, we set the damping to a lower value, which increases
@@ -50,12 +49,13 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
     # Friction is between two objects in contact. It is important to remember
     # in top-down games that friction moving along the 'floor' is controlled
     # by damping.
-    physics_engine.add_sprite(player_sprite,
-                              friction=DEFAULT_FRICTION,
-                              moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
-                              collision_type=COLLISION_PLAYER,
-                              damping=player_sprite.damping
-                              )
+    physics_engine.add_sprite(
+        player_sprite,
+        friction=DEFAULT_FRICTION,
+        moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+        collision_type=COLLISION_PLAYER,
+        damping=player_sprite.damping
+    )
 
     # Create the walls.
     # By setting the body type to PymunkPhysicsEngine.STATIC the walls can't
