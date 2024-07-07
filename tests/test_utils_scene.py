@@ -8,7 +8,7 @@ from utils.scene import get_layer
 configure_logger()
 
 
-class TestUtilsScene(unittest.TestCase):
+class UtilsSceneTest(unittest.TestCase):
     def setUp(self):
         self.scene = arcade.Scene()
 

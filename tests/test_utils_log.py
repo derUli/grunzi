@@ -12,7 +12,7 @@ configure_logger()
 import logging
 
 
-class TestUtilsLog(unittest.TestCase):
+class UtilsLogTest(unittest.TestCase):
     def setUp(self):
         self.log_file = os.path.join(get_log_path(), 'debug.log')
 
