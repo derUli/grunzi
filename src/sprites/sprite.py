@@ -5,6 +5,8 @@ from typing import Optional
 import arcade.sprite
 from arcade import Texture
 
+from state.argscontainer import ArgsContainer
+
 FADE_SPEED = 255 / 20
 
 
@@ -101,9 +103,9 @@ class Sprite(AbstractStaticSprite):
 
     def update(
             self,
-            delta_time,
-            args
-    ):
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
         if self.fadeout:
             alpha = self.alpha - FADE_SPEED
 
