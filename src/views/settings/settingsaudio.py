@@ -60,14 +60,6 @@ class SettingsAudio(Fading):
             style=utils.gui.get_button_style()
         )
 
-        default_style = arcade.gui.UISlider.UIStyle(
-            filled_bar=arcade.color.HOT_PINK,
-            unfilled_bar=arcade.color.BLACK
-        )
-
-        style_dict = {"press": default_style, "normal": default_style, "hover": default_style,
-                      "disabled": default_style}
-
         music_label = arcade.gui.UILabel(
             text=_('Music'),
             text_color=arcade.csscolor.BLACK,
@@ -83,7 +75,7 @@ class SettingsAudio(Fading):
             value=int(self.state.settings._music_volume * 100),
             min_value=0,
             max_value=100,
-            style=style_dict
+            style=utils.gui.get_slider_style()
         )
 
         sound_label = arcade.gui.UILabel(
@@ -101,7 +93,7 @@ class SettingsAudio(Fading):
             value=int(self.state.settings._sound_volume * 100),
             min_value=0,
             max_value=100,
-            style=style_dict
+            style=utils.gui.get_slider_style()
         )
 
         atmo_label = arcade.gui.UILabel(
@@ -119,7 +111,7 @@ class SettingsAudio(Fading):
             value=int(self.state.settings._atmo_volume * 100),
             min_value=0,
             max_value=100,
-            style=style_dict
+            style=utils.gui.get_slider_style()
         )
 
         @back_button.event("on_click")

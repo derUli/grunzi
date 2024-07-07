@@ -40,3 +40,16 @@ def get_button_style() -> dict:
         style[index]['font_name'] = FONT_DEFAULT
         style[index]['font_size'] = FONT_SIZE_MEDIUM
     return style
+
+
+def get_slider_style() -> dict:
+    default_style = arcade.gui.UISlider.UIStyle(
+        filled_bar=arcade.color.HOT_PINK,
+        unfilled_bar=arcade.color.BLACK
+    )
+    return {
+        "press": default_style,
+        "normal": default_style,
+        "hover": default_style,
+        "disabled": default_style
+    }

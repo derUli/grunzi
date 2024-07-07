@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-06 02:10+0200\n"
+"POT-Creation-Date: 2024-07-07 18:33+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
-#: sprites/ui/gameovertext.py:43 views/highscore.py:64
+#: sprites/ui/gameovertext.py:43 views/highscore/highscorelist.py:64
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
 
@@ -66,78 +66,42 @@ msgstr "Wird geladen..."
 msgid "Score"
 msgstr "Punkte"
 
-#: views/addhighscore.py:63
-msgid "Total"
-msgstr "Gesamt"
+#: views/difficultyselection.py:60 views/mapselection.py:66
+#: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
+#: views/settings/settingsgraphics.py:77 views/settings/settingsmenu.py:77
+msgid "Back"
+msgstr "Zurück"
 
-#: views/addhighscore.py:99
-msgid "Submit Entry"
-msgstr "Eintrag absenden"
+#: views/difficultyselection.py:66
+msgid "Easy"
+msgstr "Sauleicht"
 
-#: views/addhighscore.py:119
-msgid "Please enter your name:"
-msgstr "Bitte geben Sie Ihren Namen ein:"
+#: views/difficultyselection.py:72
+msgid "Normal"
+msgstr "Versaut"
 
-#: views/addhighscore.py:126
-msgid "Leave blank to skip"
-msgstr "Leer lassen zum überspringen"
+#: views/difficultyselection.py:78
+msgid "Hard"
+msgstr "Sauschwer"
 
-#: views/addhighscore.py:160
-msgid "Submit failed."
-msgstr "Absenden fehlgeschlagen."
+#: views/difficultyselection.py:109
+msgid "Difficulty"
+msgstr "Schwierigkeit"
 
-#: views/addhighscore.py:162
-msgid "OK"
-msgstr "OK"
+#: views/difficultyselection.py:201
+msgid "Overwrite existing savegame?"
+msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/addhighscore.py:175 views/addhighscore.py:190
-#: views/difficultyselection.py:202 views/difficultyselection.py:215
+#: views/difficultyselection.py:203 views/difficultyselection.py:216
+#: views/highscore/highscoreadd.py:179 views/highscore/highscoreadd.py:194
 #: views/pausemenu.py:150 views/pausemenu.py:180 views/pausemenu.py:197
 msgid "Yes"
 msgstr "Ja"
 
-#: views/addhighscore.py:185
-msgid "You have not entered a name."
-msgstr "Sie haben Ihren Namen nicht eingegeben."
-
-#: views/addhighscore.py:186
-msgid "Do you not want to transfer your score?"
-msgstr "Möchten Sie Ihren Highscore nicht übertragen?"
-
-#: views/addhighscore.py:191 views/difficultyselection.py:203
+#: views/difficultyselection.py:204 views/highscore/highscoreadd.py:195
 #: views/pausemenu.py:151 views/pausemenu.py:159 views/pausemenu.py:181
 msgid "No"
 msgstr "Nein"
-
-#: views/difficultyselection.py:59 views/mapselection.py:66
-#: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
-#: views/settings/settingsgraphics.py:56 views/settings/settingsmenu.py:77
-msgid "Back"
-msgstr "Zurück"
-
-#: views/difficultyselection.py:65
-msgid "Easy"
-msgstr "Sauleicht"
-
-#: views/difficultyselection.py:71
-msgid "Normal"
-msgstr "Versaut"
-
-#: views/difficultyselection.py:77
-msgid "Hard"
-msgstr "Sauschwer"
-
-#: views/difficultyselection.py:108
-msgid "Difficulty"
-msgstr "Schwierigkeit"
-
-#: views/difficultyselection.py:200
-msgid "Overwrite existing savegame?"
-msgstr "Existierenden Spielstand überschreiben?"
-
-#: views/highscore.py:89
-msgid "No entries yet"
-msgstr "Noch keine Einträge vorhanden"
 
 #: views/mainmenu.py:42 window/launcherwindow.py:52
 msgid "Grunzi"
@@ -191,15 +155,51 @@ msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
-#: views/settings/settingsaudio.py:72
+#: views/highscore/highscoreadd.py:67
+msgid "Total"
+msgstr "Gesamt"
+
+#: views/highscore/highscoreadd.py:103
+msgid "Submit Entry"
+msgstr "Eintrag absenden"
+
+#: views/highscore/highscoreadd.py:123
+msgid "Please enter your name:"
+msgstr "Bitte geben Sie Ihren Namen ein:"
+
+#: views/highscore/highscoreadd.py:130
+msgid "Leave blank to skip"
+msgstr "Leer lassen zum überspringen"
+
+#: views/highscore/highscoreadd.py:164
+msgid "Submit failed."
+msgstr "Absenden fehlgeschlagen."
+
+#: views/highscore/highscoreadd.py:166 views/settings/settingsgraphics.py:57
+msgid "OK"
+msgstr "OK"
+
+#: views/highscore/highscoreadd.py:189
+msgid "You have not entered a name."
+msgstr "Sie haben Ihren Namen nicht eingegeben."
+
+#: views/highscore/highscoreadd.py:190
+msgid "Do you not want to transfer your score?"
+msgstr "Möchten Sie Ihren Highscore nicht übertragen?"
+
+#: views/highscore/highscorelist.py:89
+msgid "No entries yet"
+msgstr "Noch keine Einträge vorhanden"
+
+#: views/settings/settingsaudio.py:64
 msgid "Music"
 msgstr "Musik"
 
-#: views/settings/settingsaudio.py:90
+#: views/settings/settingsaudio.py:82
 msgid "Sound"
 msgstr "Sound"
 
-#: views/settings/settingsaudio.py:108
+#: views/settings/settingsaudio.py:100
 msgid "Environment"
 msgstr "Umgebung"
 
@@ -279,7 +279,7 @@ msgstr "Pausenmenü öffnen"
 msgid "F3"
 msgstr ""
 
-#: views/settings/settingscontrols.py:75 views/settings/settingsgraphics.py:85
+#: views/settings/settingscontrols.py:75 views/settings/settingsgraphics.py:106
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
@@ -351,13 +351,21 @@ msgstr "Tastatur"
 msgid "Vibration"
 msgstr ""
 
-#: views/settings/settingsgraphics.py:62 window/launcherwindow.py:100
+#: views/settings/settingsgraphics.py:55
+msgid "You may have to restart the game to apply the changed graphics settings."
+msgstr "Möglicherweise müssen Sie das Spiel neu starten, um die geänderten Grafikeinstellungen zu übernehmen."
+
+#: views/settings/settingsgraphics.py:83 window/launcherwindow.py:100
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsgraphics.py:74 window/launcherwindow.py:120
+#: views/settings/settingsgraphics.py:95 window/launcherwindow.py:120
 msgid "V-Sync"
 msgstr ""
+
+#: views/settings/settingsgraphics.py:117 window/launcherwindow.py:126
+msgid "Quality"
+msgstr "Qualität"
 
 #: views/settings/settingsmenu.py:57 window/launcherwindow.py:80
 msgid "Graphics"
@@ -379,15 +387,11 @@ msgstr "Bildschirmauflösung"
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:126
-msgid "Quality"
-msgstr "Qualität"
-
-#: window/launcherwindow.py:135
+#: window/launcherwindow.py:136
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:149
+#: window/launcherwindow.py:150
 msgid "Launch Game"
 msgstr "Spiel starten"
 

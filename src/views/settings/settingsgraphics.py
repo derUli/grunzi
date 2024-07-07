@@ -1,6 +1,7 @@
 import logging
 
 import arcade.gui
+from arcade.gui import UISlider
 
 import constants.controls.keyboard
 import utils.gui
@@ -23,10 +24,10 @@ class SettingsGraphics(Fading):
         self.manager = arcade.gui.UIManager(window)
         self.shadertoy = shadertoy
         self.time = time
-
         self.previous_view = previous_view
         self._fade_in = None
         self.background = COLOR_BACKGROUND
+        self.needs_restart = False
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
@@ -45,6 +46,26 @@ class SettingsGraphics(Fading):
         self.manager.disable()
 
     def on_back(self) -> None:
+        if not self.needs_restart:
+            return self._on_back()
+
+        message_box = arcade.gui.UIMessageBox(
+            width=300,
+            height=200,
+            message_text=_('You may have to restart the game to apply the changed graphics settings.'),
+            buttons=[
+                _("OK")
+            ]
+        )
+
+        @message_box.event('on_action')
+        def on_back(event):
+            logging.debug(event)
+            self._on_back()
+
+        self.manager.add(message_box)
+
+    def _on_back(self):
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
 
@@ -92,6 +113,24 @@ class SettingsGraphics(Fading):
             style=utils.gui.get_button_style()
         )
 
+        quality_label = arcade.gui.UILabel(
+            text=_('Quality'),
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
+            font_name=utils.text.FONT_DEFAULT,
+            font_size=utils.text.FONT_SIZE_MEDIUM,
+            width=BUTTON_WIDTH,
+            align='center'
+        )
+
+        quality_slider = UISlider(
+            width=BUTTON_WIDTH,
+            value=int(self.state.settings.quality),
+            min_value=0,
+            max_value=6,
+            style=utils.gui.get_slider_style()
+        )
+
         @fullscreen_button.event('on_click')
         def on_click_fullscreen_button(event):
             logging.debug(event)
@@ -113,6 +152,10 @@ class SettingsGraphics(Fading):
             self.on_toggle_fps()
             self.setup()
 
+        @quality_slider.event("on_change")
+        def on_change_quality(event):
+            self.on_change_quality(event.new_value)
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             logging.debug(event)
@@ -131,8 +174,11 @@ class SettingsGraphics(Fading):
         # Other video settings
         widgets += [
             vsync_button,
-            fps_button
+            fps_button,
+            quality_label,
+            quality_slider
         ]
+
         # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
 
@@ -183,3 +229,15 @@ class SettingsGraphics(Fading):
 
         super().on_toggle_fullscreen()
         self.setup()
+
+    def on_change_quality(self, quality: float) -> None:
+
+        # Workaround for visual issue
+        self.manager._do_render(force=True)
+
+        quality = int(quality)
+
+        if quality != self.state.settings.quality:
+            self.state.settings.quality = quality
+            self.state.settings.save()
+            self.needs_restart = True
