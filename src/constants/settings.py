@@ -3,7 +3,7 @@ DEFAULT_FULLSCREEN = True
 DEFAULT_BORDERLESS = False
 DEFAULT_VSYNC = True
 DEFAULT_SHOW_FPS = False
-DEFAULT_FILMGRAIN = 0.8
+DEFAULT_FILMGRAIN = 1.0
 DEFAULT_FOG = True
 DEFAULT_COLOR_TINT = True
 DEFAULT_QUALITY = 4
@@ -32,7 +32,7 @@ class QualityPreset:
 
         self.set(val)
 
-    def set(self, val):
+    def set(self, val: int) -> None:
         if val >= 1:
             self.antialiasing = 2
 
