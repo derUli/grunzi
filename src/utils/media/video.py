@@ -4,7 +4,10 @@ import os
 import shutil
 
 import cv2
+
+pygame = None
 from pyvidplayer2 import VideoPyglet, PostProcessing
+
 
 from utils.path import is_windows
 from utils.text import label_value
