@@ -2,7 +2,7 @@ import os
 import unittest
 
 from utils.path import is_windows
-from utils.video import load_video, video_supported
+from utils.media.video import load_video, video_supported
 
 
 class VideoTest(unittest.TestCase):

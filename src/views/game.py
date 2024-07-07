@@ -25,7 +25,7 @@ from utils.physics import make_physics_engine
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from utils.scene import Scene
 from utils.tilemap import TileMap
-from utils.video import load_video
+from utils.media.video import load_video
 from views.camera import center_camera_to_player
 from views.fading import Fading
 from views.mainmenu import MainMenu

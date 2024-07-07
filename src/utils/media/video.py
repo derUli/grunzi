@@ -4,11 +4,7 @@ import os
 import shutil
 
 import cv2
-
-try:
-    from pyvidplayer2 import VideoPyglet
-except AttributeError as e:
-    logging.error(e)
+from pyvidplayer2 import VideoPyglet, PostProcessing
 
 from utils.path import is_windows
 from utils.text import label_value
@@ -44,11 +40,26 @@ def load_video(
         logging.error(f"File {path} not found")
         return None
 
-    video = VideoPyglet(path, interp=cv2.INTER_CUBIC)
+    return Video(path, interp=cv2.INTER_CUBIC, size=size)
 
-    if size:
-        video.resize(size)
 
-    video.set_volume(volume)
+class Video(VideoPyglet):
+    def __init__(
+            self,
+            path: str,
+            chunk_size=300,
+            max_threads=1,
+            max_chunks=1,
+            post_process=PostProcessing.none,
+            interp=cv2.INTER_LINEAR,
+            use_pygame_audio=False,
+            size=None,
+            volume=None
+    ):
+        super().__init__(path, chunk_size, max_threads, max_chunks, post_process, interp, use_pygame_audio)
 
-    return video
+        if size is not None:
+            self.resize(size)
+
+        if volume is not None:
+            self.set_volume(volume)
