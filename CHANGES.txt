@@ -5,11 +5,11 @@
 * UI: "Erfolg" Screen nach jedem Level
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
+* Neues Essen: Pizza
 
 ## Alpha 016 (Unreleased)
 
 * Linux: Spiel kann jetzt auch gestartet werden, wenn libportaudio2 nicht installiert ist.
-* Neues Essen: Pizza
 * Menü: Option "Qualität" jetzt auch in den In-Game-Grafikeinstellungen
 
 ## Alpha 015 (09.07.2024)
