@@ -59,4 +59,4 @@ class FilmGrain(Effect):
         self.filmgrain.center_x = max(w * 0.5, self.filmgrain.center_x)
         self.filmgrain.center_y = max(h * 0.5, self.filmgrain.center_y)
 
-        self.filmgrain.update_animation(delta_time)
+        self.filmgrain.update_animation(1/4)

@@ -1,10 +1,11 @@
 """ Callback handlers """
+from typing import Callable
 
 
 class CallbackHandler:
     """ Callback handlers passed to a sprite on use """
 
-    def __init__(self, on_complete):
+    def __init__(self, on_complete: Callable):
         """
         Constructor
         @param on_complete: Callable
