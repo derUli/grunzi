@@ -1,3 +1,5 @@
+import logging
+
 import arcade.gui
 
 import constants.controls.keyboard
@@ -44,11 +46,11 @@ class SettingsMenu(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
-    def on_back(self):
+    def on_back(self) -> None:
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
 
-    def setup(self):
+    def setup(self) -> None:
         self.manager.clear()
         self.manager.disable()
 
@@ -81,6 +83,8 @@ class SettingsMenu(Fading):
 
         @controls_button.event("on_click")
         def on_click_controls_button(event):
+            logging.debug(event)
+
             comeback_view = SettingsMenu(self.window, self.state, self.previous_view, self.shadertoy, 0)
 
             # Pass already created view because we are resuming.
@@ -88,6 +92,8 @@ class SettingsMenu(Fading):
 
         @button_graphics.event("on_click")
         def on_click_display_button(event):
+            logging.debug(event)
+
             self.window.show_view(
                 SettingsGraphics(
                     self.window,
@@ -100,6 +106,8 @@ class SettingsMenu(Fading):
 
         @audio_button.event("on_click")
         def on_click_audio_button(event):
+            logging.debug(event)
+
             self.window.show_view(
                 SettingsAudio(
                     self.window,
@@ -112,6 +120,8 @@ class SettingsMenu(Fading):
 
         @back_button.event("on_click")
         def on_click_back_button(event):
+            logging.debug(event)
+
             # Pass already created view because we are resuming.
             self.on_back()
 
@@ -140,7 +150,7 @@ class SettingsMenu(Fading):
 
         self.manager.enable()
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """ Called whenever a key is pressed """
 
         super().on_key_press(key, modifiers)
@@ -156,7 +166,7 @@ class SettingsMenu(Fading):
         self.update_fade(self.next_view)
         self.scene.update()
 
-    def on_draw(self):
+    def on_draw(self) -> None:
         """ Render the screen. """
 
         # Clear the screen
@@ -169,10 +179,10 @@ class SettingsMenu(Fading):
         self.draw_fading()
         self.draw_after(draw_version_number=True)
 
-    def on_toggle_fps(self):
+    def on_toggle_fps(self) -> None:
         super().on_toggle_fps()
         self.setup()
 
-    def on_toggle_fullscreen(self):
+    def on_toggle_fullscreen(self) -> None:
         super().on_toggle_fullscreen()
         self.setup()
