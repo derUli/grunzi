@@ -40,11 +40,12 @@ class MusicQueue:
         Fill queue from a directory of audio files
         @param path: directory path containing audio files
         """
+        self.files = []
+
         if not os.path.exists(path):
             return
 
         files = sorted(os.listdir(path))
-        self.files = []
         for file in files:
             ext = os.path.splitext(file)[1]
             if ext in AUDIO_EXTENSIONS:
