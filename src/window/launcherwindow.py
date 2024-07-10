@@ -12,9 +12,11 @@ from constants.settings import QualityPreset
 from state.settingsstate import SettingsState
 from utils.screen import supported_screen_resolutions, antialiasing
 
-NOTEBOOK_PADDING = 20
+NOTEBOOK_PADDING = 10
 
-SPACE_BETWEEN = 2
+SPACE_BETWEEN_X = 2
+SPACE_BETWEEN_Y = 5
+
 
 TTK_THEME = 'equilux'
 
@@ -93,8 +95,9 @@ class LauncherWindow(ThemedTk):
         ttk.Label(tab_screen, text=_('Screen resolution') + ' ').grid(
             row=0,
             column=0,
-            padx=SPACE_BETWEEN,
-            pady=SPACE_BETWEEN
+            padx=SPACE_BETWEEN_X,
+            pady=SPACE_BETWEEN_Y,
+            sticky=tk.W
         )
 
         ttk.Combobox(
@@ -102,7 +105,7 @@ class LauncherWindow(ThemedTk):
             values=supported_screen_resolutions(),
             textvariable=self.screen_resolution,
             state='readonly'
-        ).grid(row=0, column=1, pady=SPACE_BETWEEN)
+        ).grid(row=0, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E)
 
         ttk.Checkbutton(
             tab_screen,
@@ -111,7 +114,7 @@ class LauncherWindow(ThemedTk):
             onvalue=True,
             offvalue=False,
             command=self.on_toggle_fullscreen
-        ).grid(row=1, column=0, pady=SPACE_BETWEEN, sticky=tk.N + tk.E + tk.S + tk.W)
+        ).grid(row=1, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
 
         self.borderless_check = ttk.Checkbutton(
             tab_screen,
@@ -121,7 +124,7 @@ class LauncherWindow(ThemedTk):
             offvalue=False,
         )
 
-        self.borderless_check.grid(row=2, column=0, pady=SPACE_BETWEEN, sticky=tk.N + tk.E + tk.S + tk.W)
+        self.borderless_check.grid(row=2, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
 
         self.on_toggle_fullscreen()
 
@@ -130,24 +133,23 @@ class LauncherWindow(ThemedTk):
                         variable=self.vsync,
                         onvalue=True,
                         offvalue=False
-                        ).grid(row=3, column=0, pady=SPACE_BETWEEN, sticky=tk.N + tk.E + tk.S + tk.W)
+                        ).grid(row=3, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
 
         ttk.Label(tab_graphics, text=_('Quality') + ' ').grid(
             row=0,
             column=0,
-            padx=SPACE_BETWEEN,
-            pady=SPACE_BETWEEN,
+            pady=SPACE_BETWEEN_Y,
+            sticky=tk.W
         )
 
         (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality, command=self.on_change_quality)
-         .grid(row=0, column=2, pady=SPACE_BETWEEN, sticky=tk.N + tk.E + tk.S + tk.W))
+         .grid(row=0, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E))
 
         ttk.Label(tab_graphics, text=_('Anti-Aliasing') + ' ').grid(
             row=1,
             column=0,
-            padx=SPACE_BETWEEN,
-            pady=SPACE_BETWEEN,
-            sticky=tk.N + tk.E + tk.S + tk.W
+            pady=SPACE_BETWEEN_Y,
+            sticky=tk.W
         )
 
         ttk.Combobox(
@@ -155,23 +157,23 @@ class LauncherWindow(ThemedTk):
             values=antialiasing(),
             textvariable=self.antialiasing,
             state='readonly'
-        ).grid(row=1, column=2, pady=SPACE_BETWEEN, sticky=tk.N + tk.E + tk.S + tk.W)
+        ).grid(row=1, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E)
 
         ttk.Label(tab_graphics, text=_('Film Grain') + ' ').grid(
             row=2,
             column=0,
-            padx=SPACE_BETWEEN,
-            pady=SPACE_BETWEEN,
+            pady=SPACE_BETWEEN_Y,
+            sticky=tk.W
         )
 
         (ttk.Scale(tab_graphics, from_=0, to=1, variable=self.filmgrain)
-         .grid(row=2, column=2, pady=SPACE_BETWEEN, sticky=tk.N + tk.E + tk.S + tk.W))
+         .grid(row=2, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E))
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
             column=0,
-            padx=SPACE_BETWEEN,
-            pady=SPACE_BETWEEN
+            pady=SPACE_BETWEEN_Y,
+            sticky=tk.W
         )
 
         ttk.Combobox(
@@ -179,7 +181,7 @@ class LauncherWindow(ThemedTk):
             values=audio_backends(),
             textvariable=self.audio_backend,
             state='readonly'
-        ).grid(row=0, column=2, pady=SPACE_BETWEEN, sticky=tk.N + tk.E + tk.S + tk.W)
+        ).grid(row=0, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E)
 
         button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
 
