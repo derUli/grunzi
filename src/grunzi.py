@@ -12,14 +12,15 @@ from views.startup import StartUp
 
 def start() -> None:
     """ Starts the game """
-    frozen = getattr(sys, "frozen", False)
-    if not frozen:
-        try:
-            StartUp(os.path.dirname(__file__)).main()
-        except KeyboardInterrupt:
-            sys.exit()
-        return
 
+    frozen = getattr(sys, "frozen", False)
+    if frozen:
+        return start_frozen()
+
+    return start_debug()
+
+
+def start_frozen() -> None:
     try:
         StartUp(os.path.dirname(__file__)).main()
     except KeyboardInterrupt:
@@ -29,6 +30,12 @@ def start() -> None:
         messagebox.showerror('Error', (repr(e)))
         sys.exit()
 
+
+def start_debug() -> None:
+    try:
+        StartUp(os.path.dirname(__file__)).main()
+    except KeyboardInterrupt:
+        sys.exit()
 
 if __name__ == "__main__":
     start()
