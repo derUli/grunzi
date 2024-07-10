@@ -115,13 +115,16 @@ class SettingsAudio(Fading):
         )
 
         @back_button.event("on_click")
-        def on_click_back_button(event):
+        def on_click_back_button(event) -> None:
             logging.debug(event)
+
             # Pass already created view because we are resuming.
             self.on_back()
 
         @music_slider.event('on_change')
-        def on_change_music_volume(event):
+        def on_change_music_volume(event) -> None:
+            logging.debug(event)
+
             # Workaround for visual issue
             self.manager._do_render(force=True)
 
@@ -140,7 +143,9 @@ class SettingsAudio(Fading):
             self.state.settings.save()
 
         @sound_slider.event("on_change")
-        def on_change_sound_volume(event):
+        def on_change_sound_volume(event) -> None:
+
+            logging.debug(event)
 
             # Workaround for visual issue
             self.manager._do_render(force=True)
@@ -158,7 +163,9 @@ class SettingsAudio(Fading):
             self.state.settings.save()
 
         @atmo_slider.event("on_change")
-        def on_change_atmo_volume(event):
+        def on_change_atmo_volume(event) -> None:
+
+            logging.debug(event)
 
             # Workaround for visual issue
             self.manager._do_render(force=True)
@@ -210,7 +217,7 @@ class SettingsAudio(Fading):
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, delta_time: float):
+    def on_update(self, delta_time: float) -> None:
         """
         On update
         @param delta_time: Delta Time

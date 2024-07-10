@@ -234,7 +234,7 @@ class HighscoreAdd(Fading):
             )
         )
 
-    def on_update(self, delta_time) -> None:
+    def on_update(self, delta_time: float) -> None:
         """ Update the screen """
 
         super().on_update(delta_time)

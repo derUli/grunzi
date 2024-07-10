@@ -154,7 +154,7 @@ class SettingsScreen(Fading):
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_back()
 
-    def on_update(self, delta_time) -> None:
+    def on_update(self, delta_time: float) -> None:
 
         super().on_update(delta_time)
 

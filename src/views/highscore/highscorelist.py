@@ -127,7 +127,7 @@ class HighscoreList(Fading):
         if key in controller.KEY_DISCARD:
             self._call_method = self.on_back
 
-    def on_update(self, delta_time) -> None:
+    def on_update(self, delta_time: float) -> None:
         """ Update the screen """
         super().on_update(delta_time)
 
