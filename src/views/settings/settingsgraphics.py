@@ -259,4 +259,5 @@ class SettingsGraphics(Fading):
 
     def on_change_fog(self):
         self.state.settings.fog = not self.state.settings.fog
+        self.needs_restart = True
         self.state.settings.save()
