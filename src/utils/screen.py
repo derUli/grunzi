@@ -22,3 +22,7 @@ def supported_screen_resolutions() -> list:
             mode_values.append(item)
 
     return sorted(mode_values, key=natural_keys)
+
+
+def antialiasing() -> tuple:
+    return (0, 2, 4, 8, 16)

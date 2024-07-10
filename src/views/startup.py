@@ -13,6 +13,7 @@ from constants.settings import UNLIMITED_FRAMERATE
 from state.settingsstate import SettingsState
 from state.viewstate import ViewState
 from utils.log import log_hardware_info, configure_logger
+from utils.screen import antialiasing
 from utils.text import label_value
 from views.intro import Intro
 from views.mainmenu import MainMenu
@@ -106,7 +107,7 @@ class StartUp:
             action='store',
             type=int,
             help='The antialiasing level',
-            choices=tuple([0, 2, 4, 8, 16])
+            choices=antialiasing()
         )
 
         parser.add_argument(

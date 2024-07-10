@@ -10,7 +10,7 @@ from ttkthemes import ThemedTk
 from constants.audio import audio_backends
 from constants.settings import QualityPreset
 from state.settingsstate import SettingsState
-from utils.screen import supported_screen_resolutions
+from utils.screen import supported_screen_resolutions, antialiasing
 
 NOTEBOOK_PADDING = 20
 
@@ -39,8 +39,11 @@ class LauncherWindow(ThemedTk):
         if quality is None:
             quality = 4
 
+        preset = QualityPreset(quality)
+
         self.quality = tk.IntVar(value=quality)
-        self.filmgrain = tk.DoubleVar(value=0.0)
+        self.filmgrain = tk.DoubleVar(value=preset.filmgrain)
+        self.antialiasing = tk.IntVar(value=preset.antialiasing)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
@@ -139,15 +142,29 @@ class LauncherWindow(ThemedTk):
         (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality, command=self.on_change_quality)
          .grid(row=0, column=1, pady=SPACE_BETWEEN))
 
-        ttk.Label(tab_graphics, text=_('Film Grain') + ' ').grid(
+        ttk.Label(tab_graphics, text=_('Anti-Aliasing') + ' ').grid(
             row=1,
             column=0,
             padx=SPACE_BETWEEN,
             pady=SPACE_BETWEEN,
         )
 
+        ttk.Combobox(
+            tab_graphics,
+            values=antialiasing(),
+            textvariable=self.antialiasing,
+            state='readonly'
+        ).grid(row=1, column=2, pady=SPACE_BETWEEN)
+
+        ttk.Label(tab_graphics, text=_('Film Grain') + ' ').grid(
+            row=2,
+            column=0,
+            padx=SPACE_BETWEEN,
+            pady=SPACE_BETWEEN,
+        )
+
         (ttk.Scale(tab_graphics, from_=0, to=1, variable=self.filmgrain)
-         .grid(row=1, column=1, pady=SPACE_BETWEEN))
+         .grid(row=2, column=1, pady=SPACE_BETWEEN))
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
@@ -205,6 +222,10 @@ class LauncherWindow(ThemedTk):
             self.state.quality = self.quality.get()
             self.args.video_quality = self.quality.get()
 
+        if self.state.antialiasing != self.antialiasing.get():
+            self.state.antialiasing = self.antialiasing.get()
+            self.args.antialiasing = self.antialiasing.get()
+
         self.state.filmgrain = self.filmgrain.get()
 
         w, h = self.screen_resolution.get().split('x')
@@ -250,3 +271,4 @@ class LauncherWindow(ThemedTk):
         quality = QualityPreset(rounded)
         if rounded != self.state.quality:
             self.filmgrain.set(quality.filmgrain)
+            self.antialiasing.set(quality.antialiasing)
