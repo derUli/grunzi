@@ -202,7 +202,6 @@ class SettingsState:
 
         if val > 8:
             val = 16
-        print(val)
 
         self._antialiasing = val
 
