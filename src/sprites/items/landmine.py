@@ -61,7 +61,7 @@ class Landmine(Character):
         if arcade.check_for_collision(self.explosion, args.player):
 
             if args.player.sprinting:
-                hurt = 100 / (len(self.explosion.frames) * 0.07)
+                hurt = 100 / (len(self.explosion.frames) * 0.06)
 
             args.player.hurt(hurt)
             return

@@ -14,12 +14,15 @@ def start() -> None:
     """ Starts the game """
     frozen = getattr(sys, "frozen", False)
     if not frozen:
-        StartUp(os.path.dirname(__file__)).main()
+        try:
+            StartUp(os.path.dirname(__file__)).main()
+        except KeyboardInterrupt:
+            sys.exit()
         return
 
     try:
         StartUp(os.path.dirname(__file__)).main()
-    except KeyboardInterrupt as e:
+    except KeyboardInterrupt:
         sys.exit()
     except Exception as e:
         logging.critical("Fatal exception", exc_info=e)
