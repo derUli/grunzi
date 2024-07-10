@@ -40,17 +40,34 @@ class Apple(Food):
         return self.eat(args.state, args, 2)
 
 
+class Donut(Food):
+    def copy(self):
+        """ Copy item """
+        return Donut(
+            filename=self.filename,
+            center_x=self.center_x,
+            center_y=self.center_y
+        )
+
+    def on_use(self, args):
+        return self.eat(args.state, args, 4)
+
+
 def spawn_food(state, tilemap, scene, physics_engine):
     # For now we have only apples
-    classes = [Apple]
-    weights = [1.0]
+    classes = [Apple, Donut]
+    weights = [0.8, 0.2]
     rand_x, rand_y = random_position(tilemap)
 
     food_class = random.choices(
         classes, weights=weights, k=1)[0]
 
     food = food_class(
-        filename=os.path.join(state.sprite_dir, 'food', 'apple.png'),
+        filename=os.path.join(
+            state.sprite_dir,
+            'food',
+            food_class.__name__.lower() + '.png'
+        ),
         center_x=rand_x,
         center_y=rand_y
     )
