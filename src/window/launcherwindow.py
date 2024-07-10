@@ -102,7 +102,7 @@ class LauncherWindow(ThemedTk):
             values=supported_screen_resolutions(),
             textvariable=self.screen_resolution,
             state='readonly'
-        ).grid(row=0, column=1, pady=SPACE_BETWEEN)
+        ).grid(row=0, column=2, pady=SPACE_BETWEEN)
 
         ttk.Checkbutton(
             tab_screen,
@@ -111,7 +111,7 @@ class LauncherWindow(ThemedTk):
             onvalue=True,
             offvalue=False,
             command=self.on_toggle_fullscreen
-        ).grid(row=1, column=1, sticky='nw', pady=SPACE_BETWEEN)
+        ).grid(row=1, column=2, pady=SPACE_BETWEEN, sticky=tk.W)
 
         self.borderless_check = ttk.Checkbutton(
             tab_screen,
@@ -121,7 +121,7 @@ class LauncherWindow(ThemedTk):
             offvalue=False,
         )
 
-        self.borderless_check.grid(row=2, column=1, pady=SPACE_BETWEEN, sticky='nw')
+        self.borderless_check.grid(row=2, column=2, pady=SPACE_BETWEEN, sticky=tk.W)
 
         self.on_toggle_fullscreen()
 
@@ -130,7 +130,7 @@ class LauncherWindow(ThemedTk):
                         variable=self.vsync,
                         onvalue=True,
                         offvalue=False
-                        ).grid(row=3, column=1, pady=SPACE_BETWEEN, sticky='nw')
+                        ).grid(row=3, column=2, pady=SPACE_BETWEEN, sticky=tk.W)
 
         ttk.Label(tab_graphics, text=_('Quality') + ' ').grid(
             row=0,
@@ -140,13 +140,14 @@ class LauncherWindow(ThemedTk):
         )
 
         (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality, command=self.on_change_quality)
-         .grid(row=0, column=1, pady=SPACE_BETWEEN))
+         .grid(row=0, column=2, pady=SPACE_BETWEEN, sticky=tk.W))
 
         ttk.Label(tab_graphics, text=_('Anti-Aliasing') + ' ').grid(
             row=1,
             column=0,
             padx=SPACE_BETWEEN,
             pady=SPACE_BETWEEN,
+            sticky=tk.W
         )
 
         ttk.Combobox(
@@ -154,7 +155,7 @@ class LauncherWindow(ThemedTk):
             values=antialiasing(),
             textvariable=self.antialiasing,
             state='readonly'
-        ).grid(row=1, column=2, pady=SPACE_BETWEEN)
+        ).grid(row=1, column=2, pady=SPACE_BETWEEN, sticky=tk.W)
 
         ttk.Label(tab_graphics, text=_('Film Grain') + ' ').grid(
             row=2,
@@ -164,7 +165,7 @@ class LauncherWindow(ThemedTk):
         )
 
         (ttk.Scale(tab_graphics, from_=0, to=1, variable=self.filmgrain)
-         .grid(row=2, column=1, pady=SPACE_BETWEEN))
+         .grid(row=2, column=2, pady=SPACE_BETWEEN, sticky = tk.W))
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
@@ -178,7 +179,7 @@ class LauncherWindow(ThemedTk):
             values=audio_backends(),
             textvariable=self.audio_backend,
             state='readonly'
-        ).grid(row=0, column=2, pady=SPACE_BETWEEN, sticky='e')
+        ).grid(row=0, column=2, pady=SPACE_BETWEEN, sticky = tk.W)
 
         button_launch = ttk.Button(text=_('Launch Game'), command=self.on_launch)
 
