@@ -47,12 +47,15 @@ class LauncherWindow(ThemedTk):
         self.filmgrain = tk.DoubleVar(value=preset.filmgrain)
         self.antialiasing = tk.IntVar(value=preset.antialiasing)
         self.fog = tk.BooleanVar(value=preset.fog)
+        self.colortint = tk.BooleanVar(value=preset.color_tint)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
         self.confirmed = False
+
         self.borderless_check = None
         self.fog_check = None
+        self.color_tint_check = None
 
     def setup(self) -> None:
         """
@@ -70,6 +73,8 @@ class LauncherWindow(ThemedTk):
             self.borderless.set(self.state.borderless)
             self.quality.set(self.state.quality)
             self.filmgrain.set(self.state.filmgrain)
+            self.fog.set(self.state.fog)
+            self.colortint.set(self.state.color_tint)
 
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
@@ -177,6 +182,14 @@ class LauncherWindow(ThemedTk):
 
         self.fog_check.grid(row=3, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
 
+        ttk.Checkbutton(
+            tab_graphics,
+            text=_('Color Tint'),
+            variable=self.colortint,
+            onvalue=True,
+            offvalue=False,
+        ).grid(row=4, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
+
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
             column=0,
@@ -279,8 +292,8 @@ class LauncherWindow(ThemedTk):
 
     def on_change_quality(self, value):
         rounded = int(float(value))
-        quality = QualityPreset(rounded)
-        if rounded != self.state.quality:
-            self.filmgrain.set(quality.filmgrain)
-            self.antialiasing.set(quality.antialiasing)
-            self.fog.set(quality.fog)
+        self.state.quality = rounded
+        self.filmgrain.set(self.state.filmgrain)
+        self.antialiasing.set(self.state.antialiasing)
+        self.fog.set(self.state.fog)
+        self.colortint.set(self.state.color_tint)

@@ -176,7 +176,7 @@ class SettingsState:
 
     @quality.setter
     def quality(self, quality):
-        self._quality = quality
+        self._quality = int(quality)
         preset = QualityPreset(self.quality)
 
         self._filmgrain = preset.filmgrain
@@ -194,6 +194,7 @@ class SettingsState:
 
         if val > 1 and val < 2:
             val = 2
+
         if val > 3 and val < 4:
             val = 4
 

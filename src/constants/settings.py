@@ -28,11 +28,12 @@ class QualityPreset:
         self.filmgrain = 0.0
         self.fog = False
         self.color_tint = False
-        self.antialiasing = 0
-
+        self.antialiasing = DEFAULT_ANTIALIASING
         self.set(val)
 
     def set(self, val: int) -> None:
+        self.antialiasing = 0
+
         if val >= 1:
             self.antialiasing = 2
 
