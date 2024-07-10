@@ -117,6 +117,7 @@ def normalize_volume(volume: float) -> float:
     @return: normalized volume
     """
     volume = round(volume, 2)
+
     if volume > 1.0:
         volume = 1.0
 
