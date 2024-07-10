@@ -30,6 +30,7 @@ class SettingsGraphics(Fading):
         self.filmgrain_slider = None
         self.antialiasing_slider = None
         self.fog_button = None
+        self.colortint_button = None
 
         self.needs_restart = False
 
@@ -164,6 +165,21 @@ class SettingsGraphics(Fading):
         def on_change_fog(event):
             self.on_change_fog()
 
+        self.colortint_button = arcade.gui.UITextureButton(
+            text=_("Color Tint"),
+            width=BUTTON_WIDTH,
+            texture=utils.gui.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state.settings.color_tint
+            ),
+            style=utils.gui.get_button_style()
+        )
+
+        @self.colortint_button.event("on_click")
+        def on_change_colortint(event):
+            self.on_change_colortint()
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             logging.debug(event)
@@ -177,7 +193,8 @@ class SettingsGraphics(Fading):
             self.antialiasing_slider,
             filmgrain_label,
             self.filmgrain_slider,
-            self.fog_button
+            self.fog_button,
+            self.colortint_button
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -240,6 +257,12 @@ class SettingsGraphics(Fading):
                 value=self.state.settings.fog)
             self.fog_button.texture = fog_texture
 
+            colortint_texture = utils.gui.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=self.fog_button.height,
+                value=self.state.settings.color_tint)
+            self.colortint_button.texture = colortint_texture
+
     def on_change_filmgrain(self, intensity: float) -> None:
 
         self.manager._do_render(force=True)
@@ -259,5 +282,8 @@ class SettingsGraphics(Fading):
 
     def on_change_fog(self):
         self.state.settings.fog = not self.state.settings.fog
-        self.needs_restart = True
+        self.state.settings.save()
+
+    def on_change_colortint(self):
+        self.state.settings.color_tint = not self.state.settings.color_tint
         self.state.settings.save()
