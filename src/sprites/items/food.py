@@ -50,7 +50,7 @@ class Donut(Food):
         )
 
     def on_use(self, args):
-        return self.eat(args.state, args, 3)
+        return self.eat(args.state, args, 4)
 
 
 class Pizza(Food):
@@ -63,14 +63,14 @@ class Pizza(Food):
         )
 
     def on_use(self, args):
-        return self.eat(args.state, args, 4)
+        return self.eat(args.state, args, 6)
 
 
 
 def spawn_food(state, tilemap, scene, physics_engine):
     # For now we have only apples
     classes = [Apple, Donut, Pizza]
-    weights = [0.6, 0.3, 0.1]
+    weights = [0.7, 0.2, 0.1]
     rand_x, rand_y = random_position(tilemap)
 
     food_class = random.choices(
