@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-07 18:33+0200\n"
+"POT-Creation-Date: 2024-07-10 12:55+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -68,7 +68,7 @@ msgstr "Punkte"
 
 #: views/difficultyselection.py:60 views/mapselection.py:66
 #: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
-#: views/settings/settingsgraphics.py:77 views/settings/settingsmenu.py:77
+#: views/settings/settingsgraphics.py:77 views/settings/settingsmenu.py:79
 msgid "Back"
 msgstr "Zurück"
 
@@ -353,45 +353,51 @@ msgstr ""
 
 #: views/settings/settingsgraphics.py:55
 msgid "You may have to restart the game to apply the changed graphics settings."
-msgstr "Möglicherweise müssen Sie das Spiel neu starten, um die geänderten Grafikeinstellungen zu übernehmen."
+msgstr ""
+"Möglicherweise müssen Sie das Spiel neu starten, um die geänderten "
+"Grafikeinstellungen zu übernehmen."
 
-#: views/settings/settingsgraphics.py:83 window/launcherwindow.py:100
+#: views/settings/settingsgraphics.py:83 window/launcherwindow.py:103
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsgraphics.py:95 window/launcherwindow.py:120
+#: views/settings/settingsgraphics.py:95 window/launcherwindow.py:123
 msgid "V-Sync"
 msgstr ""
 
-#: views/settings/settingsgraphics.py:117 window/launcherwindow.py:126
+#: views/settings/settingsgraphics.py:117 window/launcherwindow.py:129
 msgid "Quality"
 msgstr "Qualität"
 
-#: views/settings/settingsmenu.py:57 window/launcherwindow.py:80
+#: views/settings/settingsmenu.py:59 window/launcherwindow.py:83
 msgid "Graphics"
 msgstr "Grafik"
 
-#: views/settings/settingsmenu.py:64 window/launcherwindow.py:81
+#: views/settings/settingsmenu.py:66 window/launcherwindow.py:84
 msgid "Audio"
 msgstr "Audio"
 
-#: views/settings/settingsmenu.py:71
+#: views/settings/settingsmenu.py:73
 msgid "Controls"
 msgstr "Steuerung"
 
-#: window/launcherwindow.py:84
+#: window/launcherwindow.py:82
+msgid "Screen"
+msgstr "Bildschirm"
+
+#: window/launcherwindow.py:87
 msgid "Screen resolution"
 msgstr "Bildschirmauflösung"
 
-#: window/launcherwindow.py:109
+#: window/launcherwindow.py:112
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:136
+#: window/launcherwindow.py:139
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:150
+#: window/launcherwindow.py:153
 msgid "Launch Game"
 msgstr "Spiel starten"
 
