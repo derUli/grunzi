@@ -9,10 +9,11 @@ from state.argscontainer import ArgsContainer
 class Effect:
     """ Postprocessing effect base class  """
 
-    def __init__(self):
+    def __init__(self, enabled: bool = True):
         """ Constructor """
 
         self.spritelist = SpriteList(lazy=True, use_spatial_hash=True)
+        self.enabled = enabled
 
     def setup(self, args):
         """ Setup effect """
@@ -34,8 +35,28 @@ class Effect:
 
     @property
     def should_draw(self):
+        if not self.enabled:
+            return False
+
         for sprite in self.spritelist:
             if sprite.alpha >= 1:
                 return True
 
         return False
+
+    @property
+    def enabled(self):
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled: bool):
+        self._enabled = enabled
+
+    def enable(self):
+        self.enabled = True
+
+    def disable(self):
+        self.enabled = True
+
+    def toggle(self):
+        self.enabled = not self.enabled

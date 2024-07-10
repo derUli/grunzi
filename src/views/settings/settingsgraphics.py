@@ -26,6 +26,8 @@ class SettingsGraphics(Fading):
         self.previous_view = previous_view
         self._fade_in = None
         self.background = COLOR_BACKGROUND
+        self.filmgrain_slider = None
+
         self.needs_restart = False
 
     def on_show_view(self) -> None:
@@ -100,6 +102,28 @@ class SettingsGraphics(Fading):
         def on_change_quality(event):
             self.on_change_quality(event.new_value)
 
+        filmgrain_label = arcade.gui.UILabel(
+            text=_('Film Grain'),
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
+            font_name=utils.text.FONT_DEFAULT,
+            font_size=utils.text.FONT_SIZE_MEDIUM,
+            width=BUTTON_WIDTH,
+            align='center'
+        )
+
+        self.filmgrain_slider = UISlider(
+            width=BUTTON_WIDTH,
+            value=float(self.state.settings.filmgrain),
+            min_value=0,
+            max_value=1,
+            style=utils.gui.get_slider_style()
+        )
+
+        @self.filmgrain_slider.event("on_change")
+        def on_change_filmgrain(event):
+            self.on_change_filmgrain(event.new_value)
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             logging.debug(event)
@@ -108,7 +132,9 @@ class SettingsGraphics(Fading):
         widgets = [
             back_button,
             quality_label,
-            quality_slider
+            quality_slider,
+            filmgrain_label,
+            self.filmgrain_slider
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -161,3 +187,12 @@ class SettingsGraphics(Fading):
             self.state.settings.quality = quality
             self.state.settings.save()
             self.needs_restart = True
+            self.filmgrain_slider.norm_value = self.state.settings.filmgrain
+
+
+
+    def on_change_filmgrain(self, intensity: float) -> None:
+
+        self.manager._do_render(force=True)
+        self.state.settings.filmgrain = intensity
+        self.state.settings.save()

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-10 12:55+0200\n"
+"POT-Creation-Date: 2024-07-10 15:53+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -68,7 +68,8 @@ msgstr "Punkte"
 
 #: views/difficultyselection.py:60 views/mapselection.py:66
 #: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
-#: views/settings/settingsgraphics.py:77 views/settings/settingsmenu.py:79
+#: views/settings/settingsgraphics.py:78 views/settings/settingsmenu.py:86
+#: views/settings/settingsscreen.py:56
 msgid "Back"
 msgstr "Zurück"
 
@@ -175,7 +176,7 @@ msgstr "Leer lassen zum überspringen"
 msgid "Submit failed."
 msgstr "Absenden fehlgeschlagen."
 
-#: views/highscore/highscoreadd.py:166 views/settings/settingsgraphics.py:57
+#: views/highscore/highscoreadd.py:166 views/settings/settingsgraphics.py:58
 msgid "OK"
 msgstr "OK"
 
@@ -279,7 +280,7 @@ msgstr "Pausenmenü öffnen"
 msgid "F3"
 msgstr ""
 
-#: views/settings/settingscontrols.py:75 views/settings/settingsgraphics.py:106
+#: views/settings/settingscontrols.py:75 views/settings/settingsscreen.py:85
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
@@ -351,39 +352,43 @@ msgstr "Tastatur"
 msgid "Vibration"
 msgstr ""
 
-#: views/settings/settingsgraphics.py:55
+#: views/settings/settingsgraphics.py:56
 msgid "You may have to restart the game to apply the changed graphics settings."
 msgstr ""
 "Möglicherweise müssen Sie das Spiel neu starten, um die geänderten "
 "Grafikeinstellungen zu übernehmen."
 
-#: views/settings/settingsgraphics.py:83 window/launcherwindow.py:103
-msgid "Fullscreen"
-msgstr "Vollbild"
-
-#: views/settings/settingsgraphics.py:95 window/launcherwindow.py:123
-msgid "V-Sync"
-msgstr ""
-
-#: views/settings/settingsgraphics.py:117 window/launcherwindow.py:129
+#: views/settings/settingsgraphics.py:84 window/launcherwindow.py:129
 msgid "Quality"
 msgstr "Qualität"
 
-#: views/settings/settingsmenu.py:59 window/launcherwindow.py:83
+#: views/settings/settingsgraphics.py:106
+msgid "Film Grain"
+msgstr "Bildrauschen"
+
+#: views/settings/settingsmenu.py:60 window/launcherwindow.py:82
+msgid "Screen"
+msgstr "Bildschirm"
+
+#: views/settings/settingsmenu.py:66 window/launcherwindow.py:83
 msgid "Graphics"
 msgstr "Grafik"
 
-#: views/settings/settingsmenu.py:66 window/launcherwindow.py:84
+#: views/settings/settingsmenu.py:73 window/launcherwindow.py:84
 msgid "Audio"
 msgstr "Audio"
 
-#: views/settings/settingsmenu.py:73
+#: views/settings/settingsmenu.py:80
 msgid "Controls"
 msgstr "Steuerung"
 
-#: window/launcherwindow.py:82
-msgid "Screen"
-msgstr "Bildschirm"
+#: views/settings/settingsscreen.py:62 window/launcherwindow.py:103
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: views/settings/settingsscreen.py:74 window/launcherwindow.py:123
+msgid "V-Sync"
+msgstr ""
 
 #: window/launcherwindow.py:87
 msgid "Screen resolution"

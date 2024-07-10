@@ -14,6 +14,7 @@ INDEX_YELLOW = 0
 INDEX_GREEN = 1
 INDEX_WHITE = 2
 
+ALPHA = 30
 
 class FilmGrain(Effect):
     def setup(self, args: ArgsContainer):
@@ -31,7 +32,7 @@ class FilmGrain(Effect):
             (w, h)
         )
 
-        filmgrain.alpha = 20 * args.state.settings.filmgrain
+        filmgrain.alpha = ALPHA * args.state.settings.filmgrain
         filmgrain.position = args.player.position
         self.spritelist.append(filmgrain)
 
@@ -48,7 +49,7 @@ class FilmGrain(Effect):
         if not self.filmgrain:
             return
 
-        self.filmgrain.alpha = 20 * args.state.settings.filmgrain
+        self.filmgrain.alpha = ALPHA * args.state.settings.filmgrain
 
         if self.filmgrain.alpha <= 0:
             return

@@ -158,6 +158,10 @@ class SettingsState:
     def filmgrain(self):
         return self._filmgrain
 
+    @filmgrain.setter
+    def filmgrain(self, intensity: float):
+        self._filmgrain = intensity
+
     @property
     def fog(self):
         return self._fog
