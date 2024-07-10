@@ -46,11 +46,13 @@ class LauncherWindow(ThemedTk):
         self.quality = tk.IntVar(value=quality)
         self.filmgrain = tk.DoubleVar(value=preset.filmgrain)
         self.antialiasing = tk.IntVar(value=preset.antialiasing)
+        self.fog = tk.BooleanVar(value=preset.fog)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
         self.confirmed = False
         self.borderless_check = None
+        self.fog_check = None
 
     def setup(self) -> None:
         """
@@ -165,6 +167,16 @@ class LauncherWindow(ThemedTk):
         (ttk.Scale(tab_graphics, from_=0, to=1, variable=self.filmgrain)
          .grid(row=2, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E))
 
+        self.fog_check = ttk.Checkbutton(
+            tab_graphics,
+            text=_('Fog'),
+            variable=self.fog,
+            onvalue=True,
+            offvalue=False,
+        )
+
+        self.fog_check.grid(row=3, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
+
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
             column=0,
@@ -271,3 +283,4 @@ class LauncherWindow(ThemedTk):
         if rounded != self.state.quality:
             self.filmgrain.set(quality.filmgrain)
             self.antialiasing.set(quality.antialiasing)
+            self.fog.set(quality.fog)

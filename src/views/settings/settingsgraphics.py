@@ -26,8 +26,11 @@ class SettingsGraphics(Fading):
         self.previous_view = previous_view
         self._fade_in = None
         self.background = COLOR_BACKGROUND
+
         self.filmgrain_slider = None
         self.antialiasing_slider = None
+        self.fog_button = None
+
         self.needs_restart = False
 
     def on_show_view(self) -> None:
@@ -146,6 +149,21 @@ class SettingsGraphics(Fading):
         def on_change_filmgrain(event):
             self.on_change_filmgrain(event.new_value)
 
+        self.fog_button = arcade.gui.UITextureButton(
+            text=_("Fog"),
+            width=BUTTON_WIDTH,
+            texture=utils.gui.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state.settings.fog
+            ),
+            style=utils.gui.get_button_style()
+        )
+
+        @self.fog_button.event("on_click")
+        def on_change_fog(event):
+            self.on_change_fog()
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             logging.debug(event)
@@ -158,7 +176,8 @@ class SettingsGraphics(Fading):
             antialiasing_label,
             self.antialiasing_slider,
             filmgrain_label,
-            self.filmgrain_slider
+            self.filmgrain_slider,
+            self.fog_button
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -211,8 +230,15 @@ class SettingsGraphics(Fading):
             self.state.settings.quality = quality
             self.state.settings.save()
             self.needs_restart = True
+
             self.filmgrain_slider.value = self.state.settings.filmgrain
             self.antialiasing_slider.value = self.state.settings.antialiasing
+
+            fog_texture = utils.gui.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=self.fog_button.height,
+                value=self.state.settings.fog)
+            self.fog_button.texture = fog_texture
 
     def on_change_filmgrain(self, intensity: float) -> None:
 
@@ -230,3 +256,7 @@ class SettingsGraphics(Fading):
             self.state.settings.save()
 
             self.needs_restart = True
+
+    def on_change_fog(self):
+        self.state.settings.fog = not self.state.settings.fog
+        self.state.settings.save()

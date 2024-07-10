@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-10 17:45+0200\n"
+"POT-Creation-Date: 2024-07-10 18:12+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -68,7 +68,7 @@ msgstr "Punkte"
 
 #: views/difficultyselection.py:60 views/mapselection.py:66
 #: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
-#: views/settings/settingsgraphics.py:78 views/settings/settingsmenu.py:86
+#: views/settings/settingsgraphics.py:81 views/settings/settingsmenu.py:86
 #: views/settings/settingsscreen.py:56
 msgid "Back"
 msgstr "Zurück"
@@ -104,7 +104,7 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: views/mainmenu.py:42 window/launcherwindow.py:59
+#: views/mainmenu.py:42 window/launcherwindow.py:61
 msgid "Grunzi"
 msgstr "Grunzi"
 
@@ -176,7 +176,7 @@ msgstr "Leer lassen zum überspringen"
 msgid "Submit failed."
 msgstr "Absenden fehlgeschlagen."
 
-#: views/highscore/highscoreadd.py:166 views/settings/settingsgraphics.py:58
+#: views/highscore/highscoreadd.py:166 views/settings/settingsgraphics.py:61
 msgid "OK"
 msgstr "OK"
 
@@ -352,29 +352,37 @@ msgstr "Tastatur"
 msgid "Vibration"
 msgstr ""
 
-#: views/settings/settingsgraphics.py:56
+#: views/settings/settingsgraphics.py:59
 msgid "You may have to restart the game to apply the changed graphics settings."
 msgstr ""
 "Möglicherweise müssen Sie das Spiel neu starten, um die geänderten "
 "Grafikeinstellungen zu übernehmen."
 
-#: views/settings/settingsgraphics.py:84 window/launcherwindow.py:138
+#: views/settings/settingsgraphics.py:87 window/launcherwindow.py:140
 msgid "Quality"
 msgstr "Qualität"
 
-#: views/settings/settingsgraphics.py:106 window/launcherwindow.py:158
+#: views/settings/settingsgraphics.py:109 window/launcherwindow.py:150
+msgid "Antialiasing"
+msgstr ""
+
+#: views/settings/settingsgraphics.py:131 window/launcherwindow.py:160
 msgid "Film Grain"
 msgstr "Bildrauschen"
 
-#: views/settings/settingsmenu.py:60 window/launcherwindow.py:90
+#: views/settings/settingsgraphics.py:153 window/launcherwindow.py:172
+msgid "Fog"
+msgstr "Nebel"
+
+#: views/settings/settingsmenu.py:60 window/launcherwindow.py:92
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: views/settings/settingsmenu.py:66 window/launcherwindow.py:91
+#: views/settings/settingsmenu.py:66 window/launcherwindow.py:93
 msgid "Graphics"
 msgstr "Grafik"
 
-#: views/settings/settingsmenu.py:73 window/launcherwindow.py:92
+#: views/settings/settingsmenu.py:73 window/launcherwindow.py:94
 msgid "Audio"
 msgstr "Audio"
 
@@ -382,31 +390,27 @@ msgstr "Audio"
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsscreen.py:62 window/launcherwindow.py:112
+#: views/settings/settingsscreen.py:62 window/launcherwindow.py:114
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsscreen.py:74 window/launcherwindow.py:132
+#: views/settings/settingsscreen.py:74 window/launcherwindow.py:134
 msgid "V-Sync"
 msgstr ""
 
-#: window/launcherwindow.py:95
+#: window/launcherwindow.py:97
 msgid "Screen resolution"
 msgstr "Bildschirmauflösung"
 
-#: window/launcherwindow.py:121
+#: window/launcherwindow.py:123
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:148
-msgid "Antialiasing"
-msgstr ""
-
-#: window/launcherwindow.py:168
+#: window/launcherwindow.py:180
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:182
+#: window/launcherwindow.py:194
 msgid "Launch Game"
 msgstr "Spiel starten"
 
