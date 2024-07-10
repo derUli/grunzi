@@ -10,7 +10,7 @@
 ## Alpha 016 (Unreleased)
 
 * Linux: Spiel kann jetzt auch gestartet werden, wenn libportaudio2 nicht installiert ist.
-* Menü: Option "Qualität" jetzt auch in den In-Game-Grafikeinstellungen
+* Menü: Option "Qualität" jetzt auch in den In-Game-Grafikeinstellungen geändert werden
 
 ## Alpha 015 (09.07.2024)
 

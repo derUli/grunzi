@@ -9,6 +9,7 @@ from views.fading import Fading
 from views.settings.settingsaudio import SettingsAudio
 from views.settings.settingscontrols import SettingsControls
 from views.settings.settingsgraphics import SettingsGraphics
+from views.settings.settingsscreen import SettingsScreen
 
 BUTTON_WIDTH = 250
 
@@ -55,13 +56,19 @@ class SettingsMenu(Fading):
         self.manager.disable()
 
         # Video settings
+        button_screen = arcade.gui.UIFlatButton(
+            text=_("Screen"),
+            width=BUTTON_WIDTH,
+            style=utils.gui.get_button_style()
+        )
+
         button_graphics = arcade.gui.UIFlatButton(
             text=_("Graphics"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
 
-        # Video settings
+        # audio settings
         audio_button = arcade.gui.UIFlatButton(
             text=_("Audio"),
             width=BUTTON_WIDTH,
@@ -90,8 +97,22 @@ class SettingsMenu(Fading):
             # Pass already created view because we are resuming.
             self.fade_to_view(SettingsControls(self.window, self.state, comeback_view))
 
+        @button_screen.event("on_click")
+        def on_click_screen(event):
+            logging.debug(event)
+
+            self.window.show_view(
+                SettingsScreen(
+                    self.window,
+                    self.state,
+                    previous_view=self,
+                    shadertoy=self.shadertoy,
+                    time=self.time
+                ),
+            )
+
         @button_graphics.event("on_click")
-        def on_click_display_button(event):
+        def on_click_graphics(event):
             logging.debug(event)
 
             self.window.show_view(
@@ -127,6 +148,7 @@ class SettingsMenu(Fading):
 
         widgets = [
             back_button,
+            button_screen,
             button_graphics
         ]
 
