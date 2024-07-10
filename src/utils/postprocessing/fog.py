@@ -8,13 +8,12 @@ from PIL.Image import Resampling
 from state.argscontainer import ArgsContainer
 from utils.postprocessing.effect import Effect
 
-DEFAULT_ALPHA = 150
-
+DEFAULT_ALPHA = 120
 MOVE_SPEED = 0.33
 
 
 class Fog(Effect):
-    def setup(self, args: ArgsContainer):
+    def setup(self, args: ArgsContainer) -> None:
         """
         Setup fog effect
         @param args: ArgsContainer
