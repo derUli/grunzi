@@ -280,13 +280,16 @@ class SettingsGraphics(Fading):
             self.needs_restart = True
 
     def on_change_fog(self):
-        self.needs_restart = True
+        from views.mainmenu import MainMenu
+        self.needs_restart = isinstance(self.previous_view.previous_view, MainMenu)
         self.state.settings.fog = not self.state.settings.fog
         self.state.settings.save()
         self.setup()
 
     def on_change_colortint(self):
-        self.needs_restart = True
+        from views.mainmenu import MainMenu
+        self.needs_restart = isinstance(self.previous_view.previous_view, MainMenu)
+
         self.state.settings.color_tint = not self.state.settings.color_tint
         self.state.settings.save()
         self.setup()
