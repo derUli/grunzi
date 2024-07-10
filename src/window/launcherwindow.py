@@ -8,6 +8,7 @@ from PIL.ImageTk import PhotoImage
 from ttkthemes import ThemedTk
 
 from constants.audio import audio_backends
+from constants.settings import QualityPreset
 from state.settingsstate import SettingsState
 from utils.screen import supported_screen_resolutions
 
@@ -39,6 +40,7 @@ class LauncherWindow(ThemedTk):
             quality = 4
 
         self.quality = tk.IntVar(value=quality)
+        self.filmgrain = tk.DoubleVar(value=0.0)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
@@ -60,6 +62,7 @@ class LauncherWindow(ThemedTk):
             self.vsync.set(self.state.vsync)
             self.borderless.set(self.state.borderless)
             self.quality.set(self.state.quality)
+            self.filmgrain.set(self.state.filmgrain)
 
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
@@ -133,8 +136,18 @@ class LauncherWindow(ThemedTk):
             pady=SPACE_BETWEEN,
         )
 
-        (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality)
+        (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality, command=self.on_change_quality)
          .grid(row=0, column=1, pady=SPACE_BETWEEN))
+
+        ttk.Label(tab_graphics, text=_('Film Grain') + ' ').grid(
+            row=1,
+            column=0,
+            padx=SPACE_BETWEEN,
+            pady=SPACE_BETWEEN,
+        )
+
+        (ttk.Scale(tab_graphics, from_=0, to=1, variable=self.filmgrain)
+         .grid(row=1, column=1, pady=SPACE_BETWEEN))
 
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
@@ -192,6 +205,8 @@ class LauncherWindow(ThemedTk):
             self.state.quality = self.quality.get()
             self.args.video_quality = self.quality.get()
 
+        self.state.filmgrain = self.filmgrain.get()
+
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
         self.state.audio_backend = self.audio_backend.get()
@@ -229,3 +244,9 @@ class LauncherWindow(ThemedTk):
             self.borderless.set(False)
         else:
             self.borderless_check.configure(state='enabled')
+
+    def on_change_quality(self, value):
+        rounded = int(float(value))
+        quality = QualityPreset(rounded)
+        if rounded != self.state.quality:
+            self.filmgrain.set(quality.filmgrain)
