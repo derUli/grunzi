@@ -9,9 +9,10 @@
 
 ## Alpha 016 (Unreleased)
 
+* Neues Essen: Donuts
+* Neues Essen: Pizza
 * Linux: Spiel kann jetzt auch gestartet werden, wenn libportaudio2 nicht installiert ist.
 * Menü: Option "Qualität" jetzt auch in den In-Game-Grafikeinstellungen geändert werden
-* Neues Essen: Donuts
 
 ## Alpha 015 (09.07.2024)
 

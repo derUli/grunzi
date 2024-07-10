@@ -50,13 +50,27 @@ class Donut(Food):
         )
 
     def on_use(self, args):
+        return self.eat(args.state, args, 3)
+
+
+class Pizza(Food):
+    def copy(self):
+        """ Copy item """
+        return Pizza(
+            filename=self.filename,
+            center_x=self.center_x,
+            center_y=self.center_y
+        )
+
+    def on_use(self, args):
         return self.eat(args.state, args, 4)
+
 
 
 def spawn_food(state, tilemap, scene, physics_engine):
     # For now we have only apples
-    classes = [Apple, Donut]
-    weights = [0.8, 0.2]
+    classes = [Apple, Donut, Pizza]
+    weights = [0.6, 0.3, 0.1]
     rand_x, rand_y = random_position(tilemap)
 
     food_class = random.choices(
