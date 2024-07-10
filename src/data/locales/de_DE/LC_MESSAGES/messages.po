@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-10 15:53+0200\n"
+"POT-Creation-Date: 2024-07-10 17:45+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -104,7 +104,7 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: views/mainmenu.py:42 window/launcherwindow.py:52
+#: views/mainmenu.py:42 window/launcherwindow.py:59
 msgid "Grunzi"
 msgstr "Grunzi"
 
@@ -358,23 +358,23 @@ msgstr ""
 "Möglicherweise müssen Sie das Spiel neu starten, um die geänderten "
 "Grafikeinstellungen zu übernehmen."
 
-#: views/settings/settingsgraphics.py:84 window/launcherwindow.py:129
+#: views/settings/settingsgraphics.py:84 window/launcherwindow.py:138
 msgid "Quality"
 msgstr "Qualität"
 
-#: views/settings/settingsgraphics.py:106
+#: views/settings/settingsgraphics.py:106 window/launcherwindow.py:158
 msgid "Film Grain"
 msgstr "Bildrauschen"
 
-#: views/settings/settingsmenu.py:60 window/launcherwindow.py:82
+#: views/settings/settingsmenu.py:60 window/launcherwindow.py:90
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: views/settings/settingsmenu.py:66 window/launcherwindow.py:83
+#: views/settings/settingsmenu.py:66 window/launcherwindow.py:91
 msgid "Graphics"
 msgstr "Grafik"
 
-#: views/settings/settingsmenu.py:73 window/launcherwindow.py:84
+#: views/settings/settingsmenu.py:73 window/launcherwindow.py:92
 msgid "Audio"
 msgstr "Audio"
 
@@ -382,27 +382,31 @@ msgstr "Audio"
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsscreen.py:62 window/launcherwindow.py:103
+#: views/settings/settingsscreen.py:62 window/launcherwindow.py:112
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsscreen.py:74 window/launcherwindow.py:123
+#: views/settings/settingsscreen.py:74 window/launcherwindow.py:132
 msgid "V-Sync"
 msgstr ""
 
-#: window/launcherwindow.py:87
+#: window/launcherwindow.py:95
 msgid "Screen resolution"
 msgstr "Bildschirmauflösung"
 
-#: window/launcherwindow.py:112
+#: window/launcherwindow.py:121
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:139
+#: window/launcherwindow.py:148
+msgid "Antialiasing"
+msgstr ""
+
+#: window/launcherwindow.py:168
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:153
+#: window/launcherwindow.py:182
 msgid "Launch Game"
 msgstr "Spiel starten"
 

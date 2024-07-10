@@ -145,7 +145,7 @@ class LauncherWindow(ThemedTk):
         (ttk.Scale(tab_graphics, from_=0, to=6, variable=self.quality, command=self.on_change_quality)
          .grid(row=0, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E))
 
-        ttk.Label(tab_graphics, text=_('Anti-Aliasing') + ' ').grid(
+        ttk.Label(tab_graphics, text=_('Antialiasing') + ' ').grid(
             row=1,
             column=0,
             pady=SPACE_BETWEEN_Y,

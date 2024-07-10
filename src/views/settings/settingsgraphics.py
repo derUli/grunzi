@@ -27,7 +27,7 @@ class SettingsGraphics(Fading):
         self._fade_in = None
         self.background = COLOR_BACKGROUND
         self.filmgrain_slider = None
-
+        self.antialiasing_slider = None
         self.needs_restart = False
 
     def on_show_view(self) -> None:
@@ -102,6 +102,28 @@ class SettingsGraphics(Fading):
         def on_change_quality(event):
             self.on_change_quality(event.new_value)
 
+        antialiasing_label = arcade.gui.UILabel(
+            text=_('Antialiasing'),
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
+            font_name=utils.text.FONT_DEFAULT,
+            font_size=utils.text.FONT_SIZE_MEDIUM,
+            width=BUTTON_WIDTH,
+            align='center'
+        )
+
+        self.antialiasing_slider = UISlider(
+            width=BUTTON_WIDTH,
+            value=int(self.state.settings.antialiasing),
+            min_value=0,
+            max_value=16,
+            style=utils.gui.get_slider_style()
+        )
+
+        @self.antialiasing_slider.event("on_change")
+        def on_change_antialiasing(event):
+            self.on_change_antialiasing(event.new_value)
+
         filmgrain_label = arcade.gui.UILabel(
             text=_('Film Grain'),
             text_color=arcade.csscolor.BLACK,
@@ -133,6 +155,8 @@ class SettingsGraphics(Fading):
             back_button,
             quality_label,
             quality_slider,
+            antialiasing_label,
+            self.antialiasing_slider,
             filmgrain_label,
             self.filmgrain_slider
         ]
@@ -187,12 +211,22 @@ class SettingsGraphics(Fading):
             self.state.settings.quality = quality
             self.state.settings.save()
             self.needs_restart = True
-            self.filmgrain_slider.norm_value = self.state.settings.filmgrain
-
-
+            self.filmgrain_slider.value = self.state.settings.filmgrain
+            self.antialiasing_slider.value = self.state.settings.antialiasing
 
     def on_change_filmgrain(self, intensity: float) -> None:
 
         self.manager._do_render(force=True)
         self.state.settings.filmgrain = intensity
         self.state.settings.save()
+
+    def on_change_antialiasing(self, val: float):
+        self.manager._do_render(force=True)
+
+        prev_val = self.state.settings.antialiasing
+        self.state.settings.antialiasing = val
+
+        if self.state.settings.antialiasing != prev_val:
+            self.state.settings.save()
+
+            self.needs_restart = True
