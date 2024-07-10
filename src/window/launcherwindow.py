@@ -10,7 +10,7 @@ from ttkthemes import ThemedTk
 from constants.audio import audio_backends
 from constants.settings import QualityPreset
 from state.settingsstate import SettingsState
-from utils.screen import supported_screen_resolutions, antialiasing
+from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 10
 
@@ -152,12 +152,8 @@ class LauncherWindow(ThemedTk):
             sticky=tk.W
         )
 
-        ttk.Combobox(
-            tab_graphics,
-            values=antialiasing(),
-            textvariable=self.antialiasing,
-            state='readonly'
-        ).grid(row=1, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E)
+        (ttk.Scale(tab_graphics, from_=0, to=16, variable=self.antialiasing)
+         .grid(row=1, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E))
 
         ttk.Label(tab_graphics, text=_('Film Grain') + ' ').grid(
             row=2,
@@ -227,7 +223,7 @@ class LauncherWindow(ThemedTk):
 
         if self.state.antialiasing != self.antialiasing.get():
             self.state.antialiasing = self.antialiasing.get()
-            self.args.antialiasing = self.antialiasing.get()
+            self.args.antialiasing = self.state.antialiasing
 
         self.state.filmgrain = self.filmgrain.get()
 

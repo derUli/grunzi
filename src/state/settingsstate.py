@@ -12,7 +12,7 @@ from constants.settings import DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_BORDER
 from utils.media.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 18
+SETTINGS_STATE_VERSION = 19
 
 
 class SettingsState:
@@ -28,7 +28,7 @@ class SettingsState:
         self.vsync = DEFAULT_VSYNC
         self.show_fps = DEFAULT_SHOW_FPS
 
-        self.antialiasing = DEFAULT_ANTIALIASING
+        self._antialiasing = DEFAULT_ANTIALIASING
         self._filmgrain = DEFAULT_FILMGRAIN
         self._fog = DEFAULT_FOG
         self._color_tint = DEFAULT_COLOR_TINT
@@ -183,6 +183,28 @@ class SettingsState:
         self._fog = preset.fog
         self._color_tint = preset.color_tint
         self.antialiasing = preset.antialiasing
+
+    @property
+    def antialiasing(self):
+        return self._antialiasing
+
+    @antialiasing.setter
+    def antialiasing(self, val):
+        val = int(round(val))
+
+        if val > 1 and val < 2:
+            val = 2
+        if val > 3 and val < 4:
+            val = 4
+
+        if val > 4 and val < 8:
+            val = 8
+
+        if val > 8:
+            val = 16
+        print(val)
+
+        self._antialiasing = val
 
     def mute(self) -> None:
         """ Mute sound """
