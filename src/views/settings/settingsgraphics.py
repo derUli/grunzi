@@ -277,13 +277,16 @@ class SettingsGraphics(Fading):
 
         if self.state.settings.antialiasing != prev_val:
             self.state.settings.save()
-
             self.needs_restart = True
 
     def on_change_fog(self):
+        self.needs_restart = True
         self.state.settings.fog = not self.state.settings.fog
         self.state.settings.save()
+        self.setup()
 
     def on_change_colortint(self):
+        self.needs_restart = True
         self.state.settings.color_tint = not self.state.settings.color_tint
         self.state.settings.save()
+        self.setup()

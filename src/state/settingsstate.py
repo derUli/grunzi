@@ -166,9 +166,17 @@ class SettingsState:
     def fog(self):
         return self._fog
 
+    @fog.setter
+    def fog(self, val):
+        self._fog = val
+
     @property
     def color_tint(self):
         return self._color_tint
+
+    @color_tint.setter
+    def color_tint(self, val):
+        self._color_tint = val
 
     @property
     def quality(self):
@@ -180,8 +188,8 @@ class SettingsState:
         preset = QualityPreset(self.quality)
 
         self._filmgrain = preset.filmgrain
-        self._fog = preset.fog
-        self._color_tint = preset.color_tint
+        self.fog = preset.fog
+        self.color_tint = preset.color_tint
         self.antialiasing = preset.antialiasing
 
     @property
