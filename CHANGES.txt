@@ -5,7 +5,6 @@
 * UI: "Erfolg" Screen nach jedem Level
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
-* Neues Essen: Pizza
 
 ## Alpha 016 (Unreleased)
 
