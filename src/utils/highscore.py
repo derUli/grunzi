@@ -14,6 +14,7 @@ class HighscoreStorage:
         """
         Constructor
         """
+
         self.url = 'https://grunzi.ulidots.de/'
         self.highscore = []
 
@@ -43,7 +44,7 @@ class HighscoreStorage:
             logging.error(e)
             return False
 
-    def submit(self, name: str, score: int):
+    def submit(self, name: str, score: int) -> bool:
         """
         Submit highscore
 
