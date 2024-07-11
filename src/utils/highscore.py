@@ -33,7 +33,6 @@ class HighscoreStorage:
         try:
             with urlopen(self.url, timeout=3) as f:
                 data = f.read()
-
         except URLError as e:
             logging.error(e)
 
