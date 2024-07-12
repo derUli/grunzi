@@ -19,8 +19,28 @@ class ArgsContainer:
             camera=None,
             tilemap=None,
             inventory=None,
-            controllers=[]
+            controllers=None
     ):
+        """
+        Constructor
+        @param player:
+        @param scene:
+        @param physics_engine:
+        @param state:
+        @param map_size:
+        @param astar_barrier_list:
+        @param wall_spritelist:
+        @param callbacks:
+        @param camera_gui:
+        @param camera:
+        @param tilemap:
+        @param inventory:
+        @param controllers:
+        """
+
+        if controllers is None:
+            controllers = []
+
         self.player = player
         self.scene = scene
         self.physics_engine = physics_engine
@@ -36,12 +56,13 @@ class ArgsContainer:
         self.controllers = controllers
 
 
-def make_args_container(klaas):
+def make_args_container(klaas) -> ArgsContainer:
     """
     Make ArgsContainer
     @param klaas: Game class
     @return: The args container
     """
+
     return ArgsContainer(
         player=klaas.player_sprite,
         scene=klaas.scene,

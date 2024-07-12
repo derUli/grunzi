@@ -37,6 +37,7 @@ class SaveGameState:
     @property
     def total_score(self) -> int:
         """ Calculate total score """
+
         return numpy.sum(list(self.score.values()))
 
     @staticmethod
@@ -46,6 +47,7 @@ class SaveGameState:
 
         @return: bool
         """
+
         return os.path.exists(get_savegame_path(SAVEGAME_DEFAULT))
 
     @staticmethod
@@ -55,8 +57,9 @@ class SaveGameState:
 
         @return: SavegameState
         """
+
         try:
-            return SaveGameState._load(SAVEGAME_DEFAULT)
+            return SaveGameState._load()
         except ValueError as e:
             logging.error(e)
         except OSError as e:
@@ -67,12 +70,13 @@ class SaveGameState:
         return SaveGameState()
 
     @staticmethod
-    def _load(name: str):
+    def _load():
         """
         Actually load savegame file
 
         @return: SavegameState
         """
+
         with open(get_savegame_path(SAVEGAME_DEFAULT), 'r') as f:
             state = jsonpickle.decode(f.read())
 
