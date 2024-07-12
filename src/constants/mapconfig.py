@@ -23,21 +23,7 @@ class MapConfig:
 
         self.setup(difficulty, map_name, level_dir)
 
-    def reset(self) -> None:
-        """ Reset values """
-
-        self.max_npcs = 0
-        self.skull_hurt = 0
-        self.slimer_hurt = 0
-        self.spawn_what = []
-        self.options = {
-            'chicken': False,
-            'fog': False,
-            'lighting': None,
-            'landmines': False,
-        }
-
-    def setup(self, difficulty, map_name, level_dir) -> None:
+    def setup(self, difficulty: int, map_name: str, level_dir: str) -> None:
         """ Setup difficulty """
 
         self.reset()
@@ -69,3 +55,17 @@ class MapConfig:
 
         if 'maxNPCs' in difficulty_data:
             self.max_npcs = difficulty_data['maxNPCs']
+
+    def reset(self) -> None:
+        """ Reset values """
+
+        self.max_npcs = 0
+        self.skull_hurt = 0
+        self.slimer_hurt = 0
+        self.spawn_what = []
+        self.options = {
+            'chicken': False,
+            'fog': False,
+            'lighting': None,
+            'landmines': False,
+        }

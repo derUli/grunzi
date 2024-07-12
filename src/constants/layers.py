@@ -203,12 +203,14 @@ LAYER_OPTIONS = {
 
 
 def check_collision_with_layers(scene: Scene, sprite, layer_names: list | None = None) -> bool:
-    """ Returns all layers except background and decoration
-       @param scene: The scene
-       @param sprite: The sprite
-       @param layer_names: the layer names
-       @return: Boolean
-       """
+    """
+    Returns all layers except background and decoration
+    @param scene: The scene
+    @param sprite: The sprite
+    @param layer_names: the layer names
+    @return: Boolean
+    """
+
     if layer_names is None:
         layer_names = ALL_LAYERS
 
