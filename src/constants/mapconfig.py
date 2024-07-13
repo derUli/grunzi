@@ -12,7 +12,7 @@ DIFFICULTY_HARD = 3
 class MapConfig:
     """ map config class"""
 
-    def __init__(self, difficulty, map_name, level_dir):
+    def __init__(self, difficulty: int, map_name: str, level_dir: str):
         """ Constructor """
 
         self.max_npcs = 0
