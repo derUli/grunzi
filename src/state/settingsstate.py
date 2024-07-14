@@ -222,5 +222,5 @@ class SettingsState:
         """ Unmute sound """
         self._muted = False
 
-    def is_silent(self):
+    def is_silent(self) -> bool:
         return self.audio_backend == 'silent'
