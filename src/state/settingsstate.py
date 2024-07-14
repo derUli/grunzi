@@ -193,11 +193,11 @@ class SettingsState:
         self.antialiasing = preset.antialiasing
 
     @property
-    def antialiasing(self):
+    def antialiasing(self) -> int:
         return self._antialiasing
 
     @antialiasing.setter
-    def antialiasing(self, val):
+    def antialiasing(self, val: int) -> None:
         val = int(round(val))
 
         if val > 1 and val < 2:
