@@ -2,6 +2,7 @@ import glob
 import logging
 import os
 import random
+from typing import Tuple
 
 import arcade
 import pyglet
@@ -36,22 +37,24 @@ class ViewState:
         self.settings = settings
         self.keypressed = KeyPressed()
 
-    def reset(self):
+    def reset(self) -> None:
         """ Reset ViewState """
+
         self._score = 0
         self.keypressed.reset()
 
-    def preload(self):
+    def preload(self) -> None:
         """ Preload stuff """
+
         self.preload_sounds()
         self.preload_fonts()
         self.shaders = {}
 
-    def preload_fonts(self):
+    def preload_fonts(self) -> None:
         """ Preload all fonts """
         pyglet.font.add_directory(self.font_dir)
 
-    def preload_sounds(self):
+    def preload_sounds(self) -> None:
         """ Preload sounds """
         self.sounds = {
             'coin': arcade.load_sound(
@@ -128,7 +131,7 @@ class ViewState:
                 os.path.join(self.sound_dir, 'pig', f"squeak{i}.ogg")
             )
 
-    def load_shader(self, size, name):
+    def load_shader(self, size: Tuple[int, int], name: str) -> Shadertoy:
 
         path = os.path.join(self.shader_dir, name + '.glsl')
 
