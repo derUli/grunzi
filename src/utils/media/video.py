@@ -2,9 +2,11 @@
 import logging
 import os
 import shutil
+from typing import Tuple
 
 import cv2
-from pyvidplayer2 import VideoPyglet, PostProcessing
+import numpy
+from pyvidplayer2 import VideoPyglet
 
 from utils.path import is_windows
 from utils.text import label_value
@@ -34,6 +36,7 @@ def load_video(
     @param size: The target size
     @param volume: The volume
     """
+
     if not video_supported():
         logging.info(label_value('Video', 'Playback not supported on this platform'))
         return Video(None, interp=cv2.INTER_CUBIC, size=size)
@@ -48,15 +51,15 @@ def load_video(
 class Video(VideoPyglet):
     def __init__(
             self,
-            path: str = None,
-            chunk_size=300,
-            max_threads=1,
-            max_chunks=1,
-            post_process=PostProcessing.none,
-            interp=cv2.INTER_LINEAR,
-            use_pygame_audio=False,
-            size=None,
-            volume=None
+            path: str | None = None,
+            chunk_size: int = 300,
+            max_threads: int = 1,
+            max_chunks: int = 1,
+            post_process=numpy.ndarray,
+            interp: int = cv2.INTER_LINEAR,
+            use_pygame_audio: bool = False,
+            size: Tuple[int, int] | None = None,
+            volume: float | None = None
     ):
         self.path = path
         self.active = False
