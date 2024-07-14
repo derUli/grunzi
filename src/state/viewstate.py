@@ -7,6 +7,7 @@ from typing import Tuple
 import arcade
 import pyglet
 from arcade.experimental import Shadertoy
+from pyglet import media
 
 from constants.maps import FIRST_MAP
 from utils.keypressed import KeyPressed
@@ -131,7 +132,7 @@ class ViewState:
                 os.path.join(self.sound_dir, 'pig', f"squeak{i}.ogg")
             )
 
-    def load_shader(self, size: Tuple[int, int], name: str) -> Shadertoy:
+    def load_shader(self, size: Tuple[int, int], name: str) -> Shadertoy|None:
 
         path = os.path.join(self.shader_dir, name + '.glsl')
 
@@ -148,7 +149,14 @@ class ViewState:
 
         return self.shaders[name]
 
-    def play_sound(self, name1, name2=None, loop=False, speed=1, volume=1):
+    def play_sound(
+            self,
+            name1: str,
+            name2: str | None = None,
+            loop: bool = False,
+            speed: float = 1,
+            volume: float = 1
+    ) -> media.Player:
         try:
             sound = self.sounds[name1]
             if name2:
@@ -159,27 +167,26 @@ class ViewState:
 
         return sound.play(volume=volume * self.settings.sound_volume, loop=loop, speed=speed)
 
-    def grunt(self):
+    def grunt(self) -> media.Player:
         """ play random grunt sound """
         rand = random.randint(1, 5)
         logging.info('Grunt')
         return self.play_sound(f"grunt{rand}")
 
-    def squeak(self):
+    def squeak(self) -> media.Player:
         rand = random.randint(1, 5)
         logging.info('Squeak')
         return self.play_sound(f"squeak{rand}")
 
-    def noaction(self):
+    def noaction(self) -> media.Player:
         return self.play_sound('noaction')
 
     @property
-    def score(self):
+    def score(self) -> int:
         return self._score
 
     @score.setter
-    def score(self, val):
-
+    def score(self, val: int) -> None:
         last_digit = int(str(val)[-1])
 
         if last_digit >= 5:
