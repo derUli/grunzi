@@ -179,11 +179,11 @@ class SettingsState:
         self._color_tint = val
 
     @property
-    def quality(self):
+    def quality(self) -> int:
         return self._quality
 
     @quality.setter
-    def quality(self, quality):
+    def quality(self, quality: int) -> None:
         self._quality = int(quality)
         preset = QualityPreset(self.quality)
 
