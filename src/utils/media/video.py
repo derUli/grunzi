@@ -6,7 +6,7 @@ from typing import Tuple
 
 import cv2
 import numpy
-from pyvidplayer2 import VideoPyglet
+from pyvidplayer2 import VideoPyglet, PostProcessing
 
 from utils.path import is_windows
 from utils.text import label_value
@@ -55,7 +55,7 @@ class Video(VideoPyglet):
             chunk_size: int = 300,
             max_threads: int = 1,
             max_chunks: int = 1,
-            post_process=numpy.ndarray,
+            post_process: numpy.ndarray = PostProcessing.none,
             interp: int = cv2.INTER_LINEAR,
             use_pygame_audio: bool = False,
             size: Tuple[int, int] | None = None,
