@@ -171,11 +171,11 @@ class SettingsState:
         self._fog = val
 
     @property
-    def color_tint(self):
+    def color_tint(self) -> bool:
         return self._color_tint
 
     @color_tint.setter
-    def color_tint(self, val):
+    def color_tint(self, val: bool) -> None:
         self._color_tint = val
 
     @property
