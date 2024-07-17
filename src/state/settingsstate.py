@@ -103,14 +103,14 @@ class SettingsState:
             f.write(jsonpickle.encode(self, unpicklable=True))
 
     @property
-    def music_volume(self):
+    def music_volume(self) -> float:
         if self.is_silent() or self._muted:
             return 0.0
 
         return self._music_volume
 
     @music_volume.setter
-    def music_volume(self, volume):
+    def music_volume(self, volume: float) -> None:
         volume = normalize_volume(volume)
 
         logging.info('Music: New volume %s', volume)
