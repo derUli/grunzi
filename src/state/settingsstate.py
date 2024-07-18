@@ -136,14 +136,14 @@ class SettingsState:
         self._sound_volume = volume
 
     @property
-    def atmo_volume(self):
+    def atmo_volume(self) -> float:
         if self.is_silent() or self._muted:
             return 0.0
 
         return self._atmo_volume
 
     @atmo_volume.setter
-    def atmo_volume(self, volume):
+    def atmo_volume(self, volume: float) -> None:
         if volume < 0:
             volume = 0.0
 
