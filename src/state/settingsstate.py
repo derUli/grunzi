@@ -163,11 +163,11 @@ class SettingsState:
         self._filmgrain = intensity
 
     @property
-    def fog(self):
+    def fog(self) -> bool:
         return self._fog
 
     @fog.setter
-    def fog(self, val):
+    def fog(self, val: bool) -> None:
         self._fog = val
 
     @property
