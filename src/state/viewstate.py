@@ -132,7 +132,7 @@ class ViewState:
                 os.path.join(self.sound_dir, 'pig', f"squeak{i}.ogg")
             )
 
-    def load_shader(self, size: Tuple[int, int], name: str) -> Shadertoy|None:
+    def load_shader(self, size: Tuple[int, int], name: str) -> Shadertoy | None:
 
         path = os.path.join(self.shader_dir, name + '.glsl')
 
