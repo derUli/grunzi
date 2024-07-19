@@ -14,7 +14,7 @@ class MapPopulator:
 
         self.next_spawn = 0
 
-    def update(self, args):
+    def update(self, args) -> None:
         if time.time() <= self.next_spawn:
             return
 
@@ -27,7 +27,7 @@ class MapPopulator:
 
         self.spawn(args)
 
-    def spawn(self, args):
+    def spawn(self, args) -> None:
 
         if not any(args.state.difficulty.spawn_what):
             return
