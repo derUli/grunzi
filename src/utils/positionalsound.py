@@ -63,7 +63,7 @@ class PositionalSound:
             logging.debug('Sound volume at %s', volume)
             self.player.volume = volume
 
-    def pause(self):
+    def pause(self) -> None:
         """ Pause sound """
 
         if not self.player:
@@ -71,7 +71,7 @@ class PositionalSound:
 
         self.player.pause()
 
-    def play(self):
+    def play(self) -> None:
         """ Play sound """
 
         if not self.player:
@@ -84,7 +84,7 @@ class PositionalSound:
         self.player.play()
 
     @property
-    def playing(self):
+    def playing(self) -> bool:
         """ Check if sound is playing """
 
         if not self.player:
