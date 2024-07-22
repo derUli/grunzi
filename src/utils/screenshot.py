@@ -8,7 +8,7 @@ import arcade
 from utils.path import get_userdata_path
 
 
-def make_screenshot():
+def make_screenshot() -> str:
     """
         Save a screenshot
 
@@ -29,6 +29,6 @@ def make_screenshot():
     image.save(filename, quality=90)
     end = time.time() - start
 
-    logging.debug(f"Screenshot saved as {filename} in {end} seconds")
+    logging.info(f"Screenshot saved as {filename} in {end} seconds")
 
     return filename
