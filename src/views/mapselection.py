@@ -3,6 +3,7 @@ import os
 
 import PIL
 import arcade.gui
+from PIL import ImageOps
 
 import constants.controls.keyboard
 import utils.gui
@@ -93,17 +94,31 @@ class MapSelection(Fading):
 
             image.resize(IMAGE_SIZE)
 
-            w, h = IMAGE_SIZE
+            image_normal = ImageOps.expand(
+                image,
+                border=back_button.style['normal'].border_width,
+                fill=back_button.style['normal'].border
+            )
+            image_hovered = ImageOps.expand(
+                image,
+                border=back_button.style['hover'].border_width,
+                fill=back_button.style['hover'].border
+            )
 
-            texture = arcade.texture.Texture(
-                name=f"preview-{map}",
-                image=image
+            texture_default = arcade.texture.Texture(
+                name=f"preview-{map}-default",
+                image=image_normal
+            )
+            texture_hovered = arcade.texture.Texture(
+                name=f"preview-{map}-hovered",
+                image=image_hovered
             )
 
             button = arcade.gui.UITextureButton(
-                width=w,
-                height=h,
-                texture=texture,
+                width=image_normal.width,
+                height=image_normal.height,
+                texture=texture_default,
+                texture_hovered=texture_hovered,
                 style=utils.gui.get_button_style()
             )
 
