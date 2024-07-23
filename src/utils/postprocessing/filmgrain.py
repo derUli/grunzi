@@ -16,6 +16,7 @@ INDEX_WHITE = 2
 
 ALPHA = 30
 
+
 class FilmGrain(Effect):
     def setup(self, args: ArgsContainer):
         """
@@ -60,4 +61,4 @@ class FilmGrain(Effect):
         self.filmgrain.center_x = max(w * 0.5, self.filmgrain.center_x)
         self.filmgrain.center_y = max(h * 0.5, self.filmgrain.center_y)
 
-        self.filmgrain.update_animation(1/4)
+        self.filmgrain.update_animation(1 / 4)

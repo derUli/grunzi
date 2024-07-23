@@ -37,5 +37,6 @@ def start_debug() -> None:
     except KeyboardInterrupt:
         sys.exit()
 
+
 if __name__ == "__main__":
     start()

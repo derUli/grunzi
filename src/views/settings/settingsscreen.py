@@ -1,7 +1,6 @@
 import logging
 
 import arcade.gui
-from arcade.gui import UISlider
 
 import constants.controls.keyboard
 import utils.gui

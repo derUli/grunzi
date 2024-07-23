@@ -1,12 +1,7 @@
-import os
 import time
 import unittest
 
-from state.settingsstate import SettingsState
-from state.viewstate import ViewState
 from utils.fpscounter import FPSCounter
-from utils.media.audio import normalize_volume, streaming_enabled, MusicQueue
-from utils.path import is_windows
 
 
 class FpsCounterTest(unittest.TestCase):

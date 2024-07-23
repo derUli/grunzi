@@ -81,7 +81,6 @@ class MapSelection(Fading):
 
             self.on_back()
 
-
         next_button = arcade.gui.UIFlatButton(
             text=_("Continue"),
             width=BUTTON_WIDTH,
@@ -141,7 +140,7 @@ class MapSelection(Fading):
                 name=f"preview-{map}-default",
                 image=image_normal
             )
-            texture_selected= arcade.texture.Texture(
+            texture_selected = arcade.texture.Texture(
                 name=f"preview-{map}-selected",
                 image=image_selected
             )
@@ -171,7 +170,8 @@ class MapSelection(Fading):
 
             buttons.add(button)
 
-        back_next_buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False).with_padding(top=40)
+        back_next_buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False).with_padding(
+            top=40)
         back_next_buttons.add(back_button)
         back_next_buttons.add(next_button)
 
@@ -240,6 +240,7 @@ class MapSelection(Fading):
                 self.setup()
 
                 return
+
     def on_start_level(self):
         savegame = SaveGameState.load()
         self.state.map_name = self.selected

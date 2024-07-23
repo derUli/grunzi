@@ -66,7 +66,6 @@ class Pizza(Food):
         return self.eat(args.state, args, 6)
 
 
-
 def spawn_food(state, tilemap, scene, physics_engine):
     # For now we have only apples
     classes = [Apple, Donut, Pizza]

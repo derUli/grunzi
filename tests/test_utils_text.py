@@ -35,7 +35,7 @@ class TextTest(unittest.TestCase):
 
         for val in slider_style.values():
             self.assertIsInstance(val, arcade.gui.UISlider.UIStyle)
+
     def test_create_text(self):
-        
         text = create_text('Foobar')
         self.assertIsInstance(text, arcade.text.Text)
