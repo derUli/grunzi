@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-10 18:37+0200\n"
+"POT-Creation-Date: 2024-07-23 19:21+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -66,7 +66,7 @@ msgstr "Wird geladen..."
 msgid "Score"
 msgstr "Punkte"
 
-#: views/difficultyselection.py:60 views/mapselection.py:66
+#: views/difficultyselection.py:60 views/mapselection.py:72
 #: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
 #: views/settings/settingsgraphics.py:82 views/settings/settingsmenu.py:86
 #: views/settings/settingsscreen.py:56
@@ -89,17 +89,17 @@ msgstr "Sauschwer"
 msgid "Difficulty"
 msgstr "Schwierigkeit"
 
-#: views/difficultyselection.py:201
+#: views/difficultyselection.py:202
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/difficultyselection.py:203 views/difficultyselection.py:216
+#: views/difficultyselection.py:204 views/difficultyselection.py:217
 #: views/highscore/highscoreadd.py:179 views/highscore/highscoreadd.py:194
 #: views/pausemenu.py:150 views/pausemenu.py:180 views/pausemenu.py:197
 msgid "Yes"
 msgstr "Ja"
 
-#: views/difficultyselection.py:204 views/highscore/highscoreadd.py:195
+#: views/difficultyselection.py:205 views/highscore/highscoreadd.py:195
 #: views/pausemenu.py:151 views/pausemenu.py:159 views/pausemenu.py:181
 msgid "No"
 msgstr "Nein"
@@ -112,11 +112,11 @@ msgstr "Grunzi"
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/mainmenu.py:56 views/pausemenu.py:34
+#: views/mainmenu.py:56 views/mapselection.py:86 views/pausemenu.py:34
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/mainmenu.py:62 views/mapselection.py:79
+#: views/mainmenu.py:62 views/mapselection.py:98
 msgid "Select Map"
 msgstr "Map auswählen"
 
@@ -131,6 +131,10 @@ msgstr "Einstellungen"
 #: views/mainmenu.py:80
 msgid "Quit game"
 msgstr "Beenden"
+
+#: views/mapselection.py:107
+msgid "Selected:"
+msgstr "Ausgewählt:"
 
 #: views/pausemenu.py:40
 msgid "Restart Level"

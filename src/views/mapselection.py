@@ -66,7 +66,7 @@ class MapSelection(Fading):
         self.maps = SaveGameState.load().get_selectable()
 
         if not self.selected:
-            self.selected = self.maps[0]
+            self.selected = self.maps[-1:][0]
 
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
@@ -103,6 +103,15 @@ class MapSelection(Fading):
             align='center'
         )
 
+        selected_map = arcade.gui.UILabel(
+            text=_('Selected:') + ' ' + self.selected_label,
+            font_name=FONT_DEFAULT,
+            font_size=utils.text.FONT_SIZE_MEDIUM,
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
+            align='center'
+        )
+
         buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False).with_padding(top=40)
 
         for map in self.maps:
@@ -110,7 +119,7 @@ class MapSelection(Fading):
                 os.path.join(self.state.ui_dir, 'map_previews', f"{map}.jpg")
             ).convert('RGBA').crop()
 
-            image.resize(IMAGE_SIZE)
+            image = image.resize(IMAGE_SIZE)
 
             image_normal = ImageOps.expand(
                 image,
@@ -168,11 +177,12 @@ class MapSelection(Fading):
         widgets = [
             title,
             buttons,
+            selected_map,
             back_next_buttons
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
-        widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
+        widget_layout = arcade.gui.UIBoxLayout(space_between=20, align='center')
 
         for widget in widgets:
             widget_layout.add(widget)
@@ -235,3 +245,12 @@ class MapSelection(Fading):
         self.state.difficulty = MapConfig(savegame.difficulty, self.selected, self.state.map_dir)
 
         self.fade_to_view(Game(self.window, self.state))
+
+    @property
+    def selected_label(self):
+        labels = {}
+
+        if self.selected in labels:
+            return labels[self.selected]
+
+        return self.selected
