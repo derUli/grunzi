@@ -109,7 +109,8 @@ class DifficultySelection(Fading):
             text=_('Difficulty'),
             font_name=FONT_DEFAULT,
             font_size=utils.text.FONT_SIZE_HEADLINE,
-            text_color=arcade.csscolor.HOTPINK,
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
             align='center'
         )
 
