@@ -11,6 +11,7 @@
 * Neues Essen: Donuts
 * Neues Essen: Pizza
 * Menü: Weitere Grafikeinstellungen hinzugefügt
+* Menü: "Map auswählen" überarbeitet.
 * Linux: Spiel kann jetzt auch gestartet werden, wenn libportaudio2 nicht installiert ist.
 
 ## Alpha 015 (09.07.2024)

@@ -1,6 +1,7 @@
 import logging
 import os
 
+import PIL
 import arcade.gui
 
 import constants.controls.keyboard
@@ -13,6 +14,7 @@ from views.fading import Fading
 from views.game import Game
 
 BUTTON_WIDTH = 250
+IMAGE_SIZE = (256, 256)
 
 COLOR_BACKGROUND = (217, 102, 157)
 
@@ -30,8 +32,7 @@ class MapSelection(Fading):
         self.shadertoy = self.state.load_shader(window.size, 'pink')
 
         self.maps = []
-        self.selected = 0
-
+        self.map_buttons = {}
         self.background = COLOR_BACKGROUND
 
     def on_show_view(self) -> None:
@@ -83,61 +84,36 @@ class MapSelection(Fading):
             align='center'
         )
 
-        buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False)
+        buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False).with_padding(top=40)
 
-        button_prev = arcade.gui.UITextureButton(
-            texture=arcade.load_texture(
-                os.path.join(self.state.ui_dir, 'arrows', 'left.png')
+        for map in self.maps:
+            image = PIL.Image.open(
+                os.path.join(self.state.ui_dir, 'map_previews', f"{map}.jpg")
+            ).convert('RGBA').crop()
+
+            image.resize(IMAGE_SIZE)
+
+            w, h = IMAGE_SIZE
+
+            texture = arcade.texture.Texture(
+                name=f"preview-{map}",
+                image=image
             )
-        )
 
-        button_next = arcade.gui.UITextureButton(
-            texture=arcade.load_texture(
-                os.path.join(self.state.ui_dir, 'arrows', 'right.png')
+            button = arcade.gui.UITextureButton(
+                width=w,
+                height=h,
+                texture=texture,
+                style=utils.gui.get_button_style()
             )
-        )
 
-        @button_prev.event('on_click')
-        def on_click_button_prev(event):
-            logging.debug(event)
+            self.map_buttons[map] = button
 
-            if self.selected > 0:
-                self.selected -= 1
-            else:
-                self.selected = len(self.maps) - 1
+            @button.event('on_click')
+            def on_select_level(event):
+                self.on_select_level(event)
 
-            self.setup()
-
-        @button_next.event('on_click')
-        def on_click_button_next(event):
-            logging.debug(event)
-
-            if self.selected < len(self.maps) - 1:
-                self.selected += 1
-            else:
-                self.selected = 0
-
-            self.setup()
-
-        select_button = arcade.gui.UIFlatButton(
-            text=self.maps[self.selected],
-            width=BUTTON_WIDTH,
-            style=utils.gui.get_button_style()
-        )
-
-        @select_button.event('on_click')
-        def on_start_map(event):
-            map = event.source.text
-
-            savegame = SaveGameState.load()
-            self.state.map_name = map
-            self.state.difficulty = MapConfig(savegame.difficulty, map, self.state.map_dir)
-
-            self.fade_to_view(Game(self.window, self.state))
-
-        buttons.add(button_prev)
-        buttons.add(select_button)
-        buttons.add(button_next)
+            buttons.add(button)
 
         widgets = [
             title,
@@ -195,3 +171,14 @@ class MapSelection(Fading):
 
         from views.mainmenu import MainMenu
         self.fade_to_view(MainMenu(self.window, self.state))
+
+    def on_select_level(self, event):
+        for map in self.map_buttons:
+            if self.map_buttons[map] != event.source:
+                continue
+
+            savegame = SaveGameState.load()
+            self.state.map_name = map
+            self.state.difficulty = MapConfig(savegame.difficulty, map, self.state.map_dir)
+
+            self.fade_to_view(Game(self.window, self.state))
