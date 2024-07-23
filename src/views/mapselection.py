@@ -35,6 +35,7 @@ class MapSelection(Fading):
         self.maps = []
         self.map_buttons = {}
         self.background = COLOR_BACKGROUND
+        self.selected = None
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -64,6 +65,9 @@ class MapSelection(Fading):
 
         self.maps = SaveGameState.load().get_selectable()
 
+        if not self.selected:
+            self.selected = self.maps[0]
+
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),
             width=BUTTON_WIDTH,
@@ -76,6 +80,19 @@ class MapSelection(Fading):
             # Pass already created view because we are resuming.
 
             self.on_back()
+
+
+        next_button = arcade.gui.UIFlatButton(
+            text=_("Continue"),
+            width=BUTTON_WIDTH,
+            style=utils.gui.get_button_style()
+        )
+
+        @next_button.event("on_click")
+        def on_click_continue(event) -> None:
+            logging.debug(event)
+            # Pass already created view because we are resuming.
+            self.on_start_level()
 
         title = arcade.gui.UILabel(
             text=_('Select Map'),
@@ -105,15 +122,28 @@ class MapSelection(Fading):
                 border=back_button.style['hover'].border_width,
                 fill=back_button.style['hover'].border
             )
+            image_selected = ImageOps.expand(
+                image,
+                border=back_button.style['hover'].border_width,
+                fill=arcade.color.HOT_PINK
+            )
 
             texture_default = arcade.texture.Texture(
                 name=f"preview-{map}-default",
                 image=image_normal
             )
+            texture_selected= arcade.texture.Texture(
+                name=f"preview-{map}-selected",
+                image=image_selected
+            )
             texture_hovered = arcade.texture.Texture(
                 name=f"preview-{map}-hovered",
                 image=image_hovered
             )
+
+            if map == self.selected:
+                texture_default = texture_selected
+                texture_hovered = texture_selected
 
             button = arcade.gui.UITextureButton(
                 width=image_normal.width,
@@ -131,10 +161,14 @@ class MapSelection(Fading):
 
             buttons.add(button)
 
+        back_next_buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False).with_padding(top=40)
+        back_next_buttons.add(back_button)
+        back_next_buttons.add(next_button)
+
         widgets = [
-            back_button,
             title,
-            buttons
+            buttons,
+            back_next_buttons
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
@@ -190,11 +224,14 @@ class MapSelection(Fading):
 
     def on_select_level(self, event):
         for map in self.map_buttons:
-            if self.map_buttons[map] != event.source:
-                continue
+            if self.map_buttons[map] == event.source:
+                self.selected = map
+                self.setup()
 
-            savegame = SaveGameState.load()
-            self.state.map_name = map
-            self.state.difficulty = MapConfig(savegame.difficulty, map, self.state.map_dir)
+                return
+    def on_start_level(self):
+        savegame = SaveGameState.load()
+        self.state.map_name = self.selected
+        self.state.difficulty = MapConfig(savegame.difficulty, self.selected, self.state.map_dir)
 
-            self.fade_to_view(Game(self.window, self.state))
+        self.fade_to_view(Game(self.window, self.state))
