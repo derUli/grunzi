@@ -249,7 +249,11 @@ class MapSelection(Fading):
 
     @property
     def selected_label(self):
-        labels = {}
+        labels = {
+            'map01': _('Having A Pig'),
+            'map02': _('Big Major Cay'),
+            'map03': _('Teufelsmoor')
+        }
 
         if self.selected in labels:
             return labels[self.selected]

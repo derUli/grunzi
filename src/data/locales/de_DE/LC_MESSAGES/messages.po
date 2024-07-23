@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-23 19:21+0200\n"
+"POT-Creation-Date: 2024-07-23 21:44+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -135,6 +135,18 @@ msgstr "Beenden"
 #: views/mapselection.py:107
 msgid "Selected:"
 msgstr "Ausgewählt:"
+
+#: views/mapselection.py:253
+msgid "Having A Pig"
+msgstr "Schwein gehabt"
+
+#: views/mapselection.py:254
+msgid "Big Major Cay"
+msgstr "Big Major Cay"
+
+#: views/mapselection.py:255
+msgid "Teufelsmoor"
+msgstr "Teufelsmoor"
 
 #: views/pausemenu.py:40
 msgid "Restart Level"
