@@ -1,7 +1,7 @@
 """ Center camera to player """
 
 
-def center_camera_to_player(player_sprite, camera, size) -> None:
+def center_camera_to_player(player_sprite, camera, size: tuple) -> None:
     """
     Center camera to play
     @param player_sprite: The player
