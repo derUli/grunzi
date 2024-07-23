@@ -116,8 +116,8 @@ class MapSelection(Fading):
             buttons.add(button)
 
         widgets = [
-            title,
             back_button,
+            title,
             buttons
         ]
 
