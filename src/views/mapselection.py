@@ -134,7 +134,7 @@ class MapSelection(Fading):
             image_selected = ImageOps.expand(
                 image,
                 border=back_button.style['hover'].border_width,
-                fill=arcade.color.HOT_PINK
+                fill=arcade.color.RED
             )
 
             texture_default = arcade.texture.Texture(
@@ -159,6 +159,7 @@ class MapSelection(Fading):
                 height=image_normal.height,
                 texture=texture_default,
                 texture_hovered=texture_hovered,
+                texture_pressed=texture_selected,
                 style=utils.gui.get_button_style()
             )
 
