@@ -160,7 +160,7 @@ class SettingsMenu(Fading):
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
-        widget_layout = arcade.gui.UIBoxLayout(space_between=10, align='center')
+        widget_layout = arcade.gui.UIBoxLayout(space_between=20, align='center')
 
         for widget in widgets:
             widget_layout.add(widget)

@@ -105,13 +105,13 @@ class MapSelection(Fading):
         selected_map = arcade.gui.UILabel(
             text=_('Selected:') + ' ' + self.selected_label,
             font_name=FONT_DEFAULT,
-            font_size=utils.text.FONT_SIZE_MEDIUM,
+            font_size=utils.text.FONT_SIZE_LARGE,
             text_color=arcade.csscolor.BLACK,
             bold=True,
             align='center'
         )
 
-        buttons = arcade.gui.UIBoxLayout(space_between=40, align='center', vertical=False).with_padding(top=40)
+        buttons = arcade.gui.UIBoxLayout(space_between=20, align='center', vertical=False).with_padding(top=40)
 
         for map in self.maps:
             image = PIL.Image.open(

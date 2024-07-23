@@ -1,204 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="170" height="80" tilewidth="64" tileheight="64" infinite="0" nextlayerid="42" nextobjectid="81">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="170" height="80" tilewidth="64" tileheight="64" infinite="0" nextlayerid="42" nextobjectid="83">
  <tileset firstgid="1" name="Background" tilewidth="448" tileheight="448" tilecount="13" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="64" height="64" source="../images/sprites/ground/gras1.jpg"/>
+   <image source="../images/sprites/ground/gras1.jpg" width="64" height="64"/>
   </tile>
   <tile id="2">
-   <image width="64" height="64" source="../images/sprites/ground/gras2.jpg"/>
+   <image source="../images/sprites/ground/gras2.jpg" width="64" height="64"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/ground/gras3.jpg"/>
+   <image source="../images/sprites/ground/gras3.jpg" width="64" height="64"/>
   </tile>
   <tile id="4">
-   <image width="64" height="64" source="../images/sprites/street/street1.jpg"/>
+   <image source="../images/sprites/street/street1.jpg" width="64" height="64"/>
   </tile>
   <tile id="5">
-   <image width="64" height="64" source="../images/sprites/street/street2.jpg"/>
+   <image source="../images/sprites/street/street2.jpg" width="64" height="64"/>
   </tile>
   <tile id="6">
-   <image width="64" height="64" source="../images/sprites/street/street3.jpg"/>
+   <image source="../images/sprites/street/street3.jpg" width="64" height="64"/>
   </tile>
   <tile id="7">
-   <image width="64" height="64" source="../images/sprites/street/street4.jpg"/>
+   <image source="../images/sprites/street/street4.jpg" width="64" height="64"/>
   </tile>
   <tile id="8">
-   <image width="64" height="64" source="../images/sprites/street/street5.jpg"/>
+   <image source="../images/sprites/street/street5.jpg" width="64" height="64"/>
   </tile>
   <tile id="10">
-   <image width="98" height="17" source="../images/sprites/street/street6.png"/>
+   <image source="../images/sprites/street/street6.png" width="98" height="17"/>
   </tile>
   <tile id="12">
-   <image width="64" height="64" source="../images/sprites/ground/cornfield.jpg"/>
+   <image source="../images/sprites/ground/cornfield.jpg" width="64" height="64"/>
   </tile>
   <tile id="15">
-   <image width="448" height="65" source="../images/sprites/fence/fence3.png"/>
+   <image source="../images/sprites/fence/fence3.png" width="448" height="65"/>
   </tile>
   <tile id="16">
-   <image width="64" height="64" source="../images/sprites/ground/dirt.jpg"/>
+   <image source="../images/sprites/ground/dirt.jpg" width="64" height="64"/>
   </tile>
   <tile id="17">
-   <image width="65" height="448" source="../images/sprites/fence/fence4.png"/>
+   <image source="../images/sprites/fence/fence4.png" width="65" height="448"/>
   </tile>
  </tileset>
  <tileset firstgid="19" name="Walls" tilewidth="448" tileheight="160" tilecount="9" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="2">
-   <image width="64" height="64" source="../images/sprites/wall/wall.jpg"/>
+   <image source="../images/sprites/wall/wall.jpg" width="64" height="64"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/decoration/garbagecan.png"/>
+   <image source="../images/sprites/decoration/garbagecan.png" width="64" height="64"/>
   </tile>
   <tile id="4">
-   <image width="128" height="64" source="../images/sprites/fence/fence1.png"/>
+   <image source="../images/sprites/fence/fence1.png" width="128" height="64"/>
   </tile>
   <tile id="5">
-   <image width="64" height="128" source="../images/sprites/fence/fence2.png"/>
+   <image source="../images/sprites/fence/fence2.png" width="64" height="128"/>
   </tile>
   <tile id="7">
-   <image width="160" height="160" source="../images/sprites/rhodes/rhodes1.png"/>
+   <image source="../images/sprites/rhodes/rhodes1.png" width="160" height="160"/>
   </tile>
   <tile id="8">
-   <image width="160" height="160" source="../images/sprites/rhodes/rhodes2.png"/>
+   <image source="../images/sprites/rhodes/rhodes2.png" width="160" height="160"/>
   </tile>
   <tile id="9">
-   <image width="448" height="65" source="../images/sprites/fence/fence3.png"/>
+   <image source="../images/sprites/fence/fence3.png" width="448" height="65"/>
   </tile>
   <tile id="10">
-   <image width="64" height="64" source="../images/sprites/wall/bricks.jpg"/>
+   <image source="../images/sprites/wall/bricks.jpg" width="64" height="64"/>
   </tile>
   <tile id="11">
-   <image width="64" height="64" source="../images/sprites/ground/gravel.jpg"/>
+   <image source="../images/sprites/ground/gravel.jpg" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="31" name="Decoration" tilewidth="208" tileheight="196" tilecount="26" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="160" height="196" source="../images/sprites/vegetation/kerstboom.png"/>
+   <image source="../images/sprites/vegetation/kerstboom.png" width="160" height="196"/>
   </tile>
   <tile id="2">
-   <image width="160" height="68" source="../images/sprites/car/car1.png"/>
+   <image source="../images/sprites/car/car1.png" width="160" height="68"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/decoration/dont_waste_water.png"/>
+   <image source="../images/sprites/decoration/dont_waste_water.png" width="64" height="64"/>
   </tile>
   <tile id="4">
-   <image width="64" height="64" source="../images/sprites/decoration/sunset.png"/>
+   <image source="../images/sprites/decoration/sunset.png" width="64" height="64"/>
   </tile>
   <tile id="8">
-   <image width="48" height="64" source="../images/sprites/vegetation/flower1.png"/>
+   <image source="../images/sprites/vegetation/flower1.png" width="48" height="64"/>
   </tile>
   <tile id="9">
-   <image width="60" height="60" source="../images/sprites/vegetation/flower3.png"/>
+   <image source="../images/sprites/vegetation/flower3.png" width="60" height="60"/>
   </tile>
   <tile id="10">
-   <image width="60" height="60" source="../images/sprites/vegetation/flower2.png"/>
+   <image source="../images/sprites/vegetation/flower2.png" width="60" height="60"/>
   </tile>
   <tile id="11">
-   <image width="141" height="193" source="../images/sprites/decoration/one_way.png"/>
+   <image source="../images/sprites/decoration/one_way.png" width="141" height="193"/>
   </tile>
   <tile id="12">
-   <image width="160" height="66" source="../images/sprites/car/car2.png"/>
+   <image source="../images/sprites/car/car2.png" width="160" height="66"/>
   </tile>
   <tile id="13">
-   <image width="160" height="94" source="../images/sprites/car/car3.png"/>
+   <image source="../images/sprites/car/car3.png" width="160" height="94"/>
   </tile>
   <tile id="15">
-   <image width="100" height="71" source="../images/sprites/vegetation/stump1.png"/>
+   <image source="../images/sprites/vegetation/stump1.png" width="100" height="71"/>
   </tile>
   <tile id="16">
-   <image width="100" height="71" source="../images/sprites/vegetation/stump2.png"/>
+   <image source="../images/sprites/vegetation/stump2.png" width="100" height="71"/>
   </tile>
   <tile id="17">
-   <image width="60" height="48" source="../images/sprites/decoration/keepout.png"/>
+   <image source="../images/sprites/decoration/keepout.png" width="60" height="48"/>
   </tile>
   <tile id="18">
-   <image width="64" height="62" source="../images/sprites/decoration/garbagecan2.png"/>
+   <image source="../images/sprites/decoration/garbagecan2.png" width="64" height="62"/>
   </tile>
   <tile id="19">
-   <image width="64" height="40" source="../images/sprites/decoration/stool.png"/>
+   <image source="../images/sprites/decoration/stool.png" width="64" height="40"/>
   </tile>
   <tile id="20">
-   <image width="116" height="160" source="../images/sprites/vegetation/sunflower.png"/>
+   <image source="../images/sprites/vegetation/sunflower.png" width="116" height="160"/>
   </tile>
   <tile id="21">
-   <image width="176" height="128" source="../images/sprites/car/truck.png"/>
+   <image source="../images/sprites/car/truck.png" width="176" height="128"/>
   </tile>
   <tile id="22">
-   <image width="160" height="98" source="../images/sprites/car/car5.png"/>
+   <image source="../images/sprites/car/car5.png" width="160" height="98"/>
   </tile>
   <tile id="24">
-   <image width="180" height="65" source="../images/sprites/car/car6.png"/>
+   <image source="../images/sprites/car/car6.png" width="180" height="65"/>
   </tile>
   <tile id="25">
-   <image width="160" height="74" source="../images/sprites/car/car7.png"/>
+   <image source="../images/sprites/car/car7.png" width="160" height="74"/>
   </tile>
   <tile id="26">
-   <image width="160" height="73" source="../images/sprites/car/car8.png"/>
+   <image source="../images/sprites/car/car8.png" width="160" height="73"/>
   </tile>
   <tile id="27">
-   <image width="160" height="73" source="../images/sprites/car/car9.png"/>
+   <image source="../images/sprites/car/car9.png" width="160" height="73"/>
   </tile>
   <tile id="28">
-   <image width="208" height="71" source="../images/sprites/car/car10.png"/>
+   <image source="../images/sprites/car/car10.png" width="208" height="71"/>
   </tile>
   <tile id="29">
-   <image width="176" height="69" source="../images/sprites/car/car11.png"/>
+   <image source="../images/sprites/car/car11.png" width="176" height="69"/>
   </tile>
   <tile id="30">
-   <image width="160" height="79" source="../images/sprites/car/car12.png"/>
+   <image source="../images/sprites/car/car12.png" width="160" height="79"/>
   </tile>
   <tile id="31">
-   <image width="118" height="70" source="../images/sprites/car/bike.png"/>
+   <image source="../images/sprites/car/bike.png" width="118" height="70"/>
   </tile>
  </tileset>
  <tileset firstgid="63" name="Moveable" tilewidth="160" tileheight="87" tilecount="1" columns="0" objectalignment="center" tilerendersize="grid" fillmode="preserve-aspect-fit">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="2">
-   <image width="64" height="64" source="../images/sprites/moveable/box.png"/>
+   <image source="../images/sprites/moveable/box.png" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="66" name="Tools" tilewidth="160" tileheight="82" tilecount="6" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="54" height="64" source="../images/sprites/tools/plier.png"/>
+   <image source="../images/sprites/tools/plier.png" width="54" height="64"/>
   </tile>
   <tile id="2">
-   <image width="25" height="64" source="../images/sprites/tools/hammer.png"/>
+   <image source="../images/sprites/tools/hammer.png" width="25" height="64"/>
   </tile>
   <tile id="3">
-   <image width="28" height="64" source="../images/sprites/tools/feather.png"/>
+   <image source="../images/sprites/tools/feather.png" width="28" height="64"/>
   </tile>
   <tile id="4">
-   <image width="160" height="82" source="../images/sprites/car/jeep.png"/>
+   <image source="../images/sprites/car/jeep.png" width="160" height="82"/>
   </tile>
   <tile id="6">
-   <image width="25" height="64" source="../images/sprites/tools/bottle.png"/>
+   <image source="../images/sprites/tools/bottle.png" width="25" height="64"/>
   </tile>
   <tile id="7">
-   <image width="22" height="60" source="../images/sprites/car/keycar.png"/>
+   <image source="../images/sprites/car/keycar.png" width="22" height="60"/>
   </tile>
  </tileset>
  <tileset firstgid="74" name="Chars" tilewidth="60" tileheight="46" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="60" height="46" source="../images/sprites/char/pig.png"/>
+   <image source="../images/sprites/char/pig.png" width="60" height="46"/>
   </tile>
  </tileset>
  <tileset firstgid="75" name="Barriers" tilewidth="56" tileheight="64" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="56" height="64" source="../images/sprites/piggybank/piggybank.png"/>
+   <image source="../images/sprites/piggybank/piggybank.png" width="56" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="76" name="Dummys" tilewidth="64" tileheight="64" tilecount="2" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="2">
-   <image width="64" height="64" source="../images/sprites/dummy/dummy.png"/>
+   <image source="../images/sprites/dummy/dummy.png" width="64" height="64"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/dummy/transparent.png"/>
+   <image source="../images/sprites/dummy/transparent.png" width="64" height="64"/>
   </tile>
  </tileset>
  <layer id="1" name="Ground" width="170" height="80">
@@ -647,10 +647,7 @@
   <object id="58" gid="70" x="8585" y="2343" width="160" height="82"/>
  </objectgroup>
  <objectgroup id="39" name="Food">
-  <object id="74" gid="79" x="66" y="122" width="64" height="64"/>
-  <object id="75" gid="79" x="-456" y="-56" width="64" height="64"/>
-  <object id="77" gid="2" x="64" y="128" width="64" height="64"/>
-  <object id="80" gid="2" x="4736" y="64" width="64" height="64"/>
+  <object id="82" gid="2" x="4736" y="64" width="64" height="64"/>
  </objectgroup>
  <layer id="15" name="CarRight" width="170" height="80">
   <data encoding="csv">
