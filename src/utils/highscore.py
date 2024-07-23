@@ -60,7 +60,7 @@ class HighscoreStorage:
                 f.read()
                 return True
 
-        except URLError as e:
+        except URLError | TimeoutError as e:
             logging.error(e)
             return False
 
