@@ -6,6 +6,12 @@
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
 
+## Alpha 017 (Unreleased)
+
+* map04 hinzugefügt
+* Video: Auflösung der Video Cutscenes auf 720P reduziert, um die Downloadgröße zu reduzieren.
+* Video: Video Cutscenes können in den Grafikeinstellungen deaktiviert werden.
+
 ## Alpha 016 (Unreleased)
 
 * Neues Essen: Donuts
