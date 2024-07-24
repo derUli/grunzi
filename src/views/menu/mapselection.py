@@ -15,7 +15,6 @@ from views.fading import Fading
 from views.game import Game
 
 BUTTON_WIDTH = 250
-IMAGE_SIZE = (256, 256)
 
 COLOR_BACKGROUND = (217, 102, 157)
 
@@ -118,7 +117,12 @@ class MapSelection(Fading):
                 os.path.join(self.state.ui_dir, 'map_previews', f"{map}.jpg")
             ).convert('RGBA').crop()
 
-            image = image.resize(IMAGE_SIZE)
+            image_size = (224, 224)
+
+            if self.window.width >= 1600:
+                image_size = (320, 320)
+
+            image = image.resize(image_size)
 
             image_normal = ImageOps.expand(
                 image,
@@ -253,7 +257,8 @@ class MapSelection(Fading):
         labels = {
             'map01': _('Having A Pig'),
             'map02': _('Big Major Cay'),
-            'map03': _('Teufelsmoor')
+            'map03': _('Teufelsmoor'),
+            'map04': _('South Pole')
         }
 
         if self.selected in labels:

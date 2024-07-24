@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-23 21:44+0200\n"
+"POT-Creation-Date: 2024-07-24 16:02+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -66,108 +66,6 @@ msgstr "Wird geladen..."
 msgid "Score"
 msgstr "Punkte"
 
-#: views/difficultyselection.py:60 views/mapselection.py:72
-#: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
-#: views/settings/settingsgraphics.py:82 views/settings/settingsmenu.py:86
-#: views/settings/settingsscreen.py:56
-msgid "Back"
-msgstr "Zurück"
-
-#: views/difficultyselection.py:66
-msgid "Easy"
-msgstr "Sauleicht"
-
-#: views/difficultyselection.py:72
-msgid "Normal"
-msgstr "Versaut"
-
-#: views/difficultyselection.py:78
-msgid "Hard"
-msgstr "Sauschwer"
-
-#: views/difficultyselection.py:109
-msgid "Difficulty"
-msgstr "Schwierigkeit"
-
-#: views/difficultyselection.py:202
-msgid "Overwrite existing savegame?"
-msgstr "Existierenden Spielstand überschreiben?"
-
-#: views/difficultyselection.py:204 views/difficultyselection.py:217
-#: views/highscore/highscoreadd.py:179 views/highscore/highscoreadd.py:194
-#: views/pausemenu.py:150 views/pausemenu.py:180 views/pausemenu.py:197
-msgid "Yes"
-msgstr "Ja"
-
-#: views/difficultyselection.py:205 views/highscore/highscoreadd.py:195
-#: views/pausemenu.py:151 views/pausemenu.py:159 views/pausemenu.py:181
-msgid "No"
-msgstr "Nein"
-
-#: views/mainmenu.py:42 window/launcherwindow.py:64
-msgid "Grunzi"
-msgstr "Grunzi"
-
-#: views/mainmenu.py:50
-msgid "New Game"
-msgstr "Neues Spiel"
-
-#: views/mainmenu.py:56 views/mapselection.py:86 views/pausemenu.py:34
-msgid "Continue"
-msgstr "Fortsetzen"
-
-#: views/mainmenu.py:62 views/mapselection.py:98
-msgid "Select Map"
-msgstr "Map auswählen"
-
-#: views/mainmenu.py:68
-msgid "Online Highscore"
-msgstr "Online-Bestenliste"
-
-#: views/mainmenu.py:74 views/pausemenu.py:46
-msgid "Settings"
-msgstr "Einstellungen"
-
-#: views/mainmenu.py:80
-msgid "Quit game"
-msgstr "Beenden"
-
-#: views/mapselection.py:107
-msgid "Selected:"
-msgstr "Ausgewählt:"
-
-#: views/mapselection.py:253
-msgid "Having A Pig"
-msgstr "Schwein gehabt"
-
-#: views/mapselection.py:254
-msgid "Big Major Cay"
-msgstr "Big Major Cay"
-
-#: views/mapselection.py:255
-msgid "Teufelsmoor"
-msgstr "Teufelsmoor"
-
-#: views/pausemenu.py:40
-msgid "Restart Level"
-msgstr "Level neu starten"
-
-#: views/pausemenu.py:52
-msgid "Back to main menu"
-msgstr "Zurück zum Hauptmenü"
-
-#: views/pausemenu.py:148
-msgid "Restart level?"
-msgstr "Level neu starten?"
-
-#: views/pausemenu.py:175
-msgid "Leave to main menu?"
-msgstr "Zurück zum Hauptmenü?"
-
-#: views/pausemenu.py:176
-msgid "All progress since the begin of this level will be lost."
-msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
-
 #: views/view.py:118
 msgid "Unknown build"
 msgstr "Unbekannter Build"
@@ -196,6 +94,13 @@ msgstr "Absenden fehlgeschlagen."
 msgid "OK"
 msgstr "OK"
 
+#: views/highscore/highscoreadd.py:179 views/highscore/highscoreadd.py:194
+#: views/menu/difficultyselection.py:204 views/menu/difficultyselection.py:217
+#: views/menu/pausemenu.py:150 views/menu/pausemenu.py:180
+#: views/menu/pausemenu.py:197
+msgid "Yes"
+msgstr "Ja"
+
 #: views/highscore/highscoreadd.py:189
 msgid "You have not entered a name."
 msgstr "Sie haben Ihren Namen nicht eingegeben."
@@ -204,9 +109,111 @@ msgstr "Sie haben Ihren Namen nicht eingegeben."
 msgid "Do you not want to transfer your score?"
 msgstr "Möchten Sie Ihren Highscore nicht übertragen?"
 
+#: views/highscore/highscoreadd.py:195 views/menu/difficultyselection.py:205
+#: views/menu/pausemenu.py:151 views/menu/pausemenu.py:159
+#: views/menu/pausemenu.py:181
+msgid "No"
+msgstr "Nein"
+
 #: views/highscore/highscorelist.py:89
 msgid "No entries yet"
 msgstr "Noch keine Einträge vorhanden"
+
+#: views/menu/difficultyselection.py:60 views/menu/mapselection.py:71
+#: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
+#: views/settings/settingsgraphics.py:82 views/settings/settingsmenu.py:86
+#: views/settings/settingsscreen.py:55
+msgid "Back"
+msgstr "Zurück"
+
+#: views/menu/difficultyselection.py:66
+msgid "Easy"
+msgstr "Sauleicht"
+
+#: views/menu/difficultyselection.py:72
+msgid "Normal"
+msgstr "Versaut"
+
+#: views/menu/difficultyselection.py:78
+msgid "Hard"
+msgstr "Sauschwer"
+
+#: views/menu/difficultyselection.py:109
+msgid "Difficulty"
+msgstr "Schwierigkeit"
+
+#: views/menu/difficultyselection.py:202
+msgid "Overwrite existing savegame?"
+msgstr "Existierenden Spielstand überschreiben?"
+
+#: views/menu/mainmenu.py:42 window/launcherwindow.py:63
+msgid "Grunzi"
+msgstr "Grunzi"
+
+#: views/menu/mainmenu.py:50
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: views/menu/mainmenu.py:56 views/menu/mapselection.py:84
+#: views/menu/pausemenu.py:34
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: views/menu/mainmenu.py:62 views/menu/mapselection.py:96
+msgid "Select Map"
+msgstr "Map auswählen"
+
+#: views/menu/mainmenu.py:68
+msgid "Online Highscore"
+msgstr "Online-Bestenliste"
+
+#: views/menu/mainmenu.py:74 views/menu/pausemenu.py:46
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: views/menu/mainmenu.py:80
+msgid "Quit game"
+msgstr "Beenden"
+
+#: views/menu/mapselection.py:105
+msgid "Selected:"
+msgstr "Ausgewählt:"
+
+#: views/menu/mapselection.py:258
+msgid "Having A Pig"
+msgstr "Schwein gehabt"
+
+#: views/menu/mapselection.py:259
+msgid "Big Major Cay"
+msgstr "Big Major Cay"
+
+#: views/menu/mapselection.py:260
+msgid "Teufelsmoor"
+msgstr "Teufelsmoor"
+
+#: views/menu/mapselection.py:261
+msgid "South Pole"
+msgstr "Südpool"
+
+#: views/menu/pausemenu.py:40
+msgid "Restart Level"
+msgstr "Level neu starten"
+
+#: views/menu/pausemenu.py:52
+msgid "Back to main menu"
+msgstr "Zurück zum Hauptmenü"
+
+#: views/menu/pausemenu.py:148
+msgid "Restart level?"
+msgstr "Level neu starten?"
+
+#: views/menu/pausemenu.py:175
+msgid "Leave to main menu?"
+msgstr "Zurück zum Hauptmenü?"
+
+#: views/menu/pausemenu.py:176
+msgid "All progress since the begin of this level will be lost."
+msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
 #: views/settings/settingsaudio.py:64
 msgid "Music"
@@ -296,7 +303,7 @@ msgstr "Pausenmenü öffnen"
 msgid "F3"
 msgstr ""
 
-#: views/settings/settingscontrols.py:75 views/settings/settingsscreen.py:85
+#: views/settings/settingscontrols.py:75 views/settings/settingsscreen.py:84
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
@@ -374,35 +381,35 @@ msgstr ""
 "Möglicherweise müssen Sie das Spiel neu starten, um die geänderten "
 "Grafikeinstellungen zu übernehmen."
 
-#: views/settings/settingsgraphics.py:88 window/launcherwindow.py:145
+#: views/settings/settingsgraphics.py:88 window/launcherwindow.py:144
 msgid "Quality"
 msgstr "Qualität"
 
-#: views/settings/settingsgraphics.py:110 window/launcherwindow.py:155
+#: views/settings/settingsgraphics.py:110 window/launcherwindow.py:154
 msgid "Antialiasing"
 msgstr ""
 
-#: views/settings/settingsgraphics.py:132 window/launcherwindow.py:165
+#: views/settings/settingsgraphics.py:132 window/launcherwindow.py:164
 msgid "Film Grain"
 msgstr "Bildrauschen"
 
-#: views/settings/settingsgraphics.py:154 window/launcherwindow.py:177
+#: views/settings/settingsgraphics.py:154 window/launcherwindow.py:176
 msgid "Fog"
 msgstr "Nebel"
 
-#: views/settings/settingsgraphics.py:169 window/launcherwindow.py:187
+#: views/settings/settingsgraphics.py:169 window/launcherwindow.py:186
 msgid "Color Tint"
 msgstr "Farbton"
 
-#: views/settings/settingsmenu.py:60 window/launcherwindow.py:97
+#: views/settings/settingsmenu.py:60 window/launcherwindow.py:96
 msgid "Screen"
 msgstr "Bildschirm"
 
-#: views/settings/settingsmenu.py:66 window/launcherwindow.py:98
+#: views/settings/settingsmenu.py:66 window/launcherwindow.py:97
 msgid "Graphics"
 msgstr "Grafik"
 
-#: views/settings/settingsmenu.py:73 window/launcherwindow.py:99
+#: views/settings/settingsmenu.py:73 window/launcherwindow.py:98
 msgid "Audio"
 msgstr "Audio"
 
@@ -410,27 +417,27 @@ msgstr "Audio"
 msgid "Controls"
 msgstr "Steuerung"
 
-#: views/settings/settingsscreen.py:62 window/launcherwindow.py:119
+#: views/settings/settingsscreen.py:61 window/launcherwindow.py:118
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: views/settings/settingsscreen.py:74 window/launcherwindow.py:139
+#: views/settings/settingsscreen.py:73 window/launcherwindow.py:138
 msgid "V-Sync"
 msgstr ""
 
-#: window/launcherwindow.py:102
+#: window/launcherwindow.py:101
 msgid "Screen resolution"
 msgstr "Bildschirmauflösung"
 
-#: window/launcherwindow.py:128
+#: window/launcherwindow.py:127
 msgid "Borderless"
 msgstr "Rahmenlos"
 
-#: window/launcherwindow.py:193
+#: window/launcherwindow.py:192
 msgid "Audio Backend"
 msgstr "Audio Schnittstelle"
 
-#: window/launcherwindow.py:207
+#: window/launcherwindow.py:206
 msgid "Launch Game"
 msgstr "Spiel starten"
 
