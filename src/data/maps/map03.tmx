@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="104" height="120" tilewidth="64" tileheight="64" infinite="0" nextlayerid="23" nextobjectid="52">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="104" height="120" tilewidth="64" tileheight="64" infinite="0" nextlayerid="23" nextobjectid="52">
  <tileset firstgid="1" name="Characters" tilewidth="64" tileheight="46" tilecount="2" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="60" height="46" source="../images/sprites/char/pig.png"/>
+   <image source="../images/sprites/char/pig.png" width="60" height="46"/>
   </tile>
   <tile id="1">
-   <image width="64" height="41" source="../images/sprites/fish/fish1.png"/>
+   <image source="../images/sprites/fish/fish1.png" width="64" height="41"/>
   </tile>
  </tileset>
  <tileset firstgid="3" name="Water" tilewidth="512" tileheight="384" tilecount="2" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="512" height="384" source="../images/sprites/water/river.jpg"/>
+   <image source="../images/sprites/water/river.jpg" width="512" height="384"/>
   </tile>
   <tile id="1">
-   <image width="64" height="64" source="../images/sprites/water/river_bg.jpg"/>
+   <image source="../images/sprites/water/river_bg.jpg" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="5" name="Ground" tilewidth="64" tileheight="64" tilecount="7" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="64" height="64" source="../images/sprites/ground/gras1.jpg"/>
+   <image source="../images/sprites/ground/gras1.jpg" width="64" height="64"/>
   </tile>
   <tile id="4">
-   <image width="64" height="64" source="../images/sprites/ground/rocky.jpg"/>
+   <image source="../images/sprites/ground/rocky.jpg" width="64" height="64"/>
   </tile>
   <tile id="5">
-   <image width="64" height="64" source="../images/sprites/ground/dirt.jpg"/>
+   <image source="../images/sprites/ground/dirt.jpg" width="64" height="64"/>
   </tile>
   <tile id="6">
-   <image width="64" height="64" source="../images/sprites/ground/pebble2.jpg"/>
+   <image source="../images/sprites/ground/pebble2.jpg" width="64" height="64"/>
   </tile>
   <tile id="7">
-   <image width="64" height="64" source="../images/sprites/vegetation/bryophyte1.jpg"/>
+   <image source="../images/sprites/vegetation/bryophyte1.jpg" width="64" height="64"/>
   </tile>
   <tile id="9">
-   <image width="64" height="64" source="../images/sprites/decoration/leafs1.jpg"/>
+   <image source="../images/sprites/decoration/leafs1.jpg" width="64" height="64"/>
   </tile>
   <tile id="10">
-   <image width="64" height="64" source="../images/sprites/ground/mud.jpg"/>
+   <image source="../images/sprites/ground/mud.jpg" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="16" name="Wall" tilewidth="64" tileheight="64" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="64" height="64" source="../images/sprites/wall/wall.jpg"/>
+   <image source="../images/sprites/wall/wall.jpg" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="17" name="Decoration" tilewidth="191" tileheight="196" tilecount="12" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="155" height="128" source="../images/sprites/decoration/canon.png"/>
+   <image source="../images/sprites/decoration/canon.png" width="155" height="128"/>
   </tile>
   <tile id="1">
-   <image width="64" height="64" source="../images/sprites/vegetation/flower4.png"/>
+   <image source="../images/sprites/vegetation/flower4.png" width="64" height="64"/>
   </tile>
   <tile id="2">
-   <image width="191" height="191" source="../images/sprites/clouds/moon.png"/>
+   <image source="../images/sprites/clouds/moon.png" width="191" height="191"/>
   </tile>
   <tile id="3">
-   <image width="128" height="61" source="../images/sprites/fence/fence5.png"/>
+   <image source="../images/sprites/fence/fence5.png" width="128" height="61"/>
   </tile>
   <tile id="5">
-   <image width="171" height="196" source="../images/sprites/vegetation/drytree1.png"/>
+   <image source="../images/sprites/vegetation/drytree1.png" width="171" height="196"/>
   </tile>
   <tile id="8">
-   <image width="66" height="120" source="../images/sprites/decoration/trailmarker1.png"/>
+   <image source="../images/sprites/decoration/trailmarker1.png" width="66" height="120"/>
   </tile>
   <tile id="9">
-   <image width="66" height="120" source="../images/sprites/decoration/trailmarker2.png"/>
+   <image source="../images/sprites/decoration/trailmarker2.png" width="66" height="120"/>
   </tile>
   <tile id="10">
-   <image width="98" height="96" source="../images/sprites/vegetation/tumbleweed1.png"/>
+   <image source="../images/sprites/vegetation/tumbleweed1.png" width="98" height="96"/>
   </tile>
   <tile id="11">
-   <image width="175" height="72" source="../images/sprites/decoration/tire1.png"/>
+   <image source="../images/sprites/decoration/tire1.png" width="175" height="72"/>
   </tile>
   <tile id="12">
-   <image width="56" height="72" source="../images/sprites/vegetation/tumbleweed2.png"/>
+   <image source="../images/sprites/vegetation/tumbleweed2.png" width="56" height="72"/>
   </tile>
   <tile id="13">
-   <image width="49" height="128" source="../images/sprites/decoration/angel1.png"/>
+   <image source="../images/sprites/decoration/angel1.png" width="49" height="128"/>
   </tile>
   <tile id="14">
-   <image width="49" height="128" source="../images/sprites/decoration/angel2.png"/>
+   <image source="../images/sprites/decoration/angel2.png" width="49" height="128"/>
   </tile>
  </tileset>
  <tileset firstgid="32" name="Dummy" tilewidth="64" tileheight="64" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="64" height="64" source="../images/sprites/dummy/transparent.png"/>
+   <image source="../images/sprites/dummy/transparent.png" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="33" name="Tools" tilewidth="64" tileheight="64" tilecount="2" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="64" height="64" source="../images/sprites/tools/valve.png"/>
+   <image source="../images/sprites/tools/valve.png" width="64" height="64"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/tools/valvetarget.png"/>
+   <image source="../images/sprites/tools/valvetarget.png" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="37" name="Sky" tilewidth="1732" tileheight="1154" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="1732" height="1154" source="../images/sprites/skybox/stars.jpg"/>
+   <image source="../images/sprites/skybox/stars.jpg" width="1732" height="1154"/>
   </tile>
  </tileset>
  <layer id="1" name="Ground" width="104" height="120">

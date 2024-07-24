@@ -1,3 +1,5 @@
+import arcade
+
 from sprites.sprite import AbstractAnimatedSprite
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_SOUND
 
@@ -24,3 +26,6 @@ class Fire(AbstractAnimatedSprite):
 
         self.fx.update()
 
+        # Hurt player
+        if arcade.check_for_collision(self, args.player):
+            args.player.hurt(2)
