@@ -62,10 +62,11 @@ class MapSelection(Fading):
         self.manager.clear()
         self.manager.disable()
 
-        self.maps = SaveGameState.load().get_selectable()
+        savegame = SaveGameState.load()
+        self.maps = savegame.get_selectable()
 
         if not self.selected:
-            self.selected = self.maps[-1:][0]
+            self.selected = savegame.current
 
         back_button = arcade.gui.UIFlatButton(
             text=_("Back"),

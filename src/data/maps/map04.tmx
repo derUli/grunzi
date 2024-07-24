@@ -924,7 +924,7 @@
 </data>
  </layer>
  <objectgroup id="10" name="Ship">
-  <object id="11" gid="17" x="3758.29" y="7369.55" width="536" height="172"/>
+  <object id="11" gid="17" x="3773.96" y="7426.22" width="536" height="172"/>
  </objectgroup>
  <layer id="8" name="LevelExit" width="80" height="120">
   <data encoding="csv">
@@ -1306,6 +1306,6 @@
   <object id="3" gid="3" x="3398" y="6207" width="60" height="46"/>
  </objectgroup>
  <objectgroup id="12" name="Steam" opacity="0.57">
-  <object id="16" gid="217" x="3661.24" y="7305.52" width="432.485" height="420.485"/>
+  <object id="16" gid="217" x="3676.91" y="7362.19" width="432.485" height="420.485"/>
  </objectgroup>
 </map>
