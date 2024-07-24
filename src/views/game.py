@@ -76,8 +76,6 @@ class Game(Fading):
         self.wall_spritelist = None
         self.map_populator = None
 
-        self.filmgrain = None
-
     def on_show_view(self) -> None:
         """ On show view """
         super().on_show_view()
