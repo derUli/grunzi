@@ -14,7 +14,7 @@ from utils.scene import get_layer
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-MOVE_FORCE = 2200
+MOVE_FORCE = 2400
 
 MODIFIER_DEFAULT = 1
 MODIFIER_SPRINT = 1.8
