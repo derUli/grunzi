@@ -8,6 +8,7 @@ from constants.layers import (
     LAYER_MOVEABLE,
     LAYER_CAR_RIGHT,
     LAYER_SHIP,
+    LAYER_STEAM,
     LAYER_CAR_LEFT,
     LAYER_WALL,
     LAYER_FENCE,

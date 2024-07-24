@@ -10,7 +10,7 @@ from sprites.decoration.cloud import Cloud
 from sprites.decoration.fire import Fire
 from sprites.decoration.moon import Moon
 from sprites.decoration.river import River, RiverSound
-from sprites.decoration.ship import Ship
+from sprites.decoration.ship import Ship, Steam
 from sprites.decoration.sun import Sun
 from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
@@ -74,6 +74,7 @@ LAYER_FISH = 'Fish'
 LAYER_FOOD = 'Food',
 LAYER_CACTUS = 'Cactus'
 LAYER_SHIP = 'Ship'
+LAYER_STEAM = 'Steam'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -111,7 +112,8 @@ WALL_LAYERS = [
 ANIMATED_LAYERS = [
     LAYER_WATER,
     LAYER_FIRE,
-    LAYER_ELECTRIC
+    LAYER_ELECTRIC,
+    LAYER_STEAM
 ]
 
 LAYER_OPTIONS = {
@@ -210,6 +212,9 @@ LAYER_OPTIONS = {
     },
     LAYER_SHIP: {
         'custom_class': Ship
+    },
+    LAYER_STEAM: {
+        'custom_class': Steam
     }
 }
 
