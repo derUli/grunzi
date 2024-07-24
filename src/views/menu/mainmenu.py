@@ -12,7 +12,7 @@ from constants.mapconfig import MapConfig
 from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
 from utils.media.audio import streaming_enabled
-from views.difficultyselection import DifficultySelection
+from views.menu.difficultyselection import DifficultySelection
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
 
@@ -113,7 +113,7 @@ class MainMenu(Fading):
 
             # Pass already created view because we are resuming.
 
-            from views.mapselection import MapSelection
+            from views.menu.mapselection import MapSelection
             savegame = SaveGameState.load()
             self.state.map_name = savegame.current
             self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
