@@ -6,7 +6,7 @@ from utils.postprocessing.effect import Effect
 COLOR_GREEN = (124, 252, 0)
 COLOR_YELLOW = (252, 234, 2)
 COLOR_WHITE = (228, 227, 225)
-COLOR_BLUE = (86, 153, 196)
+COLOR_BLUE = (62, 121, 171)
 
 INDEX_YELLOW = 0
 INDEX_GREEN = 1
