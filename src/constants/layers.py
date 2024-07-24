@@ -7,6 +7,7 @@ import sprites.decoration.car
 from sprites.characters.duck import Duck
 from sprites.characters.fish import Fish
 from sprites.decoration.cloud import Cloud
+from sprites.decoration.fire import Fire
 from sprites.decoration.moon import Moon
 from sprites.decoration.river import River, RiverSound
 from sprites.decoration.sun import Sun
@@ -57,6 +58,7 @@ LAYER_JEEP = 'Jeep'
 LAYER_HIGHWAY = 'Highway'
 LAYER_BEACH = 'Beach'
 LAYER_WATER = 'Water'
+LAYER_FIRE = 'Fire'
 LAYER_CONES = 'Cone'
 LAYER_CLOUDS = 'Cloud'
 LAYER_SKY = 'Sky'
@@ -82,6 +84,7 @@ ALL_LAYERS = [
     LAYER_CAR_LEFT,
     LAYER_CAR_RIGHT,
     LAYER_WATER,
+    LAYER_FIRE,
     LAYER_SKY,
     LAYER_SUN,
     LAYER_MOON,
@@ -105,6 +108,7 @@ WALL_LAYERS = [
 
 ANIMATED_LAYERS = [
     LAYER_WATER,
+    LAYER_FIRE,
     LAYER_ELECTRIC
 ]
 
@@ -162,6 +166,9 @@ LAYER_OPTIONS = {
     },
     LAYER_WATER: {
         'custom_class': Water
+    },
+    LAYER_FIRE: {
+        'custom_class': Fire
     },
     LAYER_DUCK: {
         'custom_class': Duck
