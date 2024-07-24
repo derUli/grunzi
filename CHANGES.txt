@@ -12,7 +12,6 @@
 * map04: Color Tint zu Feuer hinzugefügt
 * map04: Schnee hinzugefügt
 
-
 ## Alpha 017 (Unreleased)
 
 * map04 hinzugefügt
