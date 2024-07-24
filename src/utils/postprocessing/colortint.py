@@ -6,10 +6,12 @@ from utils.postprocessing.effect import Effect
 COLOR_GREEN = (124, 252, 0)
 COLOR_YELLOW = (252, 234, 2)
 COLOR_WHITE = (228, 227, 225)
+COLOR_BLUE = (86, 153, 196)
 
 INDEX_YELLOW = 0
 INDEX_GREEN = 1
 INDEX_WHITE = 2
+INDEX_BLUE = 3
 
 
 class ColorTint(Effect):
@@ -33,6 +35,10 @@ class ColorTint(Effect):
         self.spritelist.append(sprite)
 
         sprite = arcade.sprite.SpriteSolidColor(w, h, color=COLOR_WHITE)
+        sprite.alpha = 0
+        self.spritelist.append(sprite)
+
+        sprite = arcade.sprite.SpriteSolidColor(w, h, color=COLOR_BLUE)
         sprite.alpha = 0
         self.spritelist.append(sprite)
 
@@ -72,6 +78,17 @@ class ColorTint(Effect):
             klass=Moon,
             radius=h,
             max_alpha=240
+        )
+
+        from constants.layers import LAYER_WATER
+        from sprites.decoration.water import Water
+        self.update_it(
+            args=args,
+            index=INDEX_BLUE,
+            layer_name=LAYER_WATER,
+            klass=Water,
+            radius=h,
+            max_alpha=20
         )
 
     def update_it(self, args, index, layer_name, klass, radius, max_alpha):
