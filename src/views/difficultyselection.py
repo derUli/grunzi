@@ -190,7 +190,7 @@ class DifficultySelection(Fading):
     def on_back(self) -> None:
         """ On click "Back" button """
 
-        from views.mainmenu import MainMenu
+        from views.menu.mainmenu import MainMenu
         self.fade_to_view(MainMenu(self.window, self.state))
 
     def on_confirm_overwrite_savegame(self) -> None:

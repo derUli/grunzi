@@ -230,7 +230,7 @@ class MapSelection(Fading):
     def on_back(self) -> None:
         """ On back """
 
-        from views.mainmenu import MainMenu
+        from views.menu.mainmenu import MainMenu
         self.fade_to_view(MainMenu(self.window, self.state))
 
     def on_select_level(self, event):

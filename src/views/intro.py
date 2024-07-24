@@ -5,7 +5,7 @@ import arcade.gui
 
 from sprites.sprite import Sprite
 from views.fading import Fading
-from views.mainmenu import MainMenu
+from views.menu.mainmenu import MainMenu
 
 LAYER_UI = 'ui'
 

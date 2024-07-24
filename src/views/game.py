@@ -28,7 +28,7 @@ from utils.scene import Scene
 from utils.tilemap import TileMap
 from views.camera import center_camera_to_player
 from views.fading import Fading
-from views.mainmenu import MainMenu
+from views.menu.mainmenu import MainMenu
 from views.pausemenu import PauseMenu
 from window.gamewindow import UPDATE_RATE
 

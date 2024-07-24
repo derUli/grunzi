@@ -16,7 +16,7 @@ from utils.log import log_hardware_info, configure_logger
 from utils.screen import antialiasing
 from utils.text import label_value
 from views.intro import Intro
-from views.mainmenu import MainMenu
+from views.menu.mainmenu import MainMenu
 from window.gamewindow import SCREEN_WIDTH, SCREEN_HEIGHT, GameWindow
 from window.launcherwindow import LauncherWindow
 
