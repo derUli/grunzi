@@ -6,6 +6,13 @@
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
 
+## Alpha 018 (Unreleased)
+
+* map04: Schiffshorn Sound-Effekt hinzugefügt
+* map04: Color Tint zu Feuer hinzugefügt
+* map04: Schnee hinzugefügt
+
+
 ## Alpha 017 (Unreleased)
 
 * map04 hinzugefügt
