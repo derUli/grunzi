@@ -1,8 +1,6 @@
 import random
 
-import arcade
-import pyglet
-from arcade import SpriteCircle, Color, SpriteList
+from arcade import SpriteCircle, Color
 
 from constants.layers import LAYER_WALL, LAYER_FIRE
 from sprites.sprite import Sprite
@@ -33,7 +31,6 @@ class Snow(SpriteCircle, Sprite):
             delta_time,
             args
     ):
-
         self.center_y += MOVE_X
 
         if self.bottom < 0:
