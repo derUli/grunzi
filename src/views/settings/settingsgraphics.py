@@ -272,12 +272,10 @@ class SettingsGraphics(Fading):
     def on_change_antialiasing(self, val: float):
         self.manager._do_render(force=True)
 
-        prev_val = self.state.settings.antialiasing
         self.state.settings.antialiasing = val
 
-        if self.state.settings.antialiasing != prev_val:
-            self.state.settings.save()
-            self.needs_restart = True
+        self.state.settings.save()
+        self.needs_restart = True
 
     def on_change_weather(self):
         from views.menu.mainmenu import MainMenu

@@ -71,6 +71,7 @@ class LauncherWindow(ThemedTk):
             self.vsync.set(self.state.vsync)
             self.borderless.set(self.state.borderless)
             self.quality.set(self.state.quality)
+            self.antialiasing.set(self.state.antialiasing)
             self.filmgrain.set(self.state.filmgrain)
             self.weather.set(self.state.weather)
             self.colortint.set(self.state.color_tint)
