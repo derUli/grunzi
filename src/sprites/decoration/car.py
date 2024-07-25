@@ -1,5 +1,6 @@
 from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER, COLLISION_CHICKEN
 from sprites.sprite import Sprite
+from state.argscontainer import ArgsContainer
 
 # MOV_
 FORCE_MOVE = 4000
@@ -18,9 +19,9 @@ class Car:
 class CarLeft(Sprite, Car):
     def update(
             self,
-            delta_time,
-            args
-    ):
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
         w, h = args.map_size
 
         args.physics_engine.apply_force(self, (-FORCE_MOVE, 0))
@@ -36,9 +37,9 @@ class CarLeft(Sprite, Car):
 class CarRight(Sprite, Car):
     def update(
             self,
-            delta_time,
-            args
-    ):
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
         args.physics_engine.apply_force(self, (FORCE_MOVE, 0))
 
         w, h = args.map_size
