@@ -65,15 +65,15 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
     # repositioned by code and don't respond to physics forces.
     # Dynamic is default.
     wall_layers = [
-        LAYER_WALL,
-        LAYER_FENCE,
-        LAYER_PIGGYBANK,
-        LAYER_TREE,
-        LAYER_JEEP,
-        LAYER_WATER,
-        LAYER_SKY,
-        LAYER_RIVER,
-        LAYER_ALPHA_WALL
+        # LAYER_WALL,
+        # LAYER_FENCE,
+        # LAYER_PIGGYBANK,
+        # LAYER_TREE,
+        # LAYER_JEEP,
+        # LAYER_WATER,
+        # LAYER_SKY,
+        # LAYER_RIVER,
+        # LAYER_ALPHA_WALL
     ]
 
     for layer in wall_layers:

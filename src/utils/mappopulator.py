@@ -109,6 +109,7 @@ class MapPopulator:
         for i in range(1, 1000):
 
             snow = Snow(radius=8, color=random.choice(SNOW_COLORS), soft=True)
-            snow.top = random.randint(0, args.tilemap.height)
-            snow.left = random.randint(0, args.tilemap.width)
+            snow.center_x = random.randint(0, args.tilemap.width)
+            snow.center_y = random.randint(0, args.tilemap.height)
+
             args.scene.add_sprite(LAYER_SNOW, snow)
