@@ -10,7 +10,6 @@
 
 * map04: Schiffshorn Sound-Effekt hinzugefügt
 * map04: Color Tint zu Feuer hinzugefügt
-* map04: Schnee hinzugefügt
 
 ## Alpha 017 (Unreleased)
 

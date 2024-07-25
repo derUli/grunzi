@@ -1,8 +1,10 @@
 import random
 
-from arcade import SpriteCircle, Color
-from arcade.examples import snow
+import arcade
+import pyglet
+from arcade import SpriteCircle, Color, SpriteList
 
+from constants.layers import LAYER_WALL, LAYER_FIRE
 from sprites.sprite import Sprite
 
 MOVE_X = -1
@@ -13,6 +15,11 @@ SNOW_COLORS = [
     (208, 236, 235, 255),
     (160, 230, 236, 255),
     (148, 242, 244, 255)
+]
+
+COLLISION_LAYERS = [
+    LAYER_WALL,
+    LAYER_FIRE
 ]
 
 
@@ -26,6 +33,7 @@ class Snow(SpriteCircle, Sprite):
             delta_time,
             args
     ):
+
         self.center_y += MOVE_X
 
         if self.bottom < 0:
