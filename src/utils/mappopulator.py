@@ -2,11 +2,14 @@ import logging
 import random
 import time
 
+import arcade.color
+
+from constants.layers import LAYER_SNOW
 from sprites.characters.chicken import spawn_chicken
+from sprites.decoration.snow import Snow, SNOW_COLORS
 from sprites.items.food import spawn_food
 from sprites.items.landmine import spawn_landmine
 from utils.scene import get_layer
-
 
 class MapPopulator:
     def __init__(self):
@@ -72,6 +75,8 @@ class MapPopulator:
         self.spawn_food(args)
         self.spawn_landmine(args)
 
+        self.spawn_snow(args)
+
     @staticmethod
     def spawn_landmine(args) -> None:
 
@@ -95,3 +100,15 @@ class MapPopulator:
     def spawn_food(args) -> None:
         for i in range(random.randint(1, 10)):
             spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
+
+
+    def spawn_snow(self, args):
+        if not args.state.difficulty.options['snow']:
+            return
+
+        for i in range(1, 1000):
+
+            snow = Snow(radius=8, color=random.choice(SNOW_COLORS), soft=True)
+            snow.top = random.randint(0, args.tilemap.height)
+            snow.left = random.randint(0, args.tilemap.width)
+            args.scene.add_sprite(LAYER_SNOW, snow)

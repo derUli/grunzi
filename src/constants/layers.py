@@ -75,6 +75,7 @@ LAYER_FOOD = 'Food',
 LAYER_CACTUS = 'Cactus'
 LAYER_SHIP = 'Ship'
 LAYER_STEAM = 'Steam'
+LAYER_SNOW = 'Snow'
 
 ALL_LAYERS = [
     LAYER_WALL,

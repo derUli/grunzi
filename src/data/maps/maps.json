@@ -65,5 +65,10 @@
     "3": {
       "maxNPCs": 12
     }
+  },
+  "map04": {
+    "options": {
+      "snow": true
+    }
   }
 }

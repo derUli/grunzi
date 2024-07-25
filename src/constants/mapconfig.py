@@ -44,7 +44,10 @@ class MapConfig:
 
         if map_name in jsond:
             map_data = jsond[map_name]
-            difficulty_data = map_data[str(difficulty)]
+            try:
+                difficulty_data = map_data[str(difficulty)]
+            except KeyError:
+                pass
 
         if 'options' in map_data:
             for key in map_data['options'].keys():
@@ -68,4 +71,5 @@ class MapConfig:
             'fog': False,
             'lighting': None,
             'landmines': False,
+            'snow': False,
         }
