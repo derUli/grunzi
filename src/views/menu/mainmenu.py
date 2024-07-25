@@ -12,8 +12,8 @@ from constants.mapconfig import MapConfig
 from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
 from utils.media.audio import streaming_enabled
-from views.menu.difficultyselection import DifficultySelection
 from views.fading import Fading
+from views.menu.difficultyselection import DifficultySelection
 from views.settings.settingsmenu import SettingsMenu
 
 BUTTON_WIDTH = 250
