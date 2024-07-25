@@ -45,7 +45,7 @@ class LauncherWindow(ThemedTk):
         self.quality = tk.IntVar(value=quality)
         self.filmgrain = tk.DoubleVar(value=preset.filmgrain)
         self.antialiasing = tk.IntVar(value=preset.antialiasing)
-        self.fog = tk.BooleanVar(value=preset.fog)
+        self.weather = tk.BooleanVar(value=preset.weather)
         self.colortint = tk.BooleanVar(value=preset.color_tint)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
@@ -53,7 +53,7 @@ class LauncherWindow(ThemedTk):
         self.confirmed = False
 
         self.borderless_check = None
-        self.fog_check = None
+        self.weather_check = None
         self.color_tint_check = None
 
     def setup(self) -> None:
@@ -72,7 +72,7 @@ class LauncherWindow(ThemedTk):
             self.borderless.set(self.state.borderless)
             self.quality.set(self.state.quality)
             self.filmgrain.set(self.state.filmgrain)
-            self.fog.set(self.state.fog)
+            self.weather.set(self.state.weather)
             self.colortint.set(self.state.color_tint)
 
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
@@ -171,15 +171,15 @@ class LauncherWindow(ThemedTk):
         (ttk.Scale(tab_graphics, from_=0, to=1, variable=self.filmgrain)
          .grid(row=2, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E))
 
-        self.fog_check = ttk.Checkbutton(
+        self.weather_check = ttk.Checkbutton(
             tab_graphics,
-            text=_('Fog'),
-            variable=self.fog,
+            text=_('Weather'),
+            variable=self.weather,
             onvalue=True,
             offvalue=False,
         )
 
-        self.fog_check.grid(row=3, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
+        self.weather_check.grid(row=3, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
 
         ttk.Checkbutton(
             tab_graphics,
@@ -294,5 +294,5 @@ class LauncherWindow(ThemedTk):
         self.state.quality = rounded
         self.filmgrain.set(self.state.filmgrain)
         self.antialiasing.set(self.state.antialiasing)
-        self.fog.set(self.state.fog)
+        self.weather.set(self.state.weather)
         self.colortint.set(self.state.color_tint)

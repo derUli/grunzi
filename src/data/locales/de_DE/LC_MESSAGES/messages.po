@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-24 16:02+0200\n"
+"POT-Creation-Date: 2024-07-25 19:44+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -119,7 +119,7 @@ msgstr "Nein"
 msgid "No entries yet"
 msgstr "Noch keine Einträge vorhanden"
 
-#: views/menu/difficultyselection.py:60 views/menu/mapselection.py:71
+#: views/menu/difficultyselection.py:60 views/menu/mapselection.py:72
 #: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:109
 #: views/settings/settingsgraphics.py:82 views/settings/settingsmenu.py:86
 #: views/settings/settingsscreen.py:55
@@ -154,12 +154,12 @@ msgstr "Grunzi"
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/menu/mainmenu.py:56 views/menu/mapselection.py:84
+#: views/menu/mainmenu.py:56 views/menu/mapselection.py:85
 #: views/menu/pausemenu.py:34
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/menu/mainmenu.py:62 views/menu/mapselection.py:96
+#: views/menu/mainmenu.py:62 views/menu/mapselection.py:97
 msgid "Select Map"
 msgstr "Map auswählen"
 
@@ -175,23 +175,23 @@ msgstr "Einstellungen"
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/menu/mapselection.py:105
+#: views/menu/mapselection.py:106
 msgid "Selected:"
 msgstr "Ausgewählt:"
 
-#: views/menu/mapselection.py:258
+#: views/menu/mapselection.py:259
 msgid "Having A Pig"
 msgstr "Schwein gehabt"
 
-#: views/menu/mapselection.py:259
+#: views/menu/mapselection.py:260
 msgid "Big Major Cay"
 msgstr "Big Major Cay"
 
-#: views/menu/mapselection.py:260
+#: views/menu/mapselection.py:261
 msgid "Teufelsmoor"
 msgstr "Teufelsmoor"
 
-#: views/menu/mapselection.py:261
+#: views/menu/mapselection.py:262
 msgid "South Pole"
 msgstr "Südpool"
 
@@ -394,8 +394,8 @@ msgid "Film Grain"
 msgstr "Bildrauschen"
 
 #: views/settings/settingsgraphics.py:154 window/launcherwindow.py:176
-msgid "Fog"
-msgstr "Nebel"
+msgid "Weather"
+msgstr "Wetter"
 
 #: views/settings/settingsgraphics.py:169 window/launcherwindow.py:186
 msgid "Color Tint"

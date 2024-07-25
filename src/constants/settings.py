@@ -4,7 +4,7 @@ DEFAULT_BORDERLESS = False
 DEFAULT_VSYNC = True
 DEFAULT_SHOW_FPS = False
 DEFAULT_FILMGRAIN = 1.0
-DEFAULT_FOG = True
+DEFAULT_WEATHER = True
 DEFAULT_COLOR_TINT = True
 DEFAULT_QUALITY = 4
 
@@ -26,7 +26,7 @@ UNLIMITED_FRAMERATE = 10000
 class QualityPreset:
     def __init__(self, val: int):
         self.filmgrain = 0.0
-        self.fog = False
+        self.weather = False
         self.color_tint = False
         self.antialiasing = DEFAULT_ANTIALIASING
         self.set(val)
@@ -42,7 +42,7 @@ class QualityPreset:
             self.color_tint = True
 
         if val >= 3:
-            self.fog = True
+            self.weather = True
 
         if val >= 4:
             self.filmgrain = DEFAULT_FILMGRAIN

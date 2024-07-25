@@ -7,12 +7,12 @@ import jsonpickle
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
 from constants.settings import DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_BORDERLESS, DEFAULT_SHOW_FPS, \
-    DEFAULT_FILMGRAIN, DEFAULT_FOG, DEFAULT_COLOR_TINT, DEFAULT_QUALITY, DEFAULT_MUSIC_VOLUME, DEFAULT_SOUND_VOLUME, \
+    DEFAULT_FILMGRAIN, DEFAULT_WEATHER, DEFAULT_COLOR_TINT, DEFAULT_QUALITY, DEFAULT_MUSIC_VOLUME, DEFAULT_SOUND_VOLUME, \
     DEFAULT_ATMO_VOLUME, DEFAULT_MUTED, DEFAULT_FIRST_START, DEFAULT_VIBRATION, DEFAULT_ANTIALIASING, QualityPreset
 from utils.media.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 19
+SETTINGS_STATE_VERSION = 20
 
 
 class SettingsState:
@@ -30,7 +30,7 @@ class SettingsState:
 
         self._antialiasing = DEFAULT_ANTIALIASING
         self._filmgrain = DEFAULT_FILMGRAIN
-        self._fog = DEFAULT_FOG
+        self._weather = DEFAULT_WEATHER
         self._color_tint = DEFAULT_COLOR_TINT
 
         self._quality = DEFAULT_QUALITY
@@ -163,12 +163,12 @@ class SettingsState:
         self._filmgrain = intensity
 
     @property
-    def fog(self) -> bool:
-        return self._fog
+    def weather(self) -> bool:
+        return self._weather
 
-    @fog.setter
-    def fog(self, val: bool) -> None:
-        self._fog = val
+    @weather.setter
+    def weather(self, val: bool) -> None:
+        self._weather = val
 
     @property
     def color_tint(self) -> bool:
@@ -188,7 +188,7 @@ class SettingsState:
         preset = QualityPreset(self.quality)
 
         self._filmgrain = preset.filmgrain
-        self.fog = preset.fog
+        self.weather = preset.weather
         self.color_tint = preset.color_tint
         self.antialiasing = preset.antialiasing
 

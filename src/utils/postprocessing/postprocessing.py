@@ -10,7 +10,7 @@ class PostProcessing:
     def setup(self, args):
         self.pipeline = []
 
-        if args.state.settings.fog and args.state.difficulty.options['fog']:
+        if args.state.settings.weather and args.state.difficulty.options['fog']:
             self.pipeline.append(
                 Fog().setup(args)
             )

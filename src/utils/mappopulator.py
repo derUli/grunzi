@@ -106,6 +106,9 @@ class MapPopulator:
         if not args.state.difficulty.options['snow']:
             return
 
+        if not args.state.settings.weather:
+            return
+
         for i in range(1, 1000):
 
             snow = Snow(radius=8, color=random.choice(SNOW_COLORS), soft=True)

@@ -29,7 +29,7 @@ class SettingsGraphics(Fading):
 
         self.filmgrain_slider = None
         self.antialiasing_slider = None
-        self.fog_button = None
+        self.weather_button = None
         self.colortint_button = None
 
         self.needs_restart = False
@@ -150,20 +150,20 @@ class SettingsGraphics(Fading):
         def on_change_filmgrain(event):
             self.on_change_filmgrain(event.new_value)
 
-        self.fog_button = arcade.gui.UITextureButton(
-            text=_("Fog"),
+        self.weather_button = arcade.gui.UITextureButton(
+            text=_("Weather"),
             width=BUTTON_WIDTH,
             texture=utils.gui.get_texture_by_value(
                 width=BUTTON_WIDTH,
                 height=back_button.height,
-                value=self.state.settings.fog
+                value=self.state.settings.weather
             ),
             style=utils.gui.get_button_style()
         )
 
-        @self.fog_button.event("on_click")
-        def on_change_fog(event):
-            self.on_change_fog()
+        @self.weather_button.event("on_click")
+        def on_change_weather(event):
+            self.on_change_weather()
 
         self.colortint_button = arcade.gui.UITextureButton(
             text=_("Color Tint"),
@@ -193,7 +193,7 @@ class SettingsGraphics(Fading):
             self.antialiasing_slider,
             filmgrain_label,
             self.filmgrain_slider,
-            self.fog_button,
+            self.weather_button,
             self.colortint_button
         ]
 
@@ -253,13 +253,13 @@ class SettingsGraphics(Fading):
 
             fog_texture = utils.gui.get_texture_by_value(
                 width=BUTTON_WIDTH,
-                height=self.fog_button.height,
-                value=self.state.settings.fog)
-            self.fog_button.texture = fog_texture
+                height=self.weather_button.height,
+                value=self.state.settings.weather)
+            self.weather_button.texture = fog_texture
 
             colortint_texture = utils.gui.get_texture_by_value(
                 width=BUTTON_WIDTH,
-                height=self.fog_button.height,
+                height=self.weather_button.height,
                 value=self.state.settings.color_tint)
             self.colortint_button.texture = colortint_texture
 
@@ -279,10 +279,10 @@ class SettingsGraphics(Fading):
             self.state.settings.save()
             self.needs_restart = True
 
-    def on_change_fog(self):
+    def on_change_weather(self):
         from views.menu.mainmenu import MainMenu
         self.needs_restart = isinstance(self.previous_view.previous_view, MainMenu)
-        self.state.settings.fog = not self.state.settings.fog
+        self.state.settings.weather = not self.state.settings.weather
         self.state.settings.save()
         self.setup()
 
