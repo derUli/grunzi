@@ -37,7 +37,7 @@ DESTROY_TIME = 3
 class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
     def __init__(
             self,
-            radius,
+            radius: int,
             color=arcade.csscolor.BLACK,
             soft=False,
             force_move=FORCE_MOVE,
