@@ -1,6 +1,7 @@
 import arcade
 
 from sprites.sprite import AbstractAnimatedSprite
+from state.argscontainer import ArgsContainer
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_SOUND
 
 
@@ -8,8 +9,8 @@ class Fire(AbstractAnimatedSprite):
 
     def update(
             self,
-            delta_time,
-            args
+            delta_time: float,
+            args: ArgsContainer
     ):
         super().update(delta_time, args)
         if not hasattr(self, 'fx'):
