@@ -1,3 +1,4 @@
+from state.argscontainer import ArgsContainer
 from utils.postprocessing.colortint import ColorTint
 from utils.postprocessing.filmgrain import FilmGrain
 from utils.postprocessing.fog import Fog
@@ -7,7 +8,7 @@ class PostProcessing:
     def __init__(self):
         self.pipeline = []
 
-    def setup(self, args):
+    def setup(self, args: ArgsContainer):
         self.pipeline = []
 
         if args.state.settings.weather and args.state.difficulty.options['fog']:
@@ -26,7 +27,7 @@ class PostProcessing:
 
         return self
 
-    def update(self, delta_time, args) -> None:
+    def update(self, delta_time: float, args: ArgsContainer) -> None:
         for effect in self.pipeline:
             effect.update(delta_time, args)
 
