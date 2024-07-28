@@ -69,7 +69,7 @@ class ElectricSwitch(Sprite):
             self.check_initialized = True
             pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 6, args.scene)
 
-    def check_cone(self, dt, scene):
+    def check_cone(self, delta_time: float, scene) -> None:
         from constants.layers import LAYER_CONES
 
         collision = arcade.check_for_collision_with_list(

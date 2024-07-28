@@ -90,7 +90,7 @@ class Electric(AbstractAnimatedSprite):
             args.physics_engine.apply_force(args.player, (FORCE_MOVE, 0))
             return
 
-    def check_cone(self, dt, scene):
+    def check_cone(self, delta_time: float, scene):
 
         from constants.layers import LAYER_ELECTRIC_SWITCH
 
@@ -102,7 +102,7 @@ class Electric(AbstractAnimatedSprite):
 
             self.enabled = POWER_OFF
 
-    def check_npcs(self, dt, args):
+    def check_npcs(self, delta_time: float, args):
         if not self.enabled:
             return
 
