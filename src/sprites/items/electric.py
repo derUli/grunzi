@@ -6,6 +6,7 @@ import pyglet
 
 from sprites.characters.character import Character
 from sprites.sprite import AbstractAnimatedSprite
+from state.argscontainer import ArgsContainer
 from utils.positionalsound import PositionalSound
 from utils.scene import get_layer
 
@@ -44,8 +45,8 @@ class Electric(AbstractAnimatedSprite):
 
     def update(
             self,
-            delta_time,
-            args
+            delta_time: float,
+            args: ArgsContainer
     ):
         if not self.check_initialized:
             self.check_initialized = True
