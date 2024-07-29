@@ -4,6 +4,7 @@ from arcade import FACE_RIGHT, FACE_LEFT
 from constants.collisions import COLLISION_ENEMY, COLLISION_GRUNT
 from constants.layers import LAYER_NPC
 from sprites.characters.character import Character
+from state.argscontainer import ArgsContainer
 
 MASS = 1
 DAMPING = 1
@@ -30,9 +31,9 @@ class Grunt(arcade.sprite.SpriteCircle, Character):
 
     def update(
             self,
-            delta_time,
-            args
-    ):
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
 
         if self.sound and not self.sound.playing:
             self.remove_from_sprite_lists()
