@@ -63,6 +63,3 @@ class HighscoreStorage:
         except URLError | TimeoutError as e:
             logging.error(e)
             return False
-
-
-HighscoreStorage().fetch()
