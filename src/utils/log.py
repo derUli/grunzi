@@ -6,6 +6,7 @@ import platform
 import sys
 from logging.handlers import RotatingFileHandler
 
+import arcade
 import psutil
 import pyglet
 
@@ -46,7 +47,7 @@ def configure_logger(log_level: int | str = logging.INFO) -> None:
     )
 
 
-def log_hardware_info(window) -> None:
+def log_hardware_info(window: arcade.Window) -> None:
     """
     Log hardware info
     """
