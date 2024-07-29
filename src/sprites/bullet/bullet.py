@@ -4,7 +4,7 @@ import math
 import time
 
 import arcade
-from arcade import FACE_RIGHT, FACE_LEFT
+from arcade import FACE_RIGHT, FACE_LEFT, Color
 
 from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN, \
     COLLISION_MOVEABLE
@@ -38,11 +38,11 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
     def __init__(
             self,
             radius: int,
-            color=arcade.csscolor.BLACK,
-            soft=False,
-            force_move=FORCE_MOVE,
-            hurt=HURT_DEFAULT,
-            hurt_modifier=1.0
+            color: Color = arcade.csscolor.BLACK,
+            soft: bool = False,
+            force_move: int = FORCE_MOVE,
+            hurt: int = HURT_DEFAULT,
+            hurt_modifier: float = 1.0
     ):
         super().__init__(radius, color=color, soft=soft)
 
