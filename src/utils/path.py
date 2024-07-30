@@ -39,7 +39,7 @@ def get_userdata_path() -> str:
     return userdata_dir
 
 
-def get_settings_path():
+def get_settings_path() -> str:
     """
     Get settings file path
     @return: userdata path
