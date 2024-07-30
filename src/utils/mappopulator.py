@@ -7,6 +7,7 @@ from sprites.characters.chicken import spawn_chicken
 from sprites.decoration.snow import Snow, SNOW_COLORS
 from sprites.items.food import spawn_food
 from sprites.items.landmine import spawn_landmine
+from state.argscontainer import ArgsContainer
 from utils.scene import get_layer
 
 
@@ -16,7 +17,7 @@ class MapPopulator:
 
         self.next_spawn = 0
 
-    def update(self, args) -> None:
+    def update(self, args: ArgsContainer) -> None:
         if time.time() <= self.next_spawn:
             return
 
@@ -29,7 +30,7 @@ class MapPopulator:
 
         self.spawn(args)
 
-    def spawn(self, args) -> None:
+    def spawn(self, args: ArgsContainer) -> None:
 
         if not any(args.state.difficulty.spawn_what):
             return
@@ -45,7 +46,7 @@ class MapPopulator:
 
         self.next_spawn = time.time() + random.randint(1, 6)
 
-    def spawn_skull(self, args) -> None:
+    def spawn_skull(self, args: ArgsContainer) -> None:
         """
         Spawn a skull
         
@@ -54,7 +55,7 @@ class MapPopulator:
         from sprites.characters.skull import spawn_skull
         spawn_skull(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
-    def spawn_slimer(self, args) -> None:
+    def spawn_slimer(self, args: ArgsContainer) -> None:
         """
         Spawn a slimer
 
@@ -63,12 +64,12 @@ class MapPopulator:
         from sprites.characters.slimer import spawn_slimer
         spawn_slimer(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
-    def spawn_npcs(self, args) -> None:
+    def spawn_npcs(self, args: ArgsContainer) -> None:
         """ Spawn some sprites on level load """
 
         self.spawn_chicken(args)
 
-    def spawn_initial(self, args) -> None:
+    def spawn_initial(self, args: ArgsContainer) -> None:
         """ Spawn some sprites on level load """
 
         self.spawn_food(args)
@@ -77,7 +78,7 @@ class MapPopulator:
         self.spawn_snow(args)
 
     @staticmethod
-    def spawn_landmine(args) -> None:
+    def spawn_landmine(args: ArgsContainer) -> None:
 
         if not args.state.difficulty.options['landmines']:
             return
@@ -87,7 +88,7 @@ class MapPopulator:
             spawn_landmine(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     @staticmethod
-    def spawn_chicken(args) -> None:
+    def spawn_chicken(args: ArgsContainer) -> None:
         if not args.state.difficulty.options['chicken']:
             return
 
@@ -96,11 +97,11 @@ class MapPopulator:
             spawn_chicken(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     @staticmethod
-    def spawn_food(args) -> None:
+    def spawn_food(args: ArgsContainer) -> None:
         for i in range(random.randint(1, 10)):
             spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
-    def spawn_snow(self, args):
+    def spawn_snow(self, args: ArgsContainer) -> None:
         if not args.state.difficulty.options['snow']:
             return
 
