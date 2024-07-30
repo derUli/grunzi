@@ -12,6 +12,7 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
 from sprites.items.redherring import Feather
+from state.argscontainer import ArgsContainer
 from utils.positionalsound import PositionalSound
 from utils.sprite import random_position
 
@@ -47,9 +48,9 @@ class Chicken(Character, Useable):
 
     def update(
             self,
-            delta_time,
-            args
-    ):
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
         if self.dead:
             if self.sound:
                 self.sound.pause()
@@ -99,7 +100,7 @@ class Chicken(Character, Useable):
         if self.sound:
             self.sound.update()
 
-    def play_sound(self, player, state):
+    def play_sound(self, player, state) -> None:
         if self.sound and self.sound.playing:
             return
 
