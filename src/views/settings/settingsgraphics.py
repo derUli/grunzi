@@ -6,6 +6,7 @@ from arcade.gui import UISlider
 import constants.controls.keyboard
 import utils.gui
 import utils.text
+from utils.media.video import video_supported
 from views.fading import Fading
 
 BUTTON_WIDTH = 250
@@ -180,6 +181,21 @@ class SettingsGraphics(Fading):
         def on_change_colortint(event):
             self.on_change_colortint()
 
+        videos_button = arcade.gui.UITextureButton(
+            text=_("Videos"),
+            width=BUTTON_WIDTH,
+            texture=utils.gui.get_texture_by_value(
+                width=BUTTON_WIDTH,
+                height=back_button.height,
+                value=self.state.settings.videos
+            ),
+            style=utils.gui.get_button_style()
+        )
+
+        @videos_button.event("on_click")
+        def on_change_videos(event):
+            self.on_change_videos()
+
         @back_button.event("on_click")
         def on_click_back_button(event):
             logging.debug(event)
@@ -196,6 +212,9 @@ class SettingsGraphics(Fading):
             self.weather_button,
             self.colortint_button
         ]
+
+        if video_supported():
+            widgets += [videos_button]
 
         # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=20, align='center')
@@ -289,5 +308,10 @@ class SettingsGraphics(Fading):
         self.needs_restart = isinstance(self.previous_view.previous_view, MainMenu)
 
         self.state.settings.color_tint = not self.state.settings.color_tint
+        self.state.settings.save()
+        self.setup()
+
+    def on_change_videos(self):
+        self.state.settings.videos = not self.state.settings.videos
         self.state.settings.save()
         self.setup()

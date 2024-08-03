@@ -8,11 +8,12 @@ import jsonpickle
 from constants.audio import DEFAULT_AUDIO_BACKEND
 from constants.settings import DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_BORDERLESS, DEFAULT_SHOW_FPS, \
     DEFAULT_FILMGRAIN, DEFAULT_WEATHER, DEFAULT_COLOR_TINT, DEFAULT_QUALITY, DEFAULT_MUSIC_VOLUME, DEFAULT_SOUND_VOLUME, \
-    DEFAULT_ATMO_VOLUME, DEFAULT_MUTED, DEFAULT_FIRST_START, DEFAULT_VIBRATION, DEFAULT_ANTIALIASING, QualityPreset
+    DEFAULT_ATMO_VOLUME, DEFAULT_MUTED, DEFAULT_FIRST_START, DEFAULT_VIBRATION, DEFAULT_ANTIALIASING, QualityPreset, \
+    DEFAULT_VIDEOS
 from utils.media.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 20
+SETTINGS_STATE_VERSION = 21
 
 
 class SettingsState:
@@ -32,6 +33,7 @@ class SettingsState:
         self._filmgrain = DEFAULT_FILMGRAIN
         self._weather = DEFAULT_WEATHER
         self._color_tint = DEFAULT_COLOR_TINT
+        self.videos = DEFAULT_VIDEOS
 
         self._quality = DEFAULT_QUALITY
 

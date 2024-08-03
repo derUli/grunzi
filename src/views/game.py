@@ -111,6 +111,9 @@ class Game(Fading):
         self.initialized = False
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
+        if not self.state.settings.videos:
+            self.skip_intro = True
+
         if not self.skip_intro:
             self.video = load_video(
                 video_file,

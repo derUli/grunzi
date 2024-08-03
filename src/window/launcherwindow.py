@@ -10,6 +10,7 @@ from ttkthemes import ThemedTk
 from constants.audio import audio_backends
 from constants.settings import QualityPreset
 from state.settingsstate import SettingsState
+from utils.media.video import video_supported
 from utils.screen import supported_screen_resolutions
 
 NOTEBOOK_PADDING = 10
@@ -47,6 +48,7 @@ class LauncherWindow(ThemedTk):
         self.antialiasing = tk.IntVar(value=preset.antialiasing)
         self.weather = tk.BooleanVar(value=preset.weather)
         self.colortint = tk.BooleanVar(value=preset.color_tint)
+        self.videos = tk.BooleanVar(value=True)
 
         self.audio_backend = tk.StringVar(value=args.audio_backend)
         self.state = SettingsState()
@@ -75,6 +77,7 @@ class LauncherWindow(ThemedTk):
             self.filmgrain.set(self.state.filmgrain)
             self.weather.set(self.state.weather)
             self.colortint.set(self.state.color_tint)
+            self.videos.set(self.state.videos)
 
             w, h = self.state.screen_resolution[0], self.state.screen_resolution[1]
             self.screen_resolution.set(
@@ -190,6 +193,20 @@ class LauncherWindow(ThemedTk):
             offvalue=False,
         ).grid(row=4, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
 
+        videos_state = tk.NORMAL
+
+        if not video_supported():
+            videos_state = tk.DISABLED
+
+        ttk.Checkbutton(
+            tab_graphics,
+            text=_('Videos'),
+            variable=self.videos,
+            onvalue=True,
+            offvalue=False,
+            state=videos_state
+        ).grid(row=5, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
+
         ttk.Label(tab_audio, text=_('Audio Backend') + ' ').grid(
             row=0,
             column=0,
@@ -240,6 +257,7 @@ class LauncherWindow(ThemedTk):
         # Apply settings in state
         self.state.fullscreen = self.fullscreen.get()
         self.state.borderless = self.borderless.get()
+        self.state.videos = self.videos.get()
         self.state.vsync = self.vsync.get()
 
         if self.state.quality != self.quality.get():

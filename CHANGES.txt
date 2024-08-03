@@ -10,12 +10,11 @@
 
 * map04: Schiffshorn Sound-Effekt hinzugefügt
 * map04: Color Tint zu Feuer hinzugefügt
-* Video: Video Cutscenes können in den Grafikeinstellungen deaktiviert werden.
 
 ## Alpha 017 (Unreleased)
 
 * map04 hinzugefügt
-* Video: Auflösung der Video Cutscenes auf 720P reduziert, um die Downloadgröße zu reduzieren.
+* Video: Video Cutscenes können in den Grafikeinstellungen deaktiviert werden.
 
 ## Alpha 016 (03.08.2024)
 
