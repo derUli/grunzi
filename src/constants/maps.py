@@ -6,5 +6,5 @@ MAPS = [
     FIRST_MAP,
     'map02',
     'map03',
-    # 'map04',
+    'map04',
 ]
