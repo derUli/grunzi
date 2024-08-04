@@ -496,7 +496,7 @@ class Game(Fading):
 
             self.player_sprite.set_face(face)
 
-    def on_key_press(self, key, modifiers):
+    def on_key_press(self, key: int, modifiers: int):
         """Called whenever a key is pressed."""
         super().on_key_press(key, modifiers)
 
@@ -535,7 +535,7 @@ class Game(Fading):
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             self.on_select_item(key=key)
 
-    def on_key_release(self, key, modifiers):
+    def on_key_release(self, key: int, modifiers: int):
         """Called when the user releases a key."""
         super().on_key_release(key, modifiers)
 

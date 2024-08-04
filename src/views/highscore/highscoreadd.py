@@ -199,7 +199,7 @@ class HighscoreAdd(Fading):
         self.message_box.on_action = self.show_confirm
         self.manager.add(self.message_box)
 
-    def on_key_press(self, key, modifiers) -> None:
+    def on_key_press(self, key: int, modifiers: int) -> None:
         """ Called whenever a key is pressed. """
 
         super().on_key_press(key, modifiers)
