@@ -24,8 +24,8 @@ class River(Sprite):
         alpha = self.alpha
 
         if self.subtract_alpha > 0:
-            alpha -= 1
-            self.subtract_alpha -= 1
+            alpha -= 2
+            self.subtract_alpha -= 2
 
         if alpha <= 0:
             alpha = 0
