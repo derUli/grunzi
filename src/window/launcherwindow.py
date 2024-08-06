@@ -22,7 +22,7 @@ TTK_THEME = 'equilux'
 
 
 class LauncherWindow(ThemedTk):
-    def __init__(self, theme=TTK_THEME, args=None, state=None):
+    def __init__(self, theme: str = TTK_THEME, args=None, state=None):
         super().__init__(theme=theme)
 
         self.path_state = state
