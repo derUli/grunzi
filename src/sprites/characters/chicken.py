@@ -43,7 +43,7 @@ class Chicken(Character, Useable):
         self.damping = MOVE_DAMPING
         self.sound = None
 
-    def draw_overlay(self, args):
+    def draw_overlay(self, args: ArgsContainer):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
 
     def update(
