@@ -61,7 +61,7 @@ class GameWindow(arcade.Window):
         self.change_screen_mode(not window)
 
         self.update_rate = update_rate
-        self.draw_rate = update_rate
+        self.draw_rate = draw_rate
         self.controller_manager = None
         self.controllers = []
 
