@@ -4,6 +4,7 @@ import arcade
 import pyglet
 
 from constants.settings import UNLIMITED_FRAMERATE
+from utils.text import label_value
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
@@ -32,6 +33,9 @@ class GameWindow(arcade.Window):
         default_screen = pyglet.canvas.get_display().get_default_screen()
         native_mode = default_screen.get_mode()
         self.monitor_refresh_rate = native_mode.rate
+
+        logging.info(label_value('Monitor refresh rate', self.monitor_refresh_rate))
+
         native_resolution = (native_mode.width, native_mode.height)
         style = pyglet.window.Window.WINDOW_STYLE_DEFAULT
         self.is_native = native_resolution == (width, height)
