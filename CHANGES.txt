@@ -11,6 +11,7 @@
 
 * map04 hinzugefügt
 * Video: Video Cutscenes können in den Grafikeinstellungen deaktiviert werden.
+* Animationen sind jetzt flüssiger, wenn V-Sync aktiviert ist
 
 ## Alpha 016 (03.08.2024)
 

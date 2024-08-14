@@ -25,9 +25,8 @@ class Intro(Fading):
         super().__init__(window)
 
         self.state = state
-        fps_second = 1000 / 1000 / self.window.draw_rate
 
-        self.wait_for = fps_second * WAIT_FOR
+        self.wait_for = 1
         self.wait_since = 0
         self.background = COLOR_BACKGROUND
 

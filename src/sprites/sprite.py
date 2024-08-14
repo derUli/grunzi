@@ -100,6 +100,7 @@ class Sprite(AbstractStaticSprite):
 
         self.insight = False
         self.fadeout = False
+        self.attributes = {}
 
     def update(
             self,
