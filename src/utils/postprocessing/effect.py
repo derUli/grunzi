@@ -15,7 +15,7 @@ class Effect:
         self.spritelist = SpriteList(lazy=True, use_spatial_hash=True)
         self.enabled = enabled
 
-    def setup(self, args):
+    def setup(self, args: ArgsContainer):
         """ Setup effect """
 
         logging.error('Postprocessing: setup() method not implemented')
