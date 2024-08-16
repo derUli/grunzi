@@ -4,6 +4,7 @@ import math
 import time
 
 import arcade
+import pymunk
 from arcade import FACE_RIGHT, FACE_LEFT, Color
 
 from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN, \
@@ -99,7 +100,14 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
 
         return self
 
-    def on_hit(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
+    def on_hit(
+            self,
+            bullet_sprite: arcade.sprite.Sprite,
+            _hit_sprite: arcade.sprite.Sprite,
+            _arbiter: pymunk.arbiter.Arbiter,
+            _space: pymunk.space.Space,
+            _data: dict
+    ) -> None:
         """ Called for bullet/wall collision """
 
         bullet_sprite.remove_from_sprite_lists()
