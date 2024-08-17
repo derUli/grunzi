@@ -337,14 +337,8 @@ class Game(Fading):
         self.camera_sprites.use()
         self.scene.draw()
 
-        # start = time.time()
         self.camera_gui.use()
         self.ui.draw()
-
-        # self.measurements.append(time.time() - start)
-        # if len(self.measurements) > 5000:
-        #     print(numpy.mean(self.measurements, axis=0))
-        #     sys.exit()
 
         self.player_sprite.draw_overlay(args=make_args_container(self))
         self.draw_fading()

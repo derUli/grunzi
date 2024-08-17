@@ -140,7 +140,7 @@ class Scene(BaseScene):
 
             sprite.draw_overlay(self.args)
 
-    def get_next_sprites(self, distance=100):
+    def get_next_sprites(self, distance=200):
         sprites = []
         for sprite_list in self.sprite_lists:
             for sprite in sprite_list:
