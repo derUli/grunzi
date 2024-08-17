@@ -76,6 +76,7 @@ class Game(Fading):
         self.astar_barrier_list = None
         self.wall_spritelist = None
         self.map_populator = None
+        self.measurements = []
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -281,7 +282,7 @@ class Game(Fading):
         if self.music_queue:
             self.music_queue.update()
 
-        # There is an OpenGL error happens when a sprite is added by an controller event handler
+        # There is an OpenGL error happening when a sprite is added by an controller event handler
         # which seems to happen because the controller events are handled in a different thread.
         # To work around this we have the _call_method class variable which can be set to a class method
         # Which is called in next execution of on_update
@@ -302,7 +303,16 @@ class Game(Fading):
             return self.update_fade(self.next_view)
 
         # Move the player with the physics engine
+
+        start = time.time()
+
         self.update_player_speed()
+
+        self.measurements.append(time.time() - start)
+        if len(self.measurements) > 5000:
+            print(numpy.mean(self.measurements))
+            sys.exit()
+
         self.physics_engine.step(delta_time)
         self.scene.update_scene(
             delta_time,
@@ -369,10 +379,14 @@ class Game(Fading):
         if force_x != 0 or force_y != 0:
             self.player_sprite.start_walk(sprint=self.player_sprite.sprinting)
             self.window.set_mouse_visible(False)
+            self.physics_engine.apply_force(
+                self.player_sprite,
+                (force_x, force_y)
+            )
         else:
             self.player_sprite.stop_walk()
 
-        self.physics_engine.apply_force(self.player_sprite, (force_x, force_y))
+
 
     def on_button_press(self, controller, key):
         """ On button press """

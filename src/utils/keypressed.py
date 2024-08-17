@@ -19,3 +19,6 @@ class KeyPressed:
         self.key_right = False
         self.key_down = False
         self.key_left = False
+
+    def any(self):
+        return self.key_up or self.key_right or self.key_down or self.key_left
