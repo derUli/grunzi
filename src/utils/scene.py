@@ -197,12 +197,6 @@ def animated_in_sight(size, scene, player_sprite) -> list:
                 update_layers.append(name)
                 break
 
-    # if not any_insight:
-    #    for sprite in layer:
-    #        sprite.cur_frame_idx = 0
-    #        cur_frame = sprite.frames[sprite.cur_frame_idx]
-    #        sprite.texture = cur_frame.texture
-
     for name in update_layers:
         for sprite in scene[name]:
 
