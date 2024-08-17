@@ -303,25 +303,23 @@ class Game(Fading):
             return self.update_fade(self.next_view)
 
         # Move the player with the physics engine
-
-        start = time.time()
-
         self.update_player_speed()
-
-        self.measurements.append(time.time() - start)
-        if len(self.measurements) > 5000:
-            print(numpy.mean(self.measurements))
-            sys.exit()
-
         self.physics_engine.step(delta_time)
+
+        # start = time.time()
+
         self.scene.update_scene(
             delta_time,
             make_args_container(self)
         )
 
+        # self.measurements.append(time.time() - start)
+        # if len(self.measurements) > 5000:
+        #    print(numpy.mean(self.measurements))
+        #    sys.exit()
+
         self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
-        self.update_collectable()
 
     def on_draw(self) -> None:
         """Render the screen."""
