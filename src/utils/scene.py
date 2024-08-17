@@ -70,7 +70,9 @@ class Scene(BaseScene):
         size = arcade.get_window().get_size()
         self.update_animated(delta_time, size, self, args.player)
 
-        self.postprocessing.update(delta_time, args)
+        if self.postprocessing:
+            self.postprocessing.update(delta_time, args)
+
         self.call_update(delta_time, args)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
@@ -126,7 +128,9 @@ class Scene(BaseScene):
 
     def draw(self, names: Optional[List[str]] = None, **kwargs):
         self._draw(names=names, **kwargs)
-        self.postprocessing.draw()
+
+        if self.postprocessing:
+            self.postprocessing.draw()
 
     def _draw(self, names: Optional[List[str]] = None, **kwargs):
         from sprites.bullet.bullet import Bullet
