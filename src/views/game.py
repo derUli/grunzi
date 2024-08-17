@@ -666,7 +666,9 @@ class Game(Fading):
         )
 
     def update_collectable(self):
+        start = time.time()
         item = self.scene.get_collectable(self.player_sprite)
+        print(time.time() - start)
 
         if not item:
             return False

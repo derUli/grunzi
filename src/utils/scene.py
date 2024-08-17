@@ -80,11 +80,18 @@ class Scene(BaseScene):
     def get_collectable(self, player_sprite):
         """ Get collectable item """
 
-        items = arcade.check_for_collision_with_lists(player_sprite, self.sprite_lists)
+        from constants.layers import WALL_LAYERS
 
-        for item in reversed(items):
-            if isinstance(item, Item):
-                return item
+        for layer in self.name_mapping:
+            if layer in WALL_LAYERS:
+                continue
+
+            for item in self[layer]:
+                if not isinstance(item, Item):
+                    continue
+
+                if arcade.check_for_collision(player_sprite, item):
+                    return item
 
         return None
 
