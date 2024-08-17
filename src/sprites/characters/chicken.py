@@ -44,7 +44,10 @@ class Chicken(Character, Useable):
         self.sound = None
 
     def draw_overlay(self, args: ArgsContainer):
-        self.draw_healthbar(HEALTHBAR_FREN_COLOR)
+        w, h = arcade.get_window().get_size()
+
+        if arcade.get_distance_between_sprites(self, args.player) < h:
+            self.draw_healthbar(HEALTHBAR_FREN_COLOR)
 
     def update(
             self,
