@@ -306,17 +306,10 @@ class Game(Fading):
         self.update_player_speed()
         self.physics_engine.step(delta_time)
 
-        # start = time.time()
-
         self.scene.update_scene(
             delta_time,
             make_args_container(self)
         )
-
-        # self.measurements.append(time.time() - start)
-        # if len(self.measurements) > 5000:
-        #    print(numpy.mean(self.measurements))
-        #    sys.exit()
 
         self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
