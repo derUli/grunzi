@@ -89,13 +89,6 @@ class Scene(BaseScene):
         for sprite in self.lookup_table.animated_in_sight.get():
             sprite.update_animation(delta_time)
 
-        if len(self.measures) < 5000:
-            self.measures.append(time.time() - start)
-        else:
-            print(label_value('Mean', numpy.mean(self.measures)))
-            print(label_value('Max', numpy.max(self.measures)))
-            sys.exit(0)
-
     def get_collectable(self, player_sprite):
         """ Get collectable item """
 
@@ -182,6 +175,7 @@ def animated_in_sight(size, scene, player_sprite) -> list:
 
     w, h = size
 
+
     cur_frame_idx = {}
 
     for name in layers:
@@ -192,7 +186,7 @@ def animated_in_sight(size, scene, player_sprite) -> list:
 
             diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
 
-            if diff <= h:
+            if diff <= h + sprite.height:
                 if sprite.cur_frame_idx > cur_frame_idx[name]:
                     cur_frame_idx[name] = sprite.cur_frame_idx
 
@@ -205,7 +199,7 @@ def animated_in_sight(size, scene, player_sprite) -> list:
             sprite.cur_frame_idx = cur_frame_idx[name]
             diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
 
-            if diff < h:
+            if diff <= h + sprite.height:
                 animated.append(sprite)
 
     return animated
