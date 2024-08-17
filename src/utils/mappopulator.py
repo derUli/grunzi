@@ -107,7 +107,7 @@ class MapPopulator:
 
     @staticmethod
     def spawn_food(args: ArgsContainer) -> None:
-        for i in range(random.randint(1, 10)):
+        for i in range(random.randint(1, 5)):
             spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     def spawn_snow(self, args: ArgsContainer) -> None:
