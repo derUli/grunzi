@@ -4,11 +4,11 @@ class LookupTableEntry:
 
         self._value = []
 
-    def needs_update(self, player):
-        return player.position != self.position
+    def needs_update(self, player_sprite):
+        return player_sprite.position != self.position
 
-    def set(self, value, player):
-        self.position = player.position
+    def set(self, value, player_sprite):
+        self.position = player_sprite.position
         self._value = value
 
     def get(self):

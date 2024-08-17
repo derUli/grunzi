@@ -82,9 +82,10 @@ class Scene(BaseScene):
         start = time.time()
 
         # Animate only visible
-        animated = animated_in_sight(size, scene, player_sprite)
+        if self.lookup_table.animated_in_sight.needs_update(player_sprite):
+            self.lookup_table.animated_in_sight.set(animated_in_sight(size, scene, player_sprite), player_sprite)
 
-        for sprite in animated:
+        for sprite in self.lookup_table.animated_in_sight.get():
             sprite.update_animation(delta_time)
 
         if len(self.measures) < 2000:
