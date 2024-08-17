@@ -640,7 +640,9 @@ class Game(Fading):
         self.window.show_view(menu)
 
     def on_use(self):
-        if not self.player_sprite.get_item():
+
+        item = self.player_sprite.get_item()
+        if not item:
             if self.update_collectable():
                 self.state.play_sound('coin')
                 return
@@ -653,11 +655,9 @@ class Game(Fading):
             self.state.noaction()
             return
 
-        item = self.player_sprite.get_item()
-
         args = make_args_container(self)
 
-        for sprite in arcade.check_for_collision_with_lists(self.player_sprite.get_item(), self.scene.sprite_lists):
+        for sprite in self.scene.get_next_sprites():
             if isinstance(sprite, Useable):
                 return item.on_use_with(
                     sprite,
@@ -669,15 +669,7 @@ class Game(Fading):
         )
 
     def update_collectable(self):
-        start = time.time()
         item = self.scene.get_collectable(self.player_sprite)
-        if len(self.measures) <= 1000:
-            self.measures.append(time.time() - start)
-        else:
-            print(min(self.measures))
-            print(numpy.mean(self.measures))
-            print(max(self.measures))
-            sys.exit(0)
 
         if not item:
             return False

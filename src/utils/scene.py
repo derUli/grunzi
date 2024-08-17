@@ -99,7 +99,6 @@ class Scene(BaseScene):
 
         for sprite_list in args.scene.sprite_lists:
             for sprite in sprite_list:
-
                 if not isinstance(sprite, AbstractSprite):
                     continue
 
@@ -131,25 +130,24 @@ class Scene(BaseScene):
         super().draw(names)
 
         for sprite in get_layer(LAYER_NPC, self):
-
             if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
                 continue
 
             sprite.draw_overlay(self.args)
 
-    def get_next_sprites(self):
+    def get_next_sprites(self, distance=100):
         sprites = []
         for sprite_list in self.sprite_lists:
             for sprite in sprite_list:
-                sprites.append(sprite)
+                if arcade.get_distance_between_sprites(self.args.player, sprite) < distance:
+                    sprites.append(sprite)
 
         return sprites
 
     def get_next_interactable(self):
         for sprite in self.get_next_sprites():
             if isinstance(sprite, Interactable):
-                if arcade.get_distance_between_sprites(self.args.player, sprite) < 100:
-                    return sprite
+                return sprite
 
         return None
 
