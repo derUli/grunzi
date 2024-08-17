@@ -89,7 +89,7 @@ class Scene(BaseScene):
         for sprite in self.lookup_table.animated_in_sight.get():
             sprite.update_animation(delta_time)
 
-        if len(self.measures) < 2000:
+        if len(self.measures) < 5000:
             self.measures.append(time.time() - start)
         else:
             print(label_value('Mean', numpy.mean(self.measures)))
@@ -189,22 +189,24 @@ def animated_in_sight(size, scene, player_sprite) -> list:
         layer = get_layer(name, scene)
 
         for sprite in layer:
-            if sprite.cur_frame_idx > cur_frame_idx[name]:
-                cur_frame_idx[name] = sprite.cur_frame_idx
 
             diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
+
             if diff <= h:
+                if sprite.cur_frame_idx > cur_frame_idx[name]:
+                    cur_frame_idx[name] = sprite.cur_frame_idx
+
                 update_layers.append(name)
                 break
 
     for name in update_layers:
         for sprite in scene[name]:
 
+            sprite.cur_frame_idx = cur_frame_idx[name]
             diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
+
             if diff < h:
                 animated.append(sprite)
-            else:
-                sprite.cur_frame_idx = cur_frame_idx[name]
 
     return animated
 
