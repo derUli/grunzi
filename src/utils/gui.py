@@ -2,6 +2,7 @@
 
 import PIL
 import arcade
+import mouse
 from arcade import Texture
 from arcade.gui import UIFlatButton
 
@@ -53,3 +54,12 @@ def get_slider_style() -> dict:
         "hover": default_style,
         "disabled": default_style
     }
+
+def center_cursor(window: arcade.Window):
+    x, y = window.get_location()
+
+    w, h = window.get_size()
+
+    x, y = x + (w / 2), y + (h / 2)
+
+    mouse.move(x, y, absolute=True)

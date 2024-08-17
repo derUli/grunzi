@@ -4,6 +4,7 @@ import arcade
 import pyglet
 
 from constants.settings import UNLIMITED_FRAMERATE
+from utils.gui import center_cursor
 from utils.text import label_value
 
 SCREEN_WIDTH = 1280
@@ -80,6 +81,10 @@ class GameWindow(arcade.Window):
 
         # Init controllers if enabled
         self.init_controllers()
+
+        # Center mouse cursor if any controller is plugged
+        if any(self.controllers):
+            center_cursor(self)
 
     def change_screen_mode(self, fullscreen: bool = True) -> None:
         """

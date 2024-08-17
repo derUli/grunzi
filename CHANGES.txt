@@ -11,8 +11,9 @@
 
 * map04 hinzugefügt
 * Video: Video Cutscenes können in den Grafikeinstellungen deaktiviert werden.
-* Animationen sind jetzt flüssiger, wenn V-Sync aktiviert ist
-* Performance Optimierungen
+* Global: Animationen sind jetzt flüssiger, wenn V-Sync aktiviert ist
+* Global: Performance Optimierungen
+* Menü: Mauszeiger Steuerung über Controller verbessert
 
 ## Alpha 016 (03.08.2024)
 

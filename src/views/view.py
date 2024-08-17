@@ -9,6 +9,7 @@ import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
 from state.settingsstate import SettingsState
 from utils.fpscounter import FPSCounter
+from utils.gui import center_cursor
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 
