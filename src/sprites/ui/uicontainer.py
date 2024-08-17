@@ -35,7 +35,6 @@ class UIContainer:
 
     def draw(self):
         """ Draw UI """
-        # self.background.draw()
 
         if str(self.state.score) not in self.rendered_score_text:
             formatted_score = str(self.state.score).rjust(FILL_COUNT, FILL_CHAR)
@@ -51,7 +50,9 @@ class UIContainer:
             w, h = self.size
             text.y = (h - MARGIN - text.content_height)
 
-            self.rendered_score_text[str(self.state.score)] = text
+            self.rendered_score_text = {
+                str(self.state.score): text
+            }
 
         self.rendered_score_text[str(self.state.score)].draw()
         self.inventory.draw()

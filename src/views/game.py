@@ -4,7 +4,6 @@ import sys
 import threading
 import time
 
-import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -334,12 +333,19 @@ class Game(Fading):
             return self.draw_after()
 
         center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
+
         self.camera_sprites.use()
         self.scene.draw()
 
+        # start = time.time()
         self.camera_gui.use()
-
         self.ui.draw()
+
+        # self.measurements.append(time.time() - start)
+        # if len(self.measurements) > 5000:
+        #     print(numpy.mean(self.measurements, axis=0))
+        #     sys.exit()
+
         self.player_sprite.draw_overlay(args=make_args_container(self))
         self.draw_fading()
         self.draw_after()
@@ -376,8 +382,6 @@ class Game(Fading):
             )
         else:
             self.player_sprite.stop_walk()
-
-
 
     def on_button_press(self, controller, key):
         """ On button press """
