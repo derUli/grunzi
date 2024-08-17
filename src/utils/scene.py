@@ -1,10 +1,7 @@
 """ Scene utils """
-import sys
-import time
 from typing import Optional, List
 
 import arcade
-import numpy
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
@@ -141,23 +138,12 @@ class Scene(BaseScene):
 
         super().draw(names)
 
-        start = time.time()
-
         for sprite in get_layer(LAYER_NPC, self):
             if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
                 continue
 
             if self.check_sprite_in_sight(sprite, self.args.player):
                 sprite.draw_overlay(self.args)
-
-        self.measures.append(time.time() - start)
-
-        if len(self.measures) % 1000 == 0:
-            print(len(self.measures))
-
-        if len(self.measures) > 5000:
-            print(numpy.mean(self.measures))
-            sys.exit()
 
     def get_next_sprites(self, distance=200):
         sprites = []
@@ -179,6 +165,7 @@ class Scene(BaseScene):
         w, h = arcade.get_window().get_size()
 
         return arcade.get_distance_between_sprites(sprite1, sprite2) < h
+
 
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """
