@@ -23,9 +23,10 @@ class Scene(BaseScene):
 
         super().__init__()
         self.initialized = False
-        self.postprocessing = PostProcessing()
+        self.postprocessing = None
         self.args = None
         self.measures = []
+        self.lookup_table = None
 
     def setup(self, args) -> None:
         """ Setup scene """
