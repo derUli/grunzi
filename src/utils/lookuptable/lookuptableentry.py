@@ -2,14 +2,14 @@ class LookupTableEntry:
     def __init__(self):
         self.position = (-1, -1)
 
-        self.value = []
+        self._value = []
 
     def needs_update(self, player):
         return player.position != self.position
 
-    def set(self, player, value):
+    def set(self, value, player):
         self.position = player.position
-        self.value = value
+        self._value = value
 
     def get(self):
-        return self.value
+        return self._value

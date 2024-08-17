@@ -87,11 +87,11 @@ class Scene(BaseScene):
         for sprite in animated:
             sprite.update_animation(delta_time)
 
-        if len(self.measures) < 10000:
+        if len(self.measures) < 2000:
             self.measures.append(time.time() - start)
         else:
-            print(label_value('Mean:', numpy.mean(self.measures)))
-            print(label_value('Max:', numpy.max(self.measures)))
+            print(label_value('Mean', numpy.mean(self.measures)))
+            print(label_value('Max', numpy.max(self.measures)))
             sys.exit(0)
 
     def get_collectable(self, player_sprite):
