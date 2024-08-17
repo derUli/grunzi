@@ -80,8 +80,6 @@ class Scene(BaseScene):
     def update_animated(self, delta_time, size, scene, player_sprite):
         """ Update animated """
 
-        start = time.time()
-
         # Animate only visible
         if self.lookup_table.animated_in_sight.needs_update(player_sprite):
             self.lookup_table.animated_in_sight.set(animated_in_sight(size, scene, player_sprite), player_sprite)
@@ -108,7 +106,6 @@ class Scene(BaseScene):
         return None
 
     def call_update(self, delta_time, args):
-
         for sprite_list in args.scene.sprite_lists:
             for sprite in sprite_list:
                 if not isinstance(sprite, AbstractSprite):
