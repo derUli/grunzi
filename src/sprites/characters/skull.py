@@ -85,7 +85,7 @@ class Skull(Character, Useable):
         w, h = arcade.get_window().get_size()
 
         if arcade.get_distance_between_sprites(self, args.player) < h:
-            self.draw_overlay(args)
+            self.draw_healthbar()
 
     def update(
             self,
