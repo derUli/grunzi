@@ -111,7 +111,6 @@ class MapPopulator:
             spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     def spawn_snow(self, args: ArgsContainer) -> None:
-        return
         if not args.state.difficulty.options['snow']:
             return
 
