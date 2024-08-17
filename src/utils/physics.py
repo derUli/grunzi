@@ -15,7 +15,8 @@ from constants.layers import (
     LAYER_WATER,
     LAYER_TREE,
     LAYER_SKY,
-    LAYER_RIVER, LAYER_ALPHA_WALL,
+    LAYER_RIVER,
+    LAYER_ALPHA_WALL
 )
 from sprites.characters.player import Player
 
