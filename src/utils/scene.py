@@ -82,7 +82,7 @@ class Scene(BaseScene):
 
         from constants.layers import WALL_LAYERS
 
-        for layer in self.name_mapping:
+        for layer in reversed(self.name_mapping):
             if layer in WALL_LAYERS:
                 continue
 
