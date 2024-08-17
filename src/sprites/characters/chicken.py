@@ -91,7 +91,8 @@ class Chicken(Character, Useable):
             self.face_horizontal = FACE_LEFT
             self.texture = self.textures[self.face_horizontal - 1]
 
-        args.physics_engine.apply_force(self, (move_x, move_y))
+        if move_x > 0 or move_y > 0:
+            args.physics_engine.apply_force(self, (move_x, move_y))
 
         # randomize play sound
         if random.randint(1, 50) == 30:

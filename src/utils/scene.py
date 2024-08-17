@@ -1,10 +1,7 @@
 """ Scene utils """
-import sys
-import time
 from typing import Optional, List
 
 import arcade
-import numpy
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
@@ -13,7 +10,6 @@ from sprites.items.item import Item, Interactable
 from sprites.sprite import AbstractSprite
 from utils.lookuptable.lookuptable import LookupTable
 from utils.postprocessing.postprocessing import PostProcessing
-from utils.text import label_value
 
 
 class Scene(BaseScene):
@@ -171,7 +167,6 @@ def animated_in_sight(size, scene, player_sprite) -> list:
     update_layers = []
 
     w, h = size
-
 
     cur_frame_idx = {}
 

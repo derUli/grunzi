@@ -24,18 +24,18 @@ def start_frozen() -> None:
     try:
         StartUp(os.path.dirname(__file__)).main()
     except KeyboardInterrupt:
-        sys.exit()
+        sys.exit(1)
     except Exception as e:
         logging.critical("Fatal exception", exc_info=e)
         messagebox.showerror('Error', (repr(e)))
-        sys.exit()
+        sys.exit(1)
 
 
 def start_debug() -> None:
     try:
         StartUp(os.path.dirname(__file__)).main()
     except KeyboardInterrupt:
-        sys.exit()
+        sys.exit(1)
 
 
 if __name__ == "__main__":
