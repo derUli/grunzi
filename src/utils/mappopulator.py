@@ -16,8 +16,12 @@ class MapPopulator:
         """ Constructor """
 
         self.next_spawn = 0
+        self.enabled = True
 
     def update(self, args: ArgsContainer) -> None:
+        if not self.enabled:
+            return
+
         if time.time() <= self.next_spawn:
             return
 
@@ -31,6 +35,8 @@ class MapPopulator:
         self.spawn(args)
 
     def spawn(self, args: ArgsContainer) -> None:
+        if not self.enabled:
+            return
 
         if not any(args.state.difficulty.spawn_what):
             return
@@ -71,6 +77,9 @@ class MapPopulator:
 
     def spawn_initial(self, args: ArgsContainer) -> None:
         """ Spawn some sprites on level load """
+
+        if not self.enabled:
+            return
 
         self.spawn_food(args)
         self.spawn_landmine(args)
