@@ -69,7 +69,7 @@ class Pizza(Food):
 def spawn_food(state, tilemap, scene, physics_engine):
     # For now we have only apples
     classes = [Apple, Donut, Pizza]
-    weights = [0.7, 0.2, 0.1]
+    weights = [0.7, 0.25, 0.05]
     rand_x, rand_y = random_position(tilemap)
 
     food_class = random.choices(

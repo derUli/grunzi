@@ -12,7 +12,9 @@ from utils.fpscounter import FPSCounter
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 
-MOUSE_POINTER_SPEED = 5
+MOUSE_POINTER_SPEED = 10
+MOUSE_POINTER_MODIFIER_DEFAULT = 1.0
+MOUSE_POINTER_MODIFIER_FAST = 2.0
 PERFORMANCE_GRAPH_WIDTH = 160
 PERFORMANCE_GRAPH_HEIGHT = 90
 
@@ -41,6 +43,8 @@ class View(arcade.View):
 
         self.fps_counter = FPSCounter()
         self.background = DEFAULT_BACKGROUND
+
+        self.mouse_modifier = MOUSE_POINTER_MODIFIER_DEFAULT
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -138,15 +142,17 @@ class View(arcade.View):
 
         x, y = 0, 0
 
+        speed = MOUSE_POINTER_SPEED * self.mouse_modifier
+
         if x_value == AXIS_RIGHT:
-            x += MOUSE_POINTER_SPEED
+            x += speed
         elif x_value == AXIS_LEFT:
-            x -= MOUSE_POINTER_SPEED
+            x -= speed
 
         if y_value == AXIS_DOWN:
-            y += MOUSE_POINTER_SPEED
+            y += speed
         elif y_value == AXIS_UP:
-            y -= MOUSE_POINTER_SPEED
+            y -= speed
 
         move_pointer = (x, y)
 
@@ -159,6 +165,13 @@ class View(arcade.View):
 
         if key in constants.controls.controller.KEY_MENU_ITEM:
             mouse.click()
+
+        if key in constants.controls.controller.KEY_SPRINT:
+            self.mouse_modifier = MOUSE_POINTER_MODIFIER_FAST
+
+    def on_button_release(self, joystick, key):
+        if key in constants.controls.controller.KEY_SPRINT:
+            self.mouse_modifier = MOUSE_POINTER_MODIFIER_DEFAULT
 
     def push_controller_handlers(self):
         for controller in self.window.controllers:
