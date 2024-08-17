@@ -76,7 +76,6 @@ class Game(Fading):
         self.astar_barrier_list = None
         self.wall_spritelist = None
         self.map_populator = None
-        self.measures = []
 
     def on_show_view(self) -> None:
         """ On show view """

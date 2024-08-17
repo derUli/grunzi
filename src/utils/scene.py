@@ -1,14 +1,19 @@
 """ Scene utils """
+import sys
+import time
 from typing import Optional, List
 
 import arcade
+import numpy
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
 from sprites.characters.character import Character
 from sprites.items.item import Item, Interactable
 from sprites.sprite import AbstractSprite
+from utils.lookuptable.lookuptable import LookupTable
 from utils.postprocessing.postprocessing import PostProcessing
+from utils.text import label_value
 
 
 class Scene(BaseScene):
@@ -20,6 +25,7 @@ class Scene(BaseScene):
         self.initialized = False
         self.postprocessing = PostProcessing()
         self.args = None
+        self.measures = []
 
     def setup(self, args) -> None:
         """ Setup scene """
@@ -28,7 +34,7 @@ class Scene(BaseScene):
         self.postprocessing.setup(args)
         self.args = args
         self.initialized = True
-
+        self.lookup_table = LookupTable()
         self.setup_sprites(args)
 
     def setup_sprites(self, args):
@@ -66,16 +72,27 @@ class Scene(BaseScene):
 
         size = arcade.get_window().get_size()
         self.update_animated(delta_time, size, self, args.player)
+
         self.postprocessing.update(delta_time, args)
         self.call_update(delta_time, args)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
         """ Update animated """
 
+        start = time.time()
+
         # Animate only visible
         animated = animated_in_sight(size, scene, player_sprite)
+
         for sprite in animated:
             sprite.update_animation(delta_time)
+
+        if len(self.measures) < 10000:
+            self.measures.append(time.time() - start)
+        else:
+            print(label_value('Mean:', numpy.mean(self.measures)))
+            print(label_value('Max:', numpy.max(self.measures)))
+            sys.exit(0)
 
     def get_collectable(self, player_sprite):
         """ Get collectable item """
