@@ -49,7 +49,7 @@ class Fish(Character):
 
         if not any(args.scene[LAYER_RIVER]):
             if self.angle > -180:
-                self.turn_right(10)
+                self.turn_right(20)
             return
 
         self.center_x -= MOVE_SPEED_X
