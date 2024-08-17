@@ -62,7 +62,10 @@ class Slimer(Character, Useable):
         self.texture = self.textures[self.face - 1]
 
     def draw_overlay(self, args):
-        self.draw_healthbar()
+        w, h = arcade.get_window().get_size()
+
+        if arcade.get_distance_between_sprites(self, args.player) < h:
+            self.draw_overlay(args)
 
     def update(
             self,

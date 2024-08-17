@@ -11,6 +11,7 @@ from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
 from sprites.items.item import Useable
+from state.argscontainer import ArgsContainer
 from utils.physics import DEFAULT_FRICTION
 from utils.sprite import random_position
 
@@ -80,8 +81,11 @@ class Skull(Character, Useable):
 
         self.texture = self.textures[self.face - 1]
 
-    def draw_overlay(self, args):
-        self.draw_healthbar()
+    def draw_overlay(self, args: ArgsContainer):
+        w, h = arcade.get_window().get_size()
+
+        if arcade.get_distance_between_sprites(self, args.player) < h:
+            self.draw_overlay(args)
 
     def update(
             self,
