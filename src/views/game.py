@@ -4,6 +4,7 @@ import sys
 import threading
 import time
 
+import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -75,6 +76,7 @@ class Game(Fading):
         self.astar_barrier_list = None
         self.wall_spritelist = None
         self.map_populator = None
+        self.measures = []
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -310,6 +312,7 @@ class Game(Fading):
 
         self.map_populator.update(make_args_container(self))
         self.update_fade(self.next_view)
+        self.update_collectable()
 
     def on_draw(self) -> None:
         """Render the screen."""
@@ -668,7 +671,13 @@ class Game(Fading):
     def update_collectable(self):
         start = time.time()
         item = self.scene.get_collectable(self.player_sprite)
-        print(time.time() - start)
+        if len(self.measures) <= 1000:
+            self.measures.append(time.time() - start)
+        else:
+            print(min(self.measures))
+            print(numpy.mean(self.measures))
+            print(max(self.measures))
+            sys.exit(0)
 
         if not item:
             return False

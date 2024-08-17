@@ -80,10 +80,10 @@ class Scene(BaseScene):
     def get_collectable(self, player_sprite):
         """ Get collectable item """
 
-        from constants.layers import WALL_LAYERS
+        from constants.layers import PASSIVE_LAYERS
 
         for layer in reversed(self.name_mapping):
-            if layer in WALL_LAYERS:
+            if layer in PASSIVE_LAYERS:
                 continue
 
             for item in self[layer]:
