@@ -1,6 +1,7 @@
 import random
 
-from arcade import SpriteCircle, Color
+from arcade import SpriteCircle
+from arcade.types import Color, RGBA255
 
 from constants.layers import LAYER_WALL, LAYER_FIRE
 from sprites.sprite import Sprite
@@ -23,7 +24,7 @@ COLLISION_LAYERS = [
 
 class Snow(SpriteCircle, Sprite):
 
-    def __init__(self, radius: int, color: Color, soft: bool = True):
+    def __init__(self, radius: int, color: RGBA255, soft: bool = True):
         super().__init__(radius, color, soft)
 
     def update(

@@ -107,7 +107,7 @@ class HighscoreList(Fading):
         )
 
         score_text_left.x = MARGIN
-        score_text_left.y = self.window.height - score_text_left.content_height - MARGIN_SCORE
+        score_text_left.y = self.window.height 
         self.texts.append(score_text_left)
 
         score_text_right.x = self.window.width - MARGIN - score_text_right.content_width

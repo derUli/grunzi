@@ -31,7 +31,7 @@ class AbstractStaticSprite(AbstractSprite, arcade.sprite.Sprite):
     pass
 
 
-class AbstractAnimatedSprite(AbstractSprite, arcade.sprite.AnimatedTimeBasedSprite):
+class AbstractAnimatedSprite(AbstractSprite, arcade.sprite.animated.TextureAnimationSprite):
     """ Abstract animated sprite class """
 
     def __init__(

@@ -4,7 +4,6 @@ import uuid
 import PIL
 import arcade
 from PIL import ImageDraw, ImageFont
-from arcade import get_four_byte_color
 
 PADDING = 10
 TEXT_PADDING = (28, 5)
@@ -69,7 +68,7 @@ class InventoryItem(arcade.sprite.Sprite):
             color = COLOR_SELECTED
 
         name = self.names[int(self.selected)]
-        image = PIL.Image.new("RGBA", self.image.size, get_four_byte_color(color))
+        image = PIL.Image.new("RGBA", self.image.size, color)
 
         image.paste(self.image, (0, 0), self.image)
 

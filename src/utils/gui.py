@@ -45,8 +45,8 @@ def get_button_style() -> dict:
 
 def get_slider_style() -> dict:
     default_style = arcade.gui.UISlider.UIStyle(
-        filled_bar=arcade.color.HOT_PINK,
-        unfilled_bar=arcade.color.BLACK
+        filled_track=arcade.color.HOT_PINK,
+        unfilled_track=arcade.color.BLACK
     )
     return {
         "press": default_style,
