@@ -1,7 +1,7 @@
 """ Text utils """
 
 import arcade
-from arcade import Color
+from arcade.color import Color
 
 from constants.fonts import FONT_DEFAULT
 
@@ -18,13 +18,11 @@ FONT_SIZE_LOGO = 80
 
 def create_text(
         text: str,
-        start_x: float = MARGIN,
-        start_y: float = MARGIN,
+        x: float = MARGIN,
+        y: float = MARGIN,
         color: Color = arcade.csscolor.WHITE,
         font_size: int = FONT_SIZE_MEDIUM,
         font_name: str = FONT_DEFAULT,
-        anchor_x: str = 'left',
-        anchor_y: str = 'bottom',
         align: str = 'left',
         width: int | None = None,
         multiline: bool = False,
@@ -48,13 +46,11 @@ def create_text(
     """
     return arcade.Text(
         text=text,
-        start_x=start_x,
-        start_y=start_y,
         color=color,
         font_size=font_size,
         align=align,
-        anchor_x=anchor_x,
-        anchor_y=anchor_y,
+        x=x,
+        y=y,
         width=width,
         multiline=multiline,
         font_name=font_name,

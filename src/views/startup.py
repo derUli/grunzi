@@ -15,7 +15,6 @@ from state.viewstate import ViewState
 from utils.log import log_hardware_info, configure_logger
 from utils.screen import antialiasing
 from utils.text import label_value
-from views.intro import Intro
 from views.menu.mainmenu import MainMenu
 from window.gamewindow import SCREEN_WIDTH, SCREEN_HEIGHT, GameWindow
 from window.launcherwindow import LauncherWindow
@@ -168,7 +167,6 @@ class StartUp:
         self.setup_path()
 
         args = self.parse_args()
-        args.skip_logo = True
 
         log_level = self.get_log_level(args.verbose)
         log_level_arcade = self.get_log_level_arcade(args.verbose)
@@ -236,13 +234,11 @@ class StartUp:
         state = ViewState(self.root_dir, map_name=FIRST_MAP, settings=SettingsState.load())
         state.preload()
         icon_path = os.path.join(state.ui_dir, 'icon.ico')
-        icon = pyglet.image.load(icon_path)
-        window.set_icon(icon)
+        # TODO
+        # icon = pyglet.image.load(icon_path)
+        # window.set_icon(icon)
 
-        view = Intro(window, state)
-
-        if args.skip_logo:
-            view = MainMenu(window, state)
+        view = MainMenu(window, state)
 
         window.show_view(view)
         arcade.run()

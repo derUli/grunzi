@@ -143,7 +143,7 @@ class Game(Fading):
         savegame.save()
 
         # Set up the Cameras
-        self.camera_sprites = arcade.Camera()
+        self.camera_sprites = arcade.camera.Camera2D()
         self.state.reset()
         self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 

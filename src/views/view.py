@@ -33,7 +33,7 @@ class View(arcade.View):
         self.scene = arcade.Scene()
         self.build_version = ''
         # Initialize the camera for static GUI elements
-        self.camera_gui = arcade.Camera()
+        self.camera_gui = arcade.camera.Camera2D()
         self.shadertoy = None
         self.alt_key_pressed = False
 
@@ -136,7 +136,8 @@ class View(arcade.View):
             )
         self.build_number_text.draw()
 
-    def on_stick_motion(self, controller, stick_name, x_value, y_value):
+    def on_stick_motion(self, controller, stick_name, vec2):
+        x_value, y_value = vec2
 
         x_value = round(x_value)
         y_value = round(y_value)

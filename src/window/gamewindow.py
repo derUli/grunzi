@@ -31,7 +31,7 @@ class GameWindow(arcade.Window):
             antialiasing: bool = True,
             samples: int = 0,
     ):
-        default_screen = pyglet.canvas.get_display().get_default_screen()
+        default_screen = pyglet.display.get_display().get_default_screen()
         native_mode = default_screen.get_mode()
         self.monitor_refresh_rate = native_mode.rate
 
@@ -95,7 +95,7 @@ class GameWindow(arcade.Window):
 
         if self.is_native:
             return
-        screen = pyglet.canvas.get_display().get_default_screen()
+        screen = pyglet.display.get_display().get_default_screen()
         mode = screen.get_closest_mode(self.width, self.height)
 
         return super().set_fullscreen(fullscreen=fullscreen, screen=screen, mode=mode)

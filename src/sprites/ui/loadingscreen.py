@@ -146,7 +146,7 @@ class LoadingScreen:
         self.image.draw()
         self.filmgrain.draw()
 
-        arcade.draw_rectangle_filled(
+        rectangle_filled(
             w / 2,
             self.bar_height / 2,
             w,

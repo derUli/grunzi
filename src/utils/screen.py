@@ -9,7 +9,7 @@ def supported_screen_resolutions() -> list:
     Get supported screen resolutions for launcher
     @return: list of string
     """
-    modes = pyglet.canvas.get_display().get_default_screen().get_modes()
+    modes = pyglet.display.get_display().get_default_screen().get_modes()
 
     mode_values = []
 
