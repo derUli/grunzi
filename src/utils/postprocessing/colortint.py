@@ -93,7 +93,7 @@ class ColorTint(Effect):
 
     def update_it(self, args, index, layer_name, klass, radius, max_alpha):
 
-        if layer_name not in args.scene.name_mapping:
+        if layer_name not in args.scene._name_mapping:
             return
 
         w, h = arcade.get_window().get_size()

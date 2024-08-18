@@ -81,7 +81,8 @@ class MapPopulator:
         if not self.enabled:
             return
 
-        self.spawn_food(args)
+        # FIXME
+        # self.spawn_food(args)
         self.spawn_landmine(args)
 
         self.spawn_snow(args)

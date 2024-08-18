@@ -81,7 +81,7 @@ class Player(Character, SpriteHealth):
 
         self.center_x, self.center_y = SPAWN_POINT
 
-        if LAYER_SPAWN_POINT not in self.scene.name_mapping:
+        if LAYER_SPAWN_POINT not in self.scene._name_mapping:
             return
 
         for sprite in self.scene.get_sprite_list(LAYER_SPAWN_POINT):

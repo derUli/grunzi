@@ -35,7 +35,7 @@ class Scene(BaseScene):
         self.setup_sprites(args)
 
     def setup_sprites(self, args):
-        for name in self.name_mapping:
+        for name in self._name_mapping:
             try:
                 for sprite in self[name]:
                     if isinstance(sprite, AbstractSprite) and not isinstance(sprite, Character):
@@ -90,7 +90,7 @@ class Scene(BaseScene):
 
         from constants.layers import PASSIVE_LAYERS
 
-        for layer in reversed(self.name_mapping):
+        for layer in reversed(self._name_mapping):
             if layer in PASSIVE_LAYERS:
                 continue
 
@@ -215,7 +215,7 @@ def get_layer(name: str, scene: Scene) -> SpriteList:
     @return: List of sprites
     """
 
-    if name in scene.name_mapping:
+    if name in scene._name_mapping:
         return scene[name]
 
     return SpriteList(use_spatial_hash=True)

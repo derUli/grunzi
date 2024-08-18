@@ -238,7 +238,7 @@ def check_collision_with_layers(scene: Scene, sprite, layer_names: list | None =
         layer_names = ALL_LAYERS
 
     for layer in layer_names:
-        if layer not in scene.name_mapping:
+        if layer not in scene._name_mapping:
             continue
 
         if arcade.check_for_collision_with_list(sprite, scene[layer]):
