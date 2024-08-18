@@ -4,6 +4,7 @@ from typing import Optional
 import PIL
 import arcade
 from arcade import FACE_RIGHT
+from arcade.types import PathOrTexture
 
 from sprites.sprite import Sprite
 
@@ -11,22 +12,15 @@ from sprites.sprite import Sprite
 class Item(Sprite):
     def __init__(
             self,
-            filename: Optional[str] = None,
-            image_x=0,
-            image_y=0,
-            image_width=None,
-            image_height=None,
-            flipped_horizontally=False,
-            flipped_vertically=False,
-            flipped_diagonally=False,
-            hit_box_algorithm=None,
-            hit_box_detail=None,
-            scale=1.0,
-            center_x=None,
-            center_y=None
+            path_or_texture: PathOrTexture | None = None,
+            scale: float = 1.0,
+            center_x: float = 0.0,
+            center_y: float = 0.0,
+            angle: float = 0.0,
     ):
-        self.filename = filename
-        self.image = PIL.Image.open(filename).convert('RGBA').crop()
+
+        self.filename = path_or_texture.file_path
+        self.image = PIL.Image.open(self.filename).convert('RGBA').crop()
 
         self.images = self.generate_rotated(self.image)
 
@@ -35,18 +29,17 @@ class Item(Sprite):
         i = 0
         for image in self.images:
             self._the_textures.append(
-                arcade.texture.Texture(name=str(filename) + str(i), image=image)
+                arcade.texture.Texture(name=str(self.filename) + str(i), image=image)
             )
 
             i += 1
 
         super().__init__(
-            texture=self._the_textures[FACE_RIGHT - 1],
-            scale=scale,
-            image_x=image_x,
-            image_y=image_y,
-            center_x=center_x,
-            center_y=center_y
+            path_or_texture,
+            scale,
+            center_x,
+            center_y,
+            angle
         )
 
     def on_use_with(self, b, args):

@@ -328,7 +328,7 @@ class Game(Fading):
             return self.draw_after()
 
         if not self.initialized or not self.ui.loading_screen.completed:
-            self.ui.loading_screen.draw(time=self.time)
+            self.ui.loading_screen.draw(self.time)
 
             return self.draw_after()
 

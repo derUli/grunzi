@@ -5,8 +5,8 @@ import random
 import PIL
 import arcade
 from PIL.Image import Resampling
-from arcade import TileMap, Texture, TextureAnimationSprite
-from arcade.resources import resolve_resource_path
+from arcade import TileMap, Texture, TextureAnimationSprite, TextureKeyframe, TextureAnimation
+from arcade.resources import resolve_resource_path, resolve
 
 
 def tilemap_size(tilemap: TileMap) -> tuple:
@@ -36,7 +36,7 @@ def random_position(tilemap: TileMap) -> tuple:
     return rand_x, rand_y
 
 
-def load_animated_gif(resource_name) -> TextureAnimationSprite:
+def load_animated_gif(resource_name, size) -> TextureAnimationSprite:
     """
     Attempt to load an animated GIF as an :class:`TextureAnimationSprite`.
 
@@ -60,6 +60,10 @@ def load_animated_gif(resource_name) -> TextureAnimationSprite:
         image_object.seek(frame)
         frame_duration = image_object.info["duration"]
         image = image_object.convert("RGBA")
+        image = image.resize(
+            size,
+            resample=Resampling.BILINEAR
+        )
         texture = Texture(image)
         texture.file_path = file_name
         # sprite.textures.append(texture)

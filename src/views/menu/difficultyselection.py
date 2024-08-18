@@ -151,7 +151,7 @@ class DifficultySelection(Fading):
 
         self.update_mouse()
         self.update_fade(self.next_view)
-        self.scene.update()
+        self.scene.update(delta_time)
 
     def on_draw(self) -> None:
         """ On draw """

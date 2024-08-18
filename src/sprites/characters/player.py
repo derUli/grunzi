@@ -43,10 +43,15 @@ class Player(Character, SpriteHealth):
         self.move_force = MOVE_FORCE
         self.modifier = MODIFIER_DEFAULT
         self.damping = MOVE_DAMPING
-        self.textures = arcade.load_texture_pair(filename)
 
         self.health = HEALTH_FULL
-        self.textures = arcade.load_texture_pair(filename)
+
+        # FIXME: Player
+        self.textures = [
+            arcade.load_texture(filename),
+            arcade.load_texture(filename).flip_horizontally()
+        ]
+
         self.face = DEFAULT_FACE
         self.face_horizontal = DEFAULT_FACE
         self.texture = self.textures[self.face - 1]

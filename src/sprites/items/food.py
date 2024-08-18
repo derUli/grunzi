@@ -2,6 +2,8 @@ import logging
 import os
 import random
 
+import arcade
+
 from constants.layers import check_collision_with_layers, LAYER_FOOD
 from sprites.items.item import Item
 from utils.sprite import random_position
@@ -75,11 +77,13 @@ def spawn_food(state, tilemap, scene, physics_engine):
     food_class = random.choices(
         classes, weights=weights, k=1)[0]
 
+
     food = food_class(
-        filename=os.path.join(
+        path_or_texture=arcade.load_texture(os.path.join(
             state.sprite_dir,
             'food',
             food_class.__name__.lower() + '.png'
+        )
         ),
         center_x=rand_x,
         center_y=rand_y

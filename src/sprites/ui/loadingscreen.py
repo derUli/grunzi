@@ -78,7 +78,7 @@ class LoadingScreen:
         )
 
         sprite = arcade.sprite.Sprite(
-            texture=texture
+            path_or_texture=texture
         )
         sprite.position = (w / 2, h / 2)
 
@@ -126,7 +126,7 @@ class LoadingScreen:
                 name=f"radius-{self.blur}"
             )
 
-            image = arcade.sprite.Sprite(texture=texture)
+            image = arcade.sprite.Sprite(path_or_texture=texture)
             image.position = self.image.position
             self.image = image
 
@@ -136,32 +136,34 @@ class LoadingScreen:
     def completed(self):
         return self._display_percentage >= 100
 
-    def draw(self, time=None):
+    def draw(self, delta_time=0):
 
         if not self.show:
             return
 
         w, h = self.size
 
-        self.image.draw()
-        self.filmgrain.draw()
+        # FIXME: Draw method doesn't exist anymore
+        # self.image.draw(delta_time)
+        # self.filmgrain.draw(delta_time)
 
-        rectangle_filled(
-            w / 2,
-            self.bar_height / 2,
-            w,
-            self.bar_height,
-            arcade.csscolor.PINK
-        )
+        # FIXME: Progress bar
+        #arcade.draw_rect_filled(
+        #    w / 2,
+        #    self.bar_height / 2,
+        #    w,
+        #    self.bar_height,
+        #    arcade.csscolor.PINK
+        #)
 
         bar_width = self._display_percentage * self.onepercent
 
-        arcade.draw_rectangle_filled(
-            bar_width / 2,
-            self.bar_height / 2,
-            bar_width,
-            self.bar_height,
-            arcade.csscolor.HOTPINK
-        )
+        # arcade.draw_rect_filled(
+        #     bar_width / 2,
+        #     self.bar_height / 2,
+        #     bar_width,
+        #     self.bar_height,
+        #     arcade.csscolor.HOTPINK
+        # )
 
         self.loading_text.draw()
