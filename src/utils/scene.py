@@ -142,7 +142,7 @@ class Scene(BaseScene):
             if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
                 continue
 
-            if self.check_sprite_in_sight(sprite, self.args.player):
+            if self.args and self.check_sprite_in_sight(sprite, self.args.player):
                 sprite.draw_overlay(self.args)
 
     def get_next_sprites(self, distance=200):
