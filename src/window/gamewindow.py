@@ -119,8 +119,6 @@ class GameWindow(arcade.Window):
     def set_vsync(self, vsync):
         super().set_vsync(vsync)
 
-        print(self.monitor_refresh_rate)
-
         if vsync:
             self.set_draw_rate(1 / self.monitor_refresh_rate)
         else:

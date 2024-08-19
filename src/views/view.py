@@ -54,7 +54,13 @@ class View(arcade.View):
 
     def on_update(self, delta_time: float):
         self.time += delta_time
-        self.fps_counter.update(arcade.get_fps())
+
+        fps = arcade.get_fps()
+
+        if fps > self.window.monitor_refresh_rate:
+            fps = self.window.monitor_refresh_rate
+
+        self.fps_counter.update(fps)
 
     def on_draw(self) -> None:
         arcade.set_background_color(DEFAULT_BACKGROUND)
