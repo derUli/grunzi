@@ -57,7 +57,7 @@ class View(arcade.View):
 
         fps = arcade.get_fps()
 
-        if fps > self.window.monitor_refresh_rate:
+        if self.window.vsync and fps > self.window.monitor_refresh_rate:
             fps = self.window.monitor_refresh_rate
 
         self.fps_counter.update(fps)

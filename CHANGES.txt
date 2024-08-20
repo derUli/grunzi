@@ -7,6 +7,11 @@
 * Audio: Master Lautstärkeregler hinzugefügt
 * map04: Color Tint zu Feuer hinzugefügt
 
+
+## Alpha 018
+
+* Neuer Gegner hinzugefügt: Fass
+
 ## Alpha 017 (Unreleased)
 
 * map04 hinzugefügt
