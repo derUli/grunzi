@@ -4,6 +4,7 @@ import sys
 import threading
 import time
 
+import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -26,6 +27,7 @@ from utils.media.video import load_video, Video
 from utils.physics import make_physics_engine
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from utils.scene import Scene
+from utils.text import label_value
 from utils.tilemap import TileMap
 from views.camera import center_camera_to_player
 from views.fading import Fading
@@ -130,12 +132,8 @@ class Game(Fading):
         self.async_load()
 
     def async_load(self) -> None:
-
-        start_time = time.time()
-
+        logging.info(f"Load map {self.state.map_name}")
         self.loader.run(self)
-
-        logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
 
     def wait_for_video(self, delta_time=0) -> None:
         """ Wait until video playback completed """
@@ -164,9 +162,12 @@ class Game(Fading):
 
         super().on_update(delta_time)
 
+        self.ui.loading_screen.percent = self.loader.percentage
         self.ui.loading_screen.update(delta_time)
+        self.loader.check_completed()
 
         if not self.loader.initialized:
+
             if not self.video.active and not self.loading_music:
                 self.loading_music = self.state.play_sound(
                     'loading',
@@ -177,6 +178,7 @@ class Game(Fading):
 
         if self.video.active:
             return
+
 
         if self.loading_music:
             self.loading_music.pause()

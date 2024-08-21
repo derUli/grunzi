@@ -34,14 +34,15 @@ class Loader:
         self.completed_at = None
         self.threads = []
 
-        self.threads.append(threading.Thread(target=self.load_level, args=(klaas,)))
+        self.threads.append(threading.Thread(target=self.init_level, args=(klaas,)))
+        self.threads.append(threading.Thread(target=self.init_music_queue, args=(klaas,)))
 
         for thread in self.threads:
             thread.start()
 
-    def load_level(self, klaas):
+    @staticmethod
+    def init_level(klaas):
         klaas.ui.loading_screen.show = True
-        klaas.ui.loading_screen.percent = 0
 
         savegame = SaveGameState.load()
         savegame.current = klaas.state.map_name
@@ -51,8 +52,6 @@ class Loader:
         klaas.camera_sprites = arcade.Camera()
         klaas.state.reset()
         klaas.state.difficulty = MapConfig(savegame.difficulty, klaas.state.map_name, klaas.state.map_dir)
-
-        klaas.ui.loading_screen.percent = 10
 
         # Name of map file to load
         map_name = os.path.join(klaas.state.map_dir, f"{klaas.state.map_name}.tmx")
@@ -67,13 +66,9 @@ class Loader:
             logging.error(e)
             sys.exit(1)
 
-        klaas.ui.loading_screen.percent = 25
-
         # Initialize Scene with our TileMap, this will automatically add all layers
         # from the map as SpriteLists in the scene in the proper order.
         klaas.scene = Scene.from_tilemap(klaas.tilemap.map)
-
-        klaas.ui.loading_screen.percent = 50
 
         klaas.map_populator = MapPopulator()
         klaas.map_populator.spawn_initial(make_args_container(klaas))
@@ -96,8 +91,6 @@ class Loader:
 
         klaas.map_populator.spawn_npcs(make_args_container(klaas))
 
-        klaas.ui.loading_screen.percent = 60
-
         klaas.wall_spritelist = klaas.scene.make_wall_spritelist()
 
         sprite = arcade.SpriteSolidColor(
@@ -116,33 +109,51 @@ class Loader:
             bottom=0
         )
 
-        klaas.ui.loading_screen.percent = 80
+        pyglet.clock.schedule_interval_soft(klaas.wait_for_video, interval=UPDATE_RATE)
+
+    @staticmethod
+    def init_music_queue(klaas):
 
         # Create the music queue
         klaas.music_queue = MusicQueue(state=klaas.state)
         klaas.music_queue.from_directory(os.path.join(klaas.state.music_dir, str(klaas.state.map_name)))
 
-        klaas.ui.loading_screen.percent = 100
+    @property
+    def execution_time(self):
+        if self.started_at and self.completed_at:
+            return self.completed_at - self.started_at
 
-        pyglet.clock.schedule_interval_soft(klaas.wait_for_video, interval=UPDATE_RATE)
-
-        # Sleep some seconds to wait until the 100 Percent is shown
-        while not klaas.ui.loading_screen.completed:
-            time.sleep(0.0001)
-
-        klaas.ui.loading_screen.show = False
+        return None
 
     @property
     def initialized(self):
-        if len(self.threads) == 0:
-            return False
+        return self.completed_at is not None
 
-        for thread in self.threads:
-            if thread.is_alive():
-                return False
-
-        if self.started_at and not self.completed_at:
+    def complete(self):
+        if not self.completed_at:
             self.completed_at = time.time()
-            logging.info(f"Map loaded in {self.completed_at - self.started_at}")
 
-        return True
+            logging.info(f"Map loaded in {self.execution_time} seconds")
+
+    @property
+    def percentage(self):
+        finished = 0
+        for thread in self.threads:
+            if not thread.is_alive():
+                finished += 1
+
+        if finished == 0:
+            return 0
+
+        return 100 / len(self.threads) * finished
+
+    def check_completed(self):
+        if self.percentage == 100:
+            self.complete()
+    def wait_for(self):
+        for thread in self.threads:
+            thread.join()
+
+        self.complete()
+
+
