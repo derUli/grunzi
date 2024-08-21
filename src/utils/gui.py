@@ -55,6 +55,7 @@ def get_slider_style() -> dict:
         "disabled": default_style
     }
 
+
 def center_cursor(window: arcade.Window):
     x, y = window.get_location()
 
