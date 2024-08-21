@@ -24,10 +24,14 @@ from window.gamewindow import UPDATE_RATE
 class Loader:
     def __init__(self):
         self.threads = []
+        self.started_at = None
+        self.completed_at = None
 
     """ Async load map """
 
     def run(self, klaas) -> None:
+        self.started_at = time.time()
+        self.completed_at = None
         self.threads = []
 
         self.threads.append(threading.Thread(target=self.async_load, args=(klaas,)))
@@ -136,5 +140,9 @@ class Loader:
         for thread in self.threads:
             if thread.is_alive():
                 return False
+
+        if self.started_at and not self.completed_at:
+            self.completed_at = time.time()
+            logging.info(f"Map loaded in {self.completed_at - self.started_at}")
 
         return True
