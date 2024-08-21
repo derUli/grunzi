@@ -1,12 +1,12 @@
 import logging
 import os
 import sys
+import threading
 import time
 
 import arcade
 import pyglet
 
-from utils.media.audio import MusicQueue
 from constants.layers import LAYER_OPTIONS
 from constants.mapconfig import MapConfig
 from sprites.characters.player import Player
@@ -14,6 +14,7 @@ from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
 from utils.mappopulator import MapPopulator
+from utils.media.audio import MusicQueue
 from utils.physics import make_physics_engine
 from utils.scene import Scene
 from utils.tilemap import TileMap
@@ -21,10 +22,20 @@ from window.gamewindow import UPDATE_RATE
 
 
 class Loader:
+    def __init__(self):
+        self.threads = []
 
     """ Async load map """
-    def run(self, klaas) -> None:
 
+    def run(self, klaas) -> None:
+        self.threads = []
+
+        self.threads.append(threading.Thread(target=self.async_load, args=(klaas,)))
+
+        for thread in self.threads:
+            thread.start()
+
+    def async_load(self, klaas):
         klaas.ui.loading_screen.show = True
         klaas.ui.loading_screen.percent = 0
 
@@ -116,4 +127,14 @@ class Loader:
             time.sleep(0.0001)
 
         klaas.ui.loading_screen.show = False
-        klaas.initialized = True
+
+    @property
+    def initialized(self):
+        if len(self.threads) == 0:
+            return False
+
+        for thread in self.threads:
+            if thread.is_alive():
+                return False
+
+        return True

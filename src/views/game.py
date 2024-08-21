@@ -44,8 +44,6 @@ class Game(Fading):
         # Call the parent class and set up the window
         super().__init__(window)
 
-        self.initialized = False
-
         self.state = state
 
         # Our TileMap Object
@@ -77,6 +75,7 @@ class Game(Fading):
         self.wall_spritelist = None
         self.map_populator = None
         self.measurements = []
+        self.loader = Loader()
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -86,7 +85,7 @@ class Game(Fading):
         self.push_controller_handlers()
         self.state.settings.unmute()
 
-        if self.initialized:
+        if self.loader.initialized:
             self.music_queue.play()
             self.atmo.play()
             return
@@ -110,7 +109,6 @@ class Game(Fading):
     def setup(self) -> None:
         """ Setup game """
 
-        self.initialized = False
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
         if not self.state.settings.videos:
@@ -129,14 +127,13 @@ class Game(Fading):
         self.ui.setup(self.state, self.window.size)
 
         # Load map
-        threading.Thread(target=self.async_load).start()
+        self.async_load()
 
     def async_load(self) -> None:
 
         start_time = time.time()
 
-        loader = Loader()
-        loader.run(self)
+        self.loader.run(self)
 
         logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
 
@@ -169,7 +166,7 @@ class Game(Fading):
 
         self.ui.loading_screen.update(delta_time)
 
-        if not self.initialized:
+        if not self.loader.initialized:
             if not self.video.active and not self.loading_music:
                 self.loading_music = self.state.play_sound(
                     'loading',
@@ -237,7 +234,7 @@ class Game(Fading):
             self.video.draw((0, 0), force_draw=True)
             return self.draw_after()
 
-        if not self.initialized or not self.ui.loading_screen.completed:
+        if not self.loader.initialized or not self.ui.loading_screen.completed:
             self.ui.loading_screen.draw(time=self.time)
 
             return self.draw_after()
@@ -292,7 +289,7 @@ class Game(Fading):
         if self.video.active and key in constants.controls.controller.KEY_DISCARD:
             return self.video.stop()
 
-        if not self.initialized:
+        if not self.loader.initialized:
             return
 
         if self.player_sprite.dead:
@@ -418,7 +415,7 @@ class Game(Fading):
         if self.video.active and key in constants.controls.keyboard.KEY_DISCARD:
             return self.video.stop()
 
-        if not self.initialized:
+        if not self.loader.initialized:
             return
 
         if self.player_sprite.dead:
@@ -599,7 +596,7 @@ class Game(Fading):
     @property
     def input_ready(self) -> bool:
         """ Check if the game is ready to handle input """
-        if not self.initialized:
+        if not self.loader.initialized:
             return False
 
         return not self.video.active
