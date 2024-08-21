@@ -34,12 +34,12 @@ class Loader:
         self.completed_at = None
         self.threads = []
 
-        self.threads.append(threading.Thread(target=self.async_load, args=(klaas,)))
+        self.threads.append(threading.Thread(target=self.load_level, args=(klaas,)))
 
         for thread in self.threads:
             thread.start()
 
-    def async_load(self, klaas):
+    def load_level(self, klaas):
         klaas.ui.loading_screen.show = True
         klaas.ui.loading_screen.percent = 0
 
