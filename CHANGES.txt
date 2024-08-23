@@ -7,12 +7,11 @@
 * Audio: Master Lautstärkeregler hinzugefügt
 * map04: Color Tint zu Feuer hinzugefügt
 
-
 ## Alpha 018
 
 * Neuer Gegner hinzugefügt: Fass
 
-## Alpha 017 (Unreleased)
+## Alpha 017 (23.08.2024)
 
 * map04 hinzugefügt
 * Video: Video Cutscenes können in den Grafikeinstellungen deaktiviert werden.
