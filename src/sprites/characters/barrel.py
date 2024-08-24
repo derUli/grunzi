@@ -111,6 +111,9 @@ class Barrel(Character):
 
         layers = WALL_LAYERS + [LAYER_MOVEABLE, LAYER_NPC]
 
+        if explodes:
+            layers = []
+
         for layer in layers:
             if not layer in args.scene.name_mapping:
                 break
@@ -122,7 +125,7 @@ class Barrel(Character):
                     break
 
         if explodes:
-            # TODO: Explosion
+            pyglet.clock.unschedule(self.check_collision)
             self.spawn_explosion(args)
 
     def update_explosion(self, delta_time, args):
