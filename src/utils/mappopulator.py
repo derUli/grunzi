@@ -46,9 +46,10 @@ class MapPopulator:
 
         if what == 'Skull':
             self.spawn_skull(args)
-
-        if what == 'Slimer':
+        elif what == 'Slimer':
             self.spawn_slimer(args)
+        elif what == 'Barrel':
+            self.spawn_barrel(args)
 
         self.next_spawn = time.time() + random.randint(1, 6)
 
@@ -69,6 +70,15 @@ class MapPopulator:
         """
         from sprites.characters.slimer import spawn_slimer
         spawn_slimer(args.state, args.tilemap.map, args.scene, args.physics_engine)
+
+    def spawn_barrel(self, args: ArgsContainer) -> None:
+        """
+        Spawn a slimer
+
+        @param: ArgsContainer
+        """
+        from sprites.characters.barrel import spawn_barrel
+        spawn_barrel(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     def spawn_npcs(self, args: ArgsContainer) -> None:
         """ Spawn some sprites on level load """

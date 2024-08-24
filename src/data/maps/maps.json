@@ -69,6 +69,20 @@
   "map04": {
     "options": {
       "snow": true
+    },
+    "spawnWhat": [
+      "Barrel",
+      "Skull",
+      "Slimer"
+    ],
+     "1": {
+      "maxNPCs": 7
+    },
+    "2": {
+      "maxNPCs": 9
+    },
+    "3": {
+      "maxNPCs": 12
     }
   }
 }
