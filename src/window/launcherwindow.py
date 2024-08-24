@@ -269,6 +269,8 @@ class LauncherWindow(ThemedTk):
             self.args.antialiasing = self.state.antialiasing
 
         self.state.filmgrain = self.filmgrain.get()
+        self.state.weather = self.weather.get()
+        self.state.color_tint = self.colortint.get()
 
         w, h = self.screen_resolution.get().split('x')
         self.state.screen_resolution = [w, h]
