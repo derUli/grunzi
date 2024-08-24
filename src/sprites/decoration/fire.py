@@ -15,6 +15,7 @@ class Fire(AbstractAnimatedSprite):
             args: ArgsContainer
     ):
         super().update(delta_time, args)
+
         if not hasattr(self, 'fx'):
             audio = args.state.play_sound('fire', loop=True)
             self.fx = PositionalSound(
