@@ -78,7 +78,7 @@ class Barrel(Character):
 
             return
 
-        if args.player.center_y > self.center_y:
+        if arcade.get_distance_between_sprites(self, args.player) > SIGHT_DISTANCE:
             return
 
         args.physics_engine.apply_force(self, (0, -FORCE_MOVE))
