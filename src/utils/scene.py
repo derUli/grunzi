@@ -1,4 +1,5 @@
 """ Scene utils """
+import logging
 from typing import Optional, List
 
 import arcade
@@ -68,7 +69,10 @@ class Scene(BaseScene):
             self.setup(args)
 
         size = arcade.get_window().get_size()
-        self.update_animated(delta_time, size, self, args.player)
+        try:
+            self.update_animated(delta_time, size, self, args.player)
+        except IndexError as e:
+            logging.error(e)
 
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)
