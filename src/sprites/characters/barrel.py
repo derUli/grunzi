@@ -94,12 +94,17 @@ class Barrel(Character):
 
         self.insight = True
 
-        move = FORCE_MOVE
+        move_x = FORCE_MOVE
+        move_y = FORCE_MOVE
+
+
+        if self.center_x > args.player.center_x:
+            move_x = -move_x
 
         if self.center_y > args.player.center_y:
-            move = -move
+            move_y = -move_y
 
-        args.physics_engine.apply_force(self, (0, move))
+        args.physics_engine.apply_force(self, (move_x, move_y))
 
 
     def check_collision(self, delta_time, args):

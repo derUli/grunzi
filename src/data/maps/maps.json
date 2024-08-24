@@ -76,13 +76,13 @@
       "Barrel"
     ],
      "1": {
-      "maxNPCs": 8
+      "maxNPCs": 5
     },
     "2": {
-      "maxNPCs": 10
+      "maxNPCs": 7
     },
     "3": {
-      "maxNPCs": 13
+      "maxNPCs": 9
     }
   }
 }
