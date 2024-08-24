@@ -1,3 +1,5 @@
+import arcade
+
 from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER, COLLISION_CHICKEN
 from sprites.sprite import Sprite
 from state.argscontainer import ArgsContainer
@@ -22,6 +24,9 @@ class CarLeft(Sprite, Car):
             delta_time: float,
             args: ArgsContainer
     ) -> None:
+
+        from constants.layers import LAYER_FOOD
+
         w, h = args.map_size
 
         args.physics_engine.apply_force(self, (-FORCE_MOVE, 0))
@@ -32,6 +37,14 @@ class CarLeft(Sprite, Car):
         args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
         args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
         args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_CHICKEN, post_handler=self.on_hit)
+
+        if not LAYER_FOOD in args.scene.name_mapping:
+            return
+
+        for food in args.scene[LAYER_FOOD]:
+
+            if arcade.get_distance_between_sprites(self, food) < 100:
+                food.remove_from_sprite_lists()
 
 
 class CarRight(Sprite, Car):
