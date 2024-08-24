@@ -137,9 +137,9 @@ class Barrel(Character):
 
     def explosion_hurt(self, args):
 
-        hurt = 30
+        hurt = 1
 
-        if arcade.get_distance_between_sprites(self.explosion, args.player) < 300:
+        if arcade.get_distance_between_sprites(self.explosion, args.player) < 200:
             args.player.hurt(hurt)
 
         npcs = arcade.check_for_collision_with_list(self.explosion, args.scene[LAYER_NPC])
