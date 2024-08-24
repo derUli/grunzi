@@ -1,5 +1,6 @@
 """ Slimer sprite class """
 import os
+import time
 
 import arcade
 import numpy
@@ -164,9 +165,11 @@ class Barrel(Character):
                 sprite.hurt(hurt)
 
     def spawn_explosion(self, args):
+        start = time.time()
         gif = arcade.load_animated_gif(
             os.path.join(args.state.animation_dir, 'explosion.gif')
         )
+        print(time.time() - start )
         gif.position = self.position
         self.explosion = gif
 
