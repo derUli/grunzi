@@ -10,6 +10,7 @@ from arcade import FACE_RIGHT, FACE_LEFT, Color
 from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN, \
     COLLISION_MOVEABLE
 from constants.layers import LAYER_NPC
+from sprites.characters.barrel import Barrel
 from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
 from sprites.characters.slimer import Slimer
@@ -20,10 +21,12 @@ from utils.physics import on_hit_destroy
 HURT_DEFAULT = 20
 HURT_CHICKEN = 35
 HURT_SLIMER = 10
+HURT_BARREL = 5
 
 SCORE_HURT_CHICKEN = 25
 SCORE_HURT_SKULL = 50
 SCORE_HURT_SLIMER = 100
+SCORE_HURT_BARREL = 200
 
 MASS = 0.05
 DAMPING = 1
@@ -126,6 +129,10 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
         if isinstance(_hit_sprite, Slimer):
             hurt = HURT_SLIMER
             score = SCORE_HURT_SLIMER
+
+        if isinstance(_hit_sprite, Barrel):
+            hurt = HURT_BARREL
+            score = SCORE_HURT_BARREL
 
         hurt = hurt * self.hurt_modifier
 

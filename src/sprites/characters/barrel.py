@@ -7,7 +7,6 @@ from arcade import FACE_RIGHT, PymunkPhysicsEngine, SpriteList
 from constants.collisions import COLLISION_ENEMY
 from constants.layers import LAYER_NPC, check_collision_with_layers
 from sprites.characters.character import Character
-from sprites.characters.spritehealth import HEALTH_FULL
 from sprites.items.item import Useable
 from utils.physics import DEFAULT_FRICTION
 from utils.sprite import random_position
@@ -29,49 +28,31 @@ SHOOT_DELTA = 1
 PATH_FINDING_INTERVAL = 1
 
 
-class Barrel(Character, Useable):
+class Barrel(Character):
     def __init__(
             self,
             filename: str = None,
             center_x=0,
-            center_y=0,
+            center_y=0
     ):
-        super().__init__(center_x=center_x, center_y=center_y)
+        super().__init__(filename, center_x, center_y)
 
-        self.move_force = MOVE_FORCE
         self.damping = MOVE_DAMPING
-
-        self.health = HEALTH_FULL
-        self._died = False
-
-        dirname = os.path.join(os.path.dirname(filename))
-
-        self.chasing = None
         self.friction = DEFAULT_FRICTION
-        self.face = DEFAULT_FACE
-        self.textures = arcade.load_texture_pair(os.path.join(dirname, 'barrel.png'))
-
         self.fade_in = True
-        self.alpha = 0
-        self.update_texture()
-        self.last_shot = 0
-        self.sound = None
-        self.bullets = SpriteList()
 
-    def update_texture(self):
-        self.texture = self.textures[self.face - 1]
+        if self.fade_in:
+            self.alpha = 0
 
     def draw_overlay(self, args):
-        self.draw_healthbar()
+        if self._health < 100:
+            self.draw_healthbar()
 
     def update(
             self,
             delta_time,
             args
     ):
-
-        self.last_shot += delta_time
-
         if self.dead:
             alpha = self.alpha - FADE_SPEED
 
@@ -98,7 +79,7 @@ class Barrel(Character, Useable):
 def spawn_barrel(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
 
-    slimer = Barrel(
+    barrel = Barrel(
         filename=os.path.join(
             state.sprite_dir,
             'monster',
@@ -109,15 +90,14 @@ def spawn_barrel(state, tilemap, scene, physics_engine):
         center_y=rand_y
     )
 
-    if check_collision_with_layers(scene, slimer):
+    if check_collision_with_layers(scene, barrel):
         return spawn_barrel(state, tilemap, scene, physics_engine)
 
-    scene.add_sprite(LAYER_NPC, slimer)
+    scene.add_sprite(LAYER_NPC, barrel)
     physics_engine.add_sprite(
-        slimer,
-        friction=slimer.friction,
-        moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
+        barrel,
+        friction=barrel.friction,
         collision_type=COLLISION_ENEMY,
         max_velocity=200,
-        damping=slimer.damping
+        damping=barrel.damping
     )
