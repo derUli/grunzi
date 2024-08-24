@@ -28,7 +28,10 @@ class Car:
         for food in args.scene[LAYER_FOOD]:
             if arcade.get_distance_between_sprites(self, food) < 300:
                 logging.info('Car collided with food')
-                food.remove_from_sprite_lists()
+                try:
+                    food.remove_from_sprite_lists()
+                except KeyError:
+                    pass
                 break
 
 class CarLeft(Sprite, Car):
