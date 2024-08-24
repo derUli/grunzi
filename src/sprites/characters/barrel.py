@@ -149,7 +149,9 @@ class Barrel(Character):
                 sprite.hurt(hurt)
 
     def spawn_explosion(self, args):
-        gif = arcade.load_animated_gif(os.path.join(args.state.animation_dir, 'explosion.gif'))
+        gif = arcade.load_animated_gif(
+            os.path.join(args.state.animation_dir, 'explosion.gif')
+        )
         gif.position = self.position
         self.explosion = gif
 
