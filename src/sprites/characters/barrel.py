@@ -1,6 +1,5 @@
 """ Slimer sprite class """
 import os
-import time
 
 import arcade
 import numpy
@@ -22,6 +21,7 @@ ELASTICITY = 0.1
 FORCE_MOVE = 300
 
 SIGHT_DISTANCE = 1400
+COLLISION_CHECK_DISTANCE = 200
 GRID_SIZE = 64
 
 FADE_IN_MAX = 255
@@ -101,6 +101,7 @@ class Barrel(Character):
 
         args.physics_engine.apply_force(self, (0, move))
 
+
     def check_collision(self, delta_time, args):
         if not self.insight:
             return
@@ -110,12 +111,8 @@ class Barrel(Character):
 
         explodes = False
 
-        start_time = time.time()
-
-        if arcade.check_for_collision(self, args.player):
+        if arcade.get_distance_between_sprites(self, args.player) < COLLISION_CHECK_DISTANCE:
             explodes = True
-
-        self.measures.append((time.time() - start_time) * 10000)
 
         layers = WALL_LAYERS + [LAYER_MOVEABLE, LAYER_NPC]
 
@@ -137,6 +134,7 @@ class Barrel(Character):
             self.spawn_explosion(args)
 
 
+
     def update_explosion(self, delta_time, args):
         self.explosion_hurt(args)
 
@@ -147,8 +145,8 @@ class Barrel(Character):
             self.remove_from_sprite_lists()
         return
 
-
     def explosion_hurt(self, args):
+
         hurt = 1
 
         if arcade.get_distance_between_sprites(self.explosion, args.player) < 200:
@@ -159,7 +157,6 @@ class Barrel(Character):
         for sprite in npcs:
             if isinstance(sprite, Character) and sprite != self:
                 sprite.hurt(hurt)
-
 
     def spawn_explosion(self, args):
         gif = arcade.load_animated_gif(
