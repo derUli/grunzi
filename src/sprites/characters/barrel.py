@@ -2,6 +2,7 @@
 import os
 
 import arcade
+import pyglet
 from arcade import FACE_RIGHT
 
 from constants.collisions import COLLISION_ENEMY
@@ -36,6 +37,8 @@ class Barrel(Character):
 
         self.fade_in = True
         self.explosion = None
+        self.initialized = False
+        self.insight = False
 
         if self.fade_in:
             self.alpha = 0
@@ -55,6 +58,10 @@ class Barrel(Character):
         if self.explosion:
             self.update_explosion(delta_time, args)
             return
+
+        if not self.initialized:
+            self.initialized = True
+            pyglet.clock.schedule_interval_soft(self.check_collision, 1, args)
 
         if self.dead:
             alpha = self.alpha - FADE_SPEED
@@ -81,7 +88,21 @@ class Barrel(Character):
         if arcade.get_distance_between_sprites(self, args.player) > SIGHT_DISTANCE:
             return
 
-        args.physics_engine.apply_force(self, (0, -FORCE_MOVE))
+        self.insight = True
+
+        move = FORCE_MOVE
+
+        if self.center_y > args.player.center_y:
+            move = -move
+
+        args.physics_engine.apply_force(self, (0, move))
+
+    def check_collision(self, delta_time, args):
+        if not self.insight:
+            return
+
+        if self.explosion:
+            return
 
         explodes = False
 
@@ -136,6 +157,7 @@ class Barrel(Character):
         self.explosion.sound = args.state.play_sound('explosion')
 
         self.alpha = 0
+
 
 def spawn_barrel(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
