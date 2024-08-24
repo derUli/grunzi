@@ -14,12 +14,11 @@ SPACE_BETWEEN = 5
 
 class InventoryContainer(arcade.sprite_list.SpriteList):
     def __init__(self):
-        super().__init__(capacity=CAPACITY, visible=True)
+        super().__init__(capacity=CAPACITY, visible=True, lazy=True)
 
         self.visible = True
 
     def setup(self, state, size):
-        self.clear()
         file = os.path.join(state.ui_dir, 'inventory.png')
 
         bottom = BOTTOM
