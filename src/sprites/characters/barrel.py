@@ -1,7 +1,9 @@
 """ Slimer sprite class """
 import os
+import time
 
 import arcade
+import numpy
 import pyglet
 from arcade import FACE_RIGHT
 
@@ -39,6 +41,7 @@ class Barrel(Character):
         self.explosion = None
         self.initialized = False
         self.insight = False
+        self.measures = []
 
         if self.fade_in:
             self.alpha = 0
@@ -107,8 +110,12 @@ class Barrel(Character):
 
         explodes = False
 
+        start_time = time.time()
+
         if arcade.check_for_collision(self, args.player):
             explodes = True
+
+        self.measures.append((time.time() - start_time) * 10000)
 
         layers = WALL_LAYERS + [LAYER_MOVEABLE, LAYER_NPC]
 
@@ -129,6 +136,7 @@ class Barrel(Character):
             pyglet.clock.unschedule(self.check_collision)
             self.spawn_explosion(args)
 
+
     def update_explosion(self, delta_time, args):
         self.explosion_hurt(args)
 
@@ -139,8 +147,8 @@ class Barrel(Character):
             self.remove_from_sprite_lists()
         return
 
-    def explosion_hurt(self, args):
 
+    def explosion_hurt(self, args):
         hurt = 1
 
         if arcade.get_distance_between_sprites(self.explosion, args.player) < 200:
@@ -152,6 +160,7 @@ class Barrel(Character):
             if isinstance(sprite, Character) and sprite != self:
                 sprite.hurt(hurt)
 
+
     def spawn_explosion(self, args):
         gif = arcade.load_animated_gif(
             os.path.join(args.state.animation_dir, 'explosion.gif')
@@ -161,6 +170,8 @@ class Barrel(Character):
 
         args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion.sound = args.state.play_sound('explosion')
+
+        print(numpy.mean(self.measures))
 
         self.alpha = 0
 
