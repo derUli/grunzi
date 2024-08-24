@@ -61,7 +61,8 @@ class Barrel(Character):
 
         if not self.initialized:
             self.initialized = True
-            pyglet.clock.schedule_interval_soft(self.check_collision, 1, args)
+            pyglet.clock.schedule_interval_soft(self.check_collision, 1 / 4, args)
+            return
 
         if self.dead:
             alpha = self.alpha - FADE_SPEED
