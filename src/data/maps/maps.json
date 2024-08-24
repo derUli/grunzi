@@ -76,13 +76,13 @@
       "Slimer"
     ],
      "1": {
-      "maxNPCs": 7
+      "maxNPCs": 5
     },
     "2": {
-      "maxNPCs": 9
+      "maxNPCs": 7
     },
     "3": {
-      "maxNPCs": 12
+      "maxNPCs": 9
     }
   }
 }
