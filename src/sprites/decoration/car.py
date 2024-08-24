@@ -25,7 +25,7 @@ class Car:
 
         for food in args.scene[LAYER_FOOD]:
             if arcade.get_distance_between_sprites(self, food) < 300:
-                food.remove_from_sprite_lists(food)
+                food.remove_from_sprite_lists()
                 break
 
 class CarLeft(Sprite, Car):
@@ -34,9 +34,6 @@ class CarLeft(Sprite, Car):
             delta_time: float,
             args: ArgsContainer
     ) -> None:
-
-        from constants.layers import LAYER_FOOD
-
         w, h = args.map_size
 
         args.physics_engine.apply_force(self, (-FORCE_MOVE, 0))
