@@ -42,7 +42,6 @@ class Barrel(Character):
         self.explosion = None
         self.initialized = False
         self.insight = False
-        self.measures = []
 
         if self.fade_in:
             self.alpha = 0
@@ -175,8 +174,6 @@ class Barrel(Character):
 
         args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion.sound = args.state.play_sound('explosion')
-
-        print(numpy.mean(self.measures))
 
         self.alpha = 0
 
