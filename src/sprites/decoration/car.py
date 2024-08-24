@@ -24,8 +24,8 @@ class Car:
             return
 
         for food in args.scene[LAYER_FOOD]:
-            if arcade.get_distance_between_sprites(self, food) < 100:
-                food.remove_from_sprite_lists()
+            if arcade.get_distance_between_sprites(self, food) < 300:
+                food.remove_from_sprite_lists(food)
                 break
 
 class CarLeft(Sprite, Car):
