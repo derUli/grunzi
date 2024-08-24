@@ -1,3 +1,5 @@
+import logging
+
 import arcade
 
 from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER, COLLISION_CHICKEN
@@ -25,6 +27,7 @@ class Car:
 
         for food in args.scene[LAYER_FOOD]:
             if arcade.get_distance_between_sprites(self, food) < 300:
+                logging.info('Car collided with food')
                 food.remove_from_sprite_lists()
                 break
 
