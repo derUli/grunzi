@@ -19,21 +19,6 @@ class Car:
 
         _hit_sprite.hurt(HURT)
 
-    def check_food(self, args: ArgsContainer):
-        from constants.layers import LAYER_FOOD
-
-        if not LAYER_FOOD in args.scene.name_mapping:
-            return
-
-        for food in args.scene[LAYER_FOOD]:
-            if arcade.get_distance_between_sprites(self, food) < 300:
-                logging.info('Car collided with food')
-                try:
-                    food.remove_from_sprite_lists()
-                except KeyError:
-                    pass
-                break
-
 class CarLeft(Sprite, Car):
     def update(
             self,
@@ -51,8 +36,6 @@ class CarLeft(Sprite, Car):
         args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
         args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_CHICKEN, post_handler=self.on_hit)
 
-        self.check_food(args)
-
 
 class CarRight(Sprite, Car):
     def update(
@@ -69,5 +52,3 @@ class CarRight(Sprite, Car):
         args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
         args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
         args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_CHICKEN, post_handler=self.on_hit)
-
-        self.check_food(args)
