@@ -12,7 +12,7 @@ from utils.sprite import random_position
 DEFAULT_FACE = FACE_RIGHT
 
 # Physics stuff
-MASS = 0.05
+MASS = 0.1
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
