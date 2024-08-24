@@ -15,7 +15,6 @@ from state.viewstate import ViewState
 from utils.log import log_hardware_info, configure_logger
 from utils.screen import antialiasing
 from utils.text import label_value
-from views.intro import Intro
 from views.menu.mainmenu import MainMenu
 from window.gamewindow import SCREEN_WIDTH, SCREEN_HEIGHT, GameWindow
 from window.launcherwindow import LauncherWindow
@@ -133,13 +132,6 @@ class StartUp:
         )
 
         parser.add_argument(
-            '-l',
-            '--skip-logo',
-            action='store_true',
-            help='Skip the logo screen and go straight to main menu'
-        )
-
-        parser.add_argument(
             '--skip-launcher',
             action='store_true',
             default=False,
@@ -168,7 +160,6 @@ class StartUp:
         self.setup_path()
 
         args = self.parse_args()
-        args.skip_logo = True
 
         log_level = self.get_log_level(args.verbose)
         log_level_arcade = self.get_log_level_arcade(args.verbose)
@@ -238,13 +229,7 @@ class StartUp:
         icon_path = os.path.join(state.ui_dir, 'icon.ico')
         icon = pyglet.image.load(icon_path)
         window.set_icon(icon)
-
-        view = Intro(window, state)
-
-        if args.skip_logo:
-            view = MainMenu(window, state)
-
-        window.show_view(view)
+        window.show_view(MainMenu(window, state))
         arcade.run()
 
     @staticmethod
