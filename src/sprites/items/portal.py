@@ -48,6 +48,9 @@ class Portal(AbstractAnimatedSprite):
                 self.scale -= SCALE_SPEED
 
     def check_collision(self, delta_time, args):
+        if self.alpha <= 0:
+            return
+
         from constants.layers import LAYER_NPC
 
         npcs = arcade.check_for_collision_with_list(self, args.scene[LAYER_NPC])
