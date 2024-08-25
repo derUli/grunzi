@@ -71,6 +71,7 @@ class Game(Fading):
         self.skip_intro = skip_intro
 
         self.ui = None
+        self.level_completed = False
 
         self.astar_barrier_list = None
         self.wall_spritelist = None
@@ -127,6 +128,7 @@ class Game(Fading):
         self.ui = UIContainer()
         self.ui.setup(self.state, self.window.size)
 
+        self.level_completed = False
         # Load map
         threading.Thread(target=self.async_load).start()
 
@@ -289,7 +291,7 @@ class Game(Fading):
             self._call_method()
             self._call_method = None
 
-        if self.player_sprite.dead:
+        if self.player_sprite.dead and not self.level_completed:
             self.player_sprite.update(delta_time, make_args_container(self))
             self.player_sprite.reset()
 
@@ -311,7 +313,10 @@ class Game(Fading):
         )
 
         self.map_populator.update(make_args_container(self))
-        self.update_fade(self.next_view)
+        if self.level_completed:
+            self.update_fade(self.next_view, speed=2.5)
+        else:
+            self.update_fade(self.next_view)
 
     def on_draw(self) -> None:
         """Render the screen."""
@@ -434,6 +439,7 @@ class Game(Fading):
         index = MAPS.index(old_map)
 
         if not same:
+            self.level_completed = True
             index += 1
 
         completed = False

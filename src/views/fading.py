@@ -3,7 +3,7 @@ import arcade
 
 from views.view import View
 
-FADE_RATE = 5
+FADE_RATE = 5.0
 
 
 class Fading(View):
@@ -18,14 +18,16 @@ class Fading(View):
         self._fade_in = 255
         self._do_quit = False
 
-    def update_fade(self, next_view: arcade.View | None = None) -> None:
+    def update_fade(self, next_view: arcade.View | None = None, speed: float = FADE_RATE) -> None:
         """
         Update fade
+
         @param next_view: View to show after finishing fade
+        @param speed: Fade speed
         """
 
         if self._fade_out is not None:
-            self._fade_out += FADE_RATE
+            self._fade_out += speed
             if self._fade_out is not None and self._fade_out > 255 and next_view is not None:
                 self.window.show_view(next_view)
 
@@ -33,7 +35,7 @@ class Fading(View):
                 arcade.exit()
 
         if self._fade_in is not None:
-            self._fade_in -= FADE_RATE
+            self._fade_in -= speed
             if self._fade_in <= 0:
                 self._fade_in = None
 
