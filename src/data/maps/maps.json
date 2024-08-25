@@ -74,9 +74,6 @@
       "snow": true
     },
     "spawnWhat": [
-      "Slimer",
-      "Skull",
-      "Barrel"
     ],
     "1": {
       "maxNPCs": 8
