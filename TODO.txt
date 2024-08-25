@@ -4,5 +4,5 @@
 * Aufgabe mit Metalldetektor
 * Benzin-Kanister zum Aufladen der Kettensäge
 * Framerate Limit Slider
-* Map04: 5 Knöpfe müssen gedrückt werden, um eine Falltür zu öffnen. Diese führt zum Boss Fight
+* Map04: 5 Knöpfe müssen gedrückt werden, um ein Portal zu öffnen
 * Map05: Level "Hölle" Bossfight
