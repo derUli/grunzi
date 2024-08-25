@@ -161,6 +161,8 @@ class Barrel(Character):
         if self.explosion:
             return
 
+        self.alpha = 0
+
         gif = arcade.load_animated_gif(
             os.path.join(args.state.animation_dir, 'explosion.gif')
         )
@@ -170,8 +172,6 @@ class Barrel(Character):
 
         args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion.sound = args.state.play_sound('explosion')
-
-        self.alpha = 0
 
 
 def spawn_barrel(state, tilemap, scene, physics_engine):
