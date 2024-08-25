@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="300" tilewidth="64" tileheight="64" infinite="0" nextlayerid="18" nextobjectid="64">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="300" tilewidth="64" tileheight="64" infinite="0" nextlayerid="18" nextobjectid="72">
  <tileset firstgid="1" name="Ground" tilewidth="64" tileheight="64" tilecount="3" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -957,7 +957,7 @@
    <image source="../images/sprites/polarbear/polarbear.png" width="192" height="111"/>
   </tile>
  </tileset>
- <tileset firstgid="346" name="Flags" tilewidth="86" tileheight="64" tilecount="16" columns="0">
+ <tileset firstgid="346" name="Flags" tilewidth="86" tileheight="64" tilecount="61" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image source="../images/sprites/flags/flag.jpg" width="3" height="64"/>
@@ -1022,6 +1022,192 @@
     <frame tileid="39" duration="100"/>
     <frame tileid="40" duration="100"/>
     <frame tileid="41" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="42">
+   <image source="../images/sprites/flags/fr/France-s-0.png" width="86" height="60"/>
+  </tile>
+  <tile id="43">
+   <image source="../images/sprites/flags/fr/France-s-1.png" width="86" height="60"/>
+  </tile>
+  <tile id="44">
+   <image source="../images/sprites/flags/fr/France-s-2.png" width="86" height="60"/>
+  </tile>
+  <tile id="45">
+   <image source="../images/sprites/flags/fr/France-s-3.png" width="86" height="60"/>
+  </tile>
+  <tile id="46">
+   <image source="../images/sprites/flags/fr/France-s-4.png" width="86" height="60"/>
+  </tile>
+  <tile id="47">
+   <image source="../images/sprites/flags/fr/France-s-5.png" width="86" height="60"/>
+  </tile>
+  <tile id="48">
+   <image source="../images/sprites/flags/fr/France-s-6.png" width="86" height="60"/>
+  </tile>
+  <tile id="49">
+   <image source="../images/sprites/flags/fr/France-s-7.png" width="86" height="60"/>
+  </tile>
+  <tile id="50">
+   <image source="../images/sprites/flags/fr/France-s-8.png" width="86" height="60"/>
+  </tile>
+  <tile id="51">
+   <image source="../images/sprites/flags/fr/France-s-9.png" width="86" height="60"/>
+  </tile>
+  <tile id="52">
+   <image source="../images/sprites/flags/fr/France-s-10.png" width="86" height="60"/>
+  </tile>
+  <tile id="53">
+   <image source="../images/sprites/flags/fr/France-s-11.png" width="86" height="60"/>
+  </tile>
+  <tile id="54">
+   <image source="../images/sprites/flags/fr/France-s-12.png" width="86" height="60"/>
+  </tile>
+  <tile id="55">
+   <image source="../images/sprites/flags/fr/France-s-13.png" width="86" height="60"/>
+  </tile>
+  <tile id="56">
+   <image source="../images/sprites/flags/fr/France-s-14.png" width="86" height="60"/>
+   <animation>
+    <frame tileid="42" duration="100"/>
+    <frame tileid="43" duration="100"/>
+    <frame tileid="44" duration="100"/>
+    <frame tileid="45" duration="100"/>
+    <frame tileid="46" duration="100"/>
+    <frame tileid="47" duration="100"/>
+    <frame tileid="48" duration="100"/>
+    <frame tileid="49" duration="100"/>
+    <frame tileid="50" duration="100"/>
+    <frame tileid="51" duration="100"/>
+    <frame tileid="52" duration="100"/>
+    <frame tileid="53" duration="100"/>
+    <frame tileid="54" duration="100"/>
+    <frame tileid="55" duration="100"/>
+    <frame tileid="56" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="57">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-0.png" width="86" height="60"/>
+  </tile>
+  <tile id="58">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-1.png" width="86" height="60"/>
+  </tile>
+  <tile id="59">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-2.png" width="86" height="60"/>
+  </tile>
+  <tile id="60">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-3.png" width="86" height="60"/>
+  </tile>
+  <tile id="61">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-4.png" width="86" height="60"/>
+  </tile>
+  <tile id="62">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-5.png" width="86" height="60"/>
+  </tile>
+  <tile id="63">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-6.png" width="86" height="60"/>
+  </tile>
+  <tile id="64">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-7.png" width="86" height="60"/>
+  </tile>
+  <tile id="65">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-8.png" width="86" height="60"/>
+  </tile>
+  <tile id="66">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-9.png" width="86" height="60"/>
+  </tile>
+  <tile id="67">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-10.png" width="86" height="60"/>
+  </tile>
+  <tile id="68">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-11.png" width="86" height="60"/>
+  </tile>
+  <tile id="69">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-12.png" width="86" height="60"/>
+  </tile>
+  <tile id="70">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-13.png" width="86" height="60"/>
+  </tile>
+  <tile id="71">
+   <image source="../images/sprites/flags/uk/United-Kingdom-s-14.png" width="86" height="60"/>
+   <animation>
+    <frame tileid="57" duration="100"/>
+    <frame tileid="58" duration="100"/>
+    <frame tileid="59" duration="100"/>
+    <frame tileid="60" duration="100"/>
+    <frame tileid="61" duration="100"/>
+    <frame tileid="62" duration="100"/>
+    <frame tileid="63" duration="100"/>
+    <frame tileid="64" duration="100"/>
+    <frame tileid="65" duration="100"/>
+    <frame tileid="66" duration="100"/>
+    <frame tileid="67" duration="100"/>
+    <frame tileid="68" duration="100"/>
+    <frame tileid="69" duration="100"/>
+    <frame tileid="70" duration="100"/>
+    <frame tileid="71" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="72">
+   <image source="../images/sprites/flags/us/United-States-s-0.png" width="86" height="60"/>
+  </tile>
+  <tile id="73">
+   <image source="../images/sprites/flags/us/United-States-s-1.png" width="86" height="60"/>
+  </tile>
+  <tile id="74">
+   <image source="../images/sprites/flags/us/United-States-s-2.png" width="86" height="60"/>
+  </tile>
+  <tile id="75">
+   <image source="../images/sprites/flags/us/United-States-s-3.png" width="86" height="60"/>
+  </tile>
+  <tile id="76">
+   <image source="../images/sprites/flags/us/United-States-s-4.png" width="86" height="60"/>
+  </tile>
+  <tile id="77">
+   <image source="../images/sprites/flags/us/United-States-s-5.png" width="86" height="60"/>
+  </tile>
+  <tile id="78">
+   <image source="../images/sprites/flags/us/United-States-s-6.png" width="86" height="60"/>
+  </tile>
+  <tile id="79">
+   <image source="../images/sprites/flags/us/United-States-s-7.png" width="86" height="60"/>
+  </tile>
+  <tile id="80">
+   <image source="../images/sprites/flags/us/United-States-s-8.png" width="86" height="60"/>
+  </tile>
+  <tile id="81">
+   <image source="../images/sprites/flags/us/United-States-s-9.png" width="86" height="60"/>
+  </tile>
+  <tile id="82">
+   <image source="../images/sprites/flags/us/United-States-s-10.png" width="86" height="60"/>
+  </tile>
+  <tile id="83">
+   <image source="../images/sprites/flags/us/United-States-s-11.png" width="86" height="60"/>
+  </tile>
+  <tile id="84">
+   <image source="../images/sprites/flags/us/United-States-s-12.png" width="86" height="60"/>
+  </tile>
+  <tile id="85">
+   <image source="../images/sprites/flags/us/United-States-s-13.png" width="86" height="60"/>
+  </tile>
+  <tile id="86">
+   <image source="../images/sprites/flags/us/United-States-s-14.png" width="86" height="60"/>
+   <animation>
+    <frame tileid="72" duration="100"/>
+    <frame tileid="73" duration="100"/>
+    <frame tileid="74" duration="100"/>
+    <frame tileid="75" duration="100"/>
+    <frame tileid="76" duration="100"/>
+    <frame tileid="77" duration="100"/>
+    <frame tileid="78" duration="100"/>
+    <frame tileid="79" duration="100"/>
+    <frame tileid="80" duration="100"/>
+    <frame tileid="81" duration="100"/>
+    <frame tileid="82" duration="100"/>
+    <frame tileid="83" duration="100"/>
+    <frame tileid="84" duration="100"/>
+    <frame tileid="85" duration="100"/>
+    <frame tileid="86" duration="100"/>
    </animation>
   </tile>
  </tileset>
@@ -2575,8 +2761,14 @@
  </objectgroup>
  <objectgroup id="16" name="Flag 1">
   <object id="57" gid="346" x="3904" y="18432" width="3" height="64"/>
+  <object id="64" gid="346" x="4032" y="18432" width="3" height="64"/>
+  <object id="67" gid="346" x="4160" y="18432" width="3" height="64"/>
+  <object id="70" gid="346" x="4288" y="18432" width="3" height="64"/>
  </objectgroup>
  <objectgroup id="17" name="Flag 2">
   <object id="63" gid="387" x="3904" y="18368" width="86" height="60"/>
+  <object id="65" gid="402" x="4032" y="18368" width="86" height="60"/>
+  <object id="69" gid="417" x="4160" y="18368" width="86" height="60"/>
+  <object id="71" gid="432" x="4288" y="18368" width="86" height="60"/>
  </objectgroup>
 </map>
