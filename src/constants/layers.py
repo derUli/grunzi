@@ -26,6 +26,7 @@ from sprites.items.levelexit import LevelExit
 from sprites.items.piggybank import PiggyBank
 from sprites.items.plier import Plier
 from sprites.items.redherring import Feather, Vase
+from sprites.items.switch import Switch
 from sprites.items.tree import Tree
 from sprites.items.valve import Valve
 from sprites.items.valvetarget import ValveTarget
@@ -77,6 +78,7 @@ LAYER_SHIP = 'Ship'
 LAYER_STEAM = 'Steam'
 LAYER_SNOW = 'Snow'
 LAYER_PORTAL = 'Portal'
+LAYER_SWITCH = 'Switch'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -223,6 +225,9 @@ LAYER_OPTIONS = {
     },
     LAYER_STEAM: {
         'custom_class': Steam
+    },
+    LAYER_SWITCH: {
+        'custom_class': Switch
     }
 }
 

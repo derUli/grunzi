@@ -5,13 +5,14 @@ import arcade
 import pyglet
 from arcade import Texture
 
+from sprites.items.item import Interactable
 from sprites.sprite import Sprite
 
 SWITCH_OFF = 0
 SWITCH_ON = 1
 
 
-class Switch(Sprite):
+class Switch(Sprite, Interactable):
     def __init__(
             self,
             filename: str = None,
@@ -42,8 +43,8 @@ class Switch(Sprite):
         path = os.path.dirname(filename)
 
         self.textures = [
-            arcade.load_texture(os.path.join(path, 'off2.jpg')),
-            arcade.load_texture(os.path.join(path, 'on2.jpg'))
+            arcade.load_texture(os.path.join(path, 'off2.png')),
+            arcade.load_texture(os.path.join(path, 'on2.png'))
         ]
 
         self._enabled = SWITCH_OFF
@@ -60,26 +61,10 @@ class Switch(Sprite):
     def enabled(self, value: int):
         self._enabled = value
 
-    def update(
-            self,
-            delta_time,
-            args
-    ):
-        if not self.check_initialized:
-            self.check_initialized = True
-            pyglet.clock.schedule_interval_soft(self.check_cone, 1 / 6, args.scene)
+    def on_interact(self, args):
+        if self._enabled:
+            return
 
-    def check_cone(self, delta_time: float, scene) -> None:
-        from constants.layers import LAYER_CONES
+        self._enabled = SWITCH_ON
 
-        collision = arcade.check_for_collision_with_list(
-            self,
-            scene[LAYER_CONES]
-        )
-
-        if len(collision) == 1:
-            self._enabled = SWITCH_ON
-        else:
-            self._enabled = SWITCH_OFF
-
-        self.texture = self.textures[self._enabled]
+        self.texture = self.textures[self.enabled]
