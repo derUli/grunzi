@@ -7,7 +7,8 @@ from sprites.sprite import AbstractAnimatedSprite
 from state.argscontainer import ArgsContainer
 
 ALPHA_MAX = 255
-SCALE_SPEED = 0.05
+SCALE_SPEED_GROW = 0.04
+SCALE_SPEED_SHRINK = 0.4
 SCALE_MAX = 20
 SCALE_MIN = 1
 
@@ -40,12 +41,12 @@ class Portal(AbstractAnimatedSprite):
 
         if self.collides:
             if self.scale < SCALE_MAX:
-                self.scale += SCALE_SPEED
+                self.scale += SCALE_SPEED_GROW
             else:
                 args.callbacks.on_complete()
         else:
             if self.scale > SCALE_MIN:
-                self.scale -= SCALE_SPEED
+                self.scale -= SCALE_SPEED_SHRINK
 
     def check_collision(self, delta_time, args):
         if self.alpha <= 0:

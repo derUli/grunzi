@@ -178,11 +178,12 @@ def animated_in_sight(size, scene, player_sprite) -> list:
 
     layers = ANIMATED_LAYERS
     animated = []
+    update_layers = []
 
     w, h = size
 
     cur_frame_idx = {}
-    animated = []
+
     for name in layers:
         cur_frame_idx[name] = 0
         layer = get_layer(name, scene)
@@ -195,6 +196,15 @@ def animated_in_sight(size, scene, player_sprite) -> list:
                 if sprite.cur_frame_idx > cur_frame_idx[name]:
                     cur_frame_idx[name] = sprite.cur_frame_idx
 
+                update_layers.append(name)
+                break
+
+    for name in update_layers:
+        for sprite in scene[name]:
+            sprite.cur_frame_idx = cur_frame_idx[name]
+            diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
+
+            if diff <= h + sprite.height:
                 animated.append(sprite)
 
     return animated
