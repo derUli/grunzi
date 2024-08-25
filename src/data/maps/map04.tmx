@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="300" tilewidth="64" tileheight="64" infinite="0" nextlayerid="14" nextobjectid="28">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="300" tilewidth="64" tileheight="64" infinite="0" nextlayerid="14" nextobjectid="30">
  <tileset firstgid="1" name="Ground" tilewidth="64" tileheight="64" tilecount="3" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -1906,6 +1906,8 @@
   <object id="25" gid="2" x="2384" y="2740.24" width="32" height="32"/>
   <object id="26" gid="2" x="3729.45" y="14379.6" width="32" height="32"/>
   <object id="27" gid="2" x="2384" y="12264.5" width="32" height="32"/>
+  <object id="28" gid="2" x="1432" y="9016" width="32" height="32"/>
+  <object id="29" gid="2" x="3760" y="8656" width="32" height="32"/>
  </objectgroup>
  <layer id="9" name="Moveable" width="80" height="300">
   <data encoding="csv">
