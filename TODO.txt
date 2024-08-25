@@ -5,6 +5,7 @@
 * Benzin-Kanister zum Aufladen der Kettensäge
 * Framerate Limit Slider
 * Map04: 5 Knöpfe müssen gedrückt werden, um ein Portal zu öffnen
+* Map04: Knöpfe werden grün
 * Map04: Wenn man alle Knöpfe gedrückt hat erscheint das Portal
 * Wenn man das Portal betritt, wird dieses immer größer. dann wird das Grunzi nach links geschleudert, Fadeout und Level 5 wird geladen.
 * Map05: Level "Hölle" Bossfight
