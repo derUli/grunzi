@@ -9,7 +9,7 @@ from state.argscontainer import ArgsContainer
 ALPHA_MAX = 255
 SCALE_SPEED_GROW = 0.05
 SCALE_SPEED_SHRINK = 0.1
-SCALE_MAX = 50
+SCALE_MAX = 20
 SCALE_MIN = 1
 
 class Portal(AbstractAnimatedSprite):
