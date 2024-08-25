@@ -213,7 +213,6 @@ class HighscoreAdd(Fading):
 
         self.input_name.text = self.input_name.text.strip()
 
-        # TODO: Validation and error handling
         if len(self.input_name.text) == 0:
             return self.show_confirm()
 
