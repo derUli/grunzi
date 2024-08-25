@@ -2946,21 +2946,21 @@
   <object id="30" gid="279" x="2868" y="8974" width="400" height="300"/>
  </objectgroup>
  <objectgroup id="16" name="Flag 1">
-  <object id="57" gid="346" x="3808" y="18432" width="3" height="64"/>
-  <object id="64" gid="346" x="3936" y="18432" width="3" height="64"/>
-  <object id="67" gid="346" x="4064" y="18432" width="3" height="64"/>
-  <object id="70" gid="346" x="4192" y="18432" width="3" height="64"/>
-  <object id="72" gid="346" x="4320" y="18432" width="3" height="64"/>
-  <object id="76" gid="346" x="4448" y="18432" width="3" height="64"/>
-  <object id="77" gid="346" x="4576" y="18432" width="3" height="64"/>
+  <object id="57" gid="346" x="3840" y="18432" width="3" height="64"/>
+  <object id="64" gid="346" x="3968" y="18432" width="3" height="64"/>
+  <object id="67" gid="346" x="4096" y="18432" width="3" height="64"/>
+  <object id="70" gid="346" x="4224" y="18432" width="3" height="64"/>
+  <object id="72" gid="346" x="4352" y="18432" width="3" height="64"/>
+  <object id="76" gid="346" x="4480" y="18432" width="3" height="64"/>
+  <object id="77" gid="346" x="4608" y="18432" width="3" height="64"/>
  </objectgroup>
  <objectgroup id="17" name="Flag 2">
-  <object id="63" gid="387" x="3808" y="18368" width="86" height="60"/>
-  <object id="65" gid="402" x="3936" y="18368" width="86" height="60"/>
-  <object id="69" gid="417" x="4064" y="18368" width="86" height="60"/>
-  <object id="71" gid="432" x="4192" y="18368" width="86" height="60"/>
-  <object id="74" gid="447" x="4320" y="18368" width="86" height="60"/>
-  <object id="75" gid="462" x="4448" y="18368" width="86" height="60"/>
-  <object id="78" gid="477" x="4576" y="18368" width="86" height="60"/>
+  <object id="63" gid="387" x="3840" y="18368" width="86" height="60"/>
+  <object id="65" gid="402" x="3968" y="18368" width="86" height="60"/>
+  <object id="69" gid="417" x="4096" y="18368" width="86" height="60"/>
+  <object id="71" gid="432" x="4224" y="18368" width="86" height="60"/>
+  <object id="74" gid="447" x="4352" y="18368" width="86" height="60"/>
+  <object id="75" gid="462" x="4480" y="18368" width="86" height="60"/>
+  <object id="78" gid="477" x="4608" y="18368" width="86" height="60"/>
  </objectgroup>
 </map>
