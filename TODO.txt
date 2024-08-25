@@ -4,6 +4,5 @@
 * Aufgabe mit Metalldetektor
 * Benzin-Kanister zum Aufladen der Kettensäge
 * Framerate Limit Slider
-* Map 04: Drehräder um 4 Ventile zu öffnen müssen gefunden werden.
-* Map04: Falltür im Boden kann geöffnet werden, diese ist der Level Exit.
+* Map04: 5 Knöpfe müssen gedrückt werden, um eine Falltür zu öffnen. Diese führt zum Boss Fight
 * Map05: Level "Hölle" Bossfight
