@@ -1860,7 +1860,7 @@
  <objectgroup id="13" name="Switch">
   <object id="46" gid="2" x="2512" y="688" width="32" height="32"/>
   <object id="47" gid="2" x="3600" y="688" width="32" height="32"/>
-  <object id="48" gid="2" x="2384" y="18480" width="32" height="32"/>
+  <object id="48" gid="2" x="2383.75" y="18481.5" width="32" height="32"/>
   <object id="49" gid="2" x="3728" y="18480" width="32" height="32"/>
   <object id="50" gid="2" x="2384" y="15856" width="32" height="32"/>
   <object id="51" gid="2" x="2384" y="13872" width="32" height="32"/>
