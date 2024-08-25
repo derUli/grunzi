@@ -12,13 +12,14 @@ SCALE_SPEED_SHRINK = 0.1
 SCALE_MAX = 20
 SCALE_MIN = 1
 
+
 class Portal(AbstractAnimatedSprite):
 
     def setup(self, args):
         self.alpha = 0
         self.collides = False
 
-        pyglet.clock.schedule_interval_soft(self.check_collision, 1/4, args)
+        pyglet.clock.schedule_interval_soft(self.check_collision, 1 / 4, args)
 
     def update(
             self,

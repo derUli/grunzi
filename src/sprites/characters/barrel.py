@@ -1,10 +1,7 @@
 """ Slimer sprite class """
 import os
-import threading
-import time
 
 import arcade
-import numpy
 import pyglet
 from arcade import FACE_RIGHT
 
@@ -98,7 +95,6 @@ class Barrel(Character):
         move_x = FORCE_MOVE
         move_y = FORCE_MOVE
 
-
         if self.center_x > args.player.center_x:
             move_x = -move_x
 
@@ -106,7 +102,6 @@ class Barrel(Character):
             move_y = -move_y
 
         args.physics_engine.apply_force(self, (move_x, move_y))
-
 
     def check_collision(self, delta_time, args):
         if not self.insight:

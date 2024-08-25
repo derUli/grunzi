@@ -2,7 +2,6 @@ import os
 from typing import Optional
 
 import arcade
-import pyglet
 from arcade import Texture
 
 from sprites.items.item import Interactable

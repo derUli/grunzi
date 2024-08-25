@@ -198,7 +198,6 @@ class View(arcade.View):
         if self.shadertoy:
             self.shadertoy.render(time=self.time)
 
-
     def draw_after(self, draw_version_number=False):
         if draw_version_number:
             self.draw_build_version()
