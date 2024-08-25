@@ -10,7 +10,8 @@
 ## Alpha 018 (Unreleased)
 
 * map04: Gegner aktiviert
-* Neuer Gegner hinzugefügt: Explodierendes Fass
+* map04: Neuer Gegner hinzugefügt: Explodierendes Fass
+* map04: Puzzle mit Schaltenr und Portalen hinzugefügt
 * Menüs optimiert
 
 ## Alpha 017 (23.08.2024)
