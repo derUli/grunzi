@@ -2,15 +2,18 @@
   "default": {
     "1": {
       "skullHurt": 10,
-      "slimerHurt": 25
+      "slimerHurt": 25,
+      "barrelHurt": 2
     },
     "2": {
       "skullHurt": 15,
-      "slimerHurt": 30
+      "slimerHurt": 30,
+      "barrelHurt": 10
     },
     "3": {
       "skullHurt": 20,
-      "slimerHurt": 35
+      "slimerHurt": 35,
+      "barrelHurt": 50
     }
   },
   "map01": {
@@ -69,6 +72,20 @@
   "map04": {
     "options": {
       "snow": true
+    },
+    "spawnWhat": [
+      "Slimer",
+      "Skull",
+      "Barrel"
+    ],
+     "1": {
+      "maxNPCs": 8
+    },
+    "2": {
+      "maxNPCs": 10
+    },
+    "3": {
+      "maxNPCs": 13
     }
   }
 }

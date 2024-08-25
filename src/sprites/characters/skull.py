@@ -27,7 +27,7 @@ GRID_SIZE = 64
 FADE_IN_MAX = 255
 FADE_SPEED = 4
 
-SHOOT_DELTA = 1 / 5.5
+SHOOT_DELTA = 1 / 5
 
 
 class Skull(Character, Useable):

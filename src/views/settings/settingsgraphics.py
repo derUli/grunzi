@@ -247,8 +247,6 @@ class SettingsGraphics(Fading):
     def on_draw(self) -> None:
         """ Render the screen. """
 
-        # Clear the screen
-        self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
         self.manager.draw()
@@ -301,6 +299,7 @@ class SettingsGraphics(Fading):
         self.needs_restart = isinstance(self.previous_view.previous_view, MainMenu)
         self.state.settings.weather = not self.state.settings.weather
         self.state.settings.save()
+        self.needs_restart = True
         self.setup()
 
     def on_change_colortint(self):
@@ -309,9 +308,11 @@ class SettingsGraphics(Fading):
 
         self.state.settings.color_tint = not self.state.settings.color_tint
         self.state.settings.save()
+        self.needs_restart = True
         self.setup()
 
     def on_change_videos(self):
         self.state.settings.videos = not self.state.settings.videos
         self.state.settings.save()
+        self.needs_restart = True
         self.setup()

@@ -1,3 +1,7 @@
+import logging
+
+import arcade
+
 from constants.collisions import COLLISION_CAR, COLLISION_ENEMY, COLLISION_PLAYER, COLLISION_CHICKEN
 from sprites.sprite import Sprite
 from state.argscontainer import ArgsContainer
@@ -14,7 +18,6 @@ class Car:
         """ Called for bullet/wall collision """
 
         _hit_sprite.hurt(HURT)
-
 
 class CarLeft(Sprite, Car):
     def update(

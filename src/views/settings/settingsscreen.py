@@ -165,7 +165,6 @@ class SettingsScreen(Fading):
         """ Render the screen. """
 
         # Clear the screen
-        self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
         self.manager.draw()

@@ -156,8 +156,6 @@ class DifficultySelection(Fading):
     def on_draw(self) -> None:
         """ On draw """
 
-        # Clear the screen
-        self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
 

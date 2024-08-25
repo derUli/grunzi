@@ -88,7 +88,6 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --no-vsync            Disable V-Sync
   --debug               Enable OpenGL debugging
   -v, --verbose         Make the operation more talkative
-  -l, --skip-logo       Skip the logo screen and go straight to main menu
   --skip-launcher       Skip launcher
 ```
 

@@ -223,8 +223,6 @@ class MapSelection(Fading):
     def on_draw(self) -> None:
         """ Render the screen. """
 
-        # Clear the screen
-        self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
         self.manager.draw()

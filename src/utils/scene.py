@@ -1,4 +1,5 @@
 """ Scene utils """
+import logging
 from typing import Optional, List
 
 import arcade
@@ -68,7 +69,10 @@ class Scene(BaseScene):
             self.setup(args)
 
         size = arcade.get_window().get_size()
-        self.update_animated(delta_time, size, self, args.player)
+        try:
+            self.update_animated(delta_time, size, self, args.player)
+        except IndexError as e:
+            logging.error(e)
 
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)
@@ -188,7 +192,7 @@ def animated_in_sight(size, scene, player_sprite) -> list:
 
             diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
 
-            if diff <= h + sprite.height:
+            if diff <= h + sprite.height and sprite.alpha > 0:
                 if sprite.cur_frame_idx > cur_frame_idx[name]:
                     cur_frame_idx[name] = sprite.cur_frame_idx
 
@@ -197,7 +201,6 @@ def animated_in_sight(size, scene, player_sprite) -> list:
 
     for name in update_layers:
         for sprite in scene[name]:
-
             sprite.cur_frame_idx = cur_frame_idx[name]
             diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
 

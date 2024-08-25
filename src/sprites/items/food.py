@@ -90,6 +90,6 @@ def spawn_food(state, tilemap, scene, physics_engine):
             return spawn_food(state, tilemap, scene, physics_engine)
     except AttributeError as e:
         logging.error(e)
-        return
+        return None
 
     scene.add_sprite(LAYER_FOOD, food)

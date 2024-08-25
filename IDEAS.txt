@@ -3,8 +3,6 @@ Man könnte z.B. einige Puzzles randomizen, die beim ersten Durchlauf statisch w
 Sprüche in der Welt verstecken.
 Trophäen
 
-* Feuer-Animation einbauen
-
 Roadmap:
 
 * Alpha 10 bis 20: map02 umsetzen
