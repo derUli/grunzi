@@ -149,10 +149,8 @@ class Scene(BaseScene):
             if self.args and self.check_sprite_in_sight(sprite, self.args.player):
                 sprite.draw_overlay(self.args)
 
-    def get_next_sprites(self, distance=180):
+    def get_next_sprites(self, distance=200):
         sprites = []
-
-
 
         for sprite_list in self.sprite_lists:
             for sprite in sprite_list:
