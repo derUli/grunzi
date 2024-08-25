@@ -151,10 +151,22 @@ class Scene(BaseScene):
 
     def get_next_sprites(self, distance=200):
         sprites = []
+
+
+
+        sprite_prepare = []
         for sprite_list in self.sprite_lists:
             for sprite in sprite_list:
-                if arcade.get_distance_between_sprites(self.args.player, sprite) < distance:
-                    sprites.append(sprite)
+                dist = arcade.get_distance_between_sprites(self.args.player, sprite)
+                if dist < distance:
+                    sprites.append(
+                        {
+                            'sprite': sprite,
+                            'distance': dist
+                        }
+                    )
+        sprites = sorted(sprites, key=lambda x: x['distance'], reverse=False)
+        sprites = map(lambda x: x['sprite'], sprites)
 
         return sprites
 
