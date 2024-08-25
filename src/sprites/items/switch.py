@@ -11,7 +11,7 @@ SWITCH_OFF = 0
 SWITCH_ON = 1
 
 
-class ElectricSwitch(Sprite):
+class Switch(Sprite):
     def __init__(
             self,
             filename: str = None,
@@ -42,8 +42,8 @@ class ElectricSwitch(Sprite):
         path = os.path.dirname(filename)
 
         self.textures = [
-            arcade.load_texture(os.path.join(path, 'off1.jpg')),
-            arcade.load_texture(os.path.join(path, 'on1.jpg'))
+            arcade.load_texture(os.path.join(path, 'off2.jpg')),
+            arcade.load_texture(os.path.join(path, 'on2.jpg'))
         ]
 
         self._enabled = SWITCH_OFF

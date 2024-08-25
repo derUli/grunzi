@@ -591,10 +591,10 @@
  <tileset firstgid="231" name="Switch" tilewidth="128" tileheight="128" tilecount="2" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="2">
-   <image width="128" height="128" source="../images/sprites/switch/off.jpg"/>
+   <image width="128" height="128" source="../images/sprites/switch/off1.jpg"/>
   </tile>
   <tile id="3">
-   <image width="128" height="128" source="../images/sprites/switch/on.jpg"/>
+   <image width="128" height="128" source="../images/sprites/switch/on1.jpg"/>
   </tile>
  </tileset>
  <layer id="1" name="Ground" width="200" height="117">
