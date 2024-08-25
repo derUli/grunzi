@@ -21,7 +21,8 @@ class Landmine(Character):
                 self.remove_from_sprite_lists()
             return
 
-        self.check_collision(args)
+        if self.alpha > 0:
+            self.check_collision(args)
 
     def check_collision(self, args):
 
@@ -36,7 +37,6 @@ class Landmine(Character):
 
         if arcade.check_for_collision(self, args.player):
             explodes = True
-
 
         npcs = arcade.check_for_collision_with_list(self, args.scene[LAYER_NPC])
 
@@ -81,14 +81,14 @@ class Landmine(Character):
         if hasattr(self, 'explosion'):
             return
 
+        self.alpha = 0
+
         gif = arcade.load_animated_gif(os.path.join(args.state.animation_dir, 'explosion.gif'))
         gif.position = self.position
         self.explosion = gif
 
         args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion.sound = args.state.play_sound('explosion')
-
-        self.alpha = 0
 
 
 def spawn_landmine(state, tilemap, scene, physics_engine):
