@@ -17,7 +17,7 @@ class Portal(AbstractAnimatedSprite):
         self.alpha = 0
         self.collides = False
 
-        pyglet.clock.schedule_interval_soft(self.check_collision, 1/4, args)
+        pyglet.clock.schedule_interval_soft(self.check_collision, 1/2, args)
 
     def update(
             self,
