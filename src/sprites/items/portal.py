@@ -2,11 +2,11 @@ import arcade
 import pyglet.clock
 
 from sprites.characters.character import Character
-from sprites.items.electric import ALPHA_SPEED
 from sprites.sprite import AbstractAnimatedSprite
 from state.argscontainer import ArgsContainer
 
 ALPHA_MAX = 255
+ALPHA_SPEED = 3
 SCALE_SPEED_GROW = 0.05
 SCALE_SPEED_SHRINK = 0.1
 SCALE_MAX = 20
