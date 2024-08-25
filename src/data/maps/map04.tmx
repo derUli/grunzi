@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="300" tilewidth="64" tileheight="64" infinite="0" nextlayerid="14" nextobjectid="30">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="300" tilewidth="64" tileheight="64" infinite="0" nextlayerid="15" nextobjectid="31">
  <tileset firstgid="1" name="Ground" tilewidth="64" tileheight="64" tilecount="3" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
@@ -679,6 +679,267 @@
   </tile>
   <tile id="59">
    <image source="../images/sprites/steam/steam-59.png" width="600" height="600"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="279" name="Portal" tilewidth="400" tileheight="300" tilecount="64" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image source="../images/sprites/portal/portal01.png" width="400" height="300"/>
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="4" duration="100"/>
+    <frame tileid="5" duration="100"/>
+    <frame tileid="6" duration="100"/>
+    <frame tileid="7" duration="100"/>
+    <frame tileid="8" duration="100"/>
+    <frame tileid="9" duration="100"/>
+    <frame tileid="10" duration="100"/>
+    <frame tileid="11" duration="100"/>
+    <frame tileid="12" duration="100"/>
+    <frame tileid="13" duration="100"/>
+    <frame tileid="14" duration="100"/>
+    <frame tileid="15" duration="100"/>
+    <frame tileid="16" duration="100"/>
+    <frame tileid="17" duration="100"/>
+    <frame tileid="18" duration="100"/>
+    <frame tileid="19" duration="100"/>
+    <frame tileid="20" duration="100"/>
+    <frame tileid="21" duration="100"/>
+    <frame tileid="22" duration="100"/>
+    <frame tileid="23" duration="100"/>
+    <frame tileid="24" duration="100"/>
+    <frame tileid="25" duration="100"/>
+    <frame tileid="26" duration="100"/>
+    <frame tileid="27" duration="100"/>
+    <frame tileid="28" duration="100"/>
+    <frame tileid="29" duration="100"/>
+    <frame tileid="30" duration="100"/>
+    <frame tileid="31" duration="100"/>
+    <frame tileid="32" duration="100"/>
+    <frame tileid="33" duration="100"/>
+    <frame tileid="34" duration="100"/>
+    <frame tileid="35" duration="100"/>
+    <frame tileid="36" duration="100"/>
+    <frame tileid="37" duration="100"/>
+    <frame tileid="38" duration="100"/>
+    <frame tileid="39" duration="100"/>
+    <frame tileid="40" duration="100"/>
+    <frame tileid="41" duration="100"/>
+    <frame tileid="42" duration="100"/>
+    <frame tileid="43" duration="100"/>
+    <frame tileid="44" duration="100"/>
+    <frame tileid="45" duration="100"/>
+    <frame tileid="46" duration="100"/>
+    <frame tileid="47" duration="100"/>
+    <frame tileid="48" duration="100"/>
+    <frame tileid="49" duration="100"/>
+    <frame tileid="50" duration="100"/>
+    <frame tileid="51" duration="100"/>
+    <frame tileid="52" duration="100"/>
+    <frame tileid="53" duration="100"/>
+    <frame tileid="54" duration="100"/>
+    <frame tileid="55" duration="100"/>
+    <frame tileid="56" duration="100"/>
+    <frame tileid="57" duration="100"/>
+    <frame tileid="58" duration="100"/>
+    <frame tileid="59" duration="100"/>
+    <frame tileid="60" duration="100"/>
+    <frame tileid="61" duration="100"/>
+    <frame tileid="62" duration="100"/>
+    <frame tileid="63" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="1">
+   <image source="../images/sprites/portal/portal02.png" width="400" height="300"/>
+  </tile>
+  <tile id="2">
+   <image source="../images/sprites/portal/portal03.png" width="400" height="300"/>
+  </tile>
+  <tile id="3">
+   <image source="../images/sprites/portal/portal04.png" width="400" height="300"/>
+  </tile>
+  <tile id="4">
+   <image source="../images/sprites/portal/portal05.png" width="400" height="300"/>
+  </tile>
+  <tile id="5">
+   <image source="../images/sprites/portal/portal06.png" width="400" height="300"/>
+  </tile>
+  <tile id="6">
+   <image source="../images/sprites/portal/portal07.png" width="400" height="300"/>
+  </tile>
+  <tile id="7">
+   <image source="../images/sprites/portal/portal08.png" width="400" height="300"/>
+  </tile>
+  <tile id="8">
+   <image source="../images/sprites/portal/portal09.png" width="400" height="300"/>
+  </tile>
+  <tile id="9">
+   <image source="../images/sprites/portal/portal10.png" width="400" height="300"/>
+  </tile>
+  <tile id="10">
+   <image source="../images/sprites/portal/portal11.png" width="400" height="300"/>
+  </tile>
+  <tile id="11">
+   <image source="../images/sprites/portal/portal12.png" width="400" height="300"/>
+  </tile>
+  <tile id="12">
+   <image source="../images/sprites/portal/portal13.png" width="400" height="300"/>
+  </tile>
+  <tile id="13">
+   <image source="../images/sprites/portal/portal14.png" width="400" height="300"/>
+  </tile>
+  <tile id="14">
+   <image source="../images/sprites/portal/portal15.png" width="400" height="300"/>
+  </tile>
+  <tile id="15">
+   <image source="../images/sprites/portal/portal16.png" width="400" height="300"/>
+  </tile>
+  <tile id="16">
+   <image source="../images/sprites/portal/portal17.png" width="400" height="300"/>
+  </tile>
+  <tile id="17">
+   <image source="../images/sprites/portal/portal18.png" width="400" height="300"/>
+  </tile>
+  <tile id="18">
+   <image source="../images/sprites/portal/portal19.png" width="400" height="300"/>
+  </tile>
+  <tile id="19">
+   <image source="../images/sprites/portal/portal20.png" width="400" height="300"/>
+  </tile>
+  <tile id="20">
+   <image source="../images/sprites/portal/portal21.png" width="400" height="300"/>
+  </tile>
+  <tile id="21">
+   <image source="../images/sprites/portal/portal22.png" width="400" height="300"/>
+  </tile>
+  <tile id="22">
+   <image source="../images/sprites/portal/portal23.png" width="400" height="300"/>
+  </tile>
+  <tile id="23">
+   <image source="../images/sprites/portal/portal24.png" width="400" height="300"/>
+  </tile>
+  <tile id="24">
+   <image source="../images/sprites/portal/portal25.png" width="400" height="300"/>
+  </tile>
+  <tile id="25">
+   <image source="../images/sprites/portal/portal26.png" width="400" height="300"/>
+  </tile>
+  <tile id="26">
+   <image source="../images/sprites/portal/portal27.png" width="400" height="300"/>
+  </tile>
+  <tile id="27">
+   <image source="../images/sprites/portal/portal28.png" width="400" height="300"/>
+  </tile>
+  <tile id="28">
+   <image source="../images/sprites/portal/portal29.png" width="400" height="300"/>
+  </tile>
+  <tile id="29">
+   <image source="../images/sprites/portal/portal30.png" width="400" height="300"/>
+  </tile>
+  <tile id="30">
+   <image source="../images/sprites/portal/portal31.png" width="400" height="300"/>
+  </tile>
+  <tile id="31">
+   <image source="../images/sprites/portal/portal32.png" width="400" height="300"/>
+  </tile>
+  <tile id="32">
+   <image source="../images/sprites/portal/portal33.png" width="400" height="300"/>
+  </tile>
+  <tile id="33">
+   <image source="../images/sprites/portal/portal34.png" width="400" height="300"/>
+  </tile>
+  <tile id="34">
+   <image source="../images/sprites/portal/portal35.png" width="400" height="300"/>
+  </tile>
+  <tile id="35">
+   <image source="../images/sprites/portal/portal36.png" width="400" height="300"/>
+  </tile>
+  <tile id="36">
+   <image source="../images/sprites/portal/portal37.png" width="400" height="300"/>
+  </tile>
+  <tile id="37">
+   <image source="../images/sprites/portal/portal38.png" width="400" height="300"/>
+  </tile>
+  <tile id="38">
+   <image source="../images/sprites/portal/portal39.png" width="400" height="300"/>
+  </tile>
+  <tile id="39">
+   <image source="../images/sprites/portal/portal40.png" width="400" height="300"/>
+  </tile>
+  <tile id="40">
+   <image source="../images/sprites/portal/portal41.png" width="400" height="300"/>
+  </tile>
+  <tile id="41">
+   <image source="../images/sprites/portal/portal42.png" width="400" height="300"/>
+  </tile>
+  <tile id="42">
+   <image source="../images/sprites/portal/portal43.png" width="400" height="300"/>
+  </tile>
+  <tile id="43">
+   <image source="../images/sprites/portal/portal44.png" width="400" height="300"/>
+  </tile>
+  <tile id="44">
+   <image source="../images/sprites/portal/portal45.png" width="400" height="300"/>
+  </tile>
+  <tile id="45">
+   <image source="../images/sprites/portal/portal46.png" width="400" height="300"/>
+  </tile>
+  <tile id="46">
+   <image source="../images/sprites/portal/portal47.png" width="400" height="300"/>
+  </tile>
+  <tile id="47">
+   <image source="../images/sprites/portal/portal48.png" width="400" height="300"/>
+  </tile>
+  <tile id="48">
+   <image source="../images/sprites/portal/portal49.png" width="400" height="300"/>
+  </tile>
+  <tile id="49">
+   <image source="../images/sprites/portal/portal50.png" width="400" height="300"/>
+  </tile>
+  <tile id="50">
+   <image source="../images/sprites/portal/portal51.png" width="400" height="300"/>
+  </tile>
+  <tile id="51">
+   <image source="../images/sprites/portal/portal52.png" width="400" height="300"/>
+  </tile>
+  <tile id="52">
+   <image source="../images/sprites/portal/portal53.png" width="400" height="300"/>
+  </tile>
+  <tile id="53">
+   <image source="../images/sprites/portal/portal54.png" width="400" height="300"/>
+  </tile>
+  <tile id="54">
+   <image source="../images/sprites/portal/portal55.png" width="400" height="300"/>
+  </tile>
+  <tile id="55">
+   <image source="../images/sprites/portal/portal56.png" width="400" height="300"/>
+  </tile>
+  <tile id="56">
+   <image source="../images/sprites/portal/portal57.png" width="400" height="300"/>
+  </tile>
+  <tile id="57">
+   <image source="../images/sprites/portal/portal58.png" width="400" height="300"/>
+  </tile>
+  <tile id="58">
+   <image source="../images/sprites/portal/portal59.png" width="400" height="300"/>
+  </tile>
+  <tile id="59">
+   <image source="../images/sprites/portal/portal60.png" width="400" height="300"/>
+  </tile>
+  <tile id="60">
+   <image source="../images/sprites/portal/portal61.png" width="400" height="300"/>
+  </tile>
+  <tile id="61">
+   <image source="../images/sprites/portal/portal62.png" width="400" height="300"/>
+  </tile>
+  <tile id="62">
+   <image source="../images/sprites/portal/portal63.png" width="400" height="300"/>
+  </tile>
+  <tile id="63">
+   <image source="../images/sprites/portal/portal64.png" width="400" height="300"/>
   </tile>
  </tileset>
  <layer id="1" name="Ground" width="80" height="300">
@@ -2224,5 +2485,8 @@
  </objectgroup>
  <objectgroup id="12" name="Steam" opacity="0.57">
   <object id="16" gid="219" x="3676.91" y="18882.2" width="432.485" height="420.485"/>
+ </objectgroup>
+ <objectgroup id="14" name="Portal">
+  <object id="30" gid="279" x="2868" y="8974" width="400" height="300"/>
  </objectgroup>
 </map>

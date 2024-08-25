@@ -152,7 +152,7 @@ class Barrel(Character):
 
     def explosion_hurt(self, args):
 
-        hurt = 5
+        hurt = 2
 
         if arcade.get_distance_between_sprites(self.explosion, args.player) < 200:
             args.player.hurt(hurt)
