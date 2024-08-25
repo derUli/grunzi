@@ -54,7 +54,7 @@ class Landmine(Character):
             pass
 
         if explodes:
-            threading.Thread(target=self.spawn_explosion,args=(args, )).start()
+            self.spawn_explosion(args)
 
     def explosion_hurt(self, args):
 
