@@ -149,12 +149,11 @@ class Scene(BaseScene):
             if self.args and self.check_sprite_in_sight(sprite, self.args.player):
                 sprite.draw_overlay(self.args)
 
-    def get_next_sprites(self, distance=200):
+    def get_next_sprites(self, distance=180):
         sprites = []
 
 
 
-        sprite_prepare = []
         for sprite_list in self.sprite_lists:
             for sprite in sprite_list:
                 dist = arcade.get_distance_between_sprites(self.args.player, sprite)
@@ -166,9 +165,8 @@ class Scene(BaseScene):
                         }
                     )
         sprites = sorted(sprites, key=lambda x: x['distance'], reverse=False)
-        sprites = map(lambda x: x['sprite'], sprites)
 
-        return sprites
+        return map(lambda x: x['sprite'], sprites)
 
     def get_next_interactable(self):
         for sprite in self.get_next_sprites():
