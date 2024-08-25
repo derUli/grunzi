@@ -25,6 +25,7 @@ from sprites.items.jeep import Jeep
 from sprites.items.levelexit import LevelExit
 from sprites.items.piggybank import PiggyBank
 from sprites.items.plier import Plier
+from sprites.items.portal import Portal
 from sprites.items.redherring import Feather, Vase
 from sprites.items.switch import Switch
 from sprites.items.tree import Tree
@@ -228,6 +229,9 @@ LAYER_OPTIONS = {
     },
     LAYER_SWITCH: {
         'custom_class': Switch
+    },
+    LAYER_PORTAL: {
+        'custom_class': Portal
     }
 }
 

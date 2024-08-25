@@ -139,10 +139,6 @@ class Barrel(Character):
             pyglet.clock.unschedule(self.check_collision)
             self.spawn_explosion(args)
 
-            threading.Thread(target=self.spawn_explosion,args=(args, )).start()
-
-
-
     def update_explosion(self, delta_time, args):
         self.explosion_hurt(args)
 
