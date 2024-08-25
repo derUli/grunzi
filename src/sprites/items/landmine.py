@@ -1,4 +1,5 @@
 import os
+import threading
 
 import arcade
 
@@ -31,20 +32,29 @@ class Landmine(Character):
         if difference > h:
             return
 
+        explodes = False
+
         if arcade.check_for_collision(self, args.player):
-            return self.spawn_explosion(args)
+            explodes = True
+
 
         npcs = arcade.check_for_collision_with_list(self, args.scene[LAYER_NPC])
 
+        if explodes:
+            npcs = []
+
         for sprite in npcs:
             if isinstance(sprite, Character):
-                return self.spawn_explosion(args)
+                explodes = True
 
         try:
             if any(arcade.check_for_collision_with_list(self, args.scene[LAYER_MOVEABLE])):
-                self.spawn_explosion(args)
+                explodes = True
         except KeyError:
             pass
+
+        if explodes:
+            threading.Thread(target=self.spawn_explosion,args=(args, )).start()
 
     def explosion_hurt(self, args):
 
@@ -68,6 +78,9 @@ class Landmine(Character):
                 sprite.hurt(hurt)
 
     def spawn_explosion(self, args):
+        if hasattr(self, 'explosion'):
+            return
+
         gif = arcade.load_animated_gif(os.path.join(args.state.animation_dir, 'explosion.gif'))
         gif.position = self.position
         self.explosion = gif

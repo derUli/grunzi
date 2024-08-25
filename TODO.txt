@@ -8,4 +8,5 @@
 * Map04: Knöpfe werden grün
 * Map04: Wenn man alle Knöpfe gedrückt hat erscheint das Portal
 * Wenn man das Portal betritt, wird dieses immer größer. dann wird das Grunzi nach links geschleudert, Fadeout und Level 5 wird geladen.
+* Sobald man das Portal betritt, verschwinden alle Gegner und hgören auf zu spawnen
 * Map05: Level "Hölle" Bossfight

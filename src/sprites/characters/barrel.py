@@ -1,5 +1,6 @@
 """ Slimer sprite class """
 import os
+import threading
 import time
 
 import arcade
@@ -138,6 +139,8 @@ class Barrel(Character):
             pyglet.clock.unschedule(self.check_collision)
             self.spawn_explosion(args)
 
+            threading.Thread(target=self.spawn_explosion,args=(args, )).start()
+
 
 
     def update_explosion(self, delta_time, args):
@@ -164,11 +167,13 @@ class Barrel(Character):
                 sprite.hurt(hurt)
 
     def spawn_explosion(self, args):
-        start = time.time()
+        if self.explosion:
+            return
+
         gif = arcade.load_animated_gif(
             os.path.join(args.state.animation_dir, 'explosion.gif')
         )
-        print(time.time() - start )
+
         gif.position = self.position
         self.explosion = gif
 
