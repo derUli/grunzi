@@ -317,16 +317,16 @@ class Game(Fading):
         self.map_populator.update(make_args_container(self))
 
         # TODO:  Remove performance measurement
-        #a = time.time()
-        #self.scene.get_next_interactable()
-        #self.measurements.append(time.time() - a)
-
-        if len(self.measurements) >= 5000:
-            print(label_value('MIN', numpy.min(self.measurements)))
-            print(label_value('AVG', numpy.mean(self.measurements)))
-            print(label_value('MAX', numpy.max(self.measurements)))
-            print(label_value('SUM', numpy.sum(self.measurements)))
-            sys.exit()
+        # a = time.time()
+        # self.scene.get_next_interactable()
+        # self.measurements.append(time.time() - a)
+        #
+        # if len(self.measurements) >= 5000:
+        #     print(label_value('MIN', numpy.min(self.measurements)))
+        #     print(label_value('AVG', numpy.mean(self.measurements)))
+        #     print(label_value('MAX', numpy.max(self.measurements)))
+        #     print(label_value('SUM', numpy.sum(self.measurements)))
+        #     sys.exit()
 
         if self.level_completed:
             self.update_fade(self.next_view, speed=2.5)
