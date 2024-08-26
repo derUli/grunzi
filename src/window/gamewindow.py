@@ -44,7 +44,7 @@ class GameWindow(arcade.Window):
         if borderless:
             style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
 
-        logging.debug('Refresh rate ', draw_rate)
+        logging.info('Refresh rate ', draw_rate)
 
         draw_rate = 1 / draw_rate
 
@@ -115,11 +115,3 @@ class GameWindow(arcade.Window):
 
         if not any(self.controllers):
             logging.info(f"No controllers detected")
-
-    def set_vsync(self, vsync):
-        super().set_vsync(vsync)
-
-        if vsync:
-            self.set_draw_rate(1 / self.monitor_refresh_rate)
-        else:
-            self.set_draw_rate(self.initial_draw_rate)
