@@ -83,3 +83,6 @@ class ElectricSwitch(Sprite):
             self._enabled = SWITCH_OFF
 
         self.texture = self.textures[self._enabled]
+
+    def cleanup(self):
+        pyglet.clock.unschedule(self.check_cone)
