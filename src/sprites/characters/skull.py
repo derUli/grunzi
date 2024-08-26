@@ -91,6 +91,8 @@ class Skull(Character, Useable):
     ):
 
         if self.dead:
+            pyglet.clock.unschedule(self.update_move_path)
+
             alpha = self.alpha - FADE_SPEED
 
             if alpha <= 0:
