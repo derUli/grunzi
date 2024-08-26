@@ -99,8 +99,9 @@ class Scene(BaseScene):
         if self.lookup_table.animated_in_sight.needs_update(player_sprite):
             self.lookup_table.animated_in_sight.set(animated_in_sight(size, scene, player_sprite), player_sprite)
 
-        for sprite in self.lookup_table.animated_in_sight.get():
-            sprite.update_animation(delta_time)
+        sprites = self.lookup_table.animated_in_sight.get()
+
+        list(map(lambda sprite: sprite.update_animation(delta_time), sprites))
 
     def get_collectable(self, player_sprite):
         """ Get collectable item """
