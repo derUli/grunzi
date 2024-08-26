@@ -463,6 +463,8 @@ class Game(Fading):
         savegame.score[old_map] = self.state.score
         savegame.save()
 
+        self.scene.cleanup()
+
         if completed:
             logging.info('Game Completed')
             from views.highscore.highscoreadd import HighscoreAdd

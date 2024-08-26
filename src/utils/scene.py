@@ -178,6 +178,19 @@ class Scene(BaseScene):
 
         return arcade.get_distance_between_sprites(sprite1, sprite2) < h
 
+    def cleanup(self):
+        from constants.layers import LAYER_NPC
+
+        cleanup_layers = [
+            LAYER_NPC
+        ]
+
+        for layer in cleanup_layers:
+            if not layer in self.name_mapping:
+                continue
+
+            for sprite in self[layer]:
+                sprite.cleanup()
 
 def animated_in_sight(size, scene, player_sprite) -> list:
     """ Get animated sprites in sight """

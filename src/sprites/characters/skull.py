@@ -91,7 +91,7 @@ class Skull(Character, Useable):
     ):
 
         if self.dead:
-            pyglet.clock.unschedule(self.update_move_path)
+            self.cleanup()
 
             alpha = self.alpha - FADE_SPEED
 
@@ -216,6 +216,8 @@ class Skull(Character, Useable):
         if move_path:
             self.move_path = move_path
 
+    def cleanup(self):
+        pyglet.clock.unschedule(self.update_move_path)
 
 def spawn_skull(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)

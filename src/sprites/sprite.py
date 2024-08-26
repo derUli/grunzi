@@ -25,6 +25,9 @@ class AbstractSprite:
     def setup(self, args):
         pass
 
+    def cleanup(self):
+        pass
+
 
 class AbstractStaticSprite(AbstractSprite, arcade.sprite.Sprite):
     """ Abstract sprite class """
