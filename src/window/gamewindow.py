@@ -44,7 +44,7 @@ class GameWindow(arcade.Window):
         if borderless:
             style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
 
-        logging.info('Refresh rate ', draw_rate)
+        logging.info(label_value('Refresh rate ', draw_rate))
 
         draw_rate = 1 / draw_rate
 
