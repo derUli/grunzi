@@ -144,7 +144,6 @@ class Scene(BaseScene):
                     args
                 )
 
-        print(l)
 
     def make_wall_spritelist(self) -> SpriteList:
         from constants.layers import WALL_LAYERS
