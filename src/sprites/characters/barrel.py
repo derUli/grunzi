@@ -161,7 +161,7 @@ class Barrel(Character):
         if self.explosion:
             return
 
-        self.alpha = 0
+        self.visible = False
 
         gif = arcade.load_animated_gif(
             os.path.join(args.state.animation_dir, 'explosion.gif')
