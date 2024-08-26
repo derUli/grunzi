@@ -73,24 +73,17 @@ class Scene(BaseScene):
 
         size = arcade.get_window().get_size()
 
-        start = time.time()
         try:
             self.update_animated(delta_time, size, self, args.player)
         except IndexError:
             pass
 
-        self.measures.append(time.time() - start)
 
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)
 
-        self.call_update(delta_time, args)
 
-        if len(self.measures) > 5000:
-            print(label_value('Min', numpy.min(self.measures)))
-            print(label_value('Max', numpy.max(self.measures)))
-            print(label_value('Mean', numpy.mean(self.measures)))
-            sys.exit(0)
+        self.call_update(delta_time, args)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
         """ Update animated """
@@ -152,8 +145,23 @@ class Scene(BaseScene):
     def draw(self, names: Optional[List[str]] = None, **kwargs):
         self._draw(names=names, **kwargs)
 
+        start = time.time()
+
         if self.postprocessing:
             self.postprocessing.draw()
+
+        self.measures.append(time.time() - start)
+
+        if len(self.measures) % 500 == 0:
+            print(len(self.measures))
+
+        if len(self.measures) >= 10000:
+            print(label_value('Min', numpy.min(self.measures)))
+            print(label_value('Max', numpy.max(self.measures)))
+            print(label_value('Mean', numpy.mean(self.measures)))
+            print(label_value('Sum', numpy.sum(self.measures)))
+            sys.exit(0)
+
 
     def _draw(self, names: Optional[List[str]] = None, **kwargs):
         from sprites.bullet.bullet import Bullet

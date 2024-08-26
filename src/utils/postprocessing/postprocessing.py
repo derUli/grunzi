@@ -28,11 +28,9 @@ class PostProcessing:
         return self
 
     def update(self, delta_time: float, args: ArgsContainer) -> None:
-        for effect in self.pipeline:
-            effect.update(delta_time, args)
+        list(map(lambda effect: effect.update(delta_time, args), self.pipeline))
 
     def draw(self) -> None:
         """ Draw all postprocessing effects """
 
-        for effect in self.pipeline:
-            effect.draw()
+        list(map(lambda effect: effect.draw(), self.pipeline))
