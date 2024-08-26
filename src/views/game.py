@@ -4,8 +4,6 @@ import sys
 import threading
 import time
 
-import arcade
-import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -27,7 +25,6 @@ from utils.media.video import load_video, Video
 from utils.physics import make_physics_engine
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from utils.scene import Scene
-from utils.text import label_value
 from utils.tilemap import TileMap
 from views.camera import center_camera_to_player
 from views.fading import Fading
@@ -79,7 +76,6 @@ class Game(Fading):
         self.astar_barrier_list = None
         self.wall_spritelist = None
         self.map_populator = None
-        self.measurements = []
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -316,18 +312,6 @@ class Game(Fading):
         )
 
         self.map_populator.update(make_args_container(self))
-
-        # TODO:  Remove performance measurement
-        # a = time.time()
-        # self.scene.get_next_interactable()
-        # self.measurements.append(time.time() - a)
-        #
-        # if len(self.measurements) >= 5000:
-        #     print(label_value('MIN', numpy.min(self.measurements)))
-        #     print(label_value('AVG', numpy.mean(self.measurements)))
-        #     print(label_value('MAX', numpy.max(self.measurements)))
-        #     print(label_value('SUM', numpy.sum(self.measurements)))
-        #     sys.exit()
 
         if self.level_completed:
             self.update_fade(self.next_view, speed=2.5)

@@ -124,7 +124,6 @@ class Electric(AbstractAnimatedSprite):
                 sound.update()
                 sound.play()
 
-
     def unschedule(self):
         pyglet.clock.unschedule(self.check_npcs)
         pyglet.clock.unschedule(self.check_cone)

@@ -215,4 +215,3 @@ class ViewState:
         val = int(str(val)[:-1] + str(last_digit))
 
         self._score = val
-

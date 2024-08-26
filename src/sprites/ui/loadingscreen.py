@@ -7,7 +7,6 @@ from PIL.Image import Resampling
 
 from state.viewstate import ViewState
 from utils.sprite import load_animated_gif
-from utils.text import create_text
 
 MARGIN = 5
 PERCENTAGE_SPEED = 1
@@ -79,8 +78,6 @@ class LoadingScreen:
         self.loading_animation = arcade.load_animated_gif(os.path.join(state.animation_dir, 'loading.gif'))
         self.loading_animation.left = self.image.width - self.loading_animation.width - MARGIN
         self.loading_animation.bottom = MARGIN
-
-
 
     @property
     def percent(self):

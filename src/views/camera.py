@@ -23,4 +23,3 @@ def center_camera_to_player(player_sprite, camera, size: tuple) -> None:
     # Here's our center, move to it
     player_centered = screen_center_x, screen_center_y
     camera.move_to(player_centered)
-

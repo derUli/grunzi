@@ -16,7 +16,6 @@ class Ship(Sprite):
         self.center_x -= MOVE_X
 
         if self.right < 0:
-
             logging.info('Removed ship from scene')
             self.remove_from_sprite_lists()
 

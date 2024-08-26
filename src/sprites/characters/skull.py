@@ -219,6 +219,7 @@ class Skull(Character, Useable):
     def cleanup(self):
         pyglet.clock.unschedule(self.update_move_path)
 
+
 def spawn_skull(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
 

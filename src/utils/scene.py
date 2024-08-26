@@ -1,5 +1,4 @@
 """ Scene utils """
-import sys
 from typing import Optional, List
 
 import arcade
@@ -172,7 +171,6 @@ class Scene(BaseScene):
                             'distance': dist
                         }
                     )
-
 
         found = sorted(found, key=lambda x: x['distance'], reverse=False)
 

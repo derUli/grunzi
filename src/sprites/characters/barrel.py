@@ -176,6 +176,7 @@ class Barrel(Character):
     def cleanup(self):
         pyglet.clock.unschedule(self.check_collision)
 
+
 def spawn_barrel(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
 
