@@ -26,7 +26,7 @@ class Fire(AbstractAnimatedSprite):
                 volume_source=VOLUME_SOURCE_SOUND
             )
             self.fx.update(init=True)
-            pyglet.clock.schedule_interval_soft(self.check_for_collision, 1 / 4, args)
+            pyglet.clock.schedule_interval_soft(self.check_for_collision, 1 / 6, args)
             return
 
         self.fx.update()
@@ -48,3 +48,6 @@ class Fire(AbstractAnimatedSprite):
             if isinstance(collision, Character):
                 collision.hurt(10)
                 return
+
+    def cleanup(self):
+        pyglet.clock.unschedule(self.check_for_collision)
