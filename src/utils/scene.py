@@ -143,7 +143,7 @@ class Scene(BaseScene):
                     delta_time,
                     args
                 )
-
+        print(l)
 
     def make_wall_spritelist(self) -> SpriteList:
         from constants.layers import WALL_LAYERS
