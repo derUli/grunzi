@@ -19,15 +19,12 @@ class LoadingScreen:
     def __init__(self):
         self.size = None
 
-        self.loading_text = None
         self.time = 0
 
         self.onepercent = None
         self._percent = 0
         self._display_percentage = 0
-
-        self.bar_height = 0
-
+        self.loading_animation = None
         self.show = False
         self.blur = MAX_BLUR
         self.image = None
@@ -42,20 +39,8 @@ class LoadingScreen:
 
         self.onepercent = w / 100
 
-        self.loading_text = create_text(
-            _("Loading..."),
-            font_size=FONT_SIZE,
-            color=arcade.color.BLACK,
-            align='left'
-        )
-
-        self.bar_height = self.loading_text.content_height + (MARGIN * 2)
-
         self._percent = 0
         self._display_percentage = 0
-
-        self.loading_text.x = w / 2 - self.loading_text.content_width / 2
-        self.loading_text.y = MARGIN
 
         path = os.path.join(state.ui_dir, 'loading.jpg')
         image = PIL.Image.open(path).convert('RGBA').crop()
@@ -90,6 +75,12 @@ class LoadingScreen:
         )
         self.filmgrain.alpha = 20 * state.settings.filmgrain
         self.filmgrain.position = (w / 2, h / 2)
+
+        self.loading_animation = arcade.load_animated_gif(os.path.join(state.animation_dir, 'loading.gif'))
+        self.loading_animation.left = self.image.width - self.loading_animation.width - MARGIN
+        self.loading_animation.bottom = MARGIN
+
+
 
     @property
     def percent(self):
@@ -131,6 +122,7 @@ class LoadingScreen:
             self.image = image
 
         self.filmgrain.update_animation(delta_time)
+        self.loading_animation.update_animation(delta_time)
 
     @property
     def completed(self):
@@ -141,27 +133,6 @@ class LoadingScreen:
         if not self.show:
             return
 
-        w, h = self.size
-
         self.image.draw()
         self.filmgrain.draw()
-
-        arcade.draw_rectangle_filled(
-            w / 2,
-            self.bar_height / 2,
-            w,
-            self.bar_height,
-            arcade.csscolor.PINK
-        )
-
-        bar_width = self._display_percentage * self.onepercent
-
-        arcade.draw_rectangle_filled(
-            bar_width / 2,
-            self.bar_height / 2,
-            bar_width,
-            self.bar_height,
-            arcade.csscolor.HOTPINK
-        )
-
-        self.loading_text.draw()
+        self.loading_animation.draw()

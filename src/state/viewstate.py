@@ -49,7 +49,21 @@ class ViewState:
 
         self.preload_sounds()
         self.preload_fonts()
+        self.preload_animations()
         self.shaders = {}
+
+    def preload_animations(self) -> None:
+        from os import walk
+
+        filenames = next(walk(self.animation_dir), (None, None, []))[2]  # [] if no file
+
+        for file in filenames:
+            if not file.endswith('.gif'):
+                continue
+
+            arcade.load_animated_gif(
+                os.path.join(self.animation_dir, file)
+            )
 
     def preload_fonts(self) -> None:
         """ Preload all fonts """
@@ -201,3 +215,4 @@ class ViewState:
         val = int(str(val)[:-1] + str(last_digit))
 
         self._score = val
+
