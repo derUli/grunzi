@@ -9,6 +9,7 @@ import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
 from state.settingsstate import SettingsState
 from utils.fpscounter import FPSCounter
+from utils.scene import Scene
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 
@@ -29,7 +30,7 @@ class View(arcade.View):
         super().__init__(window)
 
         self.state = None
-        self.scene = arcade.Scene()
+        self.scene = Scene()
         self.build_version = ''
         # Initialize the camera for static GUI elements
         self.camera_gui = arcade.Camera()

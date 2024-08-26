@@ -3,14 +3,14 @@ import unittest
 import arcade
 
 from utils.log import configure_logger
-from utils.scene import get_layer
+from utils.scene import get_layer, Scene
 
 configure_logger()
 
 
 class UtilsSceneTest(unittest.TestCase):
     def setUp(self):
-        self.scene = arcade.Scene()
+        self.scene = Scene()
 
     def test_get_layer_returns_existing(self):
         for i in range(0, 3):

@@ -7,6 +7,7 @@ import arcade.gui
 import constants.controls.keyboard
 import utils.gui
 import utils.text
+from utils.scene import Scene
 from views.fading import Fading
 
 BUTTON_WIDTH = 250
@@ -49,7 +50,7 @@ class SettingsControls(Fading):
     def show_scene(self) -> None:
         """ Show scene """
 
-        self.scene = arcade.Scene()
+        self.scene = Scene()
         self.manager.clear()
 
         controls = []
