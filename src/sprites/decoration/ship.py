@@ -27,8 +27,6 @@ class Steam(AbstractAnimatedSprite):
             delta_time,
             args
     ):
-
-        self.remove_from_sprite_lists()
         self.center_x -= MOVE_X
 
         if self.center_x <= 3400 and not self.sound:
