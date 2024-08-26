@@ -313,6 +313,7 @@ class Game(Fading):
         )
 
         self.map_populator.update(make_args_container(self))
+
         if self.level_completed:
             self.update_fade(self.next_view, speed=2.5)
         else:
@@ -320,6 +321,7 @@ class Game(Fading):
 
     def on_draw(self) -> None:
         """Render the screen."""
+        self.clear()
 
         if self.video.active:
             # Loading a video will open a ffmpeg console window.
