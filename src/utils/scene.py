@@ -73,17 +73,18 @@ class Scene(BaseScene):
 
         size = arcade.get_window().get_size()
 
+        start = time.time()
         try:
             self.update_animated(delta_time, size, self, args.player)
         except IndexError:
             pass
 
+        self.measures.append(time.time() - start)
+
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)
 
-        start = time.time()
         self.call_update(delta_time, args)
-        self.measures.append(time.time() - start)
 
         if len(self.measures) > 5000:
             print(label_value('Min', numpy.min(self.measures)))
