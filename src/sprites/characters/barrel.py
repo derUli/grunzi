@@ -131,7 +131,7 @@ class Barrel(Character):
                     break
 
         if explodes:
-            pyglet.clock.unschedule(self.check_collision)
+            self.cleanup()
             self.spawn_explosion(args)
 
     def update_explosion(self, delta_time, args):
@@ -173,6 +173,8 @@ class Barrel(Character):
         args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion.sound = args.state.play_sound('explosion')
 
+    def cleanup(self):
+        pyglet.clock.unschedule(self.check_collision)
 
 def spawn_barrel(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
