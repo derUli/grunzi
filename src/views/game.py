@@ -321,9 +321,9 @@ class Game(Fading):
 
     def on_draw(self) -> None:
         """Render the screen."""
-        self.clear()
 
         if self.video.active:
+            self.clear()
             # Loading a video will open a ffmpeg console window.
             # Which will disappear after a second.
             # The game window lose it's focus.
@@ -333,6 +333,7 @@ class Game(Fading):
             return self.draw_after()
 
         if not self.initialized or not self.ui.loading_screen.completed:
+            self.clear()
             self.ui.loading_screen.draw(time=self.time)
 
             return self.draw_after()
