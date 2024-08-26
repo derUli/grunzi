@@ -317,9 +317,9 @@ class Game(Fading):
         self.map_populator.update(make_args_container(self))
 
         # TODO:  Remove performance measurement
-        a = time.time()
-        self.on_use()
-        self.measurements.append(time.time() - a)
+        #a = time.time()
+        #self.scene.get_next_interactable()
+        #self.measurements.append(time.time() - a)
 
         if len(self.measurements) >= 5000:
             print(label_value('MIN', numpy.min(self.measurements)))

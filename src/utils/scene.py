@@ -1,4 +1,5 @@
 """ Scene utils """
+import sys
 from typing import Optional, List
 
 import arcade
@@ -154,22 +155,28 @@ class Scene(BaseScene):
                 sprite.draw_overlay(self.args)
 
     def get_next_sprites(self, distance=200):
-        sprites = []
+        from constants.layers import STATIC_LAYERS
 
-        for sprite_list in self.sprite_lists:
-            for sprite in sprite_list:
+        layers = filter(lambda x: x not in STATIC_LAYERS, reversed(self.name_mapping))
+        layers = map(lambda x: self[x], layers)
+
+        found = []
+
+        for layer in layers:
+            for sprite in layer:
                 dist = arcade.get_distance_between_sprites(self.args.player, sprite)
                 if dist < distance:
-                    sprites.append(
+                    found.append(
                         {
                             'sprite': sprite,
                             'distance': dist
                         }
                     )
 
-        sprites = sorted(sprites, key=lambda x: x['distance'], reverse=False)
 
-        return map(lambda x: x['sprite'], sprites)
+        found = sorted(found, key=lambda x: x['distance'], reverse=False)
+
+        return map(lambda x: x['sprite'], found)
 
     def get_next_interactable(self):
         for sprite in self.get_next_sprites():
