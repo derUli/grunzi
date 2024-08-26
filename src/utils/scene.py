@@ -69,6 +69,7 @@ class Scene(BaseScene):
             self.setup(args)
 
         size = arcade.get_window().get_size()
+
         try:
             self.update_animated(delta_time, size, self, args.player)
         except IndexError:
