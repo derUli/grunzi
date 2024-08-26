@@ -94,14 +94,13 @@ class Scene(BaseScene):
 
         from constants.layers import PASSIVE_LAYERS
 
-        for layer in reversed(self.name_mapping):
-            if layer in PASSIVE_LAYERS:
-                continue
+        layers = filter(lambda x: x not in PASSIVE_LAYERS, reversed(self.name_mapping))
+        layers = map(lambda x: self[x], layers)
 
-            for item in self[layer]:
-                if not isinstance(item, Item):
-                    continue
+        for layer in layers:
+            items = filter(lambda x: isinstance(x, Item), layer)
 
+            for item in items:
                 if arcade.check_for_collision(player_sprite, item):
                     return item
 
@@ -154,7 +153,7 @@ class Scene(BaseScene):
             if self.args and self.check_sprite_in_sight(sprite, self.args.player):
                 sprite.draw_overlay(self.args)
 
-    def get_next_sprites(self, distance=150):
+    def get_next_sprites(self, distance=200):
         sprites = []
 
         for sprite_list in self.sprite_lists:
@@ -167,6 +166,7 @@ class Scene(BaseScene):
                             'distance': dist
                         }
                     )
+
         sprites = sorted(sprites, key=lambda x: x['distance'], reverse=False)
 
         return map(lambda x: x['sprite'], sprites)
