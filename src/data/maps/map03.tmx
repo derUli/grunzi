@@ -604,23 +604,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="18" name="Valve">
-  <object id="50" gid="34" x="700.5" y="1443.5" width="64" height="64"/>
- </objectgroup>
- <objectgroup id="20" name="ValveTarget">
-  <object id="51" gid="36" x="0" y="3275" width="64" height="64"/>
- </objectgroup>
- <objectgroup id="7" name="Fish">
-  <object id="32" gid="2" x="0" y="3696" width="64" height="41"/>
-  <object id="33" gid="2" x="640" y="3632" width="64" height="41"/>
-  <object id="34" gid="2" x="1280" y="3568" width="64" height="41"/>
-  <object id="35" gid="2" x="1920" y="3440" width="64" height="41"/>
-  <object id="36" gid="2" x="2560" y="3568" width="64" height="41"/>
-  <object id="37" gid="2" x="3200" y="3632" width="64" height="41"/>
-  <object id="41" gid="2" x="3840" y="3568" width="64" height="41"/>
-  <object id="44" gid="2" x="4480" y="3456" width="64" height="41"/>
-  <object id="53" gid="2" x="128" y="3443" width="64" height="41"/>
- </objectgroup>
  <layer id="4" name="River" width="103" height="120" opacity="0.84">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -869,16 +852,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="11" name="Food">
-  <object id="45" gid="32" x="2318" y="5560" width="64" height="64"/>
- </objectgroup>
- <objectgroup id="10" name="Feather"/>
- <objectgroup id="3" name="SpawnPoint" locked="1">
-  <object id="3" gid="1" x="1024" y="3066.33" width="60" height="46"/>
- </objectgroup>
- <objectgroup id="15" name="Moon">
-  <object id="47" gid="19" x="1320.03" y="401.575" width="191" height="191"/>
- </objectgroup>
  <layer id="21" name="AlphaWall" width="103" height="120">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1003,4 +976,28 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="18" name="Valve">
+  <object id="50" gid="34" x="700.5" y="1443.5" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="20" name="ValveTarget">
+  <object id="51" gid="36" x="0" y="3275" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="7" name="Fish">
+  <object id="32" gid="2" x="0" y="3696" width="64" height="41"/>
+  <object id="33" gid="2" x="640" y="3632" width="64" height="41"/>
+  <object id="34" gid="2" x="1280" y="3568" width="64" height="41"/>
+  <object id="35" gid="2" x="1920" y="3440" width="64" height="41"/>
+  <object id="36" gid="2" x="2560" y="3568" width="64" height="41"/>
+  <object id="37" gid="2" x="3200" y="3632" width="64" height="41"/>
+  <object id="41" gid="2" x="3840" y="3568" width="64" height="41"/>
+  <object id="44" gid="2" x="4480" y="3456" width="64" height="41"/>
+  <object id="53" gid="2" x="128" y="3443" width="64" height="41"/>
+ </objectgroup>
+ <objectgroup id="10" name="Feather"/>
+ <objectgroup id="3" name="SpawnPoint" locked="1">
+  <object id="3" gid="1" x="1024" y="3066.33" width="60" height="46"/>
+ </objectgroup>
+ <objectgroup id="15" name="Moon">
+  <object id="47" gid="19" x="1320.03" y="401.575" width="191" height="191"/>
+ </objectgroup>
 </map>

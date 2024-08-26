@@ -57,6 +57,7 @@
       "landmines": false
     },
     "spawnWhat": [
+      "Slimer"
     ],
     "1": {
       "maxNPCs": 7

@@ -4,6 +4,7 @@ import sys
 import threading
 import time
 
+import arcade
 import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
@@ -681,7 +682,7 @@ class Game(Fading):
         args = make_args_container(self)
 
         for sprite in self.scene.get_next_sprites():
-            if isinstance(sprite, Useable):
+            if isinstance(sprite, Useable) and arcade.check_for_collision(item, sprite):
                 return item.on_use_with(
                     sprite,
                     args=args
