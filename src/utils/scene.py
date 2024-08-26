@@ -82,8 +82,17 @@ class Scene(BaseScene):
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)
 
-
+        start = time.time()
         self.call_update(delta_time, args)
+        self.measures.append(time.time() - start)
+
+        if len(self.measures) >= 10000:
+            print(label_value('Min', numpy.min(self.measures)))
+            print(label_value('Max', numpy.max(self.measures)))
+            print(label_value('Mean', numpy.mean(self.measures)))
+            print(label_value('Sum', numpy.sum(self.measures)))
+            sys.exit(0)
+
 
     def update_animated(self, delta_time, size, scene, player_sprite):
         """ Update animated """
@@ -117,18 +126,25 @@ class Scene(BaseScene):
     def call_update(self, delta_time, args):
         from constants.layers import STATIC_LAYERS
 
+        l = {}
+
         for name in args.scene.name_mapping:
             if name in STATIC_LAYERS:
                 continue
 
+
             for sprite in self[name]:
                 if not isinstance(sprite, AbstractSprite):
+                    l[name] = len(self[name])
+
                     continue
 
                 sprite.update(
                     delta_time,
                     args
                 )
+
+        print(l)
 
     def make_wall_spritelist(self) -> SpriteList:
         from constants.layers import WALL_LAYERS
@@ -145,23 +161,9 @@ class Scene(BaseScene):
     def draw(self, names: Optional[List[str]] = None, **kwargs):
         self._draw(names=names, **kwargs)
 
-        start = time.time()
 
         if self.postprocessing:
             self.postprocessing.draw()
-
-        self.measures.append(time.time() - start)
-
-        if len(self.measures) % 500 == 0:
-            print(len(self.measures))
-
-        if len(self.measures) >= 10000:
-            print(label_value('Min', numpy.min(self.measures)))
-            print(label_value('Max', numpy.max(self.measures)))
-            print(label_value('Mean', numpy.mean(self.measures)))
-            print(label_value('Sum', numpy.sum(self.measures)))
-            sys.exit(0)
-
 
     def _draw(self, names: Optional[List[str]] = None, **kwargs):
         from sprites.bullet.bullet import Bullet
