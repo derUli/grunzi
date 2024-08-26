@@ -33,8 +33,6 @@ class Cactus(Sprite):
             image_y=image_y,
         )
 
-        self.measurements = []
-
     def update(
             self,
             delta_time,

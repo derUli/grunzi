@@ -2937,7 +2937,7 @@
   <object id="19" gid="48" x="3398.5" y="12611.3" width="128" height="128"/>
  </objectgroup>
  <objectgroup id="3" name="SpawnPoint">
-  <object id="3" gid="5" x="3398" y="17727" width="60" height="46"/>
+  <object id="3" gid="5" x="3642" y="18553" width="60" height="46"/>
  </objectgroup>
  <objectgroup id="12" name="Steam" opacity="0.57">
   <object id="16" gid="219" x="3676.91" y="18882.2" width="432.485" height="420.485"/>

@@ -1,3 +1,5 @@
+import logging
+
 from sprites.sprite import Sprite, AbstractAnimatedSprite
 from utils.positionalsound import PositionalSound
 
@@ -10,9 +12,12 @@ class Ship(Sprite):
             delta_time,
             args
     ):
+        self.remove_from_sprite_lists()
         self.center_x -= MOVE_X
 
         if self.right < 0:
+
+            logging.info('Removed ship from scene')
             self.remove_from_sprite_lists()
 
 
@@ -23,6 +28,8 @@ class Steam(AbstractAnimatedSprite):
             delta_time,
             args
     ):
+
+        self.remove_from_sprite_lists()
         self.center_x -= MOVE_X
 
         if self.center_x <= 3400 and not self.sound:
@@ -36,3 +43,4 @@ class Steam(AbstractAnimatedSprite):
 
         if self.right < 0:
             self.remove_from_sprite_lists()
+            logging.info('Removed steam from scene')
