@@ -337,7 +337,7 @@ class Game(Fading):
 
             return self.draw_after()
 
-        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
+        center_camera_to_player(self.player_sprite, self.camera_sprites)
 
         self.camera_sprites.use()
         self.scene.draw()
