@@ -446,8 +446,7 @@ class Game(Fading):
 
         try:
             next_map = MAPS[index]
-        except IndexError as e:
-            logging.error(e)
+        except IndexError:
             completed = True
 
         self.state.map_name = next_map
