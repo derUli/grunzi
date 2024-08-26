@@ -110,23 +110,18 @@ class Scene(BaseScene):
     def call_update(self, delta_time, args):
         from constants.layers import STATIC_LAYERS
 
-        l = {}
-
         for name in args.scene.name_mapping:
             if name in STATIC_LAYERS:
                 continue
 
             for sprite in self[name]:
                 if not isinstance(sprite, AbstractSprite):
-                    l[name] = len(self[name])
-
                     continue
 
                 sprite.update(
                     delta_time,
                     args
                 )
-        print(l)
 
     def make_wall_spritelist(self) -> SpriteList:
         from constants.layers import WALL_LAYERS
