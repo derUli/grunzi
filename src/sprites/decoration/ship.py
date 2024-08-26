@@ -15,7 +15,6 @@ class Ship(Sprite):
         self.center_x -= MOVE_X
 
         if self.right < 0:
-            logging.info('Removed ship from scene')
             self.remove_from_sprite_lists()
 
 
@@ -39,4 +38,3 @@ class Steam(AbstractAnimatedSprite):
 
         if self.right < 0:
             self.remove_from_sprite_lists()
-            logging.info('Removed steam from scene')
