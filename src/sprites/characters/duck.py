@@ -52,12 +52,14 @@ class Duck(Character):
     ) -> None:
         """ Update duck """
 
+        if self.sound and self.sound.playing:
+            self.sound.update()
+            return
+
         # Play random "quack" sound
         if random.randint(1, 50) == 30:
             self.play_sound(player=args.player, state=args.state)
 
-        if self.sound:
-            self.sound.update()
 
     def play_sound(self, player, state):
         if self.sound and self.sound.playing:

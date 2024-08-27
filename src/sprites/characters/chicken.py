@@ -98,7 +98,7 @@ class Chicken(Character, Useable):
         if random.randint(1, 50) == 30:
             self.play_sound(player=args.player, state=args.state)
 
-        if self.sound:
+        if self.sound and self.sound.playing:
             self.sound.update()
 
     def play_sound(self, player, state) -> None:
