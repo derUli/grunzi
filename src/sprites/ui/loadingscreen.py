@@ -7,8 +7,9 @@ from PIL.Image import Resampling
 
 from state.viewstate import ViewState
 from utils.sprite import load_animated_gif
+from utils.text import create_text
 
-MARGIN = 5
+MARGIN = 10
 PERCENTAGE_SPEED = 1
 FONT_SIZE = 16
 MAX_BLUR = 15
@@ -79,6 +80,16 @@ class LoadingScreen:
         self.loading_animation.left = self.image.width - self.loading_animation.width - MARGIN
         self.loading_animation.bottom = MARGIN
 
+        self.loading_text = create_text(
+            _("Loading..."),
+            font_size=FONT_SIZE,
+            color=arcade.color.BLACK,
+            align='left'
+        )
+
+        self.loading_text.x = w / 2 - self.loading_text.content_width / 2
+        self.loading_text.y = MARGIN
+
     @property
     def percent(self):
         return self._percent
@@ -131,5 +142,6 @@ class LoadingScreen:
             return
 
         self.image.draw()
+        self.loading_text.draw()
         self.filmgrain.draw()
         self.loading_animation.draw()
