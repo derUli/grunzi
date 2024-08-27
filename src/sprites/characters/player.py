@@ -279,8 +279,7 @@ class Player(Character, SpriteHealth):
 
         try:
             exit_layer = args.scene[LAYER_LEVEL_EXIT]
-        except AttributeError:
-            print('no levelexit')
+        except KeyError:
             # Unschedule if there is no level exit trigger
             self.unschedule()
             return
