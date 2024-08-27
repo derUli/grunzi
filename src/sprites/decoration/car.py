@@ -10,6 +10,11 @@ HURT = 34
 
 
 class Car:
+    def setup_handlers(self, args):
+        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
+        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
+        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_CHICKEN, post_handler=self.on_hit)
+
     def on_hit(self, _car_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
 
@@ -17,6 +22,9 @@ class Car:
 
 
 class CarLeft(Sprite, Car):
+    def setup(self, args):
+        self.setup_handlers(args)
+
     def update(
             self,
             delta_time: float,
@@ -29,12 +37,11 @@ class CarLeft(Sprite, Car):
         if self.right < 0:
             args.physics_engine.set_position(self, (w - self.width / 2, self.center_y))
 
-        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
-        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
-        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_CHICKEN, post_handler=self.on_hit)
-
 
 class CarRight(Sprite, Car):
+    def setup(self, args):
+        self.setup_handlers(args)
+
     def update(
             self,
             delta_time: float,
@@ -45,7 +52,3 @@ class CarRight(Sprite, Car):
         w, h = args.map_size
         if self.right > w:
             args.physics_engine.set_position(self, (0 - self.width / 2, self.center_y))
-
-        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_ENEMY, post_handler=self.on_hit)
-        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_PLAYER, post_handler=self.on_hit)
-        args.physics_engine.add_collision_handler(COLLISION_CAR, COLLISION_CHICKEN, post_handler=self.on_hit)
