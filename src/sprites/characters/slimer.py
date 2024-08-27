@@ -114,7 +114,6 @@ class Slimer(Character, Useable):
 
         if arcade.get_distance_between_sprites(self, args.player) > SIGHT_DISTANCE:
             self.chasing = False
-            self.update_texture()
             return
 
         # Figure out if we should face left or right
@@ -160,7 +159,8 @@ class Slimer(Character, Useable):
             move_x *= -1
             move_y *= -1
 
-        physics_engine.apply_force(self, (move_x, move_y))
+        if move_x > 0 or move_y > 0:
+            physics_engine.apply_force(self, (move_x, move_y))
 
 
 def spawn_slimer(state, tilemap, scene, physics_engine):
