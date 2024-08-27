@@ -1,36 +1,26 @@
 import logging
 import os
-import sys
-import threading
-import time
 
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
 import constants.controls.keyboard
-import utils.media.audio
 from constants.layers import *
-from constants.mapconfig import MapConfig
 from constants.maps import MAPS
 from sprites.bullet.grunt import Grunt
-from sprites.characters.player import Player, MODIFIER_SPRINT, MODIFIER_DEFAULT
+from sprites.characters.player import MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
 from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
-from utils.callbackhandler import CallbackHandler
-from utils.mappopulator import MapPopulator
+from utils.loader.loader import Loader
 from utils.media.video import load_video, Video
-from utils.physics import make_physics_engine
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
-from utils.scene import Scene
-from utils.tilemap import TileMap
 from views.camera import center_camera_to_player
 from views.fading import Fading
 from views.menu.mainmenu import MainMenu
 from views.menu.pausemenu import PauseMenu
-from window.gamewindow import UPDATE_RATE
 
 
 class Game(Fading):
@@ -129,107 +119,7 @@ class Game(Fading):
 
         self.level_completed = False
         # Load map
-        threading.Thread(target=self.async_load).start()
-
-    def async_load(self) -> None:
-        """ Async load map """
-
-        start_time = time.time()
-
-        self.ui.loading_screen.show = True
-        self.ui.loading_screen.percent = 0
-
-        savegame = SaveGameState.load()
-        savegame.current = self.state.map_name
-        savegame.save()
-
-        # Set up the Cameras
-        self.camera_sprites = arcade.Camera()
-        self.state.reset()
-        self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
-
-        self.ui.loading_screen.percent = 10
-
-        # Name of map file to load
-        map_name = os.path.join(self.state.map_dir, f"{self.state.map_name}.tmx")
-
-        # Read in the tiled map
-        try:
-            self.tilemap = TileMap(
-                map_name,
-                layer_options=LAYER_OPTIONS
-            )
-        except FileNotFoundError as e:
-            logging.error(e)
-            sys.exit(1)
-
-        self.ui.loading_screen.percent = 25
-
-        # Initialize Scene with our TileMap, this will automatically add all layers
-        # from the map as SpriteLists in the scene in the proper order.
-        self.scene = Scene.from_tilemap(self.tilemap.map)
-
-        self.ui.loading_screen.percent = 50
-
-        self.map_populator = MapPopulator()
-        self.map_populator.spawn_initial(make_args_container(self))
-
-        # Set up the player, specifically placing it at these coordinates.
-        filename = os.path.join(self.state.sprite_dir, 'char', 'pig.png')
-        self.player_sprite = Player(filename)
-
-        self.player_sprite.setup(
-            state=self.state,
-            scene=self.scene,
-            callbacks=CallbackHandler(
-                on_complete=self.on_next_level
-            ),
-            controllers=self.window.controllers
-        )
-
-        # Create the physics engine
-        self.physics_engine = make_physics_engine(self.player_sprite, self.scene)
-
-        self.map_populator.spawn_npcs(make_args_container(self))
-
-        self.ui.loading_screen.percent = 60
-
-        self.wall_spritelist = self.scene.make_wall_spritelist()
-
-        sprite = arcade.SpriteSolidColor(
-            width=64,
-            height=64,
-            color=arcade.color.BLACK
-        )
-
-        self.astar_barrier_list = arcade.AStarBarrierList(
-            moving_sprite=sprite,
-            blocking_sprites=self.wall_spritelist,
-            grid_size=64,
-            left=0,
-            right=self.tilemap.width,
-            top=self.tilemap.height,  # FIXME: Top and bottom is switched in this dev version of arcade
-            bottom=0
-        )
-
-        self.ui.loading_screen.percent = 80
-
-        # Create the music queue
-        self.music_queue = utils.media.audio.MusicQueue(state=self.state)
-        self.music_queue.from_directory(os.path.join(self.state.music_dir, str(self.state.map_name)))
-
-        self.ui.loading_screen.percent = 100
-
-        pyglet.clock.schedule_interval_soft(self.wait_for_video, interval=UPDATE_RATE)
-
-        # Sleep some seconds to wait until the 100 Percent is shown
-        while not self.ui.loading_screen.completed:
-            time.sleep(0.0001)
-
-        self.ui.loading_screen.show = False
-        self.initialized = True
-
-        logging.info(f"Map {self.state.map_name} loaded in {time.time() - start_time} seconds")
+        Loader(self).load_async()
 
     def wait_for_video(self, delta_time=0) -> None:
         """ Wait until video playback completed """
