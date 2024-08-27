@@ -1,9 +1,11 @@
 """ Scene utils """
 import logging
+import sys
 import time
 from typing import Optional, List
 
 import arcade
+import numpy
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
@@ -24,6 +26,7 @@ class Scene(BaseScene):
         self.postprocessing = None
         self.args = None
         self.lookup_table = None
+        self.measures = []
 
     def setup(self, args) -> None:
         """ Setup scene """
@@ -68,6 +71,7 @@ class Scene(BaseScene):
         if not self.initialized:
             self.setup(args)
 
+
         size = arcade.get_window().get_size()
 
         try:
@@ -78,7 +82,13 @@ class Scene(BaseScene):
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)
 
+        start = time.time()
         self.call_update(delta_time, args)
+        self.measures.append(time.time() - start)
+
+        if len(self.measures) >= 5000:
+            print(numpy.mean(self.measures))
+            sys.exit(0)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
         """ Update animated """
@@ -112,11 +122,12 @@ class Scene(BaseScene):
         from constants.layers import STATIC_LAYERS
 
 
-        for name in args.scene.name_mapping:
-            if name in STATIC_LAYERS:
-                continue
 
-            for sprite in self[name]:
+        layers = filter(lambda x: x not in STATIC_LAYERS, reversed(self.name_mapping))
+        layers = map(lambda x: self[x], layers)
+
+        for layer in layers:
+            for sprite in layer:
                 if not isinstance(sprite, AbstractSprite):
                     continue
                 a = time.time()
