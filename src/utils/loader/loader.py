@@ -5,6 +5,7 @@ import threading
 import time
 
 import arcade
+import numpy
 import pyglet
 import utils.media.audio
 from constants.layers import LAYER_OPTIONS

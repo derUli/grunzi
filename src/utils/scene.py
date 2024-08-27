@@ -1,11 +1,9 @@
 """ Scene utils """
 import logging
-import sys
 import time
 from typing import Optional, List
 
 import arcade
-import numpy
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
@@ -70,7 +68,6 @@ class Scene(BaseScene):
         if not self.initialized:
             self.setup(args)
 
-
         size = arcade.get_window().get_size()
 
         try:
@@ -114,8 +111,6 @@ class Scene(BaseScene):
     def call_update(self, delta_time, args):
         from constants.layers import STATIC_LAYERS
 
-
-
         layers = filter(lambda x: x not in STATIC_LAYERS, reversed(self.name_mapping))
         layers = map(lambda x: self[x], layers)
 
@@ -137,11 +132,12 @@ class Scene(BaseScene):
         from constants.layers import WALL_LAYERS
 
         wall_spritelist = SpriteList(lazy=True, use_spatial_hash=True)
-        for name in WALL_LAYERS:
-            layer = get_layer(name, self)
 
-            for item in layer:
-                wall_spritelist.append(item)
+        layers = filter(lambda x: x in WALL_LAYERS, reversed(self.name_mapping))
+        layers = map(lambda x: self[x], layers)
+
+        for layer in layers:
+            list(map(lambda x: wall_spritelist.append(x), layer))
 
         return wall_spritelist
 
