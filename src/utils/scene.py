@@ -1,4 +1,6 @@
 """ Scene utils """
+import logging
+import time
 from typing import Optional, List
 
 import arcade
@@ -109,6 +111,7 @@ class Scene(BaseScene):
     def call_update(self, delta_time, args):
         from constants.layers import STATIC_LAYERS
 
+
         for name in args.scene.name_mapping:
             if name in STATIC_LAYERS:
                 continue
@@ -116,11 +119,15 @@ class Scene(BaseScene):
             for sprite in self[name]:
                 if not isinstance(sprite, AbstractSprite):
                     continue
-
+                a = time.time()
                 sprite.update(
                     delta_time,
                     args
                 )
+                b = time.time() - a
+
+                if b > 0.01:
+                    logging.warning(f"Update sprite {sprite} took to long {b}")
 
     def make_wall_spritelist(self) -> SpriteList:
         from constants.layers import WALL_LAYERS
