@@ -26,7 +26,6 @@ class Scene(BaseScene):
         self.postprocessing = None
         self.args = None
         self.lookup_table = None
-        self.measures = []
 
     def setup(self, args) -> None:
         """ Setup scene """
@@ -82,13 +81,7 @@ class Scene(BaseScene):
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)
 
-        start = time.time()
         self.call_update(delta_time, args)
-        self.measures.append(time.time() - start)
-
-        if len(self.measures) >= 5000:
-            print(numpy.mean(self.measures))
-            sys.exit(0)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
         """ Update animated """
