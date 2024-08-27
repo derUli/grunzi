@@ -118,4 +118,3 @@ class GameWindow(arcade.Window):
 
         if not any(self.controllers):
             logging.info(f"No controllers detected")
-

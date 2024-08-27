@@ -9,7 +9,6 @@ import pyglet
 
 from constants.audio import DEFAULT_AUDIO_BACKEND, audio_backends
 from constants.maps import FIRST_MAP
-from constants.settings import UNLIMITED_FRAMERATE
 from state.settingsstate import SettingsState
 from state.viewstate import ViewState
 from utils.log import log_hardware_info, configure_logger
