@@ -67,3 +67,5 @@ class Switch(Sprite, Interactable):
         self._enabled = SWITCH_ON
 
         self.texture = self.textures[self.enabled]
+
+        args.state.play_sound('switch')
