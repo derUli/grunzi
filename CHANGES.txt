@@ -12,6 +12,7 @@
 * map04: Gegner aktiviert
 * map04: Neuer Gegner hinzugefügt: Explodierendes Fass
 * map04: Puzzle mit Schalter und Portal hinzugefügt
+* Global: Performance Optimierungen
 
 ## Alpha 017 (23.08.2024)
 

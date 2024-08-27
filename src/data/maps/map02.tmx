@@ -1,132 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="200" height="117" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#81b1d9" nextlayerid="46" nextobjectid="210">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="200" height="117" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#81b1d9" nextlayerid="46" nextobjectid="210">
  <tileset firstgid="1" name="Chars" tilewidth="60" tileheight="46" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="60" height="46" source="../images/sprites/char/pig.png"/>
+   <image source="../images/sprites/char/pig.png" width="60" height="46"/>
   </tile>
  </tileset>
  <tileset firstgid="2" name="Background" tilewidth="128" tileheight="64" tilecount="8" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="64" height="64" source="../images/sprites/ground/beach.jpg"/>
+   <image source="../images/sprites/ground/beach.jpg" width="64" height="64"/>
   </tile>
   <tile id="2">
-   <image width="64" height="64" source="../images/sprites/dummy/dummy.png"/>
+   <image source="../images/sprites/dummy/dummy.png" width="64" height="64"/>
   </tile>
   <tile id="5">
-   <image width="64" height="64" source="../images/sprites/ground/ground1.jpg"/>
+   <image source="../images/sprites/ground/ground1.jpg" width="64" height="64"/>
   </tile>
   <tile id="6">
-   <image width="64" height="64" source="../images/sprites/ground/gravel.jpg"/>
+   <image source="../images/sprites/ground/gravel.jpg" width="64" height="64"/>
   </tile>
   <tile id="8">
-   <image width="64" height="64" source="../images/sprites/ground/pebble.jpg"/>
+   <image source="../images/sprites/ground/pebble.jpg" width="64" height="64"/>
   </tile>
   <tile id="9">
-   <image width="128" height="16" source="../images/sprites/ground/red.png"/>
+   <image source="../images/sprites/ground/red.png" width="128" height="16"/>
   </tile>
   <tile id="10">
-   <image width="64" height="64" source="../images/sprites/street/street2.jpg"/>
+   <image source="../images/sprites/street/street2.jpg" width="64" height="64"/>
   </tile>
   <tile id="11">
-   <image width="64" height="64" source="../images/sprites/street/street3.jpg"/>
+   <image source="../images/sprites/street/street3.jpg" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="14" name="Water" tilewidth="64" tileheight="64" tilecount="40" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="43">
-   <image width="64" height="64" source="../images/sprites/water/frame-001.jpg"/>
+   <image source="../images/sprites/water/frame-001.jpg" width="64" height="64"/>
   </tile>
   <tile id="44">
-   <image width="64" height="64" source="../images/sprites/water/frame-002.jpg"/>
+   <image source="../images/sprites/water/frame-002.jpg" width="64" height="64"/>
   </tile>
   <tile id="45">
-   <image width="64" height="64" source="../images/sprites/water/frame-003.jpg"/>
+   <image source="../images/sprites/water/frame-003.jpg" width="64" height="64"/>
   </tile>
   <tile id="46">
-   <image width="64" height="64" source="../images/sprites/water/frame-004.jpg"/>
+   <image source="../images/sprites/water/frame-004.jpg" width="64" height="64"/>
   </tile>
   <tile id="47">
-   <image width="64" height="64" source="../images/sprites/water/frame-005.jpg"/>
+   <image source="../images/sprites/water/frame-005.jpg" width="64" height="64"/>
   </tile>
   <tile id="48">
-   <image width="64" height="64" source="../images/sprites/water/frame-006.jpg"/>
+   <image source="../images/sprites/water/frame-006.jpg" width="64" height="64"/>
   </tile>
   <tile id="49">
-   <image width="64" height="64" source="../images/sprites/water/frame-007.jpg"/>
+   <image source="../images/sprites/water/frame-007.jpg" width="64" height="64"/>
   </tile>
   <tile id="50">
-   <image width="64" height="64" source="../images/sprites/water/frame-008.jpg"/>
+   <image source="../images/sprites/water/frame-008.jpg" width="64" height="64"/>
   </tile>
   <tile id="51">
-   <image width="64" height="64" source="../images/sprites/water/frame-009.jpg"/>
+   <image source="../images/sprites/water/frame-009.jpg" width="64" height="64"/>
   </tile>
   <tile id="52">
-   <image width="64" height="64" source="../images/sprites/water/frame-010.jpg"/>
+   <image source="../images/sprites/water/frame-010.jpg" width="64" height="64"/>
   </tile>
   <tile id="53">
-   <image width="64" height="64" source="../images/sprites/water/frame-011.jpg"/>
+   <image source="../images/sprites/water/frame-011.jpg" width="64" height="64"/>
   </tile>
   <tile id="54">
-   <image width="64" height="64" source="../images/sprites/water/frame-012.jpg"/>
+   <image source="../images/sprites/water/frame-012.jpg" width="64" height="64"/>
   </tile>
   <tile id="55">
-   <image width="64" height="64" source="../images/sprites/water/frame-013.jpg"/>
+   <image source="../images/sprites/water/frame-013.jpg" width="64" height="64"/>
   </tile>
   <tile id="56">
-   <image width="64" height="64" source="../images/sprites/water/frame-014.jpg"/>
+   <image source="../images/sprites/water/frame-014.jpg" width="64" height="64"/>
   </tile>
   <tile id="57">
-   <image width="64" height="64" source="../images/sprites/water/frame-015.jpg"/>
+   <image source="../images/sprites/water/frame-015.jpg" width="64" height="64"/>
   </tile>
   <tile id="58">
-   <image width="64" height="64" source="../images/sprites/water/frame-016.jpg"/>
+   <image source="../images/sprites/water/frame-016.jpg" width="64" height="64"/>
   </tile>
   <tile id="59">
-   <image width="64" height="64" source="../images/sprites/water/frame-017.jpg"/>
+   <image source="../images/sprites/water/frame-017.jpg" width="64" height="64"/>
   </tile>
   <tile id="60">
-   <image width="64" height="64" source="../images/sprites/water/frame-018.jpg"/>
+   <image source="../images/sprites/water/frame-018.jpg" width="64" height="64"/>
   </tile>
   <tile id="61">
-   <image width="64" height="64" source="../images/sprites/water/frame-019.jpg"/>
+   <image source="../images/sprites/water/frame-019.jpg" width="64" height="64"/>
   </tile>
   <tile id="62">
-   <image width="64" height="64" source="../images/sprites/water/frame-020.jpg"/>
+   <image source="../images/sprites/water/frame-020.jpg" width="64" height="64"/>
   </tile>
   <tile id="63">
-   <image width="64" height="64" source="../images/sprites/water/frame-021.jpg"/>
+   <image source="../images/sprites/water/frame-021.jpg" width="64" height="64"/>
   </tile>
   <tile id="64">
-   <image width="64" height="64" source="../images/sprites/water/frame-022.jpg"/>
+   <image source="../images/sprites/water/frame-022.jpg" width="64" height="64"/>
   </tile>
   <tile id="65">
-   <image width="64" height="64" source="../images/sprites/water/frame-023.jpg"/>
+   <image source="../images/sprites/water/frame-023.jpg" width="64" height="64"/>
   </tile>
   <tile id="66">
-   <image width="64" height="64" source="../images/sprites/water/frame-024.jpg"/>
+   <image source="../images/sprites/water/frame-024.jpg" width="64" height="64"/>
   </tile>
   <tile id="67">
-   <image width="64" height="64" source="../images/sprites/water/frame-025.jpg"/>
+   <image source="../images/sprites/water/frame-025.jpg" width="64" height="64"/>
   </tile>
   <tile id="68">
-   <image width="64" height="64" source="../images/sprites/water/frame-026.jpg"/>
+   <image source="../images/sprites/water/frame-026.jpg" width="64" height="64"/>
   </tile>
   <tile id="69">
-   <image width="64" height="64" source="../images/sprites/water/frame-027.jpg"/>
+   <image source="../images/sprites/water/frame-027.jpg" width="64" height="64"/>
   </tile>
   <tile id="70">
-   <image width="64" height="64" source="../images/sprites/water/frame-028.jpg"/>
+   <image source="../images/sprites/water/frame-028.jpg" width="64" height="64"/>
   </tile>
   <tile id="71">
-   <image width="64" height="64" source="../images/sprites/water/frame-029.jpg"/>
+   <image source="../images/sprites/water/frame-029.jpg" width="64" height="64"/>
   </tile>
   <tile id="72">
-   <image width="64" height="64" source="../images/sprites/water/frame-030.jpg"/>
+   <image source="../images/sprites/water/frame-030.jpg" width="64" height="64"/>
   </tile>
   <tile id="73">
-   <image width="64" height="64" source="../images/sprites/water/frame-031.jpg"/>
+   <image source="../images/sprites/water/frame-031.jpg" width="64" height="64"/>
    <animation>
     <frame tileid="43" duration="50"/>
     <frame tileid="44" duration="50"/>
@@ -171,196 +171,196 @@
    </animation>
   </tile>
   <tile id="74">
-   <image width="64" height="64" source="../images/sprites/water/frame-032.jpg"/>
+   <image source="../images/sprites/water/frame-032.jpg" width="64" height="64"/>
   </tile>
   <tile id="75">
-   <image width="64" height="64" source="../images/sprites/water/frame-033.jpg"/>
+   <image source="../images/sprites/water/frame-033.jpg" width="64" height="64"/>
   </tile>
   <tile id="76">
-   <image width="64" height="64" source="../images/sprites/water/frame-034.jpg"/>
+   <image source="../images/sprites/water/frame-034.jpg" width="64" height="64"/>
   </tile>
   <tile id="77">
-   <image width="64" height="64" source="../images/sprites/water/frame-035.jpg"/>
+   <image source="../images/sprites/water/frame-035.jpg" width="64" height="64"/>
   </tile>
   <tile id="78">
-   <image width="64" height="64" source="../images/sprites/water/frame-036.jpg"/>
+   <image source="../images/sprites/water/frame-036.jpg" width="64" height="64"/>
   </tile>
   <tile id="79">
-   <image width="64" height="64" source="../images/sprites/water/frame-037.jpg"/>
+   <image source="../images/sprites/water/frame-037.jpg" width="64" height="64"/>
   </tile>
   <tile id="80">
-   <image width="64" height="64" source="../images/sprites/water/frame-038.jpg"/>
+   <image source="../images/sprites/water/frame-038.jpg" width="64" height="64"/>
   </tile>
   <tile id="81">
-   <image width="64" height="64" source="../images/sprites/water/frame-039.jpg"/>
+   <image source="../images/sprites/water/frame-039.jpg" width="64" height="64"/>
   </tile>
   <tile id="82">
-   <image width="64" height="64" source="../images/sprites/water/frame-040.jpg"/>
+   <image source="../images/sprites/water/frame-040.jpg" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="97" name="Decoration" tilewidth="160" tileheight="182" tilecount="22" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="160" height="182" source="../images/sprites/vegetation/palm1.png"/>
+   <image source="../images/sprites/vegetation/palm1.png" width="160" height="182"/>
   </tile>
   <tile id="1">
-   <image width="160" height="160" source="../images/sprites/decoration/mannequin1.png"/>
+   <image source="../images/sprites/decoration/mannequin1.png" width="160" height="160"/>
   </tile>
   <tile id="2">
-   <image width="160" height="160" source="../images/sprites/decoration/mannequin2.png"/>
+   <image source="../images/sprites/decoration/mannequin2.png" width="160" height="160"/>
   </tile>
   <tile id="3">
-   <image width="64" height="62" source="../images/sprites/decoration/garbagecan2.png"/>
+   <image source="../images/sprites/decoration/garbagecan2.png" width="64" height="62"/>
   </tile>
   <tile id="4">
-   <image width="64" height="64" source="../images/sprites/decoration/ball.png"/>
+   <image source="../images/sprites/decoration/ball.png" width="64" height="64"/>
   </tile>
   <tile id="11">
-   <image width="128" height="123" source="../images/sprites/decoration/parasol.png"/>
+   <image source="../images/sprites/decoration/parasol.png" width="128" height="123"/>
   </tile>
   <tile id="12">
-   <image width="128" height="86" source="../images/sprites/decoration/towel1.png"/>
+   <image source="../images/sprites/decoration/towel1.png" width="128" height="86"/>
   </tile>
   <tile id="13">
-   <image width="64" height="46" source="../images/sprites/decoration/basket.png"/>
+   <image source="../images/sprites/decoration/basket.png" width="64" height="46"/>
   </tile>
   <tile id="14">
-   <image width="128" height="86" source="../images/sprites/decoration/towel2.png"/>
+   <image source="../images/sprites/decoration/towel2.png" width="128" height="86"/>
   </tile>
   <tile id="15">
-   <image width="70" height="51" source="../images/sprites/decoration/ghettoblaster.png"/>
+   <image source="../images/sprites/decoration/ghettoblaster.png" width="70" height="51"/>
   </tile>
   <tile id="17">
-   <image width="64" height="60" source="../images/sprites/decoration/lifebuoy.png"/>
+   <image source="../images/sprites/decoration/lifebuoy.png" width="64" height="60"/>
   </tile>
   <tile id="18">
-   <image width="92" height="75" source="../images/sprites/decoration/buoy1.png"/>
+   <image source="../images/sprites/decoration/buoy1.png" width="92" height="75"/>
   </tile>
   <tile id="19">
-   <image width="92" height="75" source="../images/sprites/decoration/buoy2.png"/>
+   <image source="../images/sprites/decoration/buoy2.png" width="92" height="75"/>
   </tile>
   <tile id="20">
-   <image width="128" height="129" source="../images/sprites/decoration/boat1.png"/>
+   <image source="../images/sprites/decoration/boat1.png" width="128" height="129"/>
   </tile>
   <tile id="21">
-   <image width="128" height="129" source="../images/sprites/decoration/boat2.png"/>
+   <image source="../images/sprites/decoration/boat2.png" width="128" height="129"/>
   </tile>
   <tile id="26">
-   <image width="96" height="72" source="../images/sprites/decoration/chair1.png"/>
+   <image source="../images/sprites/decoration/chair1.png" width="96" height="72"/>
   </tile>
   <tile id="27">
-   <image width="96" height="72" source="../images/sprites/decoration/chair2.png"/>
+   <image source="../images/sprites/decoration/chair2.png" width="96" height="72"/>
   </tile>
   <tile id="29">
-   <image width="60" height="48" source="../images/sprites/decoration/keepout.png"/>
+   <image source="../images/sprites/decoration/keepout.png" width="60" height="48"/>
   </tile>
   <tile id="31">
-   <image width="64" height="107" source="../images/sprites/decoration/zombie_infested1.png"/>
+   <image source="../images/sprites/decoration/zombie_infested1.png" width="64" height="107"/>
   </tile>
   <tile id="32">
-   <image width="64" height="107" source="../images/sprites/decoration/zombie_infested2.png"/>
+   <image source="../images/sprites/decoration/zombie_infested2.png" width="64" height="107"/>
   </tile>
   <tile id="33">
-   <image width="104" height="160" source="../images/sprites/vegetation/cactus1.png"/>
+   <image source="../images/sprites/vegetation/cactus1.png" width="104" height="160"/>
   </tile>
   <tile id="34">
-   <image width="104" height="160" source="../images/sprites/vegetation/cactus2.png"/>
+   <image source="../images/sprites/vegetation/cactus2.png" width="104" height="160"/>
   </tile>
  </tileset>
  <tileset firstgid="132" name="Vegetation" tilewidth="160" tileheight="196" tilecount="7" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="64" height="36" source="../images/sprites/vegetation/bush.jpg"/>
+   <image source="../images/sprites/vegetation/bush.jpg" width="64" height="36"/>
   </tile>
   <tile id="2">
-   <image width="116" height="160" source="../images/sprites/vegetation/sunflower.png"/>
+   <image source="../images/sprites/vegetation/sunflower.png" width="116" height="160"/>
   </tile>
   <tile id="3">
-   <image width="100" height="71" source="../images/sprites/vegetation/stump1.png"/>
+   <image source="../images/sprites/vegetation/stump1.png" width="100" height="71"/>
   </tile>
   <tile id="4">
-   <image width="160" height="196" source="../images/sprites/vegetation/kerstboom.png"/>
+   <image source="../images/sprites/vegetation/kerstboom.png" width="160" height="196"/>
   </tile>
   <tile id="5">
-   <image width="64" height="64" source="../images/sprites/vegetation/flower4.png"/>
+   <image source="../images/sprites/vegetation/flower4.png" width="64" height="64"/>
   </tile>
   <tile id="6">
-   <image width="104" height="160" source="../images/sprites/vegetation/cactus1.png"/>
+   <image source="../images/sprites/vegetation/cactus1.png" width="104" height="160"/>
   </tile>
   <tile id="7">
-   <image width="104" height="160" source="../images/sprites/vegetation/cactus2.png"/>
+   <image source="../images/sprites/vegetation/cactus2.png" width="104" height="160"/>
   </tile>
  </tileset>
  <tileset firstgid="140" name="Walls" tilewidth="128" tileheight="128" tilecount="4" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="64" height="64" source="../images/sprites/wall/bricks.jpg"/>
+   <image source="../images/sprites/wall/bricks.jpg" width="64" height="64"/>
   </tile>
   <tile id="1">
-   <image width="64" height="128" source="../images/sprites/fence/fence2.png"/>
+   <image source="../images/sprites/fence/fence2.png" width="64" height="128"/>
   </tile>
   <tile id="2">
-   <image width="64" height="64" source="../images/sprites/wall/wall.jpg"/>
+   <image source="../images/sprites/wall/wall.jpg" width="64" height="64"/>
   </tile>
   <tile id="3">
-   <image width="128" height="64" source="../images/sprites/fence/fence1.png"/>
+   <image source="../images/sprites/fence/fence1.png" width="128" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="144" name="Tools" tilewidth="64" tileheight="64" tilecount="6" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="54" height="64" source="../images/sprites/tools/plier.png"/>
+   <image source="../images/sprites/tools/plier.png" width="54" height="64"/>
   </tile>
   <tile id="1">
-   <image width="56" height="64" source="../images/sprites/piggybank/piggybank.png"/>
+   <image source="../images/sprites/piggybank/piggybank.png" width="56" height="64"/>
   </tile>
   <tile id="2">
-   <image width="25" height="64" source="../images/sprites/tools/hammer.png"/>
+   <image source="../images/sprites/tools/hammer.png" width="25" height="64"/>
   </tile>
   <tile id="3">
-   <image width="64" height="64" source="../images/sprites/moveable/box.png"/>
+   <image source="../images/sprites/moveable/box.png" width="64" height="64"/>
   </tile>
   <tile id="4">
-   <image width="64" height="25" source="../images/sprites/tools/chainsaw.png"/>
+   <image source="../images/sprites/tools/chainsaw.png" width="64" height="25"/>
   </tile>
   <tile id="5">
-   <image width="36" height="64" source="../images/sprites/tools/cone.png"/>
+   <image source="../images/sprites/tools/cone.png" width="36" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="150" name="Duck" tilewidth="64" tileheight="52" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="64" height="52" source="../images/sprites/char/duck_swimming.png"/>
+   <image source="../images/sprites/char/duck_swimming.png" width="64" height="52"/>
   </tile>
  </tileset>
  <tileset firstgid="151" name="Clouds" tilewidth="1139" tileheight="500" tilecount="6" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="5">
-   <image width="64" height="64" source="../images/sprites/clouds/sky.jpg"/>
+   <image source="../images/sprites/clouds/sky.jpg" width="64" height="64"/>
   </tile>
   <tile id="17">
-   <image width="1139" height="499" source="../images/sprites/clouds/cloud1.png"/>
+   <image source="../images/sprites/clouds/cloud1.png" width="1139" height="499"/>
   </tile>
   <tile id="18">
-   <image width="935" height="500" source="../images/sprites/clouds/cloud2.png"/>
+   <image source="../images/sprites/clouds/cloud2.png" width="935" height="500"/>
   </tile>
   <tile id="19">
-   <image width="1129" height="500" source="../images/sprites/clouds/cloud3.png"/>
+   <image source="../images/sprites/clouds/cloud3.png" width="1129" height="500"/>
   </tile>
   <tile id="20">
-   <image width="697" height="500" source="../images/sprites/clouds/cloud4.png"/>
+   <image source="../images/sprites/clouds/cloud4.png" width="697" height="500"/>
   </tile>
   <tile id="21">
-   <image width="191" height="191" source="../images/sprites/clouds/sun.png"/>
+   <image source="../images/sprites/clouds/sun.png" width="191" height="191"/>
   </tile>
  </tileset>
  <tileset firstgid="173" name="Electric" tilewidth="128" tileheight="180" tilecount="56" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-004.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-004.jpg" width="128" height="180"/>
   </tile>
   <tile id="1">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-005.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-005.jpg" width="128" height="180"/>
    <animation>
     <frame tileid="0" duration="80"/>
     <frame tileid="1" duration="80"/>
@@ -420,181 +420,181 @@
    </animation>
   </tile>
   <tile id="2">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-006.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-006.jpg" width="128" height="180"/>
   </tile>
   <tile id="3">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-007.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-007.jpg" width="128" height="180"/>
   </tile>
   <tile id="4">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-008.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-008.jpg" width="128" height="180"/>
   </tile>
   <tile id="5">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-009.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-009.jpg" width="128" height="180"/>
   </tile>
   <tile id="6">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-010.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-010.jpg" width="128" height="180"/>
   </tile>
   <tile id="7">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-011.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-011.jpg" width="128" height="180"/>
   </tile>
   <tile id="8">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-012.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-012.jpg" width="128" height="180"/>
   </tile>
   <tile id="9">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-013.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-013.jpg" width="128" height="180"/>
   </tile>
   <tile id="10">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-014.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-014.jpg" width="128" height="180"/>
   </tile>
   <tile id="11">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-015.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-015.jpg" width="128" height="180"/>
   </tile>
   <tile id="12">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-016.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-016.jpg" width="128" height="180"/>
   </tile>
   <tile id="13">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-017.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-017.jpg" width="128" height="180"/>
   </tile>
   <tile id="14">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-018.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-018.jpg" width="128" height="180"/>
   </tile>
   <tile id="15">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-019.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-019.jpg" width="128" height="180"/>
   </tile>
   <tile id="16">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-020.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-020.jpg" width="128" height="180"/>
   </tile>
   <tile id="17">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-021.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-021.jpg" width="128" height="180"/>
   </tile>
   <tile id="18">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-022.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-022.jpg" width="128" height="180"/>
   </tile>
   <tile id="19">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-023.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-023.jpg" width="128" height="180"/>
   </tile>
   <tile id="20">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-024.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-024.jpg" width="128" height="180"/>
   </tile>
   <tile id="21">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-025.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-025.jpg" width="128" height="180"/>
   </tile>
   <tile id="22">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-026.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-026.jpg" width="128" height="180"/>
   </tile>
   <tile id="23">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-027.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-027.jpg" width="128" height="180"/>
   </tile>
   <tile id="24">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-028.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-028.jpg" width="128" height="180"/>
   </tile>
   <tile id="25">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-029.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-029.jpg" width="128" height="180"/>
   </tile>
   <tile id="26">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-030.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-030.jpg" width="128" height="180"/>
   </tile>
   <tile id="27">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-031.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-031.jpg" width="128" height="180"/>
   </tile>
   <tile id="28">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-032.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-032.jpg" width="128" height="180"/>
   </tile>
   <tile id="29">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-033.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-033.jpg" width="128" height="180"/>
   </tile>
   <tile id="30">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-034.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-034.jpg" width="128" height="180"/>
   </tile>
   <tile id="31">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-035.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-035.jpg" width="128" height="180"/>
   </tile>
   <tile id="32">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-036.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-036.jpg" width="128" height="180"/>
   </tile>
   <tile id="33">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-037.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-037.jpg" width="128" height="180"/>
   </tile>
   <tile id="34">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-038.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-038.jpg" width="128" height="180"/>
   </tile>
   <tile id="35">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-039.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-039.jpg" width="128" height="180"/>
   </tile>
   <tile id="36">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-040.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-040.jpg" width="128" height="180"/>
   </tile>
   <tile id="37">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-041.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-041.jpg" width="128" height="180"/>
   </tile>
   <tile id="38">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-042.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-042.jpg" width="128" height="180"/>
   </tile>
   <tile id="39">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-043.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-043.jpg" width="128" height="180"/>
   </tile>
   <tile id="40">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-044.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-044.jpg" width="128" height="180"/>
   </tile>
   <tile id="41">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-045.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-045.jpg" width="128" height="180"/>
   </tile>
   <tile id="42">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-046.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-046.jpg" width="128" height="180"/>
   </tile>
   <tile id="43">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-047.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-047.jpg" width="128" height="180"/>
   </tile>
   <tile id="44">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-048.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-048.jpg" width="128" height="180"/>
   </tile>
   <tile id="45">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-049.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-049.jpg" width="128" height="180"/>
   </tile>
   <tile id="46">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-050.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-050.jpg" width="128" height="180"/>
   </tile>
   <tile id="47">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-051.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-051.jpg" width="128" height="180"/>
   </tile>
   <tile id="48">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-052.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-052.jpg" width="128" height="180"/>
   </tile>
   <tile id="49">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-053.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-053.jpg" width="128" height="180"/>
   </tile>
   <tile id="50">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-054.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-054.jpg" width="128" height="180"/>
   </tile>
   <tile id="51">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-055.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-055.jpg" width="128" height="180"/>
   </tile>
   <tile id="52">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-056.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-056.jpg" width="128" height="180"/>
   </tile>
   <tile id="53">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-057.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-057.jpg" width="128" height="180"/>
   </tile>
   <tile id="54">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-059.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-059.jpg" width="128" height="180"/>
   </tile>
   <tile id="55">
-   <image width="128" height="180" source="../images/sprites/electric/ezgif-frame-000.jpg"/>
+   <image source="../images/sprites/electric/ezgif-frame-000.jpg" width="128" height="180"/>
   </tile>
  </tileset>
  <tileset firstgid="229" name="Dummy" tilewidth="64" tileheight="64" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="64" height="64" source="../images/sprites/dummy/transparent.png"/>
+   <image source="../images/sprites/dummy/transparent.png" width="64" height="64"/>
   </tile>
  </tileset>
  <tileset firstgid="231" name="Switch" tilewidth="128" tileheight="128" tilecount="2" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="2">
-   <image width="128" height="128" source="../images/sprites/switch/off1.jpg"/>
+   <image source="../images/sprites/switch/off1.jpg" width="128" height="128"/>
   </tile>
   <tile id="3">
-   <image width="128" height="128" source="../images/sprites/switch/on1.jpg"/>
+   <image source="../images/sprites/switch/on1.jpg" width="128" height="128"/>
   </tile>
  </tileset>
  <layer id="1" name="Ground" width="200" height="117">
