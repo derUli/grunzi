@@ -74,8 +74,6 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
   --borderless          Borderless window
   --width WIDTH         Window width in pixels
   --height HEIGHT       Window height in pixels
-  --limit-fps LIMIT_FPS
-                        Limit maximum fps
   --silent              Mute the sound
   --audio-backend {auto,xaudio2,directsound,openal,pulse,silent}
                         The audio backend

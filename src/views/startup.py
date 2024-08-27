@@ -71,13 +71,6 @@ class StartUp:
         )
 
         parser.add_argument(
-            '--limit-fps',
-            type=int,
-            default=UNLIMITED_FRAMERATE,
-            help='Limit maximum fps'
-        )
-
-        parser.add_argument(
             '--silent',
             default=False,
             action='store_true',
@@ -214,7 +207,6 @@ class StartUp:
             args.width,
             args.height,
             vsync=not args.no_vsync,
-            draw_rate=args.limit_fps,
             borderless=args.borderless,
             antialiasing=settings.antialiasing > 0,
             samples=settings.antialiasing

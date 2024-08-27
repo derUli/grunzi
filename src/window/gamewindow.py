@@ -44,11 +44,9 @@ class GameWindow(arcade.Window):
         if borderless:
             style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
 
-        logging.info(label_value('Refresh rate ', draw_rate))
+        logging.info(label_value('Max FPS', draw_rate))
 
         draw_rate = 1 / draw_rate
-
-        self.initial_draw_rate = draw_rate
 
         # Call the parent class and set up the window
         super().__init__(
@@ -66,8 +64,13 @@ class GameWindow(arcade.Window):
             samples=samples
         )
 
+        draw_rate *= 0.5
+
         self.change_screen_mode(not window)
-        self._draw_rate = draw_rate
+
+        self.set_draw_rate(draw_rate)
+        self.set_update_rate(update_rate)
+
         self.set_vsync(vsync)
         self.controller_manager = None
         self.controllers = []
@@ -115,3 +118,4 @@ class GameWindow(arcade.Window):
 
         if not any(self.controllers):
             logging.info(f"No controllers detected")
+
