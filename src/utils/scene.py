@@ -125,7 +125,7 @@ class Scene(BaseScene):
                 )
                 b = time.time() - a
 
-                if b > 0.01:
+                if b >= 0.01:
                     logging.warning(f"Update sprite {sprite} took too long {b}")
 
     def make_wall_spritelist(self) -> SpriteList:
