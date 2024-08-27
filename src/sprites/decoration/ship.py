@@ -1,5 +1,3 @@
-import logging
-
 from sprites.sprite import Sprite, AbstractAnimatedSprite
 from utils.positionalsound import PositionalSound
 

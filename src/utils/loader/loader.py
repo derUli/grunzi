@@ -5,8 +5,8 @@ import threading
 import time
 
 import arcade
-import numpy
 import pyglet
+
 import utils.media.audio
 from constants.layers import LAYER_OPTIONS
 from constants.mapconfig import MapConfig
@@ -42,7 +42,8 @@ class Loader:
         # Set up the Cameras
         self.parent.camera_sprites = arcade.Camera()
         self.parent.state.reset()
-        self.parent.state.difficulty = MapConfig(savegame.difficulty, self.parent.state.map_name, self.parent.state.map_dir)
+        self.parent.state.difficulty = MapConfig(savegame.difficulty, self.parent.state.map_name,
+                                                 self.parent.state.map_dir)
 
         self.parent.ui.loading_screen.percent = 10
 
@@ -66,7 +67,6 @@ class Loader:
         self.parent.scene = Scene.from_tilemap(self.parent.tilemap.map)
 
         self.parent.ui.loading_screen.percent = 50
-
 
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.parent.state.sprite_dir, 'char', 'pig.png')
@@ -113,7 +113,8 @@ class Loader:
 
         # Create the music queue
         self.parent.music_queue = utils.media.audio.MusicQueue(state=self.parent.state)
-        self.parent.music_queue.from_directory(os.path.join(self.parent.state.music_dir, str(self.parent.state.map_name)))
+        self.parent.music_queue.from_directory(
+            os.path.join(self.parent.state.music_dir, str(self.parent.state.map_name)))
 
         self.parent.ui.loading_screen.percent = 100
 

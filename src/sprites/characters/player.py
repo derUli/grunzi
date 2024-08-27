@@ -10,8 +10,6 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
-from state.argscontainer import ArgsContainer
-from utils.scene import get_layer
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -97,7 +95,6 @@ class Player(Character, SpriteHealth):
         self.bloody_screen = BloodyScreen().setup(state)
 
         self.initialized = False
-
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
