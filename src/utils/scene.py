@@ -256,4 +256,4 @@ def get_layer(name: str, scene: Scene) -> SpriteList:
     if name in scene.name_mapping:
         return scene[name]
 
-    return SpriteList(use_spatial_hash=True)
+    return SpriteList(use_spatial_hash=True, lazy=True)
