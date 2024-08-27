@@ -94,12 +94,13 @@ class Chicken(Character, Useable):
         if move_x > 0 or move_y > 0:
             args.physics_engine.apply_force(self, (move_x, move_y))
 
+        if self.sound and self.sound.playing:
+            self.sound.update()
+            return
+
         # randomize play sound
         if random.randint(1, 50) == 30:
             self.play_sound(player=args.player, state=args.state)
-
-        if self.sound and self.sound.playing:
-            self.sound.update()
 
     def play_sound(self, player, state) -> None:
         if self.sound and self.sound.playing:
