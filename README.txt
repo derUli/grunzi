@@ -14,53 +14,10 @@ die mindestens OpenGL 3.3 unterstützt.
 Es sollte auf jeder Hardware, die in den letzten 10 Jahren auf den Markt gebracht wurde, funktionieren.
 Falls es doch zu Performance-Problemen kommt, kannst du die Bildschirmauflösung reduzieren.
 
-## Testsysteme
-
-Ich teste das Spiel während der entwicklung auf meinem Desktop PC und meinem Laptop.
-
-Im Folgenden die Hardware-Specs der beiden Systeme und die erwartete Performance.
-
-Die erwartete Performance bezieht sich auf folgende Grafikeinstellungen und wurde mit
-der RivaTuner Software gemessen.
-
-| Einstellung         | Wert        |
-|---------------------|-------------|
-| Bildschirmauflösung | 1920 x 1080 |
-| Vollbild            | An          |
-| V-Sync              | Aus         |
-| Rahmenlos           | Aus         |
-| Qualität            | 4           |
-
-### Desktop PC
-
-| Hardware-Art    | Hersteller | Modell                 |
-|-----------------|------------|------------------------|
-| Prozessor       | Intel      | Core i7-10700F         |
-| Grafikkarte     | NVIDIA     | Quadro T400 (4GB) |
-| Arbeitsspeicher | Unbekannt  | 32 GB                  |
-| Betriebssystem  | Microsoft  | Windows 11 (64-Bit)    |
-
-**Erwartete Performance:** ⌀ 600 FPS
-
-### Laptop
-
-| Hardware-Art    | Hersteller | Modell              |
-|-----------------|------------|---------------------|f
-| Prozessor       | Intel      | Pentium Gold 7505   |
-| Grafikkarte     | Intel      | UHD Graphics        |
-| Arbeitsspeicher | Unbekannt  | 8 GB                |
-| Betriebssystem  | Microsoft  | Windows 11 (64-Bit) |
-
-**Erwartete Performance:** ⌀ 90 FPS
-
 # Was ist neu?
 
-In diesem Build habe ich einen neuen Gegner-Typ und ein neues Puzzle zu map03 hinzugefügt.
-Der Nebel ist jetzt animiert.
-map02 enthält jetzt Kakteen.
-Angeschlossene Gaming Controller vibrieren jetzt.
-Die Vibration kann optional in den Einstellungen deaktiviert werden.
-Der Punktestand kann jetzt nach Abschluss des letzten Levels in die Online-Highscore-Liste eingetragen werden.
+Das vierte Level ist nun durchspielbar.
+Des Weiteren wurde die Performance optimiert.
 
 # Spiel starten
 
