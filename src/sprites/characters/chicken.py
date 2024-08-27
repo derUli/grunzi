@@ -93,6 +93,7 @@ class Chicken(Character, Useable):
 
         if move_x > 0 or move_y > 0:
             args.physics_engine.apply_force(self, (move_x, move_y))
+            return
 
         if self.sound and self.sound.playing:
             self.sound.update()
