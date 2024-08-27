@@ -2,6 +2,7 @@
 import math
 
 import arcade
+import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
@@ -9,6 +10,7 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
+from state.argscontainer import ArgsContainer
 from utils.scene import get_layer
 
 DEFAULT_FACE = FACE_RIGHT
@@ -67,6 +69,7 @@ class Player(Character, SpriteHealth):
         self.bloody_screen = None
         self.walking = False
         self.controllers = []
+        self.initialized = False
 
     def setup(self, state, scene, callbacks, controllers):
         self.state = state
@@ -93,6 +96,9 @@ class Player(Character, SpriteHealth):
 
         self.bloody_screen = BloodyScreen().setup(state)
 
+        self.initialized = False
+
+
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
 
@@ -106,6 +112,10 @@ class Player(Character, SpriteHealth):
             args
     ):
 
+        if not self.initialized:
+            pyglet.clock.schedule_interval_soft(self.check_for_levelexit, 1 / 4, args)
+            self.initialized = True
+
         self.bloody_screen.update(self.health)
 
         if self.dead:
@@ -116,12 +126,6 @@ class Player(Character, SpriteHealth):
 
         if self.health > HEALTH_FULL:
             self.health = HEALTH_FULL
-
-        exit_layer = get_layer(LAYER_LEVEL_EXIT, args.scene)
-
-        if len(arcade.check_for_collision_with_list(self, exit_layer)) > 0:
-            args.callbacks.on_complete()
-            return
 
         # Figure out if we should face left or right
         if self.change_x < 0:
@@ -270,3 +274,20 @@ class Player(Character, SpriteHealth):
             value = DEFAULT_BULLET_SIZE
 
         self._bullet_size = value
+
+    def check_for_levelexit(self, delta_time, args):
+
+        try:
+            exit_layer = args.scene[LAYER_LEVEL_EXIT]
+        except AttributeError:
+            print('no levelexit')
+            # Unschedule if there is no level exit trigger
+            self.unschedule()
+            return
+
+        if any(arcade.check_for_collision_with_list(self, exit_layer)):
+            args.callbacks.on_complete()
+            return
+
+    def unschedule(self):
+        pyglet.clock.unschedule(self.check_for_levelexit)

@@ -64,9 +64,15 @@ class Loader:
         # from the map as SpriteLists in the scene in the proper order.
         self.parent.scene = Scene.from_tilemap(self.parent.tilemap.map)
 
+        self.parent.ui.loading_screen.percent = 50
+
+
         # Set up the player, specifically placing it at these coordinates.
         filename = os.path.join(self.parent.state.sprite_dir, 'char', 'pig.png')
         self.parent.scene.player_sprite = Player(filename)
+
+        self.parent.map_populator = MapPopulator()
+        self.parent.map_populator.spawn_initial(make_args_container(self.parent))
 
         self.parent.scene.player_sprite.setup(
             state=self.parent.state,
@@ -76,12 +82,6 @@ class Loader:
             ),
             controllers=self.parent.window.controllers
         )
-
-
-        self.parent.ui.loading_screen.percent = 50
-
-        self.parent.map_populator = MapPopulator()
-        self.parent.map_populator.spawn_initial(make_args_container(self.parent))
 
         # Create the physics engine
         self.parent.physics_engine = make_physics_engine(self.parent.scene.player_sprite, self.parent.scene)
