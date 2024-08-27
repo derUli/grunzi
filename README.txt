@@ -4,8 +4,8 @@ Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufers und 
 Monster und friedlicher Zeitgenossen.
 
 Das Spiel befindet sich noch in einem frühen Zustand der Entwicklung.
-Bis jetzt sind die ersten zwei Level vollständig umgesetzt und das dritte Level befindet sich in Entwicklung.
-Das fertige Spiel sollen 4 verschiedene Levels enthalten.
+Bis jetzt sind vier Level vollständig umgesetzt.
+Das fertige Spiel soll 5 Level enthalten.
 
 # Systemvoraussetzungen
 
