@@ -118,6 +118,7 @@ class Player(Character, SpriteHealth):
             self.health = HEALTH_FULL
 
         exit_layer = get_layer(LAYER_LEVEL_EXIT, args.scene)
+
         if len(arcade.check_for_collision_with_list(self, exit_layer)) > 0:
             args.callbacks.on_complete()
             return

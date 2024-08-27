@@ -41,7 +41,7 @@ class Game(Fading):
         self.tilemap = None
 
         # Separate variable that holds the player sprite
-        self.player_sprite = None
+        self.scene.player_sprite = None
 
         # Our physics engine
         self.physics_engine = None
@@ -86,8 +86,8 @@ class Game(Fading):
         """ On hide view """
         super().on_hide_view()
 
-        if self.player_sprite:
-            self.player_sprite.stop_walk()
+        if self.scene.player_sprite:
+            self.scene.player_sprite.stop_walk()
 
         self.window.set_mouse_visible(True)
         self.music_queue.pause()
@@ -134,8 +134,8 @@ class Game(Fading):
 
         atmo = self.state.play_sound('atmos', self.state.map_name, loop=True)
         self.atmo = PositionalSound(
-            self.player_sprite,
-            self.player_sprite,
+            self.scene.player_sprite,
+            self.scene.player_sprite,
             atmo,
             self.state,
             volume_source=VOLUME_SOURCE_ATMO
@@ -180,11 +180,11 @@ class Game(Fading):
             self._call_method()
             self._call_method = None
 
-        if self.player_sprite.dead and not self.level_completed:
-            self.player_sprite.update(delta_time, make_args_container(self))
-            self.player_sprite.reset()
+        if self.scene.player_sprite.dead and not self.level_completed:
+            self.scene.player_sprite.update(delta_time, make_args_container(self))
+            self.scene.player_sprite.reset()
 
-            if not self.player_sprite.bloody_screen.shown:
+            if not self.scene.player_sprite.bloody_screen.shown:
                 self.scene.update_scene(
                     delta_time,
                     make_args_container(self)
@@ -226,7 +226,7 @@ class Game(Fading):
 
             return self.draw_after()
 
-        center_camera_to_player(self.player_sprite, self.camera_sprites, self.tilemap.size)
+        center_camera_to_player(self.scene.player_sprite, self.camera_sprites, self.tilemap.size)
 
         self.camera_sprites.use()
         self.scene.draw()
@@ -234,7 +234,7 @@ class Game(Fading):
         self.camera_gui.use()
         self.ui.draw()
 
-        self.player_sprite.draw_overlay(args=make_args_container(self))
+        self.scene.player_sprite.draw_overlay(args=make_args_container(self))
         self.draw_fading()
         self.draw_after()
 
@@ -242,34 +242,34 @@ class Game(Fading):
         """ Update player sprite """
 
         # Calculate speed based on the keys pressed
-        self.player_sprite.change_x, self.player_sprite.change_y = 0, 0
+        self.scene.player_sprite.change_x, self.scene.player_sprite.change_y = 0, 0
 
-        move_force = self.player_sprite.move_force * self.player_sprite.modifier
+        move_force = self.scene.player_sprite.move_force * self.scene.player_sprite.modifier
 
         force_x, force_y = 0, 0
 
         if self.state.keypressed.key_up and not self.state.keypressed.key_down:
             force_y = move_force
-            self.player_sprite.change_y = -1
+            self.scene.player_sprite.change_y = -1
         elif self.state.keypressed.key_down and not self.state.keypressed.key_up:
             force_y = -move_force
-            self.player_sprite.change_y = 1
+            self.scene.player_sprite.change_y = 1
         if self.state.keypressed.key_left and not self.state.keypressed.key_right:
             force_x = -move_force
-            self.player_sprite.change_x = -1
+            self.scene.player_sprite.change_x = -1
         elif self.state.keypressed.key_right and not self.state.keypressed.key_left:
             force_x = move_force
-            self.player_sprite.change_x = 1
+            self.scene.player_sprite.change_x = 1
 
         if force_x != 0 or force_y != 0:
-            self.player_sprite.start_walk(sprint=self.player_sprite.sprinting)
+            self.scene.player_sprite.start_walk(sprint=self.scene.player_sprite.sprinting)
             self.window.set_mouse_visible(False)
             self.physics_engine.apply_force(
-                self.player_sprite,
+                self.scene.player_sprite,
                 (force_x, force_y)
             )
         else:
-            self.player_sprite.stop_walk()
+            self.scene.player_sprite.stop_walk()
 
     def on_button_press(self, controller, key):
         """ On button press """
@@ -279,7 +279,7 @@ class Game(Fading):
         if not self.initialized:
             return
 
-        if self.player_sprite.dead:
+        if self.scene.player_sprite.dead:
             if key in constants.controls.controller.KEY_DISCARD:
                 self._call_method = self.on_gameover
             return
@@ -299,12 +299,12 @@ class Game(Fading):
         if key in constants.controls.controller.NEXT_ITEM:
             self._call_method = self.on_item_next
         if key in constants.controls.controller.KEY_SPRINT:
-            self.player_sprite.modifier = MODIFIER_SPRINT
+            self.scene.player_sprite.modifier = MODIFIER_SPRINT
 
     def on_button_release(self, controller, key):
 
-        if self.player_sprite and key in constants.controls.controller.KEY_SPRINT:
-            self.player_sprite.modifier = MODIFIER_DEFAULT
+        if self.scene.player_sprite and key in constants.controls.controller.KEY_SPRINT:
+            self.scene.player_sprite.modifier = MODIFIER_DEFAULT
 
     def on_item_previous(self) -> None:
         """ Select previous item """
@@ -323,7 +323,7 @@ class Game(Fading):
         if self.next_view:
             return
 
-        self.player_sprite.reset()
+        self.scene.player_sprite.reset()
 
         old_map = self.state.map_name
         next_map = old_map
@@ -385,7 +385,7 @@ class Game(Fading):
                 self.state.keypressed.key_up = False
 
         if stick_name == constants.controls.controller.RIGHTSTICK:
-            face = self.player_sprite.face
+            face = self.scene.player_sprite.face
             if x_value == constants.controls.controller.AXIS_RIGHT:
                 face = FACE_RIGHT
             if x_value == constants.controls.controller.AXIS_LEFT:
@@ -395,7 +395,7 @@ class Game(Fading):
             if y_value == constants.controls.controller.AXIS_UP:
                 face = FACE_UP
 
-            self.player_sprite.set_face(face)
+            self.scene.player_sprite.set_face(face)
 
     def on_key_press(self, key: int, modifiers: int):
         """Called whenever a key is pressed."""
@@ -407,14 +407,14 @@ class Game(Fading):
         if not self.initialized:
             return
 
-        if self.player_sprite.dead:
+        if self.scene.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
                 return self.on_gameover()
 
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.keyboard.KEY_SPRINT:
-            self.player_sprite.modifier = MODIFIER_SPRINT
+            self.scene.player_sprite.modifier = MODIFIER_SPRINT
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
         if key == arcade.key.F7:
@@ -444,7 +444,7 @@ class Game(Fading):
             return
 
         if key in constants.controls.keyboard.KEY_SPRINT:
-            self.player_sprite.modifier = MODIFIER_DEFAULT
+            self.scene.player_sprite.modifier = MODIFIER_DEFAULT
 
         movement = True
 
@@ -462,10 +462,10 @@ class Game(Fading):
         if movement:
             self.update_player_speed()
         else:
-            self.player_sprite.stop_walk()
+            self.scene.player_sprite.stop_walk()
 
     def on_select_item(self, key=None, index=None):
-        old_item = self.player_sprite.get_item()
+        old_item = self.scene.player_sprite.get_item()
 
         if old_item:
             old_item.on_unequip(make_args_container(self))
@@ -475,7 +475,7 @@ class Game(Fading):
             index -= 1
 
         item = self.ui.inventory.select(index)
-        self.player_sprite.set_item(item)
+        self.scene.player_sprite.set_item(item)
 
         if old_item:
             old_item.remove_from_sprite_lists()
@@ -488,18 +488,18 @@ class Game(Fading):
         item.on_equip(make_args_container(self))
 
     def on_shoot(self):
-        return self.player_sprite.shoot(self.state, self.scene, self.physics_engine)
+        return self.scene.player_sprite.shoot(self.state, self.scene, self.physics_engine)
 
     def on_grunt(self):
         return Grunt(8).setup(
-            source=self.player_sprite,
+            source=self.scene.player_sprite,
             physics_engine=self.physics_engine,
             scene=self.scene,
             state=self.state
         )
 
     def on_drop(self):
-        item = self.player_sprite.get_item()
+        item = self.scene.player_sprite.get_item()
         selected, index = self.ui.inventory.get_selected()
 
         if not item:
@@ -520,7 +520,7 @@ class Game(Fading):
             quantity = selected.pop()
 
             if quantity == 0:
-                self.player_sprite.set_item(None)
+                self.scene.player_sprite.set_item(None)
                 self.ui.inventory.unselect()
 
         self.scene.add_sprite(layer, new_item)
@@ -531,7 +531,7 @@ class Game(Fading):
         """
 
         self.state.keypressed.reset()
-        self.player_sprite.reset()
+        self.scene.player_sprite.reset()
 
         menu = PauseMenu(self.window, self.state, self)
         menu.setup()
@@ -539,7 +539,7 @@ class Game(Fading):
 
     def on_use(self):
 
-        item = self.player_sprite.get_item()
+        item = self.scene.player_sprite.get_item()
         if not item:
             if self.update_collectable():
                 self.state.play_sound('coin')
@@ -567,7 +567,7 @@ class Game(Fading):
         )
 
     def update_collectable(self):
-        item = self.scene.get_collectable(self.player_sprite)
+        item = self.scene.get_collectable(self.scene.player_sprite)
 
         if not item:
             return False

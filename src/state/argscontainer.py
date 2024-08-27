@@ -64,7 +64,7 @@ def make_args_container(klaas) -> ArgsContainer:
     """
 
     return ArgsContainer(
-        player=klaas.player_sprite,
+        player=klaas.scene.player_sprite,
         scene=klaas.scene,
         physics_engine=klaas.physics_engine,
         state=klaas.state,
