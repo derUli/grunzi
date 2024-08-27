@@ -120,15 +120,15 @@ class Barrel(Character):
         if explodes:
             layers = []
 
-        for layer in layers:
-            if not layer in args.scene.name_mapping:
-                break
+        layers = filter(lambda x: x in args.scene.name_mapping, layers)
 
+        for layer in layers:
             collisions = arcade.check_for_collision_with_list(self, args.scene[layer])
-            for collision in collisions:
-                if collision != self:
-                    explodes = True
-                    break
+
+            collisions = filter(lambda x: x != self, collisions)
+
+            if any(collisions):
+                explodes = True
 
         if explodes:
             self.cleanup()
