@@ -64,21 +64,24 @@ class SlimerBullet(Bullet):
 
         can_hit = False
 
-        for i in range(1, 1000):
+        for i in range(1, SIGHT_DISTANCE):
             self.center_x += i
             if force_x > 0 and arcade.check_for_collision(self, target):
                 can_hit = True
+                break
 
         self.center_x = original_center_x
 
-        for i in range(1, 1000):
-            self.center_x -= i
-            if force_x < 0 and arcade.check_for_collision(self, target):
-                can_hit = True
+        if not can_hit:
+            for i in range(1, SIGHT_DISTANCE):
+                self.center_x -= i
+                if force_x < 0 and arcade.check_for_collision(self, target):
+                    can_hit = True
+                    break
 
         if not can_hit:
             self.remove_from_sprite_lists()
-            return
+            return False
 
         self.center_x = original_center_x
         self.alpha = 255
@@ -115,6 +118,8 @@ class SlimerBullet(Bullet):
             COLLISION_PLAYER,
             post_handler=self.on_hit_player
         )
+
+        return True
 
     def on_hit_shrink(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         scale_sub = 0.2 * _hit_sprite.hurt_modifier

@@ -134,8 +134,9 @@ class Slimer(Character, Useable):
         from sprites.bullet.slimerbullet import SlimerBullet
 
         bullet = SlimerBullet(hurt=args.state.difficulty.slimer_hurt)
-        self.bullets.append(bullet)
-        bullet.setup(self, args.physics_engine, args.scene, args.state, target=args.player)
+
+        if bullet.setup(self, args.physics_engine, args.scene, args.state, target=args.player):
+            self.bullets.append(bullet)
 
     def movement(self, target, physics_engine):
         if not self.chasing:
