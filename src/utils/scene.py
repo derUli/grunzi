@@ -127,9 +127,9 @@ class Scene(BaseScene):
         layers = map(lambda x: self[x], layers)
 
         for layer in layers:
-            for sprite in layer:
-                if not isinstance(sprite, AbstractSprite):
-                    continue
+            sprites = filter(lambda x: isinstance(x, AbstractSprite), layer)
+            for sprite in sprites:
+
                 a = time.time()
                 sprite.update(
                     delta_time,

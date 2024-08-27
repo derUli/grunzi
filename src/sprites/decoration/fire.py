@@ -44,10 +44,10 @@ class Fire(AbstractAnimatedSprite):
 
         collisions = arcade.check_for_collision_with_list(self, args.scene[LAYER_NPC])
 
-        for collision in collisions:
-            if isinstance(collision, Character):
-                collision.hurt(10)
-                return
+        characters = filter(lambda x: isinstance(x, Character), collisions)
+
+        for character in characters:
+            character.hurt(10)
 
     def cleanup(self):
         pyglet.clock.unschedule(self.check_for_collision)
