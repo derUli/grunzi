@@ -29,7 +29,7 @@ class MapPopulator:
 
         try:
             enemies = args.scene[LAYER_NPC]
-        except IndexError:
+        except KeyError:
             return
 
         if len(enemies) >= args.state.difficulty.max_npcs:

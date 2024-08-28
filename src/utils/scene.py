@@ -162,8 +162,8 @@ class Scene(BaseScene):
 
         try:
             npcs = self[LAYER_NPC]
-        except IndexError:
-            npcs = []
+        except KeyError:
+            return
 
         npcs = filter(
             lambda x: (
@@ -236,7 +236,10 @@ def animated_in_sight(size, scene, player_sprite) -> list:
 
     for name in layers:
         cur_frame_idx[name] = 0
-        layer = get_layer(name, scene)
+        try:
+            layer = scene[name]
+        except KeyError:
+            continue
 
         for sprite in layer:
 
