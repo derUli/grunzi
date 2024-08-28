@@ -1,6 +1,9 @@
 import logging
 import os
+import sys
+import time
 
+import numpy
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
@@ -17,6 +20,7 @@ from state.savegamestate import SaveGameState
 from utils.loader.loader import Loader
 from utils.media.video import load_video, Video
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
+from utils.text import label_value
 from views.camera import center_camera_to_player
 from views.fading import Fading
 from views.menu.mainmenu import MainMenu

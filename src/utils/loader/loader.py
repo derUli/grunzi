@@ -45,8 +45,6 @@ class Loader:
         self.parent.state.difficulty = MapConfig(savegame.difficulty, self.parent.state.map_name,
                                                  self.parent.state.map_dir)
 
-        self.parent.ui.loading_screen.percent = 10
-
         # Name of map file to load
         map_name = os.path.join(self.parent.state.map_dir, f"{self.parent.state.map_name}.tmx")
 
@@ -89,7 +87,7 @@ class Loader:
 
         self.parent.map_populator.spawn_npcs(make_args_container(self.parent))
 
-        self.parent.ui.loading_screen.percent = 60
+        self.parent.ui.loading_screen.percent = 75
 
         self.parent.wall_spritelist = self.parent.scene.make_wall_spritelist()
 
@@ -108,8 +106,6 @@ class Loader:
             top=self.parent.tilemap.height,  # FIXME: Top and bottom is switched in this dev version of arcade
             bottom=0
         )
-
-        self.parent.ui.loading_screen.percent = 80
 
         # Create the music queue
         self.parent.music_queue = utils.media.audio.MusicQueue(state=self.parent.state)

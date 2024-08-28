@@ -169,11 +169,11 @@ class Scene(BaseScene):
             lambda x: (
                               isinstance(x, Character) or isinstance(x, Bullet)
                       ) and
-                      self.check_sprite_in_sight(sprite, self.args.player),
+                      self.check_sprite_in_sight(x, self.args.player),
             npcs
         )
 
-        list(map(lambda x: sprite.draw_overlay(self.args), npcs))
+        list(map(lambda x: x.draw_overlay(self.args), npcs))
 
         for sprite in npcs:
             sprite.draw_overlay(self.args)
