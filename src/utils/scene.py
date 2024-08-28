@@ -178,7 +178,7 @@ class Scene(BaseScene):
         for sprite in npcs:
             sprite.draw_overlay(self.args)
 
-    def get_next_sprites(self, distance=200):
+    def get_next_sprites(self, distance=150):
         from constants.layers import STATIC_LAYERS
 
         layers = filter(lambda x: x not in STATIC_LAYERS, reversed(self.name_mapping))
