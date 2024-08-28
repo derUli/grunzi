@@ -175,8 +175,6 @@ class Scene(BaseScene):
 
         list(map(lambda x: x.draw_overlay(self.args), npcs))
 
-        for sprite in npcs:
-            sprite.draw_overlay(self.args)
 
     def get_next_sprites(self, distance=150):
         from constants.layers import STATIC_LAYERS
