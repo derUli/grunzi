@@ -27,7 +27,10 @@ class MapPopulator:
 
         from constants.layers import LAYER_NPC
 
-        enemies = get_layer(LAYER_NPC, args.scene)
+        try:
+            enemies = args.scene[LAYER_NPC]
+        except IndexError:
+            return
 
         if len(enemies) >= args.state.difficulty.max_npcs:
             return
