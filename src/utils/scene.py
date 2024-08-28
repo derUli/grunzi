@@ -113,7 +113,7 @@ class Scene(BaseScene):
     def call_update(self, delta_time, args):
         from constants.layers import STATIC_LAYERS
 
-        layers = filter(lambda x: x not in STATIC_LAYERS, reversed(self.name_mapping))
+        layers = filter(lambda x: x not in STATIC_LAYERS, self.name_mapping)
         layers = map(lambda x: self[x], layers)
 
         for layer in layers:
@@ -135,7 +135,7 @@ class Scene(BaseScene):
 
         wall_spritelist = SpriteList(lazy=True, use_spatial_hash=True)
 
-        layers = filter(lambda x: x in WALL_LAYERS, reversed(self.name_mapping))
+        layers = filter(lambda x: x in WALL_LAYERS, self.name_mapping)
         layers = map(lambda x: self[x], layers)
 
         for layer in layers:
