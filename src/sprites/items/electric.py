@@ -8,7 +8,6 @@ from sprites.characters.character import Character
 from sprites.sprite import AbstractAnimatedSprite
 from state.argscontainer import ArgsContainer
 from utils.positionalsound import PositionalSound
-from utils.scene import get_layer
 
 FORCE_MOVE = 30000
 HURT_PLAYER = 5
@@ -109,9 +108,14 @@ class Electric(AbstractAnimatedSprite):
 
         from constants.layers import LAYER_NPC
 
+        try:
+            npcs = args.scene[LAYER_NPC]
+        except KeyError:
+            return
+
         collisions = arcade.check_for_collision_with_list(
             self,
-            get_layer(LAYER_NPC, args.scene)
+            npcs
         )
 
         for sprite in collisions:
@@ -127,3 +131,4 @@ class Electric(AbstractAnimatedSprite):
     def unschedule(self):
         pyglet.clock.unschedule(self.check_npcs)
         pyglet.clock.unschedule(self.check_cone)
+

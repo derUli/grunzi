@@ -4,6 +4,7 @@ import arcade
 from arcade import Scene
 
 import sprites.decoration.car
+from sprites.characters.boss import Boss
 from sprites.characters.duck import Duck
 from sprites.characters.fish import Fish
 from sprites.decoration.cloud import Cloud
@@ -87,6 +88,7 @@ LAYER_BACKGROUND_PLANTS_2 = 'Background Plants 2'
 LAYER_PENGUINS = 'Penguins and Polar Bear'
 LAYER_FLAG_1 = 'Flag 1'
 LAYER_FLAG_2 = 'Flag 2'
+LAYER_BOSS = 'Boss'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -108,6 +110,7 @@ ALL_LAYERS = [
     LAYER_RIVER,
     LAYER_FOOD,
     LAYER_CACTUS,
+    LAYER_BOSS
 ]
 
 WALL_LAYERS = [
@@ -254,6 +257,9 @@ LAYER_OPTIONS = {
     },
     LAYER_PORTAL: {
         'custom_class': Portal
+    },
+    LAYER_BOSS: {
+        'custom_class': Boss
     }
 }
 

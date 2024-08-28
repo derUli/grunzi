@@ -10,6 +10,7 @@ from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
 from sprites.characters.character import Character
+from sprites.characters.player import Player
 from sprites.items.item import Item, Interactable
 from sprites.sprite import AbstractSprite
 from utils.lookuptable.lookuptable import LookupTable
@@ -43,7 +44,7 @@ class Scene(BaseScene):
         for name in self.name_mapping:
             try:
                 for sprite in self[name]:
-                    if isinstance(sprite, AbstractSprite) and not isinstance(sprite, Character):
+                    if isinstance(sprite, AbstractSprite) and not isinstance(sprite, Player):
                         sprite.setup(args)
             except KeyError:
                 continue
