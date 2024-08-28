@@ -8,7 +8,6 @@ from sprites.decoration.snow import Snow, SNOW_COLORS
 from sprites.items.food import spawn_food
 from sprites.items.landmine import spawn_landmine
 from state.argscontainer import ArgsContainer
-from utils.scene import get_layer
 
 
 class MapPopulator:

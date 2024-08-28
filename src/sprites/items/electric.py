@@ -131,4 +131,3 @@ class Electric(AbstractAnimatedSprite):
     def unschedule(self):
         pyglet.clock.unschedule(self.check_npcs)
         pyglet.clock.unschedule(self.check_cone)
-

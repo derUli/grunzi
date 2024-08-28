@@ -60,7 +60,6 @@ class Duck(Character):
         if random.randint(1, 50) == 30:
             self.play_sound(player=args.player, state=args.state)
 
-
     def play_sound(self, player, state):
         if self.sound and self.sound.playing:
             return

@@ -1,11 +1,9 @@
 """ Scene utils """
 import logging
-import sys
 import time
 from typing import Optional, List
 
 import arcade
-import numpy
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
@@ -15,7 +13,6 @@ from sprites.items.item import Item, Interactable
 from sprites.sprite import AbstractSprite
 from utils.lookuptable.lookuptable import LookupTable
 from utils.postprocessing.postprocessing import PostProcessing
-from utils.text import label_value
 
 
 class Scene(BaseScene):
@@ -176,7 +173,6 @@ class Scene(BaseScene):
 
         list(map(lambda x: x.draw_overlay(self.args), npcs))
 
-
     def get_next_sprites(self, distance=150):
         from constants.layers import STATIC_LAYERS
 
@@ -217,7 +213,6 @@ class Scene(BaseScene):
             for sprite in self[layer]:
                 if isinstance(sprite, AbstractSprite):
                     sprite.cleanup()
-
 
 
 def animated_in_sight(size, scene, player_sprite) -> list:

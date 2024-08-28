@@ -10,6 +10,7 @@ HURT = 1
 
 SIGHT_DISTANCE = 400
 
+
 class Cactus(Sprite):
     def __init__(
             self,

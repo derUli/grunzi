@@ -40,7 +40,6 @@ class Boss(Character):
     ):
         super().__init__(filename, center_x=center_x, center_y=center_y)
 
-
     def setup(self, args):
         from constants.layers import LAYER_NPC
 
@@ -54,4 +53,3 @@ class Boss(Character):
 
     def draw_overlay(self, args):
         self.draw_healthbar()
-
