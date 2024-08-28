@@ -336,10 +336,7 @@ class Game(Fading):
 
         completed = False
 
-        try:
-            next_map = MAPS[index]
-        except IndexError:
-            completed = True
+        next_map = MAPS[index]
 
         self.state.map_name = next_map
 
