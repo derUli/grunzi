@@ -114,9 +114,12 @@ class MapSelection(Fading):
         buttons = arcade.gui.UIBoxLayout(space_between=20, align='center', vertical=False).with_padding(top=40)
 
         for map in self.maps:
-            image = PIL.Image.open(
-                os.path.join(self.state.ui_dir, 'map_previews', f"{map}.jpg")
-            ).convert('RGBA').crop()
+            preview_file = os.path.join(self.state.ui_dir, 'map_previews', f"{map}.jpg")
+
+            if not os.path.exists(preview_file):
+                continue
+
+            image = PIL.Image.open(preview_file).convert('RGBA').crop()
 
             image_size = (224, 224)
 
