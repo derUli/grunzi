@@ -40,6 +40,19 @@ class Boss(Character):
     ):
         super().__init__(filename, center_x=center_x, center_y=center_y)
 
+    def update(self, delta_time, args):
+        super().update(delta_time, args)
+
+        if self.dead:
+            # Fade out on death
+            self.fade_destroy()
+
+            # Complete level after boss killed
+            if self.alpha <= 0:
+                args.callbacks.on_complete()
+
+
+
     def setup(self, args):
         from constants.layers import LAYER_NPC
 
@@ -49,6 +62,7 @@ class Boss(Character):
 
         args.physics_engine.add_sprite(
             self,
+            mass=500,
             moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
             collision_type=COLLISION_ENEMY
         )
