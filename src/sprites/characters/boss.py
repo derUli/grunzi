@@ -54,3 +54,4 @@ class Boss(Character):
 
     def draw_overlay(self, args):
         self.draw_healthbar()
+
