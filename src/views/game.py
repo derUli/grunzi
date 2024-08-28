@@ -327,6 +327,7 @@ class Game(Fading):
 
         old_map = self.state.map_name
         next_map = old_map
+
         index = MAPS.index(old_map)
 
         if not same:
