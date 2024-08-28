@@ -512,6 +512,7 @@ class Game(Fading):
         if hasattr(new_item, 'layer_name'):
             layer = new_item.layer_name
 
+
         if check_collision_with_layers(self.scene, new_item, WALL_LAYERS):
             logging.info("Can't drop item on wall.")
             return self.state.noaction()

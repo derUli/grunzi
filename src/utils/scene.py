@@ -1,5 +1,6 @@
 """ Scene utils """
 import logging
+import sys
 import time
 from typing import Optional, List
 
@@ -12,6 +13,7 @@ from sprites.items.item import Item, Interactable
 from sprites.sprite import AbstractSprite
 from utils.lookuptable.lookuptable import LookupTable
 from utils.postprocessing.postprocessing import PostProcessing
+from utils.text import label_value
 
 
 class Scene(BaseScene):
