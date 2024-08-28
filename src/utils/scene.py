@@ -5,6 +5,7 @@ import time
 from typing import Optional, List
 
 import arcade
+import numpy
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
@@ -26,6 +27,7 @@ class Scene(BaseScene):
         self.postprocessing = None
         self.args = None
         self.lookup_table = None
+        self.measures = []
 
     def setup(self, args) -> None:
         """ Setup scene """
@@ -150,17 +152,41 @@ class Scene(BaseScene):
             self.postprocessing.draw()
 
     def _draw(self, names: Optional[List[str]] = None, **kwargs):
-        from sprites.bullet.bullet import Bullet
-        from constants.layers import LAYER_NPC
+        a = time.time()
 
         super().draw(names)
 
-        for sprite in get_layer(LAYER_NPC, self):
-            if not isinstance(sprite, Character) and not isinstance(sprite, Bullet):
-                continue
+        if not self.args:
+            return
 
-            if self.args and self.check_sprite_in_sight(sprite, self.args.player):
-                sprite.draw_overlay(self.args)
+        from sprites.bullet.bullet import Bullet
+        from constants.layers import LAYER_NPC
+
+        try:
+            npcs = self[LAYER_NPC]
+        except IndexError:
+            npcs = []
+
+        npcs = filter(
+            lambda x: (
+                              isinstance(x, Character) or isinstance(x, Bullet)
+                      ) and
+                      self.check_sprite_in_sight(sprite, self.args.player),
+            npcs
+        )
+
+        list(map(lambda x: sprite.draw_overlay(self.args), npcs))
+
+        for sprite in npcs:
+            sprite.draw_overlay(self.args)
+
+        self.measures.append(time.time() - a)
+
+        if len(self.measures) >= 10000:
+            print(label_value('AVG', numpy.mean(self.measures)))
+            print(label_value('MAX', numpy.max(self.measures)))
+            print(label_value('SUM', numpy.sum(self.measures)))
+            sys.exit(0)
 
     def get_next_sprites(self, distance=200):
         from constants.layers import STATIC_LAYERS
@@ -202,6 +228,7 @@ class Scene(BaseScene):
             for sprite in self[layer]:
                 if isinstance(sprite, AbstractSprite):
                     sprite.cleanup()
+
 
 
 def animated_in_sight(size, scene, player_sprite) -> list:
