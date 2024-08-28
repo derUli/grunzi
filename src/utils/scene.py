@@ -152,8 +152,6 @@ class Scene(BaseScene):
             self.postprocessing.draw()
 
     def _draw(self, names: Optional[List[str]] = None, **kwargs):
-        # a = time.time()
-
         super().draw(names)
 
         if not self.args:
@@ -179,14 +177,6 @@ class Scene(BaseScene):
 
         for sprite in npcs:
             sprite.draw_overlay(self.args)
-
-        # self.measures.append(time.time() - a)
-        #
-        # if len(self.measures) >= 10000:
-        #     print(label_value('AVG', numpy.mean(self.measures)))
-        #     print(label_value('MAX', numpy.max(self.measures)))
-        #     print(label_value('SUM', numpy.sum(self.measures)))
-        #     sys.exit(0)
 
     def get_next_sprites(self, distance=200):
         from constants.layers import STATIC_LAYERS
