@@ -38,13 +38,20 @@ class Scene(BaseScene):
         self.setup_sprites(args)
 
     def setup_sprites(self, args):
-        for name in self.name_mapping:
+        sprites = []
+
+        for sprite_list in self.sprite_lists:
             try:
-                for sprite in self[name]:
-                    if isinstance(sprite, AbstractSprite) and not isinstance(sprite, Player):
-                        sprite.setup(args)
+                filtered = list(filter(
+                    lambda x: isinstance(x, AbstractSprite) and not isinstance(x, Player), sprite_list
+                ))
+                sprites += filtered
             except KeyError:
                 continue
+
+        for sprite in sprites:
+            sprite.setup(args)
+
 
     @classmethod
     def from_tilemap(cls, tilemap: TileMap) -> "Scene":

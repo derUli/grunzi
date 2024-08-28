@@ -11,6 +11,7 @@ from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WA
     COLLISION_MOVEABLE
 from constants.layers import LAYER_NPC
 from sprites.characters.barrel import Barrel
+from sprites.characters.boss import Boss
 from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
 from sprites.characters.slimer import Slimer
@@ -22,11 +23,13 @@ HURT_DEFAULT = 20
 HURT_CHICKEN = 35
 HURT_SLIMER = 10
 HURT_BARREL = 5
+HURT_BOSS = 2
 
 SCORE_HURT_CHICKEN = 25
 SCORE_HURT_SKULL = 50
 SCORE_HURT_SLIMER = 100
 SCORE_HURT_BARREL = 200
+SCORE_HURT_BOSS = 300
 
 MASS = 0.05
 DAMPING = 1
@@ -133,6 +136,10 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
         if isinstance(_hit_sprite, Barrel):
             hurt = HURT_BARREL
             score = SCORE_HURT_BARREL
+
+        if isinstance(_hit_sprite, Boss):
+            hurt = HURT_BOSS
+            score = SCORE_HURT_BOSS
 
         hurt = hurt * self.hurt_modifier
 

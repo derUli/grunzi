@@ -43,6 +43,8 @@ class Boss(Character):
     def setup(self, args):
         from constants.layers import LAYER_NPC
 
+        self.remove_from_sprite_lists()
+
         args.scene.add_sprite(LAYER_NPC, self)
 
         args.physics_engine.add_sprite(

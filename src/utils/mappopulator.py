@@ -21,7 +21,7 @@ class MapPopulator:
         if not self.enabled:
             return
 
-        if time.time() <= self.next_spawn:
+        if time.time() < self.next_spawn:
             return
 
         from constants.layers import LAYER_NPC
@@ -29,7 +29,7 @@ class MapPopulator:
         try:
             enemies = args.scene[LAYER_NPC]
         except KeyError:
-            return
+            enemies = []
 
         if len(enemies) >= args.state.difficulty.max_npcs:
             return
