@@ -8,6 +8,7 @@ from utils.positionalsound import PositionalSound
 FORCE_MOVE = 5000
 HURT = 1
 
+SIGHT_DISTANCE = 400
 
 class Cactus(Sprite):
     def __init__(
@@ -38,6 +39,9 @@ class Cactus(Sprite):
             delta_time,
             args
     ):
+
+        if arcade.get_distance_between_sprites(self, args.player) > SIGHT_DISTANCE:
+            return
 
         if arcade.check_for_collision(self, args.player):
             args.player.hurt(HURT)
