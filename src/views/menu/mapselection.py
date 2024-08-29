@@ -121,7 +121,7 @@ class MapSelection(Fading):
 
             image = PIL.Image.open(preview_file).convert('RGBA').crop()
 
-            image_size = (224, 224)
+            image_size = (180, 180)
 
             if self.window.width >= 1600:
                 image_size = (320, 320)

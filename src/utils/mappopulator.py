@@ -144,8 +144,8 @@ class MapPopulator:
         if not args.state.settings.weather:
             return
 
-        for i in range(1, 1000):
-            radius = random.randint(1, 12)
+        for i in range(1, 500):
+            radius = random.randint(1, 14)
             particle = HellParticle(radius=radius, color=random.choice(HELL_PARTICLE_COLORS), soft=True)
             particle.center_x = random.randint(0, args.tilemap.width)
             particle.center_y = random.randint(0, args.tilemap.height)
