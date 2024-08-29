@@ -76,4 +76,5 @@ class MapConfig:
             'lighting': None,
             'landmines': False,
             'snow': False,
+            'hellParticles': False
         }

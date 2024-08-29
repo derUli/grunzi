@@ -15,12 +15,6 @@ SNOW_COLORS = [
     (148, 242, 244, 255)
 ]
 
-COLLISION_LAYERS = [
-    LAYER_WALL,
-    LAYER_FIRE
-]
-
-
 class Snow(SpriteCircle, Sprite):
 
     def __init__(self, radius: int, color: Color, soft: bool = True):

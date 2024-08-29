@@ -4,6 +4,7 @@ import time
 
 from constants.layers import LAYER_SNOW
 from sprites.characters.chicken import spawn_chicken
+from sprites.decoration.hellparticle import HELL_PARTICLE_COLORS, HellParticle
 from sprites.decoration.snow import Snow, SNOW_COLORS
 from sprites.items.food import spawn_food
 from sprites.items.landmine import spawn_landmine
@@ -95,8 +96,8 @@ class MapPopulator:
 
         self.spawn_food(args)
         self.spawn_landmine(args)
-
         self.spawn_snow(args)
+        self.spawn_hell_particles(args)
 
     @staticmethod
     def spawn_landmine(args: ArgsContainer) -> None:
@@ -135,3 +136,18 @@ class MapPopulator:
             snow.center_y = random.randint(0, args.tilemap.height)
 
             args.scene.add_sprite(LAYER_SNOW, snow)
+
+    def spawn_hell_particles(self, args: ArgsContainer) -> None:
+        if not args.state.difficulty.options['hellParticles']:
+            return
+
+        if not args.state.settings.weather:
+            return
+
+        for i in range(1, 1000):
+            radius = random.randint(1, 12)
+            particle = HellParticle(radius=radius, color=random.choice(HELL_PARTICLE_COLORS), soft=True)
+            particle.center_x = random.randint(0, args.tilemap.width)
+            particle.center_y = random.randint(0, args.tilemap.height)
+
+            args.scene.add_sprite(LAYER_SNOW, particle)

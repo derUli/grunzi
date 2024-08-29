@@ -87,5 +87,10 @@
     "3": {
       "maxNPCs": 13
     }
+  },
+  "map05": {
+    "options": {
+      "hellParticles": true
+    }
   }
 }
