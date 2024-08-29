@@ -7,5 +7,5 @@ MAPS = [
     'map02',
     'map03',
     'map04',
-    #'map05'
+    # 'map05'
 ]

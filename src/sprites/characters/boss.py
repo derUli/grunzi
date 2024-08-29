@@ -51,8 +51,6 @@ class Boss(Character):
             if self.alpha <= 0:
                 args.callbacks.on_complete()
 
-
-
     def setup(self, args):
         from constants.layers import LAYER_NPC
 

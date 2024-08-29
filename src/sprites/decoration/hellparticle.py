@@ -2,7 +2,6 @@ import random
 
 from arcade import SpriteCircle, Color
 
-from constants.layers import LAYER_WALL, LAYER_FIRE
 from sprites.sprite import Sprite
 
 MOVE_X = -1
@@ -12,6 +11,7 @@ HELL_PARTICLE_COLORS = [
     (33, 212, 37),
     (163, 251, 125)
 ]
+
 
 class HellParticle(SpriteCircle, Sprite):
 

@@ -2,7 +2,6 @@ import random
 
 from arcade import SpriteCircle, Color
 
-from constants.layers import LAYER_WALL, LAYER_FIRE
 from sprites.sprite import Sprite
 
 MOVE_X = -1
@@ -14,6 +13,7 @@ SNOW_COLORS = [
     (160, 230, 236, 255),
     (148, 242, 244, 255)
 ]
+
 
 class Snow(SpriteCircle, Sprite):
 

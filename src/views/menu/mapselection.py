@@ -20,6 +20,7 @@ BUTTON_WIDTH = 250
 COLOR_BACKGROUND = (217, 102, 157)
 SPACE_BETWEEN = 20
 
+
 class MapSelection(Fading):
     """Main menu view class."""
 
@@ -122,7 +123,7 @@ class MapSelection(Fading):
 
             image = PIL.Image.open(preview_file).convert('RGBA').crop()
 
-            size = (self.window.width  / len(MAPS)) - (SPACE_BETWEEN * 2)
+            size = (self.window.width / len(MAPS)) - (SPACE_BETWEEN * 2)
 
             if size > 512:
                 size = 512

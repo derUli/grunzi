@@ -52,7 +52,6 @@ class Scene(BaseScene):
         for sprite in sprites:
             sprite.setup(args)
 
-
     @classmethod
     def from_tilemap(cls, tilemap: TileMap) -> "Scene":
         """
