@@ -10,6 +10,7 @@ import utils.gui
 import utils.text
 from constants.fonts import FONT_DEFAULT
 from constants.mapconfig import MapConfig
+from constants.maps import MAPS
 from state.savegamestate import SaveGameState
 from views.fading import Fading
 from views.game import Game
@@ -17,7 +18,7 @@ from views.game import Game
 BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (217, 102, 157)
-
+SPACE_BETWEEN = 20
 
 class MapSelection(Fading):
     """Main menu view class."""
@@ -121,10 +122,15 @@ class MapSelection(Fading):
 
             image = PIL.Image.open(preview_file).convert('RGBA').crop()
 
-            image_size = (180, 180)
+            size = (self.window.width  / len(MAPS)) - (SPACE_BETWEEN * 2)
 
-            if self.window.width >= 1600:
-                image_size = (320, 320)
+            if size > 512:
+                size = 512
+
+            image_size = (
+                int(size),
+                int(size)
+            )
 
             image = image.resize(image_size)
 
@@ -191,7 +197,7 @@ class MapSelection(Fading):
         ]
 
         # Initialise a BoxLayout in which widgets can be arranged.
-        widget_layout = arcade.gui.UIBoxLayout(space_between=20, align='center')
+        widget_layout = arcade.gui.UIBoxLayout(space_between=SPACE_BETWEEN, align='center')
 
         for widget in widgets:
             widget_layout.add(widget)
