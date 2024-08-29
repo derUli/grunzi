@@ -121,7 +121,7 @@ class Scene(BaseScene):
         from constants.layers import STATIC_LAYERS
 
         layers = filter(lambda x: x not in STATIC_LAYERS, self.name_mapping)
-        layers = map(lambda x: self[x], layers)
+        layers = list(map(lambda x: self[x], layers))
 
         for layer in layers:
             sprites = filter(lambda x: isinstance(x, AbstractSprite), layer)
