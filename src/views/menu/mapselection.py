@@ -260,7 +260,8 @@ class MapSelection(Fading):
             'map01': _('Having A Pig'),
             'map02': _('Big Major Cay'),
             'map03': _('Teufelsmoor'),
-            'map04': _('South Pole')
+            'map04': _('South Pole'),
+            'map05': _('Hell')
         }
 
         if self.selected in labels:
