@@ -6,8 +6,14 @@
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * Audio: Master Lautstärkeregler hinzugefügt
 * map04: Color Tint zu Feuer hinzugefügt
+* map01: Autofahr-Animation am Ende des Levels eingefügt
 
-## Alpha 018 (Unreleased)
+# Alpha 019
+
+# map05: Gründgerust von Endboss-Level "Hölle" hinzugefügt.
+* map05: Der Boss hat noch keine KI, die Struktur der Map wird sich noch mal ändern.
+
+## Alpha 018 (02.09.2024)
 
 * map04: Gegner aktiviert
 * map04: Neuer Gegner hinzugefügt: Explodierendes Fass
