@@ -10,6 +10,7 @@
 
 # Alpha 019
 
+* Highscore-Liste: Wenn die Auflösung kleiner als 1366x768, wurde die Highscore-Liste nicht angezeigt
 # map05: Gründgerust von Endboss-Level "Hölle" hinzugefügt.
 * map05: Der Boss hat noch keine KI, die Struktur der Map wird sich noch mal ändern.
 
