@@ -78,8 +78,10 @@ class HighscoreList(Fading):
 
         highscore = storage.highscore
 
+
         if self.window.height <= 768:
-            highscore = highscore[5:]
+            highscore = highscore[:5]
+        print(highscore)
 
         for entry in highscore:
             labels.append(str(entry['name']))
