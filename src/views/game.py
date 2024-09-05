@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
@@ -418,7 +419,7 @@ class Game(Fading):
             self.scene.player_sprite.modifier = MODIFIER_SPRINT
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
-        if key == arcade.key.F7:
+        if not getattr(sys, "frozen", False) and key == arcade.key.F7:
             self.on_next_level()
         if key in constants.controls.keyboard.KEY_DROP:
             self.on_drop()
