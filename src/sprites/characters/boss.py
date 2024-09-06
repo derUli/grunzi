@@ -100,7 +100,11 @@ class Boss(Character):
 
         if not self.spawn_sound.playing and not self.fighting:
             self.fighting = True
-            pyglet.clock.schedule_once(self.should_shoot, random.randint(1, 6), args)
+            pyglet.clock.schedule_once(
+                self.should_shoot,
+                random.randint(1, args.state.difficulty.boss_range),
+                args
+            )
             pyglet.clock.schedule_interval_soft(self.collision_lasers, 1 / 72, args)
 
         if not self.fighting:
@@ -213,17 +217,17 @@ class Boss(Character):
         self.draw_healthbar()
 
     def should_shoot(self, delta_time, args):
-        if self._should_shoot:
-            pyglet.clock.schedule_once(self.should_shoot, random.randint(1, 6), args)
-            return
 
         w, h = arcade.get_window().get_size()
-
-        if arcade.get_distance_between_sprites(self, args.player) < h:
+        if not self._should_shoot and arcade.get_distance_between_sprites(self, args.player) < h:
             self._should_shoot = True
             self.lasers[0].visible = True
 
-        pyglet.clock.schedule_once(self.should_shoot, random.randint(1, 6), args)
+        pyglet.clock.schedule_once(
+            self.should_shoot,
+            random.randint(1, args.state.difficulty.boss_range),
+            args
+        )
 
     def unschedule(self):
         pyglet.clock.unschedule(self.should_shoot)
