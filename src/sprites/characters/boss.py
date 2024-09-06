@@ -175,15 +175,18 @@ class Boss(Character):
 
         self.lasers = []
 
-        laser_range = []
-        w, h = arcade.get_window().get_size()
-
-        for i in range(1, int(UPDATE_RATE * w)):
-            laser_range.append(i * 72)
 
         laser_image = PIL.Image.open(
             self.laser_file
         ).convert('RGBA')
+
+        laser_image = laser_image.resize((laser_image.width * 3, laser_image.height * 2))
+
+        laser_range = []
+
+        for i in range(1, int(UPDATE_RATE * laser_image.width)):
+            laser_range.append(i * 72)
+
 
         for i in laser_range:
             image = laser_image.crop((0, 0, i, laser_image.height))
