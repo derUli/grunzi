@@ -94,7 +94,7 @@ class Boss(Character):
         self.eye2.center_y = self.eye1.center_y
         self.eye2.alpha = self.alpha
 
-        if not self.spawn_sound.playing:
+        if not self.spawn_sound.playing and not self.fighting:
             self.fighting = True
             pyglet.clock.schedule_interval_soft(self.should_shoot, 1 / 4, args)
 
@@ -203,8 +203,6 @@ class Boss(Character):
             self.lasers.append(sprite)
             args.scene.add_sprite(LAYER_NPC, sprite)
 
-        self.lasers[0].visible = True
-
     def draw_overlay(self, args):
         self.draw_healthbar()
 
@@ -217,6 +215,7 @@ class Boss(Character):
 
         if arcade.get_distance_between_sprites(self, args.player) < h:
             self._should_shoot = True
+            self.lasers[0].visible = True
 
     def unschedule(self):
         pyglet.clock.unschedule(self.should_shoot)
