@@ -27,7 +27,7 @@ EYE_OFFSET_X = 100
 EYE_SPACING_X = 250
 EYE_OFFSET_Y = 10
 
-ALPHA_SPEED = 5
+ALPHA_SPEED = 4
 ALPHA_MAX = 255
 
 class Boss(Character):
@@ -52,12 +52,15 @@ class Boss(Character):
         self.eye_file = os.path.join(os.path.dirname(filename), 'eye.png')
         self.eye1 = None
         self.eye2 = None
-
+        self.spawn_sound = None
         self.triggered = False
 
     def update(self, delta_time, args):
-        if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < 500:
+        w, h = arcade.get_window().get_size()
+        if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h:
             self.triggered = True
+
+            self.spawn_sound = args.state.play_sound('boss', 'spawn')
             return
 
         if not self.triggered:

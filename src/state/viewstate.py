@@ -116,7 +116,10 @@ class ViewState:
             'ship': {
                 'horn': arcade.load_sound(os.path.join(self.sound_dir, 'ship', 'horn.ogg'))
             },
-            'switch': arcade.load_sound(os.path.join(self.sound_dir, 'switch', 'switch.ogg'))
+            'switch': arcade.load_sound(os.path.join(self.sound_dir, 'switch', 'switch.ogg')),
+            'boss': {
+                'spawn': arcade.load_sound(os.path.join(self.sound_dir, 'boss', 'spawn.ogg')),
+            }
         }
 
         dir = os.path.join(self.sound_dir, 'atmos', '*.ogg')
