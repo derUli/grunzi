@@ -54,6 +54,7 @@ class Boss(Character):
         super().__init__(filename, center_x=center_x, center_y=center_y)
 
         self.eye_file = os.path.join(os.path.dirname(filename), 'eye.png')
+        self.laser_file = os.path.join(os.path.dirname(filename), 'laser.jpg')
         self.eye1 = None
         self.eye2 = None
         self.spawn_sound = None
@@ -115,7 +116,7 @@ class Boss(Character):
             next_laser = self.lasers[laser_index + 1]
             next_laser.visible = True
             next_laser.right = self.left
-            next_laser.center_y = self.center_y
+            next_laser.center_y = self.eye1.center_y
         else:
             self.lasers[laser_index].visible = False
             self.lasers[0].visible = True
@@ -153,8 +154,13 @@ class Boss(Character):
         for i in range(1, int(UPDATE_RATE * w)):
             laser_range.append(i * 72)
 
+
+        laser_image = PIL.Image.open(
+           self.laser_file
+        ).convert('RGBA')
+
         for i in laser_range:
-            image = PIL.Image.new("RGBA", (i, args.player.height), arcade.csscolor.RED)
+            image = laser_image.crop((0, 0, i, laser_image.height))
             texture = arcade.texture.Texture(image=image, name=f"laser-{i}")
             sprite = arcade.sprite.Sprite(texture=texture)
             sprite.visible = False
