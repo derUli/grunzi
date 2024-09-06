@@ -99,7 +99,7 @@ class Boss(Character):
 
         if not self.spawn_sound.playing and not self.fighting:
             self.fighting = True
-            pyglet.clock.schedule_interval_soft(self.should_shoot, 1 / 4, args)
+            pyglet.clock.schedule_interval_soft(self.should_shoot, 1 / 3, args)
             pyglet.clock.schedule_interval_soft(self.collision_lasers, 1 / 72, args)
 
 
