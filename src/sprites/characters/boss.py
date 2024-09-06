@@ -3,7 +3,6 @@ import os
 
 import PIL
 import arcade
-import numpy
 from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
@@ -17,7 +16,7 @@ MASS = 0.1
 DAMPING = 1
 FRICTION = 1
 ELASTICITY = 0.1
-FORCE_MOVE = 300
+FORCE_MOVE = 200000
 
 SIGHT_DISTANCE = 1400
 COLLISION_CHECK_DISTANCE = 200
@@ -32,7 +31,6 @@ EYE_OFFSET_Y = 10
 
 ALPHA_SPEED = 4
 ALPHA_MAX = 255
-
 
 class Boss(Character):
     def __init__(
@@ -60,8 +58,13 @@ class Boss(Character):
         self.spawn_sound = None
         self.triggered = False
         self.lasers = []
+        self.fighting = False
+        self.force = FORCE_MOVE
 
     def update(self, delta_time, args):
+
+        super().update(delta_time, args)
+
         w, h = arcade.get_window().get_size()
         if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h:
             self.triggered = True
@@ -80,8 +83,6 @@ class Boss(Character):
 
             self.alpha = alpha
 
-        super().update(delta_time, args)
-
         self.eye1.center_x = self.center_x - EYE_OFFSET_X
         self.eye1.center_y = self.center_y - EYE_OFFSET_Y
         self.eye1.alpha = self.alpha
@@ -89,6 +90,9 @@ class Boss(Character):
         self.eye2.center_x = self.eye1.center_x + EYE_SPACING_X
         self.eye2.center_y = self.eye1.center_y
         self.eye2.alpha = self.alpha
+
+        if not self.spawn_sound.playing:
+            self.fighting = True
 
         if self.dead:
             # Fade out on death
@@ -99,6 +103,21 @@ class Boss(Character):
                 args.callbacks.on_complete()
 
             return
+
+        if not self.fighting:
+            return
+
+        if self.force > 0 and self.center_y > 2700:
+            self.force *= -1
+        elif self.force < 0 and self.center_y < 520:
+            self.force *= -1
+
+        args.physics_engine.apply_force(self, (0, self.force))
+
+        self.update_laser(args)
+
+
+    def update_laser(self, args):
 
         laser_index = 0
 
@@ -121,8 +140,14 @@ class Boss(Character):
             self.lasers[laser_index].visible = False
             self.lasers[0].visible = True
 
-
     def setup(self, args):
+        self.setup_boss(args)
+        self.setup_eyes(args)
+        self.setup_laser(args)
+
+    def setup_boss(self, args):
+
+        self.alpha = 0
         from constants.layers import LAYER_NPC
 
         self.remove_from_sprite_lists()
@@ -136,27 +161,28 @@ class Boss(Character):
             collision_type=COLLISION_ENEMY
         )
 
+    def setup_eyes(self, args):
+        from constants.layers import LAYER_NPC
+
         self.eye1 = arcade.sprite.Sprite(filename=self.eye_file)
         args.scene.add_sprite(LAYER_NPC, self.eye1)
 
         self.eye2 = arcade.sprite.Sprite(filename=self.eye_file, flipped_horizontally=True)
         args.scene.add_sprite(LAYER_NPC, self.eye2)
 
-        self.alpha = 0
+    def setup_laser(self, args):
+        from constants.layers import LAYER_NPC
 
         self.lasers = []
 
         laser_range = []
-
-
         w, h = arcade.get_window().get_size()
 
         for i in range(1, int(UPDATE_RATE * w)):
             laser_range.append(i * 72)
 
-
         laser_image = PIL.Image.open(
-           self.laser_file
+            self.laser_file
         ).convert('RGBA')
 
         for i in laser_range:
