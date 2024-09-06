@@ -19,6 +19,7 @@ class MapConfig:
         self.skull_hurt = 0
         self.slimer_hurt = 0
         self.barrel_hurt = 0
+        self.boss_laser_hurt = 0
         self.spawn_what = []
         self.options = {}
 
@@ -42,6 +43,8 @@ class MapConfig:
             self.slimer_hurt = difficulty_data['slimerHurt']
         if 'barrelHurt' in difficulty_data:
             self.barrel_hurt = difficulty_data['barrelHurt']
+        if 'bossLaserHurt' in difficulty_data:
+            self.boss_laser_hurt = difficulty_data['bossLaserHurt']
 
         map_data = {}
 

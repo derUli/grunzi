@@ -63,7 +63,6 @@ class Boss(Character):
         self.fighting = False
         self.force = random.choice([FORCE_MOVE, FORCE_MOVE * -1])
 
-
         self._should_shoot = False
 
     def update(self, delta_time, args):
@@ -113,7 +112,7 @@ class Boss(Character):
         if not self.spawn_sound.playing and not self.fighting:
             self.fighting = True
             pyglet.clock.schedule_interval_soft(self.should_shoot, 1 / 4, args)
-
+            pyglet.clock.schedule_interval_soft(self.collision_lasers, 1 / 72, args)
 
 
         if not self.fighting:
@@ -184,6 +183,17 @@ class Boss(Character):
         self.eye2 = arcade.sprite.Sprite(filename=self.eye_file, flipped_horizontally=True)
         args.scene.add_sprite(LAYER_NPC, self.eye2)
 
+    def collision_lasers(self, delta_time, args):
+
+        visible = list(filter(lambda x: x.visible, self.lasers))
+
+        if not any(visible):
+            return
+
+        if arcade.check_for_collision(visible[0], args.player):
+            args.player.hurt(args.state.difficulty.boss_laser_hurt)
+
+
     def setup_laser(self, args):
         from constants.layers import LAYER_NPC
 
@@ -226,3 +236,4 @@ class Boss(Character):
 
     def unschedule(self):
         pyglet.clock.unschedule(self.should_shoot)
+        pyglet.clock.unschedule(self.collision_lasers)
