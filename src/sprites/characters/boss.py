@@ -1,11 +1,14 @@
 """ Slimer sprite class """
 import os
 
+import PIL
 import arcade
+import numpy
 from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
 from sprites.characters.character import Character
+from window.gamewindow import UPDATE_RATE
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -29,6 +32,7 @@ EYE_OFFSET_Y = 10
 
 ALPHA_SPEED = 4
 ALPHA_MAX = 255
+
 
 class Boss(Character):
     def __init__(
@@ -54,6 +58,7 @@ class Boss(Character):
         self.eye2 = None
         self.spawn_sound = None
         self.triggered = False
+        self.lasers = []
 
     def update(self, delta_time, args):
         w, h = arcade.get_window().get_size()
@@ -92,6 +97,30 @@ class Boss(Character):
             if self.alpha <= 0:
                 args.callbacks.on_complete()
 
+            return
+
+        laser_index = 0
+
+        i = 0
+        for laser in self.lasers:
+
+            if laser.visible:
+                laser_index = i
+                break
+            i += 1
+
+        self.lasers[laser_index].visible = False
+
+        if laser_index + 1 < len(self.lasers):
+            next_laser = self.lasers[laser_index + 1]
+            next_laser.visible = True
+            next_laser.right = self.left
+            next_laser.center_y = self.center_y
+        else:
+            self.lasers[laser_index].visible = False
+            self.lasers[0].visible = True
+
+
     def setup(self, args):
         from constants.layers import LAYER_NPC
 
@@ -106,7 +135,6 @@ class Boss(Character):
             collision_type=COLLISION_ENEMY
         )
 
-
         self.eye1 = arcade.sprite.Sprite(filename=self.eye_file)
         args.scene.add_sprite(LAYER_NPC, self.eye1)
 
@@ -115,8 +143,25 @@ class Boss(Character):
 
         self.alpha = 0
 
+        self.lasers = []
+
+        laser_range = []
+
+
+        w, h = arcade.get_window().get_size()
+
+        for i in range(1, int(UPDATE_RATE * w)):
+            laser_range.append(i * 72)
+
+        for i in laser_range:
+            image = PIL.Image.new("RGBA", (i, args.player.height), arcade.csscolor.RED)
+            texture = arcade.texture.Texture(image=image, name=f"laser-{i}")
+            sprite = arcade.sprite.Sprite(texture=texture)
+            sprite.visible = False
+            self.lasers.append(sprite)
+            args.scene.add_sprite(LAYER_NPC, sprite)
+
+        self.lasers[0].visible = True
+
     def draw_overlay(self, args):
         self.draw_healthbar()
-
-
-
