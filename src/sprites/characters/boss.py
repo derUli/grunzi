@@ -62,7 +62,6 @@ class Boss(Character):
         self.lasers = []
         self.fighting = False
         self.force = random.choice([FORCE_MOVE, FORCE_MOVE * -1])
-
         self._should_shoot = False
 
     def update(self, delta_time, args):
@@ -196,7 +195,6 @@ class Boss(Character):
 
         if arcade.check_for_collision(visible[0], args.player):
             args.player.hurt(args.state.difficulty.boss_laser_hurt)
-
 
     def setup_laser(self, args):
         from constants.layers import LAYER_NPC
