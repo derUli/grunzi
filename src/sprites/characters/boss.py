@@ -27,6 +27,8 @@ EYE_OFFSET_X = 100
 EYE_SPACING_X = 250
 EYE_OFFSET_Y = 10
 
+ALPHA_SPEED = 5
+ALPHA_MAX = 255
 
 class Boss(Character):
     def __init__(
@@ -51,15 +53,33 @@ class Boss(Character):
         self.eye1 = None
         self.eye2 = None
 
+        self.triggered = False
+
     def update(self, delta_time, args):
+        if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < 500:
+            self.triggered = True
+            return
+
+        if not self.triggered:
+            return
+
+        if self.alpha < ALPHA_MAX:
+            alpha = self.alpha + ALPHA_SPEED
+
+            if alpha > ALPHA_MAX:
+                alpha = ALPHA_MAX
+
+            self.alpha = alpha
+
         super().update(delta_time, args)
 
         self.eye1.center_x = self.center_x - EYE_OFFSET_X
         self.eye1.center_y = self.center_y - EYE_OFFSET_Y
-
+        self.eye1.alpha = self.alpha
 
         self.eye2.center_x = self.eye1.center_x + EYE_SPACING_X
         self.eye2.center_y = self.eye1.center_y
+        self.eye2.alpha = self.alpha
 
         if self.dead:
             # Fade out on death
@@ -89,6 +109,8 @@ class Boss(Character):
 
         self.eye2 = arcade.sprite.Sprite(filename=self.eye_file, flipped_horizontally=True)
         args.scene.add_sprite(LAYER_NPC, self.eye2)
+
+        self.alpha = 0
 
     def draw_overlay(self, args):
         self.draw_healthbar()
