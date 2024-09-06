@@ -8,6 +8,14 @@
 * map04: Color Tint zu Feuer hinzugefügt
 * map01: Autofahr-Animation am Ende des Levels eingefügt
 
+* Alpha 020:
+* map05: Intro hinzugefügt
+* map05: Mehr Soundeffekte zum Endboss hinzugefügt
+* map05: Musik hinzugefügt
+* map05: Lava erzeugt jetzt Schaden
+* map05: Kristalle hinzugefügt
+
+
 # Alpha 019
 
 * Highscore-Liste: Wenn die Auflösung kleiner als 1366x768, wurde die Highscore-Liste nicht angezeigt
