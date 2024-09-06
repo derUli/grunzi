@@ -23,6 +23,7 @@ EYE_OFFSET_Y = 10
 ALPHA_SPEED = 2
 ALPHA_MAX = 255
 
+
 class Boss(Character):
     def __init__(
             self,
@@ -99,16 +100,15 @@ class Boss(Character):
 
         if not self.spawn_sound.playing and not self.fighting:
             self.fighting = True
-            pyglet.clock.schedule_interval_soft(self.should_shoot, 1 / 3, args)
+            pyglet.clock.schedule_interval_soft(self.should_shoot, 2, args)
             pyglet.clock.schedule_interval_soft(self.collision_lasers, 1 / 72, args)
-
 
         if not self.fighting:
             return
 
-        if self.force > 0 and self.center_y > 2700:
+        if self.force > 0 and args.player.center_y < self.center_y:
             self.force *= -1
-        elif self.force < 0 and self.center_y < 520:
+        elif self.force < 0 and args.player.center_y > self.center_y:
             self.force *= -1
 
         args.physics_engine.apply_force(self, (0, self.force))
@@ -190,7 +190,6 @@ class Boss(Character):
 
         self.lasers = []
 
-
         laser_image = PIL.Image.open(
             self.laser_file
         ).convert('RGBA')
@@ -202,7 +201,6 @@ class Boss(Character):
         for i in range(1, int(UPDATE_RATE * laser_image.width)):
             laser_range.append(i * 72)
 
-
         for i in laser_range:
             image = laser_image.crop((0, 0, i, laser_image.height))
             texture = arcade.texture.Texture(image=image, name=f"laser-{i}")
@@ -213,7 +211,6 @@ class Boss(Character):
 
     def draw_overlay(self, args):
         self.draw_healthbar()
-
 
     def should_shoot(self, delta_time, args):
         if self._should_shoot:

@@ -78,7 +78,6 @@ class HighscoreList(Fading):
 
         highscore = storage.highscore
 
-
         if self.window.height <= 768:
             highscore = highscore[:5]
         print(highscore)
