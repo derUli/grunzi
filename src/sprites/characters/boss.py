@@ -1,5 +1,6 @@
 """ Slimer sprite class """
 import os
+import random
 
 import PIL
 import arcade
@@ -60,7 +61,8 @@ class Boss(Character):
         self.triggered = False
         self.lasers = []
         self.fighting = False
-        self.force = FORCE_MOVE
+        self.force = random.choice([FORCE_MOVE, FORCE_MOVE * -1])
+
 
         self._should_shoot = False
 
