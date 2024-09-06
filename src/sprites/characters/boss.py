@@ -99,6 +99,7 @@ class Boss(Character):
             pyglet.clock.schedule_interval_soft(self.should_shoot, 1 / 4, args)
 
         if self.dead:
+            self.unschedule()
             # Fade out on death
             self.fade_destroy()
 
@@ -119,8 +120,6 @@ class Boss(Character):
         args.physics_engine.apply_force(self, (0, self.force))
 
         self.update_laser(args)
-
-
 
     def update_laser(self, args):
         if not self._should_shoot:
