@@ -1,4 +1,7 @@
 """ Slimer sprite class """
+import os
+
+import arcade
 from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
@@ -20,6 +23,10 @@ GRID_SIZE = 64
 FADE_IN_MAX = 255
 FADE_SPEED = 4
 
+EYE_OFFSET_X = 100
+EYE_SPACING_X = 250
+EYE_OFFSET_Y = 10
+
 
 class Boss(Character):
     def __init__(
@@ -40,8 +47,19 @@ class Boss(Character):
     ):
         super().__init__(filename, center_x=center_x, center_y=center_y)
 
+        self.eye_file = os.path.join(os.path.dirname(filename), 'eye.png')
+        self.eye1 = None
+        self.eye2 = None
+
     def update(self, delta_time, args):
         super().update(delta_time, args)
+
+        self.eye1.center_x = self.center_x - EYE_OFFSET_X
+        self.eye1.center_y = self.center_y - EYE_OFFSET_Y
+
+
+        self.eye2.center_x = self.eye1.center_x + EYE_SPACING_X
+        self.eye2.center_y = self.eye1.center_y
 
         if self.dead:
             # Fade out on death
@@ -65,5 +83,15 @@ class Boss(Character):
             collision_type=COLLISION_ENEMY
         )
 
+
+        self.eye1 = arcade.sprite.Sprite(filename=self.eye_file)
+        args.scene.add_sprite(LAYER_NPC, self.eye1)
+
+        self.eye2 = arcade.sprite.Sprite(filename=self.eye_file, flipped_horizontally=True)
+        args.scene.add_sprite(LAYER_NPC, self.eye2)
+
     def draw_overlay(self, args):
         self.draw_healthbar()
+
+
+
