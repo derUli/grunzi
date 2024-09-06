@@ -3,6 +3,7 @@ import os
 
 import PIL
 import arcade
+import pyglet.clock
 from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
@@ -61,6 +62,8 @@ class Boss(Character):
         self.fighting = False
         self.force = FORCE_MOVE
 
+        self._should_shoot = False
+
     def update(self, delta_time, args):
 
         super().update(delta_time, args)
@@ -93,6 +96,7 @@ class Boss(Character):
 
         if not self.spawn_sound.playing:
             self.fighting = True
+            pyglet.clock.schedule_interval_soft(self.should_shoot, 1 / 4, args)
 
         if self.dead:
             # Fade out on death
@@ -117,7 +121,11 @@ class Boss(Character):
         self.update_laser(args)
 
 
+
     def update_laser(self, args):
+        if not self._should_shoot:
+            return
+
 
         laser_index = 0
 
@@ -139,6 +147,7 @@ class Boss(Character):
         else:
             self.lasers[laser_index].visible = False
             self.lasers[0].visible = True
+            self._should_shoot = False
 
     def setup(self, args):
         self.setup_boss(args)
@@ -200,3 +209,16 @@ class Boss(Character):
 
     def draw_overlay(self, args):
         self.draw_healthbar()
+
+
+    def should_shoot(self, delta_time, args):
+        if self._should_shoot:
+            return
+
+        w, h = arcade.get_window().get_size()
+
+        if arcade.get_distance_between_sprites(self, args.player) < h:
+            self._should_shoot = True
+
+    def unschedule(self):
+        pyglet.clock.unschedule(self.should_shoot)
