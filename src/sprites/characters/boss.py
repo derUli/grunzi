@@ -68,6 +68,28 @@ class Boss(Character):
 
         super().update(delta_time, args)
 
+        self.eye1.center_x = self.center_x - EYE_OFFSET_X
+        self.eye1.center_y = self.center_y - EYE_OFFSET_Y
+        self.eye1.alpha = self.alpha
+
+        self.eye2.center_x = self.eye1.center_x + EYE_SPACING_X
+        self.eye2.center_y = self.eye1.center_y
+        self.eye2.alpha = self.alpha
+
+        if self.dead:
+            self.unschedule()
+            for laser in self.lasers:
+                laser.remove_from_sprite_lists()
+
+            # Fade out on death
+            self.fade_destroy()
+
+            # Complete level after boss killed
+            if self.alpha <= 0:
+                args.callbacks.on_complete()
+
+            return
+
         w, h = arcade.get_window().get_size()
         if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h:
             self.triggered = True
@@ -86,28 +108,11 @@ class Boss(Character):
 
             self.alpha = alpha
 
-        self.eye1.center_x = self.center_x - EYE_OFFSET_X
-        self.eye1.center_y = self.center_y - EYE_OFFSET_Y
-        self.eye1.alpha = self.alpha
-
-        self.eye2.center_x = self.eye1.center_x + EYE_SPACING_X
-        self.eye2.center_y = self.eye1.center_y
-        self.eye2.alpha = self.alpha
-
         if not self.spawn_sound.playing and not self.fighting:
             self.fighting = True
             pyglet.clock.schedule_interval_soft(self.should_shoot, 1 / 4, args)
 
-        if self.dead:
-            self.unschedule()
-            # Fade out on death
-            self.fade_destroy()
 
-            # Complete level after boss killed
-            if self.alpha <= 0:
-                args.callbacks.on_complete()
-
-            return
 
         if not self.fighting:
             return
