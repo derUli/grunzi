@@ -125,7 +125,6 @@ class Boss(Character):
         if not self._should_shoot:
             return
 
-
         laser_index = 0
 
         i = 0
