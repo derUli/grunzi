@@ -76,7 +76,7 @@ class Boss(Character):
                 self.laser_sound.pause()
                 self.laser_sound = None
 
-            self.unschedule()
+            self.cleanup()
             for laser in self.lasers:
                 laser.remove_from_sprite_lists()
 
