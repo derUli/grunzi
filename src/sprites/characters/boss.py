@@ -9,6 +9,7 @@ from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
 from sprites.characters.character import Character
+from utils.positionalsound import VOLUME_SOURCE_ATMO, PositionalSound, VOLUME_SOURCE_SOUND
 from window.gamewindow import UPDATE_RATE
 
 DEFAULT_FACE = FACE_RIGHT
@@ -53,6 +54,7 @@ class Boss(Character):
         self.fighting = False
         self.force = random.choice([FORCE_MOVE, FORCE_MOVE * -1])
         self._should_shoot = False
+        self.laser_sound = None
 
     def update(self, delta_time, args):
 
@@ -67,6 +69,10 @@ class Boss(Character):
         self.eye2.alpha = self.alpha
 
         if self.dead:
+            if self.laser_sound:
+                self.laser_sound.pause()
+                self.laser_sound = None
+
             self.unschedule()
             for laser in self.lasers:
                 laser.remove_from_sprite_lists()
@@ -79,6 +85,10 @@ class Boss(Character):
                 args.callbacks.on_complete()
 
             return
+
+
+        if self.laser_sound:
+            self.laser_sound.update()
 
         w, h = arcade.get_window().get_size()
         if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h:
@@ -153,6 +163,8 @@ class Boss(Character):
             self.lasers[0].visible = True
             self._should_shoot = False
 
+            self.laser_sound.pause()
+
     def setup(self, args):
         self.setup_boss(args)
         self.setup_eyes(args)
@@ -226,6 +238,19 @@ class Boss(Character):
         if not self._should_shoot and arcade.get_distance_between_sprites(self, args.player) < h:
             self._should_shoot = True
             self.lasers[0].visible = True
+
+            if not self.laser_sound:
+                audio = args.state.play_sound('boss', 'laser', loop=True)
+
+                self.laser_sound = PositionalSound(
+                    args.player,
+                    self,
+                    audio,
+                    args.state,
+                    volume_source=VOLUME_SOURCE_SOUND
+                )
+
+            self.laser_sound.play()
 
         pyglet.clock.schedule_once(
             self.should_shoot,
