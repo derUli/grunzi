@@ -9,7 +9,6 @@
 * map01: Autofahr-Animation am Ende des Levels eingefügt
 
 * Alpha 020:
-* map05: Intro hinzugefügt
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
 * map05: Kristalle hinzugefügt
 
