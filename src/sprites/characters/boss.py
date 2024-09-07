@@ -258,6 +258,6 @@ class Boss(Character):
             args
         )
 
-    def unschedule(self):
+    def cleanup(self):
         pyglet.clock.unschedule(self.should_shoot)
         pyglet.clock.unschedule(self.collision_lasers)

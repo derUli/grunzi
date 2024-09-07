@@ -62,5 +62,5 @@ class Portal(AbstractAnimatedSprite):
 
         self.collides = arcade.check_for_collision(self, args.player)
 
-    def unschedule(self):
+    def cleanup(self):
         pyglet.clock.unschedule(self.check_collision)

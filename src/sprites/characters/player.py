@@ -278,12 +278,12 @@ class Player(Character, SpriteHealth):
             exit_layer = args.scene[LAYER_LEVEL_EXIT]
         except KeyError:
             # Unschedule if there is no level exit trigger
-            self.unschedule()
+            self.cleanup()
             return
 
         if any(arcade.check_for_collision_with_list(self, exit_layer)):
             args.callbacks.on_complete()
             return
 
-    def unschedule(self):
+    def cleanup(self):
         pyglet.clock.unschedule(self.check_for_levelexit)
