@@ -9,6 +9,7 @@ from sprites.characters.duck import Duck
 from sprites.characters.fish import Fish
 from sprites.decoration.cloud import Cloud
 from sprites.decoration.fire import Fire
+from sprites.decoration.lava import Lava
 from sprites.decoration.moon import Moon
 from sprites.decoration.river import River, RiverSound
 from sprites.decoration.ship import Ship, Steam
@@ -90,6 +91,7 @@ LAYER_FLAG_1 = 'Flag 1'
 LAYER_FLAG_2 = 'Flag 2'
 LAYER_BOSS = 'Boss'
 LAYER_LAVA = 'Lava'
+LAYER_LAVA_2 = 'Lava2'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -123,7 +125,8 @@ WALL_LAYERS = [
     LAYER_SKY,
     LAYER_TREE,
     LAYER_RIVER,
-    LAYER_CACTUS
+    LAYER_CACTUS,
+    LAYER_LAVA_2
 ]
 
 STATIC_LAYERS = [
@@ -263,6 +266,9 @@ LAYER_OPTIONS = {
     },
     LAYER_BOSS: {
         'custom_class': Boss
+    },
+    LAYER_LAVA: {
+        'custom_class': Lava
     }
 }
 

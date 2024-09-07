@@ -152,7 +152,7 @@ class Boss(Character):
         if laser_index + 1 < len(self.lasers):
             next_laser = self.lasers[laser_index + 1]
             next_laser.visible = True
-            if args.player.left > self.right:
+            if args.player.left > self.center_x:
                 next_laser.left = self.eye2.right
             else:
                 next_laser.right = self.eye1.left
