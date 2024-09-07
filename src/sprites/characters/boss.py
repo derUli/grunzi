@@ -68,6 +68,9 @@ class Boss(Character):
         self.eye2.center_y = self.eye1.center_y
         self.eye2.alpha = self.alpha
 
+        if self.laser_sound:
+            self.laser_sound.update()
+
         if self.dead:
             if self.laser_sound:
                 self.laser_sound.pause()
@@ -86,9 +89,6 @@ class Boss(Character):
 
             return
 
-
-        if self.laser_sound:
-            self.laser_sound.update()
 
         w, h = arcade.get_window().get_size()
         if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h:
