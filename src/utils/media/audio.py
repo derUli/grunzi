@@ -28,6 +28,13 @@ class MusicQueue:
         self.player = None
         self.state = state
 
+    def reset(self):
+        self.files = []
+        self.queue = []
+
+        self.pause()
+        self.player = None
+
     def set_files(self, files: list) -> None:
         """
         Set the files to play

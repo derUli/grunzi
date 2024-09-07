@@ -19,7 +19,8 @@ class ArgsContainer:
             camera=None,
             tilemap=None,
             inventory=None,
-            controllers=None
+            controllers=None,
+            music_queue = None
     ):
         """
         Constructor
@@ -54,6 +55,7 @@ class ArgsContainer:
         self.tilemap = tilemap
         self.inventory = inventory
         self.controllers = controllers
+        self.music_queue = music_queue
 
 
 def make_args_container(klaas) -> ArgsContainer:
@@ -76,5 +78,6 @@ def make_args_container(klaas) -> ArgsContainer:
         camera_gui=klaas.camera_gui,
         tilemap=klaas.tilemap,
         inventory=klaas.ui.inventory,
-        controllers=klaas.window.controllers
+        controllers=klaas.window.controllers,
+        music_queue=klaas.music_queue
     )

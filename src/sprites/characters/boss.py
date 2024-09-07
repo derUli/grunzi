@@ -84,6 +84,10 @@ class Boss(Character):
         if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h:
             self.triggered = True
 
+            args.music_queue.reset()
+            args.music_queue.from_directory(os.path.join(args.state.music_dir, 'map05b'))
+            args.music_queue.next()
+
             self.spawn_sound = args.state.play_sound('boss', 'spawn')
             return
 
