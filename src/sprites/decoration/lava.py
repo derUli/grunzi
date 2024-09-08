@@ -1,10 +1,7 @@
 import arcade
 import pyglet.clock
 
-from sprites.characters.character import Character
 from sprites.sprite import AbstractAnimatedSprite
-from state.argscontainer import ArgsContainer
-from utils.positionalsound import PositionalSound, VOLUME_SOURCE_SOUND
 
 
 class Lava(AbstractAnimatedSprite):

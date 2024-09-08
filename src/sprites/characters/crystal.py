@@ -10,7 +10,6 @@ class Crystal(AnimatedSprite):
         self.sound = PositionalSound(args.player, self, audio, args.state)
         self.sound.play()
 
-
     def update(
             self,
             delta_time: float,

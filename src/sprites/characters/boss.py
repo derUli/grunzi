@@ -9,7 +9,7 @@ from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
 from sprites.characters.character import Character
-from utils.positionalsound import  PositionalSound, VOLUME_SOURCE_SOUND
+from utils.positionalsound import PositionalSound, VOLUME_SOURCE_SOUND
 from window.gamewindow import UPDATE_RATE
 
 DEFAULT_FACE = FACE_RIGHT
@@ -80,8 +80,7 @@ class Boss(Character):
         self.eye2.alpha = self.alpha
 
         if self.laser_sound:
-            self.laser_sound.update()
-
+            self.laser_sound.update(max_distance=args.tilemap.width)
 
         if self.dead:
             if args.state.settings.music_volume > 0:
@@ -171,7 +170,7 @@ class Boss(Character):
             self.laser_sound.pause()
 
     def setup(self, args):
-        pyglet.clock.schedule_interval_soft(self.check_trigger, 1/6, args)
+        pyglet.clock.schedule_interval_soft(self.check_trigger, 1 / 6, args)
         self.settings = args.state.settings
         self.initial_music_Volume = args.state.settings.music_volume
 

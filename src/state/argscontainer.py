@@ -20,7 +20,7 @@ class ArgsContainer:
             tilemap=None,
             inventory=None,
             controllers=None,
-            music_queue = None
+            music_queue=None
     ):
         """
         Constructor
