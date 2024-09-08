@@ -97,18 +97,7 @@ class Boss(Character):
                 args.callbacks.on_complete()
 
             return
-
-
-        w, h = arcade.get_window().get_size()
-        if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h * 1.2:
-            self.triggered = True
-
-            args.music_queue.reset()
-            args.music_queue.from_directory(os.path.join(args.state.music_dir, 'map05b'))
-            args.music_queue.next()
-
-            self.spawn_sound = args.state.play_sound('boss', 'spawn')
-            return
+        #LAYER_BOSS_TRIGGER
 
         if not self.triggered:
             return
@@ -175,6 +164,7 @@ class Boss(Character):
             self.laser_sound.pause()
 
     def setup(self, args):
+        pyglet.clock.schedule_interval_soft(self.check_trigger, 1/6, args)
         self.setup_boss(args)
         self.setup_eyes(args)
         self.setup_laser(args)
@@ -269,3 +259,27 @@ class Boss(Character):
     def cleanup(self):
         pyglet.clock.unschedule(self.should_shoot)
         pyglet.clock.unschedule(self.collision_lasers)
+        pyglet.clock.unschedule(self.check_trigger)
+
+
+    def check_trigger(self, delta_time, args):
+        collides = False
+        from constants.layers import LAYER_BOSS_TRIGGER
+
+        for sprite in args.scene[LAYER_BOSS_TRIGGER]:
+            if arcade.get_distance_between_sprites(sprite, args.player) <= 100:
+                collides = True
+                break
+
+        if not collides:
+            return
+
+        self.triggered = True
+
+        args.music_queue.reset()
+        args.music_queue.from_directory(os.path.join(args.state.music_dir, 'map05b'))
+        args.music_queue.next()
+
+        self.spawn_sound = args.state.play_sound('boss', 'spawn')
+
+        pyglet.clock.unschedule(self.check_trigger)

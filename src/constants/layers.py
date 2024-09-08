@@ -94,6 +94,7 @@ LAYER_BOSS = 'Boss'
 LAYER_LAVA = 'Lava'
 LAYER_LAVA_2 = 'Lava2'
 LAYER_CRYSTAL = 'Crystal'
+LAYER_BOSS_TRIGGER = 'BossTrigger'
 
 ALL_LAYERS = [
     LAYER_WALL,
