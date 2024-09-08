@@ -120,6 +120,7 @@ class ViewState:
             'boss': {
                 'spawn': arcade.load_sound(os.path.join(self.sound_dir, 'boss', 'spawn.ogg')),
                 'laser': arcade.load_sound(os.path.join(self.sound_dir, 'boss', 'laser.ogg')),
+                'crystal': arcade.load_sound(os.path.join(self.sound_dir, 'boss', 'crystal.ogg')),
             }
         }
 

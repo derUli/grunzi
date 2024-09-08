@@ -145,7 +145,7 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
 
         if isinstance(_hit_sprite, Crystal):
             alpha = _hit_sprite.alpha
-            alpha -= (255 / 4)
+            alpha -= (255 / 4) * self.hurt_modifier
 
             if alpha <= 0:
                 alpha = 0
@@ -153,9 +153,10 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
             _hit_sprite.alpha = alpha
 
             if _hit_sprite.alpha <= 0:
+                _hit_sprite.sound.pause()
                 _hit_sprite.remove_from_sprite_lists()
 
-            self.state.score += 10
+            self.state.score += math.floor(10 * self.hurt_modifier)
             return
 
         hurt = hurt * self.hurt_modifier
