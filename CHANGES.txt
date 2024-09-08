@@ -10,12 +10,11 @@
 
 * Alpha 020:
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
-* map05: Kristalle hinzugefügt
 
 # Alpha 019
 
 * Highscore-Liste: Wenn die Auflösung kleiner als 1366x768, wurde die Highscore-Liste nicht angezeigt
-# map05: Gründgerust von Endboss-Level "Hölle" hinzugefügt.
+# map05: Endboss hinzugefügt
 
 ## Alpha 018 (02.09.2024)
 
