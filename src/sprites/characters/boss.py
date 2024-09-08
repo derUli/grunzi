@@ -83,25 +83,19 @@ class Boss(Character):
             self.laser_sound.update(max_distance=args.tilemap.width)
 
         if self.dead:
-            if args.state.settings.music_volume > 0:
-                args.state.settings.music_volume -= 0.05
-            else:
-                args.music_queue.pause()
 
             if self.laser_sound:
                 self.laser_sound.pause()
                 self.laser_sound = None
 
-            self.cleanup()
             for laser in self.lasers:
                 laser.remove_from_sprite_lists()
 
             # Fade out on death
-            self.fade_destroy()
+            if self.fade_destroy():
+                self.cleanup()
 
-            # Complete level after boss killed
-            if self.alpha <= 0:
-                args.callbacks.on_complete()
+                self.fadeout_volume(0, args)
 
             return
 
@@ -272,6 +266,7 @@ class Boss(Character):
         pyglet.clock.unschedule(self.collision_lasers)
         pyglet.clock.unschedule(self.check_trigger)
 
+
     def check_trigger(self, delta_time, args):
         collides = False
         from constants.layers import LAYER_BOSS_TRIGGER
@@ -293,3 +288,20 @@ class Boss(Character):
         self.spawn_sound = args.state.play_sound('boss', 'spawn')
 
         pyglet.clock.unschedule(self.check_trigger)
+
+    def fadeout_volume(self, delta_time, args):
+
+        music_volume = args.state.settings.music_volume - 0.01
+
+        if music_volume < 0:
+            music_volume = 0
+
+        args.state.settings.music_volume = music_volume
+
+        if music_volume <= 0:
+            args.music_queue.reset()
+
+            args.state.settings.music_volume = self.initial_music_Volume
+            return
+
+        pyglet.clock.schedule_once(self.fadeout_volume, 1/25, args)

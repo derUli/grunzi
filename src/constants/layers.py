@@ -29,6 +29,7 @@ from sprites.items.levelexit import LevelExit
 from sprites.items.piggybank import PiggyBank
 from sprites.items.plier import Plier
 from sprites.items.portal import Portal
+from sprites.items.portal2 import Portal2
 from sprites.items.redherring import Feather, Vase
 from sprites.items.switch import Switch
 from sprites.items.tree import Tree
@@ -82,6 +83,7 @@ LAYER_SHIP = 'Ship'
 LAYER_STEAM = 'Steam'
 LAYER_SNOW = 'Snow'
 LAYER_PORTAL = 'Portal'
+LAYER_PORTAL_2 = 'Portal2'
 LAYER_SWITCH = 'Switch'
 LAYER_FLAG = 'Flag 2'
 LAYER_GROUND = 'Ground'
@@ -154,6 +156,7 @@ ANIMATED_LAYERS = [
     LAYER_ELECTRIC,
     LAYER_STEAM,
     LAYER_PORTAL,
+    LAYER_PORTAL_2,
     LAYER_FLAG,
     LAYER_LAVA,
     LAYER_LAVA_2,
@@ -270,6 +273,9 @@ LAYER_OPTIONS = {
     },
     LAYER_PORTAL: {
         'custom_class': Portal
+    },
+    LAYER_PORTAL_2: {
+        'custom_class': Portal2
     },
     LAYER_BOSS: {
         'custom_class': Boss
