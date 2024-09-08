@@ -267,8 +267,8 @@ class Boss(Character):
         )
 
     def cleanup(self):
-
         self.settings.music_volume = self.initial_music_Volume
+
         pyglet.clock.unschedule(self.should_shoot)
         pyglet.clock.unschedule(self.collision_lasers)
         pyglet.clock.unschedule(self.check_trigger)
