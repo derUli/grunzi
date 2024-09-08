@@ -155,6 +155,7 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
             if _hit_sprite.alpha <= 0:
                 _hit_sprite.remove_from_sprite_lists()
 
+            self.state.score += 10
             return
 
         hurt = hurt * self.hurt_modifier

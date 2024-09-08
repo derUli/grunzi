@@ -100,7 +100,7 @@ class Boss(Character):
 
 
         w, h = arcade.get_window().get_size()
-        if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h:
+        if not self.triggered and arcade.get_distance_between_sprites(self, args.player) < h * 1.2:
             self.triggered = True
 
             args.music_queue.reset()
