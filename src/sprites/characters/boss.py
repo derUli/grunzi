@@ -261,7 +261,6 @@ class Boss(Character):
         pyglet.clock.unschedule(self.collision_lasers)
         pyglet.clock.unschedule(self.check_trigger)
 
-
     def check_trigger(self, delta_time, args):
         collides = False
         from constants.layers import LAYER_BOSS_TRIGGER
