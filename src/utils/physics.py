@@ -3,7 +3,7 @@
 import arcade
 from arcade import PymunkPhysicsEngine, Scene
 
-from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR, COLLISION_MOVEABLE
+from constants.collisions import COLLISION_WALL, COLLISION_PLAYER, COLLISION_CAR, COLLISION_MOVEABLE, COLLISION_CRYSTAL
 from constants.layers import (
     LAYER_MOVEABLE,
     LAYER_CAR_RIGHT,
@@ -16,7 +16,7 @@ from constants.layers import (
     LAYER_TREE,
     LAYER_SKY,
     LAYER_RIVER,
-    LAYER_ALPHA_WALL
+    LAYER_ALPHA_WALL, LAYER_CRYSTAL
 )
 from sprites.characters.player import Player
 
@@ -74,7 +74,7 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
         LAYER_WATER,
         LAYER_SKY,
         LAYER_RIVER,
-        LAYER_ALPHA_WALL
+        LAYER_ALPHA_WALL,
     ]
 
     for layer in wall_layers:
@@ -88,6 +88,16 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
             collision_type=COLLISION_WALL,
             body_type=PymunkPhysicsEngine.STATIC
         )
+
+    if LAYER_CRYSTAL not in scene.name_mapping:
+        scene.add_sprite_list(LAYER_CRYSTAL)
+
+    physics_engine.add_sprite_list(
+        scene[LAYER_CRYSTAL],
+        friction=0,
+        collision_type=COLLISION_CRYSTAL,
+        body_type=PymunkPhysicsEngine.STATIC
+    )
 
     car_layers = [
         LAYER_CAR_LEFT,

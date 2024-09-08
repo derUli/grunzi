@@ -129,6 +129,56 @@ class Sprite(AbstractStaticSprite):
         return False
 
 
+class AnimatedSprite(AbstractAnimatedSprite):
+    def __init__(
+            self,
+            filename: Optional[str] = None,
+            image_x=0,
+            image_y=0,
+            image_width=None,
+            image_height=None,
+            flipped_horizontally=False,
+            flipped_vertically=False,
+            flipped_diagonally=False,
+            hit_box_algorithm=None,
+            hit_box_detail=None,
+            scale=1.0,
+            center_x=None,
+            center_y=None
+    ):
+        self.sound = None
+        self.fadeout = None
+
+        super().__init__(
+            filename=filename,
+            image_x=image_x,
+            image_y=image_y,
+        )
+
+    def update(
+            self,
+            delta_time: float,
+            args: ArgsContainer
+    ) -> None:
+        if self.fadeout:
+            alpha = self.alpha - FADE_SPEED
+
+            if alpha <= 0:
+                alpha = 0
+                self.remove_from_sprite_lists()
+
+            self.alpha = alpha
+
+    def fade_destroy(self) -> bool:
+        """ Fade out and destroy """
+
+        if not self.fadeout:
+            self.fadeout = True
+            return True
+
+        return False
+
+
 class AlphaWall(Sprite):
     def setup(self, args):
         self.alpha = 0

@@ -5,6 +5,7 @@ from arcade import Scene
 
 import sprites.decoration.car
 from sprites.characters.boss import Boss
+from sprites.characters.crystal import Crystal
 from sprites.characters.duck import Duck
 from sprites.characters.fish import Fish
 from sprites.decoration.cloud import Cloud
@@ -92,6 +93,7 @@ LAYER_FLAG_2 = 'Flag 2'
 LAYER_BOSS = 'Boss'
 LAYER_LAVA = 'Lava'
 LAYER_LAVA_2 = 'Lava2'
+LAYER_CRYSTAL = 'Crystal'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -104,7 +106,7 @@ ALL_LAYERS = [
     LAYER_CAR_LEFT,
     LAYER_CAR_RIGHT,
     LAYER_WATER,
-    LAYER_LAVA,
+    LAYER_LAVA_2,
     LAYER_FIRE,
     LAYER_SKY,
     LAYER_SUN,
@@ -114,7 +116,8 @@ ALL_LAYERS = [
     LAYER_RIVER,
     LAYER_FOOD,
     LAYER_CACTUS,
-    LAYER_BOSS
+    LAYER_BOSS,
+    LAYER_CRYSTAL
 ]
 
 WALL_LAYERS = [
@@ -140,7 +143,9 @@ STATIC_LAYERS = [
     LAYER_BACKGROUND_PLANTS_2,
     LAYER_PENGUINS,
     LAYER_FLAG_1,
-    LAYER_FLAG_2
+    LAYER_FLAG_2,
+    LAYER_CRYSTAL,
+    LAYER_LAVA
 ]
 
 ANIMATED_LAYERS = [
@@ -151,7 +156,8 @@ ANIMATED_LAYERS = [
     LAYER_PORTAL,
     LAYER_FLAG,
     LAYER_LAVA,
-    LAYER_LAVA_2
+    LAYER_LAVA_2,
+    LAYER_CRYSTAL
 ]
 
 PASSIVE_LAYERS = STATIC_LAYERS + WALL_LAYERS + ANIMATED_LAYERS + [
@@ -270,6 +276,9 @@ LAYER_OPTIONS = {
     },
     LAYER_LAVA: {
         'custom_class': Lava
+    },
+    LAYER_CRYSTAL: {
+        'custom_class': Crystal
     }
 }
 

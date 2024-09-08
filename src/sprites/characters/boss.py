@@ -9,7 +9,7 @@ from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
 from sprites.characters.character import Character
-from utils.positionalsound import VOLUME_SOURCE_ATMO, PositionalSound, VOLUME_SOURCE_SOUND
+from utils.positionalsound import  PositionalSound, VOLUME_SOURCE_SOUND
 from window.gamewindow import UPDATE_RATE
 
 DEFAULT_FACE = FACE_RIGHT
@@ -58,7 +58,16 @@ class Boss(Character):
 
     def update(self, delta_time, args):
 
+        from constants.layers import LAYER_CRYSTAL
+
         super().update(delta_time, args)
+
+        crystal_count = len(args.scene[LAYER_CRYSTAL])
+
+        min_health = crystal_count * 10
+
+        if self.health < min_health:
+            self.health = min_health
 
         self.eye1.center_x = self.center_x - EYE_OFFSET_X
         self.eye1.center_y = self.center_y - EYE_OFFSET_Y
@@ -234,8 +243,7 @@ class Boss(Character):
 
     def should_shoot(self, delta_time, args):
 
-        w, h = arcade.get_window().get_size()
-        if not self._should_shoot and arcade.get_distance_between_sprites(self, args.player) < h:
+        if not self._should_shoot:
             self._should_shoot = True
             self.lasers[0].visible = True
 

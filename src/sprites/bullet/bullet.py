@@ -8,12 +8,13 @@ import pymunk
 from arcade import FACE_RIGHT, FACE_LEFT, Color
 
 from constants.collisions import COLLISION_ENEMY, COLLISION_BULLET, COLLISION_WALL, COLLISION_CHICKEN, \
-    COLLISION_MOVEABLE
+    COLLISION_MOVEABLE, COLLISION_CRYSTAL
 from constants.layers import LAYER_NPC
 from sprites.characters.barrel import Barrel
 from sprites.characters.boss import Boss
 from sprites.characters.character import Character
 from sprites.characters.chicken import Chicken
+from sprites.characters.crystal import Crystal
 from sprites.characters.slimer import Slimer
 from sprites.sprite import AbstractSprite
 from state.argscontainer import ArgsContainer
@@ -101,6 +102,7 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_ENEMY, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_CHICKEN, post_handler=self.on_hit)
         physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_MOVEABLE, post_handler=self.on_hit)
+        physics_engine.add_collision_handler(COLLISION_BULLET, COLLISION_CRYSTAL, post_handler=self.on_hit)
 
         physics_engine.apply_force(self, (self.force_move, 0))
 
@@ -118,7 +120,7 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
 
         bullet_sprite.remove_from_sprite_lists()
 
-        if not isinstance(_hit_sprite, Character):
+        if not isinstance(_hit_sprite, Character) and not isinstance(_hit_sprite, Crystal):
             return
 
         hurt = self.hurt
@@ -140,6 +142,20 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
         if isinstance(_hit_sprite, Boss):
             hurt = HURT_BOSS
             score = SCORE_HURT_BOSS
+
+        if isinstance(_hit_sprite, Crystal):
+            alpha = _hit_sprite.alpha
+            alpha -= (255 / 4)
+
+            if alpha <= 0:
+                alpha = 0
+
+            _hit_sprite.alpha = alpha
+
+            if _hit_sprite.alpha <= 0:
+                _hit_sprite.remove_from_sprite_lists()
+
+            return
 
         hurt = hurt * self.hurt_modifier
 

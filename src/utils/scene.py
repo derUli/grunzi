@@ -10,7 +10,7 @@ from arcade import SpriteList
 from sprites.characters.character import Character
 from sprites.characters.player import Player
 from sprites.items.item import Item, Interactable
-from sprites.sprite import AbstractSprite
+from sprites.sprite import AbstractSprite, AbstractAnimatedSprite
 from utils.lookuptable.lookuptable import LookupTable
 from utils.postprocessing.postprocessing import PostProcessing
 
@@ -123,7 +123,7 @@ class Scene(BaseScene):
         layers = list(map(lambda x: self[x], layers))
 
         for layer in layers:
-            sprites = filter(lambda x: isinstance(x, AbstractSprite), layer)
+            sprites = filter(lambda x: isinstance(x, AbstractSprite) or isinstance(x, AbstractAnimatedSprite), layer)
             for sprite in sprites:
 
                 a = time.time()

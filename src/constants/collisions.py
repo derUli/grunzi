@@ -9,6 +9,7 @@ COLLISION_SLIMER_BULLET = "slimer_bullet"
 COLLISION_SLIMER = 'slimer'
 COLLISION_WATER = "water"
 COLLISION_WALL = "wall"
+COLLISION_CRYSTAL = 'crystal'
 COLLISION_PLAYER = "player"
 COLLISION_CHICKEN = 'chicken'
 COLLISION_DUCK = 'duck'
