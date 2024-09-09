@@ -1,3 +1,5 @@
+import random
+
 from sprites.sprite import Sprite, AbstractAnimatedSprite
 from utils.positionalsound import PositionalSound
 
@@ -15,7 +17,6 @@ class Ship(Sprite):
         if self.right < 0:
             self.remove_from_sprite_lists()
 
-
 class Steam(AbstractAnimatedSprite):
 
     def update(
@@ -25,7 +26,7 @@ class Steam(AbstractAnimatedSprite):
     ):
         self.center_x -= MOVE_X
 
-        if self.center_x <= 3400 and not self.sound:
+        if self.center_x <= 2500 and not self.sound:
             audio = args.state.play_sound('ship', 'horn')
             self.sound = PositionalSound(args.player, args.player, audio, args.state)
             self.sound.update(init=True)
