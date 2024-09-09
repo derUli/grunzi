@@ -3,10 +3,6 @@
 Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufers und erkundest einer Welt voller Action,
 Monster und friedlicher Zeitgenossen.
 
-Das Spiel befindet sich noch in einem frühen Zustand der Entwicklung.
-Bis jetzt sind vier Level vollständig umgesetzt.
-Das fertige Spiel soll 5 Level enthalten.
-
 # Systemvoraussetzungen
 
 Das Spiel benötigt ein 64-Bit Windows oder Linux Betriebssystem und eine Grafikkarte,
@@ -16,7 +12,7 @@ Falls es doch zu Performance-Problemen kommt, kannst du die Bildschirmauflösung
 
 # Was ist neu?
 
-Siehe Changes.txt
+Siehe Changes.txt.
 
 # Spiel starten
 
