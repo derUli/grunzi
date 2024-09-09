@@ -8,11 +8,10 @@ Monster und friedlicher Zeitgenossen.
 Das Spiel benötigt ein 64-Bit Windows oder Linux Betriebssystem und eine Grafikkarte,
 die mindestens OpenGL 3.3 unterstützt.
 Es sollte auf jeder Hardware, die in den letzten 10 Jahren auf den Markt gebracht wurde, funktionieren.
-Falls es doch zu Performance-Problemen kommt, kannst du die Bildschirmauflösung reduzieren.
 
 # Was ist neu?
 
-Siehe Changes.txt.
+Siehe Changes.txt
 
 # Spiel starten
 
