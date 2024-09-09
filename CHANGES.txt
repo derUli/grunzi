@@ -14,6 +14,7 @@
 * Highscore-Liste: Wenn die Auflösung kleiner als 1366x768, wurde die Highscore-Liste nicht angezeigt
 # map05: Endboss hinzugefügt
 * Global: Bild auf / Bild ab schaltet Items durch
+* Global: Performance-Optimierungen
 
 ## Alpha 018 (02.09.2024)
 

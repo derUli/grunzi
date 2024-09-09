@@ -16,8 +16,7 @@ Falls es doch zu Performance-Problemen kommt, kannst du die Bildschirmauflösung
 
 # Was ist neu?
 
-Das vierte Level ist nun durchspielbar.
-Des Weiteren wurde die Performance optimiert.
+Siehe Changes.txt
 
 # Spiel starten
 
@@ -71,28 +70,3 @@ Derzeit werden folgende Controller unterstützt:
 * Xbox 360 Controller
 
 Weitere Modelle können funktionieren, wurden von mir aber nicht getestet.
-
-# Einstellungen
-
-Das Spiel bietet die folgenden Einstellungsmöglichkeiten:
-
-## Bildschirm
-
-| Einstellung         | Mögliche Werte | Auswirkung auf die Performance | Im Launcher | Im Spiel |
-|---------------------|----------------|--------------------------------|-------------|----------|
-| Bildschirmauflösung | Systemabhängig | Hoch                           | ✓           | ✘        |
-| Vollbild            | An/Aus         | Keine                          | ✓           | ✓        |
-| Rahmenlos           | An/Aus         | Keine                          | ✓           | ✘        |
-| V-Sync              | An/Aus         | Keine                          | ✓           | ✓        |
-
-## Audio
-
-| Einstellung   | Mögliche Werte                                    | Im Launcher | Im Spiel |
-|---------------|---------------------------------------------------|-------------|----------|
-| Audio Backend | auto, xaudio2, directsound, openal, pulse, silent | ✓           | ✘        |
-| Musik         | 0 bis 100                                         | ✘           | ✓        |
-| Sound         | 0 bis 100                                         | ✘           | ✓        |
-
-## Steuerung
-
-Hier kann die Steuerung per Tastatur und Controller eingesehen werden.
