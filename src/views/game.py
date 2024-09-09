@@ -438,6 +438,12 @@ class Game(Fading):
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             self.on_select_item(key=key)
 
+        if key in constants.controls.keyboard.KEY_PREVIOUS_ITEM:
+            self.on_item_previous()
+
+        if key in constants.controls.keyboard.KEY_NEXT_ITEM:
+            self.on_item_next()
+
     def on_key_release(self, key: int, modifiers: int):
         """Called when the user releases a key."""
         super().on_key_release(key, modifiers)

@@ -266,7 +266,6 @@ class Boss(Character):
         pyglet.clock.unschedule(self.collision_lasers)
         pyglet.clock.unschedule(self.check_trigger)
 
-
     def check_trigger(self, delta_time, args):
         collides = False
         from constants.layers import LAYER_BOSS_TRIGGER
@@ -304,4 +303,4 @@ class Boss(Character):
             args.state.settings.music_volume = self.initial_music_Volume
             return
 
-        pyglet.clock.schedule_once(self.fadeout_volume, 1/25, args)
+        pyglet.clock.schedule_once(self.fadeout_volume, 1 / 25, args)

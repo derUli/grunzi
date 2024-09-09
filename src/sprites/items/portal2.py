@@ -2,7 +2,6 @@ import arcade
 import pyglet.clock
 
 from sprites.characters.boss import Boss
-from sprites.characters.character import Character
 from sprites.sprite import AbstractAnimatedSprite
 from state.argscontainer import ArgsContainer
 

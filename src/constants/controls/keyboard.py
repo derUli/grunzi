@@ -33,3 +33,6 @@ KEY_SELECT_INVENTORY = [
 
 KEY_SCREENSHOT = [arcade.key.F12]
 KEY_TOGGLE_FPS = [arcade.key.F3]
+
+KEY_PREVIOUS_ITEM = [arcade.key.PAGEUP]
+KEY_NEXT_ITEM = [arcade.key.PAGEDOWN]

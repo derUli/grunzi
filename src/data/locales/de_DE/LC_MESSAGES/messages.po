@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-29 14:42+0200\n"
+"POT-Creation-Date: 2024-09-09 23:38+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -119,8 +119,8 @@ msgstr "Nein"
 msgid "No entries yet"
 msgstr "Noch keine Einträge vorhanden"
 
-#: views/menu/difficultyselection.py:60 views/menu/mapselection.py:72
-#: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:110
+#: views/menu/difficultyselection.py:60 views/menu/mapselection.py:74
+#: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:112
 #: views/settings/settingsgraphics.py:83 views/settings/settingsmenu.py:86
 #: views/settings/settingsscreen.py:55
 msgid "Back"
@@ -154,12 +154,12 @@ msgstr "Grunzi"
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/menu/mainmenu.py:56 views/menu/mapselection.py:85
+#: views/menu/mainmenu.py:56 views/menu/mapselection.py:87
 #: views/menu/pausemenu.py:34
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/menu/mainmenu.py:62 views/menu/mapselection.py:97
+#: views/menu/mainmenu.py:62 views/menu/mapselection.py:99
 msgid "Select Map"
 msgstr "Map auswählen"
 
@@ -175,27 +175,27 @@ msgstr "Einstellungen"
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/menu/mapselection.py:106
+#: views/menu/mapselection.py:108
 msgid "Selected:"
 msgstr "Ausgewählt:"
 
-#: views/menu/mapselection.py:260
+#: views/menu/mapselection.py:267
 msgid "Having A Pig"
 msgstr "Schwein gehabt"
 
-#: views/menu/mapselection.py:261
+#: views/menu/mapselection.py:268
 msgid "Big Major Cay"
 msgstr "Big Major Cay"
 
-#: views/menu/mapselection.py:262
+#: views/menu/mapselection.py:269
 msgid "Teufelsmoor"
 msgstr "Teufelsmoor"
 
-#: views/menu/mapselection.py:263
+#: views/menu/mapselection.py:270
 msgid "South Pole"
 msgstr "Südpool"
 
-#: views/menu/mapselection.py:264
+#: views/menu/mapselection.py:271
 msgid "Hell"
 msgstr "Hölle"
 
@@ -243,7 +243,7 @@ msgstr "Tastatur:"
 msgid "WASD, Arrow keys"
 msgstr "WASD, Pfeiltasten"
 
-#: views/settings/settingscontrols.py:68 views/settings/settingscontrols.py:87
+#: views/settings/settingscontrols.py:68 views/settings/settingscontrols.py:89
 msgid "Walk"
 msgstr "Gehen"
 
@@ -251,7 +251,7 @@ msgstr "Gehen"
 msgid "Shift"
 msgstr ""
 
-#: views/settings/settingscontrols.py:69 views/settings/settingscontrols.py:89
+#: views/settings/settingscontrols.py:69 views/settings/settingscontrols.py:91
 msgid "Sprint"
 msgstr "Rennen"
 
@@ -259,7 +259,7 @@ msgstr "Rennen"
 msgid "Ctrl"
 msgstr "Strg"
 
-#: views/settings/settingscontrols.py:70 views/settings/settingscontrols.py:90
+#: views/settings/settingscontrols.py:70 views/settings/settingscontrols.py:92
 msgid "Shoot"
 msgstr "Schießen"
 
@@ -267,7 +267,7 @@ msgstr "Schießen"
 msgid "E"
 msgstr ""
 
-#: views/settings/settingscontrols.py:71 views/settings/settingscontrols.py:91
+#: views/settings/settingscontrols.py:71 views/settings/settingscontrols.py:93
 msgid "Use"
 msgstr "Benutzen"
 
@@ -275,7 +275,7 @@ msgstr "Benutzen"
 msgid "Q"
 msgstr ""
 
-#: views/settings/settingscontrols.py:72 views/settings/settingscontrols.py:92
+#: views/settings/settingscontrols.py:72 views/settings/settingscontrols.py:94
 msgid "Drop item"
 msgstr "Item ablegen"
 
@@ -283,7 +283,7 @@ msgstr "Item ablegen"
 msgid "G"
 msgstr ""
 
-#: views/settings/settingscontrols.py:73 views/settings/settingscontrols.py:93
+#: views/settings/settingscontrols.py:73 views/settings/settingscontrols.py:95
 msgid "Grunt"
 msgstr "Grunzen"
 
@@ -291,91 +291,107 @@ msgstr "Grunzen"
 msgid "0 - 5"
 msgstr ""
 
-#: views/settings/settingscontrols.py:74 views/settings/settingscontrols.py:94
+#: views/settings/settingscontrols.py:74 views/settings/settingscontrols.py:96
 msgid "Select item"
 msgstr "Item auswählen"
 
 #: views/settings/settingscontrols.py:75
+msgid "Page Up"
+msgstr "Bild Auf"
+
+#: views/settings/settingscontrols.py:75
+msgid "Previous Item"
+msgstr "Vorheriges Item"
+
+#: views/settings/settingscontrols.py:76
+msgid "Page Down"
+msgstr "Bild Ab"
+
+#: views/settings/settingscontrols.py:76
+msgid "Néxt Item"
+msgstr "Nächtes Item"
+
+#: views/settings/settingscontrols.py:77
 msgid "ESC"
 msgstr ""
 
-#: views/settings/settingscontrols.py:75 views/settings/settingscontrols.py:95
+#: views/settings/settingscontrols.py:77 views/settings/settingscontrols.py:97
 msgid "Open the pause menu"
 msgstr "Pausenmenü öffnen"
 
-#: views/settings/settingscontrols.py:76
+#: views/settings/settingscontrols.py:78
 msgid "F3"
 msgstr ""
 
-#: views/settings/settingscontrols.py:76 views/settings/settingsscreen.py:84
+#: views/settings/settingscontrols.py:78 views/settings/settingsscreen.py:84
 msgid "Show FPS"
 msgstr "FPS anzeigen"
 
-#: views/settings/settingscontrols.py:77
+#: views/settings/settingscontrols.py:79
 msgid "F12"
 msgstr ""
 
-#: views/settings/settingscontrols.py:77
+#: views/settings/settingscontrols.py:79
 msgid "Make screenshot"
 msgstr "Screenshot erstellen"
 
-#: views/settings/settingscontrols.py:78
+#: views/settings/settingscontrols.py:80
 msgid "Alt + Enter"
 msgstr ""
 
-#: views/settings/settingscontrols.py:78
+#: views/settings/settingscontrols.py:80
 msgid "Toggle fullscreen"
 msgstr "Vollbild/Fenster umschalten"
 
-#: views/settings/settingscontrols.py:87
+#: views/settings/settingscontrols.py:89
 msgid "Left stick"
 msgstr "Linker Stick"
 
-#: views/settings/settingscontrols.py:88
+#: views/settings/settingscontrols.py:90
 msgid "Right stick"
 msgstr "Rechter Stick"
 
-#: views/settings/settingscontrols.py:88
+#: views/settings/settingscontrols.py:90
 msgid "Look"
 msgstr "Umschauen"
 
-#: views/settings/settingscontrols.py:89
+#: views/settings/settingscontrols.py:91
 msgid "Left trigger"
 msgstr "Linker Trigger"
 
-#: views/settings/settingscontrols.py:90
+#: views/settings/settingscontrols.py:92
 msgid "X"
 msgstr ""
 
-#: views/settings/settingscontrols.py:91
+#: views/settings/settingscontrols.py:93
 msgid "A"
 msgstr ""
 
-#: views/settings/settingscontrols.py:92
+#: views/settings/settingscontrols.py:94
 msgid "Y"
 msgstr ""
 
-#: views/settings/settingscontrols.py:93
+#: views/settings/settingscontrols.py:95
 msgid "B"
 msgstr ""
 
-#: views/settings/settingscontrols.py:94
+#: views/settings/settingscontrols.py:96
 msgid "Left Bumper, Right Bumper"
 msgstr "Linker Bumper, Rechter Bumper"
 
-#: views/settings/settingscontrols.py:95
+#: views/settings/settingscontrols.py:97
 msgid "Start"
 msgstr "Starttaste"
 
-#: views/settings/settingscontrols.py:116
+#: views/settings/settingscontrols.py:118
 msgid "Controller"
 msgstr "Controller"
 
-#: views/settings/settingscontrols.py:118
+#: views/settings/settingscontrols.py:120
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: views/settings/settingscontrols.py:149
+#: views/settings/settingscontrols.py:151
 msgid "Vibration"
 msgstr ""
 

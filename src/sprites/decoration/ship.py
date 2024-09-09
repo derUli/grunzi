@@ -1,5 +1,3 @@
-import random
-
 from sprites.sprite import Sprite, AbstractAnimatedSprite
 from utils.positionalsound import PositionalSound
 
@@ -16,6 +14,7 @@ class Ship(Sprite):
 
         if self.right < 0:
             self.remove_from_sprite_lists()
+
 
 class Steam(AbstractAnimatedSprite):
 

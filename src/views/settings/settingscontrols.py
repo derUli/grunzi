@@ -72,6 +72,8 @@ class SettingsControls(Fading):
                 (_("Q"), _("Drop item")),
                 (_("G"), _("Grunt")),
                 (_("0 - 5"), _("Select item")),
+                (_('Page Up'), _('Previous Item')),
+                (_('Page Down'), _('Néxt Item')),
                 (_("ESC"), _("Open the pause menu")),
                 (_('F3'), _('Show FPS')),
                 (_("F12"), _("Make screenshot")),

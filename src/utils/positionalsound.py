@@ -26,7 +26,7 @@ class PositionalSound:
         if self.player:
             self.player.volume = 0
 
-    def update(self, init: bool = False, max_distance = MAX_DISTANCE) -> None:
+    def update(self, init: bool = False, max_distance=MAX_DISTANCE) -> None:
         """ Update the volume of the positional sound based on the player's position """
 
         if not self.player:
