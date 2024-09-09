@@ -243,7 +243,6 @@ class HighscoreAdd(Fading):
     def on_draw(self) -> None:
         """ On draw """
 
-        self.clear()
         self.camera_gui.use()
         self.render_shadertoy()
 
