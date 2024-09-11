@@ -73,7 +73,7 @@ class LoadingScreen:
             os.path.join(state.animation_dir, 'grain.gif'),
             (w, h)
         )
-        self.filmgrain.alpha = 20 * state.settings.filmgrain
+        self.filmgrain.alpha = 18 * state.settings.filmgrain
         self.filmgrain.position = (w / 2, h / 2)
 
         self.loading_animation = arcade.load_animated_gif(os.path.join(state.animation_dir, 'loading.gif'))

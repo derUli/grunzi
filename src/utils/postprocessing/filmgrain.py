@@ -14,7 +14,7 @@ INDEX_YELLOW = 0
 INDEX_GREEN = 1
 INDEX_WHITE = 2
 
-ALPHA = 19
+ALPHA = 18
 
 
 class FilmGrain(Effect):
