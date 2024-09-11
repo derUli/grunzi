@@ -3,8 +3,8 @@ import pyglet.clock
 from sprites.items.item import Item
 from sprites.items.jeep import Jeep
 
-
 CAR_SPEED = 5
+
 
 class CarKey(Item):
     def on_use_with(self, b, args):
