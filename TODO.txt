@@ -1,15 +1,9 @@
 * Hund Gegner
 * Skelett Gegner
-* Level 1: Autofahr-Animation am Levelende
 * Aufgabe mit Metalldetektor
 * Benzin-Kanister zum Aufladen der Kettensäge
 * Framerate Limit Slider
-* Wenn man das Portal betritt, wird dieses immer größer. dann wird das Grunzi nach links geschleudert, Fadeout und Level 5 wird geladen.
-* Map 05: Intro hinzufügen
-* Map 05 Vier Kristalle hinzufügen, diese nutzt der Endboss, um sich selbst zu heilen, bevor der Endboss besiegt
-werden kann, müssen diese zuerst zerstört werden.
-Musik hinzufügen, die anders als in den anderen Maps nicht die ganze Zeit spielt, sondern nur während des Bosskampfs.
-* Map05: Nach dem der Boss tot ist, soll ein Portal erscheinen. Dieses ist das Levelende.
 * Map05: Insel im Lave-See hinzufügen, wo man spawnt. Die Insel enthält ein Portal wie in Map04, welches
 Grunzi aufs Festland teleportiert.
 Dort findet der Bosskampf statt.
+* Der hurt_modifier soll im Spielstand gespeichert und wiederhergestellt werden.
