@@ -26,6 +26,27 @@ class Car:
         _hit_sprite.hurt(HURT)
 
 
+    def remove_colliding(self, scene):
+        from constants.layers import LAYER_FOOD, LAYER_FEATHER
+
+        self._remove_colliding(scene, LAYER_FOOD)
+        self._remove_colliding(scene, LAYER_FEATHER)
+
+    def _remove_colliding(self, scene, layer):
+
+        try:
+            food = scene[layer]
+        except KeyError:
+            return
+
+        food = filter(lambda x: arcade.get_distance_between_sprites(self, x) <= 300, food)
+        food = filter(lambda x: arcade.check_for_collision(self, x), food)
+
+        for meal in food:
+            logging.info('Car collided with ' + layer)
+            meal.remove_from_sprite_lists()
+
+
 class CarLeft(Sprite, Car):
     def setup(self, args):
         self.setup_handlers(args)
@@ -42,19 +63,7 @@ class CarLeft(Sprite, Car):
         if self.right < 0:
             args.physics_engine.set_position(self, (w - self.width / 2, self.center_y))
 
-        from constants.layers import LAYER_FOOD, LAYER_FEATHER
-
-        try:
-            food = args.scene[LAYER_FOOD]
-        except KeyError:
-            return
-
-        food = filter(lambda x: arcade.get_distance_between_sprites(self, x) <= 300, food)
-        food = filter(lambda x: arcade.check_for_collision(self, meal), food)
-
-        for meal in food:
-            logging.info('Car collided with food')
-            meal.remove_from_sprite_lists()
+        self.remove_colliding(args.scene)
 
 
 class CarRight(Sprite, Car):
@@ -71,3 +80,5 @@ class CarRight(Sprite, Car):
         w, h = args.map_size
         if self.right > w:
             args.physics_engine.set_position(self, (0 - self.width / 2, self.center_y))
+
+        self.remove_colliding(args.scene)
