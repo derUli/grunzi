@@ -16,7 +16,7 @@
 * Global: Erscheinungsbild der Geschosse geändert
 * Global: Bild auf / Bild ab schaltet Items durch
 * Global: Performance-Optimierungen
-* Global Größe von Grunzis Geschossen wird jetzt im Spielstand gespeichert.
+* Global Größe von Grunzis Geschossen wird im Spielstand gespeichert
 
 ## Alpha 018 (02.09.2024)
 
