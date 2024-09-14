@@ -411,6 +411,7 @@ class Game(Fading):
         if self.scene.player_sprite.dead:
             if key in constants.controls.keyboard.KEY_DISCARD:
                 return self.on_gameover()
+            return
 
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
@@ -428,18 +429,16 @@ class Game(Fading):
             self.on_grunt()
         if key in constants.controls.keyboard.KEY_MOVE_LEFT:
             self.state.keypressed.key_left = True
-        elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
+        if key in constants.controls.keyboard.KEY_MOVE_RIGHT:
             self.state.keypressed.key_right = True
-        elif key in constants.controls.keyboard.KEY_MOVE_UP:
+        if key in constants.controls.keyboard.KEY_MOVE_UP:
             self.state.keypressed.key_up = True
-        elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
+        if key in constants.controls.keyboard.KEY_MOVE_DOWN:
             self.state.keypressed.key_down = True
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             self.on_select_item(key=key)
-
         if key in constants.controls.keyboard.KEY_PREVIOUS_ITEM:
             self.on_item_previous()
-
         if key in constants.controls.keyboard.KEY_NEXT_ITEM:
             self.on_item_next()
 
