@@ -27,7 +27,7 @@ class SkullBullet(Bullet):
             self,
             radius,
             color=arcade.csscolor.BLACK,
-            soft=False,
+            soft=True,
             force_move=FORCE_MOVE,
             hurt=10
     ):
