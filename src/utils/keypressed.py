@@ -27,7 +27,7 @@ class KeyPressed:
 
         return self.key_up or self.key_right or self.key_down or self.key_left
 
-    def on_key_press(self, key):
+    def on_key_press(self, key) -> None:
         if key in KEY_MOVE_LEFT:
             self.key_left = True
         if key in KEY_MOVE_RIGHT:
@@ -37,7 +37,7 @@ class KeyPressed:
         if key in KEY_MOVE_DOWN:
             self.key_down = True
 
-    def on_key_release(self, key):
+    def on_key_release(self, key) -> None:
         if key in KEY_MOVE_LEFT:
             self.key_left = False
         if key in KEY_MOVE_RIGHT:
