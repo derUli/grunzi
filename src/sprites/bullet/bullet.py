@@ -47,7 +47,7 @@ class Bullet(AbstractSprite, arcade.sprite.SpriteCircle):
             self,
             radius: int,
             color: Color = arcade.csscolor.BLACK,
-            soft: bool = False,
+            soft: bool = True,
             force_move: int = FORCE_MOVE,
             hurt: int = HURT_DEFAULT,
             hurt_modifier: float = 1.0
