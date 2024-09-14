@@ -69,11 +69,12 @@ class Player(Character, SpriteHealth):
         self.controllers = []
         self.initialized = False
 
-    def setup(self, state, scene, callbacks, controllers):
+    def setup(self, state, scene, callbacks, controllers, bullet_size):
         self.state = state
         self.scene = scene
         self.callbacks = callbacks
         self.controllers = controllers
+        self.bullet_size = bullet_size
 
         self.center_x, self.center_y = SPAWN_POINT
 

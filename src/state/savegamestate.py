@@ -10,6 +10,7 @@ from constants.mapconfig import DIFFICULTY_MEDIUM
 from constants.mapconfig import MapConfig
 from constants.maps import MAPS
 from constants.savegames import SAVEGAME_DEFAULT
+from sprites.characters.player import DEFAULT_BULLET_SIZE
 from utils.path import get_savegame_path
 from utils.utils import natural_keys
 
@@ -21,7 +22,8 @@ class SaveGameState:
         self.current = None
         self.score = {}
         self.difficulty = DIFFICULTY_MEDIUM
-        self.version = 2
+        self.version = 4
+        self.bullet_size = DEFAULT_BULLET_SIZE
 
     def get_selectable(self) -> list:
         """ Get selectable maps """

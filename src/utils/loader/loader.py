@@ -79,7 +79,8 @@ class Loader:
             callbacks=CallbackHandler(
                 on_complete=self.parent.on_next_level
             ),
-            controllers=self.parent.window.controllers
+            controllers=self.parent.window.controllers,
+            bullet_size=savegame.bullet_size
         )
 
         # Create the physics engine
