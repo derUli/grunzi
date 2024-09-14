@@ -42,7 +42,7 @@ class CarLeft(Sprite, Car):
         if self.right < 0:
             args.physics_engine.set_position(self, (w - self.width / 2, self.center_y))
 
-        from constants.layers import LAYER_FOOD
+        from constants.layers import LAYER_FOOD, LAYER_FEATHER
 
         try:
             food = args.scene[LAYER_FOOD]
