@@ -25,7 +25,6 @@ class Car:
 
         _hit_sprite.hurt(HURT)
 
-
     def remove_colliding(self, scene):
         from constants.layers import LAYER_FOOD, LAYER_FEATHER
 
