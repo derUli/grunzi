@@ -49,11 +49,12 @@ class CarLeft(Sprite, Car):
         except KeyError:
             return
 
-        food = filter(lambda x: arcade.get_distance_between_sprites(self, x) < 250, food)
+        food = filter(lambda x: arcade.get_distance_between_sprites(self, x) <= 300, food)
 
         for meal in food:
-            logging.info('Car collided with food')
-            meal.remove_from_sprite_lists()
+            if arcade.check_for_collision(self, meal):
+                logging.info('Car collided with food')
+                meal.remove_from_sprite_lists()
 
 
 class CarRight(Sprite, Car):
