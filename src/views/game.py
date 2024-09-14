@@ -413,6 +413,8 @@ class Game(Fading):
                 return self.on_gameover()
             return
 
+        self.state.keypressed.on_key_press(key)
+
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.keyboard.KEY_SPRINT:
@@ -427,14 +429,6 @@ class Game(Fading):
             self.on_shoot()
         if key in constants.controls.keyboard.KEY_GRUNT:
             self.on_grunt()
-        if key in constants.controls.keyboard.KEY_MOVE_LEFT:
-            self.state.keypressed.key_left = True
-        if key in constants.controls.keyboard.KEY_MOVE_RIGHT:
-            self.state.keypressed.key_right = True
-        if key in constants.controls.keyboard.KEY_MOVE_UP:
-            self.state.keypressed.key_up = True
-        if key in constants.controls.keyboard.KEY_MOVE_DOWN:
-            self.state.keypressed.key_down = True
         if key in constants.controls.keyboard.KEY_SELECT_INVENTORY:
             self.on_select_item(key=key)
         if key in constants.controls.keyboard.KEY_PREVIOUS_ITEM:
@@ -452,20 +446,9 @@ class Game(Fading):
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.scene.player_sprite.modifier = MODIFIER_DEFAULT
 
-        movement = True
+        self.state.keypressed.on_key_release(key)
 
-        if key in constants.controls.keyboard.KEY_MOVE_LEFT:
-            self.state.keypressed.key_left = False
-        elif key in constants.controls.keyboard.KEY_MOVE_RIGHT:
-            self.state.keypressed.key_right = False
-        elif key in constants.controls.keyboard.KEY_MOVE_UP:
-            self.state.keypressed.key_up = False
-        elif key in constants.controls.keyboard.KEY_MOVE_DOWN:
-            self.state.keypressed.key_down = False
-        else:
-            movement = False
-
-        if movement:
+        if self.state.keypressed.key_pressed:
             self.update_player_speed()
         else:
             self.scene.player_sprite.stop_walk()
