@@ -25,7 +25,7 @@ class SkullBullet(Bullet):
 
     def __init__(
             self,
-            radius,
+            radius=12,
             color=arcade.csscolor.BLACK,
             soft=True,
             force_move=FORCE_MOVE,

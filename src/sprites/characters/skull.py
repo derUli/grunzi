@@ -187,7 +187,6 @@ class Skull(Character, Useable):
                 return
 
             bullet = SkullBullet(
-                10,
                 color=arcade.csscolor.RED,
                 hurt=args.state.difficulty.skull_hurt
             )
