@@ -187,6 +187,9 @@ class Scene(BaseScene):
 
         found = []
 
+        if not self.args:
+            return []
+
         for layer in layers:
             for sprite in layer:
                 dist = arcade.get_distance_between_sprites(self.args.player, sprite)
