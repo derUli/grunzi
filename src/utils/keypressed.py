@@ -42,7 +42,7 @@ class KeyPressed:
 
     def on_key_release(self, key: int) -> None:
         """ On key release """
-        
+
         if key in KEY_MOVE_LEFT:
             self.key_left = False
         if key in KEY_MOVE_RIGHT:
