@@ -28,7 +28,8 @@ class KeyPressed:
 
         return self.key_up or self.key_right or self.key_down or self.key_left
 
-    def on_key_press(self, key) -> None:
+    def on_key_press(self, key: int) -> None:
+
         if key in KEY_MOVE_LEFT:
             self.key_left = True
         if key in KEY_MOVE_RIGHT:
