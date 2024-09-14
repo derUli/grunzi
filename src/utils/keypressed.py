@@ -2,6 +2,7 @@
 
 from constants.controls.keyboard import KEY_MOVE_UP, KEY_MOVE_RIGHT, KEY_MOVE_DOWN, KEY_MOVE_LEFT
 
+
 class KeyPressed:
     """ Class to store pressed keys """
 
