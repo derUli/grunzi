@@ -22,10 +22,13 @@ class Car:
         except KeyError:
             return
 
+        food = filter(lambda x: arcade.get_distance_between_sprites(self, x) <= 200, food)
+
+        print(arcade.get_distance_between_sprites(self, args.player))
+
         for meal in food:
-            if arcade.get_distance_between_sprites(self, meal) <= 100:
-                logging.info('Car collided with food')
-                meal.remove_from_sprite_lists()
+            logging.info('Car collided with food')
+            meal.remove_from_sprite_lists()
 
 
     def setup_handlers(self, args):
