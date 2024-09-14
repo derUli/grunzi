@@ -22,7 +22,8 @@ class KeyPressed:
         self.key_left = False
 
     @property
-    def key_pressed(self):
+    def key_pressed(self) -> bool:
+        """ Is key pressed """
         return self.key_up or self.key_right or self.key_down or self.key_left
 
     def on_key_press(self, key):
