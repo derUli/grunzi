@@ -345,7 +345,9 @@ class Game(Fading):
 
         savegame = SaveGameState.load()
         savegame.current = next_map
-        savegame.bullet_size = self.scene.player_sprite.bullet_size
+
+        if not same:
+            savegame.bullet_size = self.scene.player_sprite.bullet_size
 
         if old_map not in savegame.completed:
             savegame.completed += [old_map]
