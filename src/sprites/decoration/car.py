@@ -55,6 +55,7 @@ class CarLeft(Sprite, Car):
         for meal in food:
             logging.info('Car collided with food')
             meal.remove_from_sprite_lists()
+            break
 
 
 class CarRight(Sprite, Car):
