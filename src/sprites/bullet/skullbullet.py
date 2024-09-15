@@ -80,7 +80,6 @@ class SkullBullet(Bullet):
         )
 
         physics_engine.apply_force(self, (self.force_x, self.force_y))
-
         physics_engine.add_collision_handler(
             COLLISION_SKULL_BULLET,
             COLLISION_PLAYER,
