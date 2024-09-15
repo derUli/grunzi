@@ -34,117 +34,18 @@ class SkullBullet(Bullet):
         super().__init__(radius, color, soft, force_move, hurt)
 
         self.target = None
+        self.force_x = 0
+        self.force_y = 0
 
     def setup(self, source, physics_engine, scene, state, target=None):
 
-        force_x = 0
-        force_y = 0
+        self.force_x = 0
+        self.force_y = 0
 
         self.center_x = source.center_x
         self.top = source.center_y
 
-        # Check if should shoot up
-        collision_sprite_up = SpriteSolidColor(
-            width=int(source.width),
-            height=SIGHT_DISTANCE,
-            color=arcade.csscolor.YELLOW
-        )
-        collision_sprite_up.bottom = source.top
-        collision_sprite_up.left = source.left
-
-        # Check if should shoot down
-        collision_sprite_down = SpriteSolidColor(
-            width=int(source.width),
-            height=SIGHT_DISTANCE,
-            color=arcade.csscolor.YELLOW
-        )
-        collision_sprite_down.top = source.bottom
-        collision_sprite_down.left = source.left
-
-        # Check if should shoot down
-        collision_sprite_left = SpriteSolidColor(
-            width=SIGHT_DISTANCE,
-            height=int(source.height),
-            color=arcade.csscolor.YELLOW
-        )
-        collision_sprite_left.top = source.top
-        collision_sprite_left.right = source.left
-
-        # Check if should shoot right
-        collision_sprite_right = SpriteSolidColor(
-            width=SIGHT_DISTANCE,
-            height=int(source.height),
-            color=arcade.csscolor.YELLOW
-        )
-        collision_sprite_right.top = source.top
-        collision_sprite_right.left = source.right
-
-        # Check if should shoot top right
-        collision_sprite_topright = SpriteSolidColor(
-            width=SIGHT_DISTANCE,
-            height=SIGHT_DISTANCE,
-            color=arcade.csscolor.YELLOW
-        )
-        collision_sprite_topright.bottom = source.top
-        collision_sprite_topright.left = source.right
-
-        # Check if should shoot bottom right
-        collision_sprite_bottomright = SpriteSolidColor(
-            width=SIGHT_DISTANCE,
-            height=SIGHT_DISTANCE,
-            color=arcade.csscolor.YELLOW
-        )
-        collision_sprite_bottomright.top = source.bottom
-        collision_sprite_bottomright.left = source.right
-
-        # Check if should shoot top right
-        collision_sprite_topleft = SpriteSolidColor(
-            width=SIGHT_DISTANCE,
-            height=SIGHT_DISTANCE,
-            color=arcade.csscolor.YELLOW
-        )
-        collision_sprite_topleft.bottom = source.top
-        collision_sprite_topleft.right = source.left
-
-        # Check if should shoot top right
-        collision_sprite_bottomleft = SpriteSolidColor(
-            width=SIGHT_DISTANCE,
-            height=SIGHT_DISTANCE,
-            color=arcade.csscolor.YELLOW
-        )
-        collision_sprite_bottomleft.top = source.bottom
-        collision_sprite_bottomleft.right = source.left
-
-        if arcade.check_for_collision(collision_sprite_up, target):
-            self.bottom = source.top
-            force_y = self.force_move
-        elif arcade.check_for_collision(collision_sprite_down, target):
-            self.top = source.bottom
-            force_y = -self.force_move
-        elif arcade.check_for_collision(collision_sprite_left, target):
-            self.right = source.left
-            force_x = -self.force_move
-        elif arcade.check_for_collision(collision_sprite_right, target):
-            self.left = source.right
-            force_x = self.force_move
-        elif arcade.check_for_collision(collision_sprite_topright, target):
-            self.bottom = source.top
-            force_x = self.force_move
-            force_y = self.force_move
-        elif arcade.check_for_collision(collision_sprite_bottomright, target):
-            self.top = source.bottom
-            force_x = self.force_move
-            force_y = -self.force_move
-        elif arcade.check_for_collision(collision_sprite_topleft, target):
-            self.bottom = source.top
-            force_x = -self.force_move
-            force_y = self.force_move
-        elif arcade.check_for_collision(collision_sprite_bottomleft, target):
-            self.top = source.bottom
-            force_x = -self.force_move
-            force_y = -self.force_move
-        else:
-            self.remove_from_sprite_lists()
+        if not self.set_spawn_position(source, target):
             return
 
         scene.add_sprite(LAYER_NPC, self)
@@ -178,7 +79,7 @@ class SkullBullet(Bullet):
             post_handler=on_hit_destroy
         )
 
-        physics_engine.apply_force(self, (force_x, force_y))
+        physics_engine.apply_force(self, (self.force_x, self.force_y))
 
         physics_engine.add_collision_handler(
             COLLISION_SKULL_BULLET,
@@ -191,6 +92,128 @@ class SkullBullet(Bullet):
             COLLISION_CHICKEN,
             post_handler=self.on_hit_player
         )
+
+    def set_spawn_position(self, source, target):
+        # Check if should shoot up
+        collision_sprite_up = SpriteSolidColor(
+            width=int(source.width),
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_up.bottom = source.top
+        collision_sprite_up.left = source.left
+
+        if arcade.check_for_collision(collision_sprite_up, target):
+            self.bottom = source.top
+            self.force_y = self.force_move
+            return True
+
+        # Check if should shoot down
+        collision_sprite_down = SpriteSolidColor(
+            width=int(source.width),
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_down.top = source.bottom
+        collision_sprite_down.left = source.left
+
+        if arcade.check_for_collision(collision_sprite_down, target):
+            self.top = source.bottom
+            self.force_y = -self.force_move
+            return True
+
+        # Check if should shoot down
+        collision_sprite_left = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=int(source.height),
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_left.top = source.top
+        collision_sprite_left.right = source.left
+
+        if arcade.check_for_collision(collision_sprite_left, target):
+            self.right = source.left
+            self.force_x = -self.force_move
+            return True
+
+        # Check if should shoot right
+        collision_sprite_right = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=int(source.height),
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_right.top = source.top
+        collision_sprite_right.left = source.right
+
+        if arcade.check_for_collision(collision_sprite_right, target):
+            self.left = source.right
+            self.force_x = self.force_move
+
+            return True
+
+        # Check if should shoot top right
+        collision_sprite_topright = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_topright.bottom = source.top
+        collision_sprite_topright.left = source.right
+
+        if arcade.check_for_collision(collision_sprite_topright, target):
+            self.bottom = source.top
+            self.force_x = self.force_move
+            self.force_y = self.force_move
+            return True
+
+        # Check if should shoot bottom right
+        collision_sprite_bottomright = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+
+        collision_sprite_bottomright.top = source.bottom
+        collision_sprite_bottomright.left = source.right
+
+        if arcade.check_for_collision(collision_sprite_bottomright, target):
+            self.top = source.bottom
+            self.force_x = self.force_move
+            self.force_y = -self.force_move
+            return True
+
+        # Check if should shoot top right
+        collision_sprite_topleft = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_topleft.bottom = source.top
+        collision_sprite_topleft.right = source.left
+
+        if arcade.check_for_collision(collision_sprite_topleft, target):
+            self.bottom = source.top
+            self.force_x = -self.force_move
+            self.force_y = self.force_move
+            return True
+
+        # Check if should shoot top right
+        collision_sprite_bottomleft = SpriteSolidColor(
+            width=SIGHT_DISTANCE,
+            height=SIGHT_DISTANCE,
+            color=arcade.csscolor.YELLOW
+        )
+        collision_sprite_bottomleft.top = source.bottom
+        collision_sprite_bottomleft.right = source.left
+
+        if arcade.check_for_collision(collision_sprite_bottomleft, target):
+            self.top = source.bottom
+            self.force_x = -self.force_move
+            self.force_y = -self.force_move
+            return True
+
+        self.remove_from_sprite_lists()
+        return False
 
     def on_hit_player(self, bullet_sprite, _hit_sprite, _arbiter, _space, _data):
         """ Called for bullet/wall collision """
