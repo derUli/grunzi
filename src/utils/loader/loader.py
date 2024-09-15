@@ -111,7 +111,8 @@ class Loader:
         # Create the music queue
         self.parent.music_queue = utils.media.audio.MusicQueue(state=self.parent.state)
         self.parent.music_queue.from_directory(
-            os.path.join(self.parent.state.music_dir, str(self.parent.state.map_name)))
+            os.path.join(self.parent.state.music_dir, str(self.parent.state.map_name))
+        )
 
         self.parent.ui.loading_screen.percent = 100
 
