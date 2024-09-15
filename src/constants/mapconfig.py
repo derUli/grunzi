@@ -48,7 +48,6 @@ class MapConfig:
             self.barrel_hurt = difficulty_data['barrelHurt']
         if 'bossLaserHurt' in difficulty_data:
             self.boss_laser_hurt = difficulty_data['bossLaserHurt']
-
         if 'bossRange' in difficulty_data:
             self.boss_range = difficulty_data['bossRange']
 

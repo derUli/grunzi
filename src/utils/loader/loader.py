@@ -64,6 +64,13 @@ class Loader:
         # from the map as SpriteLists in the scene in the proper order.
         self.parent.scene = Scene.from_tilemap(self.parent.tilemap.map)
 
+        if 'weatherLayers' in self.parent.state.difficulty.options and not self.parent.state.settings.weather:
+            for layer in self.parent.state.difficulty.options['weatherLayers']:
+                try:
+                    self.parent.scene[layer].clear()
+                except KeyError:
+                    pass
+
         self.parent.ui.loading_screen.percent = 50
 
         # Set up the player, specifically placing it at these coordinates.

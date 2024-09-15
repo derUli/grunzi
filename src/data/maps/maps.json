@@ -42,7 +42,8 @@
   "map02": {
     "options": {
       "chicken": true,
-      "landmines": true
+      "landmines": true,
+      "weatherLayers": ["Cloud"]
     },
     "spawnWhat": [
       "Skull"

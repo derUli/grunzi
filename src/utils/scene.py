@@ -41,6 +41,8 @@ class Scene(BaseScene):
     def setup_sprites(self, args):
         sprites = []
 
+
+
         for sprite_list in self.sprite_lists:
             try:
                 filtered = list(filter(
