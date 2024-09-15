@@ -193,6 +193,7 @@ class Game(Fading):
 
             return self.update_fade(self.next_view)
 
+
         # Move the player with the physics engine
         self.update_player_speed()
         self.physics_engine.step(delta_time)
@@ -418,14 +419,18 @@ class Game(Fading):
 
         self.state.keypressed.on_key_press(key)
 
+        is_debug = not getattr(sys, "frozen", False)
+
         if key in constants.controls.keyboard.KEY_PAUSE:
             self.on_pause()
         if key in constants.controls.keyboard.KEY_SPRINT:
             self.scene.player_sprite.modifier = MODIFIER_SPRINT
         if key in constants.controls.keyboard.KEY_USE:
             self.on_use()
-        if not getattr(sys, "frozen", False) and key == arcade.key.F7:
+        if is_debug and key == arcade.key.F7:
             self.on_next_level()
+        if is_debug and key == arcade.key.F9:
+            self.scene.kill_all_npcs()
         if key in constants.controls.keyboard.KEY_DROP:
             self.on_drop()
         if key in constants.controls.keyboard.KEY_SHOOT:

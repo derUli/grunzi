@@ -7,6 +7,7 @@ import arcade
 from arcade import Scene as BaseScene, TileMap
 from arcade import SpriteList
 
+from constants.layers import LAYER_NPC
 from sprites.characters.character import Character
 from sprites.characters.player import Player
 from sprites.items.item import Item, Interactable
@@ -222,6 +223,11 @@ class Scene(BaseScene):
             for sprite in self[layer]:
                 if isinstance(sprite, AbstractSprite):
                     sprite.cleanup()
+
+    def kill_all_npcs(self):
+        npcs = filter(lambda x: isinstance(x, Character), self[LAYER_NPC])
+        for npc in npcs:
+            npc.kill()
 
 
 def animated_in_sight(size, scene, player_sprite) -> list:
