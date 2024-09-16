@@ -13,7 +13,7 @@ from utils.scene import Scene
 from utils.screenshot import make_screenshot
 from utils.text import MARGIN, create_text
 
-MOUSE_POINTER_SPEED = 10
+MOUSE_POINTER_SPEED = 8
 MOUSE_POINTER_MODIFIER_DEFAULT = 1.0
 MOUSE_POINTER_MODIFIER_FAST = 2.0
 PERFORMANCE_GRAPH_WIDTH = 160

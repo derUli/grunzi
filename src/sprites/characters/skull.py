@@ -12,7 +12,6 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
 from sprites.items.item import Useable
 from state.argscontainer import ArgsContainer
-from utils.performance import get_grid_size
 from utils.physics import DEFAULT_FRICTION
 from utils.sprite import random_position
 
@@ -29,6 +28,7 @@ FADE_SPEED = 4
 
 SHOOT_DELTA = 1 / 5
 
+GRID_SIZE = 64
 
 class Skull(Character, Useable):
     def __init__(
@@ -181,7 +181,7 @@ class Skull(Character, Useable):
                     args.player.position,
                     args.wall_spritelist,
                     SIGHT_DISTANCE,
-                    get_grid_size(len(args.scene[LAYER_NPC]))
+                    GRID_SIZE
             ):
                 self.shoot_time = 0
                 return

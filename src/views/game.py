@@ -193,7 +193,6 @@ class Game(Fading):
 
             return self.update_fade(self.next_view)
 
-
         # Move the player with the physics engine
         self.update_player_speed()
         self.physics_engine.step(delta_time)
