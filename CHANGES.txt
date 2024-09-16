@@ -10,9 +10,9 @@
 
 # Alpha 019
 
-* Highscore-Liste: Wenn die Auflösung kleiner als 1366x768, wurde die Highscore-Liste nicht angezeigt
-* map01: Autofahr-Animation am Ende des Levels eingefügt
 # map05: Endboss hinzugefügt
+* map01: Autofahr-Animation am Ende des Levels eingefügt
+* Highscore-Liste: Wenn die Auflösung kleiner als 1366x768, wurde die Highscore-Liste nicht angezeigt
 * Global: Erscheinungsbild der Geschosse geändert
 * Global: Bild auf / Bild ab schaltet Items durch
 * Global: Performance-Optimierungen
