@@ -11,7 +11,9 @@ Es sollte auf jeder Hardware, die in den letzten 10 Jahren auf den Markt gebrach
 
 # Was ist neu?
 
-Siehe Changes.txt
+In diesem Build ist erstmals die fünfte und letzte Map enthalten, welche den Endboss enthält.
+Zum Ende von Map 1 wurde eine Autofahr-Animation hinzugefügt.
+Weitere Änderungen siehe CHANGES.txt.
 
 # Spiel starten
 
