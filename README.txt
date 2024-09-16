@@ -1,7 +1,6 @@
 # Beschreibung
 
-Im Adventure "Grunzi" übernimmst du die Rolle des gleichnamigen Paarhufers und erkundest einer Welt voller Action,
-Monster und friedlicher Zeitgenossen.
+"Grunzi" ist ein Action-Puzzle-Spiel aus einer Top-Down-Perspektive, in dem sie ein Schwein durch 5 Level steuern.
 
 # Systemvoraussetzungen
 
