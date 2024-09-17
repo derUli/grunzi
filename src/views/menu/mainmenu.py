@@ -188,7 +188,8 @@ class MainMenu(Fading):
             logging.error(e)
 
         if not self.player and music:
-            self.player = music.play(loop=True, volume=self.state.settings.music_volume * self.state.settings.master_volume)
+            self.player = music.play(loop=True,
+                                     volume=self.state.settings.music_volume * self.state.settings.master_volume)
 
         self.manager.enable()
 

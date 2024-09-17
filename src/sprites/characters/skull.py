@@ -30,6 +30,7 @@ SHOOT_DELTA = 1 / 5
 
 GRID_SIZE = 64
 
+
 class Skull(Character, Useable):
     def __init__(
             self,

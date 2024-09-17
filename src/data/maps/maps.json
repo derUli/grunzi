@@ -43,7 +43,9 @@
     "options": {
       "chicken": true,
       "landmines": true,
-      "weatherLayers": ["Cloud"]
+      "weatherLayers": [
+        "Cloud"
+      ]
     },
     "spawnWhat": [
       "Skull"

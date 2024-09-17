@@ -60,7 +60,6 @@ class SettingsAudio(Fading):
             style=utils.gui.get_button_style()
         )
 
-
         master_label = arcade.gui.UILabel(
             text=_('Master Volume'),
             text_color=arcade.csscolor.BLACK,
