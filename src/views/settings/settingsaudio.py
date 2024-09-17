@@ -178,7 +178,7 @@ class SettingsAudio(Fading):
             volume = round(volume, 2)
 
             self.state.settings._music_volume = volume
-            self.previous_view.previous_view.player.volume = volume
+            self.previous_view.previous_view.player.volume = self.state.settings._master_volume * volume
 
             self.state.settings.save()
 

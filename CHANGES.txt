@@ -10,7 +10,7 @@
 
 * Alpha 020 (Unreleased)
 
-* Master-Volume-Regler hinzugefügt
+* Slider für die Gesamt-Lautstärke hinzugefügt
 
 # Alpha 019 (Unreleased)
 
