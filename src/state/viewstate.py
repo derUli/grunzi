@@ -189,6 +189,8 @@ class ViewState:
             logging.error(e)
             return
 
+        volume = volume * self.settings.master_volume
+
         return sound.play(volume=volume * self.settings.sound_volume, loop=loop, speed=speed)
 
     def grunt(self) -> media.Player:

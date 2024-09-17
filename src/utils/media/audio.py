@@ -99,7 +99,7 @@ class MusicQueue:
             return
 
         self.music = arcade.load_sound(self.queue[0], streaming=streaming_enabled())
-        self.player = self.music.play(volume=self.state.settings.music_volume)
+        self.player = self.music.play(volume=self.state.settings.music_volume * self.state.settings.master_volume)
         self.queue = self.queue[1:]
 
         # Play the next song after the old song is completed
@@ -110,8 +110,10 @@ class MusicQueue:
         if not self.player:
             return
 
-        if self.player.volume != self.state.settings.music_volume:
-            self.player.volume = self.state.settings.music_volume
+        volume = self.state.settings.music_volume * self.state.settings.master_volume
+
+        if self.player.volume != volume:
+            self.player.volume = volume
 
             logging.info(f"Music volume at {self.state.settings.music_volume}")
 

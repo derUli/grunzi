@@ -110,7 +110,7 @@ class Game(Fading):
             self.video = load_video(
                 video_file,
                 self.window.size,
-                self.state.settings.music_volume
+                self.state.settings.music_volume * self.state.settings.master_volume
             )
 
         self.loading_music = None
@@ -156,7 +156,7 @@ class Game(Fading):
                 self.loading_music = self.state.play_sound(
                     'loading',
                     loop=True,
-                    volume=self.state.settings.music_volume,
+                    volume=self.state.settings.music_volume * self.state.settings.master_volume,
                 )
             return
 

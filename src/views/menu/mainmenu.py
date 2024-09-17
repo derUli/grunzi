@@ -226,8 +226,10 @@ class MainMenu(Fading):
         if self.time >= 480:
             self.time = 0
 
-        if self.player and self.player.volume != self.state.settings.music_volume:
-            self.player.volume = self.state.settings.music_volume
+        volume = self.state.settings.music_volume * self.state.settings.master_volume
+
+        if self.player and self.player.volume != volume:
+            self.player.volume = volume
 
     def on_draw(self) -> None:
         """ on draw """

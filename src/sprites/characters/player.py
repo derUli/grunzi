@@ -217,8 +217,8 @@ class Player(Character, SpriteHealth):
     def start_walk(self, sprint=False):
         self.walking = True
         volume = 1
-        self.footsteps_default.volume = volume * self.state.settings.sound_volume
-        self.footsteps_sprint.volume = volume * self.state.settings.sound_volume
+        self.footsteps_default.volume = volume * self.state.settings.sound_volume * self.state.settings.master_volume
+        self.footsteps_sprint.volume = volume * self.state.settings.sound_volume * self.state.settings.master_volume
 
         if sprint:
 

@@ -9,11 +9,11 @@ from constants.audio import DEFAULT_AUDIO_BACKEND
 from constants.settings import DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_BORDERLESS, DEFAULT_SHOW_FPS, \
     DEFAULT_FILMGRAIN, DEFAULT_WEATHER, DEFAULT_COLOR_TINT, DEFAULT_QUALITY, DEFAULT_MUSIC_VOLUME, DEFAULT_SOUND_VOLUME, \
     DEFAULT_ATMO_VOLUME, DEFAULT_MUTED, DEFAULT_FIRST_START, DEFAULT_VIBRATION, DEFAULT_ANTIALIASING, QualityPreset, \
-    DEFAULT_VIDEOS
+    DEFAULT_VIDEOS, DEFAULT_MASTER_VOLUME
 from utils.media.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 21
+SETTINGS_STATE_VERSION = 22
 
 
 class SettingsState:
@@ -42,6 +42,7 @@ class SettingsState:
         self._music_volume = DEFAULT_MUSIC_VOLUME
         self._sound_volume = DEFAULT_SOUND_VOLUME
         self._atmo_volume = DEFAULT_ATMO_VOLUME
+        self._master_volume = DEFAULT_MASTER_VOLUME
         self._muted = DEFAULT_MUTED
 
         # Controllers
@@ -155,6 +156,17 @@ class SettingsState:
         volume = round(volume, 2)
         logging.info('Atmo: New volume %s', volume)
         self._atmo_volume = volume
+
+    @property
+    def master_volume(self):
+        if self.is_silent() or self._muted:
+            return 0.0
+
+        return self._master_volume
+
+    @master_volume.setter
+    def master_volume(self, volume: float) -> None:
+        self._master_volume = volume
 
     @property
     def filmgrain(self):

@@ -106,7 +106,10 @@ class PauseMenu(Fading):
             streaming=streaming_enabled()
         )
 
-        self.player = music.play(loop=True, volume=self.state.settings.music_volume)
+        self.player = music.play(
+            loop=True,
+            volume=self.state.settings.music_volume * self.state.settings.master_volume
+        )
 
     def on_show_view(self) -> None:
         """ On show view """

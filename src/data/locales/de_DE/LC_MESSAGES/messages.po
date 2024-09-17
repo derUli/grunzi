@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-09 23:38+0200\n"
+"POT-Creation-Date: 2024-09-17 20:23+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -96,8 +96,8 @@ msgstr "OK"
 
 #: views/highscore/highscoreadd.py:179 views/highscore/highscoreadd.py:194
 #: views/menu/difficultyselection.py:202 views/menu/difficultyselection.py:215
-#: views/menu/pausemenu.py:150 views/menu/pausemenu.py:180
-#: views/menu/pausemenu.py:197
+#: views/menu/pausemenu.py:153 views/menu/pausemenu.py:183
+#: views/menu/pausemenu.py:200
 msgid "Yes"
 msgstr "Ja"
 
@@ -110,8 +110,8 @@ msgid "Do you not want to transfer your score?"
 msgstr "Möchten Sie Ihren Highscore nicht übertragen?"
 
 #: views/highscore/highscoreadd.py:195 views/menu/difficultyselection.py:203
-#: views/menu/pausemenu.py:151 views/menu/pausemenu.py:159
-#: views/menu/pausemenu.py:181
+#: views/menu/pausemenu.py:154 views/menu/pausemenu.py:162
+#: views/menu/pausemenu.py:184
 msgid "No"
 msgstr "Nein"
 
@@ -207,27 +207,31 @@ msgstr "Level neu starten"
 msgid "Back to main menu"
 msgstr "Zurück zum Hauptmenü"
 
-#: views/menu/pausemenu.py:148
+#: views/menu/pausemenu.py:151
 msgid "Restart level?"
 msgstr "Level neu starten?"
 
-#: views/menu/pausemenu.py:175
+#: views/menu/pausemenu.py:178
 msgid "Leave to main menu?"
 msgstr "Zurück zum Hauptmenü?"
 
-#: views/menu/pausemenu.py:176
+#: views/menu/pausemenu.py:179
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
-#: views/settings/settingsaudio.py:64
+#: views/settings/settingsaudio.py:65
+msgid "Master Volume"
+msgstr "Gesamt-Lautstärke"
+
+#: views/settings/settingsaudio.py:83
 msgid "Music"
 msgstr "Musik"
 
-#: views/settings/settingsaudio.py:82
+#: views/settings/settingsaudio.py:101
 msgid "Sound"
 msgstr "Sound"
 
-#: views/settings/settingsaudio.py:100
+#: views/settings/settingsaudio.py:119
 msgid "Environment"
 msgstr "Umgebung"
 

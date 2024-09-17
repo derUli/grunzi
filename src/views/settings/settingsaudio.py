@@ -60,6 +60,25 @@ class SettingsAudio(Fading):
             style=utils.gui.get_button_style()
         )
 
+
+        master_label = arcade.gui.UILabel(
+            text=_('Master Volume'),
+            text_color=arcade.csscolor.BLACK,
+            bold=True,
+            font_name=utils.text.FONT_DEFAULT,
+            font_size=utils.text.FONT_SIZE_MEDIUM,
+            width=BUTTON_WIDTH,
+            align='center'
+        )
+
+        master_slider = UISlider(
+            width=BUTTON_WIDTH,
+            value=int(self.state.settings._master_volume * 100),
+            min_value=0,
+            max_value=100,
+            style=utils.gui.get_slider_style()
+        )
+
         music_label = arcade.gui.UILabel(
             text=_('Music'),
             text_color=arcade.csscolor.BLACK,
@@ -120,6 +139,27 @@ class SettingsAudio(Fading):
 
             # Pass already created view because we are resuming.
             self.on_back()
+
+        @master_slider.event('on_change')
+        def on_change_master_volume(event) -> None:
+            logging.debug(event)
+
+            # Workaround for visual issue
+            self.manager._do_render(force=True)
+
+            volume = event.new_value
+
+            if volume > 0.0:
+                volume = volume / 100
+            else:
+                volume = 0.0
+
+            volume = round(volume, 2)
+
+            self.state.settings._master_volume = volume
+            self.previous_view.previous_view.player.volume = self.state.settings._music_volume * volume
+
+            self.state.settings.save()
 
         @music_slider.event('on_change')
         def on_change_music_volume(event) -> None:
@@ -184,6 +224,8 @@ class SettingsAudio(Fading):
 
         widgets = [
             back_button,
+            master_label,
+            master_slider,
             music_label,
             music_slider,
             sound_label,

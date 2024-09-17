@@ -57,7 +57,7 @@ class PositionalSound:
         if self.volume_source == VOLUME_SOURCE_ATMO:
             source_volume = self.state.settings.atmo_volume
 
-        volume = normalize_volume(volume * source_volume)
+        volume = normalize_volume(volume * source_volume) * self.state.settings.master_volume
 
         if volume != self.player.volume:
             logging.debug('Sound volume at %s', volume)

@@ -8,6 +8,10 @@
 * map04: Color Tint zu Feuer hinzugefügt
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
 
+* Alpha 020 (Unreleased)
+
+* Master-Volume-Regler hinzugefügt
+
 # Alpha 019 (Unreleased)
 
 # map05: Endboss hinzugefügt
