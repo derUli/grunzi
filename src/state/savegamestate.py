@@ -17,7 +17,7 @@ from utils.utils import natural_keys
 
 class SaveGameState:
     def __init__(self):
-        # Screen resolution
+        """ Constructor """
         self.completed = []
         self.current = None
         self.score = {}

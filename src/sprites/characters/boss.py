@@ -55,7 +55,7 @@ class Boss(Character):
         self.force = random.choice([FORCE_MOVE, FORCE_MOVE * -1])
         self._should_shoot = False
         self.laser_sound = None
-        self.initial_music_Volume = None
+        self.initial_music_volume = None
         self.settings = None
 
     def update(self, delta_time, args):
@@ -166,7 +166,7 @@ class Boss(Character):
     def setup(self, args):
         pyglet.clock.schedule_interval_soft(self.check_trigger, 1 / 6, args)
         self.settings = args.state.settings
-        self.initial_music_Volume = args.state.settings.music_volume
+        self.initial_music_volume = args.state.settings.music_volume
 
         self.setup_boss(args)
         self.setup_eyes(args)
@@ -260,7 +260,7 @@ class Boss(Character):
         )
 
     def cleanup(self):
-        self.settings.music_volume = self.initial_music_Volume
+        self.settings.music_volume = self.initial_music_volume
 
         pyglet.clock.unschedule(self.should_shoot)
         pyglet.clock.unschedule(self.collision_lasers)
@@ -300,7 +300,7 @@ class Boss(Character):
         if music_volume <= 0:
             args.music_queue.reset()
 
-            args.state.settings.music_volume = self.initial_music_Volume * args.settings.master_volume
+            args.state.settings.music_volume = self.initial_music_volume * args.settings.master_volume
             return
 
         pyglet.clock.schedule_once(self.fadeout_volume, 1 / 25, args)
