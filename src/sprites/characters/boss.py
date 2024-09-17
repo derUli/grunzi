@@ -300,7 +300,7 @@ class Boss(Character):
         if music_volume <= 0:
             args.music_queue.reset()
 
-            args.state.settings.music_volume = self.initial_music_volume * args.settings.master_volume
+            args.state.settings.music_volume = self.initial_music_volume * args.state.settings.master_volume
             return
 
         pyglet.clock.schedule_once(self.fadeout_volume, 1 / 25, args)
