@@ -6,4 +6,4 @@
 * Map05: Insel im Lave-See hinzufügen, wo man spawnt. Die Insel enthält ein Portal wie in Map04, welches
 Grunzi aufs Festland teleportiert.
 Dort findet der Bosskampf statt.
-* Der hurt_modifier soll im Spielstand gespeichert und wiederhergestellt werden.
+* Geschwindigkeit der Selbstheilung vom Schwierigkeitsgrad abhängig machen.
