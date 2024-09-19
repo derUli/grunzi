@@ -68,8 +68,9 @@ class Boss(Character):
 
         min_health = crystal_count * 10
 
-        if arcade.get_distance_between_sprites(self, args.player) < 500:
+        if arcade.get_distance_between_sprites(self, args.player) < 400:
             if arcade.check_for_collision(self, args.player):
+                print(arcade.get_distance_between_sprites(self, args.player))
                 args.player.hurt(1)
                 return
 
