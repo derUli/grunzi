@@ -213,6 +213,7 @@ class Player(Character, SpriteHealth):
         """ Called when the player dies """
 
         self.state.squeak()
+        self.scene.cleanup()
 
     def start_walk(self, sprint=False):
         self.walking = True
