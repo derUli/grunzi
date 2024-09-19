@@ -12,7 +12,7 @@ class Effect:
     def __init__(self, enabled: bool = True):
         """ Constructor """
 
-        self.spritelist = SpriteList(lazy=True, use_spatial_hash=True)
+        self.spritelist = SpriteList(lazy=True, use_spatial_hash=False)
         self.enabled = enabled
 
     def setup(self, args: ArgsContainer):
