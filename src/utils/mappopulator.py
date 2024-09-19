@@ -134,8 +134,9 @@ class MapPopulator:
             snow = Snow(radius=8, color=random.choice(SNOW_COLORS), soft=True)
             snow.center_x = random.randint(0, args.tilemap.width)
             snow.center_y = random.randint(0, args.tilemap.height)
-
             args.scene.add_sprite(LAYER_SNOW, snow)
+
+        args.scene[LAYER_SNOW][0].setup_snow(args)
 
     def spawn_hell_particles(self, args: ArgsContainer) -> None:
         if not args.state.difficulty.options['hellParticles']:
