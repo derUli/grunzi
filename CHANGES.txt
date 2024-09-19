@@ -11,6 +11,7 @@
 
 * Slider für die Gesamt-Lautstärke hinzugefügt
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
+* map05: Boss verursacht nun Schaden bei Behrürung
 
 # Alpha 019 (20.09.2024)
 
