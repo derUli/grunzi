@@ -265,6 +265,11 @@ class Boss(Character):
         pyglet.clock.unschedule(self.should_shoot)
         pyglet.clock.unschedule(self.collision_lasers)
         pyglet.clock.unschedule(self.check_trigger)
+        self._should_shoot = False
+
+        if self.laser_sound:
+            self.laser_sound.pause()
+
 
     def check_trigger(self, delta_time, args):
         collides = False
