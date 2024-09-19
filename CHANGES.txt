@@ -4,13 +4,13 @@
 
 * UI: "Erfolg" Screen nach jedem Level
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
-* Audio: Master Lautstärkeregler hinzugefügt
 * map04: Color Tint zu Feuer hinzugefügt
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
 
 * Alpha 020 (Unreleased)
 
 * Slider für die Gesamt-Lautstärke hinzugefügt
+* map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
 
 # Alpha 019 (Unreleased)
 
