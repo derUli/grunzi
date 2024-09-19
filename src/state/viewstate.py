@@ -50,9 +50,8 @@ class ViewState:
 
         self.preload_sounds()
         self.preload_fonts()
-        self.preload_animations()
 
-        # Thread(target=self.preload_animations).start()
+        Thread(target=self.preload_animations).start()
         self.shaders = {}
 
     def preload_animations(self) -> None:
