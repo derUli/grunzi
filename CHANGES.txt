@@ -12,7 +12,7 @@
 * Slider für die Gesamt-Lautstärke hinzugefügt
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
 
-# Alpha 019 (Unreleased)
+# Alpha 019 (20.09.2024)
 
 # map05: Endboss hinzugefügt
 * map01: Autofahr-Animation am Ende des Levels eingefügt
