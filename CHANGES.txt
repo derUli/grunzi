@@ -12,7 +12,7 @@
 * Slider für die Gesamt-Lautstärke hinzugefügt
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
 * map05: Boss verursacht nun Schaden bei Berührung
-* map03: Nebel Effekt optimiert
+* map03: Nebel Effekt Performance optimiert
 
 # Alpha 019 (20.09.2024)
 
