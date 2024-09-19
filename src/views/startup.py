@@ -4,6 +4,7 @@ import gettext
 import locale
 import logging
 import os
+import time
 
 import pyglet
 
@@ -228,7 +229,9 @@ class StartUp:
         window.setup()
 
         state = ViewState(self.root_dir, map_name=FIRST_MAP, settings=SettingsState.load())
+        a = time.time()
         state.preload()
+        logging.info("preload() in " + str(time.time() - a) + " Seconds")
         icon_path = os.path.join(state.ui_dir, 'icon.ico')
         icon = pyglet.image.load(icon_path)
         window.set_icon(icon)
