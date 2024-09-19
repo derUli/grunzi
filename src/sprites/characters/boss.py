@@ -70,9 +70,7 @@ class Boss(Character):
 
         if arcade.get_distance_between_sprites(self, args.player) < 400:
             if arcade.check_for_collision(self, args.player):
-                print(arcade.get_distance_between_sprites(self, args.player))
                 args.player.hurt(1)
-                return
 
         if self.health < min_health:
             self.health = min_health
