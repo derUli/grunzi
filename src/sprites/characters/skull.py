@@ -5,7 +5,7 @@ import arcade
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine
 
-from constants.collisions import COLLISION_ENEMY
+from constants.collisions import COLLISION_ENEMY, GRID_SIZE
 from constants.layers import LAYER_NPC, check_collision_with_layers
 from sprites.bullet.skullbullet import SkullBullet
 from sprites.characters.character import Character
@@ -28,7 +28,6 @@ FADE_SPEED = 4
 
 SHOOT_DELTA = 1 / 5
 
-GRID_SIZE = 64
 
 
 class Skull(Character, Useable):

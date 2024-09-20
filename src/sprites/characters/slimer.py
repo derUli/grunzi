@@ -4,7 +4,7 @@ import os
 import arcade
 from arcade import FACE_RIGHT, FACE_LEFT, PymunkPhysicsEngine, SpriteList
 
-from constants.collisions import COLLISION_ENEMY
+from constants.collisions import COLLISION_ENEMY, GRID_SIZE
 from constants.layers import LAYER_NPC, check_collision_with_layers
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL
@@ -19,7 +19,6 @@ MOVE_FORCE = 300
 MOVE_DAMPING = 0.01
 
 SIGHT_DISTANCE = 1400
-GRID_SIZE = 64
 
 FADE_IN_MAX = 255
 FADE_SPEED = 4

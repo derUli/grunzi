@@ -8,6 +8,7 @@ import arcade
 import pyglet
 
 import utils.media.audio
+from constants.collisions import GRID_SIZE
 from constants.layers import LAYER_OPTIONS
 from constants.mapconfig import MapConfig
 from sprites.characters.player import Player
@@ -108,7 +109,7 @@ class Loader:
         self.parent.astar_barrier_list = arcade.AStarBarrierList(
             moving_sprite=sprite,
             blocking_sprites=self.parent.wall_spritelist,
-            grid_size=64,
+            grid_size=GRID_SIZE,
             left=0,
             right=self.parent.tilemap.width,
             top=self.parent.tilemap.height,  # FIXME: Top and bottom is switched in this dev version of arcade
