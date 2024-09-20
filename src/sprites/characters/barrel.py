@@ -145,7 +145,7 @@ class Barrel(Character):
 
     def explosion_hurt(self, args):
 
-        hurt = 3
+        hurt = 4
 
         if arcade.get_distance_between_sprites(self.explosion, args.player) < 200:
             args.player.hurt(hurt)
@@ -172,10 +172,11 @@ class Barrel(Character):
         args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion.sound = args.state.play_sound('explosion')
 
-        pyglet.clock.schedule_interval_soft(self.update_explosion, 1/48, args)
+        pyglet.clock.schedule_interval_soft(self.update_explosion, 1/36, args)
 
     def cleanup(self):
         pyglet.clock.unschedule(self.check_collision)
+        pyglet.clock.unschedule(self.update_animation)
 
 
 def spawn_barrel(state, tilemap, scene, physics_engine):
