@@ -48,10 +48,10 @@ class Skull(Character, Useable):
 
         dirname = os.path.join(os.path.dirname(filename))
 
-        self.skull_off = self.textures = arcade.load_texture_pair(
+        self.skull_off = arcade.load_texture_pair(
             os.path.join(dirname, 'skull.png')
         )
-        self.skull_on = self.textures = arcade.load_texture_pair(
+        self.skull_on = arcade.load_texture_pair(
             os.path.join(dirname, 'skull2.png')
         )
 
