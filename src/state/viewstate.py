@@ -12,6 +12,7 @@ from pyglet import media
 
 from constants.maps import FIRST_MAP
 from utils.keypressed import KeyPressed
+from utils.media.audio import streaming_enabled
 
 
 class ViewState:
@@ -116,7 +117,7 @@ class ViewState:
             'atmos': {},
             'explosion': arcade.load_sound(os.path.join(self.sound_dir, 'weapons', 'explosion.ogg')),
             'ship': {
-                'horn': arcade.load_sound(os.path.join(self.sound_dir, 'ship', 'horn.ogg'))
+                'horn': arcade.load_sound(os.path.join(self.sound_dir, 'ship', 'horn.ogg'), streaming=streaming_enabled())
             },
             'switch': arcade.load_sound(os.path.join(self.sound_dir, 'switch', 'switch.ogg')),
             'boss': {
