@@ -2,6 +2,9 @@ import logging
 import random
 import time
 
+from arcade import SpriteList
+from platformdirs import user_state_path
+
 from constants.layers import LAYER_SNOW
 from sprites.characters.chicken import spawn_chicken
 from sprites.decoration.hellparticle import HELL_PARTICLE_COLORS, HellParticle
@@ -91,6 +94,8 @@ class MapPopulator:
     def spawn_initial(self, args: ArgsContainer) -> None:
         """ Spawn some sprites on level load """
 
+        self.init_npc_spritelist(args)
+
         if not self.enabled:
             return
 
@@ -98,6 +103,11 @@ class MapPopulator:
         self.spawn_landmine(args)
         self.spawn_snow(args)
         self.spawn_hell_particles(args)
+
+    def init_npc_spritelist(self, args):
+        from constants.layers import LAYER_NPC
+        args.scene.add_sprite_list(LAYER_NPC, SpriteList(lazy=True, use_spatial_hash=True))
+
 
     @staticmethod
     def spawn_landmine(args: ArgsContainer) -> None:
