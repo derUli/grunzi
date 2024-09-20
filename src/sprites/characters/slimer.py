@@ -181,6 +181,10 @@ def spawn_slimer(state, tilemap, scene, physics_engine):
         return spawn_slimer(state, tilemap, scene, physics_engine)
 
     scene.add_sprite(LAYER_NPC, slimer)
+
+    if not physics_engine:
+        return
+
     physics_engine.add_sprite(
         slimer,
         friction=slimer.friction,

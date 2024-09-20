@@ -94,10 +94,21 @@ class MapPopulator:
         if not self.enabled:
             return
 
+        self.preload_npcs(args)
+
         self.spawn_food(args)
         self.spawn_landmine(args)
         self.spawn_snow(args)
         self.spawn_hell_particles(args)
+
+    def preload_npcs(self, args):
+        from constants.layers import LAYER_NPC
+
+        self.spawn_skull(args)
+        self.spawn_slimer(args)
+        self.spawn_barrel(args)
+
+        args.scene[LAYER_NPC].clear()
 
     @staticmethod
     def spawn_landmine(args: ArgsContainer) -> None:

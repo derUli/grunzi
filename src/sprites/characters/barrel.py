@@ -194,6 +194,11 @@ def spawn_barrel(state, tilemap, scene, physics_engine):
         return spawn_barrel(state, tilemap, scene, physics_engine)
 
     scene.add_sprite(LAYER_NPC, barrel)
+
+    if not physics_engine:
+        return
+
+
     physics_engine.add_sprite(
         barrel,
         friction=FRICTION,

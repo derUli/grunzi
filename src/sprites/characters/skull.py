@@ -238,6 +238,9 @@ def spawn_skull(state, tilemap, scene, physics_engine):
         return spawn_skull(state, tilemap, scene, physics_engine)
 
     scene.add_sprite(LAYER_NPC, skull)
+    if not physics_engine:
+        return
+
     physics_engine.add_sprite(
         skull,
         friction=skull.friction,
