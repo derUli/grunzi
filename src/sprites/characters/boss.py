@@ -274,7 +274,6 @@ class Boss(Character):
         if self.laser_sound:
             self.laser_sound.pause()
 
-
     def check_trigger(self, delta_time, args):
         collides = False
         from constants.layers import LAYER_BOSS_TRIGGER

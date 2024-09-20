@@ -3,7 +3,6 @@ import random
 import time
 
 from arcade import SpriteList
-from platformdirs import user_state_path
 
 from constants.layers import LAYER_SNOW
 from sprites.characters.chicken import spawn_chicken
@@ -107,7 +106,6 @@ class MapPopulator:
     def init_npc_spritelist(self, args):
         from constants.layers import LAYER_NPC
         args.scene.add_sprite_list(LAYER_NPC, SpriteList(lazy=True, use_spatial_hash=True))
-
 
     @staticmethod
     def spawn_landmine(args: ArgsContainer) -> None:

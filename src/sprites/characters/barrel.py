@@ -172,7 +172,7 @@ class Barrel(Character):
         args.scene.add_sprite(LAYER_NPC, gif)
         self.explosion.sound = args.state.play_sound('explosion')
 
-        pyglet.clock.schedule_interval_soft(self.update_explosion, 1/36, args)
+        pyglet.clock.schedule_interval_soft(self.update_explosion, 1 / 36, args)
 
     def cleanup(self):
         pyglet.clock.unschedule(self.check_collision)
@@ -200,7 +200,6 @@ def spawn_barrel(state, tilemap, scene, physics_engine):
 
     if not physics_engine:
         return
-
 
     physics_engine.add_sprite(
         barrel,
