@@ -80,4 +80,5 @@ except ImportError as e:
 
     class Video:
         def __init__(self, path: str | None = None):
+            self.active = False
             pass
