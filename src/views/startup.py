@@ -7,7 +7,6 @@ import os
 import time
 
 import pyglet
-from isort.identify import Import
 
 from constants.audio import DEFAULT_AUDIO_BACKEND, audio_backends
 from constants.maps import FIRST_MAP

@@ -47,9 +47,9 @@ def load_video(
     return Video(path, interp=cv2.INTER_CUBIC, size=size, volume=volume)
 
 
-
 try:
     from pyvidplayer2 import VideoPyglet, PostProcessing
+
 
     class Video(VideoPyglet):
         def __init__(
@@ -77,6 +77,7 @@ try:
                 self.set_volume(volume)
 except ImportError as e:
     logging.error(e)
+
 
     class Video:
         def __init__(self, path: str | None = None):
