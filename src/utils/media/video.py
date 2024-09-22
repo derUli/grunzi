@@ -21,7 +21,15 @@ def has_ffmpeg() -> bool:
 def video_supported() -> bool:
     """ Video playback is currently only supported on Windows """
 
-    return True
+    try:
+        import pyvidplayer2
+        info = pyvidplayer2.get_version_info()
+        logging.info(info)
+        return len(info['ffmpeg']) >= 1
+
+    except ImportError as e:
+        logging.error(e)
+        return False
 
 
 def load_video(

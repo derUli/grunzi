@@ -13,6 +13,7 @@ from constants.maps import FIRST_MAP
 from state.settingsstate import SettingsState
 from state.viewstate import ViewState
 from utils.log import log_hardware_info, configure_logger
+from utils.media.video import video_supported
 from utils.screen import antialiasing
 from utils.text import label_value
 from views.menu.mainmenu import MainMenu
@@ -204,12 +205,7 @@ class StartUp:
 
         arcade.configure_logging(level=log_level_arcade)
 
-        try:
-            import pyvidplayer2
-
-            logging.info(pyvidplayer2.get_version_info())
-        except ImportError as e:
-            logging.error(e)
+        video_supported()
 
         settings = SettingsState.load()
 
