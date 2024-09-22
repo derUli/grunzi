@@ -21,7 +21,7 @@ def has_ffmpeg() -> bool:
 def video_supported() -> bool:
     """ Video playback is currently only supported on Windows """
 
-    return has_ffmpeg() and is_windows()
+    return True
 
 
 def load_video(
