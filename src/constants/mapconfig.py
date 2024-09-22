@@ -20,8 +20,9 @@ class MapConfig:
         self.slimer_hurt = 0
         self.barrel_hurt = 0
         self.boss_laser_hurt = 0
-
         self.boss_range = 0
+
+        self.health_regeneration_speed = 0
 
         self.spawn_what = []
         self.options = {}
@@ -50,6 +51,8 @@ class MapConfig:
             self.boss_laser_hurt = difficulty_data['bossLaserHurt']
         if 'bossRange' in difficulty_data:
             self.boss_range = difficulty_data['bossRange']
+        if 'healthRegenerationSpeed' in difficulty_data:
+            self.health_regeneration_speed = difficulty_data['healthRegenerationSpeed']
 
         map_data = {}
 

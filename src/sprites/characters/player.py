@@ -21,8 +21,6 @@ MODIFIER_SPRINT = 1.8
 
 MOVE_DAMPING = 0.01
 
-HEALTH_REGENERATION_SPEED = 0.12
-
 PLACE_ITEM_ALPHA = 255
 
 INVENTORY_MARGIN = 15
@@ -120,7 +118,7 @@ class Player(Character, SpriteHealth):
             return
 
         if self.health < HEALTH_FULL:
-            self.health += HEALTH_REGENERATION_SPEED
+            self.health += args.state.difficulty.health_regeneration_speed
 
         if self.health > HEALTH_FULL:
             self.health = HEALTH_FULL

@@ -13,7 +13,7 @@
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
 * map05: Endboss verursacht nun Schaden bei Berührung
 * map03: Nebel Effekt Performance optimiert
-
+* Global: Geschwindigkeit der Gesundheitsregeneration nun abhängig vom Schwierigkeitsgrad
 # Alpha 019 (20.09.2024)
 
 # map05: Endboss hinzugefügt

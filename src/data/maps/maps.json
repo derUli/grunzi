@@ -5,21 +5,24 @@
       "slimerHurt": 25,
       "barrelHurt": 2,
       "bossLaserHurt": 1,
-      "bossRange": 6
+      "bossRange": 6,
+      "healthRegenerationSpeed": 0.13
     },
     "2": {
       "skullHurt": 15,
       "slimerHurt": 30,
       "barrelHurt": 10,
       "bossLaserHurt": 3,
-      "bossRange": 5
+      "bossRange": 5,
+      "healthRegenerationSpeed": 0.12
     },
     "3": {
       "skullHurt": 20,
       "slimerHurt": 35,
       "barrelHurt": 50,
       "bossLaserHurt": 5,
-      "bossRange": 4
+      "bossRange": 4,
+      "healthRegenerationSpeed": 0.11
     }
   },
   "map01": {
