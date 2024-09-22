@@ -78,5 +78,5 @@ try:
 except ImportError as e:
     logging.error(e)
 
-    class VideoPyglet:
+    class Video:
         pass
