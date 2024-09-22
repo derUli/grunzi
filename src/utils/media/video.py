@@ -6,9 +6,8 @@ from typing import Tuple
 
 import cv2
 import numpy
-from pyvidplayer2 import VideoPyglet, PostProcessing
+from pyvidplayer2 import VideoPyglet
 
-from utils.path import is_windows
 from utils.text import label_value
 
 
@@ -23,12 +22,14 @@ def video_supported() -> bool:
 
     try:
         import pyvidplayer2
+
         info = pyvidplayer2.get_version_info()
         logging.info(info)
         return len(info['ffmpeg']) >= 1
 
     except ImportError as e:
         logging.error(e)
+
         return False
 
 
@@ -56,6 +57,11 @@ def load_video(
     return Video(path, interp=cv2.INTER_CUBIC, size=size, volume=volume)
 
 
+if not video_supported():
+    class VideoPyglet:
+        pass
+
+
 class Video(VideoPyglet):
     def __init__(
             self,
@@ -63,7 +69,6 @@ class Video(VideoPyglet):
             chunk_size: int = 300,
             max_threads: int = 1,
             max_chunks: int = 1,
-            post_process: numpy.ndarray = PostProcessing.none,
             interp: int = cv2.INTER_LINEAR,
             use_pygame_audio: bool = False,
             size: Tuple[int, int] | None = None,
