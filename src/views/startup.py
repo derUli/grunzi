@@ -204,8 +204,12 @@ class StartUp:
 
         arcade.configure_logging(level=log_level_arcade)
 
-        import pyvidplayer2
-        logging.info(pyvidplayer2.get_version_info())
+        try:
+            import pyvidplayer2
+
+            logging.info(pyvidplayer2.get_version_info())
+        except ImportError as e:
+            logging.error(e)
 
         settings = SettingsState.load()
 
