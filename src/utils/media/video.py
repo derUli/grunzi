@@ -79,5 +79,5 @@ except ImportError as e:
     logging.error(e)
 
     class Video:
-        def __init__(self, path: str):
+        def __init__(self, path: str | None = None):
             pass
