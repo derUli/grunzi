@@ -63,9 +63,10 @@ cx_Freeze.setup(
 )
 
 # If Linux delete the video related stuff because it won't work on Linux
-if sys.platform != 'win32':
+if sys.platform == 'win32':
+    os.unlink('build/exe.win-amd64-3.11/data/3rdparty/ffmpeg')
+else:
     os.unlink('build/exe.linux-x86_64-3.10/data/3rdparty/ffmpeg.exe')
-    shutil.rmtree('build/exe.linux-x86_64-3.10/data/videos')
 
 formatter = xmlformatter.Formatter(compress=True, selfclose=True)
 
