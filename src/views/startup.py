@@ -202,6 +202,9 @@ class StartUp:
 
         import arcade
 
+        import pyvidplayer2
+        logging.info(pyvidplayer2.get_version_info())
+
         arcade.configure_logging(level=log_level_arcade)
 
         settings = SettingsState.load()
