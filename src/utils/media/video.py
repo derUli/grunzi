@@ -77,3 +77,6 @@ try:
                 self.set_volume(volume)
 except ImportError as e:
     logging.error(e)
+
+    class VideoPyglet:
+        pass

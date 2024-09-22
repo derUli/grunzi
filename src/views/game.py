@@ -16,7 +16,7 @@ from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.loader.loader import Loader
-from utils.media.video import load_video, Video
+from utils.media.video import load_video, Video, video_supported
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from views.camera import center_camera_to_player
 from views.fading import Fading
@@ -104,6 +104,9 @@ class Game(Fading):
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
         if not self.state.settings.videos:
+            self.skip_intro = True
+
+        if not video_supported():
             self.skip_intro = True
 
         if not self.skip_intro:
