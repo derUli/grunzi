@@ -15,7 +15,6 @@ from sprites.decoration.moon import Moon
 from sprites.decoration.river import River, RiverSound
 from sprites.decoration.ship import Ship, Steam
 from sprites.decoration.sun import Sun
-from sprites.decoration.water import Water
 from sprites.items.Cone import Cone
 from sprites.items.cactus import Cactus
 from sprites.items.carkey import CarKey
@@ -97,6 +96,7 @@ LAYER_LAVA = 'Lava'
 LAYER_LAVA_2 = 'Lava2'
 LAYER_CRYSTAL = 'Crystal'
 LAYER_BOSS_TRIGGER = 'BossTrigger'
+LAYER_NO_WAY = 'No Way'
 
 ALL_LAYERS = [
     LAYER_WALL,
@@ -267,10 +267,12 @@ LAYER_OPTIONS = {
         'custom_class': AlphaWall
     },
     LAYER_SHIP: {
-        'custom_class': Ship
+        'custom_class': Ship,
+        'use_spatial_hash': False
     },
     LAYER_STEAM: {
-        'custom_class': Steam
+        'custom_class': Steam,
+        'use_spatial_hash': False
     },
     LAYER_SWITCH: {
         'custom_class': Switch
@@ -291,6 +293,18 @@ LAYER_OPTIONS = {
         'custom_class': Crystal
     },
     LAYER_GROUND: {
+        'use_spatial_hash': False
+    },
+    LAYER_FLAG_1: {
+        'use_spatial_hash': False
+    },
+    LAYER_FLAG_2: {
+        'use_spatial_hash': False
+    },
+    LAYER_PENGUINS: {
+        'use_spatial_hash': False
+    },
+    LAYER_NO_WAY: {
         'use_spatial_hash': False
     }
 }
