@@ -306,6 +306,9 @@ LAYER_OPTIONS = {
     },
     LAYER_NO_WAY: {
         'use_spatial_hash': False
+    },
+    LAYER_DECORATION: {
+        'use_spatial_hash': False
     }
 }
 
