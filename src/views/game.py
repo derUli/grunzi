@@ -372,7 +372,7 @@ class Game(Fading):
         if not self.input_ready:
             return
 
-        x_value, y_value = round(x_value, 2), round(y_value, 2)
+        x_value, y_value = round(x_value), round(y_value)
 
         if stick_name == constants.controls.controller.LEFTSTICK:
             if x_value > 0 :
