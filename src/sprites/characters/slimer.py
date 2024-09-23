@@ -55,7 +55,7 @@ class Slimer(Character, Useable):
         self.update_texture()
         self.last_shot = 0
         self.sound = None
-        self.bullets = SpriteList(lazy=True, use_spatial_hash=True, visible=False)
+        self.bullets = SpriteList(lazy=True, use_spatial_hash=False, visible=False)
 
     def update_texture(self):
         self.texture = self.textures[self.face - 1]
