@@ -220,9 +220,6 @@ LAYER_OPTIONS = {
     LAYER_JEEP: {
         'custom_class': Jeep
     },
-    LAYER_WATER: {
-        'custom_class': Water
-    },
     LAYER_FIRE: {
         'custom_class': Fire
     },

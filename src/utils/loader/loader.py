@@ -53,7 +53,7 @@ class Loader:
         try:
             self.parent.tilemap = TileMap(
                 map_name,
-                layer_options=LAYER_OPTIONS
+                layer_options=LAYER_OPTIONS,
             )
         except FileNotFoundError as e:
             logging.error(e)
