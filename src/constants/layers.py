@@ -282,6 +282,9 @@ LAYER_OPTIONS = {
     },
     LAYER_CRYSTAL: {
         'custom_class': Crystal
+    },
+    LAYER_GROUND: {
+        'use_spatial_hash': False
     }
 }
 
