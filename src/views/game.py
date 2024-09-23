@@ -374,8 +374,6 @@ class Game(Fading):
 
         x_value, y_value = round(x_value, 2), round(y_value, 2)
 
-        print(x_value)
-
         if stick_name == constants.controls.controller.LEFTSTICK:
             if x_value > 0 :
                 self.state.keypressed.key_right = True
