@@ -372,35 +372,37 @@ class Game(Fading):
         if not self.input_ready:
             return
 
-        x_value, y_value = round(x_value), round(y_value)
+        x_value, y_value = round(x_value, 2), round(y_value, 2)
+
+        print(x_value)
 
         if stick_name == constants.controls.controller.LEFTSTICK:
-            if x_value == constants.controls.controller.AXIS_RIGHT:
+            if x_value > 0 :
                 self.state.keypressed.key_right = True
-            elif x_value == constants.controls.controller.AXIS_LEFT:
+            elif x_value < 0:
                 self.state.keypressed.key_left = True
             else:
                 self.state.keypressed.key_right = False
                 self.state.keypressed.key_left = False
 
-            if y_value == constants.controls.controller.AXIS_DOWN:
-                self.state.keypressed.key_down = True
-            elif y_value == constants.controls.controller.AXIS_UP:
+            if y_value > 0:
                 self.state.keypressed.key_up = True
+            elif y_value < 0:
+                self.state.keypressed.key_down = True
             else:
                 self.state.keypressed.key_down = False
                 self.state.keypressed.key_up = False
 
         if stick_name == constants.controls.controller.RIGHTSTICK:
             face = self.scene.player_sprite.face
-            if x_value == constants.controls.controller.AXIS_RIGHT:
+            if x_value > 0 :
                 face = FACE_RIGHT
-            if x_value == constants.controls.controller.AXIS_LEFT:
+            if x_value < 0:
                 face = FACE_LEFT
-            if y_value == constants.controls.controller.AXIS_DOWN:
-                face = FACE_DOWN
-            if y_value == constants.controls.controller.AXIS_UP:
+            if y_value > 0:
                 face = FACE_UP
+            if y_value < 0:
+                face = FACE_DOWN
 
             self.scene.player_sprite.set_face(face)
 
