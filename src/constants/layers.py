@@ -182,16 +182,20 @@ LAYER_OPTIONS = {
         'custom_class': PiggyBank
     },
     LAYER_HIGHWAY: {
-        'custom_class': Highway
+        'custom_class': Highway,
+        'use_spatial_hash': False
     },
     LAYER_BEACH: {
-        'custom_class': Beach
+        'custom_class': Beach,
+        'use_spatial_hash': False
     },
     LAYER_CAR_RIGHT: {
-        'custom_class': sprites.decoration.car.CarRight
+        'custom_class': sprites.decoration.car.CarRight,
+        'use_spatial_hash': False
     },
     LAYER_CAR_LEFT: {
-        'custom_class': sprites.decoration.car.CarLeft
+        'custom_class': sprites.decoration.car.CarLeft,
+        'use_spatial_hash': False
     },
     LAYER_FEATHER: {
         'custom_class': Feather
@@ -227,13 +231,16 @@ LAYER_OPTIONS = {
         'custom_class': Duck
     },
     LAYER_CLOUDS: {
-        'custom_class': Cloud
+        'custom_class': Cloud,
+        'use_spatial_hash': False
     },
     LAYER_SUN: {
-        'custom_class': Sun
+        'custom_class': Sun,
+        'use_spatial_hash': False
     },
     LAYER_MOON: {
-        'custom_class': Moon
+        'custom_class': Moon,
+        'use_spatial_hash': False
     },
     LAYER_ELECTRIC: {
         'custom_class': Electric
