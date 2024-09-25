@@ -49,6 +49,12 @@ class MainMenu(Fading):
             style=utils.gui.get_button_style()
         )
 
+        horde_button = arcade.gui.UIFlatButton(
+            text=_("Horde Mode"),
+            width=BUTTON_WIDTH,
+            style=utils.gui.get_button_style()
+        )
+
         options_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
@@ -71,6 +77,11 @@ class MainMenu(Fading):
             logging.debug(event)
             self.on_campaign()
 
+        @horde_button.event("on_click")
+        def on_click_horde_button(event):
+            logging.debug(event)
+            self.on_horde()
+
         @options_button.event("on_click")
         def on_click_options_button(event):
             logging.debug(event)
@@ -92,13 +103,12 @@ class MainMenu(Fading):
 
         widgets = [
             label,
-            campaign_button
-        ]
-
-        widgets += [
+            campaign_button,
+            horde_button,
             options_button,
             quit_button
         ]
+
 
         # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=20, align='center')
@@ -154,6 +164,13 @@ class MainMenu(Fading):
                 self.state,
                 previous_view=self
             )
+        )
+
+    def on_horde(self):
+        self.manager.add(arcade.gui.UIMessageBox(
+            width=300,
+            height=200,
+            message_text=_('Not implemented yet.'))
         )
 
     def on_update(self, delta_time: float) -> None:

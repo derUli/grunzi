@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-17 20:23+0200\n"
+"POT-Creation-Date: 2024-09-25 17:12+0200\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: sprites/ui/gameovertext.py:43 views/highscore/highscorelist.py:64
+#: sprites/ui/gameovertext.py:43 views/highscore/highscorelist.py:61
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
 
@@ -95,7 +95,7 @@ msgid "OK"
 msgstr "OK"
 
 #: views/highscore/highscoreadd.py:179 views/highscore/highscoreadd.py:194
-#: views/menu/difficultyselection.py:202 views/menu/difficultyselection.py:215
+#: views/menu/difficultyselection.py:206 views/menu/difficultyselection.py:219
 #: views/menu/pausemenu.py:153 views/menu/pausemenu.py:183
 #: views/menu/pausemenu.py:200
 msgid "Yes"
@@ -109,20 +109,37 @@ msgstr "Sie haben Ihren Namen nicht eingegeben."
 msgid "Do you not want to transfer your score?"
 msgstr "Möchten Sie Ihren Highscore nicht übertragen?"
 
-#: views/highscore/highscoreadd.py:195 views/menu/difficultyselection.py:203
+#: views/highscore/highscoreadd.py:195 views/menu/difficultyselection.py:207
 #: views/menu/pausemenu.py:154 views/menu/pausemenu.py:162
 #: views/menu/pausemenu.py:184
 msgid "No"
 msgstr "Nein"
 
-#: views/highscore/highscorelist.py:89
+#: views/highscore/highscorelist.py:86
 msgid "No entries yet"
 msgstr "Noch keine Einträge vorhanden"
 
-#: views/menu/difficultyselection.py:60 views/menu/mapselection.py:74
-#: views/settings/settingsaudio.py:58 views/settings/settingscontrols.py:112
-#: views/settings/settingsgraphics.py:83 views/settings/settingsmenu.py:86
-#: views/settings/settingsscreen.py:55
+#: views/menu/campaignmenu.py:65
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: views/menu/campaignmenu.py:71 views/menu/mapselection.py:88
+#: views/menu/pausemenu.py:34
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: views/menu/campaignmenu.py:77 views/menu/mapselection.py:100
+msgid "Select Map"
+msgstr "Map auswählen"
+
+#: views/menu/campaignmenu.py:83
+msgid "Online Highscore"
+msgstr "Online-Bestenliste"
+
+#: views/menu/campaignmenu.py:89 views/menu/difficultyselection.py:60
+#: views/menu/mapselection.py:75 views/settings/settingsaudio.py:58
+#: views/settings/settingscontrols.py:112 views/settings/settingsgraphics.py:83
+#: views/settings/settingsmenu.py:86 views/settings/settingsscreen.py:55
 msgid "Back"
 msgstr "Zurück"
 
@@ -142,60 +159,51 @@ msgstr "Sauschwer"
 msgid "Difficulty"
 msgstr "Schwierigkeit"
 
-#: views/menu/difficultyselection.py:200
+#: views/menu/difficultyselection.py:204
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/menu/mainmenu.py:42 window/launcherwindow.py:65
+#: views/menu/mainmenu.py:39 window/launcherwindow.py:65
 msgid "Grunzi"
 msgstr "Grunzi"
 
-#: views/menu/mainmenu.py:50
-msgid "New Game"
-msgstr "Neues Spiel"
+#: views/menu/mainmenu.py:47
+msgid "Campaign"
+msgstr "Kampagne"
 
-#: views/menu/mainmenu.py:56 views/menu/mapselection.py:87
-#: views/menu/pausemenu.py:34
-msgid "Continue"
-msgstr "Fortsetzen"
+#: views/menu/mainmenu.py:53
+msgid "Horde Mode"
+msgstr "Horde-Modus"
 
-#: views/menu/mainmenu.py:62 views/menu/mapselection.py:99
-msgid "Select Map"
-msgstr "Map auswählen"
-
-#: views/menu/mainmenu.py:68
-msgid "Online Highscore"
-msgstr "Online-Bestenliste"
-
-#: views/menu/mainmenu.py:74 views/menu/pausemenu.py:46
+#: views/menu/mainmenu.py:59 views/menu/pausemenu.py:46
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: views/menu/mainmenu.py:80
+#: views/menu/mainmenu.py:65
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/menu/mapselection.py:108
+#: views/menu/mapselection.py:109
 msgid "Selected:"
 msgstr "Ausgewählt:"
 
-#: views/menu/mapselection.py:267
+#: views/menu/mapselection.py:269
 msgid "Having A Pig"
 msgstr "Schwein gehabt"
 
-#: views/menu/mapselection.py:268
+#: views/menu/mapselection.py:270
 msgid "Big Major Cay"
 msgstr "Big Major Cay"
 
-#: views/menu/mapselection.py:269
+#: views/menu/mapselection.py:271
 msgid "Teufelsmoor"
 msgstr "Teufelsmoor"
 
-#: views/menu/mapselection.py:270
+#: views/menu/mapselection.py:272
 msgid "South Pole"
 msgstr "Südpool"
 
-#: views/menu/mapselection.py:271
+#: views/menu/mapselection.py:273
 msgid "Hell"
 msgstr "Hölle"
 
@@ -219,19 +227,19 @@ msgstr "Zurück zum Hauptmenü?"
 msgid "All progress since the begin of this level will be lost."
 msgstr "Der Fortschritt seit dem Anfang des Levels wird verworfen."
 
-#: views/settings/settingsaudio.py:65
+#: views/settings/settingsaudio.py:64
 msgid "Master Volume"
 msgstr "Gesamt-Lautstärke"
 
-#: views/settings/settingsaudio.py:83
+#: views/settings/settingsaudio.py:82
 msgid "Music"
 msgstr "Musik"
 
-#: views/settings/settingsaudio.py:101
+#: views/settings/settingsaudio.py:100
 msgid "Sound"
 msgstr "Sound"
 
-#: views/settings/settingsaudio.py:119
+#: views/settings/settingsaudio.py:118
 msgid "Environment"
 msgstr "Umgebung"
 
