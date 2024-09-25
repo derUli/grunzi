@@ -12,3 +12,4 @@ Dort findet der Bosskampf statt.
     * Fähigkeit zur schnelleren Selbstheilung
     * Fähigkeit zur Stärkung der Geschosse (größere Minimalgröße)
     * Schnellere Sprint-Geschwindigkeit
+* Horde-Modus
