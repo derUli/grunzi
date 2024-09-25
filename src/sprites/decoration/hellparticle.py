@@ -12,13 +12,16 @@ HELL_PARTICLE_COLORS = [
     (163, 251, 125)
 ]
 
+SPEED_FROM = 1
+SPEED_TO = 50
+
 
 class HellParticle(SpriteCircle, Sprite):
 
     def __init__(self, radius: int, color: Color, soft: bool = True):
         super().__init__(radius, color, soft)
 
-        self.speed = random.uniform(1, 40)
+        self.speed = random.uniform(SPEED_FROM, SPEED_TO)
 
     def update(
             self,
@@ -28,6 +31,6 @@ class HellParticle(SpriteCircle, Sprite):
         self.center_x -= self.speed
 
         if self.right <= 0:
-            self.speed = random.uniform(1, 40)
+            self.speed = random.uniform(SPEED_FROM, SPEED_TO)
             self.left = args.tilemap.width
             self.center_y = random.randint(0, args.tilemap.height)
