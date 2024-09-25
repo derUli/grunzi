@@ -27,7 +27,7 @@ class DifficultySelection(Fading):
         self.shadertoy = self.state.load_shader(window.size, 'pink')
         self.difficulty = None
 
-        self.stop_music_on_hide_view = True
+        self.stop_music_on_hide_view = False
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """

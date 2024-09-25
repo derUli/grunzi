@@ -25,7 +25,7 @@ class CampaignMenu(Fading):
         self.shadertoy = previous_view.shadertoy
         self.player = previous_view.player
         self.time = previous_view.time
-        self.stop_music_on_hide_view = True
+        self.stop_music_on_hide_view = False
 
         self.previous_view = previous_view
         self._fade_in = None
@@ -50,7 +50,6 @@ class CampaignMenu(Fading):
         self.manager.disable()
 
     def on_back(self) -> None:
-        self.stop_music_on_hide_view = False
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
 
@@ -178,14 +177,6 @@ class CampaignMenu(Fading):
         self.draw_fading()
         self.draw_after(draw_version_number=True)
 
-    def on_toggle_fps(self) -> None:
-        super().on_toggle_fps()
-        self.setup()
-
-    def on_toggle_fullscreen(self) -> None:
-        super().on_toggle_fullscreen()
-        self.setup()
-
     def on_new_game(self) -> None:
         """ On click "New Game" show difficulty selection """
 
@@ -199,6 +190,8 @@ class CampaignMenu(Fading):
 
 
     def on_continue(self):
+
+        self.stop_music_on_hide_view = True
         from views.game import Game
         savegame = SaveGameState.load()
 
