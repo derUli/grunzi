@@ -9,13 +9,12 @@ import constants.controls.keyboard
 import utils.gui
 import utils.text
 from constants.fonts import FONT_DEFAULT
+from constants.gui import BUTTON_WIDTH
 from constants.mapconfig import MapConfig
 from constants.maps import MAPS
 from state.savegamestate import SaveGameState
 from views.fading import Fading
 from views.game import Game
-
-BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (217, 102, 157)
 SPACE_BETWEEN = 20

@@ -7,10 +7,10 @@ import arcade.gui
 import constants.controls.keyboard
 import utils.gui
 import utils.text
+from constants.gui import BUTTON_WIDTH
 from utils.scene import Scene
 from views.fading import Fading
 
-BUTTON_WIDTH = 250
 MARGIN = 40
 FONT_SIZE = 18
 TEXT_COLOR = (255, 255, 255)

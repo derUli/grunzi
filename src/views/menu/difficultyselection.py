@@ -8,11 +8,10 @@ import constants.controls.keyboard
 import utils.gui
 import utils.text
 from constants.fonts import FONT_DEFAULT
+from constants.gui import BUTTON_WIDTH
 from constants.mapconfig import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD, MapConfig
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
-
-BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (217, 102, 157)
 

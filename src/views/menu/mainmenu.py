@@ -8,16 +8,13 @@ import arcade.gui
 import utils.gui
 import utils.text
 from constants.fonts import FONT_ADRIP
+from constants.gui import BUTTON_WIDTH
 from utils.media.audio import streaming_enabled
-from views.menu.campaignmenu import CampaignMenu
 from views.fading import Fading
+from views.menu.campaignmenu import CampaignMenu
 from views.settings.settingsmenu import SettingsMenu
 
-BUTTON_WIDTH = 250
-BUTTON_MARGIN_BOTTOM = 20
-
 COLOR_BACKGROUND = (123, 84, 148)
-
 
 class MainMenu(Fading):
     """ Main menu """

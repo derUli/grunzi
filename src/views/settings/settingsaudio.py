@@ -7,9 +7,8 @@ from arcade.gui.widgets.slider import UISlider
 import constants.controls.keyboard
 import utils.gui
 import utils.text
+from constants.gui import BUTTON_WIDTH
 from views.fading import Fading
-
-BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (123, 84, 148)
 

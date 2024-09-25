@@ -5,13 +5,12 @@ import arcade.gui
 import constants.controls.keyboard
 import utils.gui
 import utils.text
+from constants.gui import BUTTON_WIDTH
 from views.fading import Fading
 from views.settings.settingsaudio import SettingsAudio
 from views.settings.settingscontrols import SettingsControls
 from views.settings.settingsgraphics import SettingsGraphics
 from views.settings.settingsscreen import SettingsScreen
-
-BUTTON_WIDTH = 250
 
 COLOR_BACKGROUND = (123, 84, 148)
 

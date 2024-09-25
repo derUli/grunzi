@@ -5,10 +5,10 @@ import arcade.gui
 import constants.controls.keyboard
 import utils.gui
 import utils.text
+from constants.gui import BUTTON_WIDTH
 from utils.gui import get_texture_by_value
 from views.fading import Fading
 
-BUTTON_WIDTH = 250
 COLOR_BACKGROUND = (123, 84, 148)
 
 
