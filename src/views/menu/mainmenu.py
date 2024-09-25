@@ -12,6 +12,7 @@ from constants.mapconfig import MapConfig
 from constants.maps import FIRST_MAP
 from state.savegamestate import SaveGameState
 from utils.media.audio import streaming_enabled
+from views.campaignmenu import CampaignMenu
 from views.fading import Fading
 from views.menu.difficultyselection import DifficultySelection
 from views.settings.settingsmenu import SettingsMenu
@@ -46,8 +47,8 @@ class MainMenu(Fading):
             align='center',
         )
 
-        newgame_button = arcade.gui.UIFlatButton(
-            text=_("New Game"),
+        campaign_button = arcade.gui.UIFlatButton(
+            text=_("Campaign"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
@@ -87,10 +88,11 @@ class MainMenu(Fading):
         size = self.window.size
         self.shadertoy = self.state.load_shader(size, 'pigs')
 
-        @newgame_button.event("on_click")
-        def on_click_newgame_button(event):
+        @campaign_button.event("on_click")
+        def on_click_campaign_button(event):
             logging.debug(event)
-            self.on_new_game()
+            self.on_campaign()
+
 
         @continue_button.event("on_click")
         def on_click_continue_button(event):
@@ -148,7 +150,7 @@ class MainMenu(Fading):
 
         widgets = [
             label,
-            newgame_button
+            campaign_button
         ]
 
         if SaveGameState.exists():
@@ -204,14 +206,16 @@ class MainMenu(Fading):
             if self.player:
                 self.player.pause()
 
-    def on_new_game(self) -> None:
+    def on_campaign(self) -> None:
         """ On click "New Game" show difficulty selection """
 
-        self.fade_to_view(
-            DifficultySelection(
+        self.window.show_view(
+            CampaignMenu(
                 self.window,
                 self.state,
-                previous_view=self
+                previous_view=self,
+                shadertoy=self.shadertoy,
+                time=self.time
             )
         )
 
