@@ -16,10 +16,11 @@ from views.settings.settingsmenu import SettingsMenu
 
 COLOR_BACKGROUND = (123, 84, 148)
 
+
 class MainMenu(Fading):
     """ Main menu """
 
-    def __init__(self, window, state, player = None):
+    def __init__(self, window, state, player=None):
         """
         Constructor
         @param window: arcade.Window
@@ -84,14 +85,7 @@ class MainMenu(Fading):
             logging.debug(event)
             # Pass already created view because we are resuming.
 
-            self.window.show_view(
-                SettingsMenu(
-                    self.window,
-                    self.state,
-                    previous_view=self,
-                    shadertoy=self.shadertoy, time=self.time
-                )
-            )
+            self.on_settings()
 
         @quit_button.event("on_click")
         def on_click_quit_button(event):
@@ -105,7 +99,6 @@ class MainMenu(Fading):
             options_button,
             quit_button
         ]
-
 
         # Initialise a BoxLayout in which widgets can be arranged.
         widget_layout = arcade.gui.UIBoxLayout(space_between=20, align='center')
@@ -164,10 +157,23 @@ class MainMenu(Fading):
         )
 
     def on_horde(self):
+
+        self._fade_in = None
+
         self.manager.add(arcade.gui.UIMessageBox(
             width=300,
             height=200,
             message_text=_('Not implemented yet.'))
+        )
+
+    def on_settings(self):
+        self.window.show_view(
+            SettingsMenu(
+                self.window,
+                self.state,
+                previous_view=self,
+                shadertoy=self.shadertoy, time=self.time
+            )
         )
 
     def on_update(self, delta_time: float) -> None:

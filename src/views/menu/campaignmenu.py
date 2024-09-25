@@ -126,7 +126,6 @@ class CampaignMenu(Fading):
             from views.highscore.highscorelist import HighscoreList
             self.fade_to_view(HighscoreList(self.window, self.state, previous_view=self.previous_view))
 
-
         @back_button.event("on_click")
         def on_click_back_button(event):
             logging.debug(event)

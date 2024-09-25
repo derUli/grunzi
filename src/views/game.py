@@ -375,7 +375,7 @@ class Game(Fading):
         x_value, y_value = round(x_value), round(y_value)
 
         if stick_name == constants.controls.controller.LEFTSTICK:
-            if x_value > 0 :
+            if x_value > 0:
                 self.state.keypressed.key_right = True
             elif x_value < 0:
                 self.state.keypressed.key_left = True
@@ -393,7 +393,7 @@ class Game(Fading):
 
         if stick_name == constants.controls.controller.RIGHTSTICK:
             face = self.scene.player_sprite.face
-            if x_value > 0 :
+            if x_value > 0:
                 face = FACE_RIGHT
             if x_value < 0:
                 face = FACE_LEFT
