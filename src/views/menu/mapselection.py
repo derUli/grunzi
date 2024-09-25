@@ -46,6 +46,7 @@ class MapSelection(Fading):
         self.setup()
 
     def on_hide_view(self) -> None:
+
         """ On hide view """
 
         super().on_hide_view()
