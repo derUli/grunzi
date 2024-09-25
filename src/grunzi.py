@@ -2,7 +2,6 @@
 
 """ Starts the game """
 
-import logging
 import os
 import sys
 import tkinter.messagebox as messagebox
@@ -26,6 +25,8 @@ def start_frozen() -> None:
     except KeyboardInterrupt:
         sys.exit(1)
     except Exception as e:
+        import logging
+
         logging.critical("Fatal exception", exc_info=e)
         messagebox.showerror('Error', (repr(e)))
         sys.exit(1)
