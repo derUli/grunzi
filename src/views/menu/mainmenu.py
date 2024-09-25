@@ -8,13 +8,9 @@ import arcade.gui
 import utils.gui
 import utils.text
 from constants.fonts import FONT_ADRIP
-from constants.mapconfig import MapConfig
-from constants.maps import FIRST_MAP
-from state.savegamestate import SaveGameState
 from utils.media.audio import streaming_enabled
 from views.campaignmenu import CampaignMenu
 from views.fading import Fading
-from views.menu.difficultyselection import DifficultySelection
 from views.settings.settingsmenu import SettingsMenu
 
 BUTTON_WIDTH = 250
@@ -26,7 +22,7 @@ COLOR_BACKGROUND = (123, 84, 148)
 class MainMenu(Fading):
     """ Main menu """
 
-    def __init__(self, window, state):
+    def __init__(self, window, state, player = None):
         """
         Constructor
         @param window: arcade.Window
@@ -53,24 +49,6 @@ class MainMenu(Fading):
             style=utils.gui.get_button_style()
         )
 
-        continue_button = arcade.gui.UIFlatButton(
-            text=_("Continue"),
-            width=BUTTON_WIDTH,
-            style=utils.gui.get_button_style(),
-        )
-
-        select_map_button = arcade.gui.UIFlatButton(
-            text=_("Select Map"),
-            width=BUTTON_WIDTH,
-            style=utils.gui.get_button_style(),
-        )
-
-        highscore_button = arcade.gui.UIFlatButton(
-            text=_("Online Highscore"),
-            width=BUTTON_WIDTH,
-            style=utils.gui.get_button_style(),
-        )
-
         options_button = arcade.gui.UIFlatButton(
             text=_("Settings"),
             width=BUTTON_WIDTH,
@@ -92,42 +70,6 @@ class MainMenu(Fading):
         def on_click_campaign_button(event):
             logging.debug(event)
             self.on_campaign()
-
-
-        @continue_button.event("on_click")
-        def on_click_continue_button(event):
-            logging.debug(event)
-            # Pass already created view because we are resuming.
-
-            from views.game import Game
-            savegame = SaveGameState.load()
-
-            if not savegame.current:
-                savegame.current = FIRST_MAP
-            self.state.map_name = savegame.current
-            self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
-
-            self.fade_to_view(Game(self.window, self.state))
-
-        @select_map_button.event("on_click")
-        def on_click_select_map_button(event):
-            logging.debug(event)
-
-            # Pass already created view because we are resuming.
-
-            from views.menu.mapselection import MapSelection
-            savegame = SaveGameState.load()
-            self.state.map_name = savegame.current
-            self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
-
-            self.fade_to_view(MapSelection(self.window, self.state, previous_view=self))
-
-        @highscore_button.event("on_click")
-        def on_highscore_button(event):
-            logging.debug(event)
-
-            from views.highscore.highscorelist import HighscoreList
-            self.fade_to_view(HighscoreList(self.window, self.state, previous_view=self))
 
         @options_button.event("on_click")
         def on_click_options_button(event):
@@ -153,11 +95,7 @@ class MainMenu(Fading):
             campaign_button
         ]
 
-        if SaveGameState.exists():
-            widgets += [continue_button, select_map_button]
-
         widgets += [
-            highscore_button,
             options_button,
             quit_button
         ]
@@ -208,6 +146,7 @@ class MainMenu(Fading):
 
     def on_campaign(self) -> None:
         """ On click "New Game" show difficulty selection """
+        self._fade_in = None
 
         self.window.show_view(
             CampaignMenu(
@@ -215,7 +154,8 @@ class MainMenu(Fading):
                 self.state,
                 previous_view=self,
                 shadertoy=self.shadertoy,
-                time=self.time
+                time=self.time,
+                player=self.player
             )
         )
 
