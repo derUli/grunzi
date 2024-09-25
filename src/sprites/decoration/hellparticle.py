@@ -13,7 +13,7 @@ HELL_PARTICLE_COLORS = [
 ]
 
 SPEED_FROM = 1
-SPEED_TO = 50
+SPEED_TO = 40
 
 
 class HellParticle(SpriteCircle, Sprite):
