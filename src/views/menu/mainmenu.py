@@ -9,7 +9,7 @@ import utils.gui
 import utils.text
 from constants.fonts import FONT_ADRIP
 from utils.media.audio import streaming_enabled
-from views.campaignmenu import CampaignMenu
+from views.menu.campaignmenu import CampaignMenu
 from views.fading import Fading
 from views.settings.settingsmenu import SettingsMenu
 
