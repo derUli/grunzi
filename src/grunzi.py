@@ -28,7 +28,7 @@ def start_frozen() -> None:
         import logging
 
         logging.critical("Fatal exception", exc_info=e)
-        messagebox.showerror('Error', (repr(e)))
+        messagebox.showerror('Error', repr(e))
         sys.exit(1)
 
 
