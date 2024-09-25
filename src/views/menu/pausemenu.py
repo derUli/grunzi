@@ -10,9 +10,6 @@ from views.fading import Fading
 from views.menu.mainmenu import MainMenu
 from views.settings.settingsmenu import SettingsMenu
 
-COLOR_BACKGROUND = (74, 146, 182)
-
-
 class PauseMenu(Fading):
     """ Main menu view class."""
 
@@ -23,7 +20,6 @@ class PauseMenu(Fading):
         self.manager = arcade.gui.UIManager(window)
         self.state = state
         self.previous_view = previous_view
-        self.background = COLOR_BACKGROUND
         self.player = None
 
     def setup(self) -> None:

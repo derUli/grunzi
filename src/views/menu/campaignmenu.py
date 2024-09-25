@@ -12,9 +12,6 @@ from state.savegamestate import SaveGameState
 from views.fading import Fading
 from views.menu.difficultyselection import DifficultySelection
 
-COLOR_BACKGROUND = (123, 84, 148)
-
-
 class CampaignMenu(Fading):
     """Main menu view class."""
 
@@ -28,10 +25,10 @@ class CampaignMenu(Fading):
         self.shadertoy = previous_view.shadertoy
         self.player = previous_view.player
         self.time = previous_view.time
+        self.stop_music_on_hide_view = True
 
         self.previous_view = previous_view
         self._fade_in = None
-        self.background = COLOR_BACKGROUND
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
@@ -44,11 +41,16 @@ class CampaignMenu(Fading):
 
     def on_hide_view(self) -> None:
         super().on_hide_view()
+
+        if self.stop_music_on_hide_view and self.previous_view.player:
+            self.previous_view.player.pause()
+
         # Disable the UIManager when the view is hidden.
         self.pop_controller_handlers()
         self.manager.disable()
 
     def on_back(self) -> None:
+        self.stop_music_on_hide_view = False
         self.previous_view.time = self.time
         self.window.show_view(self.previous_view)
 
@@ -94,17 +96,8 @@ class CampaignMenu(Fading):
         @continue_button.event("on_click")
         def on_click_continue_button(event):
             logging.debug(event)
-            # Pass already created view because we are resuming.
 
-            from views.game import Game
-            savegame = SaveGameState.load()
-
-            if not savegame.current:
-                savegame.current = FIRST_MAP
-            self.state.map_name = savegame.current
-            self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
-
-            self.fade_to_view(Game(self.window, self.state))
+            self.on_continue()
 
         @select_map_button.event("on_click")
         def on_click_select_map_button(event):
@@ -203,3 +196,15 @@ class CampaignMenu(Fading):
                 previous_view=self.previous_view,
             )
         )
+
+
+    def on_continue(self):
+        from views.game import Game
+        savegame = SaveGameState.load()
+
+        if not savegame.current:
+            savegame.current = FIRST_MAP
+        self.state.map_name = savegame.current
+        self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
+
+        self.fade_to_view(Game(self.window, self.state))

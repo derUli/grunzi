@@ -14,8 +14,6 @@ from views.fading import Fading
 from views.menu.campaignmenu import CampaignMenu
 from views.settings.settingsmenu import SettingsMenu
 
-COLOR_BACKGROUND = (123, 84, 148)
-
 
 class MainMenu(Fading):
     """ Main menu """
@@ -31,7 +29,6 @@ class MainMenu(Fading):
         self.window = window
         self.state = state
         self.manager = arcade.gui.UIManager(window)
-        self.background = COLOR_BACKGROUND
 
         label = arcade.gui.UILabel(
             text=_('Grunzi'),

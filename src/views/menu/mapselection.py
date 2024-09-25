@@ -16,7 +16,6 @@ from state.savegamestate import SaveGameState
 from views.fading import Fading
 from views.game import Game
 
-COLOR_BACKGROUND = (217, 102, 157)
 SPACE_BETWEEN = 20
 
 
@@ -34,7 +33,6 @@ class MapSelection(Fading):
 
         self.maps = []
         self.map_buttons = {}
-        self.background = COLOR_BACKGROUND
         self.selected = None
         self.stop_music_on_hide_view = False
 

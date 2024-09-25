@@ -13,8 +13,6 @@ from constants.mapconfig import DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_H
 from state.savegamestate import SaveGameState, new_savegame
 from views.fading import Fading
 
-COLOR_BACKGROUND = (217, 102, 157)
-
 
 class DifficultySelection(Fading):
     """ Difficulty selection """
@@ -27,9 +25,9 @@ class DifficultySelection(Fading):
         self.previous_view = previous_view
         self.manager = arcade.gui.UIManager(window)
         self.shadertoy = self.state.load_shader(window.size, 'pink')
-        self.background = COLOR_BACKGROUND
         self.difficulty = None
-        self.stop_music_on_hide_view = False
+
+        self.stop_music_on_hide_view = True
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
