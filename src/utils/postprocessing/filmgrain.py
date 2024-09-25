@@ -6,14 +6,6 @@ from state.argscontainer import ArgsContainer
 from utils.postprocessing.effect import Effect
 from utils.sprite import load_animated_gif
 
-COLOR_GREEN = (124, 252, 0)
-COLOR_YELLOW = (252, 234, 2)
-COLOR_WHITE = (228, 227, 225)
-
-INDEX_YELLOW = 0
-INDEX_GREEN = 1
-INDEX_WHITE = 2
-
 ALPHA = 18
 
 
