@@ -37,6 +37,7 @@ class MapSelection(Fading):
         self.map_buttons = {}
         self.background = COLOR_BACKGROUND
         self.selected = None
+        self.stop_music_on_hide_view = False
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -55,7 +56,7 @@ class MapSelection(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
-        if self.previous_view.player:
+        if self.stop_music_on_hide_view and self.previous_view.player:
             self.previous_view.player.pause()
 
     def setup(self) -> None:
@@ -243,13 +244,13 @@ class MapSelection(Fading):
     def on_back(self) -> None:
         """ On back """
 
-        from views.menu.mainmenu import MainMenu
-        self.fade_to_view(MainMenu(self.window, self.state))
+        from views.menu.mainmenu import CampaignMenu
+        self.fade_to_view(CampaignMenu(self.window, self.state, previous_view=self.previous_view))
 
     def on_select_level(self, event):
-        for map in self.map_buttons:
-            if self.map_buttons[map] == event.source:
-                self.selected = map
+        for m in self.map_buttons:
+            if self.map_buttons[m] == event.source:
+                self.selected = m
                 self.setup()
 
                 return
@@ -258,6 +259,7 @@ class MapSelection(Fading):
         savegame = SaveGameState.load()
         self.state.map_name = self.selected
         self.state.difficulty = MapConfig(savegame.difficulty, self.selected, self.state.map_dir)
+        self.stop_music_on_hide_view = True
 
         self.fade_to_view(Game(self.window, self.state))
 

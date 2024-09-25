@@ -30,6 +30,7 @@ class DifficultySelection(Fading):
         self.shadertoy = self.state.load_shader(window.size, 'pink')
         self.background = COLOR_BACKGROUND
         self.difficulty = None
+        self.stop_music_on_hide_view = False
 
     def on_show_view(self) -> None:
         """ This is run once when we switch to this view """
@@ -37,7 +38,6 @@ class DifficultySelection(Fading):
         super().on_show_view()
         self.push_controller_handlers()
         self.window.set_mouse_visible(True)
-
         self.setup()
 
     def on_hide_view(self) -> None:
@@ -47,7 +47,7 @@ class DifficultySelection(Fading):
         self.pop_controller_handlers()
         self.manager.disable()
 
-        if self.previous_view.player:
+        if self.stop_music_on_hide_view and self.previous_view.player:
             self.previous_view.player.pause()
 
     def setup(self) -> None:
@@ -135,7 +135,7 @@ class DifficultySelection(Fading):
 
         self.manager.enable()
 
-        if self.previous_view.player:
+        if self.stop_music_on_hide_view and self.previous_view.player:
             self.previous_view.player.play()
 
     def on_key_press(self, key, modifiers) -> None:
@@ -174,13 +174,11 @@ class DifficultySelection(Fading):
 
         logging.info(utils.text.label_value('Difficulty', difficulty))
 
-        if self.previous_view.player:
-            self.previous_view.player.pause()
-
         new_savegame(self.state.map_name_first, difficulty)
 
         self.state.map_name = self.state.map_name_first
         self.state.difficulty = MapConfig(difficulty, self.state.map_name, self.state.map_dir)
+        self.stop_music_on_hide_view = True
 
         from views.game import Game
         self.fade_to_view(Game(self.window, self.state))
@@ -188,8 +186,14 @@ class DifficultySelection(Fading):
     def on_back(self) -> None:
         """ On click "Back" button """
 
-        from views.menu.mainmenu import MainMenu
-        self.fade_to_view(MainMenu(self.window, self.state))
+        from views.menu.mainmenu import CampaignMenu
+        self.fade_to_view(
+            CampaignMenu(
+                self.window,
+                self.state,
+                previous_view=self.previous_view,
+            )
+        )
 
     def on_confirm_overwrite_savegame(self) -> None:
         """ Show confirm overwrite savegame dialog """

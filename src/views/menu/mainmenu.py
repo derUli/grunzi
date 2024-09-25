@@ -152,10 +152,7 @@ class MainMenu(Fading):
             CampaignMenu(
                 self.window,
                 self.state,
-                previous_view=self,
-                shadertoy=self.shadertoy,
-                time=self.time,
-                player=self.player
+                previous_view=self
             )
         )
 

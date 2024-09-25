@@ -23,15 +23,16 @@ COLOR_BACKGROUND = (123, 84, 148)
 class CampaignMenu(Fading):
     """Main menu view class."""
 
-    def __init__(self, window, state, previous_view, shadertoy, player, time=0):
+    def __init__(self, window, state, previous_view):
         super().__init__(window)
 
         self.window = window
         self.state = state
         self.manager = arcade.gui.UIManager(window)
-        self.shadertoy = shadertoy
-        self.time = time
-        self.player = player
+
+        self.shadertoy = previous_view.shadertoy
+        self.player = previous_view.player
+        self.time = previous_view.time
 
         self.previous_view = previous_view
         self._fade_in = None
@@ -121,14 +122,14 @@ class CampaignMenu(Fading):
             self.state.map_name = savegame.current
             self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
-            self.fade_to_view(MapSelection(self.window, self.state, previous_view=self))
+            self.fade_to_view(MapSelection(self.window, self.state, previous_view=self.previous_view))
 
         @highscore_button.event("on_click")
         def on_highscore_button(event):
             logging.debug(event)
 
             from views.highscore.highscorelist import HighscoreList
-            self.fade_to_view(HighscoreList(self.window, self.state, previous_view=self))
+            self.fade_to_view(HighscoreList(self.window, self.state, previous_view=self.previous_view))
 
 
         @back_button.event("on_click")
@@ -205,6 +206,6 @@ class CampaignMenu(Fading):
             DifficultySelection(
                 self.window,
                 self.state,
-                previous_view=self
+                previous_view=self.previous_view,
             )
         )

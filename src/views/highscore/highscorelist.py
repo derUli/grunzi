@@ -44,9 +44,6 @@ class HighscoreList(Fading):
         super().on_hide_view()
         self.pop_controller_handlers()
 
-        if self.previous_view.player:
-            self.previous_view.player.pause()
-
     def setup(self) -> None:
         """ Setup the view """
 
@@ -151,5 +148,5 @@ class HighscoreList(Fading):
     def on_back(self) -> None:
         """ On click "Back" button """
 
-        from views.menu.mainmenu import MainMenu
-        self.fade_to_view(MainMenu(self.window, self.state))
+        from views.menu.mainmenu import CampaignMenu
+        self.fade_to_view(CampaignMenu(self.window, self.state, previous_view=self.previous_view))
