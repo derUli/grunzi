@@ -2,7 +2,6 @@ class LookupTableEntry:
     def __init__(self):
         self.position_1 = (-1, -1)
         self.position_2 = (-1, -1)
-
         self._value = []
 
     def needs_update(self, sprite1, sprite2 = None):
@@ -27,3 +26,9 @@ class LookupTableEntry:
 
     def get(self):
         return self._value
+
+
+    def clear(self):
+        self.position_1 = (-1, -1)
+        self.position_2 = (-1, -1)
+        self._value = []
