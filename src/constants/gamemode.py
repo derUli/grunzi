@@ -1,0 +1,2 @@
+GAMEMODE_CAMPAIGN = 'Campaign'
+GAMEMODE_HORDE = 'Horde'

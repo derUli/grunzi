@@ -9,13 +9,14 @@ import pyglet
 
 import utils.media.audio
 from constants.collisions import GRID_SIZE
+from constants.gamemode import GAMEMODE_CAMPAIGN
 from constants.layers import LAYER_OPTIONS
 from constants.mapconfig import MapConfig
 from sprites.characters.player import Player
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
-from utils.mappopulator import MapPopulator
+from utils.mappopulator.mappopulator import MapPopulator, init_map_populator
 from utils.physics import make_physics_engine
 from utils.scene import Scene
 from utils.tilemap import TileMap
@@ -78,7 +79,7 @@ class Loader:
         filename = os.path.join(self.parent.state.sprite_dir, 'char', 'pig.png')
         self.parent.scene.player_sprite = Player(filename)
 
-        self.parent.map_populator = MapPopulator()
+        self.parent.map_populator = init_map_populator(GAMEMODE_CAMPAIGN)
         self.parent.map_populator.spawn_initial(make_args_container(self.parent))
 
         self.parent.scene.player_sprite.setup(

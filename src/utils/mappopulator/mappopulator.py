@@ -11,6 +11,7 @@ from sprites.decoration.snow import Snow, SNOW_COLORS
 from sprites.items.food import spawn_food
 from sprites.items.landmine import spawn_landmine
 from state.argscontainer import ArgsContainer
+from utils.text import label_value
 
 
 class MapPopulator:
@@ -21,23 +22,7 @@ class MapPopulator:
         self.enabled = True
 
     def update(self, args: ArgsContainer) -> None:
-        if not self.enabled:
-            return
-
-        if time.time() < self.next_spawn:
-            return
-
-        from constants.layers import LAYER_NPC
-
-        try:
-            enemies = args.scene[LAYER_NPC]
-        except KeyError:
-            enemies = []
-
-        if len(enemies) >= args.state.difficulty.max_npcs:
-            return
-
-        self.spawn(args)
+        logging.error('MapPopulator update() not implemented')
 
     def spawn(self, args: ArgsContainer) -> None:
         if not self.enabled:
@@ -93,15 +78,7 @@ class MapPopulator:
     def spawn_initial(self, args: ArgsContainer) -> None:
         """ Spawn some sprites on level load """
 
-        self.init_npc_spritelist(args)
-
-        if not self.enabled:
-            return
-
-        self.spawn_food(args)
-        self.spawn_landmine(args)
-        self.spawn_snow(args)
-        self.spawn_hell_particles(args)
+        logging.error('MapPopulator spawn_initial() not implemented')
 
     def init_npc_spritelist(self, args):
         from constants.layers import LAYER_NPC
@@ -159,3 +136,15 @@ class MapPopulator:
             particle.center_y = random.randint(0, args.tilemap.height)
 
             args.scene.add_sprite(LAYER_SNOW, particle)
+
+
+def init_map_populator(gamemode: str) -> MapPopulator:
+    from constants.gamemode import GAMEMODE_CAMPAIGN
+
+    if gamemode == GAMEMODE_CAMPAIGN:
+        from utils.mappopulator.campaignmappopulator import CampaignMapPopulator
+        return CampaignMapPopulator()
+    else:
+        gamemode = 'Unknown'
+
+    logging.error(label_value('MapPopulator', gamemode))
