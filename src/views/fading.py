@@ -36,6 +36,7 @@ class Fading(View):
 
         if self._fade_in is not None:
             self._fade_in -= speed
+
             if self._fade_in <= 0:
                 self._fade_in = None
 
