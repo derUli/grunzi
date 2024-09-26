@@ -19,54 +19,15 @@ from utils.loader.loader import Loader
 from utils.media.video import load_video, Video, video_supported
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from views.camera import center_camera_to_player
-from views.fading import Fading
+from views.game.game import Game
 from views.menu.mainmenu import MainMenu
 from views.menu.pausemenu import PauseMenu
 
 
-class GameCampaign(Fading):
+class GameCampaign(Game):
     """
     Main application class.
     """
-
-    def __init__(self, window, state, skip_intro=False):
-
-        # Call the parent class and set up the window
-        super().__init__(window)
-
-        self.initialized = False
-
-        self.state = state
-
-        # Our TileMap Object
-        self.tilemap = None
-
-        # Separate variable that holds the player sprite
-        self.scene.player_sprite = None
-
-        # Our physics engine
-        self.physics_engine = None
-
-        # A Camera that can be used for scrolling the screen
-        self.camera_sprites = None
-
-        # Music queue
-        self.music_queue = None
-        self.atmo = None
-        self.loading_music = None
-
-        # This method is called in next call of on_update
-        self._call_method = None
-
-        self.video = Video(None)
-        self.skip_intro = skip_intro
-
-        self.ui = None
-        self.level_completed = False
-
-        self.astar_barrier_list = None
-        self.wall_spritelist = None
-        self.map_populator = None
 
     def on_show_view(self) -> None:
         """ On show view """
@@ -103,10 +64,7 @@ class GameCampaign(Fading):
         self.initialized = False
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
-        if not self.state.settings.videos:
-            self.skip_intro = True
-
-        if not video_supported():
+        if not self.state.settings.videos or not video_supported():
             self.skip_intro = True
 
         if not self.skip_intro:
@@ -580,12 +538,3 @@ class GameCampaign(Fading):
         self.on_select_item(index=-1)
 
         return True
-
-    @property
-    def input_ready(self) -> bool:
-        """ Check if the game is ready to handle input """
-
-        if not self.initialized:
-            return False
-
-        return not self.video.active

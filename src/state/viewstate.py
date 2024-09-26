@@ -134,13 +134,7 @@ class ViewState:
             path = file
             name = os.path.splitext(os.path.basename(path))[0]
 
-            streaming = False
-
-            # Streaming for map atmos
-            if name in MAPS:
-                streaming = streaming_enabled()
-
-            self.sounds['atmos'][name] = arcade.load_sound(path, streaming=streaming)
+            self.sounds['atmos'][name] = arcade.load_sound(path)
 
         for i in range(1, 6):
             self.sounds[f"grunt{i}"] = arcade.load_sound(
