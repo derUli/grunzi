@@ -60,7 +60,6 @@ class GameCampaign(Game):
     def setup(self) -> None:
         """ Setup game """
 
-        self.initialized = False
         video_file = os.path.join(self.state.video_dir, 'splash', f"{self.state.map_name}.webm")
 
         if not self.state.settings.videos or not video_supported():
@@ -73,6 +72,7 @@ class GameCampaign(Game):
                 self.state.settings.music_volume * self.state.settings.master_volume
             )
 
+        self.initialized = False
         self.loading_music = None
 
         self.ui = UIContainer()
