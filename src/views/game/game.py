@@ -4,12 +4,11 @@ from sprites.ui.uicontainer import UIContainer
 from utils.loader.loader import Loader
 from utils.media.video import Video
 from views.fading import Fading
-from views.menu.mainmenu import MainMenu
+from views.menu.pausemenu import PauseMenu
 
 
 class Game(Fading):
     def __init__(self, window, state, skip_intro=False):
-
         # Call the parent class and set up the window
         super().__init__(window)
 
@@ -69,3 +68,15 @@ class Game(Fading):
 
     def on_gameover(self):
         logging.warning('TODO: implement on_gameover()')
+
+    def on_pause(self) -> None:
+        """
+        On show pause menu
+        """
+
+        self.state.keypressed.reset()
+        self.scene.player_sprite.reset()
+
+        menu = PauseMenu(self.window, self.state, self)
+        menu.setup()
+        self.window.show_view(menu)

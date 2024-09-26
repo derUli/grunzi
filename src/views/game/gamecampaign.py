@@ -12,15 +12,12 @@ from constants.maps import MAPS
 from sprites.bullet.grunt import Grunt
 from sprites.characters.player import MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
-from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
-from utils.loader.loader import Loader
 from utils.media.video import load_video, Video, video_supported
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from views.camera import center_camera_to_player
 from views.game.game import Game
-from views.menu.pausemenu import PauseMenu
 
 
 class GameCampaign(Game):
@@ -468,18 +465,6 @@ class GameCampaign(Game):
                 self.ui.inventory.unselect()
 
         self.scene.add_sprite(layer, new_item)
-
-    def on_pause(self) -> None:
-        """
-        On show pause menu
-        """
-
-        self.state.keypressed.reset()
-        self.scene.player_sprite.reset()
-
-        menu = PauseMenu(self.window, self.state, self)
-        menu.setup()
-        self.window.show_view(menu)
 
     def on_use(self):
 
