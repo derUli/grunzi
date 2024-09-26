@@ -20,7 +20,6 @@ from utils.media.video import load_video, Video, video_supported
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from views.camera import center_camera_to_player
 from views.game.game import Game
-from views.menu.mainmenu import MainMenu
 from views.menu.pausemenu import PauseMenu
 
 
