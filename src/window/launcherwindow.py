@@ -55,6 +55,7 @@ class LauncherWindow(ThemedTk):
         self.confirmed = False
 
         self.borderless_check = None
+        self.fullscreen_check = None
         self.weather_check = None
         self.color_tint_check = None
 
@@ -117,14 +118,26 @@ class LauncherWindow(ThemedTk):
             state='readonly'
         ).grid(row=0, column=1, pady=SPACE_BETWEEN_Y, sticky=tk.E)
 
-        ttk.Checkbutton(
+        fullscreen_state = tk.NORMAL
+        if self.borderless.get():
+            fullscreen_state = tk.DISABLED
+
+        self.fullscreen_check = ttk.Checkbutton(
             tab_screen,
             text=_('Fullscreen'),
             variable=self.fullscreen,
             onvalue=True,
             offvalue=False,
+            state=fullscreen_state,
             command=self.on_toggle_fullscreen
-        ).grid(row=1, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
+        )
+
+        self.fullscreen_check.grid(row=1, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
+
+        borderless_state = tk.NORMAL
+
+        if self.fullscreen.get():
+            borderless_state = tk.DISABLED
 
         self.borderless_check = ttk.Checkbutton(
             tab_screen,
@@ -132,11 +145,11 @@ class LauncherWindow(ThemedTk):
             variable=self.borderless,
             onvalue=True,
             offvalue=False,
+            state=borderless_state,
+            command=self.on_toggle_borderless
         )
 
         self.borderless_check.grid(row=2, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
-
-        self.on_toggle_fullscreen()
 
         ttk.Checkbutton(tab_screen,
                         text=_('V-Sync'),
@@ -309,6 +322,17 @@ class LauncherWindow(ThemedTk):
             self.borderless.set(False)
         else:
             self.borderless_check.configure(state='enabled')
+
+    def on_toggle_borderless(self) -> None:
+        """
+        On toggle fullscreen enable or disable and uncheck the "Borderless" checkbox
+        """
+        if self.borderless.get():
+            self.fullscreen_check.configure(state='disabled')
+            self.fullscreen.set(False)
+        else:
+            self.fullscreen_check.configure(state='enabled')
+
 
     def on_change_quality(self, value):
         rounded = int(float(value))

@@ -66,7 +66,7 @@ class GameWindow(arcade.Window):
 
         draw_rate *= 0.5
 
-        self.change_screen_mode(not window)
+        self.change_screen_mode(not window, borderless)
 
         self.set_draw_rate(draw_rate)
         self.set_update_rate(update_rate)
@@ -89,14 +89,16 @@ class GameWindow(arcade.Window):
         if any(self.controllers):
             center_cursor(self)
 
-    def change_screen_mode(self, fullscreen: bool = True) -> None:
+    def change_screen_mode(self, fullscreen: bool = True, borderless: bool = False) -> None:
         """
         Change the screen mode
 
         @param fullscreen: Is Fullscreen
         """
 
-        if self.is_native:
+        print(borderless)
+
+        if borderless:
             return
         screen = pyglet.canvas.get_display().get_default_screen()
         mode = screen.get_closest_mode(self.width, self.height)
