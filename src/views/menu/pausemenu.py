@@ -10,6 +10,7 @@ from views.fading import Fading
 from views.menu.mainmenu import MainMenu
 from views.settings.settingsmenu import SettingsMenu
 
+
 class PauseMenu(Fading):
     """ Main menu view class."""
 

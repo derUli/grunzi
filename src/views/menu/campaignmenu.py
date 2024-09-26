@@ -12,6 +12,7 @@ from state.savegamestate import SaveGameState
 from views.fading import Fading
 from views.menu.difficultyselection import DifficultySelection
 
+
 class CampaignMenu(Fading):
     """Main menu view class."""
 
@@ -187,7 +188,6 @@ class CampaignMenu(Fading):
                 previous_view=self.previous_view,
             )
         )
-
 
     def on_continue(self):
 
