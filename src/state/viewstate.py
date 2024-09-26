@@ -10,7 +10,7 @@ import pyglet
 from arcade.experimental import Shadertoy
 from pyglet import media
 
-from constants.maps import FIRST_MAP, MAPS
+from constants.maps import FIRST_MAP
 from utils.keypressed import KeyPressed
 from utils.media.audio import streaming_enabled
 

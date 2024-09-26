@@ -2,7 +2,6 @@ import logging
 import os
 import sys
 
-import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
@@ -14,8 +13,7 @@ from sprites.characters.player import MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
-from utils.media.video import load_video, Video, video_supported
-from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
+from utils.media.video import load_video, video_supported
 from views.camera import center_camera_to_player
 from views.game.game import Game
 
