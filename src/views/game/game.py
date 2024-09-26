@@ -1,5 +1,8 @@
+import logging
+
 from utils.media.video import Video
 from views.fading import Fading
+from views.menu.mainmenu import MainMenu
 
 
 class Game(Fading):
@@ -51,3 +54,6 @@ class Game(Fading):
             return False
 
         return not self.video.active
+
+    def on_gameover(self):
+        logging.warning('TODO: implement on_gameover()')

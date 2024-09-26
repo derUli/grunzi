@@ -263,7 +263,6 @@ class GameCampaign(Game):
             self.scene.player_sprite.modifier = MODIFIER_SPRINT
 
     def on_button_release(self, controller, key):
-
         if self.scene.player_sprite and key in constants.controls.controller.KEY_SPRINT:
             self.scene.player_sprite.modifier = MODIFIER_DEFAULT
 
@@ -273,9 +272,6 @@ class GameCampaign(Game):
 
     def on_item_next(self):
         self.on_select_item(index=self.ui.inventory.next())
-
-    def on_main_menu(self):
-        self.fade_to_view(MainMenu(self.window, self.state))
 
     def on_gameover(self):
         self.on_next_level(same=True)
