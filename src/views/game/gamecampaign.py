@@ -72,15 +72,7 @@ class GameCampaign(Game):
                 self.state.settings.music_volume * self.state.settings.master_volume
             )
 
-        self.initialized = False
-        self.loading_music = None
-
-        self.ui = UIContainer()
-        self.ui.setup(self.state, self.window.size)
-
-        self.level_completed = False
-        # Load map
-        Loader(self).load_async()
+        super().setup()
 
     def wait_for_video(self, delta_time=0) -> None:
         """ Wait until video playback completed """

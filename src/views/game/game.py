@@ -1,5 +1,7 @@
 import logging
 
+from sprites.ui.uicontainer import UIContainer
+from utils.loader.loader import Loader
 from utils.media.video import Video
 from views.fading import Fading
 from views.menu.mainmenu import MainMenu
@@ -45,6 +47,16 @@ class Game(Fading):
         self.wall_spritelist = None
         self.map_populator = None
 
+    def setup(self):
+        self.initialized = False
+        self.loading_music = None
+
+        self.ui = UIContainer()
+        self.ui.setup(self.state, self.window.size)
+
+        self.level_completed = False
+        # Load map
+        Loader(self).load_async()
 
     @property
     def input_ready(self) -> bool:
