@@ -1,8 +1,11 @@
 import logging
 
+import pyglet
+
 from sprites.ui.uicontainer import UIContainer
 from utils.loader.loader import Loader
 from utils.media.video import Video
+from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
 from views.fading import Fading
 from views.menu.pausemenu import PauseMenu
 
@@ -80,3 +83,25 @@ class Game(Fading):
         menu = PauseMenu(self.window, self.state, self)
         menu.setup()
         self.window.show_view(menu)
+
+    def wait_for_video(self, delta_time=0) -> None:
+        """ Wait until video playback completed """
+
+        self.window.set_mouse_visible(False)
+
+        if not self.input_ready:
+            return
+
+        self.video = Video(None)
+        self.music_queue.play()
+
+        atmo = self.state.play_sound('atmos', self.state.map_name, loop=True)
+        self.atmo = PositionalSound(
+            self.scene.player_sprite,
+            self.scene.player_sprite,
+            atmo,
+            self.state,
+            volume_source=VOLUME_SOURCE_ATMO
+        )
+
+        pyglet.clock.unschedule(self.wait_for_video)

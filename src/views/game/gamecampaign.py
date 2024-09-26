@@ -71,28 +71,6 @@ class GameCampaign(Game):
 
         super().setup()
 
-    def wait_for_video(self, delta_time=0) -> None:
-        """ Wait until video playback completed """
-
-        self.window.set_mouse_visible(False)
-
-        if not self.input_ready:
-            return
-
-        self.video = Video(None)
-        self.music_queue.play()
-
-        atmo = self.state.play_sound('atmos', self.state.map_name, loop=True)
-        self.atmo = PositionalSound(
-            self.scene.player_sprite,
-            self.scene.player_sprite,
-            atmo,
-            self.state,
-            volume_source=VOLUME_SOURCE_ATMO
-        )
-
-        pyglet.clock.unschedule(self.wait_for_video)
-
     def on_update(self, delta_time: float) -> None:
         """Movement and game logic"""
 
