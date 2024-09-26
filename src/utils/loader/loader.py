@@ -16,7 +16,7 @@ from sprites.characters.player import Player
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.callbackhandler import CallbackHandler
-from utils.mappopulator.mappopulator import MapPopulator, init_map_populator
+from utils.mappopulator.mappopulator import init_map_populator
 from utils.physics import make_physics_engine
 from utils.scene import Scene
 from utils.tilemap import TileMap
@@ -102,8 +102,8 @@ class Loader:
         self.parent.wall_spritelist = self.parent.scene.make_wall_spritelist()
 
         sprite = arcade.SpriteSolidColor(
-            width=64,
-            height=64,
+            width=GRID_SIZE,
+            height=GRID_SIZE,
             color=arcade.color.BLACK
         )
 
