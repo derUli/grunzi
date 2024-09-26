@@ -23,7 +23,6 @@ Für fortgeschrittene Nutzer gibt es optional die Möglichkeit, die folgenden St
 ```
   --window              Run in windowed mode
   --fullscreen          Run in fullscreen mode
-  --borderless          Borderless window
   --width WIDTH         Window width in pixels
   --height HEIGHT       Window height in pixels
   --silent              Mute the sound

@@ -465,9 +465,6 @@ msgstr ""
 msgid "Screen resolution"
 msgstr "Bildschirmauflösung"
 
-#: window/launcherwindow.py:131
-msgid "Borderless"
-msgstr "Rahmenlos"
 
 #: window/launcherwindow.py:210
 msgid "Audio Backend"

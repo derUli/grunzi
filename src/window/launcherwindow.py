@@ -35,7 +35,6 @@ class LauncherWindow(ThemedTk):
         )
 
         self.vsync = tk.BooleanVar(value=not args.no_vsync)
-        self.borderless = tk.BooleanVar(value=args.borderless)
 
         quality = args.video_quality
         if quality is None:
@@ -54,7 +53,6 @@ class LauncherWindow(ThemedTk):
         self.state = SettingsState()
         self.confirmed = False
 
-        self.borderless_check = None
         self.weather_check = None
         self.color_tint_check = None
 
@@ -71,7 +69,6 @@ class LauncherWindow(ThemedTk):
 
             self.fullscreen.set(self.state.fullscreen)
             self.vsync.set(self.state.vsync)
-            self.borderless.set(self.state.borderless)
             self.quality.set(self.state.quality)
             self.antialiasing.set(self.state.antialiasing)
             self.filmgrain.set(self.state.filmgrain)
@@ -123,20 +120,7 @@ class LauncherWindow(ThemedTk):
             variable=self.fullscreen,
             onvalue=True,
             offvalue=False,
-            command=self.on_toggle_fullscreen
         ).grid(row=1, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
-
-        self.borderless_check = ttk.Checkbutton(
-            tab_screen,
-            text=_('Borderless'),
-            variable=self.borderless,
-            onvalue=True,
-            offvalue=False,
-        )
-
-        self.borderless_check.grid(row=2, column=0, pady=SPACE_BETWEEN_Y, sticky=tk.W)
-
-        self.on_toggle_fullscreen()
 
         ttk.Checkbutton(tab_screen,
                         text=_('V-Sync'),
@@ -256,7 +240,6 @@ class LauncherWindow(ThemedTk):
 
         # Apply settings in state
         self.state.fullscreen = self.fullscreen.get()
-        self.state.borderless = self.borderless.get()
         self.state.videos = self.videos.get()
         self.state.vsync = self.vsync.get()
 
@@ -281,7 +264,6 @@ class LauncherWindow(ThemedTk):
         # Apply settings to args
         self.args.fullscreen = self.fullscreen.get()
         self.args.window = not self.fullscreen.get()
-        self.args.borderless = self.borderless.get()
         self.args.no_vsync = not self.vsync.get()
 
         screen_resolution = self.screen_resolution.get().split('x')
@@ -299,16 +281,6 @@ class LauncherWindow(ThemedTk):
         self.confirmed = True
         self.state.save()
         self.destroy()
-
-    def on_toggle_fullscreen(self) -> None:
-        """
-        On toggle fullscreen enable or disable and uncheck the "Borderless" checkbox
-        """
-        if self.fullscreen.get():
-            self.borderless_check.configure(state='disabled')
-            self.borderless.set(False)
-        else:
-            self.borderless_check.configure(state='enabled')
 
     def on_change_quality(self, value):
         rounded = int(float(value))

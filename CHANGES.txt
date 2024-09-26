@@ -15,6 +15,7 @@
 * map03: Nebel Effekt Performance optimiert
 * Global: Geschwindigkeit der Gesundheitsregeneration nun abhängig vom Schwierigkeitsgrad
 * Hauptmenü: Neue Buttons "Kampagne" und "Horde Modus"
+* Einstellungen: "Borderless" Grafikoption entfernt
 
 # Alpha 019 (20.09.2024)
 

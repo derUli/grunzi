@@ -27,7 +27,6 @@ class GameWindow(arcade.Window):
             update_rate: float = UPDATE_RATE,
             draw_rate: float = UNLIMITED_FRAMERATE,
             vsync: bool = False,
-            borderless: bool = False,
             antialiasing: bool = True,
             samples: int = 0,
     ):
@@ -40,9 +39,6 @@ class GameWindow(arcade.Window):
         native_resolution = (native_mode.width, native_mode.height)
         style = pyglet.window.Window.WINDOW_STYLE_DEFAULT
         self.is_native = native_resolution == (width, height)
-
-        if borderless:
-            style = pyglet.window.Window.WINDOW_STYLE_BORDERLESS
 
         logging.info(label_value('Max FPS', draw_rate))
 
