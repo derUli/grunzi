@@ -33,6 +33,7 @@ def make_physics_engine(player_sprite: Player, scene: Scene) -> PymunkPhysicsEng
     @param scene: The scene
     @return: Pymunk Physics Engine
     """
+
     damping = DAMPING
 
     # Set the gravity. (0, 0) is good for outer space and top-down.
