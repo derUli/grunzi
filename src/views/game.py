@@ -584,6 +584,7 @@ class Game(Fading):
     @property
     def input_ready(self) -> bool:
         """ Check if the game is ready to handle input """
+
         if not self.initialized:
             return False
 
