@@ -10,7 +10,7 @@ import pyglet
 from arcade.experimental import Shadertoy
 from pyglet import media
 
-from constants.maps import FIRST_MAP
+from constants.maps import FIRST_MAP, MAPS
 from utils.keypressed import KeyPressed
 from utils.media.audio import streaming_enabled
 
@@ -133,7 +133,14 @@ class ViewState:
         for file in glob.glob(dir):
             path = file
             name = os.path.splitext(os.path.basename(path))[0]
-            self.sounds['atmos'][name] = arcade.load_sound(path)
+
+            streaming = False
+
+            # Streaming for map atmos
+            if name in MAPS:
+                streaming = streaming_enabled()
+
+            self.sounds['atmos'][name] = arcade.load_sound(path, streaming=streaming)
 
         for i in range(1, 6):
             self.sounds[f"grunt{i}"] = arcade.load_sound(
