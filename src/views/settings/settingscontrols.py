@@ -241,3 +241,4 @@ class SettingsControls(Fading):
         """ Go back to main menu """
 
         self.fade_to_view(self.previous_view)
+        self.previous_view._fade_in = 255
