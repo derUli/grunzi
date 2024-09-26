@@ -177,8 +177,8 @@ class DifficultySelection(Fading):
         self.state.difficulty = MapConfig(difficulty, self.state.map_name, self.state.map_dir)
         self.stop_music_on_hide_view = True
 
-        from views.game import Game
-        self.fade_to_view(Game(self.window, self.state))
+        from views.game.gamecampaign import GameCampaign
+        self.fade_to_view(GameCampaign(self.window, self.state))
 
     def on_back(self) -> None:
         """ On click "Back" button """

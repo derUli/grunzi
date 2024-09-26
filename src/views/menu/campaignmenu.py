@@ -192,7 +192,7 @@ class CampaignMenu(Fading):
     def on_continue(self):
 
         self.stop_music_on_hide_view = True
-        from views.game import Game
+        from views.game.gamecampaign import GameCampaign
         savegame = SaveGameState.load()
 
         if not savegame.current:
@@ -200,4 +200,4 @@ class CampaignMenu(Fading):
         self.state.map_name = savegame.current
         self.state.difficulty = MapConfig(savegame.difficulty, self.state.map_name, self.state.map_dir)
 
-        self.fade_to_view(Game(self.window, self.state))
+        self.fade_to_view(GameCampaign(self.window, self.state))

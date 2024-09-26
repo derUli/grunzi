@@ -158,9 +158,9 @@ class PauseMenu(Fading):
         if button.action == _('No'):
             return
 
-        from views.game import Game
+        from views.game.gamecampaign import GameCampaign
         self.previous_view = None
-        self.fade_to_view(Game(self.window, self.state))
+        self.fade_to_view(GameCampaign(self.window, self.state))
         self.player.pause()
 
     def on_exit(self, confirm=False):

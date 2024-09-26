@@ -14,7 +14,7 @@ from constants.mapconfig import MapConfig
 from constants.maps import MAPS
 from state.savegamestate import SaveGameState
 from views.fading import Fading
-from views.game import Game
+from views.game.gamecampaign import GameCampaign
 
 SPACE_BETWEEN = 20
 
@@ -259,7 +259,7 @@ class MapSelection(Fading):
         self.state.difficulty = MapConfig(savegame.difficulty, self.selected, self.state.map_dir)
         self.stop_music_on_hide_view = True
 
-        self.fade_to_view(Game(self.window, self.state))
+        self.fade_to_view(GameCampaign(self.window, self.state))
 
     @property
     def selected_label(self):

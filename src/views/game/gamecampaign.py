@@ -24,7 +24,7 @@ from views.menu.mainmenu import MainMenu
 from views.menu.pausemenu import PauseMenu
 
 
-class Game(Fading):
+class GameCampaign(Fading):
     """
     Main application class.
     """
@@ -366,7 +366,7 @@ class Game(Fading):
             self.fade_to_view(HighscoreAdd(self.window, self.state))
             return
 
-        self.fade_to_view(Game(self.window, self.state, skip_intro=same))
+        self.fade_to_view(GameCampaign(self.window, self.state, skip_intro=same))
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         if not self.input_ready:
