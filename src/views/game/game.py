@@ -3,9 +3,11 @@ import logging
 import pyglet
 
 from sprites.ui.uicontainer import UIContainer
+from state.argscontainer import make_args_container
 from utils.loader.loader import Loader
 from utils.media.video import Video
 from utils.positionalsound import PositionalSound, VOLUME_SOURCE_ATMO
+from views.camera import center_camera_to_player
 from views.fading import Fading
 from views.menu.pausemenu import PauseMenu
 
@@ -59,6 +61,24 @@ class Game(Fading):
         self.level_completed = False
         # Load map
         Loader(self).load_async()
+
+    def on_draw(self) -> None:
+        if not self.initialized or not self.ui.loading_screen.completed:
+            self.ui.loading_screen.draw(time=self.time)
+
+            return self.draw_after()
+
+        center_camera_to_player(self.scene.player_sprite, self.camera_sprites, self.tilemap.size)
+
+        self.camera_sprites.use()
+        self.scene.draw()
+
+        self.camera_gui.use()
+        self.ui.draw()
+
+        self.scene.player_sprite.draw_overlay(args=make_args_container(self))
+        self.draw_fading()
+        self.draw_after()
 
     @property
     def input_ready(self) -> bool:

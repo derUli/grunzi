@@ -146,22 +146,7 @@ class GameCampaign(Game):
             self.video.draw((0, 0), force_draw=True)
             return self.draw_after()
 
-        if not self.initialized or not self.ui.loading_screen.completed:
-            self.ui.loading_screen.draw(time=self.time)
-
-            return self.draw_after()
-
-        center_camera_to_player(self.scene.player_sprite, self.camera_sprites, self.tilemap.size)
-
-        self.camera_sprites.use()
-        self.scene.draw()
-
-        self.camera_gui.use()
-        self.ui.draw()
-
-        self.scene.player_sprite.draw_overlay(args=make_args_container(self))
-        self.draw_fading()
-        self.draw_after()
+        super().on_draw()
 
     def update_player_speed(self) -> None:
         """ Update player sprite """
