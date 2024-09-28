@@ -251,6 +251,8 @@ def animated_in_sight(size, scene, player_sprite) -> list:
             continue
 
         for sprite in layer:
+            if not isinstance(sprite, arcade.sprite.AnimatedTimeBasedSprite):
+                continue
 
             diff = abs(arcade.get_distance_between_sprites(player_sprite, sprite))
 
