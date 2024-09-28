@@ -141,3 +141,19 @@ class Game(Fading):
         )
 
         pyglet.clock.unschedule(self.wait_for_video)
+
+    def update_collectable(self):
+        item = self.scene.get_collectable(self.scene.player_sprite)
+
+        if not item:
+            return False
+
+        if not self.ui.inventory.has_capacity(item):
+            return False
+
+        item.remove_from_sprite_lists()
+        self.ui.inventory.add_item(item)
+
+        self.on_select_item(index=-1)
+
+        return True
