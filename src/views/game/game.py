@@ -2,6 +2,7 @@ import logging
 
 import pyglet
 
+from sprites.bullet.grunt import Grunt
 from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
 from utils.loader.loader import Loader
@@ -89,8 +90,18 @@ class Game(Fading):
 
         return not self.video.active
 
-    def on_gameover(self):
+    def on_gameover(self) -> None:
+        """ Called when the player dies """
+
         logging.warning('TODO: implement on_gameover()')
+
+    def on_grunt(self):
+        return Grunt(8).setup(
+            source=self.scene.player_sprite,
+            physics_engine=self.physics_engine,
+            scene=self.scene,
+            state=self.state
+        )
 
     def on_pause(self) -> None:
         """

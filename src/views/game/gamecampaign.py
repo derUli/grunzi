@@ -8,13 +8,11 @@ import constants.controls.controller
 import constants.controls.keyboard
 from constants.layers import *
 from constants.maps import MAPS
-from sprites.bullet.grunt import Grunt
 from sprites.characters.player import MODIFIER_SPRINT, MODIFIER_DEFAULT
 from sprites.items.item import Useable
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.media.video import load_video, video_supported
-from views.camera import center_camera_to_player
 from views.game.game import Game
 
 
@@ -219,10 +217,13 @@ class GameCampaign(Game):
         """ Select previous item """
         self.on_select_item(index=self.ui.inventory.previous())
 
-    def on_item_next(self):
+    def on_item_next(self) -> None:
+        """ Select next item """
         self.on_select_item(index=self.ui.inventory.next())
 
-    def on_gameover(self):
+    def on_gameover(self) -> None:
+        """ Called when the player dies """
+
         self.on_next_level(same=True)
 
     def on_next_level(self, same=False):
@@ -391,14 +392,6 @@ class GameCampaign(Game):
 
     def on_shoot(self):
         return self.scene.player_sprite.shoot(self.state, self.scene, self.physics_engine)
-
-    def on_grunt(self):
-        return Grunt(8).setup(
-            source=self.scene.player_sprite,
-            physics_engine=self.physics_engine,
-            scene=self.scene,
-            state=self.state
-        )
 
     def on_drop(self):
         item = self.scene.player_sprite.get_item()
