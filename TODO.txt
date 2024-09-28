@@ -12,4 +12,5 @@ Dort findet der Bosskampf statt.
     * Fähigkeit zur schnelleren Selbstheilung
     * Fähigkeit zur Stärkung der Geschosse (größere Minimalgröße)
     * Schnellere Sprint-Geschwindigkeit
+* Am Ende eines Levels Anzeigen "Level erfolgreich", mit Uhrzeit und Punkten (vgl. Kao The Kangoroo)
 * Horde-Modus
