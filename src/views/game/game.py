@@ -111,9 +111,7 @@ class Game(Fading):
         )
 
     def on_pause(self) -> None:
-        """
-        On show pause menu
-        """
+        """ On show pause menu """
 
         self.state.keypressed.reset()
         self.scene.player_sprite.reset()
