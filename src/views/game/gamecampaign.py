@@ -390,9 +390,6 @@ class GameCampaign(Game):
 
         item.on_equip(make_args_container(self))
 
-    def on_shoot(self):
-        return self.scene.player_sprite.shoot(self.state, self.scene, self.physics_engine)
-
     def on_drop(self):
         item = self.scene.player_sprite.get_item()
         selected, index = self.ui.inventory.get_selected()

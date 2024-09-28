@@ -95,7 +95,14 @@ class Game(Fading):
 
         logging.warning('TODO: implement on_gameover()')
 
+    def on_shoot(self):
+        """ Called when the player shoots """
+
+        return self.scene.player_sprite.shoot(self.state, self.scene, self.physics_engine)
+
     def on_grunt(self):
+        """ Called when the player grunts """
+
         return Grunt(8).setup(
             source=self.scene.player_sprite,
             physics_engine=self.physics_engine,
