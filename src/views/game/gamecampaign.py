@@ -352,6 +352,7 @@ class GameCampaign(Game):
 
     def on_key_release(self, key: int, modifiers: int):
         """Called when the user releases a key."""
+
         super().on_key_release(key, modifiers)
 
         if not self.input_ready:
@@ -418,6 +419,7 @@ class GameCampaign(Game):
         self.scene.add_sprite(layer, new_item)
 
     def on_use(self):
+        """ On use item """
 
         item = self.scene.player_sprite.get_item()
         if not item:
