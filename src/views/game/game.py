@@ -2,6 +2,8 @@ import logging
 
 import pyglet
 
+from constants.controls.keyboard import KEY_SELECT_INVENTORY
+from constants.layers import LAYER_PLACE
 from sprites.bullet.grunt import Grunt
 from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
@@ -109,6 +111,40 @@ class Game(Fading):
             scene=self.scene,
             state=self.state
         )
+
+    def on_item_previous(self) -> None:
+        """ Select previous item """
+
+        self.on_select_item(index=self.ui.inventory.previous())
+
+    def on_item_next(self) -> None:
+        """ Select next item """
+        self.on_select_item(index=self.ui.inventory.next())
+
+    def on_select_item(self, key=None, index=None):
+        """ Select item """
+        old_item = self.scene.player_sprite.get_item()
+
+        if old_item:
+            old_item.on_unequip(make_args_container(self))
+
+        if key:
+            index = KEY_SELECT_INVENTORY.index(key)
+            index -= 1
+
+        item = self.ui.inventory.select(index)
+        self.scene.player_sprite.set_item(item)
+
+        if old_item:
+            old_item.remove_from_sprite_lists()
+
+        if not item:
+            return
+
+        self.scene.add_sprite(LAYER_PLACE, item)
+
+        item.on_equip(make_args_container(self))
+
 
     def on_pause(self) -> None:
         """ On show pause menu """

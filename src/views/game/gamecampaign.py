@@ -213,13 +213,6 @@ class GameCampaign(Game):
         if self.scene.player_sprite and key in constants.controls.controller.KEY_SPRINT:
             self.scene.player_sprite.modifier = MODIFIER_DEFAULT
 
-    def on_item_previous(self) -> None:
-        """ Select previous item """
-        self.on_select_item(index=self.ui.inventory.previous())
-
-    def on_item_next(self) -> None:
-        """ Select next item """
-        self.on_select_item(index=self.ui.inventory.next())
 
     def on_gameover(self) -> None:
         """ Called when the player dies """
@@ -367,29 +360,6 @@ class GameCampaign(Game):
             self.update_player_speed()
         else:
             self.scene.player_sprite.stop_walk()
-
-    def on_select_item(self, key=None, index=None):
-        old_item = self.scene.player_sprite.get_item()
-
-        if old_item:
-            old_item.on_unequip(make_args_container(self))
-
-        if key:
-            index = constants.controls.keyboard.KEY_SELECT_INVENTORY.index(key)
-            index -= 1
-
-        item = self.ui.inventory.select(index)
-        self.scene.player_sprite.set_item(item)
-
-        if old_item:
-            old_item.remove_from_sprite_lists()
-
-        if not item:
-            return
-
-        self.scene.add_sprite(LAYER_PLACE, item)
-
-        item.on_equip(make_args_container(self))
 
     def on_drop(self):
         item = self.scene.player_sprite.get_item()
