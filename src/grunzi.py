@@ -4,7 +4,6 @@
 
 import os
 import sys
-import tkinter.messagebox as messagebox
 
 from views.startup import StartUp
 

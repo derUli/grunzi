@@ -113,4 +113,4 @@ class GameWindow(arcade.Window):
             self.controllers = []
 
         if not any(self.controllers):
-            logging.info(f"No controllers detected")
+            logging.info('No controllers detected')

@@ -4,7 +4,6 @@ import arcade
 
 from utils.sprite import tilemap_size
 
-
 class TileMap:
     """ Tilemap class """
 

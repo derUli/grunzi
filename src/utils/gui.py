@@ -58,9 +58,7 @@ def get_slider_style() -> dict:
 
 def center_cursor(window: arcade.Window):
     x, y = window.get_location()
-
     w, h = window.get_size()
-
     x, y = x + (w / 2), y + (h / 2)
 
     mouse.move(x, y, absolute=True)

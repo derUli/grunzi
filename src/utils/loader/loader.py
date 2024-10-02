@@ -44,8 +44,11 @@ class Loader:
         # Set up the Cameras
         self.parent.camera_sprites = arcade.Camera()
         self.parent.state.reset()
-        self.parent.state.difficulty = MapConfig(savegame.difficulty, self.parent.state.map_name,
-                                                 self.parent.state.map_dir)
+        self.parent.state.difficulty = MapConfig(
+            savegame.difficulty,
+            self.parent.state.map_name,
+            self.parent.state.map_dir
+        )
 
         # Name of map file to load
         map_name = os.path.join(self.parent.state.map_dir, f"{self.parent.state.map_name}.tmx")

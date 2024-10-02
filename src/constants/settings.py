@@ -1,4 +1,5 @@
 # Graphics
+
 DEFAULT_FULLSCREEN = True
 DEFAULT_VSYNC = True
 DEFAULT_SHOW_FPS = False
