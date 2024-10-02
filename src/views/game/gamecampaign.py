@@ -146,39 +146,6 @@ class GameCampaign(Game):
 
         super().on_draw()
 
-    def update_player_speed(self) -> None:
-        """ Update player sprite """
-
-        # Calculate speed based on the keys pressed
-        self.scene.player_sprite.change_x, self.scene.player_sprite.change_y = 0, 0
-
-        move_force = self.scene.player_sprite.move_force * self.scene.player_sprite.modifier
-
-        force_x, force_y = 0, 0
-
-        if self.state.keypressed.key_up and not self.state.keypressed.key_down:
-            force_y = move_force
-            self.scene.player_sprite.change_y = -1
-        elif self.state.keypressed.key_down and not self.state.keypressed.key_up:
-            force_y = -move_force
-            self.scene.player_sprite.change_y = 1
-        if self.state.keypressed.key_left and not self.state.keypressed.key_right:
-            force_x = -move_force
-            self.scene.player_sprite.change_x = -1
-        elif self.state.keypressed.key_right and not self.state.keypressed.key_left:
-            force_x = move_force
-            self.scene.player_sprite.change_x = 1
-
-        if force_x != 0 or force_y != 0:
-            self.scene.player_sprite.start_walk(sprint=self.scene.player_sprite.sprinting)
-            self.window.set_mouse_visible(False)
-            self.physics_engine.apply_force(
-                self.scene.player_sprite,
-                (force_x, force_y)
-            )
-        else:
-            self.scene.player_sprite.stop_walk()
-
     def on_button_press(self, controller, key):
         """ On button press """
         if self.video.active and key in constants.controls.controller.KEY_DISCARD:

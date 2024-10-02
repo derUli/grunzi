@@ -145,7 +145,6 @@ class Game(Fading):
 
         item.on_equip(make_args_container(self))
 
-
     def on_pause(self) -> None:
         """ On show pause menu """
 
@@ -155,6 +154,39 @@ class Game(Fading):
         menu = PauseMenu(self.window, self.state, self)
         menu.setup()
         self.window.show_view(menu)
+
+    def update_player_speed(self) -> None:
+        """ Update player sprite """
+
+        # Calculate speed based on the keys pressed
+        self.scene.player_sprite.change_x, self.scene.player_sprite.change_y = 0, 0
+
+        move_force = self.scene.player_sprite.move_force * self.scene.player_sprite.modifier
+
+        force_x, force_y = 0, 0
+
+        if self.state.keypressed.key_up and not self.state.keypressed.key_down:
+            force_y = move_force
+            self.scene.player_sprite.change_y = -1
+        elif self.state.keypressed.key_down and not self.state.keypressed.key_up:
+            force_y = -move_force
+            self.scene.player_sprite.change_y = 1
+        if self.state.keypressed.key_left and not self.state.keypressed.key_right:
+            force_x = -move_force
+            self.scene.player_sprite.change_x = -1
+        elif self.state.keypressed.key_right and not self.state.keypressed.key_left:
+            force_x = move_force
+            self.scene.player_sprite.change_x = 1
+
+        if force_x != 0 or force_y != 0:
+            self.scene.player_sprite.start_walk(sprint=self.scene.player_sprite.sprinting)
+            self.window.set_mouse_visible(False)
+            self.physics_engine.apply_force(
+                self.scene.player_sprite,
+                (force_x, force_y)
+            )
+        else:
+            self.scene.player_sprite.stop_walk()
 
     def wait_for_video(self, delta_time=0) -> None:
         """ Wait until video playback completed """
