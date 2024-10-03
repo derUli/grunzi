@@ -19,7 +19,6 @@ class Snow(SpriteCircle, Sprite):
 
     def __init__(self, radius: int, color: Color, soft: bool = True):
         super().__init__(radius, color, soft)
-        self.move_x = random.uniform(-1, 1)
 
     def update(
             self,
@@ -27,9 +26,7 @@ class Snow(SpriteCircle, Sprite):
             args
     ):
         self.center_y += MOVE_X
-        self.center_x += self.move_x
 
         if self.bottom < 0:
             self.center_x = random.randint(0, args.tilemap.width)
             self.bottom = random.randint(args.tilemap.height, args.tilemap.height + 10)
-            self.move_x = random.uniform(-1, 1)
