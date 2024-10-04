@@ -1,10 +1,12 @@
 import logging
 
+import arcade
 import pyglet
 
 from constants.controls.keyboard import KEY_SELECT_INVENTORY
 from constants.layers import LAYER_PLACE
 from sprites.bullet.grunt import Grunt
+from sprites.items.item import Useable
 from sprites.ui.uicontainer import UIContainer
 from state.argscontainer import make_args_container
 from utils.loader.loader import Loader
@@ -225,3 +227,34 @@ class Game(Fading):
         self.on_select_item(index=-1)
 
         return True
+
+
+    def on_use(self):
+        """ On use item """
+
+        item = self.scene.player_sprite.get_item()
+        if not item:
+            if self.update_collectable():
+                self.state.play_sound('coin')
+                return
+            else:
+                interactable = self.scene.get_next_interactable()
+                if interactable:
+                    interactable.on_interact(args=make_args_container(self))
+                    return
+
+            self.state.noaction()
+            return
+
+        args = make_args_container(self)
+
+        for sprite in self.scene.get_next_sprites():
+            if isinstance(sprite, Useable) and arcade.check_for_collision(item, sprite):
+                return item.on_use_with(
+                    sprite,
+                    args=args
+                )
+
+        item.on_use(
+            args=make_args_container(self)
+        )

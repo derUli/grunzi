@@ -355,32 +355,3 @@ class GameCampaign(Game):
 
         self.scene.add_sprite(layer, new_item)
 
-    def on_use(self):
-        """ On use item """
-
-        item = self.scene.player_sprite.get_item()
-        if not item:
-            if self.update_collectable():
-                self.state.play_sound('coin')
-                return
-            else:
-                interactable = self.scene.get_next_interactable()
-                if interactable:
-                    interactable.on_interact(args=make_args_container(self))
-                    return
-
-            self.state.noaction()
-            return
-
-        args = make_args_container(self)
-
-        for sprite in self.scene.get_next_sprites():
-            if isinstance(sprite, Useable) and arcade.check_for_collision(item, sprite):
-                return item.on_use_with(
-                    sprite,
-                    args=args
-                )
-
-        item.on_use(
-            args=make_args_container(self)
-        )
