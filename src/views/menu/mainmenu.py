@@ -92,7 +92,7 @@ class MainMenu(Fading):
         widgets = [
             label,
             campaign_button,
-            horde_button,
+            #  horde_button,
             options_button,
             quit_button
         ]

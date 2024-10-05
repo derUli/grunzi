@@ -9,16 +9,16 @@
 
 # Alpha 021 (Unreleased)
 
+* map01: Kuh-Sound hinzugefügt
 
 * Alpha 020 (Unreleased)
 
-* Slider für die Gesamt-Lautstärke hinzugefügt
+* Audio: Slider für die Gesamt-Lautstärke hinzugefügt
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
 * map05: Endboss verursacht nun Schaden bei Berührung
 * map03: Ablegen des Ventils korrigiert
 * map03: Nebel Effekt Performance optimiert
-* Global: Geschwindigkeit der Gesundheitsregeneration nun abhängig vom Schwierigkeitsgrad
-* Hauptmenü: Neue Buttons "Kampagne" und "Horde Modus"
+* Gameplay: Geschwindigkeit der Gesundheitsregeneration nun abhängig vom Schwierigkeitsgrad
 * Einstellungen: "Borderless" Grafikoption entfernt
 * "Map abgeschlossen" View hinzugefügt
 * Abweichender Ladebildschirm an Halloween
