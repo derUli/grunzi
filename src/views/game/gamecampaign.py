@@ -9,11 +9,11 @@ import constants.controls.keyboard
 from constants.layers import *
 from constants.maps import MAPS
 from sprites.characters.player import MODIFIER_SPRINT, MODIFIER_DEFAULT
-from sprites.items.item import Useable
 from state.argscontainer import make_args_container
 from state.savegamestate import SaveGameState
 from utils.media.video import load_video, video_supported
 from views.game.game import Game
+from views.game.levelcompleted import LevelCompleted
 
 
 class GameCampaign(Game):
@@ -180,7 +180,6 @@ class GameCampaign(Game):
         if self.scene.player_sprite and key in constants.controls.controller.KEY_SPRINT:
             self.scene.player_sprite.modifier = MODIFIER_DEFAULT
 
-
     def on_gameover(self) -> None:
         """ Called when the player dies """
 
@@ -227,10 +226,35 @@ class GameCampaign(Game):
         if completed:
             logging.info('Game Completed')
             from views.highscore.highscoreadd import HighscoreAdd
-            self.fade_to_view(HighscoreAdd(self.window, self.state))
+            self.fade_to_view(
+                LevelCompleted(
+                    window=self.window,
+                    state=self.state,
+                    next_view=HighscoreAdd(self.window, self.state)
+                )
+            )
             return
 
-        self.fade_to_view(GameCampaign(self.window, self.state, skip_intro=same))
+        if same:
+            self.fade_to_view(
+                GameCampaign(self.window,
+                             self.state,
+                             skip_intro=same
+                             )
+            )
+            return
+
+        self.fade_to_view(
+            LevelCompleted(
+                window=self.window,
+                state=self.state,
+                next_view=GameCampaign(
+                    window=self.window,
+                    state=self.state,
+                    skip_intro=same
+                )
+            )
+        )
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
         if not self.input_ready:
@@ -354,4 +378,3 @@ class GameCampaign(Game):
                 self.ui.inventory.unselect()
 
         self.scene.add_sprite(layer, new_item)
-
