@@ -17,6 +17,15 @@ class Valve(Item):
                 args.player.set_item(None)
 
 
+    def copy(self):
+        """ Copy item """
+        return Valve(
+            filename=self.filename,
+            center_x=self.center_x,
+            center_y=self.center_y
+        )
+
+
 class PlacedValve(Interactable):
     def on_interact(self, args):
 

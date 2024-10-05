@@ -9,18 +9,19 @@
 
 # Alpha 021 (Unreleased)
 
-* "Map abgeschlossen" View hinzugefügt
-* Abweichender Ladebildschirm an Halloween
 
-* Alpha 020 (11.10.2024)
+* Alpha 020 (Unreleased)
 
 * Slider für die Gesamt-Lautstärke hinzugefügt
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
 * map05: Endboss verursacht nun Schaden bei Berührung
+* map03: Ablegen des Ventils korrigiert
 * map03: Nebel Effekt Performance optimiert
 * Global: Geschwindigkeit der Gesundheitsregeneration nun abhängig vom Schwierigkeitsgrad
 * Hauptmenü: Neue Buttons "Kampagne" und "Horde Modus"
 * Einstellungen: "Borderless" Grafikoption entfernt
+* "Map abgeschlossen" View hinzugefügt
+* Abweichender Ladebildschirm an Halloween
 
 # Alpha 019 (20.09.2024)
 
