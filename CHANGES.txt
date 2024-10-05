@@ -7,7 +7,7 @@
 * map04: Color Tint zu Feuer hinzugefügt
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
 
-* Alpha 020 (Unreleased)
+* Alpha 020 (11.10.2024)
 
 * Slider für die Gesamt-Lautstärke hinzugefügt
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
