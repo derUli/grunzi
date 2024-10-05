@@ -55,6 +55,7 @@ class View(arcade.View):
 
     def on_hide_view(self):
         self.clear()
+        self.window.set_mouse_visible(True)
 
     def on_update(self, delta_time: float):
         self.time += delta_time

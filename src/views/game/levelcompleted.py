@@ -5,7 +5,7 @@ import constants.controls.keyboard as keyboard
 from constants.fonts import FONT_MONOTYPE
 from state.savegamestate import SaveGameState
 from utils.highscore import HighscoreStorage
-from utils.text import create_text, FONT_SIZE_LARGE, MARGIN, FONT_SIZE_EXTRA_LARGE
+from utils.text import create_text, FONT_SIZE_LARGE, MARGIN, FONT_SIZE_EXTRA_LARGE, FONT_SIZE_HEADLINE
 from views.fading import Fading
 
 MARGIN_SCORE = 50
@@ -63,6 +63,17 @@ class LevelCompleted(Fading):
         press_button_text.y = MARGIN
 
         self.texts.append(press_button_text)
+
+        level_completed = create_text(
+            text=_('Map completed').upper(),
+            font_size=FONT_SIZE_HEADLINE,
+            bold=True
+        )
+
+        level_completed.x = (self.window.width / 2 - level_completed.content_width / 2)
+        level_completed.y = self.window.height / 2 - level_completed.content_height / 2
+
+        self.texts.append(level_completed)
 
 
     def on_key_press(self, key, modifiers) -> None:
