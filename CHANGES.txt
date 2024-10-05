@@ -7,6 +7,11 @@
 * map04: Color Tint zu Feuer hinzugefügt
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
 
+# Alpha 021 (Unreleased)
+
+* "Map abgeschlossen" View hinzugefügt
+* Abweichender Ladebildschirm an Halloween
+
 * Alpha 020 (11.10.2024)
 
 * Slider für die Gesamt-Lautstärke hinzugefügt

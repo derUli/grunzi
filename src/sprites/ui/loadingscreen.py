@@ -6,6 +6,7 @@ from PIL import ImageFilter
 from PIL.Image import Resampling
 
 from state.viewstate import ViewState
+from utils.eastereggs import is_halloween
 from utils.sprite import load_animated_gif
 from utils.text import create_text
 
@@ -42,7 +43,13 @@ class LoadingScreen:
         self._percent = 0
         self._display_percentage = 0
 
-        path = os.path.join(state.ui_dir, 'loading.jpg')
+        file = 'loading.jpg'
+
+        if is_halloween():
+            file = 'loading2.jpg'
+
+        path = os.path.join(state.ui_dir, file)
+        is_halloween()
         image = PIL.Image.open(path).convert('RGBA').crop()
 
         image = image.resize(
