@@ -4,9 +4,7 @@ from arcade import SpriteCircle, Color
 
 from sprites.sprite import Sprite
 
-MOVE_X = 0.5
 MOVE_Y = -1
-
 
 SNOW_COLORS = [
     (255, 255, 255, 255),
@@ -27,7 +25,6 @@ class Snow(SpriteCircle, Sprite):
             delta_time,
             args
     ):
-        self.center_x += MOVE_X
         self.center_y += MOVE_Y
 
         if self.bottom < 0:
