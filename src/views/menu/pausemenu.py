@@ -133,11 +133,15 @@ class PauseMenu(Fading):
         """
         On continue
         """
+
+        self.state.click()
+
         self.player.pause()
         self.window.show_view(self.previous_view)
 
     def on_restart_level(self):
 
+        self.state.click()
         """
         On restart level
         """
@@ -155,6 +159,8 @@ class PauseMenu(Fading):
         self.manager.add(message_box)
 
     def on_confirm_restart(self, button):
+        self.state.click()
+
         if button.action == _('No'):
             return
 
@@ -164,6 +170,9 @@ class PauseMenu(Fading):
         self.player.pause()
 
     def on_exit(self, confirm=False):
+
+        self.state.click()
+
         if not confirm:
             message_box = arcade.gui.UIMessageBox(
                 width=300,
@@ -192,6 +201,8 @@ class PauseMenu(Fading):
 
     def on_confirm_exit(self, button) -> None:
         """ On confirm exit """
+
+        self.state.click()
 
         if button.action == _('Yes'):
             self.player.pause()

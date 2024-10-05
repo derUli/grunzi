@@ -125,7 +125,8 @@ class ViewState:
                 'spawn': arcade.load_sound(os.path.join(self.sound_dir, 'boss', 'spawn.ogg')),
                 'laser': arcade.load_sound(os.path.join(self.sound_dir, 'boss', 'laser.ogg')),
                 'crystal': arcade.load_sound(os.path.join(self.sound_dir, 'boss', 'crystal.ogg')),
-            }
+            },
+            'click': arcade.load_sound(os.path.join(self.sound_dir, 'common', 'click.ogg'))
         }
 
         dir = os.path.join(self.sound_dir, 'atmos', '*.ogg')
@@ -211,6 +212,10 @@ class ViewState:
 
     def noaction(self) -> media.Player:
         return self.play_sound('noaction')
+
+
+    def click(self) -> media.Player:
+        return self.play_sound('click')
 
     @property
     def score(self) -> int:

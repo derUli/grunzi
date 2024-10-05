@@ -87,6 +87,7 @@ class MainMenu(Fading):
         @quit_button.event("on_click")
         def on_click_quit_button(event):
             logging.debug(event)
+            self.state.click()
             self.fade_quit()
 
         widgets = [
@@ -147,6 +148,8 @@ class MainMenu(Fading):
         """ On click "New Game" show difficulty selection """
         self._fade_in = None
 
+        self.state.click()
+
         self.window.show_view(
             CampaignMenu(
                 self.window,
@@ -159,6 +162,8 @@ class MainMenu(Fading):
 
         self._fade_in = None
 
+        self.state.click()
+
         self.manager.add(arcade.gui.UIMessageBox(
             width=300,
             height=200,
@@ -166,6 +171,8 @@ class MainMenu(Fading):
         )
 
     def on_settings(self):
+        self.state.click()
+
         self.window.show_view(
             SettingsMenu(
                 self.window,

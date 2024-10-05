@@ -242,10 +242,15 @@ class MapSelection(Fading):
     def on_back(self) -> None:
         """ On back """
 
+        self.state.click()
+
         from views.menu.mainmenu import CampaignMenu
         self.fade_to_view(CampaignMenu(self.window, self.state, previous_view=self.previous_view))
 
     def on_select_level(self, event):
+
+        self.state.click()
+
         for m in self.map_buttons:
             if self.map_buttons[m] == event.source:
                 self.selected = m
@@ -254,6 +259,9 @@ class MapSelection(Fading):
                 return
 
     def on_start_level(self):
+
+        self.state.click()
+
         savegame = SaveGameState.load()
         self.state.map_name = self.selected
         self.state.difficulty = MapConfig(savegame.difficulty, self.selected, self.state.map_dir)
