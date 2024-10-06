@@ -20,6 +20,7 @@ def start() -> None:
 
 def start_frozen() -> None:
     """ Starts the game"""
+
     try:
         StartUp(os.path.dirname(__file__)).main()
     except KeyboardInterrupt:
@@ -33,6 +34,8 @@ def start_frozen() -> None:
 
 
 def start_debug() -> None:
+    """ Start without catching exceptions """
+
     try:
         StartUp(os.path.dirname(__file__)).main()
     except KeyboardInterrupt:
