@@ -230,7 +230,6 @@ class Game(Fading):
 
         return True
 
-
     def on_use(self):
         """ On use item """
 

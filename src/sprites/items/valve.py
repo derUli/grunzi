@@ -16,7 +16,6 @@ class Valve(Item):
             if selected.pop() == 0:
                 args.player.set_item(None)
 
-
     def copy(self):
         """ Copy item """
         return Valve(
