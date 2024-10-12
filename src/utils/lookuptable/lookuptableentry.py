@@ -1,5 +1,9 @@
 class LookupTableEntry:
+    """ Lookup table entry """
+
     def __init__(self):
+        """ Constructor """
+        
         self.position_1 = (-1, -1)
         self.position_2 = (-1, -1)
         self._value = []
