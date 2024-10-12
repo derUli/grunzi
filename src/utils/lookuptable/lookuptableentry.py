@@ -3,7 +3,7 @@ class LookupTableEntry:
 
     def __init__(self):
         """ Constructor """
-        
+
         self.position_1 = (-1, -1)
         self.position_2 = (-1, -1)
         self._value = []
@@ -30,7 +30,9 @@ class LookupTableEntry:
     def get(self):
         return self._value
 
-    def clear(self):
+    def clear(self) -> None:
+        """ Reset data """
+
         self.position_1 = (-1, -1)
         self.position_2 = (-1, -1)
         self._value = []
