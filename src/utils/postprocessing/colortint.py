@@ -45,6 +45,7 @@ class ColorTint(Effect):
         return self
 
     def update(self, delta_time: float, args: ArgsContainer) -> None:
+        """ Update color tint """
 
         w, h = arcade.get_window().get_size()
         from constants.layers import LAYER_SUN
@@ -92,6 +93,7 @@ class ColorTint(Effect):
         )
 
     def update_it(self, args, index, layer_name, klass, radius, max_alpha):
+        """ Update the color tint """
 
         if layer_name not in args.scene.name_mapping:
             return
