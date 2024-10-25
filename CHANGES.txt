@@ -11,7 +11,7 @@
 
 * map01: Kuh-Sound hinzugefügt
 
-* Alpha 020 (Unreleased)
+* Alpha 020 (26.10.2024)
 
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
 * map05: Endboss verursacht nun Schaden bei Berührung
