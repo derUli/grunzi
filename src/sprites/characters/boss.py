@@ -25,7 +25,6 @@ EYE_OFFSET_Y = 10
 ALPHA_SPEED = 2
 ALPHA_MAX = 255
 
-
 class Boss(Character):
     def __init__(
             self,
@@ -117,12 +116,13 @@ class Boss(Character):
 
         if not self.spawn_sound.playing and not self.fighting:
             self.fighting = True
-            pyglet.clock.schedule_once(
+            pyglet.clock.schedule_interval_soft(self.collision_lasers, 1 / 72, args)
+
+            pyglet.clock.schedule_interval_soft(
                 self.should_shoot,
-                random.randint(1, args.state.difficulty.boss_range),
+                1 / 3,
                 args
             )
-            pyglet.clock.schedule_interval_soft(self.collision_lasers, 1 / 72, args)
 
         if not self.fighting:
             return
@@ -244,7 +244,14 @@ class Boss(Character):
 
     def should_shoot(self, delta_time, args):
 
-        if not self._should_shoot:
+        if not self._shdould_shoot:
+
+            if abs(self.eye1.center_x - args.player.center_x) > self.lasers[-1].width:
+                return
+
+            if abs(self.eye1.center_y - args.player.center_y) >  self.lasers[-1].height * 2:
+                return
+
             self._should_shoot = True
             self.lasers[0].visible = True
 
@@ -260,12 +267,6 @@ class Boss(Character):
                 )
 
             self.laser_sound.play()
-
-        pyglet.clock.schedule_once(
-            self.should_shoot,
-            random.randint(1, args.state.difficulty.boss_range),
-            args
-        )
 
     def cleanup(self):
         self.settings.music_volume = self.initial_music_volume
