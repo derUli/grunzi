@@ -4,7 +4,7 @@ import PIL
 import arcade.sprite
 from PIL.Image import Resampling
 
-FULL_ALPHA = 100
+FULL_ALPHA = 200
 ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 COLOR_BLOOD = (156, 28, 28)
 
@@ -54,8 +54,8 @@ class BloodyScreen:
         if self._alpha > self._target_alpha:
             new_alpha -= FADE_SPEED
 
-        if new_alpha > 255:
-            new_alpha = 255
+        if new_alpha > FULL_ALPHA:
+            new_alpha = FULL_ALPHA
 
         if new_alpha < 0:
             new_alpha = 0
