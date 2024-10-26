@@ -4,7 +4,6 @@ import math
 import arcade
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
-from pyglet.window.key import modifiers_string
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
 from sprites.characters.character import Character
@@ -128,7 +127,7 @@ class Player(Character, SpriteHealth):
                 size=config.size,
                 loop=config.loop,
                 frame_length=config.frame_length,
-                apply_modifier = config.apply_modifier
+                apply_modifier=config.apply_modifier
             )
             self.animations[anim] = animation
 

@@ -59,7 +59,7 @@ try:
                 max_threads: int = 1,
                 max_chunks: int = 1,
                 post_process: numpy.ndarray = PostProcessing.none,
-                interp: int = cv2.INTER_LINEAR,
+                interp: int = cv2.INTER_LANCZOS4,
                 use_pygame_audio: bool = False,
                 size: Tuple[int, int] | None = None,
                 volume: float | None = None

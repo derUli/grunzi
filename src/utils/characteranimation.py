@@ -41,7 +41,6 @@ class CharacterAnimation:
 
         modifier = modifier - 1
 
-
         if not self._apply_modifier:
             modifier = 0
 

@@ -41,7 +41,6 @@ class Grunt(arcade.sprite.SpriteCircle, Character):
     def setup(self, source, physics_engine, scene, state):
         # If silent there is grunt
 
-
         source.on_grunt()
 
         if state.settings.is_silent():

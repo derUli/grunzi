@@ -5,6 +5,7 @@ import arcade.sprite
 from PIL.Image import Resampling
 
 FULL_ALPHA = 255
+FULL_RED_ALPHA = 200
 ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 COLOR_BLOOD = (156, 28, 28)
 
@@ -77,10 +78,15 @@ class BloodyScreen:
 
         r, g, b = COLOR_BLOOD
 
+        red_alpha = self._alpha
+
+        if red_alpha > FULL_RED_ALPHA:
+            red_alpha = FULL_RED_ALPHA
+
         arcade.draw_rectangle_filled(
             window.width / 2,
             window.height / 2,
             window.width,
             window.height,
-            (r, g, b, self._alpha)
+            (r, g, b, red_alpha)
         )
