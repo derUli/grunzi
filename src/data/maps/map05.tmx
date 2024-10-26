@@ -12,7 +12,7 @@
  <tileset firstgid="3" name="Chars" tilewidth="452" tileheight="700" tilecount="2" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image source="../images/sprites/char/pig.png" width="60" height="46"/>
+   <image source="../images/sprites/char/pig.png" width="63" height="35"/>
   </tile>
   <tile id="2">
    <image source="../images/sprites/monster/boss/boss.png" width="452" height="700"/>
