@@ -110,13 +110,6 @@ class StartUp:
         )
 
         parser.add_argument(
-            '--accelerate',
-            action='store_true',
-            default=False,
-            help='Enable arcade-accelerate'
-        )
-
-        parser.add_argument(
             '-v',
             '--verbose',
             default=0,
@@ -187,11 +180,6 @@ class StartUp:
 
         pyglet.options['debug_gl'] = args.debug
         pyglet.options['debug_trace_flush'] = args.debug
-
-        if args.accelerate:
-            logging.info('arcade-accelerate')
-            import arcade_accelerate
-            arcade_accelerate.bootstrap()
 
         import arcade
 
