@@ -250,7 +250,7 @@ class Boss(Character):
         if abs(self.eye1.center_x - args.player.center_x) > self.lasers[-1].width:
             return
 
-        if abs(self.eye1.center_y - args.player.center_y) >  self.lasers[-1].height * 2:
+        if abs(self.eye1.center_y - args.player.center_y) >  self.lasers[-1].height * 1.2:
             return
 
         self._should_shoot = True
