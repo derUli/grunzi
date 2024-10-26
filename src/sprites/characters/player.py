@@ -43,7 +43,7 @@ class AnimationConfig:
         self.frame_length = frame_length
 
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length = 0.3),
+    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length = 0.2),
     ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length = 0.1)
 }
 
@@ -82,7 +82,7 @@ class Player(Character, SpriteHealth):
         self.controllers = []
         self.initialized = False
         self.animations = {}
-        self.current_animation = ANIMATION_IDLE
+        self._current_animation = ANIMATION_IDLE
 
 
     def setup(self, state, scene, callbacks, controllers, bullet_size):
@@ -144,7 +144,7 @@ class Player(Character, SpriteHealth):
     ):
 
         if not self.initialized:
-            pyglet.clock.schedule_interval_soft(self.check_for_levelexit, 1 / 4, args)
+            pyglet.clock.schedule_interval_soft(self.check_for_levelexit, 1 / 5, args)
             self.initialized = True
 
         self.bloody_screen.update(self.health)
@@ -199,7 +199,7 @@ class Player(Character, SpriteHealth):
     def update_animation(self, state):
 
         if self.current_animation:
-            animation = self.animations[self.current_animation]
+            animation = self.current_animation
             if animation.update(self.modifier):
                 self.textures = animation.current_frame
                 self.update_texture()
@@ -319,6 +319,17 @@ class Player(Character, SpriteHealth):
 
         self._bullet_size = value
 
+    @property
+    def current_animation(self):
+        return self.animations[self._current_animation]
+
+
+    @current_animation.setter
+    def current_animation(self, value):
+        if self._current_animation != value:
+            self._current_animation = value
+            self.animations[value].reset()
+
     def check_for_levelexit(self, delta_time, args):
 
         try:
@@ -334,3 +345,4 @@ class Player(Character, SpriteHealth):
 
     def cleanup(self):
         pyglet.clock.unschedule(self.check_for_levelexit)
+
