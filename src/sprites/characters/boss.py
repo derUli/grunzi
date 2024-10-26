@@ -5,6 +5,7 @@ import random
 import PIL
 import arcade
 import pyglet.clock
+from PIL.Image import Resampling
 from arcade import FACE_RIGHT, PymunkPhysicsEngine
 
 from constants.collisions import COLLISION_ENEMY
@@ -220,7 +221,10 @@ class Boss(Character):
             self.laser_file
         ).convert('RGBA')
 
-        laser_image = laser_image.resize((laser_image.width * 3, laser_image.height * 2))
+        laser_image = laser_image.resize(
+            (laser_image.width * 3, laser_image.height * 2),
+            resample=Resampling.BILINEAR
+        )
 
         laser_range = []
 
