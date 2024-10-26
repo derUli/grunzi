@@ -1,6 +1,5 @@
 """ Player sprite class """
 import math
-import os
 
 import arcade
 import pyglet.clock
@@ -34,6 +33,7 @@ BULLET_DECREMENTOR = 0.4
 
 ANIMATION_IDLE = '__pig_idle.png'
 ANIMATION_WALKING = '__pig_walk_run.png'
+ANIMATION_GRUNT = '__pig_jump.png'
 
 
 class AnimationConfig:
@@ -42,10 +42,13 @@ class AnimationConfig:
         self.loop = loop
         self.frame_length = frame_length
 
+
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length = 0.2),
-    ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length = 0.1)
+    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length=0.2),
+    ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length=0.1),
+    ANIMATION_GRUNT: AnimationConfig(size=(414.6, 268), loop=False, frame_length=0.005)
 }
+
 
 class Player(Character, SpriteHealth):
     def __init__(
@@ -83,7 +86,6 @@ class Player(Character, SpriteHealth):
         self.initialized = False
         self.animations = {}
         self._current_animation = ANIMATION_IDLE
-
 
     def setup(self, state, scene, callbacks, controllers, bullet_size):
         self.state = state
@@ -200,6 +202,12 @@ class Player(Character, SpriteHealth):
 
         if self.current_animation:
             animation = self.current_animation
+
+            if animation.completed:
+                self.current_animation = ANIMATION_IDLE
+                self.current_animation.update(self.modifier)
+                return
+
             if animation.update(self.modifier):
                 self.textures = animation.current_frame
                 self.update_texture()
@@ -255,6 +263,9 @@ class Player(Character, SpriteHealth):
 
         self.state.squeak()
         self.scene.cleanup()
+
+    def on_grunt(self):
+        self.current_animation = ANIMATION_GRUNT
 
     def start_walk(self, sprint=False):
         self.walking = True
@@ -323,10 +334,13 @@ class Player(Character, SpriteHealth):
     def current_animation(self):
         return self.animations[self._current_animation]
 
-
     @current_animation.setter
     def current_animation(self, value):
         if self._current_animation != value:
+
+            if self.current_animation and not self.current_animation.loop and not self.current_animation.completed:
+                return
+
             self._current_animation = value
             self.animations[value].reset()
 
@@ -345,4 +359,3 @@ class Player(Character, SpriteHealth):
 
     def cleanup(self):
         pyglet.clock.unschedule(self.check_for_levelexit)
-

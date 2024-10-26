@@ -59,8 +59,12 @@ class CharacterAnimation:
         return self._textures[self._current_frame_index]
 
     @property
+    def loop(self):
+        return self._loop
+
+    @property
     def completed(self):
-        return not self._loop and self._current_frame_index >= len(self._textures) - 1
+        return not self.loop and self._current_frame_index >= len(self._textures) - 1
 
 
     def reset(self):
