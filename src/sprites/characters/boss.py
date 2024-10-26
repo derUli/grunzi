@@ -244,7 +244,7 @@ class Boss(Character):
 
     def should_shoot(self, delta_time, args):
 
-        if not self._shdould_shoot:
+        if not self._shsould_shoot:
 
             if abs(self.eye1.center_x - args.player.center_x) > self.lasers[-1].width:
                 return
