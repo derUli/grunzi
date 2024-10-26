@@ -21,7 +21,7 @@ class CharacterAnimation:
         self._frame_length = frame_length
 
         reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', 'pig', filename))
-        reader.process(size=size, resize=(63, 35), autocrop=False)
+        reader.process(size=size, resize=(63, 35), autocrop=False, pil_resample=state.settings.pil_resample)
 
         self._textures = []
 
@@ -36,7 +36,7 @@ class CharacterAnimation:
 
     def update(self, modifier=1) -> bool:
         modifier = modifier - 1
-        modified_frame_duration= self._frame_length - (self._frame_length * modifier)
+        modified_frame_duration = self._frame_length - (self._frame_length * modifier)
 
         new_value = self._current_frame_index + 1
 
@@ -65,7 +65,6 @@ class CharacterAnimation:
     @property
     def completed(self):
         return not self.loop and self._current_frame_index >= len(self._textures) - 1
-
 
     def reset(self):
         self._last_update = time.time()

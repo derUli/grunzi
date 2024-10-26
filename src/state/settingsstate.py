@@ -4,6 +4,7 @@ import logging
 import os
 
 import jsonpickle
+from PIL.Image import Resampling
 
 from constants.audio import DEFAULT_AUDIO_BACKEND
 from constants.settings import DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_SHOW_FPS, \
@@ -13,7 +14,7 @@ from constants.settings import DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_SHOW_F
 from utils.media.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 23
+SETTINGS_STATE_VERSION = 24
 
 
 class SettingsState:
@@ -35,6 +36,7 @@ class SettingsState:
         self.videos = DEFAULT_VIDEOS
 
         self._quality = DEFAULT_QUALITY
+        self._pil_resample = Resampling.LANCZOS
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND
@@ -237,3 +239,7 @@ class SettingsState:
 
     def is_silent(self) -> bool:
         return self.audio_backend == 'silent'
+
+    @property
+    def pil_resample(self):
+        return self._pil_resample

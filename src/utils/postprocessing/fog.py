@@ -30,7 +30,7 @@ class Fog(Effect):
 
         image = image.resize(
             size,
-            resample=Resampling.BILINEAR
+            resample=args.state.settings.pil_resample
         )
 
         image_mirror = ImageOps.mirror(image)

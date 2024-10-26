@@ -35,7 +35,7 @@ def random_position(tilemap: TileMap) -> tuple:
     return rand_x, rand_y
 
 
-def load_animated_gif(resource_name, size) -> AnimatedTimeBasedSprite:
+def load_animated_gif(resource_name, size, resample=Resampling.BILINEAR) -> AnimatedTimeBasedSprite:
     """
     Attempt to load an animated GIF as an :class:`AnimatedTimeBasedSprite`.
 
@@ -60,7 +60,7 @@ def load_animated_gif(resource_name, size) -> AnimatedTimeBasedSprite:
 
         image = image.resize(
             size,
-            resample=Resampling.BILINEAR
+            resample=resample
         )
 
         texture = Texture(f"{resource_name}-{frame}", image)

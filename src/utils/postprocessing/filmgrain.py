@@ -22,7 +22,8 @@ class FilmGrain(Effect):
         w, h = arcade.get_window().get_size()
         filmgrain = load_animated_gif(
             os.path.join(args.state.animation_dir, 'grain.gif'),
-            (w, h)
+            (w, h),
+            resample=args.state.settings.pil_resample
         )
 
         filmgrain.alpha = ALPHA * args.state.settings.filmgrain

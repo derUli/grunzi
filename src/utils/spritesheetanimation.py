@@ -1,5 +1,3 @@
-import os
-
 from PIL import Image
 from PIL.Image import Resampling
 
@@ -9,7 +7,7 @@ class SpriteSheetReader:
         self._filename = filename
         self._images = []
 
-    def process(self, size, autocrop=False, resize=None):
+    def process(self, size, autocrop=False, resize=None, pil_resample=Resampling.BILINEAR):
         self._images = []
 
         image = Image.open(self._filename).convert('RGBA').crop()
@@ -33,7 +31,7 @@ class SpriteSheetReader:
                 if resize:
                     cropped = cropped.resize(
                         resize,
-                        resample=Resampling.BILINEAR
+                        resample=pil_resample
                     )
 
                 self._images.append(cropped)

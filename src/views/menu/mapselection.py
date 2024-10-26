@@ -135,7 +135,7 @@ class MapSelection(Fading):
 
             image = image.resize(
                 image_size,
-                resample=Resampling.BILINEAR
+                resample=self.state.settings.pil_resample
             )
 
             image_normal = ImageOps.expand(

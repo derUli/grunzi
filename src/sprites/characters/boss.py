@@ -223,7 +223,7 @@ class Boss(Character):
 
         laser_image = laser_image.resize(
             (laser_image.width * 3, laser_image.height * 2),
-            resample=Resampling.BILINEAR
+            resample=args.state.settings.pil_resample
         )
 
         laser_range = []

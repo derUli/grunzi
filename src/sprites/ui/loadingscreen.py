@@ -54,7 +54,7 @@ class LoadingScreen:
 
         image = image.resize(
             arcade.get_window().get_size(),
-            resample=Resampling.BILINEAR
+            resample=state.settings.pil_resample
         )
 
         self.original_image = image
@@ -78,7 +78,8 @@ class LoadingScreen:
 
         self.filmgrain = load_animated_gif(
             os.path.join(state.animation_dir, 'grain.gif'),
-            (w, h)
+            size=(w, h),
+            resample=state.settings.pil_resample
         )
         self.filmgrain.alpha = 18 * state.settings.filmgrain
         self.filmgrain.position = (w / 2, h / 2)

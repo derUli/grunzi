@@ -27,7 +27,7 @@ class BloodyScreen:
 
         image = image.resize(
             window.size,
-            resample=Resampling.BILINEAR
+            resample=state.settings.pil_resample
         )
         texture = arcade.texture.Texture(
             name='blood',
