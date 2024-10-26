@@ -19,7 +19,7 @@ class MapPopulator:
         """ Constructor """
 
         self.next_spawn = 0
-        self.enabled = False
+        self.enabled = True
 
     def update(self, args: ArgsContainer) -> None:
         logging.error('MapPopulator update() not implemented')

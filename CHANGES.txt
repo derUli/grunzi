@@ -11,7 +11,7 @@
 # Alpha 021 (Unreleased)
 * Neuer Charakter-Sprite für Grunzi mit Animation
 
-* Alpha 020 (26.10.2024)
+# Alpha 020 (26.10.2024)
 
 * map05: Fehler behoben, bei dem der Laser-Sound des Endboss nicht gestoppt wurde.
 * map05: Endboss verursacht nun Schaden bei Berührung

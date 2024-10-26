@@ -105,6 +105,7 @@ class GameCampaign(Game):
             self._call_method = None
 
         if self.scene.player_sprite.dead and not self.level_completed:
+            self.scene.player_sprite.update_animation()
             self.scene.player_sprite.update(delta_time, make_args_container(self))
             self.scene.player_sprite.reset()
 

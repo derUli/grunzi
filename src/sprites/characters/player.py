@@ -4,10 +4,11 @@ import math
 import arcade
 import pyglet.clock
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
+from pyglet.window.key import modifiers_string
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
 from sprites.characters.character import Character
-from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
+from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth, HEALTH_EMPTY
 from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
 from utils.characteranimation import CharacterAnimation
@@ -34,19 +35,22 @@ BULLET_DECREMENTOR = 0.4
 ANIMATION_IDLE = '__pig_idle.png'
 ANIMATION_WALKING = '__pig_walk_run.png'
 ANIMATION_GRUNT = '__pig_jump.png'
+ANIMATION_DIE = '__pig_die.png'
 
 
 class AnimationConfig:
-    def __init__(self, size, loop, frame_length):
+    def __init__(self, size, loop, frame_length, apply_modifier):
         self.size = size
         self.loop = loop
         self.frame_length = frame_length
+        self.apply_modifier = apply_modifier
 
 
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length=0.2),
-    ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length=0.1),
-    ANIMATION_GRUNT: AnimationConfig(size=(414.6, 268), loop=False, frame_length=0.005)
+    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length=0.2, apply_modifier=False),
+    ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length=0.1, apply_modifier=True),
+    ANIMATION_GRUNT: AnimationConfig(size=(414.6, 268), loop=False, frame_length=0.005, apply_modifier=False),
+    ANIMATION_DIE: AnimationConfig(size=(404.4, 252), loop=False, frame_length=0.1, apply_modifier=False)
 }
 
 
@@ -68,10 +72,10 @@ class Player(Character, SpriteHealth):
         self.texture = self.textures[self.face - 1]
 
         self.item = None
-        self._died = False
 
         self.state = None
         self.water = False
+        self._died = False
 
         self.footsteps_default = None
         self.footsteps_sprint = None
@@ -123,7 +127,8 @@ class Player(Character, SpriteHealth):
                 filename=anim,
                 size=config.size,
                 loop=config.loop,
-                frame_length=config.frame_length
+                frame_length=config.frame_length,
+                apply_modifier = config.apply_modifier
             )
             self.animations[anim] = animation
 
@@ -148,6 +153,10 @@ class Player(Character, SpriteHealth):
         if not self.initialized:
             pyglet.clock.schedule_interval_soft(self.check_for_levelexit, 1 / 5, args)
             self.initialized = True
+
+        if self.health <= HEALTH_EMPTY and self._current_animation != ANIMATION_DIE:
+            if self._current_animation != ANIMATION_DIE:
+                self.current_animation = ANIMATION_DIE
 
         self.bloody_screen.update(self.health)
 
@@ -198,18 +207,18 @@ class Player(Character, SpriteHealth):
             self.item.alpha = PLACE_ITEM_ALPHA
             self.item.draw_item(self.face)
 
-    def update_animation(self, state):
+    def update_animation(self):
 
         if self.current_animation:
-            animation = self.current_animation
+            if self.current_animation.completed:
+                if self.health <= HEALTH_EMPTY:
+                    return
 
-            if animation.completed:
                 self.current_animation = ANIMATION_IDLE
-                self.current_animation.update(self.modifier)
                 return
 
-            if animation.update(self.modifier):
-                self.textures = animation.current_frame
+            if self.current_animation.update(self.modifier):
+                self.textures = self.current_animation.current_frame
                 self.update_texture()
 
     def draw_overlay(self, args):
@@ -292,6 +301,9 @@ class Player(Character, SpriteHealth):
             self.footsteps_default.play()
 
     def stop_walk(self):
+        if not self.walking:
+            return
+
         self.walking = False
         self.current_animation = ANIMATION_IDLE
         self.footsteps_default.pause()

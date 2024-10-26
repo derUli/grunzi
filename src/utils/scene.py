@@ -84,7 +84,7 @@ class Scene(BaseScene):
         except IndexError:
             pass
 
-        args.player.update_animation(args.state)
+        args.player.update_animation()
 
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)

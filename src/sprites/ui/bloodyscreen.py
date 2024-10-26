@@ -4,7 +4,7 @@ import PIL
 import arcade.sprite
 from PIL.Image import Resampling
 
-FULL_ALPHA = 255
+FULL_ALPHA = 100
 ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 COLOR_BLOOD = (156, 28, 28)
 
@@ -64,7 +64,7 @@ class BloodyScreen:
 
     @property
     def shown(self):
-        return self._alpha >= 255
+        return self._alpha >= FULL_ALPHA
 
     def draw(self):
         if self._alpha <= 0:
