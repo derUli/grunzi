@@ -46,7 +46,6 @@ class Player(Character, SpriteHealth):
         self.textures = arcade.load_texture_pair(filename)
 
         self.health = HEALTH_FULL
-        self.textures = arcade.load_texture_pair(filename)
         self.face = DEFAULT_FACE
         self.face_horizontal = DEFAULT_FACE
         self.texture = self.textures[self.face - 1]
@@ -104,6 +103,7 @@ class Player(Character, SpriteHealth):
         self.walking_animation = animation
 
         self.textures = animation.current_frame
+        self.update_texture()
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
