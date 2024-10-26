@@ -4,7 +4,6 @@ import os
 
 import arcade
 import pyglet.clock
-from PIL import ImageOps
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
@@ -12,7 +11,7 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
-from utils.spritesheetanimation import SpriteSheetReader
+from utils.walkinganimation import WalkingAnimation
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -70,7 +69,7 @@ class Player(Character, SpriteHealth):
         self.controllers = []
         self.initialized = False
 
-        self.animations = {}
+        self.walking_animation = None
 
     def setup(self, state, scene, callbacks, controllers, bullet_size):
         self.state = state
@@ -100,12 +99,11 @@ class Player(Character, SpriteHealth):
 
         self.initialized = False
 
-        reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', 'pig', 'pig_walk_run.png'))
-        reader.process(size=(360, 194), resize=(63, 35))
-        self.textures = [
-            arcade.texture.Texture(name='foo1', image=reader.images[0]),
-            arcade.texture.Texture(name='foo2', image=ImageOps.mirror(reader.images[0]))
-        ]
+        animation = WalkingAnimation()
+        animation.load(state)
+        self.walking_animation = animation
+
+        self.textures = animation.current_frame
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
@@ -172,6 +170,12 @@ class Player(Character, SpriteHealth):
 
             self.item.alpha = PLACE_ITEM_ALPHA
             self.item.draw_item(self.face)
+
+    def update_animation(self, state):
+        if self.walking:
+            if self.walking_animation.update():
+                self.textures = self.walking_animation.current_frame
+                self.update_texture()
 
     def draw_overlay(self, args):
         self.bloody_screen.draw()
