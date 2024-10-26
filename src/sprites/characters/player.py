@@ -1,8 +1,10 @@
 """ Player sprite class """
 import math
+import os
 
 import arcade
 import pyglet.clock
+from PIL import ImageOps
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_DOWN, FACE_UP
 
 from constants.layers import LAYER_SPAWN_POINT, LAYER_PLAYER, LAYER_LEVEL_EXIT
@@ -10,6 +12,7 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
+from utils.spritesheetanimation import SpriteSheetReader
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -67,6 +70,8 @@ class Player(Character, SpriteHealth):
         self.controllers = []
         self.initialized = False
 
+        self.animations = {}
+
     def setup(self, state, scene, callbacks, controllers, bullet_size):
         self.state = state
         self.scene = scene
@@ -94,6 +99,13 @@ class Player(Character, SpriteHealth):
         self.bloody_screen = BloodyScreen().setup(state)
 
         self.initialized = False
+
+        reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', 'pig', 'pig_walk_run.png'))
+        reader.process(size=(360, 194), resize=(63, 35))
+        self.textures = [
+            arcade.texture.Texture(name='foo1', image=reader.images[0]),
+            arcade.texture.Texture(name='foo2', image=ImageOps.mirror(reader.images[0]))
+        ]
 
     def update_texture(self):
         self.texture = self.textures[self.face_horizontal - 1]
