@@ -244,29 +244,30 @@ class Boss(Character):
 
     def should_shoot(self, delta_time, args):
 
-        if not self._shsould_shoot:
+        if self._should_shoot:
+            return
 
-            if abs(self.eye1.center_x - args.player.center_x) > self.lasers[-1].width:
-                return
+        if abs(self.eye1.center_x - args.player.center_x) > self.lasers[-1].width:
+            return
 
-            if abs(self.eye1.center_y - args.player.center_y) >  self.lasers[-1].height * 2:
-                return
+        if abs(self.eye1.center_y - args.player.center_y) >  self.lasers[-1].height * 2:
+            return
 
-            self._should_shoot = True
-            self.lasers[0].visible = True
+        self._should_shoot = True
+        self.lasers[0].visible = True
 
-            if not self.laser_sound:
-                audio = args.state.play_sound('boss', 'laser', loop=True)
+        if not self.laser_sound:
+            audio = args.state.play_sound('boss', 'laser', loop=True)
 
-                self.laser_sound = PositionalSound(
-                    args.player,
-                    self,
-                    audio,
-                    args.state,
-                    volume_source=VOLUME_SOURCE_SOUND
-                )
+            self.laser_sound = PositionalSound(
+                args.player,
+                self,
+                audio,
+                args.state,
+                volume_source=VOLUME_SOURCE_SOUND
+            )
 
-            self.laser_sound.play()
+        self.laser_sound.play()
 
     def cleanup(self):
         self.settings.music_volume = self.initial_music_volume
