@@ -173,7 +173,7 @@ class Player(Character, SpriteHealth):
 
     def update_animation(self, state):
         if self.walking:
-            if self.walking_animation.update():
+            if self.walking_animation.update(self.modifier):
                 self.textures = self.walking_animation.current_frame
                 self.update_texture()
 

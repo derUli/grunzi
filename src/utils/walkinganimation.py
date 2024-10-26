@@ -11,7 +11,7 @@ class WalkingAnimation:
     def __init__(self):
         self.textures = []
         self.last_update = 0
-        self.frame_duration = 0.010
+        self.frame_duration = 0.1
         self.current_frame_index = 0
 
     def load(self, state):
@@ -31,8 +31,13 @@ class WalkingAnimation:
             i += 1
 
 
-    def update(self):
-        if time.time() - self.last_update > self.frame_duration:
+    def update(self, modifier = 1) -> bool:
+        modifier = modifier - 1
+        modified_frame_duration = self.frame_duration - (self.frame_duration * modifier)
+
+        print(time.time() - self.last_update, modified_frame_duration)
+
+        if time.time() - self.last_update >= modified_frame_duration:
             self.current_frame_index += 1
             if self.current_frame_index >= len(self.textures):
                 self.current_frame_index = 0
