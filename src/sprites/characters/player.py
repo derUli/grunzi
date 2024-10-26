@@ -11,7 +11,7 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth
 from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
-from utils.walkinganimation import WalkingAnimation
+from utils.characteranimation import CharacterAnimation
 
 DEFAULT_FACE = FACE_RIGHT
 
@@ -31,6 +31,8 @@ SPAWN_POINT = (0, 0)
 
 DEFAULT_BULLET_SIZE = 10
 BULLET_DECREMENTOR = 0.4
+
+ANIMATION_WALKING = 'pig_walk_run.png'
 
 
 class Player(Character, SpriteHealth):
@@ -67,8 +69,9 @@ class Player(Character, SpriteHealth):
         self.walking = False
         self.controllers = []
         self.initialized = False
+        self.animations = {}
+        self.current_animation = None
 
-        self.walking_animation = None
 
     def setup(self, state, scene, callbacks, controllers, bullet_size):
         self.state = state
@@ -98,9 +101,9 @@ class Player(Character, SpriteHealth):
 
         self.initialized = False
 
-        animation = WalkingAnimation()
-        animation.load(state)
-        self.walking_animation = animation
+        animation = CharacterAnimation()
+        animation.load(state, ANIMATION_WALKING)
+        self.animations[ANIMATION_WALKING] = animation
 
         self.textures = animation.current_frame
         self.update_texture()
@@ -172,9 +175,10 @@ class Player(Character, SpriteHealth):
             self.item.draw_item(self.face)
 
     def update_animation(self, state):
-        if self.walking:
-            if self.walking_animation.update(self.modifier):
-                self.textures = self.walking_animation.current_frame
+        if self.current_animation:
+            animation = self.animations[self.current_animation]
+            if animation.update(self.modifier):
+                self.textures = animation.current_frame
                 self.update_texture()
 
     def draw_overlay(self, args):
@@ -231,6 +235,9 @@ class Player(Character, SpriteHealth):
 
     def start_walk(self, sprint=False):
         self.walking = True
+
+        self.current_animation = ANIMATION_WALKING
+
         volume = 1
         self.footsteps_default.volume = volume * self.state.settings.sound_volume * self.state.settings.master_volume
         self.footsteps_sprint.volume = volume * self.state.settings.sound_volume * self.state.settings.master_volume
@@ -252,6 +259,7 @@ class Player(Character, SpriteHealth):
 
     def stop_walk(self):
         self.walking = False
+        self.current_animation = None
         self.footsteps_default.pause()
         self.footsteps_sprint.pause()
 

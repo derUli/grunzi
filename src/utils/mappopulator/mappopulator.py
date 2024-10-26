@@ -19,7 +19,7 @@ class MapPopulator:
         """ Constructor """
 
         self.next_spawn = 0
-        self.enabled = True
+        self.enabled = False
 
     def update(self, args: ArgsContainer) -> None:
         logging.error('MapPopulator update() not implemented')
@@ -72,6 +72,9 @@ class MapPopulator:
 
     def spawn_npcs(self, args: ArgsContainer) -> None:
         """ Spawn some sprites on level load """
+
+        if not self.enabled:
+            return
 
         self.spawn_chicken(args)
 

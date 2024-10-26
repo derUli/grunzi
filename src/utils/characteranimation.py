@@ -7,16 +7,16 @@ from arcade import Texture
 from utils.spritesheetanimation import SpriteSheetReader
 
 
-class WalkingAnimation:
+class CharacterAnimation:
     def __init__(self):
         self.textures = []
         self.last_update = 0
         self.frame_duration = 0.1
         self.current_frame_index = 0
 
-    def load(self, state):
+    def load(self, state, filename):
         self.last_update = time.time()
-        reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', 'pig', 'pig_walk_run.png'))
+        reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', 'pig', filename))
         reader.process(size=(360, 194), resize=(63, 35))
 
         self.textures = []
@@ -30,12 +30,9 @@ class WalkingAnimation:
 
             i += 1
 
-
-    def update(self, modifier = 1) -> bool:
+    def update(self, modifier=1) -> bool:
         modifier = modifier - 1
         modified_frame_duration = self.frame_duration - (self.frame_duration * modifier)
-
-        print(time.time() - self.last_update, modified_frame_duration)
 
         if time.time() - self.last_update >= modified_frame_duration:
             self.current_frame_index += 1
@@ -47,8 +44,6 @@ class WalkingAnimation:
 
         return False
 
-
     @property
     def current_frame(self):
         return self.textures[self.current_frame_index]
-

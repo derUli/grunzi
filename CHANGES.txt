@@ -6,10 +6,10 @@
 * Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
 * map04: Color Tint zu Feuer hinzugefügt
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
+* map01: Kuh-Sound hinzugefügt
 
 # Alpha 021 (Unreleased)
-
-* map01: Kuh-Sound hinzugefügt
+* Neuer Charakter-Sprite für Grunzi mit Animation
 
 * Alpha 020 (26.10.2024)
 
