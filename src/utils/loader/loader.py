@@ -79,7 +79,7 @@ class Loader:
         self.parent.ui.loading_screen.percent = 50
 
         # Set up the player, specifically placing it at these coordinates.
-        filename = os.path.join(self.parent.state.sprite_dir, 'char', 'pig.png')
+        filename = os.path.join(self.parent.state.sprite_dir, 'char', 'pig', 'default.png')
         self.parent.scene.player_sprite = Player(filename)
 
         self.parent.map_populator = init_map_populator(GAMEMODE_CAMPAIGN)

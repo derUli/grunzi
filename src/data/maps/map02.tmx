@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="Chars" tilewidth="60" tileheight="46" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image source="../images/sprites/char/pig.png" width="63" height="35"/>
+   <image source="../images/sprites/char/pig/default.png" width="63" height="35"/>
   </tile>
  </tileset>
  <tileset firstgid="2" name="Background" tilewidth="128" tileheight="64" tilecount="8" columns="0">

@@ -4,7 +4,7 @@ import PIL
 import arcade.sprite
 from PIL.Image import Resampling
 
-FULL_ALPHA = 150
+FULL_ALPHA = 255
 ONE_PERCENT_ALPHA = FULL_ALPHA / 100
 COLOR_BLOOD = (156, 28, 28)
 

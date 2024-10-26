@@ -11,7 +11,7 @@ from utils.physics import make_physics_engine, on_hit_destroy
 class PhysicsTest(unittest.TestCase):
 
     def test_make_physics(self):
-        image = os.path.join('..', 'src', 'data', 'images', 'sprites', 'char', 'pig.png')
+        image = os.path.join('..', 'src', 'data', 'images', 'sprites', 'char', 'pig', 'default.png')
         sprite = Player(image)
         scene = Scene()
         scene.add_sprite_list('Walls', SpriteList())

@@ -16,7 +16,7 @@
 # Alpha 021 (Unreleased)
 
 * Neue Charakter-Sprites für Grunzi mit Animationen
-* Qualität der  Sprite-Skalierungen verbessert
+* Qualität der Sprite-Skalierung verbessert
 
 # Alpha 020 (26.10.2024)
 
