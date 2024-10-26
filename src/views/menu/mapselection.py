@@ -4,6 +4,7 @@ import os
 import PIL
 import arcade.gui
 from PIL import ImageOps
+from PIL.Image import Resampling
 
 import constants.controls.keyboard
 import utils.gui
@@ -132,7 +133,10 @@ class MapSelection(Fading):
                 int(size)
             )
 
-            image = image.resize(image_size)
+            image = image.resize(
+                image_size,
+                resample=Resampling.BILINEAR
+            )
 
             image_normal = ImageOps.expand(
                 image,
