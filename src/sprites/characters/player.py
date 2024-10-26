@@ -36,8 +36,8 @@ ANIMATION_IDLE = '__pig_idle.png'
 ANIMATION_WALKING = '__pig_walk_run.png'
 
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: (427.2, 194),
-    ANIMATION_WALKING: (360, 227)
+    ANIMATION_IDLE: (424.2, 227),
+    ANIMATION_WALKING: (360, 194)
 }
 
 class Player(Character, SpriteHealth):
