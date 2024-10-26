@@ -35,9 +35,16 @@ BULLET_DECREMENTOR = 0.4
 ANIMATION_IDLE = '__pig_idle.png'
 ANIMATION_WALKING = '__pig_walk_run.png'
 
+
+class AnimationConfig:
+    def __init__(self, size, loop, frame_length):
+        self.size = size
+        self.loop = loop
+        self.frame_length = frame_length
+
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: (424.2, 227),
-    ANIMATION_WALKING: (360, 194)
+    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length = 0.3),
+    ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length = 0.1)
 }
 
 class Player(Character, SpriteHealth):
@@ -108,7 +115,14 @@ class Player(Character, SpriteHealth):
 
         for anim in ANIMATIONS_ALL:
             animation = CharacterAnimation()
-            animation.load(state=state, filename=anim, size=ANIMATIONS_ALL[anim])
+            config = ANIMATIONS_ALL[anim]
+            animation.load(
+                state=state,
+                filename=anim,
+                size=config.size,
+                loop=config.loop,
+                frame_length=config.frame_length
+            )
             self.animations[anim] = animation
 
         self.current_animation = ANIMATION_IDLE
@@ -183,6 +197,7 @@ class Player(Character, SpriteHealth):
             self.item.draw_item(self.face)
 
     def update_animation(self, state):
+
         if self.current_animation:
             animation = self.animations[self.current_animation]
             if animation.update(self.modifier):

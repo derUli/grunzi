@@ -6,13 +6,13 @@ from PIL.Image import Resampling
 
 class SpriteSheetReader:
     def __init__(self, filename):
-        self.filename = filename
-        self.images = []
+        self._filename = filename
+        self._images = []
 
     def process(self, size, autocrop=False, resize=None):
-        self.images = []
+        self._images = []
 
-        image = Image.open(self.filename).convert('RGBA').crop()
+        image = Image.open(self._filename).convert('RGBA').crop()
 
         full_w, full_h = image.size
 
@@ -30,20 +30,18 @@ class SpriteSheetReader:
                 if autocrop:
                     cropped = cropped.crop()
 
-                print(cropped.size)
-
                 if resize:
                     cropped = cropped.resize(
                         resize,
                         resample=Resampling.BILINEAR
                     )
 
-                self.images.append(cropped)
+                self._images.append(cropped)
 
                 x += w
 
             y += h
 
-
-# test = SpriteSheetReader(os.path.abspath('../data/images/sprites/char/pig/pig_walk_run.png'))
-# test.process(size=(360, 194), resize=(63, 35))
+    @property
+    def images(self):
+        return self._images
