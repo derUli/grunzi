@@ -32,8 +32,13 @@ SPAWN_POINT = (0, 0)
 DEFAULT_BULLET_SIZE = 10
 BULLET_DECREMENTOR = 0.4
 
-ANIMATION_WALKING = 'pig_walk_run.png'
+ANIMATION_IDLE = '__pig_idle.png'
+ANIMATION_WALKING = '__pig_walk_run.png'
 
+ANIMATIONS_ALL = {
+    ANIMATION_IDLE: (427.2, 194),
+    ANIMATION_WALKING: (360, 227)
+}
 
 class Player(Character, SpriteHealth):
     def __init__(
@@ -70,7 +75,7 @@ class Player(Character, SpriteHealth):
         self.controllers = []
         self.initialized = False
         self.animations = {}
-        self.current_animation = None
+        self.current_animation = ANIMATION_IDLE
 
 
     def setup(self, state, scene, callbacks, controllers, bullet_size):
@@ -101,11 +106,14 @@ class Player(Character, SpriteHealth):
 
         self.initialized = False
 
-        animation = CharacterAnimation()
-        animation.load(state, ANIMATION_WALKING)
-        self.animations[ANIMATION_WALKING] = animation
+        for anim in ANIMATIONS_ALL:
+            animation = CharacterAnimation()
+            animation.load(state=state, filename=anim, size=ANIMATIONS_ALL[anim])
+            self.animations[anim] = animation
 
-        self.textures = animation.current_frame
+        self.current_animation = ANIMATION_IDLE
+
+        self.textures = self.animations[ANIMATION_IDLE].current_frame
         self.update_texture()
 
     def update_texture(self):
@@ -259,7 +267,7 @@ class Player(Character, SpriteHealth):
 
     def stop_walk(self):
         self.walking = False
-        self.current_animation = None
+        self.current_animation = ANIMATION_IDLE
         self.footsteps_default.pause()
         self.footsteps_sprint.pause()
 

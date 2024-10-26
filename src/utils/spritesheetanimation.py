@@ -30,6 +30,8 @@ class SpriteSheetReader:
                 if autocrop:
                     cropped = cropped.crop()
 
+                print(cropped.size)
+
                 if resize:
                     cropped = cropped.resize(
                         resize,

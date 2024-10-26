@@ -14,18 +14,18 @@ class CharacterAnimation:
         self.frame_duration = 0.1
         self.current_frame_index = 0
 
-    def load(self, state, filename):
+    def load(self, size, state, filename):
         self.last_update = time.time()
         reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', 'pig', filename))
-        reader.process(size=(360, 194), resize=(63, 35))
+        reader.process(size=size, resize=(63, 35), autocrop=False)
 
         self.textures = []
 
         i = 0
         for image in reader.images:
             self.textures.append([
-                Texture('img_' + str(i) + '_right', image=image),
-                Texture('img_' + str(i) + '_left', image=ImageOps.mirror(image))
+                Texture('img_' + str(filename) + '_' + str(i) + '_right', image=image),
+                Texture('img_' + str(filename) + '_' + str(i) + '_left', image=ImageOps.mirror(image))
             ])
 
             i += 1
