@@ -40,6 +40,8 @@ class SpriteSheetReader:
 
             y += h
 
+        self._images = list(reversed(self._images))
+
     @property
     def images(self):
         return self._images

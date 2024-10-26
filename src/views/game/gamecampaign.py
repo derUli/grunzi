@@ -109,11 +109,10 @@ class GameCampaign(Game):
             self.scene.player_sprite.update(delta_time, make_args_container(self))
             self.scene.player_sprite.reset()
 
-            if not self.scene.player_sprite.bloody_screen.shown:
-                self.scene.update_scene(
-                    delta_time,
-                    make_args_container(self)
-                )
+            self.scene.update_scene(
+                delta_time,
+                make_args_container(self)
+            )
 
             return self.update_fade(self.next_view)
 
