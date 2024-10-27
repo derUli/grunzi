@@ -1,0 +1,255 @@
+{
+  "frames": {
+    "__white_chicken_idle_008.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 591
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 591
+      },
+      "sourceSize": {
+        "w": 362,
+        "h": 591
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_009.png": {
+      "frame": {
+        "x": 362,
+        "y": 0,
+        "w": 360,
+        "h": 591
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 591
+      },
+      "sourceSize": {
+        "w": 360,
+        "h": 591
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_006.png": {
+      "frame": {
+        "x": 722,
+        "y": 0,
+        "w": 365,
+        "h": 590
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 365,
+        "h": 590
+      },
+      "sourceSize": {
+        "w": 365,
+        "h": 590
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_007.png": {
+      "frame": {
+        "x": 1087,
+        "y": 0,
+        "w": 363,
+        "h": 590
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 363,
+        "h": 590
+      },
+      "sourceSize": {
+        "w": 363,
+        "h": 590
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_003.png": {
+      "frame": {
+        "x": 1450,
+        "y": 0,
+        "w": 370,
+        "h": 589
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 370,
+        "h": 589
+      },
+      "sourceSize": {
+        "w": 370,
+        "h": 589
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_004.png": {
+      "frame": {
+        "x": 1820,
+        "y": 0,
+        "w": 368,
+        "h": 589
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 368,
+        "h": 589
+      },
+      "sourceSize": {
+        "w": 368,
+        "h": 589
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_005.png": {
+      "frame": {
+        "x": 2188,
+        "y": 0,
+        "w": 367,
+        "h": 589
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 367,
+        "h": 589
+      },
+      "sourceSize": {
+        "w": 367,
+        "h": 589
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_001.png": {
+      "frame": {
+        "x": 2555,
+        "y": 0,
+        "w": 374,
+        "h": 588
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 374,
+        "h": 588
+      },
+      "sourceSize": {
+        "w": 374,
+        "h": 588
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_002.png": {
+      "frame": {
+        "x": 2929,
+        "y": 0,
+        "w": 371,
+        "h": 588
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 371,
+        "h": 588
+      },
+      "sourceSize": {
+        "w": 371,
+        "h": 588
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "__white_chicken_idle_000.png": {
+      "frame": {
+        "x": 3300,
+        "y": 0,
+        "w": 375,
+        "h": 587
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 375,
+        "h": 587
+      },
+      "sourceSize": {
+        "w": 375,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "texture.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 3675,
+      "h": 591
+    },
+    "scale": 1
+  }
+}
