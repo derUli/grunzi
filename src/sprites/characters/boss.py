@@ -25,6 +25,7 @@ EYE_OFFSET_Y = 10
 ALPHA_SPEED = 2
 ALPHA_MAX = 255
 
+
 class Boss(Character):
     def __init__(
             self,
@@ -250,7 +251,7 @@ class Boss(Character):
         if abs(self.eye1.center_x - args.player.center_x) > self.lasers[-1].width:
             return
 
-        if abs(self.eye1.center_y - args.player.center_y) >  self.lasers[-1].height * 1.2:
+        if abs(self.eye1.center_y - args.player.center_y) > self.lasers[-1].height * 1.2:
             return
 
         self._should_shoot = True

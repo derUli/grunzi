@@ -24,6 +24,5 @@ class Crystal(AnimatedSprite):
             if arcade.check_for_collision(self, args.player):
                 args.player.hurt(1)
 
-
         def cleanup(self):
             self.sound.delete()
