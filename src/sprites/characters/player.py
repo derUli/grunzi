@@ -10,6 +10,7 @@ from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, SpriteHealth, HEALTH_EMPTY
 from sprites.ui.bloodyscreen import BloodyScreen
 from sprites.ui.gameovertext import GameOverText
+from utils.animationconfig import AnimationConfig
 from utils.characteranimation import CharacterAnimation
 
 DEFAULT_FACE = FACE_RIGHT
@@ -35,14 +36,6 @@ ANIMATION_IDLE = '__pig_idle.png'
 ANIMATION_WALKING = '__pig_walk_run.png'
 ANIMATION_GRUNT = '__pig_jump.png'
 ANIMATION_DIE = '__pig_die.png'
-
-
-class AnimationConfig:
-    def __init__(self, size, loop, frame_length, apply_modifier):
-        self.size = size
-        self.loop = loop
-        self.frame_length = frame_length
-        self.apply_modifier = apply_modifier
 
 
 ANIMATIONS_ALL = {
@@ -127,7 +120,9 @@ class Player(Character, SpriteHealth):
                 size=config.size,
                 loop=config.loop,
                 frame_length=config.frame_length,
-                apply_modifier=config.apply_modifier
+                apply_modifier=config.apply_modifier,
+                resize=(63, 35),
+                character='pig'
             )
             self.animations[anim] = animation
 

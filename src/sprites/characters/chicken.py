@@ -13,6 +13,8 @@ from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
 from sprites.items.redherring import Feather
 from state.argscontainer import ArgsContainer
+from utils.animationconfig import AnimationConfig
+from utils.characteranimation import CharacterAnimation
 from utils.positionalsound import PositionalSound
 from utils.sprite import random_position
 
@@ -20,6 +22,14 @@ FADE_SPEED = 4
 DEFAULT_FACE = FACE_RIGHT
 MOVE_DAMPING = 0.01
 MOVE_FORCE = 2000
+HEALTH_EMPTY = 0
+
+ANIMATION_IDLE = 'idle.png'
+
+
+ANIMATIONS_ALL = {
+    ANIMATION_IDLE: AnimationConfig(size=(692.2, 591), loop=True, frame_length=0.2, apply_modifier=False)
+}
 
 
 class Chicken(Character, Useable):
@@ -35,22 +45,50 @@ class Chicken(Character, Useable):
         self.face = DEFAULT_FACE
         self.face_horizontal = DEFAULT_FACE
         self.texture = self.textures[self.face - 1]
-
+        self.initialized = False
         self.force_move = MOVE_FORCE
         self.health = HEALTH_FULL
         self._died = False
-
+        self.animations = {}
         self.damping = MOVE_DAMPING
         self.sound = None
+        self._current_animation = ANIMATION_IDLE
 
     def draw_overlay(self, args: ArgsContainer):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
+
+
+    def setup(self, args):
+        self.initialized = True
+
+        for anim in ANIMATIONS_ALL:
+            animation = CharacterAnimation()
+            config = ANIMATIONS_ALL[anim]
+            animation.load(
+                state=args.state,
+                filename=anim,
+                size=config.size,
+                loop=config.loop,
+                frame_length=config.frame_length,
+                apply_modifier=config.apply_modifier,
+                character='chicken',
+                resize=(48, 79)
+            )
+            self.animations[anim] = animation
+
 
     def update(
             self,
             delta_time: float,
             args: ArgsContainer
     ) -> None:
+        if not self.initialized:
+            self.setup(args)
+
+        if self.current_animation and self.current_animation.update():
+            self.textures = self.current_animation.current_frame
+            self.texture = self.textures[self.face - 1]
+
         if self.dead:
             if self.sound:
                 self.sound.pause()
@@ -74,27 +112,6 @@ class Chicken(Character, Useable):
 
             return
 
-        move_x = 0
-        move_y = 0
-
-        if random.randint(1, 80) == 50:
-            move_x = random.choice([-self.force_move, self.force_move])
-        if random.randint(1, 80) == 50:
-            move_y = random.choice([-self.force_move, self.force_move])
-
-        if move_x > 0:
-            self.face = FACE_RIGHT
-            self.face_horizontal = FACE_RIGHT
-            self.texture = self.textures[self.face_horizontal - 1]
-        elif move_x < 0:
-            self.face = FACE_LEFT
-            self.face_horizontal = FACE_LEFT
-            self.texture = self.textures[self.face_horizontal - 1]
-
-        if move_x > 0 or move_y > 0:
-            args.physics_engine.apply_force(self, (move_x, move_y))
-            return
-
         if self.sound and self.sound.playing:
             self.sound.update()
             return
@@ -111,12 +128,25 @@ class Chicken(Character, Useable):
         self.sound = PositionalSound(player, self, audio, state)
         self.sound.play()
 
+    @property
+    def current_animation(self):
+        return self.animations[self._current_animation]
+
+    @current_animation.setter
+    def current_animation(self, value):
+        if self._current_animation != value:
+
+            if self.current_animation and not self.current_animation.loop and not self.current_animation.completed:
+                return
+
+            self._current_animation = value
+            self.animations[value].reset()
 
 def spawn_chicken(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
 
     chicken = Chicken(
-        filename=os.path.join(state.sprite_dir, 'char', 'chicken.png'),
+        filename=os.path.join(state.sprite_dir, 'char', 'chicken', 'default.png'),
         center_x=rand_x,
         center_y=rand_y
     )
@@ -134,3 +164,4 @@ def spawn_chicken(state, tilemap, scene, physics_engine):
         moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
         collision_type=COLLISION_CHICKEN
     )
+

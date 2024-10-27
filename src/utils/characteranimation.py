@@ -16,15 +16,15 @@ class CharacterAnimation:
         self._loop = True
         self._apply_modifier = True
 
-    def load(self, size, state, filename, loop, frame_length, apply_modifier):
+    def load(self, size, state, filename, loop, frame_length, apply_modifier, resize, character, autocrop = False):
         self._last_update = time.time()
         self._loop = loop
         self._frame_length = frame_length
 
         self._apply_modifier = apply_modifier
 
-        reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', 'pig', filename))
-        reader.process(size=size, resize=(63, 35), autocrop=False, pil_resample=state.settings.pil_resample)
+        reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', character, filename))
+        reader.process(size=size, resize=resize, autocrop=autocrop, pil_resample=state.settings.pil_resample)
 
         self._textures = []
 
