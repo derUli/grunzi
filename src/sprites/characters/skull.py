@@ -89,8 +89,10 @@ class Skull(Character, Useable):
             args
     ):
 
+        if args.player.dead:
+            return
+
         if self.dead:
-            self.cleanup()
 
             alpha = self.alpha - FADE_SPEED
 

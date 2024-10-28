@@ -89,9 +89,6 @@ class Scene(BaseScene):
         if self.postprocessing:
             self.postprocessing.update(delta_time, args)
 
-        if args.player.dead:
-            return
-
         self.call_update(delta_time, args)
 
     def update_animated(self, delta_time, size, scene, player_sprite):
