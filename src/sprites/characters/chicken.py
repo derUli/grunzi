@@ -43,7 +43,6 @@ class Chicken(Character, Useable):
         self.textures = arcade.load_texture_pair(filename)
         default_face =  random.choice([FACE_LEFT, FACE_RIGHT])
         self.face = default_face
-        self.face_horizontal = default_face
         self.texture = self.textures[self.face - 1]
         self.initialized = False
         self.force_move = MOVE_FORCE
