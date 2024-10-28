@@ -19,7 +19,6 @@ from utils.positionalsound import PositionalSound
 from utils.sprite import random_position
 
 FADE_SPEED = 4
-DEFAULT_FACE = FACE_RIGHT
 MOVE_DAMPING = 0.01
 MOVE_FORCE = 2000
 HEALTH_EMPTY = 0
@@ -42,8 +41,9 @@ class Chicken(Character, Useable):
         super().__init__(filename, center_x=center_x, center_y=center_y)
 
         self.textures = arcade.load_texture_pair(filename)
-        self.face = DEFAULT_FACE
-        self.face_horizontal = DEFAULT_FACE
+        default_face =  random.choice([FACE_LEFT, FACE_RIGHT])
+        self.face = default_face
+        self.face_horizontal = default_face
         self.texture = self.textures[self.face - 1]
         self.initialized = False
         self.force_move = MOVE_FORCE
