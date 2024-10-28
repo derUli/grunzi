@@ -28,7 +28,7 @@ ANIMATION_IDLE = 'idle.png'
 
 
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: AnimationConfig(size=(692.2, 591), loop=True, frame_length=0.2, apply_modifier=False)
+    ANIMATION_IDLE: AnimationConfig(size=(375, 591), loop=True, frame_length=0.2, apply_modifier=False)
 }
 
 
@@ -72,7 +72,7 @@ class Chicken(Character, Useable):
                 frame_length=config.frame_length,
                 apply_modifier=config.apply_modifier,
                 character='chicken',
-                resize=(48, 79)
+                resize=(32, 50)
             )
             self.animations[anim] = animation
 
