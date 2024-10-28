@@ -4,6 +4,7 @@ import os
 import random
 
 import arcade
+import pyglet
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
 
 from constants.collisions import COLLISION_CHICKEN
@@ -22,6 +23,8 @@ FADE_SPEED = 4
 MOVE_DAMPING = 0.01
 MOVE_FORCE = 2000
 HEALTH_EMPTY = 0
+
+AI_INTERVAL = 1
 
 ANIMATION_IDLE = 'idle.png'
 
@@ -75,6 +78,7 @@ class Chicken(Character, Useable):
             )
             self.animations[anim] = animation
 
+        pyglet.clock.schedule_interval_soft(self.ai, AI_INTERVAL, args)
 
     def update(
             self,
@@ -140,6 +144,22 @@ class Chicken(Character, Useable):
 
             self._current_animation = value
             self.animations[value].reset()
+
+
+    def ai(self, delta_time, args):
+        self.face_towards_player(args.player)
+
+    def face_towards_player(self, player):
+        if self.right < player.left:
+            self.face = FACE_RIGHT
+            self.texture = self.textures[self.face - 1]
+
+        elif self.left > player.right:
+            self.face = FACE_LEFT
+            self.texture = self.textures[self.face - 1]
+
+    def schedule(self):
+        pyglet.clock.unschedule(self.ai)
 
 def spawn_chicken(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
