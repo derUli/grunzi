@@ -16,7 +16,7 @@ class CharacterAnimation:
         self._loop = True
         self._apply_modifier = True
 
-    def load(self, size, state, filename, loop, frame_length, apply_modifier, resize, character, autocrop = False):
+    def load(self, size, state, filename, loop, frame_length, apply_modifier, resize, character, autocrop=False):
         self._last_update = time.time()
         self._loop = loop
         self._frame_length = frame_length

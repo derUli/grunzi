@@ -37,7 +37,6 @@ ANIMATION_WALKING = '__pig_walk_run.png'
 ANIMATION_GRUNT = '__pig_jump.png'
 ANIMATION_DIE = '__pig_die.png'
 
-
 ANIMATIONS_ALL = {
     ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length=0.2, apply_modifier=False),
     ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length=0.1, apply_modifier=True),

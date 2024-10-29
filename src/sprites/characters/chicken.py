@@ -28,7 +28,6 @@ AI_INTERVAL = 1
 
 ANIMATION_IDLE = 'idle.png'
 
-
 ANIMATIONS_ALL = {
     ANIMATION_IDLE: AnimationConfig(size=(375, 591), loop=True, frame_length=0.2, apply_modifier=False)
 }
@@ -44,7 +43,7 @@ class Chicken(Character, Useable):
         super().__init__(filename, center_x=center_x, center_y=center_y)
 
         self.textures = arcade.load_texture_pair(filename)
-        default_face =  random.choice([FACE_LEFT, FACE_RIGHT])
+        default_face = random.choice([FACE_LEFT, FACE_RIGHT])
         self.face = default_face
         self.texture = self.textures[self.face - 1]
         self.initialized = False
@@ -58,7 +57,6 @@ class Chicken(Character, Useable):
 
     def draw_overlay(self, args: ArgsContainer):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
-
 
     def setup(self, args):
         self.initialized = True
@@ -145,7 +143,6 @@ class Chicken(Character, Useable):
             self._current_animation = value
             self.animations[value].reset()
 
-
     def ai(self, delta_time, args):
         self.face_towards_player(args.player)
 
@@ -160,6 +157,7 @@ class Chicken(Character, Useable):
 
     def schedule(self):
         pyglet.clock.unschedule(self.ai)
+
 
 def spawn_chicken(state, tilemap, scene, physics_engine):
     rand_x, rand_y = random_position(tilemap)
@@ -183,4 +181,3 @@ def spawn_chicken(state, tilemap, scene, physics_engine):
         moment_of_inertia=PymunkPhysicsEngine.MOMENT_INF,
         collision_type=COLLISION_CHICKEN
     )
-

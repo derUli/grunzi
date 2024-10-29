@@ -1,4 +1,3 @@
-
 class AnimationConfig:
     def __init__(self, size, loop, frame_length, apply_modifier):
         self.size = size

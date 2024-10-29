@@ -8,11 +8,6 @@
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
 * map01: Kuh-Sound hinzugefügt
 
-
-# Alpha 022 (Unreleased)
-
-* Neue NPC-Sprites für Hühner mit Animationen
-
 # Alpha 021 (Unreleased)
 
 * Neue Charakter-Sprites für Grunzi mit Animationen hinzugefügt
