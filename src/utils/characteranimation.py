@@ -1,16 +1,13 @@
 import os
 import time
 
-import arcade.cache
 from PIL import ImageOps
 from arcade import Texture
 
-from sprites.characters.character import Character
 from utils.spritesheetanimation import SpriteSheetReader
 
 
 class CharacterAnimation:
-
     cache: dict = {}
 
     def __init__(self):
@@ -46,7 +43,6 @@ class CharacterAnimation:
             i += 1
 
         CharacterAnimation.cache[filename] = self._textures
-
 
     def update(self, modifier=1) -> bool:
 

@@ -15,7 +15,6 @@ from state.argscontainer import ArgsContainer
 from utils.performance import chunk
 from utils.text import label_value
 
-
 SPAWN_CHICKEN = 'chicken'
 SPAWN_HELL_PARTICLE = 'hell_particle'
 SPAWN_SNOW = 'snow'
@@ -24,6 +23,7 @@ SPAWN_LANDMINE = 'landmine'
 
 SPAWN_INTERVAL = 1 / 36
 CHUNK_SIZE = 100
+
 
 class MapPopulator:
     def __init__(self):

@@ -2,12 +2,10 @@
 import logging
 import os
 import random
-import time
 
 import arcade
 import pyglet
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
-from numpy.lib.utils import source
 
 from constants.collisions import COLLISION_CHICKEN
 from constants.layers import LAYER_NPC, LAYER_FEATHER, check_collision_with_layers
@@ -23,7 +21,7 @@ from utils.sprite import random_position
 
 FADE_SPEED = 4
 MOVE_DAMPING = 0.01
-MOVE_CHOICES =  [-3000 -2000, -1000, 0, 1000, 2000, 3000]
+MOVE_CHOICES = [-3000 - 2000, -1000, 0, 1000, 2000, 3000]
 HEALTH_EMPTY = 0
 
 AI_INTERVAL = 1 / 2
@@ -42,8 +40,9 @@ STATE_DEFAULT = STATE_IDLE
 
 WALK_ANIMATION_THRESHOLD = 0.1
 
+
 class ChickenState:
-    def __init__(self, state, value = None):
+    def __init__(self, state, value=None):
         self.state = state
         self.value = value
 
@@ -53,6 +52,7 @@ class ChickenState:
             return ANIMATION_WALK
 
         return ANIMATION_IDLE
+
 
 class Chicken(Character, Useable):
     def __init__(
