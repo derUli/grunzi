@@ -38,7 +38,7 @@ STATE_IDLE = 'idle'
 STATE_WALK = 'walk'
 STATE_DEFAULT = STATE_IDLE
 
-WALK_ANIMATION_THRESHOLD = 0.05
+WALK_ANIMATION_THRESHOLD = 0.06
 
 
 class ChickenState:
@@ -167,6 +167,7 @@ class Chicken(Character, Useable):
             return
 
     def play_sound(self, player, state) -> None:
+        return
         if self.sound and self.sound.playing:
             return
 
