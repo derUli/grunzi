@@ -23,6 +23,8 @@ class CampaignMapPopulator(MapPopulator):
         if not self.enabled:
             return
 
+        self.spawn_next_initial(args)
+
         if time.time() < self.next_spawn:
             return
 

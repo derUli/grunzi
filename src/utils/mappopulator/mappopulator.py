@@ -14,15 +14,31 @@ from state.argscontainer import ArgsContainer
 from utils.text import label_value
 
 
+SPAWN_CHICKEN = 'chicken'
+SPAWN_HELL_PARTICLE = 'hell_particle'
+
 class MapPopulator:
     def __init__(self):
         """ Constructor """
 
         self.next_spawn = 0
         self.enabled = True
+        self.spawn_what = []
 
     def update(self, args: ArgsContainer) -> None:
         logging.error('MapPopulator update() not implemented')
+
+    def spawn_next_initial(self, args):
+        if not any(self.spawn_what):
+            return
+
+        item = self.spawn_what.pop()
+
+        if item == SPAWN_CHICKEN:
+            spawn_chicken(args.state, args.map_size, args.scene, args.physics_engine)
+
+        if item == SPAWN_HELL_PARTICLE:
+            self._spawn_hell_particles(args)
 
     def spawn(self, args: ArgsContainer) -> None:
         if not self.enabled:
@@ -97,14 +113,14 @@ class MapPopulator:
             logging.info(f"Spawn landmine {i}")
             spawn_landmine(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
-    @staticmethod
-    def spawn_chicken(args: ArgsContainer) -> None:
+    def spawn_chicken(self, args: ArgsContainer) -> None:
         if not args.state.difficulty.options['chicken']:
             return
 
+        #for i in range(random.randint(2, 5)):
         for i in range(random.randint(2, 5)):
-            logging.info(f"Spawn chicken {i}")
-            spawn_chicken(args.state, args.tilemap.map, args.scene, args.physics_engine)
+            self.spawn_what.append(SPAWN_CHICKEN)
+
 
     @staticmethod
     def spawn_food(args: ArgsContainer) -> None:
@@ -125,7 +141,7 @@ class MapPopulator:
 
             args.scene.add_sprite(LAYER_SNOW, snow)
 
-    def spawn_hell_particles(self, args: ArgsContainer) -> None:
+    def spawn_hell_particles(self, args):
         if not args.state.difficulty.options['hellParticles']:
             return
 
@@ -133,12 +149,15 @@ class MapPopulator:
             return
 
         for i in range(1, 500):
-            radius = random.randint(1, 14)
-            particle = HellParticle(radius=radius, color=random.choice(HELL_PARTICLE_COLORS), soft=True)
-            particle.center_x = random.randint(0, args.tilemap.width)
-            particle.center_y = random.randint(0, args.tilemap.height)
+            self.spawn_what.append(SPAWN_HELL_PARTICLE)
 
-            args.scene.add_sprite(LAYER_SNOW, particle)
+    def _spawn_hell_particles(self, args: ArgsContainer) -> None:
+        radius = random.randint(1, 14)
+        particle = HellParticle(radius=radius, color=random.choice(HELL_PARTICLE_COLORS), soft=True)
+        particle.center_x = random.randint(0, args.tilemap.width)
+        particle.center_y = random.randint(0, args.tilemap.height)
+
+        args.scene.add_sprite(LAYER_SNOW, particle)
 
 
 def init_map_populator(gamemode: str) -> MapPopulator:

@@ -21,13 +21,16 @@ def tilemap_size(tilemap: TileMap) -> tuple:
     return width, height
 
 
-def random_position(tilemap: TileMap) -> tuple:
+def random_position(tilemap: TileMap = None, map_size=None) -> tuple:
     """
     Get a random position on a tilemap
     @param tilemap: The tile map
     @return: (x, y)
     """
-    width, height = tilemap_size(tilemap)
+    if tilemap:
+        width, height = tilemap_size(tilemap)
+    else:
+        width, height = map_size
 
     rand_x = random.randint(0, width)
     rand_y = random.randint(0, height)

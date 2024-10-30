@@ -223,8 +223,8 @@ class Chicken(Character, Useable):
         pyglet.clock.unschedule(self.ai)
 
 
-def spawn_chicken(state, tilemap, scene, physics_engine):
-    rand_x, rand_y = random_position(tilemap)
+def spawn_chicken(state, map_size, scene, physics_engine):
+    rand_x, rand_y = random_position(map_size=map_size)
 
     chicken = Chicken(
         filename=os.path.join(state.sprite_dir, 'char', 'chicken', 'default.png'),
@@ -234,7 +234,7 @@ def spawn_chicken(state, tilemap, scene, physics_engine):
 
     try:
         if check_collision_with_layers(scene, chicken):
-            return spawn_chicken(state, tilemap, scene, physics_engine)
+            return spawn_chicken(state, map_size, scene, physics_engine)
     except AttributeError as e:
         logging.error(e)
         return
