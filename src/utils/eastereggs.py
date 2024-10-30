@@ -7,6 +7,7 @@ def is_halloween() -> bool:
     today = date.today()
     return today.month == 10 and today.day == 31
 
+
 def is_christmas() -> bool:
     today = date.today()
 
@@ -14,7 +15,6 @@ def is_christmas() -> bool:
 
 
 def get_loading_screen_image_file() -> str:
-
     if is_halloween():
         return 'halloween.jpg'
 

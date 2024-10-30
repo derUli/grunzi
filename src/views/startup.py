@@ -221,7 +221,6 @@ class StartUp:
         if args.benchmark:
             window.enable_benchmark_mode()
 
-
         log_hardware_info(window)
 
         window.setup()
