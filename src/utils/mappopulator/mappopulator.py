@@ -30,7 +30,7 @@ class MapPopulator:
         """ Constructor """
 
         self.next_spawn = 0
-        self.enabled = True
+        self.enabled = False
         self.spawn_what = []
         self.spawn_what_chunks = None
         self.initialized = None
