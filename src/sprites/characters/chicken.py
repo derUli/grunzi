@@ -23,11 +23,10 @@ from utils.sprite import random_position
 
 FADE_SPEED = 4
 MOVE_DAMPING = 0.01
-MOVE_FORCE = 2000
-MOVE_CHOICES =  [-MOVE_FORCE, 0, MOVE_FORCE]
+MOVE_CHOICES =  [-3000 -2000, -1000, 0, 1000, 2000, 3000]
 HEALTH_EMPTY = 0
 
-AI_INTERVAL = 1 / 4
+AI_INTERVAL = 1 / 2
 
 ANIMATION_IDLE = 'idle.png'
 ANIMATION_WALK = 'walk.png'
@@ -41,7 +40,7 @@ STATE_IDLE = 'idle'
 STATE_WALK = 'walk'
 STATE_DEFAULT = STATE_IDLE
 
-WALK_ANIMATION_THRESHOLD = 0.2
+WALK_ANIMATION_THRESHOLD = 0.1
 
 class ChickenState:
     def __init__(self, state, value = None):
@@ -69,7 +68,6 @@ class Chicken(Character, Useable):
         self.face = default_face
         self.texture = self.textures[self.face - 1]
         self.initialized = False
-        self.force_move = MOVE_FORCE
         self.health = HEALTH_FULL
         self._died = False
         self.animations = {}
@@ -129,7 +127,7 @@ class Chicken(Character, Useable):
 
         if diffx >= WALK_ANIMATION_THRESHOLD or diffy >= WALK_ANIMATION_THRESHOLD:
             self._state.state = STATE_WALK
-        else:
+        elif self._current_animation == ANIMATION_WALK and self.current_animation.last_frame:
             self._state.state = STATE_IDLE
 
         self._old_position = self.position
@@ -167,10 +165,6 @@ class Chicken(Character, Useable):
             self.sound.update()
             return
 
-        # randomize play sound
-        if random.randint(1, 50) == 30:
-            self.play_sound(player=args.player, state=args.state)
-
     def play_sound(self, player, state) -> None:
         if self.sound and self.sound.playing:
             return
@@ -198,6 +192,7 @@ class Chicken(Character, Useable):
 
             if random.randint(1, 10) == 5:
 
+                # randomize play sound
                 x, y = random.choice(MOVE_CHOICES), random.choice(MOVE_CHOICES)
 
                 if x == 0 and y == 0:
@@ -210,6 +205,10 @@ class Chicken(Character, Useable):
 
                 self._state.state = STATE_WALK
                 self._state.value = (x, y)
+                return
+
+            if random.randint(1, 10) == 5:
+                self.play_sound(player=args.player, state=args.state)
 
     def face_towards_player(self, player):
         if self.right < player.left:
