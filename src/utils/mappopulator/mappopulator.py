@@ -102,7 +102,7 @@ class MapPopulator:
         if not args.state.difficulty.options['chicken']:
             return
 
-        for i in range(random.randint(1, 3)):
+        for i in range(random.randint(2, 5)):
             logging.info(f"Spawn chicken {i}")
             spawn_chicken(args.state, args.tilemap.map, args.scene, args.physics_engine)
 

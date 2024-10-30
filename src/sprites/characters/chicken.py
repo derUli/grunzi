@@ -2,6 +2,7 @@
 import logging
 import os
 import random
+import time
 
 import arcade
 import pyglet
@@ -35,11 +36,12 @@ ANIMATIONS_ALL = {
     ANIMATION_WALK: AnimationConfig(size=(389, 592), loop=True, frame_length=0.1, apply_modifier=True),
 }
 
-ANIMATION_DEFAULT = ANIMATION_IDLE
-
 STATE_IDLE = 'idle'
 STATE_WALK = 'walk'
 STATE_DEFAULT = STATE_IDLE
+
+WALK_ANIMATION_THRESHOLD = 0.2
+
 
 class ChickenState:
     def __init__(self, state, source = None):
@@ -77,6 +79,8 @@ class Chicken(Character, Useable):
         self._state = None
         self._current_animation = None
 
+        self._old_position = None
+
     def draw_overlay(self, args: ArgsContainer):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
 
@@ -102,6 +106,8 @@ class Chicken(Character, Useable):
 
         pyglet.clock.schedule_interval_soft(self.ai, AI_INTERVAL, args)
 
+        self._old_position = self.position
+
     def update(
             self,
             delta_time: float,
@@ -109,6 +115,20 @@ class Chicken(Character, Useable):
     ) -> None:
         if not self.initialized:
             self.setup(args)
+
+
+        x1, y1 = self.position
+        x2, y2 = self._old_position
+
+        diffx = abs(x1 - x2)
+        diffy = abs(y1 - y2)
+
+        if diffx >= WALK_ANIMATION_THRESHOLD or diffy >= WALK_ANIMATION_THRESHOLD:
+            self._state.state = STATE_WALK
+        else:
+            self._state.state = STATE_IDLE
+
+        self._old_position = self.position
 
         self._current_animation = self._state.animation
 
@@ -170,7 +190,8 @@ class Chicken(Character, Useable):
             self.animations[value].reset()
 
     def ai(self, delta_time, args):
-        self.face_towards_player(args.player)
+        if self._state.state == STATE_IDLE:
+            self.face_towards_player(args.player)
 
     def face_towards_player(self, player):
         if self.right < player.left:
