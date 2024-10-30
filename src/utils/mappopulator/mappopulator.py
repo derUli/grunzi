@@ -12,13 +12,17 @@ from sprites.decoration.snow import Snow, SNOW_COLORS
 from sprites.items.food import spawn_food
 from sprites.items.landmine import spawn_landmine
 from state.argscontainer import ArgsContainer
+from utils.performance import chunk
 from utils.text import label_value
 
 
 SPAWN_CHICKEN = 'chicken'
 SPAWN_HELL_PARTICLE = 'hell_particle'
+SPAWN_SNOW = 'snow'
+SPAWN_FOOD = 'food'
+SPAWN_LANDMINE = 'landmine'
 SPAWN_INTERVAL = 1 / 72
-
+CHUNK_SIZE = 100
 
 class MapPopulator:
     def __init__(self):
@@ -27,22 +31,36 @@ class MapPopulator:
         self.next_spawn = 0
         self.enabled = True
         self.spawn_what = []
+        self.spawn_what_chunks = None
         self.initialized = None
 
     def update(self, args: ArgsContainer) -> None:
         logging.error('MapPopulator update() not implemented')
 
     def spawn_next_initial(self, dt, args):
+        if not self.initialized:
+            self.initialized = time.time()
 
-        item = self.spawn_what.pop()
+        if not self.spawn_what_chunks:
+            self.spawn_what_chunks = list(chunk(self.spawn_what, CHUNK_SIZE))
 
-        if item == SPAWN_CHICKEN:
-            spawn_chicken(args.state, args.map_size, args.scene, args.physics_engine)
+        items = self.spawn_what_chunks.pop()
 
-        if item == SPAWN_HELL_PARTICLE:
-            self.spawn_hell_particles(args)
+        for item in items:
+            logging.debug('Initial spawn ' + item)
 
-        if not any(self.spawn_what):
+            if item == SPAWN_CHICKEN:
+                spawn_chicken(args.state, args.map_size, args.scene, args.physics_engine)
+            if item == SPAWN_HELL_PARTICLE:
+                self.spawn_hell_particles(args)
+            if item == SPAWN_SNOW:
+                self.spawn_snow(args)
+            if item == SPAWN_FOOD:
+                self.spawn_food(args)
+            if item == SPAWN_LANDMINE:
+                self.spawn_landmine(args)
+
+        if not any(self.spawn_what_chunks):
             logging.info('MapPopulator initialized in ' + str(time.time() - self.initialized) + ' seconds')
             return
 
@@ -111,15 +129,15 @@ class MapPopulator:
         from constants.layers import LAYER_NPC
         args.scene.add_sprite_list(LAYER_NPC, SpriteList(lazy=True, use_spatial_hash=True))
 
-    @staticmethod
-    def spawn_landmine(args: ArgsContainer) -> None:
-
+    def schedule_landmine(self, args):
         if not args.state.difficulty.options['landmines']:
             return
 
         for i in range(random.randint(1, 4)):
-            logging.info(f"Spawn landmine {i}")
-            spawn_landmine(args.state, args.tilemap.map, args.scene, args.physics_engine)
+            self.spawn_what.append(SPAWN_LANDMINE)
+
+    def spawn_landmine(self, args: ArgsContainer) -> None:
+        spawn_landmine(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
     def schedule_chicken(self, args: ArgsContainer) -> None:
         if not args.state.difficulty.options['chicken']:
@@ -129,13 +147,15 @@ class MapPopulator:
         for i in range(random.randint(2, 5)):
             self.spawn_what.append(SPAWN_CHICKEN)
 
+    def schedule_food(self, args: ArgsContainer):
 
-    @staticmethod
-    def spawn_food(args: ArgsContainer) -> None:
         for i in range(random.randint(1, 10)):
-            spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
+            self.spawn_what.append(SPAWN_FOOD)
 
-    def spawn_snow(self, args: ArgsContainer) -> None:
+    def spawn_food(self, args: ArgsContainer) -> None:
+        spawn_food(args.state, args.tilemap.map, args.scene, args.physics_engine)
+
+    def schedule_snow(self, args: ArgsContainer) -> None:
         if not args.state.difficulty.options['snow']:
             return
 
@@ -143,11 +163,14 @@ class MapPopulator:
             return
 
         for i in range(1, 1000):
-            snow = Snow(radius=8, color=random.choice(SNOW_COLORS), soft=True)
-            snow.center_x = random.randint(0, args.tilemap.width)
-            snow.center_y = random.randint(0, args.tilemap.height)
+            self.spawn_what.append(SPAWN_SNOW)
 
-            args.scene.add_sprite(LAYER_SNOW, snow)
+    def spawn_snow(self, args: ArgsContainer) -> None:
+        snow = Snow(radius=8, color=random.choice(SNOW_COLORS), soft=True)
+        snow.center_x = random.randint(0, args.tilemap.width)
+        snow.center_y = random.randint(0, args.tilemap.height)
+
+        args.scene.add_sprite(LAYER_SNOW, snow)
 
     def schedule_hell_particles(self, args):
         if not args.state.difficulty.options['hellParticles']:
