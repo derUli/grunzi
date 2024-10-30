@@ -21,7 +21,8 @@ SPAWN_HELL_PARTICLE = 'hell_particle'
 SPAWN_SNOW = 'snow'
 SPAWN_FOOD = 'food'
 SPAWN_LANDMINE = 'landmine'
-SPAWN_INTERVAL = 1 / 72
+
+SPAWN_INTERVAL = 1 / 36
 CHUNK_SIZE = 100
 
 class MapPopulator:
