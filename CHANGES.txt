@@ -11,8 +11,7 @@
 # Alpha 021 (Unreleased)
 
 * Neue Charakter-Sprites für Grunzi mit Animationen hinzugefügt
-* Huhn-Sprite durch Idle-Animation ersetzt
-* Hühner-KI entfernt, diese wird in einem zukünftigen Update neu implementiert
+* Huhn-Sprite durch animierte Sprites ersetzt
 * Qualität der Sprite-Skalierung verbessert
 
 # Alpha 020 (26.10.2024)

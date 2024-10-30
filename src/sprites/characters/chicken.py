@@ -24,9 +24,10 @@ from utils.sprite import random_position
 FADE_SPEED = 4
 MOVE_DAMPING = 0.01
 MOVE_FORCE = 2000
+MOVE_CHOICES =  [-MOVE_FORCE, 0, MOVE_FORCE]
 HEALTH_EMPTY = 0
 
-AI_INTERVAL = 1
+AI_INTERVAL = 1 / 4
 
 ANIMATION_IDLE = 'idle.png'
 ANIMATION_WALK = 'walk.png'
@@ -84,7 +85,7 @@ class Chicken(Character, Useable):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
 
     def setup(self, args):
-        self._state = ChickenState(state=STATE_DEFAULT, source=None)
+        self._state = ChickenState(state=STATE_DEFAULT)
         self._current_animation = self._state.animation
         self.initialized = True
 
@@ -115,6 +116,10 @@ class Chicken(Character, Useable):
         if not self.initialized:
             self.setup(args)
 
+        if self._state.state == STATE_WALK and self._state.value:
+            args.physics_engine.apply_force(self, self._state.value)
+            self._state.value = None
+            return
 
         x1, y1 = self.position
         x2, y2 = self._old_position
@@ -190,7 +195,21 @@ class Chicken(Character, Useable):
 
     def ai(self, delta_time, args):
         if self._state.state == STATE_IDLE:
-            self.face_towards_player(args.player)
+
+            if random.randint(1, 10) == 5:
+
+                x, y = random.choice(MOVE_CHOICES), random.choice(MOVE_CHOICES)
+
+                if x == 0 and y == 0:
+                    return
+
+                if x < 0:
+                    self.face = FACE_LEFT
+                elif x > 0:
+                    self.face = FACE_RIGHT
+
+                self._state.state = STATE_WALK
+                self._state.value = (x, y)
 
     def face_towards_player(self, player):
         if self.right < player.left:
