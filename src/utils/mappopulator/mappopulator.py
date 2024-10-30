@@ -133,7 +133,9 @@ class MapPopulator:
         logging.error('MapPopulator spawn_initial() not implemented')
 
     def init_npc_spritelist(self, args):
-        from constants.layers import LAYER_NPC
+        from constants.layers import LAYER_NPC, LAYER_FOOD
+
+        args.scene.add_sprite_list(LAYER_FOOD, SpriteList(lazy=True, use_spatial_hash=True))
         args.scene.add_sprite_list(LAYER_NPC, SpriteList(lazy=True, use_spatial_hash=True))
 
     def schedule_landmine(self, args):
