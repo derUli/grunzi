@@ -42,11 +42,10 @@ STATE_DEFAULT = STATE_IDLE
 
 WALK_ANIMATION_THRESHOLD = 0.2
 
-
 class ChickenState:
-    def __init__(self, state, source = None):
+    def __init__(self, state, value = None):
         self.state = state
-        self.source = source
+        self.value = value
 
     @property
     def animation(self):
