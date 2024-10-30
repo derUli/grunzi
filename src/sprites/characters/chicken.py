@@ -27,11 +27,14 @@ HEALTH_EMPTY = 0
 AI_INTERVAL = 1
 
 ANIMATION_IDLE = 'idle.png'
+ANIMATION_WALK = 'walk.png'
 
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: AnimationConfig(size=(375, 591), loop=True, frame_length=0.2, apply_modifier=False)
+    ANIMATION_IDLE: AnimationConfig(size=(375, 591), loop=True, frame_length=0.1, apply_modifier=False),
+    ANIMATION_WALK: AnimationConfig(size=(389, 592), loop=True, frame_length=0.1, apply_modifier=True),
 }
 
+ANIMATION_DEFAULT = ANIMATION_IDLE
 
 class Chicken(Character, Useable):
     def __init__(
@@ -53,7 +56,7 @@ class Chicken(Character, Useable):
         self.animations = {}
         self.damping = MOVE_DAMPING
         self.sound = None
-        self._current_animation = ANIMATION_IDLE
+        self._current_animation = ANIMATION_DEFAULT
 
     def draw_overlay(self, args: ArgsContainer):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
