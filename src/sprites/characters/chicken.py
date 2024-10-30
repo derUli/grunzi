@@ -111,6 +111,7 @@ class Chicken(Character, Useable):
             delta_time: float,
             args: ArgsContainer
     ) -> None:
+
         if not self.initialized:
             self.setup(args)
 

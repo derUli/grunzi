@@ -144,7 +144,6 @@ class MapPopulator:
         if not args.state.difficulty.options['chicken']:
             return
 
-        #for i in range(random.randint(2, 5)):
         for i in range(random.randint(2, 5)):
             self.spawn_what.append(SPAWN_CHICKEN)
 

@@ -1,13 +1,18 @@
 import os
 import time
 
+import arcade.cache
 from PIL import ImageOps
 from arcade import Texture
 
+from sprites.characters.character import Character
 from utils.spritesheetanimation import SpriteSheetReader
 
 
 class CharacterAnimation:
+
+    cache: dict = {}
+
     def __init__(self):
         self._textures = []
         self._last_update = 0
@@ -22,11 +27,14 @@ class CharacterAnimation:
         self._frame_length = frame_length
 
         self._apply_modifier = apply_modifier
+        self._textures = []
+
+        if filename in CharacterAnimation.cache:
+            self._textures = CharacterAnimation.cache[filename]
+            return
 
         reader = SpriteSheetReader(os.path.join(state.sprite_dir, 'char', character, filename))
         reader.process(size=size, resize=resize, autocrop=autocrop, pil_resample=state.settings.pil_resample)
-
-        self._textures = []
 
         i = 0
         for image in reader.images:
@@ -36,6 +44,9 @@ class CharacterAnimation:
             ])
 
             i += 1
+
+        CharacterAnimation.cache[filename] = self._textures
+
 
     def update(self, modifier=1) -> bool:
 
