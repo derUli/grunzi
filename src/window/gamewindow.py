@@ -71,6 +71,8 @@ class GameWindow(arcade.Window):
         self.controller_manager = None
         self.controllers = []
 
+        self.benchmark_mode = False
+
     def setup(self) -> None:
         """ Setup the game window"""
 
@@ -114,3 +116,6 @@ class GameWindow(arcade.Window):
 
         if not any(self.controllers):
             logging.info('No controllers detected')
+
+    def enable_benchmark_mode(self):
+        self.benchmark_mode = True

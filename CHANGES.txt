@@ -14,6 +14,7 @@
 * Huhn-Sprite durch animierte Sprites ersetzt
 * Qualität der Sprite-Skalierung verbessert
 * Performance: MapPopulator ist jetzt asynchron
+* Easter Egg: Ladebildschirm für Weihnachten hinzugefügt
 
 # Alpha 020 (26.10.2024)
 

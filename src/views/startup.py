@@ -110,6 +110,13 @@ class StartUp:
         )
 
         parser.add_argument(
+            '--benchmark',
+            action='store_true',
+            default=False,
+            help='Enable benchmark mode'
+        )
+
+        parser.add_argument(
             '-v',
             '--verbose',
             default=0,
@@ -210,6 +217,10 @@ class StartUp:
             antialiasing=settings.antialiasing > 0,
             samples=settings.antialiasing
         )
+
+        if args.benchmark:
+            window.enable_benchmark_mode()
+
 
         log_hardware_info(window)
 

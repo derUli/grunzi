@@ -82,7 +82,7 @@ class Loader:
         filename = os.path.join(self.parent.state.sprite_dir, 'char', 'pig', 'default.png')
         self.parent.scene.player_sprite = Player(filename)
 
-        self.parent.map_populator = init_map_populator(GAMEMODE_CAMPAIGN)
+        self.parent.map_populator = init_map_populator(GAMEMODE_CAMPAIGN, self.parent.window.benchmark_mode)
         self.parent.map_populator.spawn_initial(make_args_container(self.parent))
 
         self.parent.scene.player_sprite.setup(

@@ -26,14 +26,15 @@ CHUNK_SIZE = 100
 
 
 class MapPopulator:
-    def __init__(self):
+    def __init__(self, benchmark_mode: bool = False):
         """ Constructor """
 
         self.next_spawn = 0
-        self.enabled = False
+        self.enabled = True
         self.spawn_what = []
         self.spawn_what_chunks = None
         self.initialized = None
+        self.benchmark_mode = benchmark_mode
 
     def update(self, args: ArgsContainer) -> None:
         logging.error('MapPopulator update() not implemented')
@@ -68,6 +69,11 @@ class MapPopulator:
         pyglet.clock.schedule_once(self.spawn_next_initial, SPAWN_INTERVAL, args)
 
     def spawn(self, args: ArgsContainer) -> None:
+
+        # Don't spawn enemies in benchmark mode
+        if self.benchmark_mode:
+            return
+
         if not self.enabled:
             return
 
@@ -134,7 +140,12 @@ class MapPopulator:
         if not args.state.difficulty.options['landmines']:
             return
 
-        for i in range(random.randint(1, 4)):
+        x = range(random.randint(1, 4))
+
+        if self.benchmark_mode:
+            x = range(5)
+
+        for i in x:
             self.spawn_what.append(SPAWN_LANDMINE)
 
     def spawn_landmine(self, args: ArgsContainer) -> None:
@@ -144,12 +155,22 @@ class MapPopulator:
         if not args.state.difficulty.options['chicken']:
             return
 
-        for i in range(random.randint(2, 5)):
+        x = range(random.randint(2, 5))
+
+        if self.benchmark_mode:
+            x = range(50)
+
+        for i in x:
             self.spawn_what.append(SPAWN_CHICKEN)
 
     def schedule_food(self, args: ArgsContainer):
 
-        for i in range(random.randint(1, 10)):
+        x = range(random.randint(1, 10))
+
+        if self.benchmark_mode:
+            x = range(5)
+
+        for i in x:
             self.spawn_what.append(SPAWN_FOOD)
 
     def spawn_food(self, args: ArgsContainer) -> None:
@@ -191,12 +212,12 @@ class MapPopulator:
         args.scene.add_sprite(LAYER_SNOW, particle)
 
 
-def init_map_populator(gamemode: str) -> MapPopulator:
+def init_map_populator(gamemode: str, benchmark_mode: bool = False) -> MapPopulator:
     from constants.gamemode import GAMEMODE_CAMPAIGN
 
     if gamemode == GAMEMODE_CAMPAIGN:
         from utils.mappopulator.campaignmappopulator import CampaignMapPopulator
-        return CampaignMapPopulator()
+        return CampaignMapPopulator(benchmark_mode)
     else:
         gamemode = 'Unknown'
 
