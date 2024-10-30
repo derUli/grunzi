@@ -17,13 +17,15 @@ class CampaignMapPopulator(MapPopulator):
         self.spawn_food(args)
         self.spawn_landmine(args)
         self.spawn_snow(args)
-        self.spawn_hell_particles(args)
+        self.schedule_hell_particles(args)
 
     def update(self, args: ArgsContainer) -> None:
         if not self.enabled:
             return
 
-        self.spawn_next_initial(args)
+        if not self.initialized:
+            self.initialized = time.time()
+            self.spawn_next_initial(0, args)
 
         if time.time() < self.next_spawn:
             return

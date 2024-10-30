@@ -2,6 +2,7 @@ import logging
 import random
 import time
 
+import pyglet.clock
 from arcade import SpriteList
 
 from constants.layers import LAYER_SNOW
@@ -16,6 +17,8 @@ from utils.text import label_value
 
 SPAWN_CHICKEN = 'chicken'
 SPAWN_HELL_PARTICLE = 'hell_particle'
+SPAWN_INTERVAL = 1 / 72
+
 
 class MapPopulator:
     def __init__(self):
@@ -24,13 +27,12 @@ class MapPopulator:
         self.next_spawn = 0
         self.enabled = True
         self.spawn_what = []
+        self.initialized = None
 
     def update(self, args: ArgsContainer) -> None:
         logging.error('MapPopulator update() not implemented')
 
-    def spawn_next_initial(self, args):
-        if not any(self.spawn_what):
-            return
+    def spawn_next_initial(self, dt, args):
 
         item = self.spawn_what.pop()
 
@@ -38,7 +40,13 @@ class MapPopulator:
             spawn_chicken(args.state, args.map_size, args.scene, args.physics_engine)
 
         if item == SPAWN_HELL_PARTICLE:
-            self._spawn_hell_particles(args)
+            self.spawn_hell_particles(args)
+
+        if not any(self.spawn_what):
+            logging.info('MapPopulator initialized in ' + str(time.time() - self.initialized) + ' seconds')
+            return
+
+        pyglet.clock.schedule_once(self.spawn_next_initial, SPAWN_INTERVAL, args)
 
     def spawn(self, args: ArgsContainer) -> None:
         if not self.enabled:
@@ -92,7 +100,7 @@ class MapPopulator:
         if not self.enabled:
             return
 
-        self.spawn_chicken(args)
+        self.schedule_chicken(args)
 
     def spawn_initial(self, args: ArgsContainer) -> None:
         """ Spawn some sprites on level load """
@@ -113,7 +121,7 @@ class MapPopulator:
             logging.info(f"Spawn landmine {i}")
             spawn_landmine(args.state, args.tilemap.map, args.scene, args.physics_engine)
 
-    def spawn_chicken(self, args: ArgsContainer) -> None:
+    def schedule_chicken(self, args: ArgsContainer) -> None:
         if not args.state.difficulty.options['chicken']:
             return
 
@@ -141,7 +149,7 @@ class MapPopulator:
 
             args.scene.add_sprite(LAYER_SNOW, snow)
 
-    def spawn_hell_particles(self, args):
+    def schedule_hell_particles(self, args):
         if not args.state.difficulty.options['hellParticles']:
             return
 
@@ -151,7 +159,7 @@ class MapPopulator:
         for i in range(1, 500):
             self.spawn_what.append(SPAWN_HELL_PARTICLE)
 
-    def _spawn_hell_particles(self, args: ArgsContainer) -> None:
+    def spawn_hell_particles(self, args: ArgsContainer) -> None:
         radius = random.randint(1, 14)
         particle = HellParticle(radius=radius, color=random.choice(HELL_PARTICLE_COLORS), soft=True)
         particle.center_x = random.randint(0, args.tilemap.width)
