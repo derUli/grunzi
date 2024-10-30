@@ -6,6 +6,7 @@ import random
 import arcade
 import pyglet
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
+from numpy.lib.utils import source
 
 from constants.collisions import COLLISION_CHICKEN
 from constants.layers import LAYER_NPC, LAYER_FEATHER, check_collision_with_layers
@@ -36,6 +37,22 @@ ANIMATIONS_ALL = {
 
 ANIMATION_DEFAULT = ANIMATION_IDLE
 
+STATE_IDLE = 'idle'
+STATE_WALK = 'walk'
+STATE_DEFAULT = STATE_IDLE
+
+class ChickenState:
+    def __init__(self, state, source = None):
+        self.state = state
+        self.source = source
+
+    @property
+    def animation(self):
+        if self.state == STATE_WALK:
+            return ANIMATION_WALK
+
+        return ANIMATION_IDLE
+
 class Chicken(Character, Useable):
     def __init__(
             self,
@@ -56,12 +73,16 @@ class Chicken(Character, Useable):
         self.animations = {}
         self.damping = MOVE_DAMPING
         self.sound = None
-        self._current_animation = ANIMATION_DEFAULT
+
+        self._state = None
+        self._current_animation = None
 
     def draw_overlay(self, args: ArgsContainer):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
 
     def setup(self, args):
+        self._state = ChickenState(state=STATE_DEFAULT, source=None)
+        self._current_animation = self._state.animation
         self.initialized = True
 
         for anim in ANIMATIONS_ALL:
@@ -88,6 +109,8 @@ class Chicken(Character, Useable):
     ) -> None:
         if not self.initialized:
             self.setup(args)
+
+        self._current_animation = self._state.animation
 
         if self.current_animation and self.current_animation.update():
             self.textures = self.current_animation.current_frame
