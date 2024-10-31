@@ -9,14 +9,11 @@ def supported_screen_resolutions() -> list:
     Get supported screen resolutions for launcher
     @return: list of string
     """
-    modes = pyglet.canvas.get_display().get_default_screen().get_modes()
+    modes = filter(lambda x: x.height >= 720, pyglet.canvas.get_display().get_default_screen().get_modes())
 
     mode_values = []
 
     for mode in modes:
-        if mode.height < 720:
-            continue
-
         item = str(mode.width) + "x" + str(mode.height)
         if item not in mode_values:
             mode_values.append(item)
@@ -25,4 +22,4 @@ def supported_screen_resolutions() -> list:
 
 
 def antialiasing() -> tuple:
-    return (0, 2, 4, 8, 16)
+    return 0, 2, 4, 8, 16
