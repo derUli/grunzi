@@ -1,4 +1,5 @@
 """ Player sprite class """
+import logging
 import math
 
 import arcade
@@ -94,7 +95,14 @@ class Player(Character, SpriteHealth):
         if LAYER_SPAWN_POINT not in self.scene.name_mapping:
             return
 
-        for sprite in self.scene.get_sprite_list(LAYER_SPAWN_POINT):
+        try:
+            spawn_point = self.scene[LAYER_SPAWN_POINT]
+        except KeyError as e:
+            spawn_point = []
+            logging.warning(f"No {LAYER_SPAWN_POINT} in map")
+
+
+        for sprite in spawn_point:
             self.center_x, self.center_y = sprite.center_x, sprite.center_y
             sprite.remove_from_sprite_lists()
 
@@ -103,7 +111,7 @@ class Player(Character, SpriteHealth):
         self.footsteps_default = state.play_sound('footsteps', loop=True, speed=MODIFIER_DEFAULT)
         self.footsteps_default.pause()
 
-        self.footsteps_sprint = state.play_sound('footsteps', loop=True, speed=MODIFIER_SPRINT)
+        self.footsteps_sprint = state.play_sound('footsteps', loop=True, speed=9)
         self.footsteps_sprint.pause()
 
         self.bloody_screen = BloodyScreen().setup(state)
@@ -252,11 +260,8 @@ class Player(Character, SpriteHealth):
         @param damage: Damage amount to apply
         """
 
-        for controller in self.controllers:
-            if not self.state.settings.vibration:
-                break
-
-            controller.rumble_play_weak()
+        if self.state.settings.vibration:
+            list(map(lambda controller: controller.rumble_play_weak(), self.controllers))
 
         super().hurt(damage)
 
@@ -279,19 +284,17 @@ class Player(Character, SpriteHealth):
         self.footsteps_sprint.volume = volume * self.state.settings.sound_volume * self.state.settings.master_volume
 
         if sprint:
-
             if self.footsteps_default.playing:
                 self.footsteps_default.pause()
 
-            if not self.footsteps_sprint.playing:
-                self.footsteps_sprint.play()
-                return
+            self.footsteps_sprint.play()
+
+            return
 
         if self.footsteps_sprint.playing:
             self.footsteps_sprint.pause()
 
-        if not self.footsteps_default.playing:
-            self.footsteps_default.play()
+        self.footsteps_default.play()
 
     def stop_walk(self):
         if not self.walking:

@@ -88,7 +88,6 @@ class Boss(Character):
             self.laser_sound.update(max_distance=args.tilemap.width)
 
         if self.dead:
-
             if self.laser_sound:
                 self.laser_sound.pause()
                 self.laser_sound = None
