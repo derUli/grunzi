@@ -112,17 +112,18 @@ class ColorTint(Effect):
 
         found = False
 
-        for sprite in args.scene[layer_name]:
-            if isinstance(sprite, klass):
-                distance = arcade.get_distance_between_sprites(sprite, args.player)
-                if distance > radius:
-                    continue
+        sprites = filter(lambda spr: isinstance(spr, klass), args.scene[layer_name])
 
-                found = True
+        for sprite in sprites:
+            distance = arcade.get_distance_between_sprites(sprite, args.player)
+            if distance > radius:
+                continue
 
-                new_alpha = max_alpha - (one * distance)
-                if new_alpha > alpha:
-                    alpha = new_alpha
+            found = True
+
+            new_alpha = max_alpha - (one * distance)
+            if new_alpha > alpha:
+                alpha = new_alpha
 
         if alpha > max_alpha:
             alpha = max_alpha
