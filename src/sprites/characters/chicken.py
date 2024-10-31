@@ -2,8 +2,11 @@
 import logging
 import os
 import random
+import sys
+import time
 
 import arcade
+import numpy
 import pyglet
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
 
@@ -79,6 +82,8 @@ class Chicken(Character, Useable):
 
         self._old_position = None
 
+        self.foo = []
+
     def draw_overlay(self, args: ArgsContainer):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
 
@@ -135,7 +140,9 @@ class Chicken(Character, Useable):
 
         self._current_animation = self._state.animation
 
-        if self.current_animation and self.current_animation.update():
+        in_sight = args.scene.check_sprite_in_sight(self, args.player)
+
+        if in_sight and self.current_animation and self.current_animation.update():
             self.textures = self.current_animation.current_frame
             self.texture = self.textures[self.face - 1]
 
