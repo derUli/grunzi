@@ -20,6 +20,7 @@ class LookupTableEntry:
 
         @return: Boolean indicating if the entry needs to be updated
         """
+
         check1 = sprite1.position != self.position_1
 
         if sprite2 is None:
@@ -37,6 +38,7 @@ class LookupTableEntry:
         @param sprite1: The first sprite
         @param sprite2: The second sprite
         """
+
         self.position_1 = sprite1.position
 
         if sprite2 is not None:

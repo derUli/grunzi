@@ -20,9 +20,12 @@ class CampaignMapPopulator(MapPopulator):
         self.schedule_hell_particles(args)
 
     def update(self, args: ArgsContainer) -> None:
+        """ Update map campaignmappopulator """
+
         if not self.enabled:
             return
 
+        # These are only initialized when the game starts
         if not self.initialized:
             self.spawn_next_initial(0, args)
 
@@ -36,6 +39,7 @@ class CampaignMapPopulator(MapPopulator):
         except KeyError:
             enemies = []
 
+        # There is a maximum NPC count
         if len(enemies) >= args.state.difficulty.max_npcs:
             return
 
