@@ -8,11 +8,10 @@ import pyglet
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
 
 from constants.collisions import COLLISION_CHICKEN
-from constants.layers import LAYER_NPC, LAYER_FEATHER, check_collision_with_layers
+from constants.layers import LAYER_NPC, check_collision_with_layers
 from sprites.characters.character import Character
 from sprites.characters.spritehealth import HEALTH_FULL, HEALTHBAR_FREN_COLOR
 from sprites.items.item import Useable
-from sprites.items.redherring import Feather
 from state.argscontainer import ArgsContainer
 from utils.animationconfig import AnimationConfig
 from utils.characteranimation import CharacterAnimation
@@ -107,7 +106,7 @@ class Chicken(Character, Useable):
                 apply_modifier=config.apply_modifier,
                 character='chicken',
                 resize=resize,
-                reverse = config.reverse
+                reverse=config.reverse
             )
             self.animations[anim] = animation
 
@@ -159,9 +158,10 @@ class Chicken(Character, Useable):
             if self.current_animation.completed:
                 sprite = arcade.sprite.Sprite(
                     texture=self.current_animation.current_frame[self.face - 1],
-                    center_x = self.center_x,
-                    center_y = self.center_y
+                    center_x=self.center_x,
+                    center_y=self.center_y
                 )
+
                 from constants.layers import LAYER_GROUND
                 args.scene.add_sprite(LAYER_GROUND, sprite)
                 self.remove_from_sprite_lists()

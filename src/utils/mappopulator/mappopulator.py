@@ -21,10 +21,8 @@ SPAWN_SNOW = 'snow'
 SPAWN_FOOD = 'food'
 SPAWN_LANDMINE = 'landmine'
 
-
 SPAWN_INTERVAL = 1 / 60
 CHUNK_SIZE = 50
-
 
 
 class MapPopulator:
