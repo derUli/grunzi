@@ -20,9 +20,8 @@ class Crystal(AnimatedSprite):
         super().update(delta_time, args)
         self.sound.update()
 
-        if arcade.get_distance_between_sprites(self, args.player) <= 80:
-            if arcade.check_for_collision(self, args.player):
-                args.player.hurt(1)
+        if arcade.get_distance_between_sprites(self, args.player) <= 85:
+            args.player.hurt(1)
 
-        def cleanup(self):
-            self.sound.delete()
+    def cleanup(self):
+        self.sound.pause()
