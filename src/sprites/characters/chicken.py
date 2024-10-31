@@ -157,6 +157,13 @@ class Chicken(Character, Useable):
 
             # TODO: Replace with static sprite of the last animation frame
             if self.current_animation.completed:
+                sprite = arcade.sprite.Sprite(
+                    texture=self.current_animation.current_frame[self.face - 1],
+                    center_x = self.center_x,
+                    center_y = self.center_y
+                )
+                from constants.layers import LAYER_GROUND
+                args.scene.add_sprite(LAYER_GROUND, sprite)
                 self.remove_from_sprite_lists()
                 return
 

@@ -33,11 +33,15 @@ class CampaignMapPopulator(MapPopulator):
             return
 
         from constants.layers import LAYER_NPC
+        from sprites.characters.character import Character
 
         try:
             enemies = args.scene[LAYER_NPC]
+
         except KeyError:
             enemies = []
+
+        enemies = list(filter(lambda x: isinstance(x, Character), enemies))
 
         # There is a maximum NPC count
         if len(enemies) >= args.state.difficulty.max_npcs:
