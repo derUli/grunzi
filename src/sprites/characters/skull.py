@@ -98,6 +98,7 @@ class Skull(Character, Useable):
 
             if alpha <= 0:
                 alpha = 0
+                self.cleanup()
                 self.remove_from_sprite_lists()
 
             self.alpha = alpha

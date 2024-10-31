@@ -94,7 +94,7 @@ class Boss(Character):
 
             for laser in self.lasers:
                 laser.remove_from_sprite_lists()
-
+                
             # Fade out on death
             if self.fade_destroy():
                 self.cleanup()
