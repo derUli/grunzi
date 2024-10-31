@@ -111,7 +111,7 @@ class Player(Character, SpriteHealth):
         self.footsteps_default = state.play_sound('footsteps', loop=True, speed=MODIFIER_DEFAULT)
         self.footsteps_default.pause()
 
-        self.footsteps_sprint = state.play_sound('footsteps', loop=True, speed=9)
+        self.footsteps_sprint = state.play_sound('footsteps', loop=True, speed=MODIFIER_SPRINT)
         self.footsteps_sprint.pause()
 
         self.bloody_screen = BloodyScreen().setup(state)
@@ -288,7 +288,6 @@ class Player(Character, SpriteHealth):
                 self.footsteps_default.pause()
 
             self.footsteps_sprint.play()
-
             return
 
         if self.footsteps_sprint.playing:
