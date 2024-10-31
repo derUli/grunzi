@@ -164,6 +164,7 @@ class Chicken(Character, Useable):
 
                 from constants.layers import LAYER_GROUND
                 args.scene.add_sprite(LAYER_GROUND, sprite)
+                self.cleanup()
                 self.remove_from_sprite_lists()
                 return
 
