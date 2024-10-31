@@ -68,7 +68,6 @@ class Barrel(Character):
 
             if alpha <= 0:
                 alpha = 0
-                self.cleanup()
                 self.remove_from_sprite_lists()
 
             self.alpha = alpha
@@ -123,11 +122,11 @@ class Barrel(Character):
 
         for layer in layers:
             collisions = arcade.check_for_collision_with_list(self, args.scene[layer])
+
             collisions = filter(lambda x: x != self, collisions)
 
             if any(collisions):
                 explodes = True
-                break
 
         if explodes:
             self.cleanup()
@@ -139,9 +138,10 @@ class Barrel(Character):
         self.explosion.update_animation(delta_time)
 
         if self.explosion.cur_frame_idx >= len(self.explosion.frames) - 1:
-            self.cleanup()
             self.explosion.remove_from_sprite_lists()
             self.remove_from_sprite_lists()
+
+            pyglet.clock.unschedule(self.update_explosion)
 
     def explosion_hurt(self, args):
 
