@@ -1,6 +1,7 @@
 import logging
 import os
 import sys
+
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller

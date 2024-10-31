@@ -35,14 +35,7 @@ class Effect:
 
     @property
     def should_draw(self):
-        if not self.enabled:
-            return False
-
-        for sprite in self.spritelist:
-            if sprite.alpha >= 1:
-                return True
-
-        return False
+        return self._enabled and any(filter(lambda x: x.alpha >= 1, self.spritelist))
 
     @property
     def enabled(self):

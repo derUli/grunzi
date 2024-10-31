@@ -216,7 +216,7 @@ class Scene(BaseScene):
         return None
 
     @staticmethod
-    def check_sprite_in_sight(sprite1, sprite2, maximum = None):
+    def check_sprite_in_sight(sprite1, sprite2, maximum=None):
         w, h = arcade.get_window().get_size()
 
         if not maximum:

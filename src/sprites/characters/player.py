@@ -101,7 +101,6 @@ class Player(Character, SpriteHealth):
             spawn_point = []
             logging.warning(f"No {LAYER_SPAWN_POINT} in map")
 
-
         for sprite in spawn_point:
             self.center_x, self.center_y = sprite.center_x, sprite.center_y
             sprite.remove_from_sprite_lists()

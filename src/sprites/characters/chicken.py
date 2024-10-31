@@ -2,11 +2,8 @@
 import logging
 import os
 import random
-import sys
-import time
 
 import arcade
-import numpy
 import pyglet
 from arcade import FACE_RIGHT, PymunkPhysicsEngine, FACE_LEFT
 
