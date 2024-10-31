@@ -239,10 +239,11 @@ class GameCampaign(Game):
 
         if same:
             self.fade_to_view(
-                GameCampaign(self.window,
-                             self.state,
-                             skip_intro=same
-                             )
+                GameCampaign(
+                    self.window,
+                    self.state,
+                    skip_intro=same
+                )
             )
             return
 
@@ -304,10 +305,8 @@ class GameCampaign(Game):
         if not self.initialized:
             return
 
-        if self.scene.player_sprite.dead:
-            if key in constants.controls.keyboard.KEY_DISCARD:
-                return self.on_gameover()
-            return
+        if key in constants.controls.keyboard.KEY_DISCARD and self.scene.player_sprite.dead:
+            return self.on_gameover()
 
         self.state.keypressed.on_key_press(key)
 
