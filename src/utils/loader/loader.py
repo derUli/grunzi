@@ -28,9 +28,16 @@ class Loader:
         self.parent = parent
 
     def load_async(self) -> None:
+        """
+        Loads the game asynchronous
+        """
+
         threading.Thread(target=self.load).start()
 
     def load(self):
+        """
+        Loads the game
+        """
 
         start_time = time.time()
 
