@@ -88,7 +88,6 @@ class SlimerBullet(Bullet):
 
         scene.add_sprite(LAYER_NPC, self)
 
-        # TODO: Other sound effect
         state.play_sound('shot', speed=0.1)
         physics_engine.add_sprite(
             self,
