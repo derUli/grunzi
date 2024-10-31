@@ -57,7 +57,7 @@ class Duck(Character):
             return
 
         # Play random "quack" sound
-        if random.randint(1, 50) == 30:
+        if random.randint(1, 50) == 30 and args.scene.check_sprite_in_sight(self, args.player):
             self.play_sound(player=args.player, state=args.state)
 
     def play_sound(self, player, state):
