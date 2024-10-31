@@ -14,8 +14,8 @@ class CampaignMapPopulator(MapPopulator):
         if not self.enabled:
             return
 
-        self.schedule_food(args)
         self.schedule_landmine(args)
+        self.schedule_food(args)
         self.schedule_snow(args)
         self.schedule_hell_particles(args)
 
