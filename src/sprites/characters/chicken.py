@@ -82,8 +82,6 @@ class Chicken(Character, Useable):
 
         self._old_position = None
 
-        self.foo = []
-
     def draw_overlay(self, args: ArgsContainer):
         self.draw_healthbar(HEALTHBAR_FREN_COLOR)
 

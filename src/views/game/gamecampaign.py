@@ -1,7 +1,9 @@
 import logging
 import os
 import sys
+import time
 
+import numpy
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
@@ -104,7 +106,7 @@ class GameCampaign(Game):
             self._call_method()
             self._call_method = None
 
-        if self.scene.player_sprite.dead and not self.level_completed:
+        if not self.level_completed and self.scene.player_sprite.dead:
             self.scene.player_sprite.update_animation()
             self.scene.player_sprite.update(delta_time, make_args_container(self))
             self.scene.player_sprite.reset()
