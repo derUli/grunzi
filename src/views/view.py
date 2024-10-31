@@ -148,6 +148,7 @@ class View(arcade.View):
                 width=self.window.width - (MARGIN * 2),
                 align='left'
             )
+
         self.build_number_text.draw()
 
     def on_stick_motion(self, controller, stick_name, x_value, y_value):
