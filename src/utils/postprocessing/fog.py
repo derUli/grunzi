@@ -13,7 +13,7 @@ MOVE_SPEED = 0.33
 
 
 class Fog(Effect):
-    def setup(self, args: ArgsContainer) -> None:
+    def setup(self, args: ArgsContainer):
         """
         Setup fog effect
         @param args: ArgsContainer
