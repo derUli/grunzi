@@ -167,7 +167,6 @@ class Chicken(Character, Useable):
             return
 
     def play_sound(self, player, state) -> None:
-        return
         if self.sound and self.sound.playing:
             return
 
