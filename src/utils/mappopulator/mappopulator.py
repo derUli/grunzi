@@ -22,7 +22,7 @@ SPAWN_FOOD = 'food'
 SPAWN_LANDMINE = 'landmine'
 
 SPAWN_INTERVAL = 1 / 36
-CHUNK_SIZE = 100
+CHUNK_SIZE = 50
 
 
 class MapPopulator:
@@ -44,6 +44,7 @@ class MapPopulator:
             self.initialized = time.time()
 
         if not self.spawn_what_chunks:
+            random.shuffle(self.spawn_what)
             self.spawn_what_chunks = list(chunk(self.spawn_what, CHUNK_SIZE))
 
         items = self.spawn_what_chunks.pop()
@@ -160,7 +161,7 @@ class MapPopulator:
         x = range(random.randint(2, 5))
 
         if self.benchmark_mode:
-            x = range(50)
+            x = range(800)
 
         for i in x:
             self.spawn_what.append(SPAWN_CHICKEN)
