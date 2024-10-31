@@ -44,7 +44,6 @@ class MapPopulator:
             self.initialized = time.time()
 
         if not self.spawn_what_chunks:
-            random.shuffle(self.spawn_what)
             self.spawn_what_chunks = list(chunk(self.spawn_what, CHUNK_SIZE))
 
         items = self.spawn_what_chunks.pop()
