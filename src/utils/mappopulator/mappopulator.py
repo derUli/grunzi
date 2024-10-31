@@ -22,7 +22,7 @@ SPAWN_FOOD = 'food'
 SPAWN_LANDMINE = 'landmine'
 
 
-SPAWN_INTERVAL = 1 / 48
+SPAWN_INTERVAL = 1 / 50
 CHUNK_SIZE = 50
 
 
