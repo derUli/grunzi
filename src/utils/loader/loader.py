@@ -132,7 +132,7 @@ class Loader:
 
         # Sleep some seconds to wait until the 100 Percent is shown
         while not self.parent.ui.loading_screen.completed:
-            time.sleep(0.000001)
+            time.sleep(0.0000001)
 
         self.parent.ui.loading_screen.show = False
         self.parent.initialized = True
