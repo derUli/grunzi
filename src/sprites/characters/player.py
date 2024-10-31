@@ -39,10 +39,10 @@ ANIMATION_GRUNT = '__pig_jump.png'
 ANIMATION_DIE = '__pig_die.png'
 
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length=0.2, apply_modifier=False),
-    ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length=0.08, apply_modifier=True),
-    ANIMATION_GRUNT: AnimationConfig(size=(414.6, 268), loop=False, frame_length=0.01, apply_modifier=False),
-    ANIMATION_DIE: AnimationConfig(size=(404.4, 252), loop=False, frame_length=0.1, apply_modifier=False)
+    ANIMATION_IDLE: AnimationConfig(size=(424.2, 227), loop=True, frame_length=0.2, apply_modifier=False, reverse=True),
+    ANIMATION_WALKING: AnimationConfig(size=(360, 194), loop=True, frame_length=0.08, apply_modifier=True, reverse=True),
+    ANIMATION_GRUNT: AnimationConfig(size=(414.6, 268), loop=False, frame_length=0.01, apply_modifier=False, reverse=True),
+    ANIMATION_DIE: AnimationConfig(size=(404.4, 252), loop=False, frame_length=0.1, apply_modifier=False, reverse=True)
 }
 
 

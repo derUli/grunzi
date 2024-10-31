@@ -19,7 +19,6 @@ from utils.characteranimation import CharacterAnimation
 from utils.positionalsound import PositionalSound
 from utils.sprite import random_position
 
-FADE_SPEED = 4
 MOVE_DAMPING = 0.01
 MOVE_CHOICES = [-3000 - 2000, -1000, 0, 1000, 2000, 3000]
 HEALTH_EMPTY = 0
@@ -28,14 +27,17 @@ AI_INTERVAL = 1 / 2
 
 ANIMATION_IDLE = 'idle.png'
 ANIMATION_WALK = 'walk.png'
+ANIMATION_DIE = 'die.png'
 
 ANIMATIONS_ALL = {
-    ANIMATION_IDLE: AnimationConfig(size=(375, 591), loop=True, frame_length=0.1, apply_modifier=False),
-    ANIMATION_WALK: AnimationConfig(size=(389, 592), loop=True, frame_length=0.1, apply_modifier=True),
+    ANIMATION_IDLE: AnimationConfig(size=(375, 591), loop=True, frame_length=0.1, apply_modifier=False, reverse=False),
+    ANIMATION_WALK: AnimationConfig(size=(389, 592), loop=True, frame_length=0.1, apply_modifier=True, reverse=False),
+    ANIMATION_DIE: AnimationConfig(size=(605, 591), loop=False, frame_length=0.1, apply_modifier=True, reverse=False)
 }
 
 STATE_IDLE = 'idle'
 STATE_WALK = 'walk'
+STATE_DEAD = 'dead'
 STATE_DEFAULT = STATE_IDLE
 
 WALK_ANIMATION_THRESHOLD = 0.06
@@ -50,6 +52,8 @@ class ChickenState:
     def animation(self):
         if self.state == STATE_WALK:
             return ANIMATION_WALK
+        if self.state == STATE_DEAD:
+            return ANIMATION_DIE
 
         return ANIMATION_IDLE
 
@@ -90,6 +94,10 @@ class Chicken(Character, Useable):
         for anim in ANIMATIONS_ALL:
             animation = CharacterAnimation()
             config = ANIMATIONS_ALL[anim]
+            resize = (32, 50)
+
+            if anim == ANIMATION_DIE:
+                resize = (51, 50)
             animation.load(
                 state=args.state,
                 filename=anim,
@@ -98,7 +106,8 @@ class Chicken(Character, Useable):
                 frame_length=config.frame_length,
                 apply_modifier=config.apply_modifier,
                 character='chicken',
-                resize=(32, 50)
+                resize=resize,
+                reverse = config.reverse
             )
             self.animations[anim] = animation
 
@@ -111,7 +120,6 @@ class Chicken(Character, Useable):
             delta_time: float,
             args: ArgsContainer
     ) -> None:
-
         if not self.initialized:
             self.setup(args)
 
@@ -125,8 +133,9 @@ class Chicken(Character, Useable):
 
         diffx = abs(x1 - x2)
         diffy = abs(y1 - y2)
-
-        if diffx >= WALK_ANIMATION_THRESHOLD or diffy >= WALK_ANIMATION_THRESHOLD:
+        if self.dead:
+            self._state.state = STATE_DEAD
+        elif diffx >= WALK_ANIMATION_THRESHOLD or diffy >= WALK_ANIMATION_THRESHOLD:
             self._state.state = STATE_WALK
         elif self._current_animation == ANIMATION_WALK and self.current_animation.last_frame:
             self._state.state = STATE_IDLE
@@ -141,28 +150,15 @@ class Chicken(Character, Useable):
             self.textures = self.current_animation.current_frame
             self.texture = self.textures[self.face - 1]
 
-        if self.dead:
+        if self._state.state == STATE_DEAD:
+            # Remove sprite from physics engine if it hasn't already removed
             if self.sound:
                 self.sound.pause()
 
-            alpha = self.alpha - FADE_SPEED
-
-            if alpha <= 0:
-                alpha = 0
-
-                feather = Feather(
-                    filename=os.path.join(args.state.sprite_dir, 'tools', 'feather.png')
-                )
-                feather.center_x = self.center_x
-                feather.center_y = self.center_y
-
-                args.scene.add_sprite(LAYER_FEATHER, feather)
-
+            # TODO: Replace with static sprite of the last animation frame
+            if self.current_animation.completed:
                 self.remove_from_sprite_lists()
-
-            self.alpha = alpha
-
-            return
+                return
 
         if self.sound and self.sound.playing:
             self.sound.update()

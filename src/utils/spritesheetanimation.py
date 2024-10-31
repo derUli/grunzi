@@ -20,6 +20,7 @@ class SpriteSheetReader:
             size: float,
             autocrop: bool = False,
             resize: tuple | None = None,
+            reverse: bool = False,
             pil_resample: int = Resampling.BILINEAR) -> list:
         """
         Processes a spritesheet
@@ -63,7 +64,8 @@ class SpriteSheetReader:
 
             y += h
 
-        self._images = list(reversed(self._images))
+        if reverse:
+            self._images = list(reversed(self._images))
 
         return self.images
 
