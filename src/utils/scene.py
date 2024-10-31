@@ -50,8 +50,7 @@ class Scene(BaseScene):
             except KeyError:
                 continue
 
-        for sprite in sprites:
-            sprite.setup(args)
+        list(map(lambda x: x.setup(args), sprites))
 
     @classmethod
     def from_tilemap(cls, tilemap: TileMap) -> "Scene":
@@ -173,12 +172,8 @@ class Scene(BaseScene):
             return
 
         npcs = filter(
-            lambda x: (
-                              isinstance(x, Character) or isinstance(x, Bullet)
-                      ) and
-                      self.check_sprite_in_sight(x, self.args.player),
-            npcs
-        )
+            lambda x: (isinstance(x, Character) or isinstance(x, Bullet)) and
+                      self.check_sprite_in_sight(x, self.args.player), npcs)
 
         list(map(lambda x: x.draw_overlay(self.args), npcs))
 
