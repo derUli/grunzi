@@ -161,7 +161,7 @@ class MapPopulator:
         x = range(random.randint(2, 5))
 
         if self.benchmark_mode:
-            x = range(800)
+            x = range(500)
 
         for i in x:
             self.spawn_what.append(SPAWN_CHICKEN)

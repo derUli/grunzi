@@ -215,10 +215,13 @@ class Scene(BaseScene):
 
         return None
 
-    def check_sprite_in_sight(self, sprite1, sprite2):
+    def check_sprite_in_sight(self, sprite1, sprite2, maximum = None):
         w, h = arcade.get_window().get_size()
 
-        return arcade.get_distance_between_sprites(sprite1, sprite2) < h
+        if not maximum:
+            maximum = h
+
+        return arcade.get_distance_between_sprites(sprite1, sprite2) < maximum
 
     def cleanup(self):
         for layer in self.name_mapping:
