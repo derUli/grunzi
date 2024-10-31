@@ -1,9 +1,6 @@
 import logging
 import os
 import sys
-import time
-
-import numpy
 from arcade import FACE_RIGHT, FACE_LEFT, FACE_UP, FACE_DOWN
 
 import constants.controls.controller
