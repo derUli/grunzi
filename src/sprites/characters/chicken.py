@@ -208,7 +208,7 @@ class Chicken(Character, Useable):
                 self._state.value = (x, y)
                 return
 
-            if random.randint(1, 10) == 5:
+            if random.randint(1, 10) == 5 and args.scene.check_sprite_in_sight(self, args.player):
                 self.play_sound(player=args.player, state=args.state)
 
     def face_towards_player(self, player):
