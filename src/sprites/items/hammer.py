@@ -20,7 +20,7 @@ class Hammer(Item):
             args.state.score += SCORE_HURT_SKULLSPRITE
             return
 
-        args.state.noaction()
+        args.state.noaction(args.player)
 
     def copy(self):
         """ Copy item """

@@ -21,7 +21,7 @@ class CarKey(Item):
 
             return
 
-        args.state.noaction()
+        args.state.noaction(args.player)
 
     def copy(self):
         """ Copy item """

@@ -244,7 +244,7 @@ class Game(Fading):
                     interactable.on_interact(args=make_args_container(self))
                     return
 
-            self.state.noaction()
+            self.state.noaction(self.scene.player_sprite)
             return
 
         args = make_args_container(self)

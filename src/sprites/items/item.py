@@ -53,7 +53,7 @@ class Item(Sprite):
         logging.info(f"Use item {self} with {b}")
 
     def on_use(self, args):
-        args.state.noaction()
+        args.state.noaction(args.player)
 
     def on_equip(self, args):
         logging.info(f"On equip {str(type(self))}")
@@ -85,4 +85,4 @@ class Useable:
 
 class Interactable(arcade.sprite.Sprite):
     def on_interact(self, args):
-        args.state.noaction()
+        args.state.noaction(args.player)

@@ -36,7 +36,7 @@ class Chainsaw(Item):
             args.state.score += SCORE_KILL_CHICKEN
             return
 
-        args.state.noaction()
+        args.state.noaction(args.player)
 
     def vibrate(self, args):
         if not args.state.settings.vibration:

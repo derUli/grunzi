@@ -15,7 +15,7 @@ class Plier(Item):
                 args.state.score += SCORE_DESTROY_FENCE
             return
 
-        args.state.noaction()
+        args.state.noaction(args.player)
 
     def generate_rotated(self, image):
         rotated = super().generate_rotated(image)

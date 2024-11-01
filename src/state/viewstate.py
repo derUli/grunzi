@@ -209,7 +209,10 @@ class ViewState:
         logging.info('Squeak')
         return self.play_sound(f"squeak{rand}")
 
-    def noaction(self) -> media.Player:
+    def noaction(self, player = None) -> media.Player:
+        if player:
+            player.on_grunt()
+
         return self.play_sound('noaction')
 
     @property

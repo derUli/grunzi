@@ -357,7 +357,7 @@ class GameCampaign(Game):
 
         if not item:
             logging.info('No item selected')
-            return self.state.noaction()
+            return self.state.noaction(self.scene.player_sprite)
 
         new_item = item.copy()
         layer = new_item.__class__.__name__
@@ -367,7 +367,7 @@ class GameCampaign(Game):
 
         if check_collision_with_layers(self.scene, new_item, WALL_LAYERS):
             logging.info("Can't drop item on wall.")
-            return self.state.noaction()
+            return self.state.noaction(self.scene.player_sprite)
 
         if selected:
             quantity = selected.pop()

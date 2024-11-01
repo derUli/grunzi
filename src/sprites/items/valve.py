@@ -31,7 +31,7 @@ class PlacedValve(Interactable):
         from constants.layers import LAYER_RIVER
 
         if not any(args.scene[LAYER_RIVER]):
-            args.state.noaction()
+            args.state.noaction(args.player)
             return
 
         args.state.play_sound('valve')
