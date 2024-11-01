@@ -2,9 +2,6 @@
 
 ## Alpha XXX (Unreleased)
 
-* UI: "Erfolg" Screen nach jedem Level
-* Global: Im angezeigten Punktestand werden die Punkte aus den anderen Maps jetzt mit einberechnet
-* map04: Color Tint zu Feuer hinzugefügt
 * map05: Mehr Soundeffekte zum Endboss hinzugefügt
 * map01: Kuh-Sound hinzugefügt
 
