@@ -58,6 +58,7 @@ class View(arcade.View):
         self.window.set_mouse_visible(True)
 
     def on_update(self, delta_time: float):
+        self.clear()
         self.time += delta_time
 
         fps = arcade.get_fps()
