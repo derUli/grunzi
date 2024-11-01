@@ -129,7 +129,7 @@ class Player(Character, SpriteHealth):
                 loop=config.loop,
                 frame_length=config.frame_length,
                 apply_modifier=config.apply_modifier,
-                resize=(70, 39),
+                resize=(75, 42),
                 character='pig'
             )
             self.animations[anim] = animation
