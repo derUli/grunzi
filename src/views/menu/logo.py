@@ -2,8 +2,11 @@
 import os
 
 import arcade.gui
+import pyglet.clock
 
 from views.fading import Fading
+from views.menu.mainmenu import MainMenu
+
 
 class Logo(Fading):
     """ Main menu """
@@ -20,9 +23,15 @@ class Logo(Fading):
         self.state = state
         self.manager = arcade.gui.UIManager(window)
         self.scene = arcade.Scene()
+        self.sound = None
+        self.transition = False
 
     def on_show_view(self) -> None:
+
         """ On show view """
+
+        # TODO: Add options to skip logo as argument and hidden setting
+
         arcade.set_background_color(arcade.color.WHITE)
 
         self.state.settings.unmute()
@@ -44,7 +53,18 @@ class Logo(Fading):
 
         super().on_update(delta_time=delta_time)
 
-        self.update_fade()
+        self.update_fade(self.next_view)
+
+        if self.transition:
+            return
+
+        if self._fade_in is None and not self.sound:
+            self.sound = self.state.grunt()
+            self.sound.volume = self.state.settings.sound_volume
+
+        if self.sound and not self.sound.playing:
+            self.transition = True
+            pyglet.clock.schedule_once(self.fade_to_mainmenu, 3)
 
 
     def on_draw(self) -> None:
@@ -57,3 +77,6 @@ class Logo(Fading):
 
         self.draw_fading()
         self.draw_after()
+
+    def fade_to_mainmenu(self, dt) -> None:
+        self.fade_to_view(MainMenu(self.window, self.state))
