@@ -15,6 +15,7 @@ from state.viewstate import ViewState
 from utils.log import log_hardware_info, configure_logger
 from utils.screen import antialiasing
 from utils.text import label_value
+from views.menu.logo import Logo
 from views.menu.mainmenu import MainMenu
 from window.gamewindow import SCREEN_WIDTH, SCREEN_HEIGHT, GameWindow
 from window.launcherwindow import LauncherWindow
@@ -232,7 +233,7 @@ class StartUp:
         icon_path = os.path.join(state.ui_dir, 'icon.ico')
         icon = pyglet.image.load(icon_path)
         window.set_icon(icon)
-        window.show_view(MainMenu(window, state))
+        window.show_view(Logo(window, state))
         arcade.run()
 
     @staticmethod
