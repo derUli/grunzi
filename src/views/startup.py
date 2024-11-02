@@ -132,6 +132,13 @@ class StartUp:
             help='Skip launcher'
         )
 
+        parser.add_argument(
+            '--skip-intro',
+            action='store_true',
+            default=False,
+            help='Skip intro'
+        )
+
         return parser.parse_args()
 
     def setup_locale(self) -> None:
@@ -234,7 +241,7 @@ class StartUp:
         icon = pyglet.image.load(icon_path)
         window.set_icon(icon)
 
-        if state.settings.skip_intro:
+        if state.settings.skip_intro or args.skip_intro:
             view = MainMenu(window, state)
         else:
             view = Logo(window, state)
