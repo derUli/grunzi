@@ -2,7 +2,6 @@
 
 ## Alpha XXX (Unreleased)
 
-* Link zu itch.io im Hauptmenü hinzugefügt
 * Logo beim Start hinzugefügt
 
 # Alpha 021 (Unreleased)
@@ -10,8 +9,9 @@
 * Neue Charakter-Sprites für Grunzi mit Animationen hinzugefügt
 * Huhn-Sprite durch animierte Sprites ersetzt
 * Qualität der Sprite-Skalierung verbessert
-* MapPopulator ist jetzt asynchron
 * Easter Egg: Weihnachts-Ladebildschirm hinzugefügt
+* Hauptmenü: Link zu itch.io hinzugefügt
+* MapPopulator ist jetzt asynchron
 
 # Alpha 020 (26.10.2024)
 

@@ -2,6 +2,7 @@
 
 import logging
 import os
+import webbrowser
 
 import arcade.gui
 
@@ -14,6 +15,7 @@ from views.fading import Fading
 from views.menu.campaignmenu import CampaignMenu
 from views.settings.settingsmenu import SettingsMenu
 
+HOMEPAGE_URL = 'https://hog-games.itch.io/'
 
 class MainMenu(Fading):
     """ Main menu """
@@ -44,14 +46,14 @@ class MainMenu(Fading):
             style=utils.gui.get_button_style()
         )
 
-        horde_button = arcade.gui.UIFlatButton(
-            text=_("Horde Mode"),
+        options_button = arcade.gui.UIFlatButton(
+            text=_("Settings"),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
 
-        options_button = arcade.gui.UIFlatButton(
-            text=_("Settings"),
+        homepage_button = arcade.gui.UIFlatButton(
+            text=_('Hog Games on itch.io'),
             width=BUTTON_WIDTH,
             style=utils.gui.get_button_style()
         )
@@ -72,10 +74,12 @@ class MainMenu(Fading):
             logging.debug(event)
             self.on_campaign()
 
-        @horde_button.event("on_click")
-        def on_click_horde_button(event):
+        @homepage_button.event("on_click")
+        def on_homepage_button(event):
             logging.debug(event)
-            self.on_horde()
+            # Pass already created view because we are resuming.
+
+            self.on_homepage()
 
         @options_button.event("on_click")
         def on_click_options_button(event):
@@ -92,7 +96,7 @@ class MainMenu(Fading):
         widgets = [
             label,
             campaign_button,
-            #  horde_button,
+            homepage_button,
             options_button,
             quit_button
         ]
@@ -155,15 +159,8 @@ class MainMenu(Fading):
             )
         )
 
-    def on_horde(self):
-
-        self._fade_in = None
-
-        self.manager.add(arcade.gui.UIMessageBox(
-            width=300,
-            height=200,
-            message_text=_('Not implemented yet.'))
-        )
+    def on_homepage(self):
+        webbrowser.open_new_tab(HOMEPAGE_URL)
 
     def on_settings(self):
         self.window.show_view(

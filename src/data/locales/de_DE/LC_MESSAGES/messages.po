@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-10-05 14:32+0200\n"
+"POT-Creation-Date: 2024-11-02 12:06+0100\n"
 "PO-Revision-Date: 2023-11-11 20:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: sprites/ui/gameovertext.py:43 views/game/levelcompleted.py:58
+#: sprites/ui/gameovertext.py:43 views/game/levelcompleted.py:56
 #: views/highscore/highscorelist.py:61
 msgid "Press any key to continue"
 msgstr "Zum Fortfahren beliebige Taste drücken"
@@ -59,7 +59,7 @@ msgstr "Spareribs"
 msgid "You are"
 msgstr "Du bist"
 
-#: sprites/ui/loadingscreen.py:84
+#: sprites/ui/loadingscreen.py:89
 msgid "Loading..."
 msgstr "Wird geladen..."
 
@@ -67,11 +67,11 @@ msgstr "Wird geladen..."
 msgid "Score"
 msgstr "Punkte"
 
-#: views/view.py:133
+#: views/view.py:138
 msgid "Unknown build"
 msgstr "Unbekannter Build"
 
-#: views/game/levelcompleted.py:68
+#: views/game/levelcompleted.py:66
 msgid "Map completed"
 msgstr "Map abgeschlossen"
 
@@ -128,12 +128,12 @@ msgstr "Noch keine Einträge vorhanden"
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: views/menu/campaignmenu.py:68 views/menu/mapselection.py:86
+#: views/menu/campaignmenu.py:68 views/menu/mapselection.py:87
 #: views/menu/pausemenu.py:30
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: views/menu/campaignmenu.py:74 views/menu/mapselection.py:98
+#: views/menu/campaignmenu.py:74 views/menu/mapselection.py:99
 msgid "Select Map"
 msgstr "Map auswählen"
 
@@ -142,7 +142,7 @@ msgid "Online Highscore"
 msgstr "Online-Bestenliste"
 
 #: views/menu/campaignmenu.py:86 views/menu/difficultyselection.py:57
-#: views/menu/mapselection.py:73 views/settings/settingsaudio.py:57
+#: views/menu/mapselection.py:74 views/settings/settingsaudio.py:57
 #: views/settings/settingscontrols.py:112 views/settings/settingsgraphics.py:83
 #: views/settings/settingsmenu.py:85 views/settings/settingsscreen.py:55
 msgid "Back"
@@ -168,52 +168,47 @@ msgstr "Schwierigkeit"
 msgid "Overwrite existing savegame?"
 msgstr "Existierenden Spielstand überschreiben?"
 
-#: views/menu/mainmenu.py:34 window/launcherwindow.py:63
+#: views/menu/mainmenu.py:36 window/launcherwindow.py:63
 msgid "Grunzi"
 msgstr "Grunzi"
 
-#: views/menu/mainmenu.py:42
+#: views/menu/mainmenu.py:44
 msgid "Campaign"
 msgstr "Kampagne"
 
-#: views/menu/mainmenu.py:48
-msgid "Horde Mode"
-msgstr "Horde-Modus"
-
-#: views/menu/mainmenu.py:54 views/menu/pausemenu.py:42
+#: views/menu/mainmenu.py:50 views/menu/pausemenu.py:42
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: views/menu/mainmenu.py:60
+#: views/menu/mainmenu.py:56
+msgid "Hog Games on itch.io"
+msgstr "Hog Games auf itch.io"
+
+#: views/menu/mainmenu.py:62
 msgid "Quit game"
 msgstr "Beenden"
 
-#: views/menu/mainmenu.py:165
-#, fuzzy
-msgid "Not implemented yet."
-msgstr "Noch keine Einträge vorhanden"
-
-#: views/menu/mapselection.py:107
+#: views/menu/mapselection.py:108
 msgid "Selected:"
 msgstr "Ausgewählt:"
 
-#: views/menu/mapselection.py:267
+#: views/menu/mapselection.py:271
 msgid "Having A Pig"
 msgstr "Schwein gehabt"
 
-#: views/menu/mapselection.py:268
+#: views/menu/mapselection.py:272
 msgid "Big Major Cay"
 msgstr "Big Major Cay"
 
-#: views/menu/mapselection.py:269
+#: views/menu/mapselection.py:273
 msgid "Teufelsmoor"
 msgstr "Teufelsmoor"
 
-#: views/menu/mapselection.py:270
+#: views/menu/mapselection.py:274
 msgid "South Pole"
 msgstr "Südpool"
 
-#: views/menu/mapselection.py:271
+#: views/menu/mapselection.py:275
 msgid "Hell"
 msgstr "Hölle"
 
@@ -482,4 +477,10 @@ msgstr "Audio Schnittstelle"
 #: window/launcherwindow.py:208
 msgid "Launch Game"
 msgstr "Spiel starten"
+
+#~ msgid "Horde Mode"
+#~ msgstr "Horde-Modus"
+
+#~ msgid "Not implemented yet."
+#~ msgstr "Noch keine Einträge vorhanden"
 
