@@ -233,7 +233,13 @@ class StartUp:
         icon_path = os.path.join(state.ui_dir, 'icon.ico')
         icon = pyglet.image.load(icon_path)
         window.set_icon(icon)
-        window.show_view(Logo(window, state))
+
+        if state.settings.skip_intro:
+            view = MainMenu(window, state)
+        else:
+            view = Logo(window, state)
+
+        window.show_view(view)
         arcade.run()
 
     @staticmethod
