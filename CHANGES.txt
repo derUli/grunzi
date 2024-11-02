@@ -4,7 +4,7 @@
 
 * Logo beim Start hinzugefügt
 
-# Alpha 021 (Unreleased)
+# Alpha 021 (08.11.2024)
 
 * Neue Charakter-Sprites für Grunzi mit Animationen hinzugefügt
 * Huhn-Sprite durch animierte Sprites ersetzt
