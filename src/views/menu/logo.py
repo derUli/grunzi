@@ -58,6 +58,12 @@ class Logo(Fading):
         if self.transition:
             return
 
+        # If sound is silent don't playback hog sound
+        if self._fade_in is None and self.state.settings.is_silent():
+            self.transition = True
+            pyglet.clock.schedule_once(self.fade_to_mainmenu, 3)
+            return
+
         if self._fade_in is None and not self.sound:
             self.sound = self.state.grunt()
             self.sound.volume = self.state.settings.sound_volume
