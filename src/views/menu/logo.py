@@ -30,7 +30,9 @@ class Logo(Fading):
 
         """ On show view """
 
-        arcade.set_background_color(arcade.csscolor.HOTPINK)
+        # TODO: Add options to skip logo as argument and hidden setting
+
+        arcade.set_background_color(arcade.color.WHITE)
 
         self.state.settings.unmute()
         self.window.set_mouse_visible(False)
