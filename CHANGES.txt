@@ -2,8 +2,8 @@
 
 ## Alpha XXX (Unreleased)
 
-* map05: Mehr Soundeffekte zum Endboss hinzugefügt
-* map01: Kuh-Sound hinzugefügt
+* Link zu itch.io im Hauptmenü hinzugefügt
+* Logo beim Start hinzugefügt
 
 # Alpha 021 (Unreleased)
 
