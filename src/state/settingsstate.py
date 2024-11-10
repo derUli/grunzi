@@ -10,11 +10,11 @@ from constants.audio import DEFAULT_AUDIO_BACKEND
 from constants.settings import DEFAULT_VSYNC, DEFAULT_FULLSCREEN, DEFAULT_SHOW_FPS, \
     DEFAULT_FILMGRAIN, DEFAULT_WEATHER, DEFAULT_COLOR_TINT, DEFAULT_QUALITY, DEFAULT_MUSIC_VOLUME, DEFAULT_SOUND_VOLUME, \
     DEFAULT_ATMO_VOLUME, DEFAULT_MUTED, DEFAULT_FIRST_START, DEFAULT_VIBRATION, DEFAULT_ANTIALIASING, QualityPreset, \
-    DEFAULT_VIDEOS, DEFAULT_MASTER_VOLUME
+    DEFAULT_VIDEOS, DEFAULT_MASTER_VOLUME, DEFAULT_SKIP_INTRO
 from utils.media.audio import normalize_volume
 from utils.path import get_settings_path
 
-SETTINGS_STATE_VERSION = 24
+SETTINGS_STATE_VERSION = 25
 
 
 class SettingsState:
@@ -37,6 +37,7 @@ class SettingsState:
 
         self._quality = DEFAULT_QUALITY
         self._pil_resample = Resampling.LANCZOS
+        self._skip_intro = DEFAULT_SKIP_INTRO
 
         # Audio
         self.audio_backend = DEFAULT_AUDIO_BACKEND
@@ -52,6 +53,7 @@ class SettingsState:
         # Other
         self.version = SETTINGS_STATE_VERSION
         self.first_start = DEFAULT_FIRST_START
+        self._skip_intro = DEFAULT_SKIP_INTRO
 
     @staticmethod
     def exists() -> bool:
@@ -243,3 +245,12 @@ class SettingsState:
     @property
     def pil_resample(self):
         return self._pil_resample
+
+    @property
+    def skip_intro(self) -> bool:
+        return self._skip_intro
+
+    @skip_intro.setter
+    def skip_intro(self, val: bool) -> None:
+        self._skip_intro = val
+
