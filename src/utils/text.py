@@ -1,7 +1,6 @@
 """ Text utils """
 
 import arcade
-from arcade import Color
 
 from constants.fonts import FONT_DEFAULT
 
@@ -20,7 +19,7 @@ def create_text(
         text: str,
         start_x: float = MARGIN,
         start_y: float = MARGIN,
-        color: Color = arcade.csscolor.WHITE,
+        color: tuple = arcade.csscolor.WHITE,
         font_size: int = FONT_SIZE_MEDIUM,
         font_name: str = FONT_DEFAULT,
         anchor_x: str = 'left',
