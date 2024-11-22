@@ -22,7 +22,7 @@ def start_frozen() -> None:
     """ Starts the game"""
 
     try:
-        StartUp(os.path.dirname(__file__)).main()
+        StartUp(os.path.dirname(sys.executable)).main()
     except KeyboardInterrupt:
         sys.exit(0)
     except Exception as e:
