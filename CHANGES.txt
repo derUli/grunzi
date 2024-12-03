@@ -3,6 +3,7 @@
 # Release 1.0.0 (Unreleased)
 
 * Feature Complete
+* Bild-Qualität der Screenshot-Funktion verbessert
 * Hog Games Logo hinzugefügt
 
 # Alpha 021 (08.11.2024)

@@ -26,7 +26,7 @@ def make_screenshot() -> str:
 
     start = time.time()
     image = arcade.get_image().convert('RGB')
-    image.save(filename, quality=90)
+    image.save(filename, quality=100, subsampling=0)
     end = time.time() - start
 
     logging.info(f"Screenshot saved as {filename} in {end} seconds")
