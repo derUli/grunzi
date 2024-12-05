@@ -10,6 +10,7 @@ import pyglet
 
 from constants.audio import DEFAULT_AUDIO_BACKEND, audio_backends
 from constants.maps import FIRST_MAP
+from constants.settings import UNLIMITED_FRAMERATE
 from state.settingsstate import SettingsState
 from state.viewstate import ViewState
 from utils.log import log_hardware_info, configure_logger
@@ -217,13 +218,21 @@ class StartUp:
             settings.antialiasing = args.antialiasing
             settings.save()
 
+        draw_rate = UNLIMITED_FRAMERATE
+
+        if not args.no_vsync:
+            draw_rate =  pyglet.canvas.get_display().get_default_screen().get_mode().rate
+
+        print(draw_rate)
+
         window = GameWindow(
             args.window,
             args.width,
             args.height,
             vsync=not args.no_vsync,
             antialiasing=settings.antialiasing > 0,
-            samples=settings.antialiasing
+            samples=settings.antialiasing,
+            draw_rate=draw_rate
         )
 
         if args.benchmark:

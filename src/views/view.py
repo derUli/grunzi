@@ -4,9 +4,11 @@ import os
 
 import arcade
 import mouse
+import pyglet
 
 import constants.controls.keyboard
 from constants.controls.controller import AXIS_RIGHT, AXIS_LEFT, AXIS_DOWN, AXIS_UP
+from constants.settings import UNLIMITED_FRAMERATE
 from state.settingsstate import SettingsState
 from utils.fpscounter import FPSCounter
 from utils.scene import Scene
@@ -112,6 +114,14 @@ class View(arcade.View):
         self.window.set_vsync(not self.window.vsync)
         settings = SettingsState().load()
         settings.vsync = self.window.vsync
+        if settings.vsync:
+            draw_rate = 1 / pyglet.canvas.get_display().get_default_screen().get_mode().rate
+        else:
+            draw_rate = 1 / UNLIMITED_FRAMERATE
+
+        print(draw_rate)
+
+        self.window.set_draw_rate(draw_rate)
         settings.save()
 
     def on_toggle_fps(self) -> None:

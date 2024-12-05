@@ -1,10 +1,10 @@
 # Changelog
 
-# Release 1.0.0 (06.12.2024)
+# Release Alpha 022 (06.12.2024)
 
-* Feature Complete
 * Bild-Qualität der Screenshot-Funktion verbessert
 * Hog Games Logo hinzugefügt
+* Animationen sind flüssiger wenn V-Sync aktiviert ist
 
 # Alpha 021 (08.11.2024)
 
