@@ -218,12 +218,10 @@ class StartUp:
             settings.antialiasing = args.antialiasing
             settings.save()
 
-        draw_rate = UNLIMITED_FRAMERATE
+        draw_rate =  pyglet.canvas.get_display().get_default_screen().get_mode().rate
 
-        if not args.no_vsync:
-            draw_rate =  pyglet.canvas.get_display().get_default_screen().get_mode().rate
-
-        print(draw_rate)
+        if args.no_vsync:
+            draw_rate = UNLIMITED_FRAMERATE
 
         window = GameWindow(
             args.window,

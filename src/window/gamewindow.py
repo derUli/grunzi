@@ -60,12 +60,8 @@ class GameWindow(arcade.Window):
             samples=samples
         )
 
-        draw_rate *= 0.5
 
         self.change_screen_mode(not window)
-
-        self.set_draw_rate(draw_rate)
-        self.set_update_rate(update_rate)
 
         self.set_vsync(vsync)
         self.controller_manager = None

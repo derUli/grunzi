@@ -119,8 +119,7 @@ class View(arcade.View):
         else:
             draw_rate = 1 / UNLIMITED_FRAMERATE
 
-        print(draw_rate)
-
+        # FIXME: Doesn't work
         self.window.set_draw_rate(draw_rate)
         settings.save()
 
