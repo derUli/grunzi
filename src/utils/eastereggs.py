@@ -20,8 +20,6 @@ def is_new_year() -> bool:
 
     today = date.today()
 
-    return True
-
     return today.month == 1 and today.day == 1
 
 def is_first_april() -> bool:
