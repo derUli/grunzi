@@ -3,7 +3,7 @@
 # Version 1.0.0
 
 * Release Version
-* Ladebildschirm für 1. April hinzugefügt
+* Ladebildschirme für 1. April und Neujahr hinzugefügt
 
 # Release Alpha 022 (06.12.2024)
 
