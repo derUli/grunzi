@@ -66,7 +66,7 @@ class Logo(Fading):
 
         if self._fade_in is None and not self.sound:
             self.sound = self.state.grunt()
-            self.sound.volume = self.state.settings.sound_volume
+            self.sound.volume = self.state.settings.sound_volume * self.state.settings.master_volume
 
         if self.sound and not self.sound.playing:
             self.transition = True
