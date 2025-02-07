@@ -21,14 +21,15 @@ def make_screenshot() -> str:
 
     filename = os.path.join(
         screenshot_dir,
-        time.strftime("%Y%m%d-%H%M%S") + '.jpg'
+        time.strftime("%Y%m%d-%H%M%S") + '.png'
     )
 
     start = time.time()
     image = arcade.get_image().convert('RGB')
-    image.save(filename, quality=100, subsampling=0)
+    image.save(filename, format="PNG")
     end = time.time() - start
 
     logging.info(f"Screenshot saved as {filename} in {end} seconds")
 
     return filename
+
