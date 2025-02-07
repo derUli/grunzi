@@ -4,6 +4,7 @@
 
 * Release Version
 * Ladebildschirme für 1. April und Neujahr hinzugefügt
+* Screenshot-Funktion korrigiert, erstellte manchmal schwarze Grafikdateien
 
 # Release Alpha 022 (06.12.2024)
 

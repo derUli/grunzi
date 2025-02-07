@@ -43,7 +43,7 @@ class View(arcade.View):
         self.time = 0
         self.move_pointer = None
         self.build_number_text = None
-
+        self._next_action = None
         self.fps_counter = FPSCounter()
         self.background = DEFAULT_BACKGROUND
 
@@ -129,7 +129,10 @@ class View(arcade.View):
         self.state.settings.show_fps = not self.state.settings.show_fps
         self.state.settings.save()
 
-    def on_make_screenshot(self) -> str:
+    def on_make_screenshot(self):
+        self._next_action = self._on_make_screenshot
+
+    def _on_make_screenshot(self) -> str:
         """
         On make screenshot
         @return: path
@@ -219,8 +222,13 @@ class View(arcade.View):
             self.shadertoy.render(time=self.time)
 
     def draw_after(self, draw_version_number=False):
+
         if draw_version_number:
             self.draw_build_version()
 
         if self.state.settings.show_fps:
             self.fps_counter.draw(size=self.window.size)
+
+        if self._next_action:
+            self._next_action()
+            self._next_action = None
