@@ -4,7 +4,6 @@
 
 * Release Version
 * Ladebildschirme für 1. April und Neujahr hinzugefügt
-* Screenshot-Funktion auf PNG-Format umgestellt, weil JPG nicht zuverlässig funktioniert
 
 # Release Alpha 022 (06.12.2024)
 
